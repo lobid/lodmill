@@ -6,7 +6,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -17,8 +18,10 @@ import org.culturegraph.metastream.source.FileOpener;
 import org.culturegraph.semanticweb.pipe.JenaModel;
 import org.culturegraph.semanticweb.pipe.JenaModelToStream;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
-import org.junit.Ignore;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.graph.Triple;
@@ -32,19 +35,20 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  */
 public final class LobidTests {
 
-	private static final String LOBID = "lobid-resource_base_small.nt";
+	private static final String LOBID_NT = "lobid-resource_base_small.nt";
+	private static final String LOBID_XML = "out/" + LOBID_NT + ".xml";
+	private static final Logger LOG = LoggerFactory.getLogger(LobidTests.class);
 
-	@Test
-	public void read() throws URISyntaxException, IOException {
+	@BeforeClass
+	public static void convert() throws FileNotFoundException {
 		Model model = ModelFactory.createDefaultModel();
-		final URL url = findUrl(LOBID);
-		model = model.read(url.toString(), Format.N_TRIPLE.getName());
-		assertTrue("Resulting graph should contain triples", model.getGraph()
-				.size() > 0);
+		model = model.read(findUrl(LOBID_NT).toString(),
+				Format.N_TRIPLE.getName());
+		final File file = new File(LOBID_XML);
+		model.write(new FileOutputStream(file), Format.RDF_XML.getName());
+		assertTrue("Output file should exist", file.exists());
 	}
 
-	/* TODO: is there a way to specify the language like above? */
-	@Ignore
 	@Test
 	public void readAll() throws URISyntaxException {
 		final FileOpener opener = new FileOpener();
@@ -53,7 +57,7 @@ public final class LobidTests {
 		final List<Triple> triples = graph.find(any).toList();
 		assertEquals("The number of triples should equal the graph size",
 				triples.size(), graph.size());
-		System.out.println(triples.size() + " triples loaded");
+		LOG.info(triples.size() + " triples loaded");
 		opener.closeStream();
 	}
 
@@ -63,12 +67,11 @@ public final class LobidTests {
 				.setReceiver(new JenaModelToStream())
 				.setReceiver(
 						new StreamWriter(new OutputStreamWriter(System.out)));
-		opener.process(new File(findUrl(LOBID).toURI()).getAbsolutePath());
+		opener.process(new File(LOBID_XML).getAbsolutePath());
 		return model.getModel().getGraph();
 	}
 
-	private URL findUrl(final String name) {
+	private static URL findUrl(final String name) {
 		return Thread.currentThread().getContextClassLoader().getResource(name);
 	}
-
 }
