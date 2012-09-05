@@ -1,0 +1,3 @@
+Create a creators.nt file from the full lobid.org dump:
+
+bc. grep http://purl.org/dc/elements/1.1/creator lobid-resource_base_*.nt > ~/creators.nt

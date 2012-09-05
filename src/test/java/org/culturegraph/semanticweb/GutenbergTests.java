@@ -3,26 +3,33 @@
 package org.culturegraph.semanticweb;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
+import java.util.Scanner;
+import java.util.Set;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.culturegraph.semanticweb.data.FourStore;
+import org.culturegraph.semanticweb.data.Gutenberg;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.google.common.io.ByteStreams;
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -31,135 +38,101 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  * written by the author of a lobid.org resource ('Works by this author at
  * Gutenberg').
  * 
- * TODO: run with full lobid.org data, store resulting model
- * 
  * @author Fabian Steeg (fsteeg)
  */
 public final class GutenbergTests {
 
-	private static final String CREATOR = "http://purl.org/dc/elements/1.1/creator";
-	private static final String DEATH = "http://d-nb.info/standards/elementset/gnd#dateOfDeath";
-	private static final String BIRTH = "http://d-nb.info/standards/elementset/gnd#dateOfBirth";
-	private static final String FORENAME = "http://d-nb.info/standards/elementset/gnd#forename";
-	private static final String SURNAME = "http://d-nb.info/standards/elementset/gnd#surname";
-	private static final String LOBID = "lobid-resource_base_small.nt";
-	private static final String GUTENBERG = "http://www.gutenberg.org/feeds/catalog.rdf.zip";
+	private static final String CREATORS = "creators_small.nt";
+	private static final String GRAPH = "http://lobid.org/graph/gutenberg/gnd";
+	private static final String OUT = "out/new.nt";
+	private static final String MAP_BIN = "out/map.bin";
+	private static final Logger LOG = LoggerFactory
+			.getLogger(GutenbergTests.class);
+	/* First run, pass '-Xmx3000m -XX:+UseConcMarkSweepGC' as JVM args for Jena */
+	private static final Gutenberg GUTENBERG = new Gutenberg(new File(MAP_BIN));
+	private final FourStore store = new FourStore(
+			"http://aither.hbz-nrw.de:8000");
 
 	@Test
 	public void gutenbergWorksForLobidAuthor() throws URISyntaxException,
 			IOException {
-		final Map<String, String> gutenbergAuthors = mapLiteralsToGutenbergIds();
-		final List<Triple> lobidTriples = triplesWithPredicate(
-				CREATOR,
-				ModelFactory
-						.createDefaultModel()
-						.read(findUrl(LOBID).toString(),
-								Format.N_TRIPLE.getName()).getGraph());
-		final Model newModel = createNewModel(gutenbergAuthors, lobidTriples);
-		assertEquals("Two new triples should have been found", 2, newModel
-				.getGraph().size());
-		newModelSampleUsage(lobidTriples, newModel.getGraph());
+		final Set<String> gndIds = gndAuthorIds(CREATORS);
+		LOG.info(String.format("Got %s author ids", gndIds.size()));
+		final Writer writer = new FileWriter(new File(OUT));
+		final Model newModel = GUTENBERG.linkGutenbergToGndAuthors(gndIds,
+				store, writer);
+		writer.close();
+		LOG.info(String.format("Created new model, size %s", newModel.size()));
+		assertTrue("New triples should have been found", newModel.getGraph()
+				.size() > 0);
+		/* Upload and use our small testing data: */
+		upload(OUT, store, GRAPH);
+		newModelSampleUsage(gndIds, newModel.getGraph());
+		/* Do something useful with full data (see also data-info.textile): */
+		// upload("out/new_full.nt", store /* or into production */, GRAPH);
 	}
 
-	private void newModelSampleUsage(final List<Triple> lobidTriples,
+	/**
+	 * @param file The file containing the model to store
+	 * @param store The store to write the model to
+	 * @param graph The name of the graph to store the model
+	 * @throws IOException If we can't read the input file or write to the store
+	 */
+	public void upload(final String file, final FourStore store,
+			final String graph) throws IOException {
+		final Model model = ModelFactory.createDefaultModel();
+		model.read(new FileReader(file), null, Format.N_TRIPLE.getName());
+		final Triple any = Triple.createMatch(null, null, null);
+		final List<Triple> triples = model.getGraph().find(any).toList();
+		for (Triple triple : triples) {
+			final HttpResponse response = store.insertTriple(graph, triple);
+			LOG.info(String.format("Insert triple %s, response %s", triple,
+					response));
+			assertEquals("Response should be OK", HttpStatus.SC_OK, response
+					.getStatusLine().getStatusCode());
+		}
+		LOG.info(triples.size() + " triples inserted into graph " + graph);
+		final List<QuerySolution> result = store.sparqlSelect("SELECT * FROM "
+				+ "<" + graph + ">" + " WHERE { ?s ?p ?o } LIMIT 5000");
+		assertFalse("Should have uploaded some triples", result.isEmpty());
+	}
+
+	/**
+	 * @param authors The file with creator n-triples
+	 * @return The unique GND author ID, picked out of the objects in the file
+	 */
+	public Set<String> gndAuthorIds(final String authors) {
+		final Scanner scanner = new Scanner(Thread.currentThread()
+				.getContextClassLoader().getResourceAsStream(authors));
+		final Set<String> ids = new HashSet<String>();
+		while (scanner.hasNextLine()) {
+			final String line = scanner.nextLine();
+			final String gndId = line.substring(line.lastIndexOf('<') + 1,
+					line.lastIndexOf('>'));
+			if (gndId.startsWith("http://d-nb.info/gnd/")) {
+				ids.add(gndId);
+			}
+		}
+		scanner.close();
+		LOG.info("Unique authors: " + ids.size());
+		return ids;
+	}
+
+	private void newModelSampleUsage(final Set<String> gndIds,
 			final Graph newGraph) {
-		for (Triple lobidTriple : lobidTriples) {
+		for (String gndId : gndIds) {
 			final List<Triple> find = newGraph.find(
-					Triple.createMatch(null, lobidTriple.getPredicate(),
-							lobidTriple.getObject())).toList();
+					Triple.createMatch(null, Node.createURI(Gutenberg.CREATOR),
+							Node.createURI(gndId))).toList();
 			if (!find.isEmpty()) {
-				System.out.printf(
-						"\nWorks at Gutenberg by %s (author of %s):\n",
-						lobidTriple.getObject(), lobidTriple.getSubject());
+				LOG.info(String
+						.format("\nWorks at Gutenberg by %s (author of a lobid entry):\n",
+								gndId));
 				for (Triple newTriple : find) {
-					System.out.println(newTriple.getSubject());
+					LOG.info(newTriple.getSubject().toString());
 				}
 			}
 		}
 	}
 
-	private URL findUrl(final String name) {
-		return Thread.currentThread().getContextClassLoader().getResource(name);
-	}
-
-	private Model createNewModel(final Map<String, String> gutenbergAuthors,
-			final List<Triple> lobidTriples) {
-		final Model newModel = ModelFactory.createDefaultModel();
-		for (Triple triple : lobidTriples) {
-			final String gndId = triple.getObject().getURI();
-			for (String key : getKeys(gndId)) {
-				final String val = gutenbergAuthors.get(key);
-				if (val != null) {
-					final Triple newTriple = Triple.create(Node.createURI(val),
-							triple.getPredicate(), triple.getObject());
-					System.out.println("New triple: " + newTriple);
-					newModel.getGraph().add(newTriple);
-				}
-			}
-		}
-		return newModel;
-	}
-
-	private List<String> getKeys(final String gndPersonId) {
-		final Graph graph = ModelFactory.createDefaultModel()
-				.read(gndPersonId, Format.RDF_XML.getName()).getGraph();
-		final String lifeDates = lifeDates(graph);
-		final List<String> result = new ArrayList<String>();
-		for (Triple forename : triplesWithPredicate(FORENAME, graph)) {
-			for (Triple surname : triplesWithPredicate(SURNAME, graph)) {
-				// e.g. "Flygare-Carlen, Emilie, 1807-1892"
-				final String key = String.format("%s, %s%s", surname
-						.getObject().getLiteralValue(), forename.getObject()
-						.getLiteralValue(), lifeDates);
-				result.add(key);
-			}
-		}
-		return result;
-	}
-
-	private String lifeDates(final Graph graph) {
-		final List<Triple> birth = triplesWithPredicate(BIRTH, graph);
-		final List<Triple> death = triplesWithPredicate(DEATH, graph);
-		final String birthString = birth.isEmpty() ? "" : String.format(
-				", %s-", birth.get(0).getObject().getLiteralValue());
-		final String deathString = death.isEmpty() ? "" : death.get(0)
-				.getObject().getLiteralValue().toString();
-		return birthString + deathString;
-	}
-
-	private Map<String, String> mapLiteralsToGutenbergIds() throws IOException {
-		final Graph gutenbergGraph = remoteZippedGraph(new URL(GUTENBERG));
-		final Map<String, String> authors = new HashMap<String, String>();
-		final List<Triple> literals = triplesWithPredicate(CREATOR,
-				gutenbergGraph);
-		for (Triple triple : literals) {
-			final Node object = triple.getObject();
-			if (object.isLiteral()) {
-				authors.put(object.getLiteralValue().toString(), triple
-						.getSubject().getURI());
-			}
-		}
-		return authors;
-	}
-
-	private Graph remoteZippedGraph(final URL url) throws IOException {
-		final File tempFile = File.createTempFile("temp", ".rdf");
-		tempFile.deleteOnExit();
-		ByteStreams.copy(url.openStream(), new FileOutputStream(tempFile));
-		final ZipFile zipFile = new ZipFile(tempFile);
-		final ZipEntry zipEntry = zipFile.entries().nextElement();
-		final Graph graph = ModelFactory
-				.createDefaultModel()
-				.read(zipFile.getInputStream(zipEntry), null,
-						Format.RDF_XML.getName()).getGraph();
-		zipFile.close();
-		return graph;
-	}
-
-	private List<Triple> triplesWithPredicate(final String predicate,
-			final Graph graph) {
-		return graph.find(
-				Triple.createMatch(null, Node.createURI(predicate), null))
-				.toList();
-	}
 }

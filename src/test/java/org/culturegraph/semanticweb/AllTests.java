@@ -11,6 +11,7 @@ import org.junit.runners.Suite;
  * @author Fabian Steeg (fsteeg)
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ GutenbergTests.class, GndTests.class, LobidTests.class })
+@Suite.SuiteClasses({ GutenbergTests.class, GndTests.class, LobidTests.class,
+		FourStoreTests.class })
 public final class AllTests {
 }
