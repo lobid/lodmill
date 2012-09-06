@@ -1,0 +1,6 @@
+These source zips are here because the Hadoop Maven repo provides no sources, see:
+
+* "https://issues.apache.org/jira/browse/HADOOP-8363":https://issues.apache.org/jira/browse/HADOOP-8363
+* "https://issues.apache.org/jira/browse/MAPREDUCE-4035":https://issues.apache.org/jira/browse/MAPREDUCE-4035
+
+To use these in Eclipse, upon the first time you try to open a Hadoop source file, click the 'Attach Source...' button in the class file editor and point to the appropriate file for the class (@hadoop-core-*.zip@ or @hadoop-test-*.zip@).
