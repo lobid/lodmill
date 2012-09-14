@@ -1,0 +1,1 @@
+Add content of https://github.com/fsteeg/puppet-hadoop in a directory `hadoop` here.

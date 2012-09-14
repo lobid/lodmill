@@ -1,0 +1,52 @@
+h1. Overview
+
+This directory contains documentation and the configuration setup we used to set up a small Hadoop test cluster with 4 nodes running Ubuntu 12.04 server edition.
+
+h2. Puppet
+
+We used Puppet to install Hadoop on the nodes, see "http://puppetlabs.com/puppet/what-is-puppet":http://puppetlabs.com/puppet/what-is-puppet:
+
+* first, we need to install Puppet on all machines. To get a current version of Puppet, add the Puppet repositories, see also "http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu":http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu:
+* @wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb@
+* @sudo dpkg -i puppetlabs-release-precise.deb@
+* @sudo apt-get update@
+* on one of the nodes (the puppet master) install: @sudo apt-get install puppetmaster puppet@
+* on the other nodes install: @sudo apt-get install puppet@
+* copy the @puppet@ directory in here to @/etc/puppet@ on the puppet master
+* install the required patched java and hadoop modules (see textile files in @puppet/modules@
+* configure the cluster's master and slave nodes in @/etc/puppet/modules/hadoop/manifests/params.pp@
+* if the nodes don't have the host names used in @puppet/manifests/nodes.pp@, map them in the @/etc/hosts@ files on the nodes
+* remove the localhost mappings (127.x.x.x) from the @/etc/hosts@ files on the nodes
+* TODO: try to automate some of the steps above with Puppet
+* start the puppet master: @puppet master --mkusers@
+* from each node (master and clients), request a certificate from the master: @puppet agent --test --server hydra1@ (hydra1 is the master)
+* on the master, sign the certificates: @puppet cert -s hydra1 hydra2 hydra3 hydra4@
+* from each node (master and clients), set everything up: @agent --test --server hydra1@
+* become the Hadoop user: @sudo su hduser@
+* the automated formatting of a new HDFS currently fails, see "http://projects.puppetlabs.com/issues/5876":http://projects.puppetlabs.com/issues/5876, so we do it manually on the master: @bin/hadoop namenode -format@
+* start all daemons: @cd /opt/hadoop/hadoop; bin/start-all.sh@
+* visit the admin UIs at @http://<master>:50070/@ and @http://<master>:50030/@ to check if the cluster is up
+* copy the sample job files from the @sample@ directory to @/opt/hadoop/hadoop@ and run it: @sh temperature-sample.sh@
+
+h2. MAAS
+
+We initially wanted to install Ubuntu on the machines using Ubuntu's Metal-As-A-Service (MAAS) tool. Due to our network setup with an existing DHCP server this turned out to be rather tricky at this point (setting up MAAS with an existing DHCP server seems to be possible in general, but documentation and testing currently focusses on a setup where the MAAS server acts as the DHCP server for the entire network). So in the end, we installed the Ubuntu 12.04 server edition manually on our 4 nodes. We wrote up what we tried to get it running with MAAS in case we or someone else wants to pick up that approach in the future:
+
+* install MAAS server: boot from Ubuntu server CD, follow instructions, see also "https://wiki.ubuntu.com/ServerTeam/MAAS":https://wiki.ubuntu.com/ServerTeam/MAAS
+* @sudo maas createsuperuser@; @sudo maas-import-isos@; @sudo shutdown -r now@
+* add nodes via their MAC addresses, see also "https://wiki.ubuntu.com/ServerTeam/MAAS/AddNodes":https://wiki.ubuntu.com/ServerTeam/MAAS/AddNodes
+* all nodes should now be in state _Commissioning_ in the MAAS web config UI
+* boot the nodes from an Avahi USB stick, see "https://wiki.ubuntu.com/ServerTeam/MAAS/AvahiBoot":https://wiki.ubuntu.com/ServerTeam/MAAS/AvahiBoot
+* they should boot, do some stuff, and then shut down
+* if during booting you see _waiting for network config_ and the node is stuck with a login prompt, delete @/media/maas-rootfs/etc/udev/rules.d/70-persistent-net.rules@ on the stick
+* all nodes should now be in state _Ready_ in the MAAS web config UI
+* setup and bootstrap the juju environment on the MAAS server, see also "https://wiki.ubuntu.com/ServerTeam/MAAS/Juju":https://wiki.ubuntu.com/ServerTeam/MAAS/Juju:
+* @sudo apt-get install juju@; @mkdir ~/.juju@; @touch ~/.juju/environments.yaml@
+* write the generated MAAS key to the yaml file:
+* e.g. open lynx, go to localhost/MAAS, log in, open preferences,hit @\@, @p@, save as @prefs@
+* check how your key starts (e.g. 5x5), then @grep 5x5 prefs > ~/.juju/environments.yaml@
+* edit environments.yaml as described on "https://wiki.ubuntu.com/ServerTeam/MAAS/Juju":https://wiki.ubuntu.com/ServerTeam/MAAS/Juju
+* bootstrap juju: @ssh-keygen; juju bootstrap@
+* check the MAAS admin UI to see which node is in state _Allocated to ..._
+* boot that node from the Avahi stick, MAAS should install the OS on it (takes time)
+* now @juju status@ should show information about the nodes (didn't work for us because the MAAS server doesn't act as the DHCP server in our setup)

@@ -1,0 +1,1 @@
+Add content of https://github.com/fsteeg/puppet-java in a directory `java` here.
