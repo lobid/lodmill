@@ -1,0 +1,500 @@
+<http://lobid.org/resource/HT000000698> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000698> .
+<http://lobid.org/resource/HT000000698> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000698> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000698/about> .
+<http://lobid.org/resource/HT000000716> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000716%3A03FBVA1243> .
+<http://lobid.org/resource/HT000000716> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000716> .
+<http://lobid.org/resource/HT000000716> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000716> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000716> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000716> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/118643606> .
+<http://lobid.org/resource/HT000000716> <http://iflastandards.info/ns/isbd/elements/P1004> "LETTRE A M KELLER" .
+<http://lobid.org/resource/HT000000716> <http://iflastandards.info/ns/isbd/elements/P1006> "LETTRE A M. KELLER / PAR EDMOND ABOUT" .
+<http://lobid.org/resource/HT000000716> <http://purl.org/dc/terms/publisher> _:HT000000716BNode0 .
+_:HT000000716BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000716BNode1 .
+_:HT000000716BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000716BNode1 <http://www.geonames.org/ontology#name> "PARIS" .
+_:HT000000716BNode0 <http://xmlns.com/foaf/0.1/name> "DENTU" .
+_:HT000000716BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000716> <http://iflastandards.info/ns/isbd/elements/P1016> "PARIS" .
+<http://lobid.org/resource/HT000000716> <http://iflastandards.info/ns/isbd/elements/P1017> "DENTU" .
+<http://lobid.org/resource/HT000000716> <http://purl.org/dc/terms/issued> "1861" .
+<http://lobid.org/resource/HT000000716> <http://iflastandards.info/ns/isbd/elements/P1053> "32 S." .
+<http://lobid.org/resource/HT000000716> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000716/about> .
+<http://lobid.org/resource/HT000000716> <http://purl.org/dc/terms/title> "LETTRE A M KELLER : LETTRE A M. KELLER / PAR EDMOND ABOUT" .
+<http://lobid.org/resource/HT000000727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000727%3ANXKB1076_d> .
+<http://lobid.org/resource/HT000000727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000727%3ANXNB1010> .
+<http://lobid.org/resource/HT000000727> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000727> .
+<http://lobid.org/resource/HT000000727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000727> <http://purl.org/dc/elements/1.1/contributor> <http://d-nb.info/gnd/153360755> .
+<http://lobid.org/resource/HT000000727> <http://purl.org/dc/elements/1.1/contributor> <http://d-nb.info/gnd/160057078> .
+<http://lobid.org/resource/HT000000727> <http://iflastandards.info/ns/isbd/elements/P1004> "ABOUT BATESON" .
+<http://lobid.org/resource/HT000000727> <http://iflastandards.info/ns/isbd/elements/P1006> "ABOUT BATESON : ESSAYS ON GREGORY BATESON. BY MARY CATHERINE BATESON ... ET AL. ; AFTERWORD BY GREGORY BATESON ; EDITED BY JOHN BROCKMAN" .
+<http://lobid.org/resource/HT000000727> <http://purl.org/dc/terms/publisher> _:HT000000727BNode0 .
+_:HT000000727BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000727BNode1 .
+_:HT000000727BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000727BNode1 <http://www.geonames.org/ontology#name> "LONDON" .
+_:HT000000727BNode0 <http://xmlns.com/foaf/0.1/name> "WILDWOOD HOUSE" .
+_:HT000000727BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000727> <http://iflastandards.info/ns/isbd/elements/P1016> "LONDON" .
+<http://lobid.org/resource/HT000000727> <http://iflastandards.info/ns/isbd/elements/P1017> "WILDWOOD HOUSE" .
+<http://lobid.org/resource/HT000000727> <http://purl.org/dc/terms/issued> "1978" .
+<http://lobid.org/resource/HT000000727> <http://iflastandards.info/ns/isbd/elements/P1053> "5,250 S." .
+<http://lobid.org/resource/HT000000727> <http://purl.org/ontology/bibo/isbn13> "9780704503250" .
+<http://lobid.org/resource/HT000000727> <http://purl.org/ontology/bibo/isbn10> "0704503255" .
+<http://lobid.org/resource/HT000000727> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000727/about> .
+<http://lobid.org/resource/HT000000727> <http://purl.org/dc/terms/title> "ABOUT BATESON : ABOUT BATESON : ESSAYS ON GREGORY BATESON. BY MARY CATHERINE BATESON ... ET AL. ; AFTERWORD BY GREGORY BATESON ; EDITED BY JOHN BROCKMAN" .
+<http://lobid.org/resource/HT000000731> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000731%3A85VSU1126> .
+<http://lobid.org/resource/HT000000731> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000731> .
+<http://lobid.org/resource/HT000000731> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000731> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000731> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000731> <http://purl.org/dc/elements/1.1/contributor> <http://d-nb.info/gnd/105326690> .
+<http://lobid.org/resource/HT000000731> <http://purl.org/dc/elements/1.1/contributor> <http://lobid.org/person/HP00304064> .
+<http://lobid.org/resource/HT000000731> <http://iflastandards.info/ns/isbd/elements/P1004> "ABPRODUKTE TIERISCHER HERKUNFT ALS FUTTERMITTEL" .
+<http://lobid.org/resource/HT000000731> <http://iflastandards.info/ns/isbd/elements/P1006> "ABPRODUKTE TIERISCHER HERKUNFT ALS FUTTERMITTEL / HRSG. VON ARNO HENNIG U. SIEGFRIED POPPE. UNTER MITW. VON G. FLACHOWSKY .." .
+<http://lobid.org/resource/HT000000731> <http://purl.org/dc/terms/publisher> _:HT000000731BNode0 .
+_:HT000000731BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000731BNode1 .
+_:HT000000731BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000731BNode1 <http://www.geonames.org/ontology#name> "STUTTGART" .
+_:HT000000731BNode0 <http://xmlns.com/foaf/0.1/name> "ENKE" .
+_:HT000000731BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000731> <http://iflastandards.info/ns/isbd/elements/P1016> "STUTTGART" .
+<http://lobid.org/resource/HT000000731> <http://iflastandards.info/ns/isbd/elements/P1017> "ENKE" .
+<http://lobid.org/resource/HT000000731> <http://purl.org/dc/terms/issued> "1976" .
+<http://lobid.org/resource/HT000000731> <http://iflastandards.info/ns/isbd/elements/P1053> "232 S." .
+<http://lobid.org/resource/HT000000731> <http://purl.org/ontology/bibo/isbn13> "9783432884912" .
+<http://lobid.org/resource/HT000000731> <http://purl.org/ontology/bibo/isbn10> "3432884915" .
+<http://lobid.org/resource/HT000000731> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000731/about> .
+<http://lobid.org/resource/HT000000731> <http://purl.org/dc/terms/title> "ABPRODUKTE TIERISCHER HERKUNFT ALS FUTTERMITTEL : ABPRODUKTE TIERISCHER HERKUNFT ALS FUTTERMITTEL / HRSG. VON ARNO HENNIG U. SIEGFRIED POPPE. UNTER MITW. VON G. FLACHOWSKY .." .
+<http://lobid.org/resource/HT000000735> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000735%3AKe+4019> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000735%3ASD16%27990> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000735%3A50+2814> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000735%3ASA+89514> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000735%3AL+427> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000735%3A04ZZR5858> .
+<http://lobid.org/resource/HT000000735> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000735> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT000000735> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000735> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000735> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/11850021X> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/dc/elements/1.1/contributor> <http://d-nb.info/gnd/174741316> .
+<http://lobid.org/resource/HT000000735> <http://iflastandards.info/ns/isbd/elements/P1004> "Abrahamisches Bescheid-Essen" .
+<http://lobid.org/resource/HT000000735> <http://iflastandards.info/ns/isbd/elements/P1006> "Soll man wohl nicht vergessen, Er hat es hinterlassen, Mir gfallt es \u00FCber die massen, Wer nicht will glauben di\u00DF, Steck Brillen auf und li\u00DF ..." .
+<http://lobid.org/resource/HT000000735> <http://iflastandards.info/ns/isbd/elements/P1006> "gef\u00E4llt Ma\u00DFen dies lies" .
+<http://lobid.org/resource/HT000000735> <http://purl.org/dc/terms/publisher> _:HT000000735BNode0 .
+_:HT000000735BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000735BNode1 .
+_:HT000000735BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000735BNode1 <http://www.geonames.org/ontology#name> "Wien und Br\u00FCn" .
+_:HT000000735BNode0 <http://xmlns.com/foaf/0.1/name> "Verlegts Georg Lehmann" .
+_:HT000000735BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000735> <http://iflastandards.info/ns/isbd/elements/P1016> "Wien und Br\u00FCn" .
+<http://lobid.org/resource/HT000000735> <http://iflastandards.info/ns/isbd/elements/P1017> "Verlegts Georg Lehmann" .
+<http://lobid.org/resource/HT000000735> <http://purl.org/dc/terms/issued> "1719" .
+<http://lobid.org/resource/HT000000735> <http://iflastandards.info/ns/isbd/elements/P1053> "[12] Bl., 616 S. ; 4-o" .
+<http://lobid.org/resource/HT000000735> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000735/about> .
+<http://lobid.org/resource/HT000000735> <http://purl.org/dc/terms/title> "Abrahamisches Bescheid-Essen : Soll man wohl nicht vergessen, Er hat es hinterlassen, Mir gfallt es \u00FCber die massen, Wer nicht will glauben di\u00DF, Steck Brillen auf und li\u00DF ... : gef\u00E4llt Ma\u00DFen dies lies" .
+<http://lobid.org/resource/HT000000746> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000746%3AQYB6714> .
+<http://lobid.org/resource/HT000000746> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000746> .
+<http://lobid.org/resource/HT000000746> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000746> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000746> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000746> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/112263828> .
+<http://lobid.org/resource/HT000000746> <http://iflastandards.info/ns/isbd/elements/P1004> "COLLAPSE OF THE WEIMAR REPUBLIC" .
+<http://lobid.org/resource/HT000000746> <http://iflastandards.info/ns/isbd/elements/P1006> "THE COLLAPSE OF THE WEIMAR REPUBLIC : POLITICAL ECONOMY AND CRISIS / BY DAVID ABRAHAM" .
+<http://lobid.org/resource/HT000000746> <http://purl.org/dc/terms/publisher> _:HT000000746BNode0 .
+_:HT000000746BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000746BNode1 .
+_:HT000000746BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000746BNode1 <http://www.geonames.org/ontology#name> "PRINCETON, N.J." .
+_:HT000000746BNode0 <http://xmlns.com/foaf/0.1/name> "PRINCETON UNIV. PR." .
+_:HT000000746BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000746> <http://iflastandards.info/ns/isbd/elements/P1016> "PRINCETON, N.J." .
+<http://lobid.org/resource/HT000000746> <http://iflastandards.info/ns/isbd/elements/P1017> "PRINCETON UNIV. PR." .
+<http://lobid.org/resource/HT000000746> <http://purl.org/dc/terms/issued> "1981" .
+<http://lobid.org/resource/HT000000746> <http://iflastandards.info/ns/isbd/elements/P1053> "366 S." .
+<http://lobid.org/resource/HT000000746> <http://purl.org/ontology/bibo/isbn13> "9780691093567" .
+<http://lobid.org/resource/HT000000746> <http://purl.org/ontology/bibo/isbn10> "0691093563" .
+<http://lobid.org/resource/HT000000746> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/(DE-588)4011882-4> .
+<http://lobid.org/resource/HT000000746> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000746/about> .
+<http://lobid.org/resource/HT000000746> <http://purl.org/dc/terms/title> "COLLAPSE OF THE WEIMAR REPUBLIC : THE COLLAPSE OF THE WEIMAR REPUBLIC : POLITICAL ECONOMY AND CRISIS / BY DAVID ABRAHAM" .
+<http://lobid.org/resource/HT000000753> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000753%3AZZZF245020> .
+<http://lobid.org/resource/HT000000753> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000753> .
+<http://lobid.org/resource/HT000000753> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000753> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000753> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000753> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/104520760> .
+<http://lobid.org/resource/HT000000753> <http://iflastandards.info/ns/isbd/elements/P1004> "WELTENWENDE" .
+<http://lobid.org/resource/HT000000753> <http://iflastandards.info/ns/isbd/elements/P1006> "WELTENWENDE 1917 : DER KAMPF DER BOLSCHEWIKI UM DIE GEWINNUNG DER MASSEN VOR UND WAEHREND DER GROSSEN SOZIALISTISCHEN OKTOBERREVOLUTION / HEINZ ABRAHAM" .
+<http://lobid.org/resource/HT000000753> <http://purl.org/dc/terms/publisher> _:HT000000753BNode0 .
+_:HT000000753BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000753BNode1 .
+_:HT000000753BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000753BNode1 <http://www.geonames.org/ontology#name> "BERLIN" .
+_:HT000000753BNode0 <http://xmlns.com/foaf/0.1/name> "DIETZ" .
+_:HT000000753BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000753> <http://iflastandards.info/ns/isbd/elements/P1016> "BERLIN" .
+<http://lobid.org/resource/HT000000753> <http://iflastandards.info/ns/isbd/elements/P1017> "DIETZ" .
+<http://lobid.org/resource/HT000000753> <http://purl.org/dc/terms/issued> "1977" .
+<http://lobid.org/resource/HT000000753> <http://iflastandards.info/ns/isbd/elements/P1053> "179 S." .
+<http://lobid.org/resource/HT000000753> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000753/about> .
+<http://lobid.org/resource/HT000000753> <http://purl.org/dc/terms/title> "WELTENWENDE : WELTENWENDE 1917 : DER KAMPF DER BOLSCHEWIKI UM DIE GEWINNUNG DER MASSEN VOR UND WAEHREND DER GROSSEN SOZIALISTISCHEN OKTOBERREVOLUTION / HEINZ ABRAHAM" .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3AVa+11%27417> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3A76%2720198> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3AJc+B+1922> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3A3B3187> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3A1976+B+563> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3A35+b+A+261> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3AVYK41025> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3ABR%27lb8060> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3AHQFA1028> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000755%3APsy+D+40%3A8> .
+<http://lobid.org/resource/HT000000755> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000755> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT000000755> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000755> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000755> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/128238968> .
+<http://lobid.org/resource/HT000000755> <http://iflastandards.info/ns/isbd/elements/P1004> "Karl Abraham" .
+<http://lobid.org/resource/HT000000755> <http://iflastandards.info/ns/isbd/elements/P1006> "sein Leben f\u00FCr die Psychoanalyse ; eine Biographie" .
+<http://lobid.org/resource/HT000000755> <http://purl.org/dc/terms/publisher> _:HT000000755BNode0 .
+_:HT000000755BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000755BNode1 .
+_:HT000000755BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000755BNode1 <http://www.geonames.org/ontology#name> "M\u00FCnchen" .
+_:HT000000755BNode0 <http://xmlns.com/foaf/0.1/name> "Kindler" .
+_:HT000000755BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000755> <http://iflastandards.info/ns/isbd/elements/P1016> "M\u00FCnchen" .
+<http://lobid.org/resource/HT000000755> <http://iflastandards.info/ns/isbd/elements/P1017> "Kindler" .
+<http://lobid.org/resource/HT000000755> <http://purl.org/dc/terms/issued> "1976" .
+<http://lobid.org/resource/HT000000755> <http://iflastandards.info/ns/isbd/elements/P1053> "191 S." .
+<http://lobid.org/resource/HT000000755> <http://purl.org/ontology/bibo/isbn13> "9783463006505" .
+<http://lobid.org/resource/HT000000755> <http://purl.org/ontology/bibo/isbn10> "3463006502" .
+<http://lobid.org/resource/HT000000755> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/(DE-588)118500228> .
+<http://lobid.org/resource/HT000000755> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000755/about> .
+<http://lobid.org/resource/HT000000755> <http://purl.org/dc/terms/title> "Karl Abraham : sein Leben f\u00FCr die Psychoanalyse ; eine Biographie" .
+<http://lobid.org/resource/HT000000766> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000766%3AWGP%27ABR> .
+<http://lobid.org/resource/HT000000766> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000766%3A05ZZB16481> .
+<http://lobid.org/resource/HT000000766> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000766%3AZZZB31534> .
+<http://lobid.org/resource/HT000000766> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000766> .
+<http://lobid.org/resource/HT000000766> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000766> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000766> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000766> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/153895853> .
+<http://lobid.org/resource/HT000000766> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/177662751> .
+<http://lobid.org/resource/HT000000766> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/177611464> .
+<http://lobid.org/resource/HT000000766> <http://iflastandards.info/ns/isbd/elements/P1004> "STATE-OF-THE-ART IN ADAPTABLE-PROGRAMMABLE ASSEMBLY SYSTEMS" .
+<http://lobid.org/resource/HT000000766> <http://iflastandards.info/ns/isbd/elements/P1006> "STATE-OF-THE-ART IN ADAPTABLE-PROGRAMMABLE ASSEMBLY SYSTEMS / R. G. ABRAHAM, R. J. S. STEWART AND L. Y. SHUM" .
+<http://lobid.org/resource/HT000000766> <http://purl.org/dc/terms/publisher> _:HT000000766BNode0 .
+_:HT000000766BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000766BNode1 .
+_:HT000000766BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000766BNode1 <http://www.geonames.org/ontology#name> "PITTSBURGH, PA." .
+_:HT000000766BNode1 <http://www.geonames.org/ontology#name> "KEMPSTON" .
+_:HT000000766BNode0 <http://xmlns.com/foaf/0.1/name> "WESTINGHOUSE RESEARCH AND DEVELOPMENT" .
+_:HT000000766BNode0 <http://xmlns.com/foaf/0.1/name> "INTERNATIONAL FLUIDICS SERVICES" .
+_:HT000000766BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000766> <http://iflastandards.info/ns/isbd/elements/P1016> "PITTSBURGH, PA." .
+<http://lobid.org/resource/HT000000766> <http://iflastandards.info/ns/isbd/elements/P1016> "KEMPSTON" .
+<http://lobid.org/resource/HT000000766> <http://iflastandards.info/ns/isbd/elements/P1017> "WESTINGHOUSE RESEARCH AND DEVELOPMENT" .
+<http://lobid.org/resource/HT000000766> <http://iflastandards.info/ns/isbd/elements/P1017> "INTERNATIONAL FLUIDICS SERVICES" .
+<http://lobid.org/resource/HT000000766> <http://purl.org/dc/terms/issued> "1977" .
+<http://lobid.org/resource/HT000000766> <http://iflastandards.info/ns/isbd/elements/P1053> "II,159 S.: ILL." .
+<http://lobid.org/resource/HT000000766> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000766/about> .
+<http://lobid.org/resource/HT000000766> <http://purl.org/dc/terms/title> "STATE-OF-THE-ART IN ADAPTABLE-PROGRAMMABLE ASSEMBLY SYSTEMS : STATE-OF-THE-ART IN ADAPTABLE-PROGRAMMABLE ASSEMBLY SYSTEMS / R. G. ABRAHAM, R. J. S. STEWART AND L. Y. SHUM" .
+<http://lobid.org/resource/HT000000775> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000775%3AUSB3625> .
+<http://lobid.org/resource/HT000000775> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000775%3A2J5541> .
+<http://lobid.org/resource/HT000000775> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000775%3ACK7034> .
+<http://lobid.org/resource/HT000000775> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000775> .
+<http://lobid.org/resource/HT000000775> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000775> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000775> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000775> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/120530597> .
+<http://lobid.org/resource/HT000000775> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/17644873X> .
+<http://lobid.org/resource/HT000000775> <http://iflastandards.info/ns/isbd/elements/P1004> "PROTON AND CARBON NMR SPECTROSCOPY" .
+<http://lobid.org/resource/HT000000775> <http://iflastandards.info/ns/isbd/elements/P1006> "PROTON AND CARBON-13 NMR SPECTROSCOPY : AN INTEGRATED APPROACH / R. J. ABRAHAM AND P. LOFTUS" .
+<http://lobid.org/resource/HT000000775> <http://purl.org/dc/terms/publisher> _:HT000000775BNode0 .
+_:HT000000775BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000775BNode1 .
+_:HT000000775BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000775BNode1 <http://www.geonames.org/ontology#name> "LONDON, PHILADELPHIA, RHEINE" .
+_:HT000000775BNode0 <http://xmlns.com/foaf/0.1/name> "HEYDEN" .
+_:HT000000775BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000775> <http://iflastandards.info/ns/isbd/elements/P1016> "LONDON, PHILADELPHIA, RHEINE" .
+<http://lobid.org/resource/HT000000775> <http://iflastandards.info/ns/isbd/elements/P1017> "HEYDEN" .
+<http://lobid.org/resource/HT000000775> <http://purl.org/dc/terms/issued> "1979" .
+<http://lobid.org/resource/HT000000775> <http://iflastandards.info/ns/isbd/elements/P1053> "XIII, 230 S. : GRAPH. DARST." .
+<http://lobid.org/resource/HT000000775> <http://purl.org/ontology/bibo/isbn13> "9780855011604" .
+<http://lobid.org/resource/HT000000775> <http://purl.org/ontology/bibo/isbn10> "0855011602" .
+<http://lobid.org/resource/HT000000775> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/(DE-588)4134384-0> .
+<http://lobid.org/resource/HT000000775> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000775/about> .
+<http://lobid.org/resource/HT000000775> <http://purl.org/dc/terms/title> "PROTON AND CARBON NMR SPECTROSCOPY : PROTON AND CARBON-13 NMR SPECTROSCOPY : AN INTEGRATED APPROACH / R. J. ABRAHAM AND P. LOFTUS" .
+<http://lobid.org/resource/HT000000781> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000781%3ABHQ3360> .
+<http://lobid.org/resource/HT000000781> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000781> .
+<http://lobid.org/resource/HT000000781> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000781> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000781> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000781> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/17466172X> .
+<http://lobid.org/resource/HT000000781> <http://iflastandards.info/ns/isbd/elements/P1004> "ZUR LINGUISTIK DER METAPHER" .
+<http://lobid.org/resource/HT000000781> <http://iflastandards.info/ns/isbd/elements/P1006> "ZUR LINGUISTIK DER METAPHER / WERNER ABRAHAM" .
+<http://lobid.org/resource/HT000000781> <http://purl.org/dc/terms/publisher> _:HT000000781BNode0 .
+_:HT000000781BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000781BNode1 .
+_:HT000000781BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000781BNode1 <http://www.geonames.org/ontology#name> "TRIER" .
+_:HT000000781BNode0 <http://xmlns.com/foaf/0.1/name> "LINGUISTIC AGENCY" .
+_:HT000000781BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000781> <http://iflastandards.info/ns/isbd/elements/P1016> "TRIER" .
+<http://lobid.org/resource/HT000000781> <http://iflastandards.info/ns/isbd/elements/P1017> "LINGUISTIC AGENCY" .
+<http://lobid.org/resource/HT000000781> <http://purl.org/dc/terms/issued> "1973" .
+<http://lobid.org/resource/HT000000781> <http://iflastandards.info/ns/isbd/elements/P1053> "42 S." .
+<http://lobid.org/resource/HT000000781> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000781/about> .
+<http://lobid.org/resource/HT000000781> <http://purl.org/dc/terms/title> "ZUR LINGUISTIK DER METAPHER : ZUR LINGUISTIK DER METAPHER / WERNER ABRAHAM" .
+<http://lobid.org/resource/HT000000785> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000785%3AUA170253> .
+<http://lobid.org/resource/HT000000785> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000785> .
+<http://lobid.org/resource/HT000000785> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000785> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000785> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000785> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/109466667> .
+<http://lobid.org/resource/HT000000785> <http://iflastandards.info/ns/isbd/elements/P1004> "ISOLIERUNG UND STRUKTURAUFKLAERUNG VON PFLANZENINHALTSSTOFFEN" .
+<http://lobid.org/resource/HT000000785> <http://iflastandards.info/ns/isbd/elements/P1006> "ISOLIERUNG UND STRUKTURAUFKLAERUNG VON PFLANZENINHALTSSTOFFEN AUS COMPOSITEN / VON WOLF-RAINER ABRAHAM" .
+<http://lobid.org/resource/HT000000785> <http://purl.org/dc/terms/issued> "1979" .
+<http://lobid.org/resource/HT000000785> <http://iflastandards.info/ns/isbd/elements/P1053> "111 S. : GRAPH. DARST." .
+<http://lobid.org/resource/HT000000785> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000785/about> .
+<http://lobid.org/resource/HT000000785> <http://purl.org/dc/terms/title> "ISOLIERUNG UND STRUKTURAUFKLAERUNG VON PFLANZENINHALTSSTOFFEN : ISOLIERUNG UND STRUKTURAUFKLAERUNG VON PFLANZENINHALTSSTOFFEN AUS COMPOSITEN / VON WOLF-RAINER ABRAHAM" .
+<http://lobid.org/resource/HT000000792> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000792%3AZZZF231021> .
+<http://lobid.org/resource/HT000000792> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000792> .
+<http://lobid.org/resource/HT000000792> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000792> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000792> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000792> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/171944348> .
+<http://lobid.org/resource/HT000000792> <http://iflastandards.info/ns/isbd/elements/P1004> "SHORT HISTORY OF JEWISH LITERATURE" .
+<http://lobid.org/resource/HT000000792> <http://iflastandards.info/ns/isbd/elements/P1006> "A SHORT HISTORY OF JEWISH LITERATURE: FROM THE FALL OF THE TEMPLE (70 C.E.) TO THE ERA OF EMANCIPATION (1786 C.E.) / BY ISRAEL ABRAHAMS" .
+<http://lobid.org/resource/HT000000792> <http://purl.org/dc/terms/publisher> _:HT000000792BNode0 .
+_:HT000000792BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000792BNode1 .
+_:HT000000792BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000792BNode1 <http://www.geonames.org/ontology#name> "LONDON" .
+_:HT000000792BNode1 <http://www.geonames.org/ontology#name> "NEW YORK" .
+_:HT000000792BNode0 <http://xmlns.com/foaf/0.1/name> "UNWIN" .
+_:HT000000792BNode0 <http://xmlns.com/foaf/0.1/name> "SCRIBNER" .
+_:HT000000792BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000792> <http://iflastandards.info/ns/isbd/elements/P1016> "LONDON" .
+<http://lobid.org/resource/HT000000792> <http://iflastandards.info/ns/isbd/elements/P1016> "NEW YORK" .
+<http://lobid.org/resource/HT000000792> <http://iflastandards.info/ns/isbd/elements/P1017> "UNWIN" .
+<http://lobid.org/resource/HT000000792> <http://iflastandards.info/ns/isbd/elements/P1017> "SCRIBNER" .
+<http://lobid.org/resource/HT000000792> <http://purl.org/dc/terms/issued> "1906" .
+<http://lobid.org/resource/HT000000792> <http://iflastandards.info/ns/isbd/elements/P1053> "XVI,176 S." .
+<http://lobid.org/resource/HT000000792> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000792/about> .
+<http://lobid.org/resource/HT000000792> <http://purl.org/dc/terms/title> "SHORT HISTORY OF JEWISH LITERATURE : A SHORT HISTORY OF JEWISH LITERATURE: FROM THE FALL OF THE TEMPLE (70 C.E.) TO THE ERA OF EMANCIPATION (1786 C.E.) / BY ISRAEL ABRAHAMS" .
+<http://lobid.org/resource/HT000000799> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000799%3APAF+Abra+C%3A4> .
+<http://lobid.org/resource/HT000000799> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000799%3A%28nicht+mehr+vorhanden%29%3C%3C%3E%3E> .
+<http://lobid.org/resource/HT000000799> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000799%3Anp44561> .
+<http://lobid.org/resource/HT000000799> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000799%3AEEZA1000> .
+<http://lobid.org/resource/HT000000799> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000799> .
+<http://lobid.org/resource/HT000000799> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
+<http://lobid.org/resource/HT000000799> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000799> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000799> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000799> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/109045122> .
+<http://lobid.org/resource/HT000000799> <http://iflastandards.info/ns/isbd/elements/P1004> "A night of their own" .
+<http://lobid.org/resource/HT000000799> <http://purl.org/dc/terms/publisher> _:HT000000799BNode0 .
+_:HT000000799BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000799BNode1 .
+_:HT000000799BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000799BNode1 <http://www.geonames.org/ontology#name> "London" .
+_:HT000000799BNode0 <http://xmlns.com/foaf/0.1/name> "Faber and Faber" .
+_:HT000000799BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000799> <http://iflastandards.info/ns/isbd/elements/P1016> "London" .
+<http://lobid.org/resource/HT000000799> <http://iflastandards.info/ns/isbd/elements/P1017> "Faber and Faber" .
+<http://lobid.org/resource/HT000000799> <http://purl.org/dc/terms/issued> "1965" .
+<http://lobid.org/resource/HT000000799> <http://iflastandards.info/ns/isbd/elements/P1053> "269 S." .
+<http://lobid.org/resource/HT000000799> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000799/about> .
+<http://lobid.org/resource/HT000000799> <http://purl.org/dc/terms/title> "A night of their own" .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3AFn+14648> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3ASOD+2%27144> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3AHT300+A159> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3A5H9435> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3AMR+5400%27210> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3AEJ%27sn17962> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3AFB%27ln13967> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3ANZI1138_d> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3A31NZI1104> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000808%3ANZI1031> .
+<http://lobid.org/resource/HT000000808> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000808> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
+<http://lobid.org/resource/HT000000808> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000808> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000808> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/170668959> .
+<http://lobid.org/resource/HT000000808> <http://iflastandards.info/ns/isbd/elements/P1004> "Functionalism" .
+<http://lobid.org/resource/HT000000808> <http://purl.org/dc/terms/publisher> _:HT000000808BNode0 .
+_:HT000000808BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000808BNode1 .
+_:HT000000808BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000808BNode1 <http://www.geonames.org/ontology#name> "Englewood Cliffs, N.J." .
+_:HT000000808BNode0 <http://xmlns.com/foaf/0.1/name> "Prentice Hall" .
+_:HT000000808BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000808> <http://iflastandards.info/ns/isbd/elements/P1016> "Englewood Cliffs, N.J." .
+<http://lobid.org/resource/HT000000808> <http://iflastandards.info/ns/isbd/elements/P1017> "Prentice Hall" .
+<http://lobid.org/resource/HT000000808> <http://purl.org/dc/terms/issued> "1978" .
+<http://lobid.org/resource/HT000000808> <http://iflastandards.info/ns/isbd/elements/P1053> "X, 113 S." .
+<http://lobid.org/resource/HT000000808> <http://purl.org/ontology/bibo/isbn13> "9780133319002" .
+<http://lobid.org/resource/HT000000808> <http://purl.org/ontology/bibo/isbn10> "0133319008" .
+<http://lobid.org/resource/HT000000808> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/(DE-588)4155675-6> .
+<http://lobid.org/resource/HT000000808> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000808/about> .
+<http://lobid.org/resource/HT000000808> <http://purl.org/dc/terms/title> "Functionalism" .
+<http://lobid.org/resource/HT000000817> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000817%3ADAB5250> .
+<http://lobid.org/resource/HT000000817> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000817%3A33PZV7321> .
+<http://lobid.org/resource/HT000000817> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000817> .
+<http://lobid.org/resource/HT000000817> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000817> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000817> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000817> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/171956877> .
+<http://lobid.org/resource/HT000000817> <http://iflastandards.info/ns/isbd/elements/P1004> "BUREAUCRACY OR PARTICIPATION" .
+<http://lobid.org/resource/HT000000817> <http://iflastandards.info/ns/isbd/elements/P1006> "BUREAUCRACY OR PARTICIPATION : THE LOGIC OF ORGANIZATION / BENGT ABRAHAMSSON. INTROD. BY MORRIS JANOWITZ" .
+<http://lobid.org/resource/HT000000817> <http://purl.org/ontology/bibo/edition> "3. PRINT." .
+<http://lobid.org/resource/HT000000817> <http://purl.org/dc/terms/publisher> _:HT000000817BNode0 .
+_:HT000000817BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000817BNode1 .
+_:HT000000817BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000817BNode1 <http://www.geonames.org/ontology#name> "BEVERLY HILLS, CALIF." .
+_:HT000000817BNode0 <http://xmlns.com/foaf/0.1/name> "SAGE PUBL." .
+_:HT000000817BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000817> <http://iflastandards.info/ns/isbd/elements/P1016> "BEVERLY HILLS, CALIF." .
+<http://lobid.org/resource/HT000000817> <http://iflastandards.info/ns/isbd/elements/P1017> "SAGE PUBL." .
+<http://lobid.org/resource/HT000000817> <http://purl.org/dc/terms/issued> "1977" .
+<http://lobid.org/resource/HT000000817> <http://iflastandards.info/ns/isbd/elements/P1053> "240 S. : ILL." .
+<http://lobid.org/resource/HT000000817> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000817/about> .
+<http://lobid.org/resource/HT000000817> <http://purl.org/dc/terms/title> "BUREAUCRACY OR PARTICIPATION : BUREAUCRACY OR PARTICIPATION : THE LOGIC OF ORGANIZATION / BENGT ABRAHAMSSON. INTROD. BY MORRIS JANOWITZ" .
+<http://lobid.org/resource/HT000000825> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000825%3A40VQN1385> .
+<http://lobid.org/resource/HT000000825> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000825> .
+<http://lobid.org/resource/HT000000825> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000825> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000825> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000825> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/151002061> .
+<http://lobid.org/resource/HT000000825> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/172416949> .
+<http://lobid.org/resource/HT000000825> <http://iflastandards.info/ns/isbd/elements/P1004> "LABORATORY OUTLINES IN ZOOLOGY" .
+<http://lobid.org/resource/HT000000825> <http://iflastandards.info/ns/isbd/elements/P1006> "LABORATORY OUTLINES IN ZOOLOGY / PETER ABRAMOFF; ROBERT G. THOMSON" .
+<http://lobid.org/resource/HT000000825> <http://purl.org/dc/terms/publisher> _:HT000000825BNode0 .
+_:HT000000825BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000825BNode1 .
+_:HT000000825BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000825BNode1 <http://www.geonames.org/ontology#name> "SAN FRANCISCO" .
+_:HT000000825BNode0 <http://xmlns.com/foaf/0.1/name> "W.H. FREEMAN" .
+_:HT000000825BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000825> <http://iflastandards.info/ns/isbd/elements/P1016> "SAN FRANCISCO" .
+<http://lobid.org/resource/HT000000825> <http://iflastandards.info/ns/isbd/elements/P1017> "W.H. FREEMAN" .
+<http://lobid.org/resource/HT000000825> <http://purl.org/dc/terms/issued> "1978" .
+<http://lobid.org/resource/HT000000825> <http://iflastandards.info/ns/isbd/elements/P1053> "11,398 S." .
+<http://lobid.org/resource/HT000000825> <http://purl.org/ontology/bibo/isbn13> "9780716700173" .
+<http://lobid.org/resource/HT000000825> <http://purl.org/ontology/bibo/isbn10> "0716700174" .
+<http://lobid.org/resource/HT000000825> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000825/about> .
+<http://lobid.org/resource/HT000000825> <http://purl.org/dc/terms/title> "LABORATORY OUTLINES IN ZOOLOGY : LABORATORY OUTLINES IN ZOOLOGY / PETER ABRAMOFF; ROBERT G. THOMSON" .
+<http://lobid.org/resource/HT000000828> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000828%3AZZZK220627> .
+<http://lobid.org/resource/HT000000828> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000828> .
+<http://lobid.org/resource/HT000000828> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000828> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000828> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000828> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/174729472> .
+<http://lobid.org/resource/HT000000828> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/109796802> .
+<http://lobid.org/resource/HT000000828> <http://iflastandards.info/ns/isbd/elements/P1004> "SEWING HINTS FOR MEN" .
+<http://lobid.org/resource/HT000000828> <http://iflastandards.info/ns/isbd/elements/P1006> "SEWING HINTS FOR MEN / A. JAY ABRAMS AND SONDRA R. ALBERT. ILL. CAROL WALKER" .
+<http://lobid.org/resource/HT000000828> <http://purl.org/dc/terms/publisher> _:HT000000828BNode0 .
+_:HT000000828BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000828BNode1 .
+_:HT000000828BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000828BNode1 <http://www.geonames.org/ontology#name> "NEW YORK (U.A.)" .
+_:HT000000828BNode0 <http://xmlns.com/foaf/0.1/name> "VAN NOSTRAND REINHOLD" .
+_:HT000000828BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000828> <http://iflastandards.info/ns/isbd/elements/P1016> "NEW YORK (U.A.)" .
+<http://lobid.org/resource/HT000000828> <http://iflastandards.info/ns/isbd/elements/P1017> "VAN NOSTRAND REINHOLD" .
+<http://lobid.org/resource/HT000000828> <http://purl.org/dc/terms/issued> "1980" .
+<http://lobid.org/resource/HT000000828> <http://iflastandards.info/ns/isbd/elements/P1053> "128 S. : ZAHLR. ILL." .
+<http://lobid.org/resource/HT000000828> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000828/about> .
+<http://lobid.org/resource/HT000000828> <http://purl.org/dc/terms/title> "SEWING HINTS FOR MEN : SEWING HINTS FOR MEN / A. JAY ABRAMS AND SONDRA R. ALBERT. ILL. CAROL WALKER" .
+<http://lobid.org/resource/HT000000841> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000841%3A33PRJ2989> .
+<http://lobid.org/resource/HT000000841> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000841> .
+<http://lobid.org/resource/HT000000841> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000841> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000841> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000841> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/154485527> .
+<http://lobid.org/resource/HT000000841> <http://iflastandards.info/ns/isbd/elements/P1004> "MONETARY POLICY REACTION FUNCTIONS USING A RANDOM COEFFICIENT REGRESSION MODEL" .
+<http://lobid.org/resource/HT000000841> <http://iflastandards.info/ns/isbd/elements/P1006> "MONETARY POLICY REACTION FUNCTIONS USING A RANDOM COEFFICIENT REGRESSION MODEL / RICHARD K. ABRAMS" .
+<http://lobid.org/resource/HT000000841> <http://purl.org/ontology/bibo/edition> "AUTHORIZED ED." .
+<http://lobid.org/resource/HT000000841> <http://purl.org/dc/terms/publisher> _:HT000000841BNode0 .
+_:HT000000841BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000841BNode1 .
+_:HT000000841BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000841BNode1 <http://www.geonames.org/ontology#name> "ANN ARBOR, MICH." .
+_:HT000000841BNode0 <http://xmlns.com/foaf/0.1/name> "UNIV. MICROFILMS INTERNAT." .
+_:HT000000841BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000841> <http://iflastandards.info/ns/isbd/elements/P1016> "ANN ARBOR, MICH." .
+<http://lobid.org/resource/HT000000841> <http://iflastandards.info/ns/isbd/elements/P1017> "UNIV. MICROFILMS INTERNAT." .
+<http://lobid.org/resource/HT000000841> <http://purl.org/dc/terms/issued> "1978" .
+<http://lobid.org/resource/HT000000841> <http://iflastandards.info/ns/isbd/elements/P1053> "VI,239 S." .
+<http://lobid.org/resource/HT000000841> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000841/about> .
+<http://lobid.org/resource/HT000000841> <http://purl.org/dc/terms/title> "MONETARY POLICY REACTION FUNCTIONS USING A RANDOM COEFFICIENT REGRESSION MODEL : MONETARY POLICY REACTION FUNCTIONS USING A RANDOM COEFFICIENT REGRESSION MODEL / RICHARD K. ABRAMS" .
+<http://lobid.org/resource/HT000000850> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000850%3AMHYD1006> .
+<http://lobid.org/resource/HT000000850> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000850%3A05ZZA477800> .
+<http://lobid.org/resource/HT000000850> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000850> .
+<http://lobid.org/resource/HT000000850> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
+<http://lobid.org/resource/HT000000850> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000850> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000850> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000850> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/131988719> .
+<http://lobid.org/resource/HT000000850> <http://iflastandards.info/ns/isbd/elements/P1004> "Generational change in American politics" .
+<http://lobid.org/resource/HT000000850> <http://purl.org/dc/terms/publisher> _:HT000000850BNode0 .
+_:HT000000850BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000850BNode1 .
+_:HT000000850BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000850BNode1 <http://www.geonames.org/ontology#name> "Lexington, MA. u.a." .
+_:HT000000850BNode0 <http://xmlns.com/foaf/0.1/name> "Lexington Books" .
+_:HT000000850BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000850> <http://iflastandards.info/ns/isbd/elements/P1016> "Lexington, MA. u.a." .
+<http://lobid.org/resource/HT000000850> <http://iflastandards.info/ns/isbd/elements/P1017> "Lexington Books" .
+<http://lobid.org/resource/HT000000850> <http://purl.org/dc/terms/issued> "1975" .
+<http://lobid.org/resource/HT000000850> <http://iflastandards.info/ns/isbd/elements/P1053> "XVI, 140 S." .
+<http://lobid.org/resource/HT000000850> <http://purl.org/ontology/bibo/isbn13> "9780669977417" .
+<http://lobid.org/resource/HT000000850> <http://purl.org/ontology/bibo/isbn10> "0669977411" .
+<http://lobid.org/resource/HT000000850> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000850/about> .
+<http://lobid.org/resource/HT000000850> <http://purl.org/dc/terms/title> "Generational change in American politics" .
+<http://lobid.org/resource/HT000000862> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000862> .
+<http://lobid.org/resource/HT000000862> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000862> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000862/about> .
+<http://lobid.org/resource/HT000000866> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000866> .
+<http://lobid.org/resource/HT000000866> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000866> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000866/about> .
+<http://lobid.org/resource/HT000000875> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000875%3A03QBT1615> .
+<http://lobid.org/resource/HT000000875> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000875> .
+<http://lobid.org/resource/HT000000875> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000875> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000875> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000875> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/118500260> .
+<http://lobid.org/resource/HT000000875> <http://iflastandards.info/ns/isbd/elements/P1004> "KONJUNKTURGERECHTE INVESTITIONSPOLITIK ALS UNTERNEHMERISCHE AUFGABE" .
+<http://lobid.org/resource/HT000000875> <http://iflastandards.info/ns/isbd/elements/P1006> "KONJUNKTURGERECHTE INVESTITIONSPOLITIK ALS UNTERNEHMERISCHE AUFGABE. VORTRAG VON HERMANN J. ABS ANLAESSLICH DER ZWEITEN BETRIEBSWIRTSCHAFTL. TAGUNG DES VDMA AM 7. UND 8. JUNI 1967 IN WIESBADEN. HRSG. VOM VEREIN DT. MASCHINENBAU-ANSTALTEN, ABT. BETRIEBSWIRTSCHAFT" .
+<http://lobid.org/resource/HT000000875> <http://purl.org/dc/terms/publisher> _:HT000000875BNode0 .
+_:HT000000875BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000875BNode1 .
+_:HT000000875BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000875BNode1 <http://www.geonames.org/ontology#name> "FRANKFURT/M." .
+_:HT000000875BNode0 <http://xmlns.com/foaf/0.1/name> "MASCHINENBAU-VERL." .
+_:HT000000875BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000875> <http://iflastandards.info/ns/isbd/elements/P1016> "FRANKFURT/M." .
+<http://lobid.org/resource/HT000000875> <http://iflastandards.info/ns/isbd/elements/P1017> "MASCHINENBAU-VERL." .
+<http://lobid.org/resource/HT000000875> <http://purl.org/dc/terms/issued> "1967" .
+<http://lobid.org/resource/HT000000875> <http://iflastandards.info/ns/isbd/elements/P1053> "21 S." .
+<http://lobid.org/resource/HT000000875> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000875/about> .
+<http://lobid.org/resource/HT000000875> <http://purl.org/dc/terms/title> "KONJUNKTURGERECHTE INVESTITIONSPOLITIK ALS UNTERNEHMERISCHE AUFGABE : KONJUNKTURGERECHTE INVESTITIONSPOLITIK ALS UNTERNEHMERISCHE AUFGABE. VORTRAG VON HERMANN J. ABS ANLAESSLICH DER ZWEITEN BETRIEBSWIRTSCHAFTL. TAGUNG DES VDMA AM 7. UND 8. JUNI 1967 IN WIESBADEN. HRSG. VOM VEREIN DT. MASCHINENBAU-ANSTALTEN, ABT. BETRIEBSWIRTSCHAFT" .
+<http://lobid.org/resource/HT000000887> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000887%3AIXB3530> .
+<http://lobid.org/resource/HT000000887> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000887> .
+<http://lobid.org/resource/HT000000887> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT000000887> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT000000887> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT000000887> <http://purl.org/dc/elements/1.1/contributor> <http://d-nb.info/gnd/116657642> .
+<http://lobid.org/resource/HT000000887> <http://iflastandards.info/ns/isbd/elements/P1004> "ABSCHIED VON CARL ZUCKMAYER" .
+<http://lobid.org/resource/HT000000887> <http://iflastandards.info/ns/isbd/elements/P1006> "ABSCHIED VON CARL ZUCKMAYER : EHRUNG, DANK U. FREUNDSCHAFT ; E. DOKUMENTATION / HRSG. VON D. LANDESHAUPTSTADT MAINZ U. D. LANDESREGIERUNG RHEINLAND-PFALZ.(RED.: BARBARA GLAUERT ; BERTHOLD ROLAND)" .
+<http://lobid.org/resource/HT000000887> <http://purl.org/dc/terms/publisher> _:HT000000887BNode0 .
+_:HT000000887BNode0 <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:HT000000887BNode1 .
+_:HT000000887BNode1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:HT000000887BNode1 <http://www.geonames.org/ontology#name> "MAINZ" .
+_:HT000000887BNode0 <http://xmlns.com/foaf/0.1/name> "KRACH" .
+_:HT000000887BNode0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organisation> .
+<http://lobid.org/resource/HT000000887> <http://iflastandards.info/ns/isbd/elements/P1016> "MAINZ" .
+<http://lobid.org/resource/HT000000887> <http://iflastandards.info/ns/isbd/elements/P1017> "KRACH" .
+<http://lobid.org/resource/HT000000887> <http://purl.org/dc/terms/issued> "1977" .
+<http://lobid.org/resource/HT000000887> <http://iflastandards.info/ns/isbd/elements/P1053> "125 S. : ILL." .
+<http://lobid.org/resource/HT000000887> <http://purl.org/ontology/bibo/isbn13> "9783874390453" .
+<http://lobid.org/resource/HT000000887> <http://purl.org/ontology/bibo/isbn10> "3874390454" .
+<http://lobid.org/resource/HT000000887> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/(DE-588)118637304> .
+<http://lobid.org/resource/HT000000887> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000000887/about> .
+<http://lobid.org/resource/HT000000887> <http://purl.org/dc/terms/title> "ABSCHIED VON CARL ZUCKMAYER : ABSCHIED VON CARL ZUCKMAYER : EHRUNG, DANK U. FREUNDSCHAFT ; E. DOKUMENTATION / HRSG. VON D. LANDESHAUPTSTADT MAINZ U. D. LANDESREGIERUNG RHEINLAND-PFALZ.(RED.: BARBARA GLAUERT ; BERTHOLD ROLAND)" .
+<http://lobid.org/resource/HT000000898> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000898%3A3L1639> .
+<http://lobid.org/resource/HT000000898> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000000898%3A3L1639%23a> .
