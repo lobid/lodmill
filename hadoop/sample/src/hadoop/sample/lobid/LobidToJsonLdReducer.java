@@ -2,10 +2,13 @@ package hadoop.sample.lobid;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
+import org.json.simple.JSONValue;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -30,7 +33,20 @@ public class LobidToJsonLdReducer extends Reducer<Text, Text, Text, Text> {
 		// And convert the model to JSON-LD:
 		final JenaJSONLDSerializer serializer = new JenaJSONLDSerializer();
 		serializer.importModel(model);
-		final Object output = serializer.asObject();
-		context.write(key, new Text(JSONUtils.toString(output)));
+		final String resource = JSONUtils.toString(serializer.asObject());
+		context.write(
+				// write key and value with JSONValue for consistent escaping:
+				new Text(JSONValue.toJSONString(createIndexMap(key))),
+				new Text(JSONValue.toJSONString(JSONValue.parse(resource))));
+	}
+
+	private Map<String, Map<?, ?>> createIndexMap(final Text key) {
+		final Map<String, String> map = new HashMap<String, String>();
+		map.put("_index", "lobid-json-ld");
+		map.put("_type", "lobid-resource");
+		map.put("_id", key.toString().substring(1, key.getLength() - 1));
+		final Map<String, Map<?, ?>> index = new HashMap<String, Map<?, ?>>();
+		index.put("index", map);
+		return index;
 	}
 }

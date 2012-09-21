@@ -26,6 +26,7 @@ public class LobidToJsonLd implements Tool {
 			System.exit(-1);
 		}
 		final Configuration conf = getConf();
+		conf.setStrings("mapred.textoutputformat.separator", "\n");
 		final Job job = new Job(conf);
 		job.setJarByClass(LobidToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
