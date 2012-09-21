@@ -11,6 +11,8 @@ import org.apache.hadoop.util.ToolRunner;
 
 public class LobidToJsonLd implements Tool {
 
+	private static final int NODES = 4; // e.g. 4 nodes in cluster
+	private static final int SLOTS = 2; // e.g. 2 cores per node
 	private Configuration conf;
 
 	public static void main(final String[] args) throws Exception {
@@ -27,7 +29,9 @@ public class LobidToJsonLd implements Tool {
 		}
 		final Configuration conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", "\n");
+		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
 		final Job job = new Job(conf);
+		job.setNumReduceTasks(NODES * SLOTS);
 		job.setJarByClass(LobidToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
 		FileInputFormat.addInputPath(job, new Path(args[0]));
