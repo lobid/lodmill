@@ -3,6 +3,7 @@ package org.culturegraph.cluster.job.convert;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
@@ -13,9 +14,13 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.culturegraph.cluster.util.AbstractJobLauncher;
 import org.culturegraph.cluster.util.ConfigConst;
+import org.culturegraph.semanticweb.data.FourStore;
+import org.culturegraph.semanticweb.data.Gutenberg;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.json.simple.JSONValue;
 
+import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -79,6 +84,14 @@ public class NTriplesToJsonLd extends AbstractJobLauncher {
 	 */
 	static final class NTriplesToJsonLdReducer extends
 			Reducer<Text, Text, Text, Text> {
+
+		private static final FourStore STORE = new FourStore(
+				"http://gaia.hbz-nrw.de:8000");
+		public static final String CREATOR =
+				"http://purl.org/dc/elements/1.1/creator";
+		private final Map<String, List<String>> creatorLiterals =
+				new HashMap<String, List<String>>();
+
 		@Override
 		public void reduce(final Text key, final Iterable<Text> values,
 				final Context context) throws IOException, InterruptedException {
@@ -93,12 +106,47 @@ public class NTriplesToJsonLd extends AbstractJobLauncher {
 					Format.N_TRIPLE.getName());
 			// And convert the model to JSON-LD:
 			final JenaJSONLDSerializer serializer = new JenaJSONLDSerializer();
-			serializer.importModel(model);
+			serializer.importModel(resolved(key.toString(), model));
 			final String resource = JSONUtils.toString(serializer.asObject());
 			context.write(
 					// write both with JSONValue for consistent escaping:
 					new Text(JSONValue.toJSONString(createIndexMap(key))),
 					new Text(JSONValue.toJSONString(JSONValue.parse(resource))));
+		}
+
+		private Model resolved(final String key, final Model model) {
+			for (Triple triple : creators(key, model)) {
+				if (triple.getObject().isURI()) {
+					final String creatorId = triple.getObject().toString();
+					/* Cache result so we hit the store only once per author: */
+					if (!creatorLiterals.containsKey(creatorId)) {
+						creatorLiterals.put(creatorId,
+								Gutenberg.getKeys(creatorId, STORE));
+					}
+					final List<String> keys = creatorLiterals.get(creatorId);
+					if (keys.isEmpty()) {
+						System.err.println("No key for: " + triple);
+					} else {
+						final Triple literalCreatorTriple =
+								Triple.create(triple.getSubject(),
+										triple.getPredicate(),
+										/* We use the first preferred name: */
+										Node.createLiteral(keys.get(0)));
+						model.getGraph().add(literalCreatorTriple);
+					}
+				}
+			}
+			return model;
+		}
+
+		private List<Triple> creators(final String key, final Model model) {
+			final String resourceId = key.substring(1, key.length() - 1);
+			final List<Triple> creators =
+					model.getGraph()
+							.find(Triple.createMatch(
+									Node.createURI(resourceId),
+									Node.createURI(CREATOR), null)).toList();
+			return creators;
 		}
 
 		private Map<String, Map<?, ?>> createIndexMap(final Text key) {

@@ -21,11 +21,12 @@ import org.junit.Test;
  */
 public final class NTriplesToJsonLdTest {
 
-	private static final String TRIPLE = "<http://lobid.org/resource/HT000000698> "
-			+ "<http://xmlns.com/foaf/0.1/isPrimaryTopicOf> "
-			+ "<http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000698> .";
-	private static final String TRIPLE_URI = "<http://lobid.org/resource/HT000000698>";
-	private static final String TRIPLE_ID = "http://lobid.org/resource/HT000000698";
+	private static final String TRIPLE_ID =
+			"http://lobid.org/resource/HT000000716";
+	private static final String TRIPLE_URI = "<" + TRIPLE_ID + ">";
+	private static final String TRIPLE = TRIPLE_URI
+			+ "<http://purl.org/dc/elements/1.1/creator>"
+			+ "<http://d-nb.info/gnd/118643606>.";
 	private MapDriver<LongWritable, Text, Text, Text> mapDriver;
 	private ReduceDriver<Text, Text, Text, Text> reduceDriver;
 
@@ -63,19 +64,23 @@ public final class NTriplesToJsonLdTest {
 		return index;
 	}
 
+	@SuppressWarnings("serial")
+	/* using static init for better readability of nested result structure */
 	private Map<String, ?> jsonMap() {
-		final Map<String, String> contextMap = new HashMap<String, String>();
-		contextMap.put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-		contextMap.put("xsd", "http://www.w3.org/2001/XMLSchema#");
-		contextMap.put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-		final Map<String, String> topicMap = new HashMap<String, String>();
-		final String idKey = "@id";
-		topicMap.put(idKey,
-				"http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000000698");
-		final Map<String, Object> json = new HashMap<String, Object>();
-		json.put("@context", contextMap);
-		json.put("http://xmlns.com/foaf/0.1/isPrimaryTopicOf", topicMap);
-		json.put(idKey, TRIPLE_ID);
+		final String idKey = "@id";// @formatter:off
+		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
+			put("@context", new HashMap<String, String>() {{//NOPMD
+					put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+					put("xsd", "http://www.w3.org/2001/XMLSchema#");
+					put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+			}});
+			put(idKey, TRIPLE_ID);
+			put("http://purl.org/dc/elements/1.1/creator", Arrays.asList(
+					"About, Edmond, 1828-1885", // resolved literal
+					new HashMap<String, String>() {{//NOPMD
+							put(idKey, "http://d-nb.info/gnd/118643606");
+					}}));
+		}};// @formatter:on
 		return json;
 	}
 }
