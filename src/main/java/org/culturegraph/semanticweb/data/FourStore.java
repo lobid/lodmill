@@ -5,6 +5,7 @@ package org.culturegraph.semanticweb.data;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.http.HttpResponse;
@@ -50,6 +51,9 @@ public final class FourStore {
 		final QueryExecution qexec = createQueryExecution(query);
 		try {
 			return qexec.execConstruct().getGraph();
+		} catch (Exception x) {
+			LOG.error("Exception for query: " + query, x);
+			return Graph.emptyGraph;
 		} finally {
 			qexec.close();
 		}
@@ -57,12 +61,15 @@ public final class FourStore {
 
 	/**
 	 * @param query The SELECT query
-	 * @return The quey solutions
+	 * @return The query solutions
 	 */
 	public List<QuerySolution> sparqlSelect(final String query) {
 		final QueryExecution qexec = createQueryExecution(query);
 		try {
 			return ResultSetFormatter.toList(qexec.execSelect());
+		} catch (Exception x) {
+			LOG.error("Exception for query: " + query, x);
+			return Collections.emptyList();
 		} finally {
 			qexec.close();
 		}

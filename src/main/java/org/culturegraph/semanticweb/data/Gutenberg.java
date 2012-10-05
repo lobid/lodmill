@@ -108,7 +108,8 @@ public final class Gutenberg {
 				: writeMap(serializedMap);
 	}
 
-	private List<String> getKeys(final String gndPersonId, final FourStore store) {
+	public static List<String> getKeys(final String gndPersonId,
+			final FourStore store) {
 		final Graph graph = store.sparqlConstruct(String.format(
 				"CONSTRUCT { <%s> ?p ?o } WHERE { <%s> ?p ?o ."
 						+ "FILTER ( ?p=<%s> || ?p=<%s> || ?p=<%s> ) }",
@@ -124,7 +125,7 @@ public final class Gutenberg {
 		return result;
 	}
 
-	private String lifeDates(final Graph graph) {
+	private static String lifeDates(final Graph graph) {
 		final List<Triple> birth = triplesWithPredicate(BIRTH, graph);
 		final List<Triple> death = triplesWithPredicate(DEATH, graph);
 		final String birthString = birth.isEmpty() ? "" : String.format(
@@ -148,7 +149,7 @@ public final class Gutenberg {
 		return graph;
 	}
 
-	private List<Triple> triplesWithPredicate(final String predicate,
+	private static List<Triple> triplesWithPredicate(final String predicate,
 			final Graph graph) {
 		return graph.find(
 				Triple.createMatch(null, Node.createURI(predicate), null))
