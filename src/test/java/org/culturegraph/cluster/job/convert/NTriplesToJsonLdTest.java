@@ -1,5 +1,6 @@
 package org.culturegraph.cluster.job.convert;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,9 +25,12 @@ public final class NTriplesToJsonLdTest {
 	private static final String TRIPLE_ID =
 			"http://lobid.org/resource/HT000000716";
 	private static final String TRIPLE_URI = "<" + TRIPLE_ID + ">";
-	private static final String TRIPLE = TRIPLE_URI
+	private static final String TRIPLE_1 = TRIPLE_URI
 			+ "<http://purl.org/dc/elements/1.1/creator>"
 			+ "<http://d-nb.info/gnd/118643606>.";
+	private static final String TRIPLE_2 = TRIPLE_URI
+			+ "<http://purl.org/dc/elements/1.1/creator>"
+			+ "\"Adamucci, Antonio\".";
 	private MapDriver<LongWritable, Text, Text, Text> mapDriver;
 	private ReduceDriver<Text, Text, Text, Text> reduceDriver;
 
@@ -39,16 +43,20 @@ public final class NTriplesToJsonLdTest {
 	}
 
 	@Test
-	public void testMapper() { // NOPMD (MRUnit, no explicit assertion)
-		mapDriver.withInput(new LongWritable(), new Text(TRIPLE));
-		mapDriver.withOutput(new Text(TRIPLE_URI), new Text(TRIPLE));
+	public void testMapper() throws IOException { // NOPMD (MRUnit, no explicit
+													// assertion)
+		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_1));
+		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_2));
+		mapDriver.withOutput(new Text(TRIPLE_URI), new Text(TRIPLE_1))
+				.withOutput(new Text(TRIPLE_URI), new Text(TRIPLE_2));
 		mapDriver.runTest();
 	}
 
 	@Test
-	public void testReducer() { // NOPMD (MRUnit, no explicit assertion)
+	public void testReducer() throws IOException { // NOPMD (MRUnit, no explicit
+													// assertion)
 		reduceDriver.withInput(new Text(TRIPLE_URI),
-				Arrays.asList(new Text(TRIPLE), new Text(TRIPLE)));
+				Arrays.asList(new Text(TRIPLE_1), new Text(TRIPLE_2)));
 		reduceDriver.withOutput(new Text(JSONValue.toJSONString(indexMap())),
 				new Text(JSONValue.toJSONString(jsonMap())));
 		reduceDriver.runTest();
@@ -76,7 +84,7 @@ public final class NTriplesToJsonLdTest {
 			}});
 			put(idKey, TRIPLE_ID);
 			put("http://purl.org/dc/elements/1.1/creator", Arrays.asList(
-					"About, Edmond, 1828-1885", // resolved literal
+					"Adamucci, Antonio", // resolved literal
 					new HashMap<String, String>() {{//NOPMD
 							put(idKey, "http://d-nb.info/gnd/118643606");
 					}}));
