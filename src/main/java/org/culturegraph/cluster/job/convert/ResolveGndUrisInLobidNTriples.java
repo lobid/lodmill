@@ -34,6 +34,7 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 	private static final int NODES = 4; // e.g. 4 nodes in cluster
 	private static final int SLOTS = 2; // e.g. 2 cores per node
 	private static final String NEWLINE = "\n";
+	private static final String LOBID_RESOURCE = "http://lobid.org/resource/";
 
 	public static void main(final String[] args) {
 		launch(new ResolveGndUrisInLobidNTriples(), args);
@@ -73,7 +74,7 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 			final String val = value.toString();
 			// we take non-blank nodes and map them to their triples:
 			if (val.startsWith("<http") && val.contains(PREFERRED)
-					|| val.contains(CREATOR)) {
+					|| val.substring(1).startsWith(LOBID_RESOURCE)) {
 				context.write(new Text(
 				/*
 				 * We always group under the GND ID key: for creator triples,
@@ -121,8 +122,7 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 		private void writeResolvedLobidTriples(final Context context,
 				final Model model) throws IOException, InterruptedException {
 			for (Triple triple : model.getGraph().find(Triple.ANY).toList()) {
-				if (triple.getSubject().toString()
-						.startsWith("http://lobid.org/resource/")) {
+				if (triple.getSubject().toString().startsWith(LOBID_RESOURCE)) {
 					final String objString = triple.getObject().toString();
 					final String objResult =
 							triple.getObject().isURI() ? wrapped(objString)
