@@ -73,8 +73,9 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString();
 			// we take non-blank nodes and map them to their triples:
-			if (val.startsWith("<http") && val.contains(PREFERRED)
-					|| val.substring(1).startsWith(LOBID_RESOURCE)) {
+			if (val.startsWith("<http")
+					&& (val.contains(PREFERRED) || val.substring(1).startsWith(
+							LOBID_RESOURCE))) {
 				context.write(new Text(
 				/*
 				 * We always group under the GND ID key: for creator triples,
@@ -164,7 +165,7 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 				final Triple resolved =
 						Triple.create(
 								Node.createURI(object.firstElement().toString()),
-								Node.createURI("http://purl.org/dc/elements/1.1/creator"),
+								Node.createURI("http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson"),
 								Node.createLiteral(object.lastElement()
 										.toString()));
 				model.getGraph().add(resolved);

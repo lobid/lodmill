@@ -57,7 +57,7 @@ public final class ResolveGndUrisInLobidNTriplesTest {
 				Arrays.asList(new Text(TRIPLE_1), new Text(TRIPLE_2)));
 		reduceDriver.addOutput(new Text(
 				"<http://lobid.org/resource/HT000000716>"), new Text(
-				"<http://purl.org/dc/elements/1.1/creator>"
+				"<http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson>"
 						+ "\"Adamucci, Antonio\"."));
 		reduceDriver.addOutput(new Text(
 				"<http://lobid.org/resource/HT000000716>"), new Text(
