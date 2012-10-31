@@ -31,6 +31,10 @@ public final class NTriplesToJsonLdTest {
 	private static final String TRIPLE_2 = TRIPLE_URI
 			+ "<http://purl.org/dc/elements/1.1/creator>"
 			+ "\"Adamucci, Antonio\".";
+	private static final String TRIPLE_3 = TRIPLE_URI
+			+ " <http://purl.org/dc/terms/subject>"
+			/* Some N-Triples contain (malformed) URIs as literals: */
+			+ " \" https://dewey.info/class/[892.1, 22]/\".";
 	private MapDriver<LongWritable, Text, Text, Text> mapDriver;
 	private ReduceDriver<Text, Text, Text, Text> reduceDriver;
 
@@ -47,16 +51,18 @@ public final class NTriplesToJsonLdTest {
 													// assertion)
 		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_1));
 		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_2));
+		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_3));
 		mapDriver.withOutput(new Text(TRIPLE_URI), new Text(TRIPLE_1))
-				.withOutput(new Text(TRIPLE_URI), new Text(TRIPLE_2));
+				.withOutput(new Text(TRIPLE_URI), new Text(TRIPLE_2))
+				.withOutput(new Text(TRIPLE_URI), new Text(TRIPLE_3));
 		mapDriver.runTest();
 	}
 
 	@Test
 	public void testReducer() throws IOException { // NOPMD (MRUnit, no explicit
 													// assertion)
-		reduceDriver.withInput(new Text(TRIPLE_URI),
-				Arrays.asList(new Text(TRIPLE_1), new Text(TRIPLE_2)));
+		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
+				TRIPLE_1), new Text(TRIPLE_2), new Text(TRIPLE_3)));
 		reduceDriver.withOutput(new Text(JSONValue.toJSONString(indexMap())),
 				new Text(JSONValue.toJSONString(jsonMap())));
 		reduceDriver.runTest();
@@ -88,6 +94,10 @@ public final class NTriplesToJsonLdTest {
 					new HashMap<String, String>() {{//NOPMD
 							put(idKey, "http://d-nb.info/gnd/118643606");
 					}}));
+			put("http://purl.org/dc/terms/subject",
+					new HashMap<String, String>() {{//NOPMD
+							put(idKey, "https://dewey.info/class/[892.1, 22]/");
+					}});
 		}};// @formatter:on
 		return json;
 	}

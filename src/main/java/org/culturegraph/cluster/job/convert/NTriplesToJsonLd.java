@@ -88,7 +88,11 @@ public class NTriplesToJsonLd extends AbstractJobLauncher {
 			final Model model = ModelFactory.createDefaultModel();
 			for (Text value : values) {
 				try {
-					model.read(new StringReader(value.toString()), null,
+					/* Convert literal URIs in N-Triple to real URIs: */
+					final String triple =
+							value.toString().replaceAll(
+									"\"\\s*?(http[s]?://[^\"]+)s*?\"", "<$1>");
+					model.read(new StringReader(triple), null,
 							Format.N_TRIPLE.getName());
 				} catch (Exception e) {
 					System.err.println(String.format("Could not read '%s': %s",

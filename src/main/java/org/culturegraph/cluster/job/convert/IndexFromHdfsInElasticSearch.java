@@ -2,11 +2,13 @@ package org.culturegraph.cluster.job.convert;
 
 import java.io.IOException;
 import java.net.URI;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -36,6 +38,7 @@ import org.slf4j.LoggerFactory;
  */
 public class IndexFromHdfsInElasticSearch {
 
+	private static final int BULK_SIZE = 1000;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(IndexFromHdfsInElasticSearch.class);
 	private final FileSystem hdfs;
@@ -89,46 +92,99 @@ public class IndexFromHdfsInElasticSearch {
 		checkPathInHdfs(data);
 		final FSDataInputStream inputStream = hdfs.open(new Path(data));
 		final Scanner scanner = new Scanner(inputStream, "UTF-8");
-		final BulkRequestBuilder bulkRequest = createBulkRequest(scanner);
+		final List<BulkRequestBuilder> bulkRequests =
+				createBulkRequests(scanner);
 		scanner.close();
-		final BulkResponse bulkResponse = executeBulkRequest(bulkRequest);
-		if (bulkResponse == null) {
-			LOG.error("Bulk request failed for " + data);
-			return Collections.emptyList();
-		} else {
-			if (bulkResponse.hasFailures()) {
-				LOG.error("Bulk request errors for " + data);
-				LOG.error(bulkResponse.buildFailureMessage());
+		final List<BulkItemResponse> result = new ArrayList<BulkItemResponse>();
+		for (BulkRequestBuilder bulkRequest : bulkRequests) {
+			final BulkResponse bulkResponse = executeBulkRequest(bulkRequest);
+			if (bulkResponse == null) {
+				LOG.error("Bulk request failed for " + data);
+				return Collections.emptyList();
+			} else {
+				collectSuccessfulResponses(result, bulkResponse);
 			}
-			return Arrays.asList(bulkResponse.items());
+		}
+		return result;
+	}
+
+	private void collectSuccessfulResponses(
+			final List<BulkItemResponse> result, final BulkResponse bulkResponse) {
+		for (BulkItemResponse bulkItemResponse : bulkResponse) {
+			if (bulkItemResponse.failed()) {
+				LOG.error(bulkItemResponse.failureMessage());
+			} else {
+				result.add(bulkItemResponse);
+			}
 		}
 	}
 
-	private BulkRequestBuilder createBulkRequest(final Scanner scanner) {
+	private List<BulkRequestBuilder> createBulkRequests(final Scanner scanner) {
 		int lineNumber = 0;
-		String index = null;
-		String type = null;
-		String id = null; // NOPMD (called 'id' as in ES API)
-		final BulkRequestBuilder bulkRequest = client.prepareBulk();
+		String meta = null;
+		final List<BulkRequestBuilder> bulks =
+				new ArrayList<BulkRequestBuilder>();
+		BulkRequestBuilder bulkRequest = client.prepareBulk();
 		while (scanner.hasNextLine()) {
 			final String line = scanner.nextLine();
 			if (lineNumber % 2 == 0) { // every first line is index info
-				final JSONObject object =
-						(JSONObject) ((JSONObject) JSONValue.parse(line))
-								.get("index");
-				index = (String) object.get("_index");
-				type = (String) object.get("_type");
-				id = (String) object.get("_id");
+				meta = line;
 			} else { // every second line is value object
+				@SuppressWarnings("unchecked")
+				Map<String, Object> map =
+						(Map<String, Object>) JSONValue.parse(line);
+				/* We preprocess the JSON data for ES (unified schema): */
+				map = preprocess(map, new HashMap<String, Object>());
 				final IndexRequestBuilder requestBuilder =
-						client.prepareIndex(index, type, id).setSource(
-								line.getBytes(Charset.forName("UTF-8")));
+						createRequestBuilder(meta, map);
 				bulkRequest.add(requestBuilder);
 				LOG.debug("Bulk index request:" + requestBuilder);
 			}
 			lineNumber++;
+			/* Split into multiple bulks to ease server load: */
+			if (lineNumber % BULK_SIZE == 0) {
+				bulks.add(bulkRequest);
+				bulkRequest = client.prepareBulk();
+			}
 		}
-		return bulkRequest;
+		/* Add the final bulk, if there is anything to do: */
+		if (bulkRequest.numberOfActions() > 0) {
+			bulks.add(bulkRequest);
+		}
+		return bulks;
+	}
+
+	private IndexRequestBuilder createRequestBuilder(final String meta,
+			final Map<String, Object> map) {
+		final JSONObject object =
+				(JSONObject) ((JSONObject) JSONValue.parse(meta)).get("index");
+		final String index = (String) object.get("_index");
+		final String type = (String) object.get("_type");
+		final String id = (String) object.get("_id"); // NOPMD
+		return client.prepareIndex(index, type, id).setSource(map);
+	}
+
+	private Map<String, Object> preprocess(final Map<String, Object> input,
+			final Map<String, Object> output) {
+		for (String key : input.keySet()) {
+			final Object val = input.get(key);
+			if (val instanceof Map) {
+				@SuppressWarnings("unchecked")
+				final Map<String, Object> fix =
+						preprocess((Map<String, Object>) val,
+								new HashMap<String, Object>());
+				output.put(key, fix);
+			} else if (val instanceof Collection) {
+				output.put(key, val);
+			} else {
+				/*
+				 * Wrap elemental values in a list to get a consistent format,
+				 * independent of the number of values for the key (always list)
+				 */
+				output.put(key, Arrays.asList(val));
+			}
+		}
+		return output;
 	}
 
 	private BulkResponse executeBulkRequest(final BulkRequestBuilder bulk) {
