@@ -4,6 +4,11 @@ package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.util.Arrays;
+import java.util.Properties;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.Vector;
 
 import org.apache.hadoop.conf.Configuration;
@@ -16,6 +21,8 @@ import org.culturegraph.cluster.util.AbstractJobLauncher;
 import org.culturegraph.cluster.util.ConfigConst;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Sets;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -33,6 +40,10 @@ import fr.inria.jfresnel.fsl.jena.FSLJenaEvaluator;
  */
 public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 
+	private static final Properties PROPERTIES = load();
+	public static final Set<String> PREDICATES = props("predicates");
+	public static final Set<String> FSL_PATHS = props("fsl-paths");
+
 	private static final int NODES = 4; // e.g. 4 nodes in cluster
 	private static final int SLOTS = 2; // e.g. 2 cores per node
 	private static final String NEWLINE = "\n";
@@ -40,6 +51,22 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 
 	public static void main(final String[] args) {
 		launch(new ResolveGndUrisInLobidNTriples(), args);
+	}
+
+	private static Properties load() {
+		Properties p = new Properties();
+		try {
+			p.load(Thread.currentThread().getContextClassLoader()
+					.getResourceAsStream("resolve.properties"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return p;
+	}
+
+	private static SortedSet<String> props(String key) {
+		return new TreeSet<String>(Arrays.asList(PROPERTIES.getProperty(key)
+				.split(";")));
 	}
 
 	@Override
@@ -65,8 +92,7 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 	 */
 	static final class ResolveTriplesMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
-		private static final String PREFERRED =
-				"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson";
+
 		private static final String CREATOR =
 				"http://purl.org/dc/elements/1.1/creator";
 
@@ -76,7 +102,7 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 			final String val = value.toString();
 			// we take non-blank nodes and map them to their triples:
 			if (val.startsWith("<http")
-					&& (val.contains(PREFERRED) || val.substring(1).startsWith(
+					&& (neededForResolving(val) || val.substring(1).startsWith(
 							LOBID_RESOURCE))) {
 				context.write(new Text(
 				/*
@@ -85,6 +111,14 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 				 */
 				val.contains(CREATOR) ? objUri(val) : subjUri(val)), value);
 			}
+		}
+
+		private boolean neededForResolving(final String val) {
+			return Sets.filter(PREDICATES, new Predicate<String>() {
+				public boolean apply(String string) {
+					return val.contains(string);
+				}
+			}).size() > 0;
 		}
 
 		private String subjUri(final String val) {
@@ -151,23 +185,29 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 			final FSLHierarchyStore fhs = new FSLHierarchyStore();
 			final FSLJenaEvaluator fje = new FSLJenaEvaluator(nsr, fhs);
 			fje.setModel(model);
-			final String fslPath =
-					"*/dc:creator/*/gnd:preferredNameForThePerson/text()";
-			final FSLPath path =
-					FSLPath.pathFactory(fslPath, nsr, FSLPath.NODE_STEP);
-			return addResolvedTriples(model, fje, path);
+			for (String fslPath : FSL_PATHS) {
+				final FSLPath path =
+						FSLPath.pathFactory(fslPath, nsr, FSLPath.NODE_STEP);
+				String newPredicate =
+						"http://purl.org/dc/elements/1.1/creator#"
+								+ fslPath.substring(
+										fslPath.indexOf("gnd:") + 4,
+										fslPath.lastIndexOf('/'));
+				addResolvedTriples(model, fje, path, newPredicate);
+			}
+			return model;
 		}
 
 		private Model addResolvedTriples(final Model model,
-				final FSLJenaEvaluator fje, final FSLPath path) {
+				final FSLJenaEvaluator fje, final FSLPath path,
+				final String newPredicate) {
 			@SuppressWarnings("unchecked")
 			/* API returns raw Vectors (same reason for NOPMDs below) */
 			final Vector<Vector<Object>> pathInstances = fje.evaluatePath(path); // NOPMD
 			for (Vector<Object> object : pathInstances) { // NOPMD
 				final Triple resolved =
-						Triple.create(
-								Node.createURI(object.firstElement().toString()),
-								Node.createURI("http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson"),
+						Triple.create(Node.createURI(object.firstElement()
+								.toString()), Node.createURI(newPredicate),
 								Node.createLiteral(object.lastElement()
 										.toString()));
 				model.getGraph().add(resolved);
