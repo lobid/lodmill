@@ -1,4 +1,6 @@
-package org.culturegraph.cluster.job.convert;
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+
+package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
 import java.net.URI;
@@ -23,7 +25,7 @@ import org.junit.Test;
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public class IndexFromHdfsInElasticSearchTest {
+public class IndexFromHdfsInElasticSearchTests {
 	private static final InetSocketTransportAddress ES_SERVER =
 			new InetSocketTransportAddress("10.1.1.101", 9300); // NOPMD
 	private static final String ES_CLUSTER_NAME = "es-lod-local";

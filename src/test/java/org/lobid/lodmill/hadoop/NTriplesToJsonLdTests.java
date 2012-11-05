@@ -1,4 +1,6 @@
-package org.culturegraph.cluster.job.convert;
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+
+package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -9,18 +11,18 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
-import org.culturegraph.cluster.job.convert.NTriplesToJsonLd.NTriplesToJsonLdMapper;
-import org.culturegraph.cluster.job.convert.NTriplesToJsonLd.NTriplesToJsonLdReducer;
 import org.json.simple.JSONValue;
 import org.junit.Before;
 import org.junit.Test;
+import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdMapper;
+import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
 
 /**
  * Test the {@link NTriplesToJsonLd} class.
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public final class NTriplesToJsonLdTest {
+public final class NTriplesToJsonLdTests {
 
 	private static final String TRIPLE_ID =
 			"http://lobid.org/resource/HT000000716";

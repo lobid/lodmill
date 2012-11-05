@@ -1,14 +1,16 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Apache License Version 2.0 */
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.culturegraph.semanticweb;
+package org.lobid.lodmill.sparql;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
@@ -36,21 +38,22 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 public final class LobidTests {
 
 	private static final String LOBID_NT = "lobid-resource_base_small.nt";
-	private static final String LOBID_XML = "out/" + LOBID_NT + ".xml";
 	private static final Logger LOG = LoggerFactory.getLogger(LobidTests.class);
+	private static final StringWriter LOBID_XML = new StringWriter();
 
 	@BeforeClass
 	public static void convert() throws FileNotFoundException {
 		Model model = ModelFactory.createDefaultModel();
-		model = model.read(findUrl(LOBID_NT).toString(),
-				Format.N_TRIPLE.getName());
-		final File file = new File(LOBID_XML);
-		model.write(new FileOutputStream(file), Format.RDF_XML.getName());
-		assertTrue("Output file should exist", file.exists());
+		model =
+				model.read(findUrl(LOBID_NT).toString(),
+						Format.N_TRIPLE.getName());
+		model.write(LOBID_XML, Format.RDF_XML.getName());
+		assertFalse("Output string should contain something", LOBID_XML
+				.toString().trim().isEmpty());
 	}
 
 	@Test
-	public void readAll() throws URISyntaxException {
+	public void readAll() throws URISyntaxException, IOException {
 		final FileOpener opener = new FileOpener();
 		final Graph graph = loadGraph(opener);
 		final Triple any = Triple.createMatch(null, null, null);
@@ -61,13 +64,18 @@ public final class LobidTests {
 		opener.closeStream();
 	}
 
-	private Graph loadGraph(final FileOpener opener) throws URISyntaxException {
+	private Graph loadGraph(final FileOpener opener) throws URISyntaxException,
+			IOException {
 		final JenaModel model = new JenaModel();
 		opener.setReceiver(model)
 				.setReceiver(new JenaModelToStream())
 				.setReceiver(
 						new StreamWriter(new OutputStreamWriter(System.out)));
-		opener.process(new File(LOBID_XML).getAbsolutePath());
+		File temp = File.createTempFile("temp", ".xml");
+		FileWriter writer = new FileWriter(temp);
+		writer.write(LOBID_XML.toString());
+		writer.close();
+		opener.process(temp.getAbsolutePath());
 		return model.getModel().getGraph();
 	}
 

@@ -1,6 +1,6 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Apache License Version 2.0 */
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.culturegraph.semanticweb;
+package org.lobid.lodmill.sparql;
 
 import static org.junit.Assert.assertEquals;
 
@@ -42,8 +42,8 @@ public final class GndTests {
 	public void readSubject() {
 		final HttpOpener httpOpener = new HttpOpener();
 		final Graph graph = loadGraph(httpOpener);
-		final List<Triple> triples = graph.find(Node.createURI(SUBJECT), null,
-				null).toList();
+		final List<Triple> triples =
+				graph.find(Node.createURI(SUBJECT), null, null).toList();
 		final Node subject = triples.get(0).getSubject();
 		for (Triple triple : triples) {
 			assertEquals("Triple should have same subject", subject,

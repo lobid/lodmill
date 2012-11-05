@@ -1,6 +1,6 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Apache License Version 2.0 */
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.culturegraph.semanticweb.data;
+package org.lobid.lodmill.sparql;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,11 +41,16 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  */
 public final class Gutenberg {
 
-	public static final String CREATOR = "http://purl.org/dc/elements/1.1/creator";
-	private static final String DEATH = "http://d-nb.info/standards/elementset/gnd#dateOfDeath";
-	private static final String BIRTH = "http://d-nb.info/standards/elementset/gnd#dateOfBirth";
-	private static final String NAME = "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson";
-	private static final String GUTENBERG = "http://www.gutenberg.org/feeds/catalog.rdf.zip";
+	public static final String CREATOR =
+			"http://purl.org/dc/elements/1.1/creator";
+	private static final String DEATH =
+			"http://d-nb.info/standards/elementset/gnd#dateOfDeath";
+	private static final String BIRTH =
+			"http://d-nb.info/standards/elementset/gnd#dateOfBirth";
+	private static final String NAME =
+			"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson";
+	private static final String GUTENBERG =
+			"http://www.gutenberg.org/feeds/catalog.rdf.zip";
 	private static final Logger LOG = LoggerFactory.getLogger(Gutenberg.class);
 	private static final int PROGRESS_STEPS = 1000;
 	private final Map<String, String> authorMap;
@@ -89,8 +94,9 @@ public final class Gutenberg {
 		for (String key : getKeys(gndId, store)) {
 			final String val = authorMap.get(key);
 			if (val != null) {
-				final Triple newTriple = Triple.create(Node.createURI(val),
-						Node.createURI(CREATOR), Node.createURI(gndId));
+				final Triple newTriple =
+						Triple.create(Node.createURI(val),
+								Node.createURI(CREATOR), Node.createURI(gndId));
 				LOG.info("New triple: " + newTriple);
 				/*
 				 * We write the model after every new triple that was found to
@@ -110,16 +116,18 @@ public final class Gutenberg {
 
 	public static List<String> getKeys(final String gndPersonId,
 			final FourStore store) {
-		final Graph graph = store.sparqlConstruct(String.format(
-				"CONSTRUCT { <%s> ?p ?o } WHERE { <%s> ?p ?o ."
-						+ "FILTER ( ?p=<%s> || ?p=<%s> || ?p=<%s> ) }",
-				gndPersonId, gndPersonId, NAME, BIRTH, DEATH));
+		final Graph graph =
+				store.sparqlConstruct(String.format(
+						"CONSTRUCT { <%s> ?p ?o } WHERE { <%s> ?p ?o ."
+								+ "FILTER ( ?p=<%s> || ?p=<%s> || ?p=<%s> ) }",
+						gndPersonId, gndPersonId, NAME, BIRTH, DEATH));
 		final String lifeDates = lifeDates(graph);
 		final List<String> result = new ArrayList<String>();
 		for (Triple name : triplesWithPredicate(NAME, graph)) {
 			// e.g. "Flygare-Carlen, Emilie, 1807-1892"
-			final String key = String.format("%s%s", name.getObject()
-					.getLiteralValue(), lifeDates);
+			final String key =
+					String.format("%s%s", name.getObject().getLiteralValue(),
+							lifeDates);
 			result.add(key);
 		}
 		return result;
@@ -128,10 +136,12 @@ public final class Gutenberg {
 	private static String lifeDates(final Graph graph) {
 		final List<Triple> birth = triplesWithPredicate(BIRTH, graph);
 		final List<Triple> death = triplesWithPredicate(DEATH, graph);
-		final String birthString = birth.isEmpty() ? "" : String.format(
-				", %s-", birth.get(0).getObject().getLiteralValue());
-		final String deathString = death.isEmpty() ? "" : death.get(0)
-				.getObject().getLiteralValue().toString();
+		final String birthString =
+				birth.isEmpty() ? "" : String.format(", %s-", birth.get(0)
+						.getObject().getLiteralValue());
+		final String deathString =
+				death.isEmpty() ? "" : death.get(0).getObject()
+						.getLiteralValue().toString();
 		return birthString + deathString;
 	}
 
@@ -141,10 +151,11 @@ public final class Gutenberg {
 		ByteStreams.copy(url.openStream(), new FileOutputStream(tempFile));
 		final ZipFile zipFile = new ZipFile(tempFile);
 		final ZipEntry zipEntry = zipFile.entries().nextElement();
-		final Graph graph = ModelFactory
-				.createDefaultModel()
-				.read(zipFile.getInputStream(zipEntry), null,
-						Format.RDF_XML.getName()).getGraph();
+		final Graph graph =
+				ModelFactory
+						.createDefaultModel()
+						.read(zipFile.getInputStream(zipEntry), null,
+								Format.RDF_XML.getName()).getGraph();
 		zipFile.close();
 		return graph;
 	}
@@ -159,8 +170,8 @@ public final class Gutenberg {
 	private Map<String, String> writeMap(final File serializedMap) {
 		try {
 			final Map<String, String> map = mapLiteralsToGutenbergIds();
-			final ObjectOutputStream stream = new ObjectOutputStream(
-					new FileOutputStream(serializedMap));
+			final ObjectOutputStream stream =
+					new ObjectOutputStream(new FileOutputStream(serializedMap));
 			stream.writeObject(map);
 			stream.close();
 			return map;
@@ -175,8 +186,8 @@ public final class Gutenberg {
 	private Map<String, String> mapLiteralsToGutenbergIds() throws IOException {
 		final Graph gutenbergGraph = remoteZippedGraph(new URL(GUTENBERG));
 		final Map<String, String> authors = new HashMap<String, String>();
-		final List<Triple> literals = triplesWithPredicate(CREATOR,
-				gutenbergGraph);
+		final List<Triple> literals =
+				triplesWithPredicate(CREATOR, gutenbergGraph);
 		for (Triple triple : literals) {
 			final Node object = triple.getObject();
 			if (object.isLiteral()) {
@@ -189,11 +200,11 @@ public final class Gutenberg {
 
 	private Map<String, String> readMap(final File serializedMap) {
 		try {
-			final ObjectInputStream stream = new ObjectInputStream(
-					new FileInputStream(serializedMap));
+			final ObjectInputStream stream =
+					new ObjectInputStream(new FileInputStream(serializedMap));
 			@SuppressWarnings("unchecked")
-			final Map<String, String> map = (Map<String, String>) stream
-					.readObject();
+			final Map<String, String> map =
+					(Map<String, String>) stream.readObject();
 			stream.close();
 			return map;
 		} catch (FileNotFoundException e) {

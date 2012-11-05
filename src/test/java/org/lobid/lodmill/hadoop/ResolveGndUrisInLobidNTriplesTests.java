@@ -1,4 +1,6 @@
-package org.culturegraph.cluster.job.convert;
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+
+package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -7,17 +9,17 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
-import org.culturegraph.cluster.job.convert.ResolveGndUrisInLobidNTriples.ResolveTriplesMapper;
-import org.culturegraph.cluster.job.convert.ResolveGndUrisInLobidNTriples.ResolveTriplesReducer;
 import org.junit.Before;
 import org.junit.Test;
+import org.lobid.lodmill.hadoop.ResolveGndUrisInLobidNTriples.ResolveTriplesMapper;
+import org.lobid.lodmill.hadoop.ResolveGndUrisInLobidNTriples.ResolveTriplesReducer;
 
 /**
  * Test the {@link ResolveGndUrisInLobidNTriples} class.
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public final class ResolveGndUrisInLobidNTriplesTest {
+public final class ResolveGndUrisInLobidNTriplesTests {
 
 	private static final String TRIPLE_1 =
 			"<http://lobid.org/resource/HT000000716> "

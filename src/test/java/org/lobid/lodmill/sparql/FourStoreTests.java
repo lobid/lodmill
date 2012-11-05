@@ -1,13 +1,13 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Apache License Version 2.0 */
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.culturegraph.semanticweb;
+package org.lobid.lodmill.sparql;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -15,13 +15,12 @@ import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.culturegraph.semanticweb.data.FourStore;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.io.ByteStreams;
+import com.google.common.io.CharStreams;
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.Triple;
@@ -46,14 +45,19 @@ public final class FourStoreTests {
 	@Test
 	public void sparqlSimple() throws IOException {
 		/* Most simple way to send a SPARQL query: use a URL object */
-		final URL url = new URL(URL
-				+ "/sparql/"
-				+ "?query="
-				+ URLEncoder.encode("SELECT * FROM <http://example.com/G>"
-						+ " WHERE { ?s ?p ?o } LIMIT 50", ENCODING));
-		final File file = new File("out/response.lobid");
-		ByteStreams.copy(url.openStream(), new FileOutputStream(file));
-		assertTrue("Output file should exist", file.exists());
+		final URL url =
+				new URL(URL
+						+ "/sparql/"
+						+ "?query="
+						+ URLEncoder.encode(
+								"SELECT * FROM <http://example.com/G>"
+										+ " WHERE { ?s ?p ?o } LIMIT 50",
+								ENCODING));
+		final String s =
+				CharStreams.toString(new InputStreamReader(url.openStream(),
+						"UTF-8"));
+		assertFalse("Output string should contain something", s.trim()
+				.isEmpty());
 	}
 
 	@Test
@@ -80,15 +84,17 @@ public final class FourStoreTests {
 		final String graph = "http://example.com/G";
 		final HttpResponse delete = store.deleteGraph(graph);
 		LOG.info(delete.toString());
-		final HttpResponse response = store.insertTriple(
-				graph,
-				Triple.create(Node.createURI("http://example.com/s"),
+		final HttpResponse response =
+				store.insertTriple(graph, Triple.create(
+						Node.createURI("http://example.com/s"),
 						Node.createURI("http://example.com/p"),
 						Node.createLiteral("o")));
 		assertEquals("Response should indicate status OK", HttpStatus.SC_OK,
 				response.getStatusLine().getStatusCode());
-		final List<QuerySolution> result = store.sparqlSelect(String.format(
-				"SELECT * FROM <%s> WHERE { ?s ?p ?o } LIMIT 100", graph));
+		final List<QuerySolution> result =
+				store.sparqlSelect(String.format(
+						"SELECT * FROM <%s> WHERE { ?s ?p ?o } LIMIT 100",
+						graph));
 		assertEquals("New triple should be in named graph", 1, result.size());
 
 	}

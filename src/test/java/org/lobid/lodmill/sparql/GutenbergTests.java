@@ -1,6 +1,6 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Apache License Version 2.0 */
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.culturegraph.semanticweb;
+package org.lobid.lodmill.sparql;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -19,8 +19,6 @@ import java.util.Set;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.culturegraph.semanticweb.data.FourStore;
-import org.culturegraph.semanticweb.data.Gutenberg;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -44,8 +42,8 @@ public final class GutenbergTests {
 
 	private static final String CREATORS = "creators_small.nt";
 	private static final String GRAPH = "http://lobid.org/graph/gutenberg/gnd";
-	private static final String OUT = "out/new.nt";
-	private static final String MAP_BIN = "out/map.bin";
+	private static final String OUT = "bin/new.nt";
+	private static final String MAP_BIN = "bin/map.bin";
 	private static final Logger LOG = LoggerFactory
 			.getLogger(GutenbergTests.class);
 	/* First run, pass '-Xmx3000m -XX:+UseConcMarkSweepGC' as JVM args for Jena */
@@ -59,8 +57,8 @@ public final class GutenbergTests {
 		final Set<String> gndIds = gndAuthorIds(CREATORS);
 		LOG.info(String.format("Got %s author ids", gndIds.size()));
 		final Writer writer = new FileWriter(new File(OUT));
-		final Model newModel = GUTENBERG.linkGutenbergToGndAuthors(gndIds,
-				store, writer);
+		final Model newModel =
+				GUTENBERG.linkGutenbergToGndAuthors(gndIds, store, writer);
 		writer.close();
 		LOG.info(String.format("Created new model, size %s", newModel.size()));
 		assertTrue("New triples should have been found", newModel.getGraph()
@@ -69,7 +67,7 @@ public final class GutenbergTests {
 		upload(OUT, store, GRAPH);
 		newModelSampleUsage(gndIds, newModel.getGraph());
 		/* Do something useful with full data (see also data-info.textile): */
-		// upload("out/new_full.nt", store /* or into production */, GRAPH);
+		// upload("bin/new_full.nt", store /* or into production */, GRAPH);
 	}
 
 	/**
@@ -92,8 +90,9 @@ public final class GutenbergTests {
 					.getStatusLine().getStatusCode());
 		}
 		LOG.info(triples.size() + " triples inserted into graph " + graph);
-		final List<QuerySolution> result = store.sparqlSelect("SELECT * FROM "
-				+ "<" + graph + ">" + " WHERE { ?s ?p ?o } LIMIT 5000");
+		final List<QuerySolution> result =
+				store.sparqlSelect("SELECT * FROM " + "<" + graph + ">"
+						+ " WHERE { ?s ?p ?o } LIMIT 5000");
 		assertFalse("Should have uploaded some triples", result.isEmpty());
 	}
 
@@ -102,13 +101,15 @@ public final class GutenbergTests {
 	 * @return The unique GND author ID, picked out of the objects in the file
 	 */
 	public Set<String> gndAuthorIds(final String authors) {
-		final Scanner scanner = new Scanner(Thread.currentThread()
-				.getContextClassLoader().getResourceAsStream(authors));
+		final Scanner scanner =
+				new Scanner(Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream(authors));
 		final Set<String> ids = new HashSet<String>();
 		while (scanner.hasNextLine()) {
 			final String line = scanner.nextLine();
-			final String gndId = line.substring(line.lastIndexOf('<') + 1,
-					line.lastIndexOf('>'));
+			final String gndId =
+					line.substring(line.lastIndexOf('<') + 1,
+							line.lastIndexOf('>'));
 			if (gndId.startsWith("http://d-nb.info/gnd/")) {
 				ids.add(gndId);
 			}
@@ -121,9 +122,11 @@ public final class GutenbergTests {
 	private void newModelSampleUsage(final Set<String> gndIds,
 			final Graph newGraph) {
 		for (String gndId : gndIds) {
-			final List<Triple> find = newGraph.find(
-					Triple.createMatch(null, Node.createURI(Gutenberg.CREATOR),
-							Node.createURI(gndId))).toList();
+			final List<Triple> find =
+					newGraph.find(
+							Triple.createMatch(null,
+									Node.createURI(Gutenberg.CREATOR),
+									Node.createURI(gndId))).toList();
 			if (!find.isEmpty()) {
 				LOG.info(String
 						.format("\nWorks at Gutenberg by %s (author of a lobid entry):\n",

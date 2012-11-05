@@ -1,6 +1,6 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Apache License Version 2.0 */
+/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.culturegraph.semanticweb.data;
+package org.lobid.lodmill.sparql;
 
 import java.io.IOException;
 import java.net.URI;
@@ -138,8 +138,9 @@ public final class FourStore {
 
 	private QueryExecution createQueryExecution(final String query) {
 		LOG.debug("Query for: " + query);
-		final QueryExecution qexec = QueryExecutionFactory.sparqlService(root
-				+ "/sparql/", QueryFactory.create(query));
+		final QueryExecution qexec =
+				QueryExecutionFactory.sparqlService(root + "/sparql/",
+						QueryFactory.create(query));
 		return qexec;
 	}
 }
