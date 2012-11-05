@@ -1,0 +1,13 @@
+h1. Lodmill
+
+Blend, grind, and enjoy LOD - fresh from the mill!
+
+This is early alpha work based on RDF, Hadoop, and ElasticSearch.
+
+h1. Build
+
+"!https://secure.travis-ci.org/lobid/lodmill.png!":https://travis-ci.org/lobid/lodmill
+
+h1. License
+
+Eclipse Public License: "http://www.eclipse.org/legal/epl-v10.html":http://www.eclipse.org/legal/epl-v10.html

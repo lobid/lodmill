@@ -1,0 +1,27 @@
+language: java
+jdk: openjdk6
+before_install:
+  - git clone git://github.com/culturegraph/culturegraph-metastream.git
+  - cd culturegraph-metastream
+  - mvn clean install -DskipTests=true
+  - cd ..
+  - git clone git://github.com/culturegraph/culturegraph-metamorph.git
+  - cd culturegraph-metamorph
+  - mvn clean install -DskipTests=true
+  - cd ..
+  - git clone git://github.com/culturegraph/culturegraph-search.git
+  - cd culturegraph-search
+  - mvn clean install -DskipTests=true
+  - cd ..
+  - git clone git://github.com/culturegraph/culturegraph-semanticweb.git
+  - cd culturegraph-semanticweb
+  - mvn clean install -DskipTests=true
+  - cd ..
+  - git clone git://github.com/culturegraph/culturegraph-mediawiki.git
+  - cd culturegraph-mediawiki
+  - mvn clean install -DskipTests=true
+  - cd ..
+  - git clone git://github.com/culturegraph/culturegraph-cluster.git
+  - cd culturegraph-cluster
+  - mvn clean install -DskipTests=true
+  - cd ..
