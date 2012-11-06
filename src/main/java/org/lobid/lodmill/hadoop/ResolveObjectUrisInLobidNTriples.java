@@ -5,6 +5,8 @@ package org.lobid.lodmill.hadoop;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.SortedSet;
@@ -20,6 +22,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.culturegraph.cluster.util.AbstractJobLauncher;
 import org.culturegraph.cluster.util.ConfigConst;
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Sets;
@@ -34,37 +38,43 @@ import fr.inria.jfresnel.fsl.FSLPath;
 import fr.inria.jfresnel.fsl.jena.FSLJenaEvaluator;
 
 /**
- * Resolve GND URIs in the object position of lobid resources.
+ * Resolve URIs in the object position of lobid resources.
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
+public class ResolveObjectUrisInLobidNTriples extends AbstractJobLauncher {
 
 	private static final Properties PROPERTIES = load();
+	private static final Set<String> TO_RESOLVE = props("resolve");
 	public static final Set<String> PREDICATES = props("predicates");
 	public static final Set<String> FSL_PATHS = props("fsl-paths");
+	private static final String LOBID_RESOURCE = "http://lobid.org/resource/";
+	private static final String DEWEY = "http://dewey.info/class";
+	private static final String DEWEY_SUFFIX = "2009/08/about.en";
 
 	private static final int NODES = 4; // e.g. 4 nodes in cluster
 	private static final int SLOTS = 2; // e.g. 2 cores per node
 	private static final String NEWLINE = "\n";
-	private static final String LOBID_RESOURCE = "http://lobid.org/resource/";
+
+	private static final Logger LOG = LoggerFactory
+			.getLogger(ResolveObjectUrisInLobidNTriples.class);
 
 	public static void main(final String[] args) {
-		launch(new ResolveGndUrisInLobidNTriples(), args);
+		launch(new ResolveObjectUrisInLobidNTriples(), args);
 	}
 
 	private static Properties load() {
-		Properties p = new Properties();
+		final Properties props = new Properties();
 		try {
-			p.load(Thread.currentThread().getContextClassLoader()
+			props.load(Thread.currentThread().getContextClassLoader()
 					.getResourceAsStream("resolve.properties"));
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
-		return p;
+		return props;
 	}
 
-	private static SortedSet<String> props(String key) {
+	private static SortedSet<String> props(final String key) {
 		return new TreeSet<String>(Arrays.asList(PROPERTIES.getProperty(key)
 				.split(";")));
 	}
@@ -86,15 +96,13 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 	}
 
 	/**
-	 * Collect (non-blank) GND and lobid triples under GND ID keys.
+	 * Collect (non-blank) lobid triples and triples required for resolving
+	 * lobid triples, using the resolution ID as a key.
 	 * 
 	 * @author Fabian Steeg (fsteeg)
 	 */
 	static final class ResolveTriplesMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
-
-		private static final String CREATOR =
-				"http://purl.org/dc/elements/1.1/creator";
 
 		@Override
 		public void map(final LongWritable key, final Text value,
@@ -102,37 +110,68 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 			final String val = value.toString();
 			// we take non-blank nodes and map them to their triples:
 			if (val.startsWith("<http")
-					&& (neededForResolving(val) || val.substring(1).startsWith(
+					&& (exists(val, PREDICATES) || val.substring(1).startsWith(
 							LOBID_RESOURCE))) {
-				context.write(new Text(
 				/*
-				 * We always group under the GND ID key: for creator triples,
-				 * that's the object, for preferredName triples, the subject:
+				 * We always group under the resolution ID key: for triples to
+				 * be resolved, that's the object (i.e. the entity to be
+				 * resolved), for others (i.e. entities providing resolution
+				 * information), it's the subject:
 				 */
-				val.contains(CREATOR) ? objUri(val) : subjUri(val)), value);
+				final String newKey =
+						exists(val, TO_RESOLVE) ? resolvable(objUri(val))
+								: subjUri(val);
+				context.write(new Text(newKey), preprocess(val));
 			}
 		}
 
-		private boolean neededForResolving(final String val) {
-			return Sets.filter(PREDICATES, new Predicate<String>() {
-				public boolean apply(String string) {
+		private static boolean exists(final String val, final Set<String> vals) {
+			return Sets.filter(vals, new Predicate<String>() {
+				public boolean apply(final String string) {
 					return val.contains(string);
 				}
 			}).size() > 0;
 		}
 
-		private String subjUri(final String val) {
-			return val.substring(0, val.indexOf('>') + 1);
+		private String subjUri(final String triple) {
+			return triple.substring(0, triple.indexOf('>') + 1);
 		}
 
-		private String objUri(final String val) {
-			return val
-					.substring(val.lastIndexOf('<'), val.lastIndexOf('>') + 1);
+		private String objUri(final String triple) {
+			return triple.substring(triple.lastIndexOf('<'),
+					triple.lastIndexOf('>') + 1);
+		}
+
+		/*
+		 * These methods make sure that we can resolve the triples we are using.
+		 * For Dewey triples, this requires changing the format to conform to
+		 * something in the subject position in the Dewey data, e.g. we change
+		 * <http://dewey.info/class/325> -->
+		 * <http://dewey.info/class/325/2009/08/about.en>
+		 * 
+		 * This way, what we have in object position (what we want to resolve)
+		 * is identical to a subject in the Dewey data, and we can thus find an
+		 * FSL path like 'o/dct:subject/o/skos:prefLabel/text()'. See
+		 * resolve.properties for actual paths (replaced * with o for Javadoc).
+		 */
+
+		private Text preprocess(final String triple) {
+			if (triple.contains(DEWEY)) {
+				final String obj = objUri(triple);
+				return new Text(triple.replace(obj, resolvable(obj)));
+			} else {
+				return new Text(triple);
+			}
+		}
+
+		private String resolvable(final String uri) {
+			return uri.contains(DEWEY) ? /**/
+			(uri.substring(0, uri.lastIndexOf('>')) + DEWEY_SUFFIX + ">") : uri;
 		}
 	}
 
 	/**
-	 * Load all triples related to a GND ID into a model and resolve URIs.
+	 * Load all triples related to a resolving entity into a model and resolve.
 	 * 
 	 * @author Fabian Steeg (fsteeg)
 	 */
@@ -177,25 +216,54 @@ public class ResolveGndUrisInLobidNTriples extends AbstractJobLauncher {
 			return "<" + string + ">";
 		}
 
+		@SuppressWarnings("serial")
+		/* data for creating new triples... */
+		// @formatter:off
+		final private Map<String, String[]> map =
+				new HashMap<String, String[]>() {{ // NOPMD
+				/* 
+				 * ...e.g.: for an FSL path that resolves 'dc:creator',
+				 * create a new predicate by concatenating
+				 * 'http://purl.org/dc/elements/1.1/creator#' and the thing
+				 * that follows 'gnd:' in the path - e.g.
+				 * 'http://purl.org/dc/elements/1.1/creator#dateOfBirth'
+				 */
+				put("dc:creator", new String[] {
+						"http://purl.org/dc/elements/1.1/creator#", "gnd:" });
+				put("dct:subject", new String[] {
+						"http://purl.org/dc/terms/subject#", "skos:" });
+		}};
+
 		private Model resolveUrisToLiterals(final Model model) {
 			final FSLNSResolver nsr = new FSLNSResolver();
 			nsr.addPrefixBinding("dc", "http://purl.org/dc/elements/1.1/");
-			nsr.addPrefixBinding("gnd",
-					"http://d-nb.info/standards/elementset/gnd#");
+			nsr.addPrefixBinding("dct", "http://purl.org/dc/terms/");
+			nsr.addPrefixBinding("gnd", "http://d-nb.info/standards/elementset/gnd#");
+			nsr.addPrefixBinding("skos", "http://www.w3.org/2004/02/skos/core#");
+			// @formatter:on
 			final FSLHierarchyStore fhs = new FSLHierarchyStore();
 			final FSLJenaEvaluator fje = new FSLJenaEvaluator(nsr, fhs);
 			fje.setModel(model);
 			for (String fslPath : FSL_PATHS) {
 				final FSLPath path =
 						FSLPath.pathFactory(fslPath, nsr, FSLPath.NODE_STEP);
-				String newPredicate =
-						"http://purl.org/dc/elements/1.1/creator#"
-								+ fslPath.substring(
-										fslPath.indexOf("gnd:") + 4,
-										fslPath.lastIndexOf('/'));
-				addResolvedTriples(model, fje, path, newPredicate);
+				for (String p : map.keySet()) {
+					if (fslPath.contains(p)) {
+						addResolvedTriples(model, fje, path,
+								newPred(fslPath, map.get(p)[0], map.get(p)[1]));
+						break; // done with the current path
+					}
+				}
 			}
 			return model;
+		}
+
+		private String newPred(final String fslPath, final String prefix,
+				final String namespace) {
+			return prefix
+					+ fslPath.substring(
+							fslPath.indexOf(namespace) + namespace.length(),
+							fslPath.lastIndexOf('/'));
 		}
 
 		private Model addResolvedTriples(final Model model,
