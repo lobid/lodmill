@@ -61,7 +61,6 @@
 	<rule ref="rulesets/controversial.xml/AvoidUsingShortType" />
 	<rule ref="rulesets/controversial.xml/BooleanInversion" />
 	<rule ref="rulesets/controversial.xml/CallSuperInConstructor" />
-	<rule ref="rulesets/controversial.xml/DefaultPackage" />
 	<rule ref="rulesets/controversial.xml/DoNotCallGarbageCollectionExplicitly" />
 	<rule ref="rulesets/controversial.xml/DontImportSun" />
 	<rule ref="rulesets/controversial.xml/SuspiciousOctalEscape" />
