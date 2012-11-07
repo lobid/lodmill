@@ -88,7 +88,7 @@ public final class NTriplesToJsonLdTests {
 
 	@SuppressWarnings("serial")
 	/* using static init for better readability of nested result structure */
-	private Map<String, ?> jsonMap() {
+	static Map<String, ?> jsonMap() {
 		final String idKey = "@id";// @formatter:off
 		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
 			put("@context", new HashMap<String, String>() {{//NOPMD
