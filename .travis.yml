@@ -25,3 +25,8 @@ before_install:
   - cd culturegraph-cluster
   - mvn clean install -DskipTests=true
   - cd ..
+  - git clone git://github.com/tristan/jsonld-java.git
+  - cd jsonld-java
+  - git checkout 369bbf544f3b11499a0418d98a9b73c988428dd3
+  - mvn clean install -DskipTests=true
+  - cd ..
