@@ -95,7 +95,7 @@ public class LobidToElasticSearchLocal {
 
 	private void runHadoopJobs(final String inputPath, final String interPath,
 			final String outputPath) {
-		ResolveGndUrisInLobidNTriples.main(new String[] {
+		ResolveObjectUrisInLobidNTriples.main(new String[] {
 				"cg.input.path=" + inputPath, "cg.output.path=" + interPath });
 		NTriplesToJsonLd.main(new String[] { "cg.input.path=" + interPath,
 				"cg.output.path=" + outputPath });
