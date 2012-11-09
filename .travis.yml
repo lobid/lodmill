@@ -30,3 +30,6 @@ before_install:
   - git checkout 369bbf544f3b11499a0418d98a9b73c988428dd3
   - mvn clean install -DskipTests=true
   - cd ..
+install:
+  - cd lodmill-ld
+  - mvn clean install -e -DskipTests=true
