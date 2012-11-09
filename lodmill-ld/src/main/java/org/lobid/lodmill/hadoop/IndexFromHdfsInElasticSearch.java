@@ -5,10 +5,7 @@ package org.lobid.lodmill.hadoop;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -133,10 +130,8 @@ public class IndexFromHdfsInElasticSearch {
 				meta = line;
 			} else { // every second line is value object
 				@SuppressWarnings("unchecked")
-				Map<String, Object> map =
+				final Map<String, Object> map =
 						(Map<String, Object>) JSONValue.parse(line);
-				/* We preprocess the JSON data for ES (unified schema): */
-				map = preprocess(map, new HashMap<String, Object>());
 				final IndexRequestBuilder requestBuilder =
 						createRequestBuilder(meta, map);
 				bulkRequest.add(requestBuilder);
@@ -164,29 +159,6 @@ public class IndexFromHdfsInElasticSearch {
 		final String type = (String) object.get("_type");
 		final String id = (String) object.get("_id"); // NOPMD
 		return client.prepareIndex(index, type, id).setSource(map);
-	}
-
-	private Map<String, Object> preprocess(final Map<String, Object> input,
-			final Map<String, Object> output) {
-		for (String key : input.keySet()) {
-			final Object val = input.get(key);
-			if (val instanceof Map) {
-				@SuppressWarnings("unchecked")
-				final Map<String, Object> fix =
-						preprocess((Map<String, Object>) val,
-								new HashMap<String, Object>());
-				output.put(key, fix);
-			} else if (val instanceof Collection) {
-				output.put(key, val);
-			} else {
-				/*
-				 * Wrap elemental values in a list to get a consistent format,
-				 * independent of the number of values for the key (always list)
-				 */
-				output.put(key, Arrays.asList(val));
-			}
-		}
-		return output;
 	}
 
 	private BulkResponse executeBulkRequest(final BulkRequestBuilder bulk) {
