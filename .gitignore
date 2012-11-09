@@ -2,3 +2,9 @@ target
 bin
 out
 *_full*
+.target
+*.class
+logs
+tmp
+.history
+dist

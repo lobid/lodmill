@@ -1,0 +1,31 @@
+@* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
+
+@(docs: List[Document], docForm: Form[Document])
+
+@import helper._
+@import helper.twitterBootstrap._
+@import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format
+
+@main("Document list") {
+
+    <h1>Search in '@Document.ES_INDEX' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
+    
+    @form(routes.Application.doSearch()) {
+        @inputText(docForm("author"), '_label -> (Document.SEARCH_FIELD+":"))
+        <input type="submit" value="Search">
+    }
+    
+    <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents }</h1>
+    
+    @for(doc <- docs) {
+        <h2>@doc.id</h2>
+        <dl>
+        	<dt><b>JLD</b></dt><dd>@doc.source</dd>
+        	<dt><b>NT</b></dt><dd>@doc.as(Format.N_TRIPLE)</dd>
+        	<dt><b>N3</b></dt><dd>@doc.as(Format.N3)</dd>
+        	<dt><b>TTL</b></dt><dd>@doc.as(Format.TURTLE)</dd>
+        	<dt><b>XML</b></dt><dd>@doc.as(Format.RDF_XML)</dd>
+        </dl>
+    }
+    
+}
