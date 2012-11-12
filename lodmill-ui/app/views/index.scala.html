@@ -27,5 +27,16 @@
         	<dt><b>XML</b></dt><dd>@doc.as(Format.RDF_XML)</dd>
         </dl>
     }
-    
+
+    <label for="search">Experimental auto-suggest author search:</label>
+    <input type="text" name="search" class="autocomplete" data-url="@{routes.Application.autocompleteSearch()}">
+
+    <script>
+    $('input.autocomplete').each( function() {
+        var $input = $(this);
+        var serverUrl = $input.data('url');
+        $input.autocomplete({ source:serverUrl });
+    });
+    </script>
+
 }

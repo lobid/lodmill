@@ -4,6 +4,7 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.elasticsearch.action.search.SearchResponse;
@@ -71,6 +72,10 @@ public class Document {
 	}
 
 	public static void search(final Document document) {
+		docs = search(document.author);
+	}
+
+	public static List<Document> search(final String term) {
 		final Client client =
 				new TransportClient(ImmutableSettings.settingsBuilder()
 						.put("cluster.name", ES_CLUSTER_NAME).build())
@@ -78,16 +83,21 @@ public class Document {
 		final SearchResponse response =
 				client.prepareSearch(ES_INDEX)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(
-								QueryBuilders.termQuery(SEARCH_FIELD,
-										document.author)).setFrom(0)
-						.setSize(10).setExplain(true).execute().actionGet();
+						.setQuery(QueryBuilders.termQuery(SEARCH_FIELD, term))
+						.setFrom(0).setSize(10).setExplain(true).execute()
+						.actionGet();
 		final SearchHits hits = response.getHits();
-		docs = new ArrayList<Document>();
+		final List<Document> res = new ArrayList<Document>();
 		for (SearchHit hit : hits) {
-			docs.add(new Document(hit.getId(), new String(hit.source()))); // NOPMD
+			final Document document =
+					new Document(hit.getId(), new String(hit.source())); // NOPMD
+			res.add(document);
+			final Map<String, Object> map = hit.getSource();
+			document.author =
+					String.format("%s %s", map.get(SEARCH_FIELD),
+							map.get("http://purl.org/dc/elements/1.1/creator"));
 		}
-
+		return res;
 	}
 
 }
