@@ -1,0 +1,36 @@
+{
+  "settings":{
+    "index":{
+      "analysis":{
+        "analyzer":{
+          "ngram_analyzer":{
+            "type":"custom",
+            "tokenizer":"lowercase",
+            "filter":[
+              "stop",
+              "ngram"
+            ]
+          }
+        },
+        "filter":{
+          "ngram":{
+            "type":"nGram",
+            "min_gram":2,
+            "max_gram":20
+          }
+        }
+      }
+    }
+  },
+  "mappings":{
+    "json-ld":{
+      "properties":{
+        "http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson":{
+          "type":"string",
+          "analyzer":"ngram_analyzer",
+          "boost":10
+        }
+      }
+    }
+  }
+}
