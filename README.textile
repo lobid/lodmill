@@ -2,7 +2,7 @@ h1. Lodmill
 
 Blend, grind, and enjoy LOD - fresh from the mill!
 
-This is early alpha work based on RDF, Hadoop, and ElasticSearch.
+This is early alpha work. The @lodmill-ld@ folder contains code for processing RDF with Hadoop and for indexing it in ElasticSearch. The @lodmill-ui@ folder contains a web app based on the Play framework that interacts with the resulting ElasticSearch index.
 
 h1. Build
 
