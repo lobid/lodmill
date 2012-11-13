@@ -10,9 +10,18 @@
 
     <h1>Search in '@Document.ES_INDEX' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
     
-    @form(routes.Application.doSearch()) {
-        @inputText(docForm("author"), '_label -> (Document.SEARCH_FIELD+":"))
-        <input type="submit" value="Search">
+    @form(routes.Application.doSearch(), 'class -> "form-horizontal") {
+        <label for="author">@(Document.SEARCH_FIELD+":")</label>
+	    <input type="text" name="author" id="author" class="autocomplete"
+			data-url="@{routes.Application.autocompleteSearch()}">
+		<input type="submit" value="Search">
+	    <script>
+	    $('input.autocomplete').each( function() {
+	        var $input = $(this);
+	        var serverUrl = $input.data('url');
+	        $input.autocomplete({ source:serverUrl });
+	    });
+	    </script>
     }
     
     <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents }</h1>
@@ -27,16 +36,5 @@
         	<dt><b>XML</b></dt><dd>@doc.as(Format.RDF_XML)</dd>
         </dl>
     }
-
-    <label for="search">Experimental auto-suggest author search:</label>
-    <input type="text" name="search" class="autocomplete" data-url="@{routes.Application.autocompleteSearch()}">
-
-    <script>
-    $('input.autocomplete').each( function() {
-        var $input = $(this);
-        var serverUrl = $input.data('url');
-        $input.autocomplete({ source:serverUrl });
-    });
-    </script>
 
 }

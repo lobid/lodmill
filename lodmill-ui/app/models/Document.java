@@ -4,7 +4,6 @@ package models;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.elasticsearch.action.search.SearchResponse;
@@ -22,6 +21,8 @@ import org.lobid.lodmill.JsonLdConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 import com.hp.hpl.jena.shared.BadURIException;
 
 /**
@@ -76,6 +77,7 @@ public class Document {
 	}
 
 	public static List<Document> search(final String term) {
+		final String search = term.toLowerCase(); // NOPMD
 		final Client client =
 				new TransportClient(ImmutableSettings.settingsBuilder()
 						.put("cluster.name", ES_CLUSTER_NAME).build())
@@ -83,21 +85,40 @@ public class Document {
 		final SearchResponse response =
 				client.prepareSearch(ES_INDEX)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(QueryBuilders.termQuery(SEARCH_FIELD, term))
+						.setQuery(QueryBuilders.termQuery(SEARCH_FIELD, search))
 						.setFrom(0).setSize(10).setExplain(true).execute()
 						.actionGet();
 		final SearchHits hits = response.getHits();
+		return asDocuments(search, hits);
+	}
+
+	private static List<Document> asDocuments(final String search,
+			final SearchHits hits) {
 		final List<Document> res = new ArrayList<Document>();
 		for (SearchHit hit : hits) {
 			final Document document =
 					new Document(hit.getId(), new String(hit.source())); // NOPMD
+			withAuthor(search, hit, document);
 			res.add(document);
-			final Map<String, Object> map = hit.getSource();
-			document.author =
-					String.format("%s %s", map.get(SEARCH_FIELD),
-							map.get("http://purl.org/dc/elements/1.1/creator"));
 		}
 		return res;
 	}
 
+	private static void withAuthor(final String search, final SearchHit hit,
+			final Document document) {
+		final Object author = hit.getSource().get(SEARCH_FIELD);
+		if (author instanceof List
+				&& ((List<?>) author).get(0) instanceof String) {
+			@SuppressWarnings("unchecked")
+			final List<String> list = (List<String>) author;
+			final Predicate<String> predicate = new Predicate<String>() { // NOPMD
+						public boolean apply(final String string) {
+							return string.toLowerCase().contains(search); // NOPMD
+						}
+					};
+			document.author = Iterables.find(list, predicate);
+		} else {
+			document.author = author.toString();
+		}
+	}
 }

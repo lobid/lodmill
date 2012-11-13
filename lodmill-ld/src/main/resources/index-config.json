@@ -5,8 +5,9 @@
         "analyzer":{
           "ngram_analyzer":{
             "type":"custom",
-            "tokenizer":"lowercase",
+            "tokenizer":"keyword",
             "filter":[
+              "lowercase",
               "stop",
               "ngram"
             ]
