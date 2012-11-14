@@ -42,7 +42,7 @@ public class Document {
 	@Required
 	public transient String author;
 	public transient String source;
-	public transient String id;// NOPMD
+	public transient String id; // NOPMD
 
 	private static List<Document> docs = new ArrayList<Document>();
 	private static final Logger LOG = LoggerFactory.getLogger(Document.class);
@@ -77,7 +77,7 @@ public class Document {
 	}
 
 	public static List<Document> search(final String term) {
-		final String search = term.toLowerCase(); // NOPMD
+		final String search = term.toLowerCase();
 		final Client client =
 				new TransportClient(ImmutableSettings.settingsBuilder()
 						.put("cluster.name", ES_CLUSTER_NAME).build())
@@ -97,7 +97,7 @@ public class Document {
 		final List<Document> res = new ArrayList<Document>();
 		for (SearchHit hit : hits) {
 			final Document document =
-					new Document(hit.getId(), new String(hit.source())); // NOPMD
+					new Document(hit.getId(), new String(hit.source()));
 			withAuthor(search, hit, document);
 			res.add(document);
 		}
@@ -111,11 +111,11 @@ public class Document {
 				&& ((List<?>) author).get(0) instanceof String) {
 			@SuppressWarnings("unchecked")
 			final List<String> list = (List<String>) author;
-			final Predicate<String> predicate = new Predicate<String>() { // NOPMD
-						public boolean apply(final String string) {
-							return string.toLowerCase().contains(search); // NOPMD
-						}
-					};
+			final Predicate<String> predicate = new Predicate<String>() {
+				public boolean apply(final String string) {
+					return string.toLowerCase().contains(search);
+				}
+			};
 			document.author = Iterables.find(list, predicate);
 		} else {
 			document.author = author.toString();

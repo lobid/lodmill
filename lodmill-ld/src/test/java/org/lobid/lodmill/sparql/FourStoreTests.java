@@ -53,10 +53,10 @@ public final class FourStoreTests {
 								"SELECT * FROM <http://example.com/G>"
 										+ " WHERE { ?s ?p ?o } LIMIT 50",
 								ENCODING));
-		final String s =
+		final String response =
 				CharStreams.toString(new InputStreamReader(url.openStream(),
 						"UTF-8"));
-		assertFalse("Output string should contain something", s.trim()
+		assertFalse("Output string should contain something", response.trim()
 				.isEmpty());
 	}
 
