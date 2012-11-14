@@ -1,4 +1,6 @@
 language: java
+env:
+  - PLAY_VERSION=2.0.4
 jdk: openjdk6
 before_install:
   - git clone git://github.com/culturegraph/culturegraph-metastream.git
@@ -33,3 +35,13 @@ before_install:
 install:
   - cd lodmill-ld
   - mvn clean install -e -DskipTests=true
+before_script:
+  - cd .. 
+  - wget http://download.playframework.org/releases/play-${PLAY_VERSION}.zip
+  - unzip -q play-${PLAY_VERSION}.zip
+script:
+  - cd lodmill-ld
+  - mvn test
+  - cd ..
+  - cd lodmill-ui
+  - ../play-${PLAY_VERSION}/play compile

@@ -3,6 +3,9 @@
 package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,6 +24,7 @@ import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
+import org.elasticsearch.client.IndicesAdminClient;
 import org.elasticsearch.client.transport.NoNodeAvailableException;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
@@ -29,6 +33,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.io.CharStreams;
 
 /**
  * Index JSON-LD Hadoop output in HDFS into an ElasticSearch instance.
@@ -89,6 +95,7 @@ public class IndexFromHdfsInElasticSearch {
 	public List<BulkItemResponse> indexOne(final String data)
 			throws IOException {
 		checkPathInHdfs(data);
+
 		final FSDataInputStream inputStream = hdfs.open(new Path(data));
 		final Scanner scanner = new Scanner(inputStream, "UTF-8");
 		final List<BulkRequestBuilder> bulkRequests =
@@ -158,7 +165,27 @@ public class IndexFromHdfsInElasticSearch {
 		final String index = (String) object.get("_index");
 		final String type = (String) object.get("_type");
 		final String id = (String) object.get("_id"); // NOPMD
+		final IndicesAdminClient admin = client.admin().indices();
+		if (!admin.prepareExists(index).execute().actionGet().exists()) {
+			admin.prepareCreate(index).setSource(config()).execute()
+					.actionGet();
+		}
 		return client.prepareIndex(index, type, id).setSource(map);
+	}
+
+	private String config() {
+		String res = null;
+		try {
+			final InputStream config =
+					Thread.currentThread().getContextClassLoader()
+							.getResourceAsStream("index-config.json");
+			res = CharStreams.toString(new InputStreamReader(config, "UTF-8"));
+		} catch (UnsupportedEncodingException e) {
+			LOG.error(e.getMessage(), e);
+		} catch (IOException e) {
+			LOG.error(e.getMessage(), e);
+		}
+		return res;
 	}
 
 	private BulkResponse executeBulkRequest(final BulkRequestBuilder bulk) {

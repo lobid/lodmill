@@ -8,7 +8,7 @@ object ApplicationBuild extends Build {
     val appVersion      = "0.1.0-SNAPSHOT"
     
     val appDependencies = Seq(
-      "org.elasticsearch" % "elasticsearch" % "0.19.11",
+      "org.elasticsearch" % "elasticsearch" % "0.19.11" withSources(),
       "org.lobid" % "lodmill" % "0.1.0-SNAPSHOT"
     )
 
