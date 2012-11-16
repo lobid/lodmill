@@ -2,8 +2,12 @@
 
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import models.Document;
 import play.data.Form;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -40,6 +44,14 @@ public final class Application extends Controller {
 			result = redirect(routes.Application.search());
 		}
 		return result;
+	}
+
+	public static Result autocompleteSearch(final String term) {
+		final List<String> list = new ArrayList<String>();
+		for (Document document : Document.search(term)) {
+			list.add(document.author);
+		}
+		return ok(Json.toJson(list));
 	}
 
 }

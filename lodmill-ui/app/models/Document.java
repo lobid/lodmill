@@ -21,6 +21,8 @@ import org.lobid.lodmill.JsonLdConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 import com.hp.hpl.jena.shared.BadURIException;
 
 /**
@@ -40,7 +42,7 @@ public class Document {
 	@Required
 	public transient String author;
 	public transient String source;
-	public transient String id;// NOPMD
+	public transient String id; // NOPMD
 
 	private static List<Document> docs = new ArrayList<Document>();
 	private static final Logger LOG = LoggerFactory.getLogger(Document.class);
@@ -71,6 +73,11 @@ public class Document {
 	}
 
 	public static void search(final Document document) {
+		docs = search(document.author);
+	}
+
+	public static List<Document> search(final String term) {
+		final String search = term.toLowerCase();
 		final Client client =
 				new TransportClient(ImmutableSettings.settingsBuilder()
 						.put("cluster.name", ES_CLUSTER_NAME).build())
@@ -78,16 +85,40 @@ public class Document {
 		final SearchResponse response =
 				client.prepareSearch(ES_INDEX)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(
-								QueryBuilders.termQuery(SEARCH_FIELD,
-										document.author)).setFrom(0)
-						.setSize(10).setExplain(true).execute().actionGet();
+						.setQuery(QueryBuilders.termQuery(SEARCH_FIELD, search))
+						.setFrom(0).setSize(10).setExplain(true).execute()
+						.actionGet();
 		final SearchHits hits = response.getHits();
-		docs = new ArrayList<Document>();
-		for (SearchHit hit : hits) {
-			docs.add(new Document(hit.getId(), new String(hit.source()))); // NOPMD
-		}
-
+		return asDocuments(search, hits);
 	}
 
+	private static List<Document> asDocuments(final String search,
+			final SearchHits hits) {
+		final List<Document> res = new ArrayList<Document>();
+		for (SearchHit hit : hits) {
+			final Document document =
+					new Document(hit.getId(), new String(hit.source()));
+			withAuthor(search, hit, document);
+			res.add(document);
+		}
+		return res;
+	}
+
+	private static void withAuthor(final String search, final SearchHit hit,
+			final Document document) {
+		final Object author = hit.getSource().get(SEARCH_FIELD);
+		if (author instanceof List
+				&& ((List<?>) author).get(0) instanceof String) {
+			@SuppressWarnings("unchecked")
+			final List<String> list = (List<String>) author;
+			final Predicate<String> predicate = new Predicate<String>() {
+				public boolean apply(final String string) {
+					return string.toLowerCase().contains(search);
+				}
+			};
+			document.author = Iterables.find(list, predicate);
+		} else {
+			document.author = author.toString();
+		}
+	}
 }

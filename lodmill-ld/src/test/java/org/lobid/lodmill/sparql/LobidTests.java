@@ -71,8 +71,8 @@ public final class LobidTests {
 				.setReceiver(new JenaModelToStream())
 				.setReceiver(
 						new StreamWriter(new OutputStreamWriter(System.out)));
-		File temp = File.createTempFile("temp", ".xml");
-		FileWriter writer = new FileWriter(temp);
+		final File temp = File.createTempFile("temp", ".xml");
+		final FileWriter writer = new FileWriter(temp);
 		writer.write(LOBID_XML.toString());
 		writer.close();
 		opener.process(temp.getAbsolutePath());
