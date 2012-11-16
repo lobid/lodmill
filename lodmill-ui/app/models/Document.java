@@ -3,7 +3,9 @@
 package models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.elasticsearch.action.search.SearchResponse;
@@ -35,9 +37,19 @@ public class Document {
 	public static final InetSocketTransportAddress ES_SERVER =
 			new InetSocketTransportAddress("10.1.2.111", 9300); // NOPMD
 	public static final String ES_CLUSTER_NAME = "es-lod-hydra";
-	public static final String ES_INDEX = "json-ld-index";
-	public static final String SEARCH_FIELD =
-			"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson";
+	@SuppressWarnings("serial")
+	public static Map<String, String> searchFields =
+			new HashMap<String, String>() {
+				{ // NOPMD
+					put("lobid-index",
+							"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson");
+					put("gnd-index",
+							"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson");
+				}
+			};
+
+	public static String esIndex = "lobid-index";
+	public static String searchField = searchFields.get(esIndex);
 
 	@Required
 	public transient String author;
@@ -77,15 +89,16 @@ public class Document {
 	}
 
 	public static List<Document> search(final String term) {
+		searchField = searchFields.get(esIndex);
 		final String search = term.toLowerCase();
 		final Client client =
 				new TransportClient(ImmutableSettings.settingsBuilder()
 						.put("cluster.name", ES_CLUSTER_NAME).build())
 						.addTransportAddress(ES_SERVER);
 		final SearchResponse response =
-				client.prepareSearch(ES_INDEX)
+				client.prepareSearch(esIndex)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(QueryBuilders.termQuery(SEARCH_FIELD, search))
+						.setQuery(QueryBuilders.termQuery(searchField, search))
 						.setFrom(0).setSize(10).setExplain(true).execute()
 						.actionGet();
 		final SearchHits hits = response.getHits();
@@ -106,7 +119,7 @@ public class Document {
 
 	private static void withAuthor(final String search, final SearchHit hit,
 			final Document document) {
-		final Object author = hit.getSource().get(SEARCH_FIELD);
+		final Object author = hit.getSource().get(searchField);
 		if (author instanceof List
 				&& ((List<?>) author).get(0) instanceof String) {
 			@SuppressWarnings("unchecked")
