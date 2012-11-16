@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
@@ -22,7 +23,7 @@ import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public final class NTriplesToJsonLdTests {
+public final class LobidNTriplesToJsonLdTests {
 
 	private static final String TRIPLE_ID =
 			"http://lobid.org/resource/HT000000716";
@@ -40,15 +41,22 @@ public final class NTriplesToJsonLdTests {
 	private static final String TRIPLE_4 = TRIPLE_URI
 			+ "<http://purl.org/dc/terms/subject#prefLabel>"
 			+ "\"International migration & colonization@en\".";
+	private static final String INDEX = "lobid-index";
+	private static final String TYPE = "json-ld-lobid";
 	private MapDriver<LongWritable, Text, Text, Text> mapDriver;
 	private ReduceDriver<Text, Text, Text, Text> reduceDriver;
 
 	@Before
 	public void setUp() {
+		final Configuration configuration = new Configuration();
+		configuration.set(NTriplesToJsonLd.INDEX_NAME, INDEX);
+		configuration.set(NTriplesToJsonLd.INDEX_TYPE, TYPE);
 		final NTriplesToJsonLdMapper mapper = new NTriplesToJsonLdMapper();
 		final NTriplesToJsonLdReducer reducer = new NTriplesToJsonLdReducer();
 		mapDriver = MapDriver.newMapDriver(mapper);
 		reduceDriver = ReduceDriver.newReduceDriver(reducer);
+		mapDriver.setConfiguration(configuration);
+		reduceDriver.setConfiguration(configuration);
 	}
 
 	@Test
@@ -71,16 +79,19 @@ public final class NTriplesToJsonLdTests {
 		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
 				TRIPLE_1), new Text(TRIPLE_2), new Text(TRIPLE_3), new Text(
 				TRIPLE_4)));
-		reduceDriver.withOutput(new Text(JSONValue.toJSONString(indexMap())),
+		reduceDriver.withOutput(
+				new Text(JSONValue
+						.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
 				new Text(JSONValue.toJSONString(jsonMap())));
 		reduceDriver.runTest();
 	}
 
-	private Map<String, Map<?, ?>> indexMap() {
+	static Map<String, Map<?, ?>> indexMap(final String indexName,
+			final String indexType, final String resourceId) {
 		final Map<String, String> map = new HashMap<String, String>();
-		map.put("_index", "json-ld-index");
-		map.put("_type", "json-ld");
-		map.put("_id", TRIPLE_ID);
+		map.put("_index", indexName);
+		map.put("_type", indexType);
+		map.put("_id", resourceId);
 		final Map<String, Map<?, ?>> index = new HashMap<String, Map<?, ?>>();
 		index.put("index", map);
 		return index;
