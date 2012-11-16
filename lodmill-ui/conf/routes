@@ -11,4 +11,6 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /search                  controllers.Application.search()
 POST    /search                  controllers.Application.doSearch()
 
+POST    /index					 controllers.Application.setIndex()
+
 GET     /autocompleteSearch      controllers.Application.autocompleteSearch(term: String ?= "")

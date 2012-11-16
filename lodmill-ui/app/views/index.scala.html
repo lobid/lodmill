@@ -1,6 +1,6 @@
 @* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(docs: List[Document], docForm: Form[Document])
+@(docs: List[Document], docForm: Form[Document], index: Int)
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -8,13 +8,23 @@
 
 @main("Document list") {
 
-    <h1>Search in '@Document.ES_INDEX' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
+    <h1>Search in '@Document.esIndex' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
+
+    @form(routes.Application.setIndex(), 'class -> "form-horizontal") {
+		<select name="index" id="index" onChange="this.form.submit()">
+			@for(i<-Application.INDEXES){
+				<option value="@i" @if(index==Application.INDEXES.indexOf(i)){selected="selected"}else{}>
+					@i
+				</option>
+			}
+		</select>
+    }
     
     @form(routes.Application.doSearch(), 'class -> "form-horizontal") {
-        <label for="author">@(Document.SEARCH_FIELD+":")</label>
 	    <input type="text" name="author" id="author" class="autocomplete"
-			data-url="@{routes.Application.autocompleteSearch()}">
-		<input type="submit" value="Search">
+			data-url="@{routes.Application.autocompleteSearch()}"
+			placeholder="@(Document.searchField.split("#")(1))"/>
+		<div id="button"><button type="submit" class="btn">Search</button></div>
 	    <script>
 	    $('input.autocomplete').each( function() {
 	        var $input = $(this);
@@ -23,7 +33,7 @@
 	    });
 	    </script>
     }
-    
+
     <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents }</h1>
     
     @for(doc <- docs) {
@@ -36,5 +46,4 @@
         	<dt><b>XML</b></dt><dd>@doc.as(Format.RDF_XML)</dd>
         </dl>
     }
-
 }

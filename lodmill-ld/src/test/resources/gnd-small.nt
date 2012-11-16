@@ -1,0 +1,57 @@
+<http://d-nb.info/gnd/1019147466> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#dateOfBirth> "1981" .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE> .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1019147466" .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588a)1019147466" .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:genid10725770 .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Engendahl, Barthel" .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4009836-9> .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:genid10725771 .
+<http://d-nb.info/gnd/1019147466> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Engendahl, B." .
+<http://d-nb.info/gnd/1019160926> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#dateOfBirth> "1883" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#dateOfDeath> "1956" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-ES> .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1019160926" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#gndSubjectCategory> <http://d-nb.info/vocab/gnd-sc#31.3p> .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588c)7850619-0" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588c)1019160926" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588a)1019160926" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:genid10725772 .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Navarro P\u00E9rez, Miguel \u00C1ngel" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4002844-6> .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:genid10725773 .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:genid10725774 .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "P\u00E9rez, Miguel \u00C1ngel Navarro" .
+<http://d-nb.info/gnd/1019160926> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Navarro, Miguel \u00C1ngel" .
+<http://d-nb.info/gnd/101911570X> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
+<http://d-nb.info/gnd/101911570X> <http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> "Karlsruhe, KIT, Diss., 2011" .
+<http://d-nb.info/gnd/101911570X> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
+<http://d-nb.info/gnd/101911570X> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "101911570X" .
+<http://d-nb.info/gnd/101911570X> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588a)101911570X" .
+<http://d-nb.info/gnd/101911570X> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:genid10725775 .
+<http://d-nb.info/gnd/101911570X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Sawady, Walter" .
+<http://d-nb.info/gnd/101911570X> <http://d-nb.info/standards/elementset/gnd#publication> "Erzeugung eines Reformatgases aus fl\u00FCssigen Kohlenwasserstoffen f\u00FCr die Hochtemperaturbrennstoffzelle SOFC. - 2011" .
+<http://d-nb.info/gnd/1019112174> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#affiliation> <http://d-nb.info/gnd/10348110-2> .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> "T\u00E4tig am Institut f\u00FCr Agrarrelevante Klimaforschung des Johann Heinrich von Th\u00FCnen-Instituts" .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1019112174" .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#homepage> <http://www.vti.bund.de> .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588a)1019112174" .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:genid10725776 .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bach, Michaela" .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:genid10725777 .
+<http://d-nb.info/gnd/1019112174> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Bach, M." .
+<http://d-nb.info/gnd/1019156074> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> "Diss. Fachbereich Psychologie" .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#dateOfBirth> "1979" .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE> .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1019156074" .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588a)1019156074" .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#placeOfBirth> <http://d-nb.info/gnd/4057860-4> .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:genid10725778 .
+<http://d-nb.info/gnd/1019156074> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Nachtwei, Jens" .

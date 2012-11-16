@@ -4,6 +4,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 import models.Document;
 import play.data.Form;
@@ -23,13 +24,25 @@ public final class Application extends Controller {
 	}
 
 	private static Form<Document> docForm = form(Document.class);
+	public static final List<String> INDEXES = new ArrayList<String>(
+			new TreeSet<String>(Document.searchFields.keySet()));
+	private static int selectedIndex = INDEXES.indexOf(Document.esIndex);
 
 	public static Result index() {
 		return redirect(routes.Application.search());
 	}
 
 	public static Result search() {
-		return ok(views.html.index.render(Document.all(), docForm));
+		return ok(views.html.index.render(Document.all(), docForm,
+				selectedIndex));
+	}
+
+	public static Result setIndex() {
+		final String index =
+				request().body().asFormUrlEncoded().get("index")[0];
+		selectedIndex = INDEXES.indexOf(index);
+		Document.esIndex = index;
+		return redirect(routes.Application.search());
 	}
 
 	public static Result doSearch() {
@@ -38,7 +51,7 @@ public final class Application extends Controller {
 		if (filledForm.hasErrors()) {
 			result =
 					badRequest(views.html.index.render(Document.all(),
-							filledForm));
+							filledForm, selectedIndex));
 		} else {
 			Document.search(filledForm.get());
 			result = redirect(routes.Application.search());

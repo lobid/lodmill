@@ -24,12 +24,20 @@
     }
   },
   "mappings":{
-    "json-ld":{
+    "json-ld-lobid":{
       "properties":{
         "http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson":{
           "type":"string",
-          "analyzer":"ngram_analyzer",
-          "boost":10
+          "analyzer":"ngram_analyzer"
+        }
+      }
+    },
+    "json-ld-gnd":{
+      "date_detection":false,
+      "properties":{
+        "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
+          "type":"string",
+          "analyzer":"ngram_analyzer"
         }
       }
     }
