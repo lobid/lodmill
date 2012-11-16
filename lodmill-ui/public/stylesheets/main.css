@@ -6,6 +6,10 @@ label {
 	padding: 10px;
 }
 
+#button {
+	padding-top: 20px;
+}
+
 .ui-autocomplete {
 	position: absolute;
 	top: 100%;

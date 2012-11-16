@@ -8,7 +8,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -31,6 +30,7 @@ import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,12 +48,6 @@ public class IndexFromHdfsInElasticSearch {
 			.getLogger(IndexFromHdfsInElasticSearch.class);
 	private final FileSystem hdfs;
 	private final Client client;
-
-	public IndexFromHdfsInElasticSearch(final FileSystem hdfs,
-			final Client client) {
-		this.hdfs = hdfs;
-		this.client = client;
-	}
 
 	public static void main(final String[] args) throws IOException {
 		if (args.length != 4) {
@@ -79,6 +73,23 @@ public class IndexFromHdfsInElasticSearch {
 		indexer.indexAll(args[1].endsWith("/") ? args[1] : args[1] + "/");
 	}
 
+	/**
+	 * @param hdfs The HDFS to index from
+	 * @param client The ElasticSearch client for indexing
+	 */
+	public IndexFromHdfsInElasticSearch(final FileSystem hdfs,
+			final Client client) {
+		this.hdfs = hdfs;
+		this.client = client;
+	}
+
+	/**
+	 * Index all data in the given directory
+	 * 
+	 * @param dir The directory to index
+	 * @return A list of responses for requests that failed
+	 * @throws IOException When HDFS operations fail
+	 */
 	public List<BulkItemResponse> indexAll(final String dir) throws IOException {
 		checkPathInHdfs(dir);
 		final List<BulkItemResponse> result = new ArrayList<BulkItemResponse>();
@@ -92,70 +103,81 @@ public class IndexFromHdfsInElasticSearch {
 		return result;
 	}
 
+	/**
+	 * Index data at the given location
+	 * 
+	 * @param data The data location
+	 * @return A list of responses for requests that failed
+	 * @throws IOException When HDFS operations fail
+	 */
 	public List<BulkItemResponse> indexOne(final String data)
 			throws IOException {
 		checkPathInHdfs(data);
-
 		final FSDataInputStream inputStream = hdfs.open(new Path(data));
 		final Scanner scanner = new Scanner(inputStream, "UTF-8");
-		final List<BulkRequestBuilder> bulkRequests =
-				createBulkRequests(scanner);
+		final List<BulkItemResponse> result = runBulkRequests(scanner);
 		scanner.close();
-		final List<BulkItemResponse> result = new ArrayList<BulkItemResponse>();
-		for (BulkRequestBuilder bulkRequest : bulkRequests) {
-			final BulkResponse bulkResponse = executeBulkRequest(bulkRequest);
-			if (bulkResponse == null) {
-				LOG.error("Bulk request failed for " + data);
-				return Collections.emptyList();
-			} else {
-				collectSuccessfulResponses(result, bulkResponse);
-			}
-		}
 		return result;
 	}
 
-	private void collectSuccessfulResponses(
-			final List<BulkItemResponse> result, final BulkResponse bulkResponse) {
-		for (BulkItemResponse bulkItemResponse : bulkResponse) {
-			if (bulkItemResponse.failed()) {
-				LOG.error(bulkItemResponse.failureMessage());
-			} else {
-				result.add(bulkItemResponse);
-			}
-		}
-	}
-
-	private List<BulkRequestBuilder> createBulkRequests(final Scanner scanner) {
+	private List<BulkItemResponse> runBulkRequests(final Scanner scanner) {
+		final List<BulkItemResponse> result = new ArrayList<BulkItemResponse>();
 		int lineNumber = 0;
 		String meta = null;
-		final List<BulkRequestBuilder> bulks =
-				new ArrayList<BulkRequestBuilder>();
 		BulkRequestBuilder bulkRequest = client.prepareBulk();
 		while (scanner.hasNextLine()) {
 			final String line = scanner.nextLine();
 			if (lineNumber % 2 == 0) { // every first line is index info
 				meta = line;
 			} else { // every second line is value object
-				@SuppressWarnings("unchecked")
-				final Map<String, Object> map =
-						(Map<String, Object>) JSONValue.parse(line);
-				final IndexRequestBuilder requestBuilder =
-						createRequestBuilder(meta, map);
-				bulkRequest.add(requestBuilder);
-				LOG.debug("Bulk index request:" + requestBuilder);
+				addIndexRequest(meta, bulkRequest, line);
 			}
 			lineNumber++;
 			/* Split into multiple bulks to ease server load: */
 			if (lineNumber % BULK_SIZE == 0) {
-				bulks.add(bulkRequest);
+				runBulkRequest(bulkRequest, result);
 				bulkRequest = client.prepareBulk();
 			}
 		}
-		/* Add the final bulk, if there is anything to do: */
+		/* Run the final bulk, if there is anything to do: */
 		if (bulkRequest.numberOfActions() > 0) {
-			bulks.add(bulkRequest);
+			runBulkRequest(bulkRequest, result);
 		}
-		return bulks;
+		return result;
+	}
+
+	private void addIndexRequest(final String meta,
+			final BulkRequestBuilder bulkRequest, final String line) {
+		try {
+			@SuppressWarnings("unchecked")
+			final Map<String, Object> map =
+					(Map<String, Object>) JSONValue.parseWithException(line);
+			final IndexRequestBuilder requestBuilder =
+					createRequestBuilder(meta, map);
+			bulkRequest.add(requestBuilder);
+		} catch (ParseException e) {
+			LOG.error(e.getMessage(), e);
+		}
+	}
+
+	private void runBulkRequest(final BulkRequestBuilder bulkRequest,
+			final List<BulkItemResponse> result) {
+		final BulkResponse bulkResponse = executeBulkRequest(bulkRequest);
+		if (bulkResponse == null) {
+			LOG.error("Bulk request failed: " + bulkRequest);
+		} else {
+			collectFailedResponses(result, bulkResponse);
+		}
+	}
+
+	private void collectFailedResponses(final List<BulkItemResponse> result,
+			final BulkResponse bulkResponse) {
+		for (BulkItemResponse bulkItemResponse : bulkResponse) {
+			if (bulkItemResponse.failed()) {
+				LOG.error(bulkItemResponse.failureMessage());
+				result.add(bulkItemResponse);
+			}
+		}
 	}
 
 	private IndexRequestBuilder createRequestBuilder(final String meta,

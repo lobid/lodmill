@@ -34,6 +34,8 @@ public class NTriplesToJsonLd extends AbstractJobLauncher {
 	private static final int NODES = 4; // e.g. 4 nodes in cluster
 	private static final int SLOTS = 2; // e.g. 2 cores per node
 	private static final String NEWLINE = "\n";
+	static final String INDEX_NAME = "index.name";
+	static final String INDEX_TYPE = "index.type";
 
 	public static void main(final String[] args) {
 		launch(new NTriplesToJsonLd(), args);
@@ -107,14 +109,16 @@ public class NTriplesToJsonLd extends AbstractJobLauncher {
 			final String resource = JSONUtils.toString(serializer.asObject());
 			context.write(
 					// write both with JSONValue for consistent escaping:
-					new Text(JSONValue.toJSONString(createIndexMap(key))),
+					new Text(JSONValue
+							.toJSONString(createIndexMap(key, context))),
 					new Text(JSONValue.toJSONString(JSONValue.parse(resource))));
 		}
 
-		private Map<String, Map<?, ?>> createIndexMap(final Text key) {
+		private Map<String, Map<?, ?>> createIndexMap(final Text key,
+				final Context context) {
 			final Map<String, String> map = new HashMap<String, String>();
-			map.put("_index", "json-ld-index");
-			map.put("_type", "json-ld");
+			map.put("_index", context.getConfiguration().get(INDEX_NAME));
+			map.put("_type", context.getConfiguration().get(INDEX_TYPE));
 			map.put("_id", key.toString().substring(1, key.getLength() - 1));
 			final Map<String, Map<?, ?>> index =
 					new HashMap<String, Map<?, ?>>();

@@ -2,6 +2,9 @@
 
 package org.lobid.lodmill.hadoop;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 import java.net.URI;
 
@@ -16,7 +19,6 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.json.JSONException;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -56,13 +58,15 @@ public class IndexFromHdfsInElasticSearchTests {
 	@Test
 	public void testIndexOne() throws IOException, JSONException,
 			InterruptedException {
-		Assert.assertEquals(25, indexer.indexOne(DATA_1).size());
+		assertEquals("Indexing one should yield no errors", 0, indexer
+				.indexOne(DATA_1).size());
 	}
 
 	@Test
 	public void testIndexAll() throws IOException, JSONException,
 			InterruptedException {
-		Assert.assertEquals(50, indexer.indexAll("json-es-test/").size());
+		assertEquals("Indexing all should yield no errors", 0, indexer
+				.indexAll("json-es-test/").size());
 	}
 
 	@Test
@@ -74,7 +78,7 @@ public class IndexFromHdfsInElasticSearchTests {
 				search("json-ld-index",
 						"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
 						"loft");
-		Assert.assertTrue(
+		assertTrue(
 				"Substring of actual index term should yield results due to ngram config",
 				response.getHits().iterator().hasNext());
 	}

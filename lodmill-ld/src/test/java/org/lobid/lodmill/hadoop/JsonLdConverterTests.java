@@ -42,7 +42,7 @@ public final class JsonLdConverterTests {
 
 	/* TODO: when Jena serializes, it rightfully complains about these: */
 	final String jsonLdSample = JSONValue.toJSONString(
-			NTriplesToJsonLdTests.jsonMap()).replace(
+			LobidNTriplesToJsonLdTests.jsonMap()).replace(
 			"https:\\/\\/dewey.info\\/class\\/[892.1, 22]\\/",
 			"https:\\/\\/dewey.info\\/class\\/892.1\\/");
 

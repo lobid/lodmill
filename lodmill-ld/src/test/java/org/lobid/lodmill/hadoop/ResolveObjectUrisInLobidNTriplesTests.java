@@ -21,17 +21,17 @@ import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesR
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public final class ResolveGndUrisInLobidNTriplesTests {
+public final class ResolveObjectUrisInLobidNTriplesTests {
 
-	private static final String GND_CREATOR_ID = "118643606";
+	static final String GND_CREATOR_ID = "118643606";
 	private static final String LOBID_TRIPLE_1 =
 			"<http://lobid.org/resource/HT000000716> "
 					+ "<http://purl.org/dc/elements/1.1/creator>"
 					+ "<http://d-nb.info/gnd/118643606>.";
-	private static final String GND_TRIPLE_1 = gnd("preferredNameForThePerson",
+	static final String GND_TRIPLE_1 = gnd("preferredNameForThePerson",
 			"Adamucci, Antonio");
-	private static final String GND_TRIPLE_2 = gnd("dateOfBirth", "1828");
-	private static final String GND_TRIPLE_3 = gnd("dateOfDeath", "1885");
+	static final String GND_TRIPLE_2 = gnd("dateOfBirth", "1828");
+	static final String GND_TRIPLE_3 = gnd("dateOfDeath", "1885");
 	private static final String LOBID_DEWEY_TRIPLE =
 			"<http://lobid.org/resource/HT007307035> "
 					+ "<http://purl.org/dc/terms/subject> "
