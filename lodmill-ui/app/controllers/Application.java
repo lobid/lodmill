@@ -3,7 +3,9 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 
 import models.Document;
@@ -25,8 +27,9 @@ public final class Application extends Controller {
 
 	private static Form<Document> docForm = form(Document.class);
 	public static final List<String> INDEXES = new ArrayList<String>(
-			new TreeSet<String>(Document.searchFields.keySet()));
+			new TreeSet<String>(Document.searchFieldsMap.keySet()));
 	private static int selectedIndex = INDEXES.indexOf(Document.esIndex);
+	private static String query = "";
 
 	public static Result index() {
 		return redirect(routes.Application.search());
@@ -34,7 +37,7 @@ public final class Application extends Controller {
 
 	public static Result search() {
 		return ok(views.html.index.render(Document.all(), docForm,
-				selectedIndex));
+				selectedIndex, query));
 	}
 
 	public static Result setIndex() {
@@ -47,11 +50,12 @@ public final class Application extends Controller {
 
 	public static Result doSearch() {
 		final Form<Document> filledForm = docForm.bindFromRequest();
+		query = request().body().asFormUrlEncoded().get("author")[0];
 		Result result = null;
 		if (filledForm.hasErrors()) {
 			result =
 					badRequest(views.html.index.render(Document.all(),
-							filledForm, selectedIndex));
+							filledForm, selectedIndex, query));
 		} else {
 			Document.search(filledForm.get());
 			result = redirect(routes.Application.search());
@@ -60,11 +64,11 @@ public final class Application extends Controller {
 	}
 
 	public static Result autocompleteSearch(final String term) {
-		final List<String> list = new ArrayList<String>();
-		for (Document document : Document.search(term)) {
-			list.add(document.author);
+		final Set<String> set = new HashSet<String>();
+		for (Document document : Document.search(term, Document.esIndex)) {
+			set.add(document.author);
 		}
-		return ok(Json.toJson(list));
+		return ok(Json.toJson(set));
 	}
 
 }
