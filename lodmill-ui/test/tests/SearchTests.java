@@ -26,11 +26,25 @@ public class SearchTests {
 
 	@Test
 	public void searchViaModel() {
-		final List<Document> docs = Document.search(TERM);
+		final List<Document> docs = Document.search(TERM, Document.esIndex);
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.author.toLowerCase()).contains(TERM);
 		}
+	}
+
+	@Test
+	public void searchViaModelBirth() {
+		assertThat(
+				Document.search("Schmidt, Karla (1974-)", "gnd-index").size())
+				.isEqualTo(1);
+	}
+
+	@Test
+	public void searchViaModelBirthDeath() {
+		assertThat(
+				Document.search("Schmidt, Karl (1902-1945)", "gnd-index")
+						.size()).isEqualTo(1);
 	}
 
 	@Test

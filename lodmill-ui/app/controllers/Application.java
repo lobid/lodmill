@@ -63,7 +63,7 @@ public final class Application extends Controller {
 
 	public static Result autocompleteSearch(final String term) {
 		final Set<String> set = new HashSet<String>();
-		for (Document document : Document.search(term)) {
+		for (Document document : Document.search(term, Document.esIndex)) {
 			set.add(document.author);
 		}
 		return ok(Json.toJson(set));

@@ -22,6 +22,7 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.Required;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
@@ -104,14 +105,14 @@ public class Document {
 	}
 
 	public static void search(final Document document) {
-		docs = search(document.author);
+		docs = search(document.author, esIndex);
 	}
 
-	public static List<Document> search(final String term) {
-		searchFields = searchFieldsMap.get(esIndex);
+	public static List<Document> search(final String term, final String index) {
+		searchFields = searchFieldsMap.get(index);
 		final String search = term.toLowerCase();
 		final SearchRequestBuilder requestBuilder =
-				CLIENT.prepareSearch(esIndex)
+				CLIENT.prepareSearch(index)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 						.setQuery(constructQuery(search));
 		final SearchResponse response =
@@ -125,16 +126,26 @@ public class Document {
 		final String lifeDates = "\\((\\d+)-(\\d*)\\)";
 		final Matcher matcher =
 				Pattern.compile("[^(]+" + lifeDates).matcher(search);
-		return matcher.find() ?
-		/* Search name in name field and birth in birth field: */
-		boolQuery().must(
-				matchQuery(searchFields.get(0),
-						search.replaceAll(lifeDates, "").trim()).operator(
-						Operator.AND)).must(
-				matchQuery(searchFields.get(1), matcher.group(1))) :
-		/* Search all in name field: */
-		boolQuery().must(
-				matchQuery(searchFields.get(0), search).operator(Operator.AND));
+		BoolQueryBuilder query = null;
+		if (matcher.find()) {
+			/* Search name in name field and birth in birth field: */
+			final BoolQueryBuilder birthQuery =
+					boolQuery().must(
+							matchQuery(searchFields.get(0),
+									search.replaceAll(lifeDates, "").trim())
+									.operator(Operator.AND)).must(
+							matchQuery(searchFields.get(1), matcher.group(1)));
+			query = matcher.group(2).equals("") ? birthQuery :
+			/* If we have one, search death in death field: */
+			birthQuery.must(matchQuery(searchFields.get(2), matcher.group(2)));
+		} else {
+			/* Search all in name field: */
+			query =
+					boolQuery().must(
+							matchQuery(searchFields.get(0), search).operator(
+									Operator.AND));
+		}
+		return query;
 	}
 
 	private static List<Document> asDocuments(final String search,
