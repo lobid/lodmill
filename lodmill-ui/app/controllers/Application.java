@@ -3,7 +3,9 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.TreeSet;
 
 import models.Document;
@@ -25,7 +27,7 @@ public final class Application extends Controller {
 
 	private static Form<Document> docForm = form(Document.class);
 	public static final List<String> INDEXES = new ArrayList<String>(
-			new TreeSet<String>(Document.searchFields.keySet()));
+			new TreeSet<String>(Document.searchFieldsMap.keySet()));
 	private static int selectedIndex = INDEXES.indexOf(Document.esIndex);
 
 	public static Result index() {
@@ -60,11 +62,11 @@ public final class Application extends Controller {
 	}
 
 	public static Result autocompleteSearch(final String term) {
-		final List<String> list = new ArrayList<String>();
+		final Set<String> set = new HashSet<String>();
 		for (Document document : Document.search(term)) {
-			list.add(document.author);
+			set.add(document.author);
 		}
-		return ok(Json.toJson(list));
+		return ok(Json.toJson(set));
 	}
 
 }

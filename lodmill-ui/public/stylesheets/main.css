@@ -11,6 +11,9 @@ label {
 }
 
 .ui-autocomplete {
+	max-height: 200px;
+	overflow-y: auto;
+	overflow-x: hidden;
 	position: absolute;
 	top: 100%;
 	left: 0;

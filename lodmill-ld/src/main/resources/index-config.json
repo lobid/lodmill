@@ -5,7 +5,7 @@
         "analyzer":{
           "ngram_analyzer":{
             "type":"custom",
-            "tokenizer":"keyword",
+            "tokenizer":"letter",
             "filter":[
               "lowercase",
               "stop",
@@ -16,7 +16,7 @@
         "filter":{
           "ngram":{
             "type":"nGram",
-            "min_gram":2,
+            "min_gram":1,
             "max_gram":20
           }
         }
@@ -28,7 +28,8 @@
       "properties":{
         "http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson":{
           "type":"string",
-          "analyzer":"ngram_analyzer"
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
         }
       }
     },
@@ -37,7 +38,8 @@
       "properties":{
         "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
           "type":"string",
-          "analyzer":"ngram_analyzer"
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
         }
       }
     }

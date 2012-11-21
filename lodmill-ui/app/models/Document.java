@@ -2,12 +2,19 @@
 
 package models;
 
+import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
+import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.client.Client;
@@ -15,7 +22,8 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.Required;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
+import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.json.simple.JSONValue;
@@ -24,6 +32,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Predicate;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 import com.hp.hpl.jena.shared.BadURIException;
 
@@ -38,18 +47,28 @@ public class Document {
 			new InetSocketTransportAddress("10.1.2.111", 9300); // NOPMD
 	public static final String ES_CLUSTER_NAME = "es-lod-hydra";
 	@SuppressWarnings("serial")
-	public static Map<String, String> searchFields =
-			new HashMap<String, String>() {
+	public static Map<String, List<String>> searchFieldsMap =
+			new HashMap<String, List<String>>() {
 				{ // NOPMD
 					put("lobid-index",
-							"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson");
+							Arrays.asList(
+									"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
+									"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
+									"http://purl.org/dc/elements/1.1/creator#dateOfDeath"));
 					put("gnd-index",
-							"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson");
+							Arrays.asList(
+									"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+									"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
+									"http://d-nb.info/standards/elementset/gnd#dateOfDeath"));
 				}
 			};
 
 	public static String esIndex = "lobid-index";
-	public static String searchField = searchFields.get(esIndex);
+	public static List<String> searchFields = searchFieldsMap.get(esIndex);
+
+	private static final Client CLIENT = new TransportClient(ImmutableSettings
+			.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME).build())
+			.addTransportAddress(ES_SERVER);
 
 	@Required
 	public transient String author;
@@ -89,20 +108,33 @@ public class Document {
 	}
 
 	public static List<Document> search(final String term) {
-		searchField = searchFields.get(esIndex);
+		searchFields = searchFieldsMap.get(esIndex);
 		final String search = term.toLowerCase();
-		final Client client =
-				new TransportClient(ImmutableSettings.settingsBuilder()
-						.put("cluster.name", ES_CLUSTER_NAME).build())
-						.addTransportAddress(ES_SERVER);
-		final SearchResponse response =
-				client.prepareSearch(esIndex)
+		final SearchRequestBuilder requestBuilder =
+				CLIENT.prepareSearch(esIndex)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(QueryBuilders.termQuery(searchField, search))
-						.setFrom(0).setSize(10).setExplain(true).execute()
-						.actionGet();
+						.setQuery(constructQuery(search));
+		final SearchResponse response =
+				requestBuilder.setFrom(0).setSize(50).setExplain(true)
+						.execute().actionGet();
 		final SearchHits hits = response.getHits();
 		return asDocuments(search, hits);
+	}
+
+	private static QueryBuilder constructQuery(final String search) {
+		final String lifeDates = "\\((\\d+)-(\\d*)\\)";
+		final Matcher matcher =
+				Pattern.compile("[^(]+" + lifeDates).matcher(search);
+		return matcher.find() ?
+		/* Search name in name field and birth in birth field: */
+		boolQuery().must(
+				matchQuery(searchFields.get(0),
+						search.replaceAll(lifeDates, "").trim()).operator(
+						Operator.AND)).must(
+				matchQuery(searchFields.get(1), matcher.group(1))) :
+		/* Search all in name field: */
+		boolQuery().must(
+				matchQuery(searchFields.get(0), search).operator(Operator.AND));
 	}
 
 	private static List<Document> asDocuments(final String search,
@@ -114,24 +146,44 @@ public class Document {
 			withAuthor(search, hit, document);
 			res.add(document);
 		}
-		return res;
+		final Predicate<Document> predicate = new Predicate<Document>() {
+			public boolean apply(final Document doc) {
+				return doc.author != null;
+			}
+		};
+		return ImmutableList.copyOf(Iterables.filter(res, predicate));
 	}
 
 	private static void withAuthor(final String search, final SearchHit hit,
 			final Document document) {
-		final Object author = hit.getSource().get(searchField);
+		final Object author = hit.getSource().get(searchFields.get(0));
 		if (author instanceof List
 				&& ((List<?>) author).get(0) instanceof String) {
 			@SuppressWarnings("unchecked")
 			final List<String> list = (List<String>) author;
-			final Predicate<String> predicate = new Predicate<String>() {
-				public boolean apply(final String string) {
-					return string.toLowerCase().contains(search);
-				}
-			};
-			document.author = Iterables.find(list, predicate);
+			document.author = firstMatchingAuthor(search, list);
 		} else {
-			document.author = author.toString();
+			final Object birth = hit.getSource().get(searchFields.get(1));
+			final Object death = hit.getSource().get(searchFields.get(2));
+			if (birth == null) {
+				document.author = author.toString();
+			} else {
+				final String format =
+						String.format("%s (%s-%s)", author.toString(),
+								birth.toString(),
+								death == null ? "" : death.toString());
+				document.author = format;
+			}
 		}
+	}
+
+	private static String firstMatchingAuthor(final String search,
+			final List<String> list) {
+		final Predicate<String> predicate = new Predicate<String>() {
+			public boolean apply(final String string) {
+				return string.toLowerCase().contains(search);
+			}
+		};
+		return Iterables.tryFind(list, predicate).orNull();
 	}
 }

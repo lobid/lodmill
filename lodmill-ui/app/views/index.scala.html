@@ -23,7 +23,7 @@
     @form(routes.Application.doSearch(), 'class -> "form-horizontal") {
 	    <input type="text" name="author" id="author" class="autocomplete"
 			data-url="@{routes.Application.autocompleteSearch()}"
-			placeholder="@(Document.searchField.split("#")(1))"/>
+			placeholder="@(Document.searchFields(0).split("#")(1))"/>
 		<div id="button"><button type="submit" class="btn">Search</button></div>
 	    <script>
 	    $('input.autocomplete').each( function() {
@@ -43,7 +43,6 @@
         	<dt><b>NT</b></dt><dd>@doc.as(Format.N_TRIPLE)</dd>
         	<dt><b>N3</b></dt><dd>@doc.as(Format.N3)</dd>
         	<dt><b>TTL</b></dt><dd>@doc.as(Format.TURTLE)</dd>
-        	<dt><b>XML</b></dt><dd>@doc.as(Format.RDF_XML)</dd>
         </dl>
     }
 }

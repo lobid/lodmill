@@ -75,7 +75,7 @@ public class IndexFromHdfsInElasticSearchTests {
 		indexer.indexAll("json-es-test/");
 		Thread.sleep(200); // it seems the ngram analyzer needs a moment
 		final SearchResponse response =
-				search("json-ld-index",
+				search("lobid-index",
 						"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
 						"loft");
 		assertTrue(
