@@ -29,6 +29,7 @@ public final class Application extends Controller {
 	public static final List<String> INDEXES = new ArrayList<String>(
 			new TreeSet<String>(Document.searchFieldsMap.keySet()));
 	private static int selectedIndex = INDEXES.indexOf(Document.esIndex);
+	private static String query = "";
 
 	public static Result index() {
 		return redirect(routes.Application.search());
@@ -36,7 +37,7 @@ public final class Application extends Controller {
 
 	public static Result search() {
 		return ok(views.html.index.render(Document.all(), docForm,
-				selectedIndex));
+				selectedIndex, query));
 	}
 
 	public static Result setIndex() {
@@ -49,11 +50,12 @@ public final class Application extends Controller {
 
 	public static Result doSearch() {
 		final Form<Document> filledForm = docForm.bindFromRequest();
+		query = request().body().asFormUrlEncoded().get("author")[0];
 		Result result = null;
 		if (filledForm.hasErrors()) {
 			result =
 					badRequest(views.html.index.render(Document.all(),
-							filledForm, selectedIndex));
+							filledForm, selectedIndex, query));
 		} else {
 			Document.search(filledForm.get());
 			result = redirect(routes.Application.search());

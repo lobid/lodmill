@@ -1,6 +1,6 @@
 @* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(docs: List[Document], docForm: Form[Document], index: Int)
+@(docs: List[Document], docForm: Form[Document], index: Int, query: String)
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -23,7 +23,7 @@
     @form(routes.Application.doSearch(), 'class -> "form-horizontal") {
 	    <input type="text" name="author" id="author" class="autocomplete"
 			data-url="@{routes.Application.autocompleteSearch()}"
-			placeholder="@(Document.searchFields(0).split("#")(1))"/>
+			placeholder="@if(query!=""){@query} else (Document.searchFields(0).split("#")(1))"/>
 		<div id="button"><button type="submit" class="btn">Search</button></div>
 	    <script>
 	    $('input.autocomplete').each( function() {
@@ -34,7 +34,7 @@
 	    </script>
     }
 
-    <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents }</h1>
+    <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h1>
     
     @for(doc <- docs) {
         <h2>@doc.id</h2>
