@@ -7,9 +7,7 @@ import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,8 +32,11 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.hp.hpl.jena.shared.BadURIException;
+
+import controllers.Application;
 
 /**
  * Documents returned from the ElasticSearch index.
@@ -47,25 +48,22 @@ public class Document {
 	public static final InetSocketTransportAddress ES_SERVER =
 			new InetSocketTransportAddress("10.1.2.111", 9300); // NOPMD
 	public static final String ES_CLUSTER_NAME = "es-lod-hydra";
-	@SuppressWarnings("serial")
-	public static Map<String, List<String>> searchFieldsMap =
-			new HashMap<String, List<String>>() {
-				{ // NOPMD
-					put("lobid-index",
+	public static ImmutableMap<String, List<String>> searchFieldsMap =
+			new ImmutableMap.Builder<String, List<String>>()
+					.put("lobid-index",
 							Arrays.asList(
 									"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
 									"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
-									"http://purl.org/dc/elements/1.1/creator#dateOfDeath"));
-					put("gnd-index",
+									"http://purl.org/dc/elements/1.1/creator#dateOfDeath"))
+					.put("gnd-index",
 							Arrays.asList(
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
 									"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-									"http://d-nb.info/standards/elementset/gnd#dateOfDeath"));
-				}
-			};
+									"http://d-nb.info/standards/elementset/gnd#dateOfDeath"))
+					.build();
 
-	public static String esIndex = "lobid-index";
-	public static List<String> searchFields = searchFieldsMap.get(esIndex);
+	public static List<String> searchFields = searchFieldsMap
+			.get(Application.index);
 
 	private static final Client CLIENT = new TransportClient(ImmutableSettings
 			.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME).build())
@@ -76,7 +74,6 @@ public class Document {
 	public transient String source;
 	public transient String id; // NOPMD
 
-	private static List<Document> docs = new ArrayList<Document>();
 	private static final Logger LOG = LoggerFactory.getLogger(Document.class);
 
 	public Document(final String id, final String source) { // NOPMD
@@ -98,14 +95,6 @@ public class Document {
 			LOG.error(x.getMessage(), x);
 		}
 		return result;
-	}
-
-	public static List<Document> all() {
-		return docs;
-	}
-
-	public static void search(final Document document) {
-		docs = search(document.author, esIndex);
 	}
 
 	public static List<Document> search(final String term, final String index) {
