@@ -1,6 +1,6 @@
 @* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(docs: List[Document], docForm: Form[Document], index: Int, query: String)
+@(docs: List[Document], index: Int, query: String)
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -8,9 +8,12 @@
 
 @main("Document list") {
 
-    <h1>Search in '@Document.esIndex' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
+    <h1>Search in '@Application.index' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
 
-    @form(routes.Application.setIndex(), 'class -> "form-horizontal") {
+    <p>API usage: <i>GET /search?format=&lt;page|full|short&gt;&index=&lt;lobid-index|gnd-index&gt;&author=&lt;query&gt;</i></p>
+
+    <form action="@routes.Application.search()" class="form-inline" method="GET">
+		<input type='hidden' name='format' value='page' />
 		<select name="index" id="index" onChange="this.form.submit()">
 			@for(i<-Application.INDEXES){
 				<option value="@i" @if(index==Application.INDEXES.indexOf(i)){selected="selected"}else{}>
@@ -18,13 +21,11 @@
 				</option>
 			}
 		</select>
-    }
-    
-    @form(routes.Application.doSearch(), 'class -> "form-horizontal") {
 	    <input type="text" name="author" id="author" class="autocomplete"
-			data-url="@{routes.Application.autocompleteSearch()}"
-			placeholder="@if(query!=""){@query} else (Document.searchFields(0).split("#")(1))"/>
-		<div id="button"><button type="submit" class="btn">Search</button></div>
+			data-url="@{routes.Application.autocomplete()}"
+			placeholder="author"
+			@if(query!=""){value="@query"}/>
+		<button type="submit" class="btn">Search</button>
 	    <script>
 	    $('input.autocomplete').each( function() {
 	        var $input = $(this);
@@ -32,7 +33,7 @@
 	        $input.autocomplete({ source:serverUrl });
 	    });
 	    </script>
-    }
+    </form>
 
     <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h1>
     
@@ -45,4 +46,5 @@
         	<dt><b>TTL</b></dt><dd>@doc.as(Format.TURTLE)</dd>
         </dl>
     }
+
 }
