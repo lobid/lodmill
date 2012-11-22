@@ -8,9 +8,6 @@ GET     /                           controllers.Application.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-GET     /search                  controllers.Application.search()
-POST    /search                  controllers.Application.doSearch()
+GET     /search                     controllers.Application.search()
 
-POST    /index					 controllers.Application.setIndex()
-
-GET     /autocompleteSearch      controllers.Application.autocompleteSearch(term: String ?= "")
+GET     /autocomplete               controllers.Application.autocomplete(term: String ?= "")
