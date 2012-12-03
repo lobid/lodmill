@@ -43,9 +43,7 @@ public class JsonLdConverter {
 			final StringWriter writer = new StringWriter();
 			callback.getJenaModel().write(writer, format.getName());
 			return writer.toString();
-		} catch (JsonParseException e) {
-			LOG.error(e.getMessage(), e);
-		} catch (JsonMappingException e) {
+		} catch (JsonParseException | JsonMappingException e) {
 			LOG.error(e.getMessage(), e);
 		}
 		return null;

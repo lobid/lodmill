@@ -5,7 +5,6 @@ package org.lobid.lodmill.hadoop;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +91,7 @@ public class IndexFromHdfsInElasticSearch {
 	 */
 	public List<BulkItemResponse> indexAll(final String dir) throws IOException {
 		checkPathInHdfs(dir);
-		final List<BulkItemResponse> result = new ArrayList<BulkItemResponse>();
+		final List<BulkItemResponse> result = new ArrayList<>();
 		final FileStatus[] listStatus = hdfs.listStatus(new Path(dir));
 		for (FileStatus fileStatus : listStatus) {
 			LOG.info("Indexing: " + fileStatus.getPath().getName());
@@ -121,7 +120,7 @@ public class IndexFromHdfsInElasticSearch {
 	}
 
 	private List<BulkItemResponse> runBulkRequests(final Scanner scanner) {
-		final List<BulkItemResponse> result = new ArrayList<BulkItemResponse>();
+		final List<BulkItemResponse> result = new ArrayList<>();
 		int lineNumber = 0;
 		String meta = null;
 		BulkRequestBuilder bulkRequest = client.prepareBulk();
@@ -202,8 +201,6 @@ public class IndexFromHdfsInElasticSearch {
 					Thread.currentThread().getContextClassLoader()
 							.getResourceAsStream("index-config.json");
 			res = CharStreams.toString(new InputStreamReader(config, "UTF-8"));
-		} catch (UnsupportedEncodingException e) {
-			LOG.error(e.getMessage(), e);
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}

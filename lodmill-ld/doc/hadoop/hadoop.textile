@@ -13,7 +13,7 @@ We used Puppet to install Hadoop on the nodes, see "http://puppetlabs.com/puppet
 * on one of the nodes (the puppet master) install: @sudo apt-get install puppetmaster puppet@
 * on the other nodes install: @sudo apt-get install puppet@
 * copy the @puppet@ directory in here to @/etc/puppet@ on the puppet master
-* install the required patched java and hadoop modules (see textile files in @puppet/modules@
+* install the required patched java and hadoop modules (see textile files in @puppet/modules@)
 * configure the cluster's master and slave nodes in @/etc/puppet/modules/hadoop/manifests/params.pp@
 * if the nodes don't have the host names used in @puppet/manifests/nodes.pp@, map them in the @/etc/hosts@ files on the nodes
 * remove the localhost mappings (127.x.x.x) from the @/etc/hosts@ files on the nodes
@@ -21,7 +21,7 @@ We used Puppet to install Hadoop on the nodes, see "http://puppetlabs.com/puppet
 * start the puppet master: @puppet master --mkusers@
 * from each node (master and clients), request a certificate from the master: @puppet agent --test --server hydra1@ (hydra1 is the master)
 * on the master, sign the certificates: @puppet cert -s hydra1 hydra2 hydra3 hydra4@
-* from each node (master and clients), set everything up: @agent --test --server hydra1@
+* from each node (master and clients), set everything up: @puppet agent --test --server hydra1@
 * become the Hadoop user: @sudo su hduser@
 * the automated formatting of a new HDFS currently fails, see "http://projects.puppetlabs.com/issues/5876":http://projects.puppetlabs.com/issues/5876, so we do it manually on the master: @bin/hadoop namenode -format@
 * start all daemons: @cd /opt/hadoop/hadoop; bin/start-all.sh@

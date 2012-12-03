@@ -104,7 +104,7 @@ public final class GutenbergTests {
 		final Scanner scanner =
 				new Scanner(Thread.currentThread().getContextClassLoader()
 						.getResourceAsStream(authors));
-		final Set<String> ids = new HashSet<String>();
+		final Set<String> ids = new HashSet<>();
 		while (scanner.hasNextLine()) {
 			final String line = scanner.nextLine();
 			final String gndId =

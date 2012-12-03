@@ -129,7 +129,7 @@ public final class FourStore {
 		// UpdateExecutionFactory.createRemote(queryObj, endpoint).execute();
 		/* So instead, we use HttpClient directly: */
 		final HttpPost post = new HttpPost(endpoint);
-		final List<NameValuePair> params = new ArrayList<NameValuePair>();
+		final List<NameValuePair> params = new ArrayList<>();
 		params.add(new BasicNameValuePair("update", sparql));
 		post.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
 		post.setHeader("content-type", "application/x-www-form-urlencoded");
