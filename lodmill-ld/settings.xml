@@ -1,0 +1,14 @@
+<settings>
+	<mirrors>
+		<!-- This is a workaround for a non-existing repo that is pulled in by 
+			some transitive dependency. On `mvn assembly:assembly`, this causes a long 
+			delay when trying to connect to the repo. To fix that, we define central 
+			as a mirror for the missing repo. This file has to be in $M2_HOME/conf/settings.xml 
+			or ${user.home}/.m2/settings.xml -->
+		<mirror>
+			<id>central</id>
+			<url>http://repo1.maven.org</url>
+			<mirrorOf>jena-repo</mirrorOf>
+		</mirror>
+	</mirrors>
+</settings>
