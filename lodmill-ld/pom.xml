@@ -29,6 +29,13 @@
 		</repository>
 	</repositories>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>lobid-snapshots</id>
+            <url>file:///${basedir}/../../lobid.github.com/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 	<build>
 		<testResources>
 			<testResource>
