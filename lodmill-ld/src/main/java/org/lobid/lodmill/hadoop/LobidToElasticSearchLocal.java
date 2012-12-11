@@ -86,9 +86,7 @@ public class LobidToElasticSearchLocal {
 			final Process splitProcess = processBuilder.start();
 			splitProcess.waitFor();
 			printOutput(splitProcess);
-		} catch (IOException e1) {
-			e1.printStackTrace(); // NOPMD
-		} catch (InterruptedException e) {
+		} catch (IOException | InterruptedException e) {
 			e.printStackTrace(); // NOPMD
 		}
 	}

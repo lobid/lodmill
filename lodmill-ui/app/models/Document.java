@@ -139,7 +139,7 @@ public class Document {
 
 	private static List<Document> asDocuments(final String search,
 			final SearchHits hits) {
-		final List<Document> res = new ArrayList<Document>();
+		final List<Document> res = new ArrayList<>();
 		for (SearchHit hit : hits) {
 			final Document document =
 					new Document(hit.getId(), new String(hit.source()));

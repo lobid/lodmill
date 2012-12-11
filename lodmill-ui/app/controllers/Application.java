@@ -35,10 +35,10 @@ public final class Application extends Controller {
 		PAGE, FULL, SHORT
 	}
 
-	public static final List<String> INDEXES = new ArrayList<String>(
-			new TreeSet<String>(Document.searchFieldsMap.keySet()));
+	public static final List<String> INDEXES = new ArrayList<>(new TreeSet<>(
+			Document.searchFieldsMap.keySet()));
 	public static String index = "lobid-index"; // NOPMD
-	private static List<Document> docs = new ArrayList<Document>();
+	private static List<Document> docs = new ArrayList<>();
 
 	public static Result index() {
 		return redirect(routes.Application.search());
