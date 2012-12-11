@@ -16,6 +16,13 @@
 
 	<repositories>
 		<repository>
+			<id>lobid-snapshots</id>
+			<url>http://lobid.github.com/snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>dfki-snapshots</id>
 			<url>http://www.dfki.uni-kl.de/artifactory/libs-snapshots/</url>
 			<snapshots>

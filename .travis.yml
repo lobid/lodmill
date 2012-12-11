@@ -2,36 +2,6 @@ language: java
 env:
   - PLAY_VERSION=2.0.4
 jdk: oraclejdk7
-before_install:
-  - git clone git://github.com/culturegraph/culturegraph-metastream.git
-  - cd culturegraph-metastream
-  - mvn clean install -DskipTests=true
-  - cd ..
-  - git clone git://github.com/culturegraph/culturegraph-metamorph.git
-  - cd culturegraph-metamorph
-  - mvn clean install -DskipTests=true
-  - cd ..
-  - git clone git://github.com/culturegraph/culturegraph-search.git
-  - cd culturegraph-search
-  - mvn clean install -DskipTests=true
-  - cd ..
-  - git clone git://github.com/culturegraph/culturegraph-semanticweb.git
-  - cd culturegraph-semanticweb
-  - mvn clean install -DskipTests=true
-  - cd ..
-  - git clone git://github.com/culturegraph/culturegraph-mediawiki.git
-  - cd culturegraph-mediawiki
-  - mvn clean install -DskipTests=true
-  - cd ..
-  - git clone git://github.com/culturegraph/culturegraph-cluster.git
-  - cd culturegraph-cluster
-  - mvn clean install -DskipTests=true
-  - cd ..
-  - git clone git://github.com/tristan/jsonld-java.git
-  - cd jsonld-java
-  - git checkout 369bbf544f3b11499a0418d98a9b73c988428dd3
-  - mvn clean install -DskipTests=true
-  - cd ..
 install:
   - cd lodmill-ld
   - mvn clean install -e -DskipTests=true
