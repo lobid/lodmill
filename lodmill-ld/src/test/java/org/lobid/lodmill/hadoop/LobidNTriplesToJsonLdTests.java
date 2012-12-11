@@ -88,11 +88,11 @@ public final class LobidNTriplesToJsonLdTests {
 
 	static Map<String, Map<?, ?>> indexMap(final String indexName,
 			final String indexType, final String resourceId) {
-		final Map<String, String> map = new HashMap<String, String>();
+		final Map<String, String> map = new HashMap<>();
 		map.put("_index", indexName);
 		map.put("_type", indexType);
 		map.put("_id", resourceId);
-		final Map<String, Map<?, ?>> index = new HashMap<String, Map<?, ?>>();
+		final Map<String, Map<?, ?>> index = new HashMap<>();
 		index.put("index", map);
 		return index;
 	}

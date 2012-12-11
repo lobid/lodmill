@@ -4,7 +4,6 @@ package org.lobid.lodmill.sparql;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -122,7 +121,7 @@ public final class Gutenberg {
 								+ "FILTER ( ?p=<%s> || ?p=<%s> || ?p=<%s> ) }",
 						gndPersonId, gndPersonId, NAME, BIRTH, DEATH));
 		final String lifeDates = lifeDates(graph);
-		final List<String> result = new ArrayList<String>();
+		final List<String> result = new ArrayList<>();
 		for (Triple name : triplesWithPredicate(NAME, graph)) {
 			// e.g. "Flygare-Carlen, Emilie, 1807-1892"
 			final String key =
@@ -168,15 +167,11 @@ public final class Gutenberg {
 	}
 
 	private Map<String, String> writeMap(final File serializedMap) {
-		try {
+		try (final ObjectOutputStream stream =
+				new ObjectOutputStream(new FileOutputStream(serializedMap))) {
 			final Map<String, String> map = mapLiteralsToGutenbergIds();
-			final ObjectOutputStream stream =
-					new ObjectOutputStream(new FileOutputStream(serializedMap));
 			stream.writeObject(map);
-			stream.close();
 			return map;
-		} catch (FileNotFoundException e) {
-			LOG.error(e.getMessage(), e);
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
@@ -185,7 +180,7 @@ public final class Gutenberg {
 
 	private Map<String, String> mapLiteralsToGutenbergIds() throws IOException {
 		final Graph gutenbergGraph = remoteZippedGraph(new URL(GUTENBERG));
-		final Map<String, String> authors = new HashMap<String, String>();
+		final Map<String, String> authors = new HashMap<>();
 		final List<Triple> literals =
 				triplesWithPredicate(CREATOR, gutenbergGraph);
 		for (Triple triple : literals) {
@@ -199,19 +194,13 @@ public final class Gutenberg {
 	}
 
 	private Map<String, String> readMap(final File serializedMap) {
-		try {
-			final ObjectInputStream stream =
-					new ObjectInputStream(new FileInputStream(serializedMap));
+		try (final ObjectInputStream stream =
+				new ObjectInputStream(new FileInputStream(serializedMap))) {
 			@SuppressWarnings("unchecked")
 			final Map<String, String> map =
 					(Map<String, String>) stream.readObject();
-			stream.close();
 			return map;
-		} catch (FileNotFoundException e) {
-			LOG.error(e.getMessage(), e);
-		} catch (ClassNotFoundException e) {
-			LOG.error(e.getMessage(), e);
-		} catch (IOException e) {
+		} catch (ClassNotFoundException | IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
 		return null;

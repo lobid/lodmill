@@ -75,8 +75,8 @@ public class ResolveObjectUrisInLobidNTriples extends AbstractJobLauncher {
 	}
 
 	private static SortedSet<String> props(final String key) {
-		return new TreeSet<String>(Arrays.asList(PROPERTIES.getProperty(key)
-				.split(";")));
+		return new TreeSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(
+				";")));
 	}
 
 	@Override
