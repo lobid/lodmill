@@ -62,7 +62,13 @@ public final class Application extends Controller {
 	}
 
 	public static Result autocomplete(final String term) {
-		return results(term, Document.search(term, index)).get(Format.SHORT);
+		final JsonNode json =
+				Json.toJson(ImmutableSet.copyOf(Lists.transform(
+						Document.search(term, index), jsonShort)));
+		/* JSONP callback support for remote server calls with JavaScript: */
+		final String[] callback = request().queryString().get("callback");
+		return callback != null ? ok(String.format("%s(%s)", callback[0], json))
+				: ok(json);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =
