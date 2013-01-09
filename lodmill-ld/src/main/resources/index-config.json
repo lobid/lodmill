@@ -42,6 +42,16 @@
           "search_analyzer":"standard"
         }
       }
+    },
+    "json-ld-lobid-orgs":{
+      "date_detection":false,
+      "properties":{
+        "http://www.w3.org/2004/02/skos/core#prefLabel":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        }
+      }
     }
   }
 }
