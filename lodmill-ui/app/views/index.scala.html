@@ -10,7 +10,7 @@
 
     <h1>Search in '@Application.index' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
 
-    <p>API usage: <i>GET /search?format=&lt;page|full|short&gt;&index=&lt;lobid-index|gnd-index&gt;&author=&lt;query&gt;</i></p>
+    <p>API usage: <i>GET /search?format=&lt;page|full|short&gt;&index=&lt;lobid-index|lobid-orgs-index|gnd-index&gt;&query=&lt;query&gt;</i></p>
 
     <form action="@routes.Application.search()" class="form-inline" method="GET">
 		<input type='hidden' name='format' value='page' />
@@ -21,9 +21,9 @@
 				</option>
 			}
 		</select>
-	    <input type="text" name="author" id="author" class="autocomplete"
+	    <input type="text" name="query" id="query" class="autocomplete"
 			data-url="@{routes.Application.autocomplete()}"
-			placeholder="author"
+			placeholder="query"
 			@if(query!=""){value="@query"}/>
 		<button type="submit" class="btn">Search</button>
 	    <script>

@@ -48,7 +48,7 @@ public final class Application extends Controller {
 		if (request().queryString().isEmpty()) {
 			return results("", new ArrayList<Document>()).get(Format.PAGE);
 		}
-		final String query = request().queryString().get("author")[0];
+		final String query = request().queryString().get("query")[0];
 		index = request().queryString().get("index")[0];
 		docs = Document.search(query, index);
 		final ImmutableMap<Format, Result> results = results(query, docs);
@@ -66,7 +66,9 @@ public final class Application extends Controller {
 				Json.toJson(ImmutableSet.copyOf(Lists.transform(
 						Document.search(term, index), jsonShort)));
 		/* JSONP callback support for remote server calls with JavaScript: */
-		final String[] callback = request().queryString().get("callback");
+		final String[] callback =
+				request() == null || request().queryString() == null ? null
+						: request().queryString().get("callback");
 		return callback != null ? ok(String.format("%s(%s)", callback[0], json))
 				: ok(json);
 	}
@@ -81,7 +83,7 @@ public final class Application extends Controller {
 	private static Function<Document, String> jsonShort =
 			new Function<Document, String>() {
 				public String apply(final Document doc) {
-					return doc.author;
+					return doc.matchedField;
 				}
 			};
 
