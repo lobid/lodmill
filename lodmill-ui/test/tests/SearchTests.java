@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import models.Document;
 
@@ -17,6 +19,7 @@ import org.junit.Test;
 
 import play.api.mvc.SimpleResult;
 import play.libs.Json;
+import play.mvc.Http;
 import play.mvc.Http.Status;
 import play.mvc.Result;
 
@@ -39,7 +42,7 @@ public class SearchTests {
 		final List<Document> docs = Document.search(TERM, "gnd-index");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
-			assertThat(document.author.toLowerCase()).contains(TERM);
+			assertThat(document.matchedField.toLowerCase()).contains(TERM);
 		}
 	}
 
@@ -59,6 +62,8 @@ public class SearchTests {
 
 	@Test
 	public void searchViaController() {
+		final Map<String, String> data = Collections.emptyMap();
+		Http.Context.current.set(new Http.Context(null, data, data));
 		final Result result = Application.autocomplete(TERM);
 		System.out.println(result.getWrappedResult().getClass());
 		assertThat(
@@ -74,7 +79,7 @@ public class SearchTests {
 
 	@Test
 	public void searchViaApiPage() throws IOException {
-		assertThat(call("?index=lobid-index&author=ferdi&format=page"))
+		assertThat(call("?index=lobid-index&query=ferdi&format=page"))
 				.contains("<html>");
 
 	}
@@ -82,7 +87,7 @@ public class SearchTests {
 	@Test
 	public void searchViaApiFull() throws IOException {
 		final JsonNode jsonObject =
-				Json.parse(call("?index=lobid-index&author=ferdi&format=full"));
+				Json.parse(call("?index=lobid-index&query=ferdi&format=full"));
 		assertThat(jsonObject.isArray()).isTrue();
 		assertThat(jsonObject.size()).isGreaterThan(10);
 		assertThat(jsonObject.getElements().next().isContainerNode()).isTrue();
@@ -91,7 +96,7 @@ public class SearchTests {
 	@Test
 	public void searchViaApiShort() throws IOException {
 		final JsonNode jsonObject =
-				Json.parse(call("?index=lobid-index&author=ferdi&format=short"));
+				Json.parse(call("?index=lobid-index&query=ferdi&format=short"));
 		assertThat(jsonObject.isArray()).isTrue();
 		assertThat(jsonObject.size()).isGreaterThan(10);
 		assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();

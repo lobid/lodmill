@@ -17,7 +17,6 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.Required;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.BoolQueryBuilder;
@@ -60,6 +59,8 @@ public class Document {
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
 									"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
 									"http://d-nb.info/standards/elementset/gnd#dateOfDeath"))
+					.put("lobid-orgs-index",
+							Arrays.asList("http://www.w3.org/2004/02/skos/core#prefLabel"))
 					.build();
 
 	public static List<String> searchFields = searchFieldsMap
@@ -69,8 +70,7 @@ public class Document {
 			.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME).build())
 			.addTransportAddress(ES_SERVER);
 
-	@Required
-	public transient String author;
+	public transient String matchedField;
 	public transient String source;
 	public transient String id; // NOPMD
 
@@ -116,7 +116,7 @@ public class Document {
 		final Matcher matcher =
 				Pattern.compile("[^(]+" + lifeDates).matcher(search);
 		BoolQueryBuilder query = null;
-		if (matcher.find()) {
+		if (matcher.find() && searchFields.size() >= 3) {
 			/* Search name in name field and birth in birth field: */
 			final BoolQueryBuilder birthQuery =
 					boolQuery().must(
@@ -143,45 +143,47 @@ public class Document {
 		for (SearchHit hit : hits) {
 			final Document document =
 					new Document(hit.getId(), new String(hit.source()));
-			withAuthor(search, hit, document);
+			withMatchedField(search, hit, document);
 			res.add(document);
 		}
 		final Predicate<Document> predicate = new Predicate<Document>() {
 			public boolean apply(final Document doc) {
-				return doc.author != null;
+				return doc.matchedField != null;
 			}
 		};
 		return ImmutableList.copyOf(Iterables.filter(res, predicate));
 	}
 
-	private static void withAuthor(final String search, final SearchHit hit,
-			final Document document) {
-		final Object author = hit.getSource().get(searchFields.get(0));
-		if (author instanceof List
-				&& ((List<?>) author).get(0) instanceof String) {
+	private static void withMatchedField(final String query,
+			final SearchHit hit, final Document document) {
+		final Object matchedField = hit.getSource().get(searchFields.get(0));
+		if (matchedField instanceof List
+				&& ((List<?>) matchedField).get(0) instanceof String) {
 			@SuppressWarnings("unchecked")
-			final List<String> list = (List<String>) author;
-			document.author = firstMatchingAuthor(search, list);
-		} else {
+			final List<String> list = (List<String>) matchedField;
+			document.matchedField = firstMatching(query, list);
+		} else if (searchFields.get(0).contains("preferredNameForThePerson")) {
 			final Object birth = hit.getSource().get(searchFields.get(1));
 			final Object death = hit.getSource().get(searchFields.get(2));
 			if (birth == null) {
-				document.author = author.toString();
+				document.matchedField = matchedField.toString();
 			} else {
 				final String format =
-						String.format("%s (%s-%s)", author.toString(),
+						String.format("%s (%s-%s)", matchedField.toString(),
 								birth.toString(),
 								death == null ? "" : death.toString());
-				document.author = format;
+				document.matchedField = format;
 			}
+		} else if (matchedField instanceof String) {
+			document.matchedField = matchedField.toString();
 		}
 	}
 
-	private static String firstMatchingAuthor(final String search,
+	private static String firstMatching(final String query,
 			final List<String> list) {
 		final Predicate<String> predicate = new Predicate<String>() {
 			public boolean apply(final String string) {
-				return string.toLowerCase().contains(search);
+				return string.toLowerCase().contains(query);
 			}
 		};
 		return Iterables.tryFind(list, predicate).orNull();
