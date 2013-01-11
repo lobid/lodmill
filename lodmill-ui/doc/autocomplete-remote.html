@@ -13,12 +13,16 @@
 			$input.autocomplete({
 				source : function(request, response) {
 					$.ajax({
-						// Get the autocomplete data from a remote URL 
-						// (i.e. a different server from the one that 
-						// serves this HTML) by using JSONP: 
-						url : "http://demo.lobid.org/autocomplete",
+						// Get the autocomplete data from a remote URL
+						// (i.e. a different server from the one that
+						// serves this HTML) by using JSONP:
+						url : "http://demo.lobid.org/search",
 						dataType : "jsonp",
-						data : { term : request.term },
+						data : {
+							query : request.term,
+							format : "short",
+							index : "gnd-index" // lobid-index, lobid-orgs-index
+						},
 						success : function(data) {
 							response(data);
 						}
