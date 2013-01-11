@@ -62,15 +62,7 @@ public final class Application extends Controller {
 	}
 
 	public static Result autocomplete(final String term) {
-		final JsonNode json =
-				Json.toJson(ImmutableSet.copyOf(Lists.transform(
-						Document.search(term, index), jsonShort)));
-		/* JSONP callback support for remote server calls with JavaScript: */
-		final String[] callback =
-				request() == null || request().queryString() == null ? null
-						: request().queryString().get("callback");
-		return callback != null ? ok(String.format("%s(%s)", callback[0], json))
-				: ok(json);
+		return results(term, Document.search(term, index)).get(Format.SHORT);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =
@@ -89,6 +81,13 @@ public final class Application extends Controller {
 
 	private static ImmutableMap<Format, Result> results(final String query,
 			final List<Document> documents) {
+		/* JSONP callback support for remote server calls with JavaScript: */
+		final String[] callback =
+				request() == null || request().queryString() == null ? null
+						: request().queryString().get("callback");
+		final JsonNode shortJson =
+				Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
+						jsonShort)));
 		final ImmutableMap<Format, Result> results =
 				new ImmutableMap.Builder<Format, Result>()
 						.put(Format.PAGE,
@@ -98,9 +97,9 @@ public final class Application extends Controller {
 								ok(Json.toJson(ImmutableSet.copyOf(Lists
 										.transform(documents, jsonFull)))))
 						.put(Format.SHORT,
-								ok(Json.toJson(ImmutableSet.copyOf(Lists
-										.transform(documents, jsonShort)))))
-						.build();
+								callback != null ? ok(String.format("%s(%s)",
+										callback[0], shortJson))
+										: ok(shortJson)).build();
 		return results;
 	}
 
