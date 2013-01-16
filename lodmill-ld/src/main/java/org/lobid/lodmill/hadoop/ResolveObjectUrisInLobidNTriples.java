@@ -14,14 +14,17 @@ import java.util.TreeSet;
 import java.util.Vector;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.culturegraph.cluster.util.AbstractJobLauncher;
-import org.culturegraph.cluster.util.ConfigConst;
-import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
+import org.lobid.lodmill.JsonLdConverter.Format;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +45,7 @@ import fr.inria.jfresnel.fsl.jena.FSLJenaEvaluator;
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public class ResolveObjectUrisInLobidNTriples extends AbstractJobLauncher {
+public class ResolveObjectUrisInLobidNTriples implements Tool {
 
 	private static final Properties PROPERTIES = load();
 	private static final Set<String> TO_RESOLVE = props("resolve");
@@ -59,8 +62,10 @@ public class ResolveObjectUrisInLobidNTriples extends AbstractJobLauncher {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(ResolveObjectUrisInLobidNTriples.class);
 
-	public static void main(final String[] args) {
-		launch(new ResolveObjectUrisInLobidNTriples(), args);
+	public static void main(final String[] args) throws Exception {
+		final int res =
+				ToolRunner.run(new ResolveObjectUrisInLobidNTriples(), args);
+		System.exit(res);
 	}
 
 	private static Properties load() {
@@ -79,20 +84,30 @@ public class ResolveObjectUrisInLobidNTriples extends AbstractJobLauncher {
 				";")));
 	}
 
-	@Override
-	protected final Configuration prepareConf(final Configuration conf) {
-		addRequiredArguments(ConfigConst.INPUT_PATH, ConfigConst.OUTPUT_PATH);
-		conf.setStrings("mapred.textoutputformat.separator", "");
-		return getConf();
-	}
+	private Configuration conf;
 
 	@Override
-	protected final void configureJob(final Job job, final Configuration conf)
-			throws IOException {
-		configureFileInputMapper(job, conf, ResolveTriplesMapper.class,
-				Text.class, Text.class);
+	public int run(String[] args) throws Exception {
+		if (args.length != 2) {
+			System.err
+					.println("Usage: ResolveObjectUrisInLobidNTriples <input path> <output path>");
+			System.exit(-1);
+		}
+		final Configuration conf = getConf();
+		conf.setStrings("mapred.textoutputformat.separator", "");
+		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
+		final Job job = new Job(conf);
 		job.setNumReduceTasks(NODES * SLOTS);
-		configureTextOutputReducer(job, conf, ResolveTriplesReducer.class);
+		job.setJarByClass(ResolveObjectUrisInLobidNTriples.class);
+		job.setJobName("ResolveObjectUrisInLobidNTriples");
+		FileInputFormat.addInputPaths(job, args[0]);
+		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		job.setMapperClass(ResolveTriplesMapper.class);
+		job.setReducerClass(ResolveTriplesReducer.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(Text.class);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+		return 0;
 	}
 
 	/**
@@ -283,4 +298,16 @@ public class ResolveObjectUrisInLobidNTriples extends AbstractJobLauncher {
 			return model;
 		}
 	}
+
+	@Override
+	public Configuration getConf() {
+		return conf;
+	}
+
+	@Override
+	public void setConf(Configuration conf) {
+		this.conf = conf;
+
+	}
+
 }

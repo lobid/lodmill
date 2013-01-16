@@ -93,10 +93,13 @@ public class LobidToElasticSearchLocal {
 
 	private void runHadoopJobs(final String inputPath, final String interPath,
 			final String outputPath) {
-		ResolveObjectUrisInLobidNTriples.main(new String[] {
-				"cg.input.path=" + inputPath, "cg.output.path=" + interPath });
-		NTriplesToJsonLd.main(new String[] { "cg.input.path=" + interPath,
-				"cg.output.path=" + outputPath });
+		try {
+			ResolveObjectUrisInLobidNTriples.main(new String[] { inputPath,
+					interPath });
+			NTriplesToJsonLd.main(new String[] { interPath, outputPath });
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void printOutput(final Process process) throws IOException {

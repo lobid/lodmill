@@ -15,8 +15,8 @@ import java.util.List;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.junit.Test;
+import org.lobid.lodmill.JsonLdConverter.Format;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
