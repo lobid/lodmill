@@ -43,6 +43,11 @@
 			<artifactId>semanticweb</artifactId>
 			<version>0.4-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>org.culturegraph</groupId>
+			<artifactId>cluster</artifactId>
+			<version>0.4-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
