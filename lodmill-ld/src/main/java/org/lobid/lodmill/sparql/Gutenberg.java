@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
+import org.lobid.lodmill.JsonLdConverter.Format;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

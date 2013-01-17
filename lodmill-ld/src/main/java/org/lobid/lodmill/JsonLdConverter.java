@@ -7,7 +7,6 @@ import java.io.StringWriter;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
-import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +29,21 @@ public class JsonLdConverter {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(JsonLdConverter.class);
 	private final Format format;
+
+	public static enum Format {
+		RDF_XML("RDF/XML"), RDF_XML_ABBREV("RDF/XML-ABBREV"), N_TRIPLE(
+				"N-TRIPLE"), N3("N3"), TURTLE("TURTLE");
+
+		private final String name;
+
+		Format(final String name) {
+			this.name = name;
+		}
+
+		public String getName() {
+			return name;
+		}
+	}
 
 	public JsonLdConverter(final Format format) {
 		this.format = format;

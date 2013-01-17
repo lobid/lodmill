@@ -1,6 +1,6 @@
 /* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.lobid.lodmill.sparql;
+package org.lobid.lodmill;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
