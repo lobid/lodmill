@@ -8,15 +8,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.culturegraph.cluster.util.AbstractJobLauncher;
-import org.culturegraph.cluster.util.ConfigConst;
-import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 import org.json.simple.JSONValue;
+import org.lobid.lodmill.JsonLdConverter.Format;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -29,7 +32,7 @@ import de.dfki.km.json.jsonld.impl.JenaJSONLDSerializer;
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public class NTriplesToJsonLd extends AbstractJobLauncher {
+public class NTriplesToJsonLd implements Tool {
 
 	private static final int NODES = 4; // e.g. 4 nodes in cluster
 	private static final int SLOTS = 2; // e.g. 2 cores per node
@@ -37,24 +40,37 @@ public class NTriplesToJsonLd extends AbstractJobLauncher {
 	static final String INDEX_NAME = "index.name";
 	static final String INDEX_TYPE = "index.type";
 
-	public static void main(final String[] args) {
-		launch(new NTriplesToJsonLd(), args);
+	public static void main(final String[] args) throws Exception {
+		final int res = ToolRunner.run(new NTriplesToJsonLd(), args);
+		System.exit(res);
 	}
 
+	private Configuration conf;
+
 	@Override
-	protected final Configuration prepareConf(final Configuration conf) {
-		addRequiredArguments(ConfigConst.INPUT_PATH, ConfigConst.OUTPUT_PATH);
+	public int run(String[] args) throws Exception {
+		if (args.length != 4) {
+			System.err.println("Usage: NTriplesToJsonLd"
+					+ " <input path> <output path> <index name> <index type>");
+			System.exit(-1);
+		}
+		final Configuration conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
-		return getConf();
-	}
-
-	@Override
-	protected final void configureJob(final Job job, final Configuration conf)
-			throws IOException {
-		configureFileInputMapper(job, conf, NTriplesToJsonLdMapper.class,
-				Text.class, Text.class);
+		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
+		conf.set(INDEX_NAME, args[2]);
+		conf.set(INDEX_TYPE, args[3]);
+		final Job job = new Job(conf);
 		job.setNumReduceTasks(NODES * SLOTS);
-		configureTextOutputReducer(job, conf, NTriplesToJsonLdReducer.class);
+		job.setJarByClass(NTriplesToJsonLd.class);
+		job.setJobName("LobidToJsonLd");
+		FileInputFormat.addInputPaths(job, args[0]);
+		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		job.setMapperClass(NTriplesToJsonLdMapper.class);
+		job.setReducerClass(NTriplesToJsonLdReducer.class);
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(Text.class);
+		System.exit(job.waitForCompletion(true) ? 0 : 1);
+		return 0;
 	}
 
 	/**
@@ -125,4 +141,16 @@ public class NTriplesToJsonLd extends AbstractJobLauncher {
 			return index;
 		}
 	}
+
+	@Override
+	public Configuration getConf() {
+		return conf;
+	}
+
+	@Override
+	public void setConf(Configuration conf) {
+		this.conf = conf;
+
+	}
+
 }

@@ -9,13 +9,13 @@ import java.util.Collection;
 
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
-import org.culturegraph.semanticweb.sink.AbstractModelWriter.Format;
 import org.json.simple.JSONValue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.lobid.lodmill.JsonLdConverter;
+import org.lobid.lodmill.JsonLdConverter.Format;
 
 /**
  * Test the {@link JsonLdConverter} class.

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	
     <groupId>org.lobid</groupId>
-	<artifactId>lodmill</artifactId>
+	<artifactId>lodmill-ld</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 
 	<properties>
@@ -132,13 +132,6 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>org.culturegraph</groupId>
-			<artifactId>cluster</artifactId>
-               <type>jar</type>
-			<version>0.4-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-core</artifactId>
 			<version>1.0.3</version>
@@ -250,8 +243,7 @@
 		  <version>4.2.1</version>
 		</dependency>
 
-          <!-- 'provided' deps for globel exlusion (are pulled in by jfresnel), see
-
+        <!-- 'provided' deps for globel exlusion (are pulled in by jfresnel), see
 		http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
 		<dependency>
 			<groupId>com.hp.hpl.jena</groupId>
