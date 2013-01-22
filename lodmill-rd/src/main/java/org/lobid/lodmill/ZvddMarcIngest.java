@@ -2,7 +2,9 @@
 
 package org.lobid.lodmill;
 
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,6 +30,7 @@ import org.slf4j.LoggerFactory;
  */
 public final class ZvddMarcIngest {
 
+	private static final String TEXTILE_MAPPING_TABLE = "mapping.textile";
 	private static final Logger LOG = LoggerFactory
 			.getLogger(ZvddMarcIngest.class);
 	private static final String ZVDD_MARC = "../../zvdd.xml";
@@ -63,14 +66,12 @@ public final class ZvddMarcIngest {
 		reader.process(new FileReader(ZVDD_MARC));
 		final List<Entry<String, Integer>> entries =
 				sortedByValuesDescending(stats);
-		LOG.info("Field\tFreq.");
-		LOG.info("----------------");
-		for (Entry<String, Integer> e : entries) {
-			LOG.info(e.getKey() + "\t" + e.getValue());
-		}
+		final File mapping = writeTextileMappingTable(entries);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
 		Assert.assertTrue("Values should have descending frequency", entries
 				.get(0).getValue() > entries.get(entries.size() - 1).getValue());
+		Assert.assertTrue("Mapping table should exist", mapping.exists());
+		mapping.deleteOnExit();
 	}
 
 	private List<Entry<String, Integer>> sortedByValuesDescending(
@@ -86,5 +87,23 @@ public final class ZvddMarcIngest {
 			}
 		});
 		return entries;
+	}
+
+	private File writeTextileMappingTable(
+			final List<Entry<String, Integer>> entries) throws IOException {
+		StringBuilder textileBuilder =
+				new StringBuilder("|*field*|*frequency*|*content*|*mapping*|\n");
+		LOG.info("Field\tFreq.");
+		LOG.info("----------------");
+		for (Entry<String, Integer> e : entries) {
+			LOG.info(e.getKey() + "\t" + e.getValue());
+			textileBuilder.append(String.format("|%s|%s| | |\n", e.getKey(),
+					e.getValue()));
+		}
+		final File mapping = new File(TEXTILE_MAPPING_TABLE);
+		try (FileWriter textileWriter = new FileWriter(mapping)) {
+			textileWriter.write(textileBuilder.toString());
+		}
+		return mapping;
 	}
 }
