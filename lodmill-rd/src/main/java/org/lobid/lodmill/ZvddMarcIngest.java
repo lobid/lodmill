@@ -14,11 +14,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import junit.framework.Assert;
-
+import org.culturegraph.metamorph.core.Metamorph;
+import org.culturegraph.metamorph.core.MetamorphErrorHandler;
 import org.culturegraph.metamorph.reader.MarcXmlReader;
 import org.culturegraph.metamorph.reader.Reader;
 import org.culturegraph.metastream.framework.DefaultStreamReceiver;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,34 +36,29 @@ public final class ZvddMarcIngest {
 			.getLogger(ZvddMarcIngest.class);
 	private static final String ZVDD_MARC = "../../zvdd.xml";
 	private final Reader reader = new MarcXmlReader();
+	private final Metamorph metamorph = new Metamorph(Thread.currentThread()
+			.getContextClassLoader().getResourceAsStream("morph.xml"));
 
 	private static class ZvddStats extends DefaultStreamReceiver {
 
-		private String lastEntity;
 		private Map<String, Integer> map = new HashMap<>();
 
 		@Override
-		public void startEntity(final String name) {
-			lastEntity = name;
-		}
-
-		@Override
-		public void endEntity() {
-			lastEntity = null;
-		}
-
-		@Override
 		public void literal(final String name, final String value) {
-			final String field =
-					(lastEntity == null ? "" : lastEntity.trim()) + "-" + name;
-			map.put(field, (map.containsKey(field) ? map.get(field) : 0) + 1);
+			map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
 		}
 	}
 
 	@Test
 	public void ingest() throws IOException {
+		metamorph.setErrorHandler(new MetamorphErrorHandler() {
+			@Override
+			public void error(final Exception exception) {
+				LOG.error(exception.getMessage(), exception);
+			}
+		});
 		final ZvddStats stats = new ZvddStats();
-		reader.setReceiver(stats);
+		reader.setReceiver(metamorph).setReceiver(stats);
 		reader.process(new FileReader(ZVDD_MARC));
 		final List<Entry<String, Integer>> entries =
 				sortedByValuesDescending(stats);
