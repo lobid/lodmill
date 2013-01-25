@@ -1,27 +1,27 @@
 |*field*|*frequency*|*content*|*mapping*|
-|0248 .p|458355| | |
-|980  .a|420975| | |
-|001|184000| | |
-|type|184000| | |
-|8564 .u|181473| | |
-|24500.a|181411| | |
-|533  .a|181287| | |
-|594  .a|174973| | |
-|0248 .a|167630| | |
-|991  .b|167532| | |
-|991  .a|167532| | |
-|991  .c|167532| | |
-|533  .c|134902| | |
-|887 (MAB2:050)|131555| | |
-|887 (MAB2:030)|131394| | |
-|992  .b|128061| | |
-|992  .c|128061| | |
-|992  .a|128061| | |
-|533  .d|103404| | |
-|1001 .a|100839| | |
-|533  .f|99937| | |
-|260  .c|88957| | |
-|041  .a|85297| | |
+|0248 .p|458355| collection, ca. 205 different values, s. 0248-p.textile | ? |
+|980  .a|420975| ? ca. 100 different values, s. 980-a.textile  | ? |
+|001|184000| Database-unique internal identifier. Could be used to create a URI? | ? |
+|type|184000| ignore | - |
+|8564 .u|181473| URL: Landing-page of the described E-Ressource | http://lobid.org/vocab/lobid#fulltextOnline |
+|24500.a|181411| Main title | http://iflastandards.info/ns/isbd/elements/P1004 |
+|533  .a|181287| a remark, that it's also about an E-ressource. Nothing new here - we know that because of "8564 .u" | - |
+|594  .a|174973| document type. 4 different types, s. 594-a.textile | rdfs:type ? |
+|0248 .a|167630| ignore. oai-id. Most certainly an internal identifier | -  |
+|991  .b|167532| ignore.  Fragments of internal ID| - |
+|991  .a|167532| ignore.  Fragments of internal ID| - |
+|991  .c|167532| ignore.  Fragments of internal ID| - |
+|533  .c|134902| publisher (name, location etc.) as a concatenated string | dc:publisher ? , http://iflastandards.info/ns/isbd/elements/P1017 |
+|887 (MAB2:050)|131555| MAB2 "Datentraeger"| s. https://wiki1.hbz-nrw.de/display/SEM/Format+050 |
+|887 (MAB2:030)|131394| ignore. MAB2 " VERARBEITUNGSTECHNISCHE ANGABEN"| - |
+|992  .b|128061| ignore. collection, ca. 33 different values, s. 992-b.textile. Seems to be part of "0248 .p" | - |
+|992  .c|128061| ignore ? URL of the website of the aggregator| hasTopic ? dct:isPartOf ?|
+|992  .a|128061| ignore. Internal ID | - |
+|533  .d|103404| creation date of the e-resource. sometimes only "year", sometimes "year-year" | beware: its not dct:issued of the resource but of the e-resource! |
+|1001 .a|100839| creator as string | dc:creator |
+|533  .f|99937| publishers name for the collection or the project namei, collection ? ca. 27 different strings, s. 533-f.textile | ? |
+|260  .c|88957| date of the (first?) printing. ca 1271 different values, s. 260-c.textile | dct:issued |
+|041  .a|85297| language code iso 639 (and some other notations, s. 041-a.textile . Seems to be save to erase all non-alphabeticals and split with length 3  <= if multiple language. If "en" and "de" stands alone, map them to iso639) | http://purl.org/dc/terms/language, and http://id.loc.gov/vocabulary/iso639-2/ for the objects |
 |595  .a|81893| | |
 |24500.h|80542| | |
 |776 1.k|80063| | |

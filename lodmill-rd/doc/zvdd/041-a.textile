@@ -1,0 +1,60 @@
+ara
+bur
+cat
+cze/1ger
+dan
+de
+dut
+dutfreitalat
+dutitafreger
+en
+eng
+fre
+freeng
+fre | franz.
+fre; ger
+freger
+ger
+ger/1cze
+ger/1eng
+ger/1fre
+ger | dt
+ger; eng
+ger; fre
+gerfre
+ger | ger
+gergre
+ger|lat
+ger; lat
+gerlat
+ger | lat | ger | lat
+grc
+grc | lat
+grclat
+grc | lat | ger | gre | lat | ger
+grc | lat | gre | lat
+gre
+heb
+heb | grc | lat | fre | hebr. | gre | lat | franz.
+ita
+itaeng
+itafre
+italat
+lat
+latfre
+lat | ger
+lat; ger
+latger
+lat | ger | lat | ger
+lat | grc
+latgre
+lat | lat
+lav
+lit
+per
+pol
+roh; ger; ita
+rus
+slv
+spa
+tur

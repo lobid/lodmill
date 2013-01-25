@@ -1,0 +1,4 @@
+Beitrag
+title:article
+title:monograph
+title:serial
