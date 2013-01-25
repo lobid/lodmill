@@ -18,33 +18,33 @@
 |992  .c|128061| ignore ? URL of the website of the aggregator| hasTopic ? dct:isPartOf ?|
 |992  .a|128061| ignore. Internal ID | - |
 |533  .d|103404| creation date of the e-resource. sometimes only "year", sometimes "year-year" | beware: its not dct:issued of the resource but of the e-resource! |
-|1001 .a|100839| creator as string | dc:creator |
+|1001 .a|100839| creator as string, see also "1001 .e" | dc:creator |
 |533  .f|99937| publishers name for the collection or the project namei, collection ? ca. 27 different strings, s. 533-f.textile | ? |
 |260  .c|88957| date of the (first?) printing. ca 1271 different values, s. 260-c.textile | dct:issued |
 |041  .a|85297| language code iso 639 (and some other notations, s. 041-a.textile . Seems to be save to erase all non-alphabeticals and split with length 3  <= if multiple language. If "en" and "de" stands alone, map them to iso639) | http://purl.org/dc/terms/language, and http://id.loc.gov/vocabulary/iso639-2/ for the objects |
-|595  .a|81893| | |
-|24500.h|80542| | |
-|776 1.k|80063| | |
-|008|79197| | |
-|533  .7|78052| | |
-|040  .c|78012| | |
-|270  .a|77547| | |
-|773  .t|76233| | |
-|773  .g|76206| | |
-|533  .b|57207| | |
-|516  .a|52012| | |
-|015  .a|47003| | |
-|015  .2|47003| | |
-|887 (MAB2:026h)|46973| | |
-|7730 .t|46603| | |
-|7730 .g|46603| | |
-|24500.b|44514| | |
-|24500.c|40150| | |
-|500  .a|37384| | |
-|595  .b|29343| | |
-|887 (Publikation_Typ)|29323| | |
-|980  .b|17543| | |
-|1001 .e|16683| | |
+|595  .a|81893| ignore. "Abrufkennzeichnen" . Only one value: "ldd"| - |
+|24500.h|80542| ignore. Material. Mostly "computer file", "2 Musikdruck", rest rubbish, s. 24500-h.textile  | - |
+|776 1.k|80063| isPartOf ? is this true for e-resource AND origin? collection ? s. 77601-k.textile , similar also to 773-t.textile and 7730-t.textile  | ? isPartOf |
+|008|79197| ignore. Controllfield|- |
+|533  .7|78052| creation date of the e-rsource. Seems to be equivalent to "533  .d". Use, if the former key is not present in the data. s, 533-7.textile | dct:issue |
+|040  .c|78012| ?, most probably ignore. s, 040-c.textile | - |
+|270  .a|77547| ignore. second publisher, printer? has only one value : "Godesberger Allee 149, 53175 Bonn"| ? |
+|773  .t|76233| isPartOf ? , s. 773-t.textile| ? dct:isPartOf|
+|773  .g|76206| extent, volume, issue ... concatenated strings without pattern| dct:extent ? |
+|533  .b|57207| ignore ? provenance of the e-resource. Mostly cities, s. 553-b.textile | ? |
+|516  .a|52012| some infos about the kind of the e-ressource, s. 516-a.textile| ? could precise lv:fullTextOnline, e.g. if it's a direct link to a PDF |
+|015  .a|47003| ? probably ignore. may be internal IDs from other database , e.g."code="a">PDD_mrab11199037</subfield> <subfield code="2">GBV", could then be used for "owl:sameAs". look at "http://www.digitalisiertedrucke.de/record/477221/export/xm" or google "PDD_mrab11199037" | owl:sameAs ? |
+|015  .2|47003| the origin of "015  .a" | - |
+|887 (MAB2:026h)|46973| probably ignore. regional ID. But of what institution ? Unclear for me. Could be used for linking "owl:sameAs" | owl:sameAs |
+|7730 .t|46603| similar to "776 1.k", s. 773-t.textile . Only articles from these journals? | ? rdftype:article, ? dct:isPartOf |
+|7730 .g|46603| the same as "773  .g" ? s. 7730-g_smallExampleSet.textile | dc:extent ? |
+|24500.b|44514| | extension of the main title  http://iflastandards.info/ns/isbd/elements/P1006 |
+|24500.c|40150| creator of origin resource, same as  "1001 .a"? , sligtly different Notation| dc:creator |
+|500  .a|37384| diverse notes, s. 500-a.textile | ? |
+|595  .b|29343| ignore "abrufjkennzeichen"  | - |
+|887 (Publikation_Typ)|29323| 8 different types , s. 887-Publikation_Typ.textile | ? |
+|980  .b|17543| ? ignore . | - |
+|1001 .e|16683| role of contribution/creator , see also "1001 .a" | ? |
 |2461 .a|14852| | |
 |260  .a|14663| | |
 |7001 .a|13855| | |

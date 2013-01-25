@@ -1,0 +1,8 @@
+10 (Beilage)
+2 (Beitrag)
+3 (Rezension)
+4 (Nachricht)
+5 (Illustration)
+6 (Sammlung)
+7 (Musikstück)
+9 (Illustrationensammlung)
