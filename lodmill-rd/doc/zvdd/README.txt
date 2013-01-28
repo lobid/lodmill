@@ -1,4 +1,4 @@
-In the file "mapping.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/mapping.textile resides a statistic about the frequency of field-keys.
+In the file "mapping[dot]textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/mapping.textile resides a statistic about the frequency of field-keys.
 Some keys have only a small amount of different values - these are good candidates 
 to use as "controlled vocabulary" (in the LOD context also known as "URIs"). The keys
 in question have a corresponding file in the same directory, named after the key.
