@@ -1,6 +1,6 @@
 |*field*|*frequency*|*content*|*mapping*|
-|0248 .p|458355| collection, ca. 205 different values, s. "0248-p.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/0248-p.textile | http://purl.org/dc/terms/isPartOf |
-|980  .a|420975| ? ca. 100 different values, s. 980-a.textile  | http://purl.org/dc/terms/isPartOf (Link to collectionURI/bnode) |
+|0248 .p|458355| collection, ca. 205 different values, s. "0248-p.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/0248-p.textile | http://purl.org/dc/terms/isPartOf (Link to collectionURI/bnode) |
+|980  .a|420975| ? ca. 100 different values, s. 980-a.textile  |  |
 |001|184000| Database-unique internal identifier. Could be used to create a URI? | ? |
 |type|184000| ignore | - |
 |8564 .u|181473| URL: Landing-page of the described E-Ressource | http://lobid.org/vocab/lobid#fulltextOnline |
