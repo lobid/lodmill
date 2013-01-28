@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.antlr.runtime.RecognitionException;
+import org.culturegraph.metaflow.Metaflow;
 import org.culturegraph.metamorph.core.Metamorph;
 import org.culturegraph.metamorph.core.MetamorphErrorHandler;
 import org.culturegraph.metamorph.reader.MarcXmlReader;
@@ -37,7 +39,7 @@ public final class ZvddMarcIngest {
 	private static final String ZVDD_MARC = "../../zvdd.xml";
 	private final Reader reader = new MarcXmlReader();
 	private final Metamorph metamorph = new Metamorph(Thread.currentThread()
-			.getContextClassLoader().getResourceAsStream("morph.xml"));
+			.getContextClassLoader().getResourceAsStream("morph-stats.xml"));
 
 	private static class ZvddStats extends DefaultStreamReceiver {
 
@@ -47,6 +49,11 @@ public final class ZvddMarcIngest {
 		public void literal(final String name, final String value) {
 			map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
 		}
+	}
+
+	public static void main(String[] args) throws IOException,
+			RecognitionException {
+		Metaflow.main(new String[] { "-f", "src/main/resources/zvdd.flow" });
 	}
 
 	@Test
