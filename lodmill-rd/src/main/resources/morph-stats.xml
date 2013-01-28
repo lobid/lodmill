@@ -3,10 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
 	<rules>
 		<!-- Transform non-MARC fields for proper field frequency statistics: -->
-		<combine name="887 (${non-marc-key})" value="${non-marc-val}" sameEntity="true">
+		<combine name="887 (${non-marc-key})" value="${non-marc-val}"
+			sameEntity="true">
 			<data source="887  .a" name="non-marc-val" />
 			<data source="887  .2" name="non-marc-key" />
 		</combine>
-		<data source="_else"/>
+		<data source="_else" />
 	</rules>
 </metamorph>
