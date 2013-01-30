@@ -1,0 +1,192 @@
+Abstract
+Allegro-Datenbank
+Allgemeine Camena-Projektseite
+Arachne Projektbeschreibung
+Artikel (Autor, Titel), Register (Autoren, Sachen), Volltext
+Artikel (derzeit nur Seitenköpfe, Einzelverschlagwortung im Gange), Abbildungen der Seiten, Volltext
+Ausgaben
+Ausgaben, Inhaltsverzeichnisse, Register, Volltexte
+Benutzungshinweise
+Beschreibung der Sammlung
+Besprechung bei H-Soz&amp;Kult
+Besprechung für Clio-online
+Besprechung für H-Soz&amp;Kult
+Besprechung (H-Soz&amp;Kult)
+Bibliographische Metadaten
+Bibliographische Metadaten, Buchstruktur
+Bibliographische Metadaten, Buchstruktur (Embleme, Picturae), Iconographische Erschließung, teilweise Volltext (Transkription)
+Bibliographische Metadaten, Buchstruktur, Erschließung nach Thesaurus für frühneuzeitliche Festbeschreibung und ikonographische Erschließung nach ICONCLASS
+Bibliographische Metadaten, Buchstruktur (Inhaltsverzeichnisse)
+Bibliographische Metadaten, Buchstruktur/Inhaltsverzeichnisse
+Bibliographische Metadaten der Beiträge, Inhaltsverzeichnisse
+Bibliographische Metadaten, Inhaltsverzeichnisse, Artikel
+Bibliographische Metadaten, Inhaltsverzeichnisse, Beiträge
+Bibliographische Metadaten, Inhaltsverzeichnisse (Beiträge, Beitragsarten, Verfasser)
+Bibliographische Metadaten, Inhaltsverzeichnisse, Schlagwörter, Fachliche Systematik
+Bibliographische Metadaten jedes Jahrgangs
+Bibliographische Metadaten (mit Kommentar), teilweise seitenbezogene Schlagwörter, teilweise Volltexte
+Bibliographische Metadaten, Sach- und viele weitere Stichwörter, Bilderschließung (Iconclass)
+Bibliographische Metadaten, Schlagworte aus den Verordnungen
+Bibliographische Metadaten, Strukturdaten (Beiträge, Artikel), teilweise auch Volltexte
+Bibliographische Metadaten, Verweissystem zwischen den Bänden
+Bibliographische Metadaten, Volltexte
+Bilddigitalisierung, Strukturdaten (einzelne Beiträge)
+Bilder in tiff digitalisiert, in JPEG angeboten.
+Caren Schweder: DigiZeitschriffen - A Service Provided by Libraries for the Academic Community. The Retrospective Digitization of Journals from Specialized Collections in Germany. In: The Serials Librarian 47 1/2 (2004), S.181-190.
+Chronologisches Verzeichnis
+Digital Collections and the Management of Knowledge: Renaissance Emblem Literature as a Case Study for the Digitization of Rare Texts and Images. DigiCULT February 2004.
+Digitalisate 300 und 150 dpI TIFF-Format, Heftfaksimiles als PDF. Metadaten als MS-Access-Datenbank (MDB bzw. MDE)
+eBind-SGML, daraus generierte Indizes
+Editorial
+Effinger, Maria: „Wer wohnte wo? Die Heidelberger Adreßbücher 1839-1945 online“, in: Theke. Informationsblatt der Mitarbeiterinnen und Mitarbeiter im Bibliothekssystem, 2003, S. 19-25.
+Eigene Projekt-Datenbank, Datenformat?
+Eigene relationale Datenbank
+Eigenes relationales Modell (mit DLmeta-Bezug), Technik: Java-Servlets + Lucene
+Einzelne Mitteilungen
+elektronischer Volltext
+Elektronischer Volltext
+(Englische) Projektbeschreibung
+Flyer zum Projekt
+Früher Miless1.2, bald MyCore (siehe www.mycore.de) - dann auch OAI; Dublin Core
+Gregor Horstkemper, LinkWink für historicum.net, 02/2004
+Hauptitelaufnahme, Banddatensätze
+Hauptitelaufnahme, Bandsätze (nur lokal), Inhaltsverzeichnisse
+Hauptitelaufnahme, Bandsätze (nur  lokal),  Inhaltsverzeichnisse
+Hauptitelaufnahme, Inhaltsverzeichnisse
+Haupttitel, Beiträge (inkl. z.B. Fotos)
+Haupttitel, unselbständige Titel, Buchstruktur (Kapitel)
+Hefte, Einzelbeiträge in den Heften
+Historischer Kartenbestand
+Images in TIFF gescannt und als JPEG angeboten; Titeldaten in MAB; Strukturdaten und Volltext in (TEI-)XML
+Images in TIFF gescannt und als JPG angeboten
+Images in TIFF gescannt und als JPG angeboten (Zoom-Server)
+Im Grunde alle Einträge im Inhaltsverzeichnis / Buchstruktur
+Inhaltsverzeichnis
+Inhaltsverzeichnisse
+Inhaltsverzeichnisse, digitalisierte und verlinkte Register
+Inhaltsverzeichnisse, Personen- und Ortsregister
+Inhaltsverzeichnisse; Register: Stichworte, Volltext
+Inhaltsverzeichnisse, Volltexte (ab Band 25)
+Inhaltsverzeichnisse; Volltextsuche
+Inhaltsverzeichnisse; Volltextsuche (Gesamtverzeichnis)
+Inhaltsverzeichnis, Volltext
+Katalogisierung nach RAK in MAB2; Digitalisierung in 300dpi; PDF als Speicherformat
+Kurzanzeige in mediaevum.de
+Kurzbeschreibung (BSB)
+Kurzbeschreibung (DFL-Liste)
+Kurzbeschreibung (DLF)
+Kurzbeschreibung (DLF-Liste)
+Kurzbeschreibung (DNB)
+Kurzbeschreibung (GDZ)
+Kurzbeschreibung (Göttinger Liste)
+Kurzbeschreibung (Münchener Liste)
+Kurzbeschreibung (Trier)
+Kurzdokumentation
+(Kurze) Projektbeschreibung
+Lautenschläger, Vera: Scripta Paedagogica Online: das digitale Textarchiv zur Bildungsgeschichte des deutschsprachigen Raumes; pädagogische Zeitschriften und Nachschlagewerke der Erscheinungsjahre 1760 bis 1945. In: Elektronische Bildverarbeitung &amp; Kunst, Kultur, Historie. Konferenzband; die 11. Berliner Veranstaltung der internationalen EVA-Serie Electronic imaging &amp; the visual arts. Berlin 2004. S. 72-77.
+Lexikon-Artikel in TEI-SGML und nach DDC verschlagwortet. Bilder (10.000) frei verschlagwortet und nach DDC verschlagwortet
+Lindner, Heiner: Erkämpft Eure Feiheit! Stürzt Hitler! : Die "Sozialistischen Mitteilungen" 1939 - 1948 ; zugleich Einleitung zur Online- Edition der "Sozialistischen Mitteilungen". Bonn 2003. 287 S. : Ill. - (Gesprächskreis Geschichte ; 52), Literaturverz. S. 276 - 280.
+Lokale Datenbank
+Lokales Agora-XML, Access-DB als Import- oder Exportformat?
+MAB2 (Titelaufnahmen, Bände), modifiziertes eBind (Inhaltsverzeichnisse incl. Aufsätze)
+MAB2 (Titelaufnahmen), modifiziertes eBind (Inhaltsverzeichnisse)
+    <marc:subfield code="a">Rüdiger Zimmermann: Arbeiterbewegung online? Die Retrodigitalisierung des Sozialdemokratischen Pressedienstes mit Hilfe der Deutschen Forschungsgemeinschaft. Ein Projekt der Bibliothek der Friedrich-Ebert-Stiftung. In: Mitteilungen des Förderkreises Archive und Bibliotheken zur Geschichte der Arbeiterbewegung Nr. 21 (2002), S. 4 - 8.
+Mecklenburgische Jahrbücher jetzt ONLINE: alle zwischen 1836 und 1940 erschienenen Aufsätze weltweit kostenfrei einsehbar. In: Mecklenburg-Magazin. Regionalbeilage der Schweriner Volkszeitung. Schwerin 11 (2006), S. 23.
+Metadaten in einer Allegro-c-Datenbank. Images in TIFF gescannt und als GIF angeboten.
+OPAC-Katalogisate (PICA)
+Pica-Katalogisate im SWB.
+Projekbeschreibung
+Projektbeschreibung
+Projektbezogene Veröffentlichungen
+Projektinformation
+Projektinformationen
+Projektseite
+Projektskizze
+Renate Seib: Exilpresse digital
+Rezension
+Ritzi, Christian: Bildungsgeschichte digital - die Zukunft pädagogischer Zeitschriften und Nachschlagewerke als elektronische Dokumente im Internet. In: PÄD-Forum: unterrichten erziehen 28=13 (2000) 5. S. 416-420.
+Ritzi, Christian: Pädagogische Zeitschriften und Nachschlagewerke als elektronische Dokumente im Internet
+Ritzi, Christian: Scripta Paedagogica Online: digitales Textarchiv zur deutschsprachigen Bildungsgeschichte. In: Digitale Bausteine für die geisteswissenschaftliche Forschung. Göttingen 2003. S. 103-122.
+Sammelkatalogisat in ZDB. Bilddigitalisierung vom Mikrofilm. 
+Scripta Paedagogica Online
+Sigrid Amedick: Die digitale Sammlung Privatrecht. Literatur zum Privat- und Zivilprozessrecht des 19. Jahrhunderts im Internet
+Statische HTML-Seiten
+Stichworte
+Stichwörter, Artikelgliederung, Volltext
+Stichwörter; Register
+Stichworte, Volltext
+Stichwortsuche; Inhaltsverzeichnis
+Strukturdaten in ebind-XML; Images in TIFF gescannt und als GIF angeboten
+Strukturdaten in ebind-XML; Images in TIFF gescannt und als GIF angeboten (Zoom-Server / Plugin-Version)
+Strukturdaten in ebind-XML; Images in TIFF gescannt und als JPG angeboten
+Strukturdaten in ebind-XML; Volltext in TEI-XML
+Strukturdaten: Inhaltsverzeichnisse, typisierte Inhaltsteile
+Strukturdaten und Beiträge in agora-xml bzw. in mySQL-DB.
+TEI dictionary
+TEI-SGML, Trierer MHDWB-DTD
+Titelaufnahme, beteiligte Personen, fachspezifische Beschreibung, Sacherschließung (Register)
+Titelaufnahme in PICA, Volltexte in HTML
+Titelaufnahmen
+Titelaufnahmen, Aufsätze, Erschließung nach Systematik der Mecklenburg-Vorpommerschen Bibliographie und lokalem Schlagwort, Korrigierte Volltexte
+Titelaufnahmen in der IKAR-Altkartendatenbank und im GVK.
+Titelaufnahmen, Inhaltsverzeichnisse
+Titelaufnahmen in PICA, Beiträge als PDF, Fotos als JPG angeboten
+Titelaufnahmen in PICA, Inhaltsverzeichnisse in lokalem Oracle-Format
+Titelaufnahmen, Strukturdaten (Kapitel), Unselbständige Werke (Aufsätze)
+Titelaufnahme, Strukturdaten (Beiträge), Personendossiers, Schlagworte
+Titelaufnahme, teilweise Volltexte
+Titeldaten
+Titeldaten, Beschreibungen, Inhaltsverzeichnisse
+Titeldaten, Buchstruktur, Erschließungsdaten (Verknüpfung mit anderen Datenbanken)
+Titeldaten im OPAC; Strukturdaten in ebind-XML; Images in TIFF gescannt und als GIF angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML;  Images in TIFF gescannt und als GIF angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML; Images in TIFF gescannt und als GIF angeboten; Volltext (Register) in TEI-XML
+Titeldaten im OPAC, Strukturdaten in ebind-XML, Images in TIFF gescannt und als JPG angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML; Images in TIFF gescannt und als JPG angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML;  Images in TIFF gescannt und als JPG. angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML; Images in TIFF gescannt und als JPG angeboten (Zoom-Server / Plugin-Version)
+Titeldaten im OPAC; Strukturdaten in ebind-XML; Volltext in TEI-XML; Images in TIFF gescannt und als GIF angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML; Volltext in TEI-XML; Images in TIFF gescannt und als GIF und PDF angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML; Volltext in TEI-XML, Images in TIFF gescannt und als JPG angeboten
+Titeldaten im OPAC; Strukturdaten in ebind-XML-XML; Images in TIFF gescannt und als JPG angeboten
+Titeldaten im OPAC; Volltext in TEI-XML (ab Bd. 25); Strukturdaten in ebind-XML; Images in TIFF gescannt und als GIF angeboten
+Titeldaten im OPAC; Volltext in TEI-XML; Strukturdaten in ebind-XML; Images in TIFF gescannt und als GIF angeboten
+Titeldaten im OPAC; Volltext in TEI-XML; Strukturdaten in ebind-XML; Images in TIFF gescannt und als JPG angeboten; Volltext als PDF und XML-Datei angeboten
+Titeldaten im OPAC; Volltext (Register) in Datenbank; Strukturdaten in ebind-XML; Images in TIFF gescannt und als GIF angeboten
+Titeldaten, Inhaltsverzeichnisse
+Titeldaten in MAB, sonstige Daten in HTML
+Titeldaten in MAB, Strukturdaten und Volltexte in XML, Images in TIFF gescannt und als JPEG angeboten
+Titeldaten in PICA
+Titeldaten in PICA; Buchstruktur, Erschließungsangaben und Transkriptionen in TEI-XML
+Titeldaten in PICA, Buchstruktur und Sacherschließung in TEI-XML
+Titeldaten in Pica;Images in TIFF gescannt und als GIF bzw.  jpg; angeboten (zusätzlich höhere Auflösung als PDF); Struktur- und Metadaten in XML
+Titeldaten in Pica; Images in TIFF gescannt und als GIF bzw.  jpg; angeboten (zusätzlich höhere Auflösung als PDF); Struktur- und Metadaten in XML
+Titeldaten in Pica; Images in TIFF gescannt und als jpg; angeboten (zusätzlich höhere Auflösung als PDF); Struktur- und Metadaten in XML
+Titeldaten in Pica, Strukturdaten in agora-xml
+Titeldaten, Strukturdaten
+Titeldaten, Strukturdaten (Inhaltsverzeichnisse)
+Titeldaten, Strukturdaten, teilweise Register, teilweise Volltexte
+Titeldaten, Strukturdaten (Unselbständige Werke, Buchstruktur)
+Titeldaten, Strukturdaten (Unselbständige Werke, Buchstruktur), Abstracts im Volltext (?)
+Titeldaten, Strukturdaten, Volltexte
+Titeldaten, teils Strukturdaten
+Titeldaten, teilweise elektronischer Volltext
+Titeldaten, teilweise Inhaltsverzeichnisse, teilweise auch digitalisierte Register
+Titeldaten, teilweise Strukturdaten
+Titeldaten, teilweise Strukturdaten (nachträglich erschlossene "Teile" der Dokumente)
+Titeldaten und Erschließungsdaten in Pica, Volltexte in XML und HTML
+Titeldaten, Volltexte
+Titeldaten zu unselbständigen Werken und ZDB-Zeitschriftenstammsätze in allegro-c-Datenbank. Images in TIFF gescannt und als GIF angeboten.
+Titel, Jahrgänge, Ausgaben, Erschließung der Artikel durch Rubriken und Schlagworte
+Titel- und Strukturdaten in allegro-DB, Digitalisate als PDF angeboten
+Titel- und Strukturdaten in lokaler Datenbankstruktur (kleio), Bilder als TIFF gescannt und als JPEG angeboten
+Über das Projekt
+Über die Faust-Sammlung
+"Über uns"
+Unselbständige Titel und Titelstammdaten in einer Allegro-c-Datenbank. Images in TIFF gescannt und als GIF angeboten
+Verzeichnung in Clio online
+Volltexte in TEI-XML
+Volltext in TEI-SGML; Tiefenerschließung weit über die Inhaltsverzeichnisse hinaus (z.B. Dewey-Erschließung)
+Wolfgang Schibel: Aus der Bibliotheksreserve ins Internet - die elektronische Publikation gedruckter Quellen der Frühen Neuzeit. Mannheim: MATEO, 2000.
+Zeitschriftenaufsatz (Klinge/Schüler)
+Zur Dokumentgattung

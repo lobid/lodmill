@@ -1,0 +1,970 @@
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46774</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46774</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">033</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Meyers Konversations-Lexikon u.a.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Ulm</marc:subfield>
+    <marc:subfield code="c">1835-1893</marc:subfield>
+    <marc:subfield code="g">2001-</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">4 Titel, 24 Bände, 19.072 Seiten (11/05)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Artikel (derzeit nur Seitenköpfe, Einzelverschlagwortung im Gange), Abbildungen der Seiten, Volltext</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Eigenes relationales Modell (mit DLmeta-Bezug), Technik: Java-Servlets + Lucene</marc:subfield>
+    <marc:subfield code="b">description: standards and techniques used</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Enzyklopädien und Lexika</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Privat</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:meyers_konversations-lexikon.privat.ulm.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:033</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc033</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.meyers-konversationslexikon.de/</marc:subfield>
+    <marc:subfield code="3">Startseite Projekt</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://susi.e-technik.uni-ulm.de:8080/Meyers2/suche/suche.html</marc:subfield>
+    <marc:subfield code="3">Volltextsuche</marc:subfield>
+    <marc:subfield code="x">search-interface</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://susi.e-technik.uni-ulm.de:8080/Meyers2/stoebern/start.html</marc:subfield>
+    <marc:subfield code="3">Bände aufschlagen</marc:subfield>
+    <marc:subfield code="x">browsing-access</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46775</identifier>
+    <datestamp>2009-05-25T09:34:43Z</datestamp>
+    <setSpec>collection</setSpec>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46775</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46775</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Faustsammlung</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Weimar</marc:subfield>
+    <marc:subfield code="c">1592-1935</marc:subfield>
+    <marc:subfield code="g">2006-2009</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">90 Titel (06/06), perspektvisch ca. 9000 Titel</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Über die Faust-Sammlung</marc:subfield>
+    <marc:subfield code="b">collDesc</marc:subfield>
+    <marc:subfield code="u">http://www.klassik-stiftung.de/einrichtungen/herzogin-anna-amalia-bibliothek/bestaende/sondersammlungen-sonderbestaende/faust-sammlung.html?L=0</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titelaufnahmen, Inhaltsverzeichnisse</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titelaufnahmen in PICA, Inhaltsverzeichnisse in lokalem Oracle-Format</marc:subfield>
+    <marc:subfield code="b">description: standards and techniques used</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Belletristik, Literatur, Populäres</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="1" ind2=" " tag="700">
+    <marc:subfield code="a">Brigitte Becker-Ebenau, Herzogin Anna Amalia Bibliothek, Platz der Demokratie 4, 99423 Weimar</marc:subfield>
+    <marc:subfield code="e">administrator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Herzogin Anna Amalia Bibliothek</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:faustsammlung.haab.we.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://ora-web.swkk.de:7777/digimo_online/digimo.entry</marc:subfield>
+    <marc:subfield code="3">Allgemeine Startseite</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46776</identifier>
+    <datestamp>2009-05-25T09:34:44Z</datestamp>
+    <setSpec>collection</setSpec>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46776</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46776</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Simplicissimus</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="246">
+    <marc:subfield code="a">Digitalisierung und Erschließung der satirischen Wochenschrift Simplicissimus, Jahrgänge 1 bis 49 (1896 bis 1944)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Weimar</marc:subfield>
+    <marc:subfield code="c">1896-1944</marc:subfield>
+    <marc:subfield code="g">2005-2008</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">49 Jahrgänge, 2.566 Ausgaben, 33.500 Seiten, 55.000 einzeln
+erschlossene Beiträge</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="3" ind2=" " tag="520">
+    <marc:subfield code="a">Der „Simplicissimus“ ist die bis heute prominenteste deutsche satirische Zeitschrift; ihr Name steht für eine radikaldemokratische Auseinandersetzung mit der Innen- und Außenpolitik des Kaiserreichs und der Weimarer Republik ebenso wie für eine pointierte, sozial orientierte Mentalitätskritik. &lt;br&gt; Neben ihrem gesellschaftlichen und politischen Gewicht hat die Zeitschrift für künstlerische wie literarische Stömungen paradigmatischen Stellenwert. Ihre ständigen zeichnerischen Mitarbeiter (Engl, Heine, Karl Arnold, Wilhelm Schulz, Thöny, Wilke, Reznicek, Gulbransson, Bruno Paul, Heilemann) stehen für künstlerische Avantgarde ebenso wie die „freien“ Beiträger (Zille, Kubin, Barlach, Corinth, Hegenbarth, Käthe Kollwitz, Walter Trier u.v.a mehr). Als urspünglich kulturell-literarisch orientierte Zeitschrift konzipiert, war der Simplicissimus Forum für alle Literaten seiner Zeit: Wedekind, Thoma, Thomas und Heinrich Mann, Rilke, Robert Walser, Bierbaum, Wassermann, Dehmel, Hesse, Karl Kraus, Meyrink sind einige der prominentesten, von denen viele durch Erstveröffentlichung vertreten sind.&lt;br&gt; Von besonderem zeitgeschichtlichen Interesse sind die Jahrgänge 1 (1896) bis 49 (1944). Geschlossene Sammlungen dieser Jahrgänge sind rar, sie sind zudem durch rasch fortschreitenden Papierzerfall im Fortbestand extrem gefährdet. Die Zeitschrift soll über ein Bereitstellungssystem mit einem Index erschlossen werden, der die expliziten Erwähnungen von Autorennamen, Künstlern, erwähnten Personen, Geographika, politischen Ereignissen und globalen Kategorien referenziert. &lt;br&gt;  Die Jahrgänge 1 bis 49 sollen im Projekt digitalisiert werden und schließlich mit einer geeigneten Dokumentstruktur-Beschreibung vorliegen. Es soll außerdem eine Bilddatenbank erarbeitet werden, die ein Absuchen des digitalisierten Materials nach inhaltlichen Kriterien im Internet erlaubt. </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Bilddigitalisierung, Strukturdaten (einzelne Beiträge)</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Digitalisate 300 und 150 dpI TIFF-Format, Heftfaksimiles als PDF. Metadaten als MS-Access-Datenbank (MDB bzw. MDE)</marc:subfield>
+    <marc:subfield code="b">description: standards and techniques used</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Nichtwissenschaftliche Zeitschriften</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="1" ind2=" " tag="700">
+    <marc:subfield code="a">Dr. Hans Zimmermann, Gutenbergstr. 14, 99423 Weimar</marc:subfield>
+    <marc:subfield code="e">administrator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Herzogin Anna Amalia Bibliothek</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Rheinisch-Westfälische Technische Hochschule Aachen</marc:subfield>
+    <marc:subfield code="e">cooperation</marc:subfield>
+    <marc:subfield code="u">http://www.germlit.rwth-aachen.de/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Deutsches Literaturarchiv Marbach</marc:subfield>
+    <marc:subfield code="e">cooperation</marc:subfield>
+    <marc:subfield code="u">http://www.dla-marbach.de/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:simplicissimus.haab.we.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.simplicissimus.com</marc:subfield>
+    <marc:subfield code="3">Projektseite</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46777</identifier>
+    <datestamp>2009-05-25T09:34:44Z</datestamp>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+    <setSpec>collection</setSpec>
+    <setSpec>ddc:200</setSpec>
+    <setSpec>ddc:943</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46777</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46777</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">943</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">200.9 T1:09031</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Drucke der Reformationszeit</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Wittenberg</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Deutschland</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Reformation</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Druckwerk</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Geschichte</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Quelle</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Historische Gattungen</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Stiftung Luthergedenkstätten</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+    <marc:subfield code="u">http://www.martinluther.de/cgi-bin/vm/luther</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:drucke_reformationszeit.sl.wb.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:200</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc200</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:943</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc943</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://luther.hki.uni-koeln.de/luther/pages/sucheDrucke.html</marc:subfield>
+    <marc:subfield code="3">Digitale Bibliothek</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="3">Einfache und komplexe Suche von Startseite aus</marc:subfield>
+    <marc:subfield code="x">search-interface</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="3">Kein Browsing-Zugang</marc:subfield>
+    <marc:subfield code="x">browsing-access</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46778</identifier>
+    <datestamp>2009-05-25T09:34:44Z</datestamp>
+    <setSpec>collection</setSpec>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+    <setSpec>ddc:830</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46778</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46778</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">830</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Festkultur Online</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="246">
+    <marc:subfield code="a">Festkultur Online - Deutsche Drucke des 17. Jahrhunderts zur Festkultur des Barock</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Wolfenbüttel</marc:subfield>
+    <marc:subfield code="c">1568-1770</marc:subfield>
+    <marc:subfield code="g">2001-2005</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">323 Drucke, 404 Titeldatensätze, 2.535 Schlagworte auf Titelebene, 11.793 Stichworte auf Seitenebene, 19.011 Abschnitte und Textausschnitte, 1.520 Iconclass-Notationen, 31.600 Seiten</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="3" ind2=" " tag="520">
+    <marc:subfield code="a">Im Projekt Festkultur-Online - Deutsche Drucke des 17. Jahrhunderts zur Festkultur des Barock hat die Herzog August Bibliothek 314 Drucke digitalisiert und auf Seitenebene inhaltlich erschlossen. Das Projekt erfolgte in enger Kooperation mit dem nach Wolfenbütteler Vorbild durchgeführten Digitalisierungsprojekt der University of Warwick/British Library. Daten zu 253 Drucken aus diesem Projekt wurden ebenfalls eingespielt, so dass insgesamt 567 Drucke für die Recherche zur Verfügung stehen.
+Neben der Bereitstellung und Erschließung der Materialien sollte ein Verfahren entwickelt werden, verteilt liegende Bestände zur frühneutzeitlichen Festkultur nach gemeinsamen Richtlinien zu indexieren und zugänglich zu machen. Dies erfolgte auf der Basis des gemeinsamen Festthesaurus.
+</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Projektinformationen</marc:subfield>
+    <marc:subfield code="b">documentation</marc:subfield>
+    <marc:subfield code="u"> http://www.hab.de/bibliothek/wdb/festkultur/vdfinf.htm</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Besprechung (H-Soz&amp;Kult)</marc:subfield>
+    <marc:subfield code="b">review</marc:subfield>
+    <marc:subfield code="u">http://hsozkult.geschichte.hu-berlin.de/rezensionen/type=rezwww&amp;id=82</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Verzeichnung in Clio online</marc:subfield>
+    <marc:subfield code="b">shortDescription</marc:subfield>
+    <marc:subfield code="u">http://www.clio-online.de/DesktopModules/VlibWeb/FIView.aspx?tabID=95&amp;lang=de&amp;ItemID=4285&amp;mid=10373</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Bibliographische Metadaten, Buchstruktur, Erschließung nach Thesaurus für frühneuzeitliche Festbeschreibung und ikonographische Erschließung nach ICONCLASS</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titeldaten in PICA, Buchstruktur und Sacherschließung in TEI-XML</marc:subfield>
+    <marc:subfield code="b">description: standards and techniques used</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">la</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">fr</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">en</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">it</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Höfisches Fest</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Geschichte 1500-1720</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Historische Gattungen</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="1" ind2=" " tag="700">
+    <marc:subfield code="a">Dr. Thomas Staecker, Herzog August Bibliothek, Postfach 1364, D-38299 Wolfenbuettel, staecker@hab.de</marc:subfield>
+    <marc:subfield code="e">administrator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Herzog August Bibliothek</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+    <marc:subfield code="u">http://www.hab.de/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">University of Warwick / British Library</marc:subfield>
+    <marc:subfield code="e">cooperation</marc:subfield>
+    <marc:subfield code="u">http://www.bl.uk/treasures/festivalbooks/homepage.html</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:festkultur.hab.wf.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:830</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc830</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/bibliothek/wdb/festkultur/index.htm</marc:subfield>
+    <marc:subfield code="3">Projektseite</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://dbs.hab.de/feast.htm</marc:subfield>
+    <marc:subfield code="3">Suchmaske</marc:subfield>
+    <marc:subfield code="x">search-interface</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/bibliothek/wdb/festkultur/dig-inha.htm</marc:subfield>
+    <marc:subfield code="3">Signaturenliste</marc:subfield>
+    <marc:subfield code="x">browsing-access</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46779</identifier>
+    <datestamp>2009-05-25T09:34:44Z</datestamp>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+    <setSpec>collection</setSpec>
+    <setSpec>ddc:802</setSpec>
+    <setSpec>ddc:702</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46779</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46779</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">702</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">802</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Emblematica Online</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="246">
+    <marc:subfield code="a">Emblematica Online - Entwicklung eines Standards zur Erschließung von Emblembüchern im Internet</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Wolfenbüttel</marc:subfield>
+    <marc:subfield code="c">1579-1730</marc:subfield>
+    <marc:subfield code="g">2002-2005</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">70 Titel, 15.600 Seiten</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="3" ind2=" " tag="520">
+    <marc:subfield code="a">Die Emblembuchsammlungen an der Herzog August Bibliothek (HAB) und an der University of Illinois (UIUC) gehören zu den größten Sammlungen weltweit. In der HAB befinden sich mehr als 450 Emblembücher, in Illionois sind mehr als 600 Emblembücher des 16. bis 18 Jahrhunderts vorhanden.
+Im Kooperationsprojekt Emblematica Online zwischen der Herzog August Bibliothek (HAB) und der University of Illinois at Urbana-Champaign (UIUC) ist das Ziel die Digitalisierung, Erschließung und Erforschung der Originale sowie die Entwicklung von Strukturen und Standards, die eine gemeinsame Erschließung der Emblembuchbestände beider Einrichtungen ermöglichen und als Modell für weitere Text-Bild bezogene Projekte in den Geisteswissenschaften dienen können.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Digital Collections and the Management of Knowledge: Renaissance Emblem Literature as a Case Study for the Digitization of Rare Texts and Images. DigiCULT February 2004.</marc:subfield>
+    <marc:subfield code="b">article</marc:subfield>
+    <marc:subfield code="u">http://www.digicult.info/downloads/html/8/8.html</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Bibliographische Metadaten, Buchstruktur (Embleme, Picturae), Iconographische Erschließung, teilweise Volltext (Transkription)</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titeldaten in PICA; Buchstruktur, Erschließungsangaben und Transkriptionen in TEI-XML</marc:subfield>
+    <marc:subfield code="b">description: standards and techniques used</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">la</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Emblemliteratur</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Historische Gattungen</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="1" ind2=" " tag="700">
+    <marc:subfield code="a">Dr. Thomas Staecker, Herzog August Bibliothek, Postfach 1364, D-38299 Wolfenbuettel, staecker@hab.de</marc:subfield>
+    <marc:subfield code="e">administrator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Herzog August Bibliothek</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+    <marc:subfield code="u">http://www.hab.de/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">University of Illinois at Urbana-Champaign (UIUC)</marc:subfield>
+    <marc:subfield code="e">cooperation</marc:subfield>
+    <marc:subfield code="u">http://images.library.uiuc.edu/projects/emblems/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:emblematica.hab.wf.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:802</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc802</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:702</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc702</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/forschung/projekte/emblematica.htm</marc:subfield>
+    <marc:subfield code="3">Projektseite</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/bibliothek/wdb/emblematica/suche.htm</marc:subfield>
+    <marc:subfield code="3">Suchmaske</marc:subfield>
+    <marc:subfield code="x">search-interface</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/bibliothek/wdb/emblematica/signaturenliste.htm</marc:subfield>
+    <marc:subfield code="3">Signaturenliste</marc:subfield>
+    <marc:subfield code="x">browsing-access</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46780</identifier>
+    <datestamp>2009-05-25T09:34:45Z</datestamp>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+    <setSpec>collection</setSpec>
+    <setSpec>ddc:600</setSpec>
+    <setSpec>ddc:500</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46780</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46780</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">500</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="082">
+    <marc:subfield code="a">600</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Druckwerke der Leibnizzeit</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="246">
+    <marc:subfield code="a">Digitalisierung naturwissenschaftlicher, technischer und medizinischer Texte der Leibnizzeit</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Wolfenbüttel</marc:subfield>
+    <marc:subfield code="c">1543-1781</marc:subfield>
+    <marc:subfield code="g">2004-2005</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">128 Titel oder Drucke, 199 Bände, 52.185 Images / Seiten</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="3" ind2=" " tag="520">
+    <marc:subfield code="a">Die naturwissenschaftliche, technische und medizinische Literatur der zweiten Hälfte des 17. und der ersten Hälfte des 18. Jahrhunderts charakterisiert die Gründungsphase des modernen wissenschaftlichen Denken und Handelns. Einen entscheidenden Ausschnitt aus dieser Literatur bilden die Werke, die Gottfried Wilhelm Leibniz - Universalgelehrter und in einer seiner späteren Funktionen auch 25 Jahre lang Bibliothekar in Wolfenbüttel (1691-1716) - las und kommentierte.
+Die im Jahr 2001 neu begonnene Edition seiner naturwissenschaftlich-medizinisch-technischen Schriften (Reihe VIII der Akademie-Ausgabe, Projektleiter Prof. Dr. Eberhard Knobloch) wird dies dokumentieren, indem sie nicht nur Digitalisate der Handschriften, sondern auch die edierten Texte online zur Verfügung stellt. Von der Internetedition der in ihrer übergroßen Mehrheit unbekannten Manuskripte aus gibt es Links auf die von Leibniz angeführten Schriften, d. h. Links auf ganze Werke, auf einzelne Kapitel oder Seiten davon. Im Projekt wurden die in der ersten Phase der Edition für Leibniz wichtigen Werke komplett digitalisiert und mit der online-Edition dauerhaft verbunden.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Projektbeschreibung</marc:subfield>
+    <marc:subfield code="b">documentation</marc:subfield>
+    <marc:subfield code="u">http://www.hab.de/forschung/projekte/leibnizressourcen.htm</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Kurzbeschreibung (DLF-Liste)</marc:subfield>
+    <marc:subfield code="b">shortDescription</marc:subfield>
+    <marc:subfield code="u">http://www.dl-forum.de/deutsch/projekte/projekte_1916_DEU_HTML.htm</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Bibliographische Metadaten</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titeldaten in PICA</marc:subfield>
+    <marc:subfield code="b">description: standards and techniques used</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">la</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">fr</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Leibniz, Gottfried Wilhelm</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="650">
+    <marc:subfield code="a">Geschichte 1650-1750</marc:subfield>
+    <marc:subfield code="2">SWD</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Wissenschaftliche und Fachliteratur</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="1" ind2=" " tag="700">
+    <marc:subfield code="a">Dr. Thomas Staecker, Herzog August Bibliothek, Postfach 1364, D-38299 Wolfenbuettel, staecker@hab.de</marc:subfield>
+    <marc:subfield code="e">administrator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Herzog August Bibliothek</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+    <marc:subfield code="u">http://www.hab.de/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Berlin-Brandenburgische Akademie der Wissenschaften, Leibniz-Edition</marc:subfield>
+    <marc:subfield code="e">cooperation</marc:subfield>
+    <marc:subfield code="u">http://www3.bbaw.de/forschung/leibniz/web/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:druckwerke_leibnizzeit.hab.wf.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:600</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc600</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">ddc:500</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="b">ddc500</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/forschung/projekte/leibnizressourcen.htm</marc:subfield>
+    <marc:subfield code="3">Projektseite</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="3">Noch nicht verfügbar</marc:subfield>
+    <marc:subfield code="x">search-interface</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/forschung/projekte/leibniz/signaturenliste.htm</marc:subfield>
+    <marc:subfield code="3">Liste der Titel</marc:subfield>
+    <marc:subfield code="x">browsing-access</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46781</identifier>
+    <datestamp>2009-05-25T09:34:45Z</datestamp>
+    <setSpec>collection</setSpec>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46781</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46781</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Archäologische Funde in der Frühen Neuzeit</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Wolfenbüttel</marc:subfield>
+    <marc:subfield code="c">1505-1804</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">123 Titel (02/2007)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titeldaten, teilweise Strukturdaten</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Wissenschaftliche und Fachliteratur</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="1" ind2=" " tag="700">
+    <marc:subfield code="a">Dr. Thomas Staecker, Herzog August Bibliothek, Postfach 1364, D-38299 Wolfenbuettel, staecker@hab.de</marc:subfield>
+    <marc:subfield code="e">administrator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Herzog August Bibliothek</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+    <marc:subfield code="u">http://www.hab.de/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:archaeologische_funde.hab.wf.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/forschung/projekte/archaeologische-funde.htm</marc:subfield>
+    <marc:subfield code="3">Projektseite</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://sunny.biblio.etc.tu-bs.de:8080/DB=2/SET=5/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=ser+arch%E4ologische+funde+and+mat+o</marc:subfield>
+    <marc:subfield code="3">Titelliste per OPAC-Abfrage</marc:subfield>
+    <marc:subfield code="x">browsing-access</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46782</identifier>
+    <datestamp>2009-05-25T09:34:45Z</datestamp>
+    <setSpec>collection</setSpec>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46782</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46782</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Thesaurus eruditionis</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">Wolfenbüttel</marc:subfield>
+    <marc:subfield code="c">1483-1733</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">41 Titel (02/2007)</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="3" ind2=" " tag="520">
+    <marc:subfield code="a">In Kooperation mit dem Mannheimer/ Heidelberger Thesaurus eruditionis  wird hier ein digitaler Handapparat mit häufig genutzten frühneuzeitlichen Lehrbüchern und Nachschlagewerken aufgebaut, der zum Verständnis und zur Erforschung der frühneuzeitlichen Wissens- und Gelehrtenkultur beitragen soll. Die Herzog August Bibliothek konzentriert sich derzeit auf den Bereich lateinische Wörterbücher, der um zentrale Titel aus dem Bereich der historia litteraria erweitert werden soll.</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titeldaten, teilweise elektronischer Volltext</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">la</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Lexika und Nachschlagewerke</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="1" ind2=" " tag="700">
+    <marc:subfield code="a">Dr. Thomas Staecker, Herzog August Bibliothek, Postfach 1364, D-38299 Wolfenbuettel, staecker@hab.de</marc:subfield>
+    <marc:subfield code="e">administrator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">Herzog August Bibliothek</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+    <marc:subfield code="u">http://www.hab.de/</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:thesaurus_eruditionis.hab.wf.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.hab.de/bibliothek/wdb/thesaurus/index.htm</marc:subfield>
+    <marc:subfield code="3">Projektseite</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://sunny.biblio.etc.tu-bs.de:8080/DB=2/SET=2/TTL=1/CMD?ACT=SRCHA&amp;IKT=1016&amp;SRT=YOP&amp;TRM=gat%20woerterbuch%20and%20mat%20o</marc:subfield>
+    <marc:subfield code="3">Titelliste per OPAC-Abfrage</marc:subfield>
+    <marc:subfield code="x">browsing-access</marc:subfield>
+  </marc:datafield>
+</marc:record>   </metadata>
+  </record>
+  <record>
+   <header>
+    <identifier>oai:digitalisiertedrucke.de:46783</identifier>
+    <datestamp>2009-05-25T09:34:45Z</datestamp>
+    <setSpec>collection</setSpec>
+    <setSpec>collection:zvdd.hbz.k.de</setSpec>
+   </header>
+   <metadata>
+<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+     <marc:leader>00000coc  2200000uu 4500</marc:leader>
+  <marc:controlfield tag="001">46783</marc:controlfield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="a">oai:digitalisiertedrucke.de:46783</marc:subfield>
+    <marc:subfield code="p">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="8" ind2=" " tag="024">
+    <marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="0" tag="245">
+    <marc:subfield code="a">Einblattdrucke des 17. Jahrhunderts</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="260">
+    <marc:subfield code="a">ohne Ort</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="300">
+    <marc:subfield code="a">ca. 13.000 Einblattdrucke</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titelaufnahmen</marc:subfield>
+    <marc:subfield code="b">description: data levels</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="520">
+    <marc:subfield code="a">Titeldaten in PICA</marc:subfield>
+    <marc:subfield code="b">description: standards and techniques used</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="546">
+    <marc:subfield code="a">la</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="594">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="0" ind2="7" tag="655">
+    <marc:subfield code="a">Flugblätter, Einblattdrucke etc.</marc:subfield>
+    <marc:subfield code="2">local (zvdd) </marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="2" ind2=" " tag="710">
+    <marc:subfield code="a">VD17</marc:subfield>
+    <marc:subfield code="e">creator</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="980">
+    <marc:subfield code="a">collection</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1=" " ind2=" " tag="992">
+    <marc:subfield code="a">collection:einblattdrucke.vd17.oo.de</marc:subfield>
+    <marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter Drucke)</marc:subfield>
+    <marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+    <marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://www.vd17.de/</marc:subfield>
+    <marc:subfield code="3">Startseite VD17</marc:subfield>
+    <marc:subfield code="x">homepage</marc:subfield>
+  </marc:datafield>
+  <marc:datafield ind1="4" ind2=" " tag="856">
+    <marc:subfield code="u">http://gso.gbv.de/DB=1.28/ADVANCED_SEARCHFILTER</marc:subfield>
+    <marc:subfield code="3">In erweiterter Suche mit Einschränkung Gattung = Einblattdruck suchen</marc:subfield>
+    <marc:subfield code="x">search-interface</marc:subfield>
+  </marc:datafield>
+</marc:record>  

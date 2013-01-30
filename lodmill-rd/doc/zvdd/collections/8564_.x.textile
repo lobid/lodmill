@@ -1,0 +1,3 @@
+browsing-access
+homepage
+search-interface

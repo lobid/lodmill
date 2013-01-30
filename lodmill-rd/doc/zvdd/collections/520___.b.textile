@@ -1,0 +1,8 @@
+abstract
+article
+collDesc
+description: data levels
+description: standards and techniques used
+documentation
+review
+shortDescription

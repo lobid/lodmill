@@ -1,0 +1,8 @@
+de
+en
+fr
+it
+la
+lat
+ru
+yi

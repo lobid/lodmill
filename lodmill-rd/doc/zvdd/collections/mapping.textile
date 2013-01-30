@@ -1,0 +1,39 @@
+|*field*|*frequency*|*content*|*mapping*|
+|0248 .p|420| classification, take only "ddc" into account, "ignore the rest, s.: 980  .b" .  ca. 56 different values, mostly ddc, s. :" 0248_p":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/0248_.p.textile | dct:subject |
+|8564 .x|386| type of "URL of the homepage , 3 different values, s: "8564_.x":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/8564_.x.textile . Ignore everything but "homepage" | foaf:homepage|
+|8564 .3|386| description of type of the "URL of the homepage (s.: 8564 .u)", e.g. "Suche über OPAC (Heidi)" | |
+|8564 .u|341| URL of the homepage. Some missing (386-341=45) because of "Noch nicht verfügbar (s.: 8564 .3)"| |
+|520  .b|328| ignore  . description of "520  .a" and "520  .u", 8 different values e.g. "review", s. : "520___.b":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/520___.b.textile | - |
+|520  .a|327| description. concatenate (also with "5203 a"). , e.g. technical details of the homepage; details of the DB; kinds of data (fulltexts, with or without Subject headings ), s.: "520___.a":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/520___.a.textile | dc:description |
+|7102 .a|201| values of "7102 .e". linkt to lobid/organisations | dc:creator , dc:contributor, and dct:creator , dct:contributor |
+|7102 .e|201| 2 different values "cooperation" and "creator". combine with "7102 .a" | dc:creator , dc:contributor |
+|546  .a|189| landguage code, s.: "546__a.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/546__a.textile | dct:language , object "iso.loc-URI"|
+|7102 .u|186| ignore | |
+|65007.a|186| subjects as values. Would be finde to use a lookup-API to generate theSWD-URI (GND)| |
+|65007.2|186| ignore. only one value "SWD"| |
+|65507.2|165| ignore | |
+|65507.a|165| genre. s. : "65507.a.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/65507.a.textile | ? |
+|594  .a|146| default: rdf:type "collection". ignore, just one value |dcmitype:Collection |
+|type|146|ignore | |
+|24500.a|146| Main title | http://purl.org/dc/terms/title |
+|leader|146| ignore | |
+|992  .d|146| ignore| |
+|0248 .a|146| ignore | |
+|992  .b|146| ignore | |
+|980  .a|146| ignore | |
+|992  .c|146| ignore | |
+|001|146| internal ID. Good for minting URIs| minting URI, dct:identifier |
+|992  .a|146| | ignore . ID of collection | |
+|260  .a|146| ignore. Place of creation|
+|082  .a|131| ddc | dct:subject (uris!) |
+|300  .a|129| extension |dct:extent|
+|980  .b|128|  classification , only ddc| dct:subject (make ddc-uris first!)|
+|520  .u|116| link to description |foaf:isPrimaryTopicOf |
+|260  .c|115| temporal coverage| ? dct:temporal |
+|7001 .e|101| ignore | |
+|7001 .a|101| contact person information| ? |
+|260  .g|99| date of creation | ? |
+|5203 .a|73| append to "520  .a" | |
+|522  .a|53| spatial | ? dct:spatial |
+|24600.a|53| subtitle | rda ?|
+|513  .b|35| ignore. temporal information already covered in  "260  .c"| |
