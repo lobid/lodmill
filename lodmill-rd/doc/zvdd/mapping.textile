@@ -39,14 +39,14 @@ We chose to split up the record into description of two distinct enttities: a pr
 |015  .2|47003| ignore. the origin of "015  .a" | - |
 |887 (MAB2:026h)|46973| ignore for the time being. regional ID. But of what institution ? Unclear for me. Could be used for linking "owl:sameAs" |  |
 |7730 .t|46603| s. "773  .t" |  |
-|7730 .g|46603| the same as "773  .g". s. "7730-g_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/7730-g_smallExampleSet.textile | dc:extent ? |
+|7730 .g|46603| the same as "773  .g". s. "7730-g_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/7730-g_smallExampleSet.textile | see "773  .g" |
 |24500.b|44514| extension of the main title | dct:alternative   |
 |24500.c|40150| creator of origin resource, same as  "1001 .a"? , sligtly different Notation| dc:creator |
-|500  .a|37384| diverse notes, s. 500-a.textile | ? |
+|500  .a|37384| ignore. (too diverse) diverse notes, s. "500-a_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/500-a_smallExampleSet.textile | ? |
 |595  .b|29343| ignore "abrufjkennzeichen"  | - |
-|887 (Publikation_Typ)|29323| 8 different types , s. "887-Publikation_Typ.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/87-Publikation_Typ.textile | ? |
+|887 (Publikation_Typ)|29323| 8 different types , s. "887-Publikation_Typ.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/887-Publikation_Typ.textile | s. "887-Publikation_Typ.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/887-Publikation_Typ.textile for RDF properties|
 |980  .b|17543| ? ignore . | - |
-|1001 .e|16683| role of contribution/creator , see also "1001 .a" | ? |
+|1001 .e|16683| role of contribution/creator , see also "1001 .a" | dc:creator, dc:contributor |
 |2461 .a|14852| | |
 |260  .a|14663| | |
 |7001 .a|13855| | |
