@@ -38,8 +38,8 @@ We chose to split up the record into description of two distinct enttities: a pr
 |015  .a|47003| ignore. may be internal IDs from other database , e.g."code="a">PDD_mrab11199037</subfield> <subfield code="2">GBV", could then be used for "owl:sameAs". look at "http://www.digitalisiertedrucke.de/record/477221/export/xm" or google "PDD_mrab11199037" | owl:sameAs ? |
 |015  .2|47003| ignore. the origin of "015  .a" | - |
 |887 (MAB2:026h)|46973| ignore for the time being. regional ID. But of what institution ? Unclear for me. Could be used for linking "owl:sameAs" |  |
-|7730 .t|46603| similar to "776 1.k", s. 773-t.textile . Only articles from these journals? | ? rdftype:article, ? dct:isPartOf |
-|7730 .g|46603| the same as "773  .g" ? s. "7730-g_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/7730-g_smallExampleSet.textile | dc:extent ? |
+|7730 .t|46603| s. "773  .t" |  |
+|7730 .g|46603| the same as "773  .g". s. "7730-g_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/7730-g_smallExampleSet.textile | dc:extent ? |
 |24500.b|44514| | extension of the main title  http://iflastandards.info/ns/isbd/elements/P1006 |
 |24500.c|40150| creator of origin resource, same as  "1001 .a"? , sligtly different Notation| dc:creator |
 |500  .a|37384| diverse notes, s. 500-a.textile | ? |
