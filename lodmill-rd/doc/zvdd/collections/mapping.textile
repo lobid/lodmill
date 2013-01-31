@@ -9,7 +9,7 @@
 |7102 .e|201| 2 different values "cooperation" and "creator". combine with "7102 .a" | dc:creator , dc:contributor |
 |546  .a|189| landguage code, s.: "546__a.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/546__a.textile | dct:language , object "iso.loc-URI"|
 |7102 .u|186| ignore | |
-|65007.a|186| subjects as values. Would be finde to use a lookup-API to generate theSWD-URI (GND)| |
+|65007.a|186| subject headings strings (SWD) as values. Would be finde to use a lookup-API to generate theSWD-URI (GND)| dc(t):subject |
 |65007.2|186| ignore. only one value "SWD"| |
 |65507.2|165| ignore | |
 |65507.a|165| genre. s. : "65507.a.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/65507.a.textile | ? |
@@ -19,7 +19,7 @@
 |leader|146| ignore | |
 |992  .d|146| ignore| |
 |0248 .a|146| ignore | |
-|992  .b|146| ignore | |
+|992  .b|146| link to collection | dct:isPartOf |
 |980  .a|146| ignore | |
 |992  .c|146| ignore | |
 |001|146| internal ID. Good for minting URIs| minting URI, dct:identifier |
@@ -29,11 +29,11 @@
 |300  .a|129| extension |dct:extent|
 |980  .b|128|  classification , only ddc| dct:subject (make ddc-uris first!)|
 |520  .u|116| link to description |foaf:isPrimaryTopicOf |
-|260  .c|115| temporal coverage| ? dct:temporal |
+|260  .c|115| temporal coverage| dct:temporal (deliberately incorrect with string as value) |
 |7001 .e|101| ignore | |
 |7001 .a|101| contact person information| ? |
 |260  .g|99| date of creation | ? |
 |5203 .a|73| append to "520  .a" | |
-|522  .a|53| spatial | ? dct:spatial |
-|24600.a|53| subtitle | rda ?|
+|522  .a|53| spatial | dct:spatial (deliberately incorrect with string as value) |
+|24600.a|53| subtitle | http://rdvocab.info/Elements/otherTitleInformation |
 |513  .b|35| ignore. temporal information already covered in  "260  .c"| |
