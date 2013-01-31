@@ -1,8 +1,8 @@
 We chose to split up the record into description of two distinct enttities: a print manifestation and the digital file dervied from it. Accordingly, a "P" or a "D" is added to each RDF property to indicate where the resulting triple is added.
 
 |*field*|*frequency*|*content*|*mapping*|
-|0248 .p|458355| collection, ca. 205 different values, s. "0248-p.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/0248-p.textile | D: http://purl.org/dc/terms/isPartOf (Link to collectionURI/bnode) |
-|980  .a|420975| ? ca. 100 different values, s. "980-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/980-a.textile  | ? |
+|0248 .p|458355| collection, ca. 205 different values, ignore ddc: s. "0248-p.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/0248-p.textile | D: http://purl.org/dc/terms/isPartOf (Link to collectionURI/bnode) |
+|980  .a|420975| ignore ca. 100 different values, s. "980-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/980-a.textile  | ? |
 |001|184000| Database-unique internal identifier. Could be used to create a URI? | Yes. Use as part of HTTP-URI. A nice way to encode different string IDs in RDF doesn't exist yet.|
 |type|184000| ignore | - |
 |8564 .u|181473| URL: Landing-page of the described E-Ressource | http://lobid.org/vocab/lobid#fulltextOnline |
