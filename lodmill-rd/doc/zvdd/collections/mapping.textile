@@ -23,8 +23,8 @@
 |980  .a|146| ignore | |
 |992  .c|146| ignore | |
 |001|146| internal ID. Good for minting URIs| minting URI, dct:identifier |
-|992  .a|146| | ignore . ID of collection | |
-|260  .a|146| ignore. Place of creation|
+|992  .a|146| ignore . ID of collection | |
+|260  .a|146| ignore. Place of creation| |
 |082  .a|131| ddc | dct:subject (uris!) |
 |300  .a|129| extension |dct:extent|
 |980  .b|128|  classification , only ddc| dct:subject (make ddc-uris first!)|
