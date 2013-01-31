@@ -31,14 +31,13 @@ We chose to split up the record into description of two distinct enttities: a pr
 |533  .7|78052| creation date of the e-rsource. Seems to be equivalent to "533  .d". Use, if the former key is not present in the data. s, "533-7.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/533-7.textile | dct:created |
 |040  .c|78012| ignore. most probably ignore. s, "040-c.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/040-c.textile | - |
 |270  .a|77547| ignore. second publisher, printer? has only one value : "Godesberger Allee 149, 53175 Bonn"| ? |
-|773  .t|76233| concatenate with 773 .g , s. "773-t.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/773-t.textile Later we might also link to ZDB URI of the digitized series, e.g. http://ld.zdb-services.de/resource/2125514-3
-| P: dct:bibliographicCitation|
+|773  .t|76233| concatenate with 773 .g , s. "773-t.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/773-t.textile Later we might also link to ZDB URI of the digitized series, e.g. http://ld.zdb-services.de/resource/2125514-3 | P: dct:bibliographicCitation|
 |773  .g|76206| see 773 .t|  |
 |533  .b|57207| ignore ? provenance of the e-resource. Mostly cities, s. "553-b.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/53-b.textile | ? |
-|516  .a|52012| some infos about the kind of the e-ressource, s. "516-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/516-a.textile | ? could precise lv:fullTextOnline, e.g. if it's a direct link to a PDF |
-|015  .a|47003| ? probably ignore. may be internal IDs from other database , e.g."code="a">PDD_mrab11199037</subfield> <subfield code="2">GBV", could then be used for "owl:sameAs". look at "http://www.digitalisiertedrucke.de/record/477221/export/xm" or google "PDD_mrab11199037" | owl:sameAs ? |
-|015  .2|47003| the origin of "015  .a" | - |
-|887 (MAB2:026h)|46973| probably ignore. regional ID. But of what institution ? Unclear for me. Could be used for linking "owl:sameAs" | owl:sameAs |
+|516  .a|52012| some infos about the kind of the e-ressource, s. "516-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/516-a.textile | use pdf info to directly serve pdf via D URI, when asked for in Acceot header |
+|015  .a|47003| ignore. may be internal IDs from other database , e.g."code="a">PDD_mrab11199037</subfield> <subfield code="2">GBV", could then be used for "owl:sameAs". look at "http://www.digitalisiertedrucke.de/record/477221/export/xm" or google "PDD_mrab11199037" | owl:sameAs ? |
+|015  .2|47003| ignore. the origin of "015  .a" | - |
+|887 (MAB2:026h)|46973| ignore for the time being. regional ID. But of what institution ? Unclear for me. Could be used for linking "owl:sameAs" |  |
 |7730 .t|46603| similar to "776 1.k", s. 773-t.textile . Only articles from these journals? | ? rdftype:article, ? dct:isPartOf |
 |7730 .g|46603| the same as "773  .g" ? s. "7730-g_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/7730-g_smallExampleSet.textile | dc:extent ? |
 |24500.b|44514| | extension of the main title  http://iflastandards.info/ns/isbd/elements/P1006 |
