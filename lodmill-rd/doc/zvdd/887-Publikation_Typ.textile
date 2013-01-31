@@ -1,8 +1,8 @@
-10 (Beilage)
-2 (Beitrag)
-3 (Rezension)
-4 (Nachricht)
-5 (Illustration)
-6 (Sammlung)
-7 (Musikstück)
-9 (Illustrationensammlung)
+10 (Beilage) --> http://purl.org/spar/fabio/Supplement
+2 (Beitrag) --> http://purl.org/ontology/bibo/Article
+3 (Rezension) --> http://purl.org/spar/fabio/Review
+4 (Nachricht) --> http://purl.org/spar/fabio/NewsItem
+5 (Illustration) --> ?
+6 (Sammlung) --> http://purl.org/ontology/bibo/Collection
+7 (Musikstück) --> http://purl.org/ontology/mo/PublishedScore
+9 (Illustrationensammlung) --> http://purl.org/ontology/bibo/Collection
