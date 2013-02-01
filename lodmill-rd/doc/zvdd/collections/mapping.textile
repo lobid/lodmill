@@ -2,13 +2,12 @@
 |0248 .p|420| classification, take only "ddc" into account, "ignore the rest, s.: 980  .b" .  ca. 56 different values, mostly ddc, s. :" 0248_p":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/0248_.p.textile | dct:subject | done |
 |8564 .x|386| type of "URL of the homepage , 4 different values, s: "8564_.x":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/8564_.x.textile . Ignore everything but "homepage" | foaf:homepage| done |
 |8564 .3|386| description of type of the "URL of the homepage (s.: 8564 .u)", e.g. "Suche über OPAC (Heidi)" | | ignore |
-|8564 .u|341| URL of the homepage. Some missing ("not yet") (s.: 8564 .3)"| done |
+|8564 .u|341| URL of the homepage. Some missing ("not yet") (s.: 8564 .3)"| | done |
 |520  .b|328| ignore  . description of "520  .a" and "520  .u", 8 different values e.g. "review", s. : "520___.b":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/520___.b.textile | - | ignore |
 |520  .a|327| ignore. E.g. "Titeldaten in PICA" , nobody needs this. else: description. concatenate (also with "5203 a"). , e.g. technical details of the homepage; details of the DB; kinds of data (fulltexts, with or without Subject headings ), s.: "520___.a":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/520___.a.textile | dc:description | ignore |
 |7102 .a|201| values of "7102 .e". @TODO link to lobid/organisations | dc:creator , dc:contributor, and dct:creator , dct:contributor | done |
 |7102 .e|201| 2 different values "cooperation" and "creator". combine with "7102 .a" | dc:creator , dc:contributor | done |
-|546  .a|189| landguage code, s.: "546__a.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/546__a.textile | dct:language , object "iso.loc-URI"|
- TODO |
+|546  .a|189| landguage code, s.: "546__a.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/546__a.textile | dct:language , object "iso.loc-URI"| TODO |
 |7102 .u|186| ignore | gnore |
 |65007.a|186| subject headings strings (SWD) as values. Would be finde to use a lookup-API to generate the SWD-URI (GND)| dc(t):subject | done, could be refined |
 |65007.2|186| ignore. only one value "SWD"| | ignore |
