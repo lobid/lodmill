@@ -1,5 +1,5 @@
 |*field*|*frequency*|*content*|*mapping*|
-|0248 .p|420| classification, take only "ddc" into account, "ignore the rest, s.: 980  .b" .  ca. 56 different values, mostly ddc, s. :" 0248_p":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/0248_.p.textile | dct:subject |
+|0248 .p|420| classification, take only "ddc" into account, "ignore the rest, s.: 980  .b" .  ca. 56 different values, mostly ddc, s. :" 0248_p":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/0248_.p.textile | dct:subject | ok |
 |8564 .x|386| type of "URL of the homepage , 3 different values, s: "8564_.x":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/8564_.x.textile . Ignore everything but "homepage" | foaf:homepage|
 |8564 .3|386| description of type of the "URL of the homepage (s.: 8564 .u)", e.g. "Suche über OPAC (Heidi)" | |
 |8564 .u|341| URL of the homepage. Some missing (386-341=45) because of "Noch nicht verfügbar (s.: 8564 .3)"| |
@@ -13,7 +13,7 @@
 |65007.2|186| ignore. only one value "SWD"| |
 |65507.2|165| ignore | |
 |65507.a|165| genre. s. : "65507.a.textile":http://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/collections/65507.a.textile | ? |
-|594  .a|146| default: rdf:type "collection". ignore, just one value |dcmitype:Collection |
+|594  .a|146| default: rdf:type "collection". ignore, just one value |dcmitype:Collection | ok |
 |type|146|ignore | |
 |24500.a|146| Main title | http://purl.org/dc/terms/title |
 |leader|146| ignore | |
@@ -22,7 +22,7 @@
 |992  .b|146| link to collection | dct:isPartOf |
 |980  .a|146| ignore | |
 |992  .c|146| ignore | |
-|001|146| internal ID. Good for minting URIs| minting URI, dct:identifier |
+|001|146| internal ID. Good for minting URIs| minting URI |
 |992  .a|146| ignore . ID of collection | |
 |260  .a|146| ignore. Place of creation| |
 |082  .a|131| ddc | dct:subject (uris!) |
