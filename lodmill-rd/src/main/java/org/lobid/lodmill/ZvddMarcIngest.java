@@ -51,8 +51,8 @@ public final class ZvddMarcIngest {
 	}
 
 	public static void main(String[] args) throws IOException, RecognitionException {
-		Metaflow.main(new String[] { "-f", "src/main/resources/zvdd.flow" });
-	//	Metaflow.main(new String[] { "-f", "src/main/resources/zvdd_collections.flow" });
+		// Metaflow.main(new String[] { "-f", "src/main/resources/zvdd.flow" });
+		Metaflow.main(new String[] { "-f", "src/main/resources/zvdd_collections.flow" });
 	}
 
 	@Test
@@ -72,7 +72,7 @@ public final class ZvddMarcIngest {
 		Assert.assertTrue("Values should have descending frequency",
 				entries.get(0).getValue() > entries.get(entries.size() - 1).getValue());
 		Assert.assertTrue("Mapping table should exist", mapping.exists());
-		 mapping.deleteOnExit();
+		mapping.deleteOnExit();
 	}
 
 	private List<Entry<String, Integer>> sortedByValuesDescending(final ZvddStats stats) {
