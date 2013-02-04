@@ -10,3 +10,4 @@ tmp
 dist
 lodmill-ui/.classpath
 test.*
+*.dot*

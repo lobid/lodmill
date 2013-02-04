@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 
 import org.antlr.runtime.RecognitionException;
 import org.culturegraph.metaflow.Metaflow;
+import org.culturegraph.metamorph.Visualize;
 import org.culturegraph.metamorph.core.Metamorph;
 import org.culturegraph.metamorph.core.MetamorphErrorHandler;
 import org.culturegraph.metamorph.reader.MarcXmlReader;
@@ -34,7 +35,8 @@ import org.slf4j.LoggerFactory;
 public final class ZvddMarcIngest {
 
 	private static final String TEXTILE_MAPPING_TABLE = "mapping.textile";
-	private static final Logger LOG = LoggerFactory.getLogger(ZvddMarcIngest.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(ZvddMarcIngest.class);
 	private static final String ZVDD_MARC = "../../zvdd.xml";
 	private final Reader reader = new MarcXmlReader();
 	private final Metamorph metamorph = new Metamorph(Thread.currentThread()
@@ -50,9 +52,14 @@ public final class ZvddMarcIngest {
 		}
 	}
 
-	public static void main(String[] args) throws IOException, RecognitionException {
-		// Metaflow.main(new String[] { "-f", "src/main/resources/zvdd.flow" });
-		Metaflow.main(new String[] { "-f", "src/main/resources/zvdd_collections.flow" });
+	public static void main(String[] args) throws IOException,
+			RecognitionException {
+		final String flow = "src/main/resources/zvdd.flow";
+		// "src/main/resources/zvdd_collections.flow"
+		final String morph = "src/main/resources/morph-rdfld.xml";
+		// "src/main/resources/morph-zvdd_collection-rdfld.xml"
+		Metaflow.main(new String[] { "-f", flow });
+		Visualize.main(new String[] { morph, morph + ".dot" });
 	}
 
 	@Test
@@ -66,17 +73,20 @@ public final class ZvddMarcIngest {
 		final ZvddStats stats = new ZvddStats();
 		reader.setReceiver(metamorph).setReceiver(stats);
 		reader.process(new FileReader(ZVDD_MARC));
-		final List<Entry<String, Integer>> entries = sortedByValuesDescending(stats);
+		final List<Entry<String, Integer>> entries =
+				sortedByValuesDescending(stats);
 		final File mapping = writeTextileMappingTable(entries);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
-		Assert.assertTrue("Values should have descending frequency",
-				entries.get(0).getValue() > entries.get(entries.size() - 1).getValue());
+		Assert.assertTrue("Values should have descending frequency", entries
+				.get(0).getValue() > entries.get(entries.size() - 1).getValue());
 		Assert.assertTrue("Mapping table should exist", mapping.exists());
 		mapping.deleteOnExit();
 	}
 
-	private List<Entry<String, Integer>> sortedByValuesDescending(final ZvddStats stats) {
-		final List<Entry<String, Integer>> entries = new ArrayList<>(stats.map.entrySet());
+	private List<Entry<String, Integer>> sortedByValuesDescending(
+			final ZvddStats stats) {
+		final List<Entry<String, Integer>> entries =
+				new ArrayList<>(stats.map.entrySet());
 		Collections.sort(entries, new Comparator<Entry<String, Integer>>() {
 			@Override
 			public int compare(final Entry<String, Integer> entry1,
@@ -88,15 +98,16 @@ public final class ZvddMarcIngest {
 		return entries;
 	}
 
-	private File writeTextileMappingTable(final List<Entry<String, Integer>> entries)
-			throws IOException {
-		StringBuilder textileBuilder = new StringBuilder(
-				"|*field*|*frequency*|*content*|*mapping*|\n");
+	private File writeTextileMappingTable(
+			final List<Entry<String, Integer>> entries) throws IOException {
+		StringBuilder textileBuilder =
+				new StringBuilder("|*field*|*frequency*|*content*|*mapping*|\n");
 		LOG.info("Field\tFreq.");
 		LOG.info("----------------");
 		for (Entry<String, Integer> e : entries) {
 			LOG.info(e.getKey() + "\t" + e.getValue());
-			textileBuilder.append(String.format("|%s|%s| | |\n", e.getKey(), e.getValue()));
+			textileBuilder.append(String.format("|%s|%s| | |\n", e.getKey(),
+					e.getValue()));
 		}
 		final File mapping = new File(TEXTILE_MAPPING_TABLE);
 		try (FileWriter textileWriter = new FileWriter(mapping)) {
