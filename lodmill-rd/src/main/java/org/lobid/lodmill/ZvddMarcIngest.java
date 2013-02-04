@@ -16,6 +16,7 @@ import java.util.Map.Entry;
 
 import org.antlr.runtime.RecognitionException;
 import org.culturegraph.metaflow.Metaflow;
+import org.culturegraph.metamorph.Visualize;
 import org.culturegraph.metamorph.core.Metamorph;
 import org.culturegraph.metamorph.core.MetamorphErrorHandler;
 import org.culturegraph.metamorph.reader.MarcXmlReader;
@@ -51,8 +52,10 @@ public final class ZvddMarcIngest {
 	}
 
 	public static void main(String[] args) throws IOException, RecognitionException {
-		// Metaflow.main(new String[] { "-f", "src/main/resources/zvdd.flow" });
-		Metaflow.main(new String[] { "-f", "src/main/resources/zvdd_collections.flow" });
+		final String flow = "src/main/resources/zvdd.flow"; //"src/main/resources/zvdd_collections.flow"
+		final String morph = "src/main/resources/morph-rdfld.xml"; //"src/main/resources/morph-zvdd_collection-rdfld.xml"
+		Metaflow.main(new String[] { "-f", flow });
+		Visualize.main(new String[] { morph, morph + ".dot" });
 	}
 
 	@Test
