@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,7 +31,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Ingest the ZVDD MARC-XML export and print some stats.
+ * Ingest the ZVDD MARC-XML export.
+ * 
+ * Run as Java application to use metaflow definitions; run as JUnit test to
+ * print some stats, transform the fields, and output results as N-Triples.
  * 
  * @author Fabian Steeg (fsteeg)
  */
@@ -38,19 +44,9 @@ public final class ZvddMarcIngest {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(ZvddMarcIngest.class);
 	private static final String ZVDD_MARC = "../../zvdd.xml";
+	private static final String SUBJECT_NAME = "subject";
 	private final Reader reader = new MarcXmlReader();
-	private final Metamorph metamorph = new Metamorph(Thread.currentThread()
-			.getContextClassLoader().getResourceAsStream("morph-stats.xml"));
-
-	private static class ZvddStats extends DefaultStreamReceiver {
-
-		private Map<String, Integer> map = new HashMap<>();
-
-		@Override
-		public void literal(final String name, final String value) {
-			map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
-		}
-	}
+	private Metamorph metamorph;
 
 	public static void main(String[] args) throws IOException,
 			RecognitionException {
@@ -63,13 +59,11 @@ public final class ZvddMarcIngest {
 	}
 
 	@Test
-	public void ingest() throws IOException {
-		metamorph.setErrorHandler(new MetamorphErrorHandler() {
-			@Override
-			public void error(final Exception exception) {
-				LOG.error(exception.getMessage(), exception);
-			}
-		});
+	public void stats() throws IOException {
+		metamorph =
+				new Metamorph(Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream("morph-stats.xml"));
+		setUpErrorHandler(metamorph);
 		final ZvddStats stats = new ZvddStats();
 		reader.setReceiver(metamorph).setReceiver(stats);
 		reader.process(new FileReader(ZVDD_MARC));
@@ -81,6 +75,76 @@ public final class ZvddMarcIngest {
 				.get(0).getValue() > entries.get(entries.size() - 1).getValue());
 		Assert.assertTrue("Mapping table should exist", mapping.exists());
 		mapping.deleteOnExit();
+	}
+
+	@Test
+	public void triples() throws IOException {
+		metamorph =
+				new Metamorph(Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream("morph-rdfld.xml"));
+		setUpErrorHandler(metamorph);
+		final File triples = new File("zvdd.nt");
+		final ZvddTriples sink =
+				new ZvddTriples(new PrintStream(triples), System.out);
+		reader.setReceiver(metamorph).setReceiver(sink);
+		reader.process(new FileReader(ZVDD_MARC));
+		Assert.assertTrue("Triples file should exist", triples.exists());
+		Assert.assertTrue("Triples file should not be empty",
+				triples.length() > 0);
+		triples.deleteOnExit();
+	}
+
+	private static class ZvddStats extends DefaultStreamReceiver {
+
+		private Map<String, Integer> map = new HashMap<>();
+
+		@Override
+		public void literal(final String name, final String value) {
+			map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
+		}
+	}
+
+	private static class ZvddTriples extends DefaultStreamReceiver {
+
+		private String subject;
+		private PrintStream[] out;
+
+		public ZvddTriples(final PrintStream... out) {
+			this.out = out;
+		}
+
+		@Override
+		public void literal(final String name, final String value) {
+			if (name.equalsIgnoreCase(SUBJECT_NAME)) {
+				this.subject = value;
+			} else {
+				final String object =
+						isUrl(value) ? "<" + value + ">" : "\"" + value + "\"";
+				final String triple =
+						String.format("<%s> <%s> %s .", subject, name, object);
+				for (PrintStream stream : out) {
+					stream.println(triple);
+				}
+			}
+		}
+
+		private boolean isUrl(final String value) {
+			try {
+				new URL(value);
+			} catch (MalformedURLException e) {
+				return false;
+			}
+			return true;
+		}
+	}
+
+	private void setUpErrorHandler(Metamorph metamorph) {
+		metamorph.setErrorHandler(new MetamorphErrorHandler() {
+			@Override
+			public void error(final Exception exception) {
+				LOG.error(exception.getMessage(), exception);
+			}
+		});
 	}
 
 	private List<Entry<String, Integer>> sortedByValuesDescending(
