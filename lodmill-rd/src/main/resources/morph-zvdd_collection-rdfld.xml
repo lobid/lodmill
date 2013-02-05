@@ -3,8 +3,8 @@
 		version="1">
 		<rules>
 				<!-- General attributes for each record: -->
-				<data source="001" name="subject"> <!-- the same as in zvdd-title -->
-						<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/${1}"/>
+				<data source="001" name="http://purl.org/dc/terms/isPartOf"> <!-- the same as in zvdd-title -->
+						<regexp match=".*" format="http://www.zvdd.de/"/>
 				</data>
 				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 						<regexp match=".*" format="http://purl.org/dc/dcmitype/Collection"/>
@@ -24,7 +24,7 @@
 				<data source="5203 .a" name="http://purl.org/dc/elements/1.1/description"/>
 				<data source="522  .a" name="http://purl.org/dc/terms/spatial"/>
 				<data source="546  .a" name="http://purl.org/dc/terms/language">
-						<!-- @TODO split first 3 digits. Mapping 2 digits to three digits As it is, this is NOT 
+						<!-- @TODO split first 2 digits. Mapping 2 digits to three digits As it is, this is NOT 
 								iso639-2. -->
 						<regexp match="(\w{2})" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
 				</data>
@@ -70,8 +70,8 @@
 								<regexp match="cooperation" format=""/>
 						</data>
 				</combine>
-				<data source="992  .a" name="http://purl.org/dc/terms/isPartOf">
-						<regexp match="(.*:.*\..*)" format="${1}"/><!-- some sanitizing -->
+				<data source="992  .a" name="subject">
+						<regexp match="(.*:.*\..*)" format="http://lobid.org/zvdd/hbz/${1}"/><!-- some sanitizing -->
 				</data>
 				<!-- Leave all other fields untransformed: <data source="_else"/> -->
 		</rules>
