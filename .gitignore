@@ -13,3 +13,6 @@ test.*
 *.dot*
 .project
 .settings
+plugin.xml_gen
+*-gen
+.antlr-generator-*.jar
