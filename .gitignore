@@ -16,3 +16,4 @@ test.*
 plugin.xml_gen
 *-gen
 .antlr-generator-*.jar
+*.*~
