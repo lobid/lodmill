@@ -7,8 +7,8 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -50,10 +50,9 @@ public final class ZvddMarcIngest {
 
 	public static void main(String[] args) throws IOException,
 			RecognitionException {
-		final String flow = "src/main/resources/zvdd.flow";
-		// "src/main/resources/zvdd_collections.flow"
-		final String morph = "src/main/resources/morph-rdfld.xml";
-		// "src/main/resources/morph-zvdd_collection-rdfld.xml"
+		final String flow = "src/main/resources/zvdd_collections.flow";
+		final String morph =
+				"src/main/resources/morph-zvdd_collection-rdfld.xml";
 		Metaflow.main(new String[] { "-f", flow });
 		Visualize.main(new String[] { morph, morph + ".dot" });
 	}
@@ -81,7 +80,7 @@ public final class ZvddMarcIngest {
 	public void triples() throws IOException {
 		metamorph =
 				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream("morph-rdfld.xml"));
+						.getResourceAsStream("morph-zvdd_collection-rdfld.xml"));
 		setUpErrorHandler(metamorph);
 		final File triples = new File("zvdd.nt");
 		final ZvddTriples sink =
@@ -108,9 +107,16 @@ public final class ZvddMarcIngest {
 
 		private String subject;
 		private PrintStream[] out;
+		ArrayList<String> list;
 
 		public ZvddTriples(final PrintStream... out) {
 			this.out = out;
+		}
+
+		@Override
+		public void startRecord(final String identifier) {
+			this.subject = null;
+			list = new ArrayList<>();
 		}
 
 		@Override
@@ -119,22 +125,36 @@ public final class ZvddMarcIngest {
 				this.subject = value;
 			} else {
 				final String object =
-						isUrl(value) ? "<" + value + ">" : "\"" + value + "\"";
-				final String triple =
-						String.format("<%s> <%s> %s .", subject, name, object);
-				for (PrintStream stream : out) {
-					stream.println(triple);
-				}
+						isUriWithScheme(value) ? "<" + value + ">" : "\""
+								+ value + "\"";
+				list.add(String.format("<%s> %s .", name, object));
 			}
 		}
 
-		private boolean isUrl(final String value) {
+		private boolean isUriWithScheme(final String value) {
 			try {
-				new URL(value);
-			} catch (MalformedURLException e) {
+				URI u = new URI(value);
+				/*
+				 * collection:example.org" is a valid URI, though no URL, and
+				 * " 1483-1733" is also a valid (java-)URI, but not for us - a
+				 * "scheme" is mandatory.
+				 */
+				if (u.getScheme() == null) {
+					return false;
+				}
+			} catch (URISyntaxException e) {
 				return false;
 			}
 			return true;
+		}
+
+		@Override
+		public void endRecord() {
+			for (PrintStream stream : out) {
+				for (String predicateObject : list) {
+					stream.println("<" + subject + "> " + predicateObject);
+				}
+			}
 		}
 	}
 

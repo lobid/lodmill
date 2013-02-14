@@ -22,7 +22,7 @@
 |992  .b|146| ignore. link to collection |  | ignore |
 |980  .a|146| ignore | |  ignore |
 |992  .c|146| ignore | |  ignore |
-|001|146| ignore . internal ID. Good for minting URIs| minting URI | done |
+|001|146| ignore . internal ID. Good for minting URIs| minting URI | - |
 |992  .a|146| ID of collection .  Good for minting URIs| minting URI | done |
 |260  .a|146| ignore. Place of creation| | ignore |
 |082  .a|131| ddc | dct:subject (uris!) | done |

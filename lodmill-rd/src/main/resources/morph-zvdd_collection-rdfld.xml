@@ -24,9 +24,7 @@
 				<data source="5203 .a" name="http://purl.org/dc/elements/1.1/description"/>
 				<data source="522  .a" name="http://purl.org/dc/terms/spatial"/>
 				<data source="546  .a" name="http://purl.org/dc/terms/language">
-						<!-- @TODO split first 2 digits. Mapping 2 digits to three digits As it is, this is NOT 
-								iso639-2. -->
-						<regexp match="(\w{2})" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
+						<regexp match="(\w{2})" format="http://id.loc.gov/vocabulary/iso639-1/${1}"/>
 				</data>
 				<data source="65007.a" name="http://purl.org/dc/elements/1.1/subject"/>
 				<combine name="http://xmlns.com/foaf/spec/#term_homepage" value="${hp-url}"
@@ -71,7 +69,10 @@
 						</data>
 				</combine>
 				<data source="992  .a" name="subject">
-						<regexp match="(.*:.*\..*)" format="http://lobid.org/zvdd/hbz/${1}"/><!-- some sanitizing -->
+						<regexp match=".*:(.*\..*)" format="http://lobid.org/zvdd/hbz/${1}"/><!-- some sanitizing -->
+				</data>
+				<data source="992  .a" name="http://purl.org/dc/elements/1.1/subject">
+						<regexp match="(.*:.*\..*)" format="${1}"/>
 				</data>
 				<!-- Leave all other fields untransformed: <data source="_else"/> -->
 		</rules>
