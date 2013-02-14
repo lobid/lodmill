@@ -11,3 +11,5 @@ dist
 lodmill-ui/.classpath
 test.*
 *.dot*
+.project
+.settings
