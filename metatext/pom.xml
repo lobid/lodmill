@@ -29,6 +29,7 @@
 		<module>org.lobid.metatext.ui</module>
           <module>org.lobid.metatext.tests</module>
           <module>org.lobid.metatext.sdk</module>
+          <module>org.lobid.metatext.p2</module>
 	</modules>
      <build>
 		<plugins>
