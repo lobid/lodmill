@@ -16,19 +16,24 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
  org.antlr.runtime,
- org.eclipse.xtext.common.types
+ org.eclipse.xtext.common.types,
+ org.eclipse.debug.core,
+ org.eclipse.core.runtime
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.lobid.metatext,
- org.lobid.metatext.services,
+ org.lobid.metatext.formatting,
+ org.lobid.metatext.generator,
+ org.lobid.metatext.launching,
  org.lobid.metatext.metatext,
  org.lobid.metatext.metatext.impl,
  org.lobid.metatext.metatext.util,
- org.lobid.metatext.serializer,
  org.lobid.metatext.parser.antlr,
  org.lobid.metatext.parser.antlr.internal,
- org.lobid.metatext.validation,
  org.lobid.metatext.scoping,
- org.lobid.metatext.generator,
- org.lobid.metatext.formatting
+ org.lobid.metatext.serializer,
+ org.lobid.metatext.services,
+ org.lobid.metatext.validation
+Bundle-ClassPath: metaflow-0.0.9-SNAPSHOT-jar-with-dependencies.jar,
+ .

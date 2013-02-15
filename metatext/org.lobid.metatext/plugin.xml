@@ -11,7 +11,13 @@
 	
   </extension>
 
-
-
+  <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+    <launchConfigurationType
+        name="Metatext"
+        delegate="org.lobid.metatext.launching.MetatextLaunchConfigurationDelegate"
+        modes="run"
+        id="org.lobid.metatext.launching">
+    </launchConfigurationType>
+  </extension>
 
 </plugin>

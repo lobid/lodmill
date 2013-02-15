@@ -320,4 +320,40 @@
     </provider>
   </extension>
 
+  <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+    <launchConfigurationTypeImage
+        icon="icons/source.gif"
+        configTypeID="org.lobid.metatext.launching"
+        id="org.lobid.metatext.launching.image">
+    </launchConfigurationTypeImage>
+  </extension>
+
+  <extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+        <launchConfigurationTabGroup
+            type="org.lobid.metatext.launching"
+            class="org.lobid.metatext.ui.launching.MetatextTabGroup"
+            id="org.lobid.metatext.launching.launchConfigurationTabGroup">
+        </launchConfigurationTabGroup>
+   </extension>
+
+   <extension point="org.eclipse.debug.ui.launchShortcuts">
+        <shortcut
+            id="org.lobid.metatext.ui.launching.shortcut"
+            class="org.lobid.metatext.ui.launching.MetatextLaunchShortcut"
+            label="Metatext Workflow"
+            icon="icons/source.gif"
+            modes="run">
+            <contextualLaunch>
+               <enablement>
+                 <with variable="selection">
+                   <count value="1"/>
+                   <iterate>
+                        <test property="org.eclipse.debug.ui.matchesPattern" value="*.flow"/>
+                   </iterate>
+                 </with>
+               </enablement>
+             </contextualLaunch>
+        </shortcut>
+   </extension>
+
 </plugin>
