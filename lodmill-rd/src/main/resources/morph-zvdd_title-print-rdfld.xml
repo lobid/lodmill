@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		version="1">
+		<rules>
+				<!-- General attributes for each record: -->
+				<data source="001" name="subject">
+						<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/P${1}"/>
+				</data>
+				<data source="001" name="http://purl.org/dc/terms/hasFormat">
+						<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/D${1}"/>
+				</data>
+				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+						<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
+				</data>
+				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+						<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
+				</data>
+				<data source="001" name="http://www.w3.org/2004/02/skos/core#Concept">
+						<regexp match=".*" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1010"/>
+				</data>
+				<!-- parse "heb | grc | lat | fre | hebr. | gre | lat | franz." and "dutfreitalat" -->
+				<data source="041  .a" name="http://purl.org/dc/terms/language">
+						<regexp match="^(\w{2})$" format="http://id.loc.gov/vocabulary/iso639-1/${1}"/>
+				</data>
+				<data source="041  .a" name="http://purl.org/dc/terms/language">
+						<regexp match="^(\w{3}).*$" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
+				</data>
+				<data source="041  .a" name="http://purl.org/dc/terms/language">
+						<regexp match="^\w{3}\W*(\w{3}).*$" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
+				</data>
+				<data source="041  .a" name="http://purl.org/dc/terms/language">
+						<regexp match="^\w{3}\W*\w{3}\W*(\w{3}).*$" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
+				</data>
+				<data source="041  .a" name="http://purl.org/dc/terms/language">
+						<regexp match="^\w{3}\W*\w{3}\W*\w{3}\W*(\w{3}).*$" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
+				</data>
+				<data source="1001 .a" name="http://purl.org/dc/elements/1.1/creator"/>
+				<!-- Map specific fields: -->
+				<data source="24500.a" name="http://purl.org/dc/terms/title">
+						<!-- Strip newlines with surrounding space: -->
+						<replace pattern="\s*\n+\s*" with=" "/>
+				</data>
+				<data source="24500.b" name="http://purl.org/dc/terms/alternative"/>
+				<data source="24500.c" name="http://purl.org/dc/elements/1.1/creator"/>
+				<data source="260  .c" name="http://purl.org/dc/terms/medium/issued">
+						<!-- One processing example: pick out first valid year: -->
+						<regexp match="(1\d{3}|200\d)" format="${1}"/>
+				</data>
+				<data source="594  .a" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+						<regexp match="(Beitrag|title:article)" format="http://purl.org/ontology/bibo/Article"/>
+				</data>
+				<data source="594  .a" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+						<regexp match="title:monograph" format="http://purl.org/ontology/bibo/Book"/>
+				</data>
+				<data source="594  .a" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+						<regexp match="title:serial" format="http://purl.org/ontology/bibo/Series"/>
+				</data>
+				<combine name="http://purl.org/dc/terms/bibliographicCitation" value="${citation_name}${citation_name1} : ${citation_edition}"
+						sameEntity="true">
+						<data source="773  .t" name="citation_name">
+						</data>
+						<data source="773  .g" name="citation_edition">
+						</data>
+				</combine>
+				<combine name="http://purl.org/dc/terms/bibliographicCitation" value="${citation_name} : ${citation_edition}"
+						sameEntity="true">
+						<data source="7730 .t" name="citation_name">
+						</data>
+						<data source="7730 .g" name="citation_edition">
+						</data>
+				</combine>
+				<data source="8564 .u" name="http://lobid.org/vocab/lobid#fulltextOnline"/>
+				<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="${type}"
+						sameEntity="true">
+						<data source="887  .2" name="">
+								<regexp match="Publikation_Typ" format=""/>
+						</data>
+						<data source="887  .a" name="type">
+								<regexp match="10 \(Beilage\)" format="http://purl.org/spar/fabio/Supplement"/>
+						</data>
+				</combine>
+				<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="${type}"
+						sameEntity="true">
+						<data source="887  .2" name="">
+								<regexp match="Publikation_Typ" format=""/>
+						</data>
+						<data source="887  .a" name="type">
+								<regexp match="2 \(Beitrag\)" format="http://purl.org/ontology/bibo/Article"/>
+						</data>
+				</combine>
+				<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="${type}"
+						sameEntity="true">
+						<data source="887  .2" name="">
+								<regexp match="Publikation_Typ" format=""/>
+						</data>
+						<data source="887  .a" name="type">
+								<regexp match="3 \(Rezension\)" format="http://purl.org/spar/fabio/Review"/>
+						</data>
+				</combine>
+				<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="${type}"
+						sameEntity="true">
+						<data source="887  .2" name="">
+								<regexp match="Publikation_Typ" format=""/>
+						</data>
+						<data source="887  .a" name="type">
+								<regexp match="4 \(Nachricht\)" format="http://purl.org/spar/fabio/NewsItem"/>
+						</data>
+				</combine>
+				<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="${type}"
+						sameEntity="true">
+						<data source="887  .2" name="">
+								<regexp match="Publikation_Typ" format=""/>
+						</data>
+						<data source="887  .a" name="type">
+								<regexp match="6 \(Sammlung\)" format="http://purl.org/ontology/bibo/Collection"/>
+						</data>
+				</combine>
+				<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="${type}"
+						sameEntity="true">
+						<data source="887  .2" name="">
+								<regexp match="Publikation_Typ" format=""/>
+						</data>
+						<data source="887  .a" name="type">
+								<regexp match="7 \(Musikstück\)" format="http://purl.org/ontology/mo/PublishedScore"/>
+						</data>
+				</combine>
+				<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="${type}"
+						sameEntity="true">
+						<data source="887  .2" name="">
+								<regexp match="Publikation_Typ" format=""/>
+						</data>
+						<data source="887  .a" name="type">
+								<regexp match="9 \(Illustrationensammlung\)" format="http://purl.org/ontology/bibo/Collection"/>
+						</data>
+				</combine>
+				<data source="887 (Publikation_Typ)" name="http://purl.org/dc/terms/alternative"/>
+				<!-- Leave all other fields untransformed: <data source="_else"/> -->
+		</rules>
+</metamorph>
