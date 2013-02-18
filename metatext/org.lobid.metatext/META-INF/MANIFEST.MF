@@ -35,5 +35,5 @@ Export-Package: org.lobid.metatext,
  org.lobid.metatext.serializer,
  org.lobid.metatext.services,
  org.lobid.metatext.validation
-Bundle-ClassPath: metaflow-0.0.9-SNAPSHOT-jar-with-dependencies.jar,
+Bundle-ClassPath: lodmill-rd-0.1.0-SNAPSHOT-jar-with-dependencies.jar,
  .
