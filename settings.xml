@@ -8,7 +8,7 @@
 		<mirror>
 			<id>central</id>
 			<url>http://repo1.maven.org</url>
-			<mirrorOf>jena-repo</mirrorOf>
+			<mirrorOf>jena-repo,fascinator-releases</mirrorOf>
 		</mirror>
 	</mirrors>
 </settings>
