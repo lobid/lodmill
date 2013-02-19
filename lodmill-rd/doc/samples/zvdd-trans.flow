@@ -1,0 +1,9 @@
+default files = "/home/fsteeg/git/lodmill/lodmill-rd/doc/samples/";
+default output = "file://" + files;
+
+files + "zvdd-input.xml" |
+open("file") |
+read("marcxml") |
+morph(files + "zvdd-morph.xml") |
+encode("n-triples") |
+write(output + "zvdd-output.nt");
