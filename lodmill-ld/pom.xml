@@ -23,16 +23,16 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>dfki-snapshots</id>
-			<url>http://www.dfki.uni-kl.de/artifactory/libs-snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
 			<id>jfresnel-repository</id>
 			<name>JFresnel Repository</name>
 			<url>http://jfresnel.gforge.inria.fr/maven</url>
+		</repository>
+		<repository>
+			<id>acm-sl</id>
+			<url>http://maven.acm-sl.org/artifactory/list/libs-releases/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 

@@ -6,9 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,6 +22,8 @@ import org.culturegraph.metamorph.core.MetamorphErrorHandler;
 import org.culturegraph.metamorph.reader.MarcXmlReader;
 import org.culturegraph.metamorph.reader.Reader;
 import org.culturegraph.metastream.framework.DefaultStreamReceiver;
+import org.culturegraph.metastream.pipe.ObjectTee;
+import org.culturegraph.metastream.sink.ObjectMultiWriter;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -44,7 +43,6 @@ public final class ZvddMarcIngest {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(ZvddMarcIngest.class);
 	private static final String ZVDD_MARC = "../../zvdd.xml";
-	private static final String SUBJECT_NAME = "subject";
 	private final Reader reader = new MarcXmlReader();
 	private Metamorph metamorph;
 
@@ -80,12 +78,19 @@ public final class ZvddMarcIngest {
 	public void triples() throws IOException {
 		metamorph =
 				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream("morph-zvdd_collection-rdfld.xml"));
+						.getResourceAsStream("morph-zvdd_title-rdfld.xml"));
 		setUpErrorHandler(metamorph);
 		final File triples = new File("zvdd.nt");
-		final ZvddTriples sink =
-				new ZvddTriples(new PrintStream(triples), System.out);
-		reader.setReceiver(metamorph).setReceiver(sink);
+		final PipeEncodeTriples sink = new PipeEncodeTriples();
+		final ObjectTee<String> tee = new ObjectTee<>();
+		tee.addReceiver(new ObjectMultiWriter<String>("stdout"));
+		/*
+		 * ObjectMultiWriter expects 'file:///path' format, while File#toURI
+		 * creates a 'file:/path' URI, so we assemble the string by hand:
+		 */
+		tee.addReceiver(new ObjectMultiWriter<String>("file://"
+				+ triples.getAbsolutePath()));
+		reader.setReceiver(metamorph).setReceiver(sink).setReceiver(tee);
 		reader.process(new FileReader(ZVDD_MARC));
 		Assert.assertTrue("Triples file should exist", triples.exists());
 		Assert.assertTrue("Triples file should not be empty",
@@ -100,61 +105,6 @@ public final class ZvddMarcIngest {
 		@Override
 		public void literal(final String name, final String value) {
 			map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
-		}
-	}
-
-	private static class ZvddTriples extends DefaultStreamReceiver {
-
-		private String subject;
-		private PrintStream[] out;
-		ArrayList<String> list;
-
-		public ZvddTriples(final PrintStream... out) {
-			this.out = out;
-		}
-
-		@Override
-		public void startRecord(final String identifier) {
-			this.subject = null;
-			list = new ArrayList<>();
-		}
-
-		@Override
-		public void literal(final String name, final String value) {
-			if (name.equalsIgnoreCase(SUBJECT_NAME)) {
-				this.subject = value;
-			} else {
-				final String object =
-						isUriWithScheme(value) ? "<" + value + ">" : "\""
-								+ value + "\"";
-				list.add(String.format("<%s> %s .", name, object));
-			}
-		}
-
-		private boolean isUriWithScheme(final String value) {
-			try {
-				URI u = new URI(value);
-				/*
-				 * collection:example.org" is a valid URI, though no URL, and
-				 * " 1483-1733" is also a valid (java-)URI, but not for us - a
-				 * "scheme" is mandatory.
-				 */
-				if (u.getScheme() == null) {
-					return false;
-				}
-			} catch (URISyntaxException e) {
-				return false;
-			}
-			return true;
-		}
-
-		@Override
-		public void endRecord() {
-			for (PrintStream stream : out) {
-				for (String predicateObject : list) {
-					stream.println("<" + subject + "> " + predicateObject);
-				}
-			}
 		}
 	}
 
