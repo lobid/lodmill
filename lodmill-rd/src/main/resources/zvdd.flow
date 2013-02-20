@@ -1,6 +1,6 @@
 "../../zvdd.xml"|
 open("file")|
 read("marcxml")|
-morph("morph-zvdd_title-rdfld.xml)|
+morph("morph-zvdd_title-rdfld.xml")|
 encode("pretty-print")|
 write("stdout");

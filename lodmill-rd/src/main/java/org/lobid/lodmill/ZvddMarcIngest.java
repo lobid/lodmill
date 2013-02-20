@@ -16,7 +16,6 @@ import java.util.Map.Entry;
 
 import org.antlr.runtime.RecognitionException;
 import org.culturegraph.metaflow.Metaflow;
-import org.culturegraph.metamorph.Visualize;
 import org.culturegraph.metamorph.core.Metamorph;
 import org.culturegraph.metamorph.core.MetamorphErrorHandler;
 import org.culturegraph.metamorph.reader.MarcXmlReader;
@@ -45,14 +44,23 @@ public final class ZvddMarcIngest {
 	private static final String ZVDD_MARC = "../../zvdd.xml";
 	private final Reader reader = new MarcXmlReader();
 	private Metamorph metamorph;
+	private static String flow;
+	private static String morph;
 
 	public static void main(String[] args) throws IOException,
 			RecognitionException {
-		final String flow = "src/main/resources/zvdd_collections.flow";
-		final String morph =
-				"src/main/resources/morph-zvdd_collection-rdfld.xml";
-		Metaflow.main(new String[] { "-f", flow });
-		Visualize.main(new String[] { morph, morph + ".dot" });
+		// collection resources:
+		flow = "src/main/resources/zvdd_collections.flow";
+		morph = "src/main/resources/morph-zvdd_collection-rdfld.xml";
+		// Metaflow.main(new String[] { "-f", flow });
+		// Visualize.main(new String[] { morph, morph + ".dot" });
+		// title resources:
+
+		// flow = "src/main/resources/zvdd.flow";
+		// morph = "src/main/resources/morph-zvdd_title-print-rdfld.xml";
+		Metaflow.main(new String[] { "-f", flow }); //
+		// Visualize.main(new String[] { morph, morph + ".dot" });
+
 	}
 
 	@Test
@@ -77,10 +85,13 @@ public final class ZvddMarcIngest {
 	@Test
 	public void triples() throws IOException {
 		metamorph =
-				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream("morph-zvdd_title-rdfld.xml"));
+				new Metamorph(Thread
+						.currentThread()
+						.getContextClassLoader()
+						.getResourceAsStream(
+								"morph-zvdd_title-digital-rdfld.xml"));
 		setUpErrorHandler(metamorph);
-		final File triples = new File("zvdd.nt");
+		final File triples = new File("zvdd-title-digitalisation.nt");
 		final PipeEncodeTriples sink = new PipeEncodeTriples();
 		final ObjectTee<String> tee = new ObjectTee<>();
 		tee.addReceiver(new ObjectMultiWriter<String>("stdout"));
