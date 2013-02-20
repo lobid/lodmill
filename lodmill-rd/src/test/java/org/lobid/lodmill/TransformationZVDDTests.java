@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
  * @author Fabian Steeg
  */
 @RunWith(TestSuite.class)
-@TestDefinitions({ "TransformationZvdd.xml" })
-public final class TransformationTests {
+@TestDefinitions({ "TransformationZvdd-title-print.xml",
+		"TransformationZvdd-title-digital.xml" })
+public final class TransformationZVDDTests {
 }

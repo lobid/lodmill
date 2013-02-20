@@ -1,12 +1,12 @@
-|*IDs used in titles* | *IDs used in collections* |
-|collection:die_arbeit.fes.bn.de | collection:sozialistische_mitteilungen.fes.bn.de |
-|collection:digitale_sammlungen.uni.bn.de | collection:digizeit.digizeitev.goe.de |
-|collection:digiwunsch.sub.goe.de | fehlen! s. http://digreg.mathguide.de/cgi-bin/ssgfi/anzeige.pl?db=reg&id=PRO&nr=030769&ew=SSGFI|
-|collection:einblattdrucke_vd17.gbv.goe.de | collection:einblattdrucke.vd17.oo.de |
-|collection:exilzeitschriften.d-nb.f.de | collection:exil-zeitschriften.ddb.f.de |
-|collection:juedische_periodika.d-nb.f.de | collection:juedische_periodika.ddb.f.de |
-|collection:juedische_periodika.rwth.ac.de | missing ! |
-|collection:sammlung_ponickau.ulb.hal.de | missing ! |
-|collection:sozialistische_monatshefte.fes.bn.de | missing ! |
-|collection:verteilte_rechtsquellen.d-nb.f.de | collection:verteilte_rechtsquellen.ddb.f.de |
-|collection:zvdd.gbv.goe.de | missing ! |
+|*IDs used in titles* | *IDs used in collections* | *status* |
+|collection:die_arbeit.fes.bn.de | is NOT collection:sozialistische_mitteilungen.fes.bn.de | ? |
+|collection:digitale_sammlungen.uni.bn.de | collection:digizeit.digizeitev.goe.de ? | ? |
+|collection:digiwunsch.sub.goe.de | missing! s. http://digreg.mathguide.de/cgi-bin/ssgfi/anzeige.pl?db=reg&id=PRO&nr=030769&ew=SSGFI| ? |
+|collection:einblattdrucke_vd17.gbv.goe.de | collection:einblattdrucke.vd17.oo.de ? | ? |
+|collection:juedische_periodika.rwth.ac.de | missing ! | ? |
+|collection:sammlung_ponickau.ulb.hal.de | missing ! | ? |
+|collection:sozialistische_monatshefte.fes.bn.de | missing ! | ? |
+|collection:zvdd.gbv.goe.de | missing ! | ?|
+|collection:exilzeitschriften.d-nb.f.de | collection:exil-zeitschriften.ddb.f.de | done |
+|collection:juedische_periodika.d-nb.f.de | collection:juedische_periodika.ddb.f.de | done |
+|collection:verteilte_rechtsquellen.d-nb.f.de | collection:verteilte_rechtsquellen.ddb.f.de | done |

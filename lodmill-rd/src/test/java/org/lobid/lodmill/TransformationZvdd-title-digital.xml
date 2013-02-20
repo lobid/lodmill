@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Fabian Steeg. Licensed under the Eclipse Public License -->
+<metamorph-test version="1.0" xmlns="http://www.culturegraph.org/metamorph-test"
+		xmlns:cgxml="http://www.culturegraph.org/cgxml">
+		<test-case name="ZVDD Transformation">
+				<input type="text/x-cg+xml">
+						<cgxml:cgxml version="1.0">
+								<cgxml:records>
+										<cgxml:record id="1">
+												<cgxml:entity name="0248 ">
+														<cgxml:literal name="p" value="collection:exilzeitschriften.d-nb.f.de"/>
+												</cgxml:entity>
+												<cgxml:entity name="0248 ">
+														<cgxml:literal name="p" value="collection:zvdd.hbz.k.de"/>
+												</cgxml:entity>
+										</cgxml:record>
+								</cgxml:records>
+						</cgxml:cgxml>
+				</input>
+				<transformation type="text/x-metamorph+xml" src="morph-zvdd_title-digital-rdfld.xml"/>
+				<result type="text/x-cg+xml">
+						<cgxml:cgxml version="1.0">
+								<cgxml:records>
+										<cgxml:record id="1">
+												<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
+														value="http://lobid.org/zvdd/hbz/exil-zeitschriften.ddb.f.de"/>
+												<cgxml:literal name="http://purl.org/dc/terms/isPartOf" value="http://lobid.org/zvdd/hbz/zvdd.hbz.k.de"/>
+										</cgxml:record>
+								</cgxml:records>
+						</cgxml:cgxml>
+				</result>
+		</test-case>
+</metamorph-test>
