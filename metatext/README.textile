@@ -1,0 +1,100 @@
+h1. Metatext
+
+Metatext is an Xtext-based editor and Eclipse integration for the Culturegraph Metaflow language.
+
+Metaflow is a domain-specific language (DSL) used to drive metadata transformation workflows based on Culturegraph Metastream (a stream based data processing framework) and Culturegraph Metamorph (an XML-based metadata transformation language).
+
+h1. Usage
+
+To install Metatext in Eclipse, add the @http://lobid.org/download/tools/p2@ site under _Help_ -> _Install New Software_ ->  _Add..._ and install the 'Metatext' feature. After a restart, *.flow files will open with the Metatext editor. To execute a *.flow file, choose _Run_ -> _Run As_ -> _Metatext Workflow_.
+
+h1. Sample
+
+To illustrate the usage of Metatext, we provide a small sample transformation of MARC-XML input data to RDF in N-Triple serialization.
+
+As the first step, create a project in Eclipse: _File_ -> _New_ -> _Project..._ -> _General_ -> _Project_
+
+h2. Input
+
+Copy the sample input file at "https://github.com/lobid/lodmill/raw/master/lodmill-rd/doc/samples/zvdd-input.xml":https://github.com/lobid/lodmill/raw/master/lodmill-rd/doc/samples/zvdd-input.xml into your project. This file contains two records in the MARC-XML format.
+
+h2. Morph
+
+Create a file (_File_ -> _New_) called @zvdd-morph.xml@ with the following content (this describes the actual transformation):
+
+bc. 
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
+	<rules>
+		<!-- General attributes for each record: -->
+		<data source="001" name="subject">
+			<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/${1}" />
+		</data>
+		<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource" />
+		</data>
+		<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation" />
+		</data>
+		<data source="001" name="http://www.w3.org/2004/02/skos/core#Concept">
+			<regexp match=".*"
+				format="http://iflastandards.info/ns/isbd/terms/mediatype/T1010" />
+		</data>
+		<!-- Map specific fields: -->
+		<data source="8564 .u" name="http://lobid.org/vocab/lobid#fulltextOnline" />
+		<data source="24500.a" name="http://iflastandards.info/ns/isbd/elements/P1004">
+			<!-- Strip newlines with surrounding space: -->
+			<replace pattern="\s*\n+\s*" with=" " />
+		</data>
+		<data source="533  .c" name="http://iflastandards.info/ns/isbd/elements/P1017" />
+		<data source="1001 .a" name="http://purl.org/dc/elements/1.1/creator" />
+		<data source="260  .c" name="http://purl.org/dc/terms/medium/issued">
+			<!-- One processing example: pick out first valid year: -->
+			<regexp match="(1\d{3}|200\d)" format="${1}" />
+		</data>
+		<data source="041  .a" name="http://purl.org/dc/terms/language" />
+		<!-- Leave all other fields untransformed: <data source="_else"/> -->
+	</rules>
+</metamorph>
+
+You can also download this file from "https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-morph.xml":https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-morph.xml.
+
+For details on the Metamorph syntax and functionality have a look at the "Metamorph documentation":https://github.com/culturegraph/culturegraph-metamorph/blob/master/docs/user_guide/metamorph.pdf?raw=true and "samples":https://github.com/culturegraph/culturegraph-metaflow/tree/master/examples/morph.
+
+h2. Flow
+
+Finally, we create the flow file: create a file (_File_ -> _New_) called @zvdd-trans.flow@ with the following content:
+
+bc. 
+default files = ""; // set absolute path to the folder containing these files
+default output = "file://" + files;
+files + "zvdd-input.xml" |
+open("file") |
+read("marcxml") |
+morph(files + "zvdd-morph.xml") |
+encode("n-triples") |
+write(output + "zvdd-output.nt");
+
+You can also download this file from "https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-trans.flow":https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-trans.flow.
+
+This file defines the workflow: open the input file, read it as MARC-XML, transform it using the morph definition from above, encode the result as N-Triples, and finally write the result to a file. To execute the workflow, choose the file and select _Run_ -> _Run As_ -> _Metatext Workflow_.  If you open the output file, you should see the following content:
+
+bc. 
+<http://lobid.org/zvdd/hbz/184000> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/zvdd/hbz/184000> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/zvdd/hbz/184000> <http://www.w3.org/2004/02/skos/core#Concept> <http://iflastandards.info/ns/isbd/terms/mediatype/T1010> .
+<http://lobid.org/zvdd/hbz/184000> <http://purl.org/dc/terms/medium/issued> "1848" .
+<http://lobid.org/zvdd/hbz/184000> <http://iflastandards.info/ns/isbd/elements/P1017> "Univ.-Bibl." .
+<http://lobid.org/zvdd/hbz/184000> <http://purl.org/dc/terms/language> "ger" .
+<http://lobid.org/zvdd/hbz/184000> <http://purl.org/dc/elements/1.1/creator> "Falke, Jakob" .
+<http://lobid.org/zvdd/hbz/184000> <http://lobid.org/vocab/lobid#fulltextOnline> <http://digi.ub.uni-heidelberg.de/diglit/falke1873> .
+<http://lobid.org/zvdd/hbz/183999> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/zvdd/hbz/183999> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/zvdd/hbz/183999> <http://www.w3.org/2004/02/skos/core#Concept> <http://iflastandards.info/ns/isbd/terms/mediatype/T1010> .
+<http://lobid.org/zvdd/hbz/183999> <http://iflastandards.info/ns/isbd/elements/P1017> "Univ.-Bibl." .
+<http://lobid.org/zvdd/hbz/183999> <http://purl.org/dc/terms/language> "ger" .
+<http://lobid.org/zvdd/hbz/183999> <http://iflastandards.info/ns/isbd/elements/P1004> "Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873" .
+<http://lobid.org/zvdd/hbz/183999> <http://lobid.org/vocab/lobid#fulltextOnline> <http://digi.ub.uni-heidelberg.de/diglit/luetzow1875> .
+
+For advanced workflow definitions have a look at the Metaflow "samples":https://github.com/culturegraph/culturegraph-metaflow/tree/master/examples/flows.
