@@ -1,14 +1,15 @@
 <settings>
 	<mirrors>
-		<!-- This is a workaround for a non-existing repo that is pulled in by 
-			some transitive dependency. On `mvn assembly:assembly`, this causes a long 
-			delay when trying to connect to the repo. To fix that, we define central 
-			as a mirror for the missing repo. This file has to be in $M2_HOME/conf/settings.xml 
-			or ${user.home}/.m2/settings.xml -->
+		<!-- This is a workaround for non-existing repos that are pulled in by
+			some transitive dependencies. This causes long delays when trying to connect to the
+			repos. To fix that, we define trvis-ci-central as a mirror of the missing repos.
+			We also define travis-ci-central as a mirror of central to speed up Travis builds.
+			This file has to be in $M2_HOME/conf/settings.xml or ${user.home}/.m2/settings.xml -->
 		<mirror>
-			<id>central</id>
-			<url>http://repo1.maven.org</url>
-			<mirrorOf>jena-repo,fascinator-releases</mirrorOf>
+			<id>travis-ci-central</id>
+			<name>Travis CI Central mirror</name>
+			<url>http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/</url>
+			<mirrorOf>central,jena-repo,fascinator-releases</mirrorOf>
 		</mirror>
 	</mirrors>
 </settings>
