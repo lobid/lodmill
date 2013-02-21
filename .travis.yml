@@ -3,11 +3,17 @@ env:
   - PLAY_VERSION=2.0.4
 jdk: oraclejdk7
 install:
-  - mvn clean install -e -DskipTests=true --settings settings.xml
+  - cd metatext
+  - mvn clean install -e -DskipTests=true
+  - cd ..
+  - mvn clean install -e -q -DskipTests=true --settings settings.xml
 before_script:
   - wget http://download.playframework.org/releases/play-${PLAY_VERSION}.zip
   - unzip -q play-${PLAY_VERSION}.zip
 script:
+  - cd metatext
+  - mvn test -e
+  - cd ..
   - mvn test -e -q --settings settings.xml
   - cd lodmill-ui
   - ../play-${PLAY_VERSION}/play compile

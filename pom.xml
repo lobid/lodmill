@@ -13,6 +13,5 @@
 	<modules>
 		<module>lodmill-ld</module>
 		<module>lodmill-rd</module>
-		<module>metatext</module>
 	</modules>
 </project>
