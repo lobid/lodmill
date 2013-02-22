@@ -19,5 +19,29 @@
         id="org.lobid.metatext.launching">
     </launchConfigurationType>
   </extension>
+  <extension
+        id="org.lobid.metatext.product"
+        point="org.eclipse.core.runtime.products">
+     <product
+           application="org.eclipse.ui.ide.workbench"
+           name="Metatext">
+        <property
+              name="appName"
+              value="Metatext">
+        </property>
+     </product>
+  </extension>
+  <extension
+        id="product"
+        point="org.eclipse.core.runtime.products">
+     <product
+           application="org.eclipse.ui.ide.workbench"
+           name="Metatext">
+        <property
+              name="appName"
+              value="Metatext">
+        </property>
+     </product>
+  </extension>
 
 </plugin>
