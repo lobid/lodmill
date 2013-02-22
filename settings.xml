@@ -6,10 +6,15 @@
 			We also define travis-ci-central as a mirror of central to speed up Travis builds.
 			This file has to be in $M2_HOME/conf/settings.xml or ${user.home}/.m2/settings.xml -->
 		<mirror>
+			<id>central</id>
+			<url>http://repo1.maven.org</url>
+			<mirrorOf>jena-repo,fascinator-releases</mirrorOf>
+		</mirror>
+		<mirror>
 			<id>travis-ci-central</id>
 			<name>Travis CI Central mirror</name>
 			<url>http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/</url>
-			<mirrorOf>central,jena-repo,fascinator-releases</mirrorOf>
+			<mirrorOf>central</mirrorOf>
 		</mirror>
 	</mirrors>
 </settings>
