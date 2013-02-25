@@ -3,6 +3,10 @@
 package org.lobid.metatext.launching;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 import org.culturegraph.metaflow.Metaflow;
 import org.eclipse.core.resources.IResource;
@@ -41,10 +45,14 @@ public class MetatextLaunchConfigurationDelegate implements
 
 	private void runWorkflow(IProgressMonitor monitor, IResource member) {
 		if (!monitor.isCanceled()) {
-			String flow = new File(member.getLocationURI()).getAbsolutePath();
-			LOG.log(new Status(Status.INFO, BUNDLE, "Running file: " + flow));
+			File flowFile = new File(member.getLocationURI());
+			LOG.log(new Status(Status.INFO, BUNDLE, "Running file: " + flowFile));
 			try {
-				Metaflow.main(new String[] { "-f", flow });
+				String flowWithAbsolutePaths = resolveDotInPaths(
+						flowFile.getAbsolutePath(), flowFile.getParent());
+				LOG.log(new Status(Status.INFO, BUNDLE, "Resolved file: "
+						+ flowWithAbsolutePaths));
+				Metaflow.main(new String[] { "-f", flowWithAbsolutePaths });
 			} catch (Exception e) {
 				e.printStackTrace();
 				LOG.log(new Status(Status.ERROR, BUNDLE, e.getMessage(), e));
@@ -52,4 +60,36 @@ public class MetatextLaunchConfigurationDelegate implements
 		}
 		monitor.worked(7);
 	}
+
+	private String resolveDotInPaths(String flow, String parent)
+			throws IOException {
+		String resolvedContent = read(flow)
+		/* just a dot, in a var: "." or "./" */
+		.replaceAll("\"\\./?\"", "\"" + parent + "/\"")
+		/* leading dot in a path: "./etc" */
+		.replaceAll("\"\\./", "\"" + parent + "/")
+		/* somewhat odd case, but supported by Metaflow: */
+		.replace("file://./", "file://" + parent + "/");
+		return write(resolvedContent).getAbsolutePath();
+	}
+
+	private File write(String content) throws IOException {
+		File resolvedFile = File.createTempFile("metatext", ".flow");
+		resolvedFile.deleteOnExit();
+		FileWriter writer = new FileWriter(resolvedFile);
+		writer.write(content);
+		writer.close();
+		return resolvedFile;
+	}
+
+	private String read(String flow) throws FileNotFoundException {
+		StringBuilder builder = new StringBuilder();
+		Scanner scanner = new Scanner(new File(flow));
+		while (scanner.hasNextLine()) {
+			builder.append(scanner.nextLine()).append("\n");
+		}
+		scanner.close();
+		return builder.toString();
+	}
+
 }
