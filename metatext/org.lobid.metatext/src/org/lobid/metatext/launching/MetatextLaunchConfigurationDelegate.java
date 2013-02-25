@@ -3,14 +3,15 @@
 package org.lobid.metatext.launching;
 
 import java.io.File;
-import java.io.IOException;
 
-import org.antlr.runtime.RecognitionException;
 import org.culturegraph.metaflow.Metaflow;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.ILog;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
@@ -18,6 +19,8 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 public class MetatextLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
+	private static final String BUNDLE = "org.lobid.metatext";
+	private static final ILog LOG = Platform.getLog(Platform.getBundle(BUNDLE));
 	public static final String FILE_NAME = "filename";
 
 	public void launch(ILaunchConfiguration configuration, String mode,
@@ -39,13 +42,12 @@ public class MetatextLaunchConfigurationDelegate implements
 	private void runWorkflow(IProgressMonitor monitor, IResource member) {
 		if (!monitor.isCanceled()) {
 			String flow = new File(member.getLocationURI()).getAbsolutePath();
-			System.out.println("Input file to run: " + flow);
+			LOG.log(new Status(Status.INFO, BUNDLE, "Running file: " + flow));
 			try {
 				Metaflow.main(new String[] { "-f", flow });
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
-			} catch (RecognitionException e) {
-				e.printStackTrace();
+				LOG.log(new Status(Status.ERROR, BUNDLE, e.getMessage(), e));
 			}
 		}
 		monitor.worked(7);
