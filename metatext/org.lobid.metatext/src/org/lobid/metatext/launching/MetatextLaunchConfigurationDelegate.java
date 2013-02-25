@@ -19,6 +19,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.PlatformUI;
 
 public class MetatextLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
@@ -56,6 +58,11 @@ public class MetatextLaunchConfigurationDelegate implements
 			} catch (Exception e) {
 				e.printStackTrace();
 				LOG.log(new Status(Status.ERROR, BUNDLE, e.getMessage(), e));
+				Throwable rootCause = findRootCause(e);
+				MessageDialog.openError(PlatformUI.getWorkbench()
+						.getActiveWorkbenchWindow().getShell(),
+						"Workflow Error", rootCause.getMessage()
+								+ " (see error log for details).");
 			}
 		}
 		monitor.worked(7);
@@ -90,6 +97,10 @@ public class MetatextLaunchConfigurationDelegate implements
 		}
 		scanner.close();
 		return builder.toString();
+	}
+
+	private Throwable findRootCause(Throwable t) {
+		return t.getCause() == null ? t : findRootCause(t.getCause());
 	}
 
 }
