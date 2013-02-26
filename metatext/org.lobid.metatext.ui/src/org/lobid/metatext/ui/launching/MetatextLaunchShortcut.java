@@ -3,7 +3,6 @@
 package org.lobid.metatext.ui.launching;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.resources.IFile;
@@ -50,7 +49,7 @@ public class MetatextLaunchShortcut implements ILaunchShortcut {
 			List<ILaunchConfiguration> configList = collectLaunchConfigs(file,
 					configs);
 			ILaunchConfiguration config = selectLaunchConfig(file, mode,
-					launchConfigType, configs, configList);
+					launchConfigType, configList);
 			config.launch(mode, null);
 		} catch (CoreException e) {
 			e.printStackTrace();
@@ -59,21 +58,19 @@ public class MetatextLaunchShortcut implements ILaunchShortcut {
 
 	private ILaunchConfiguration selectLaunchConfig(IFile file, String mode,
 			ILaunchConfigurationType launchConfigType,
-			ILaunchConfiguration[] configs,
 			List<ILaunchConfiguration> configList) throws CoreException {
 		ILaunchConfiguration config = null;
 		if (configList.size() == 1) {
-			config = configs[0];
+			config = configList.get(0);
 		} else if (configList.size() == 0) {
 			ILaunchConfigurationWorkingCopy wc = launchConfigType.newInstance(
 					null, DebugPlugin.getDefault().getLaunchManager()
-							.generateLaunchConfigurationName("Metatext"));
+							.generateLaunchConfigurationName(file.getName()));
 			wc.setAttribute(MetatextLaunchConfigurationDelegate.FILE_NAME, file
 					.getFullPath().toOSString());
 			config = wc.doSave();
 		} else {
-			ILaunchConfiguration chosen = chooseConfiguration(
-					Arrays.asList(configs), mode);
+			ILaunchConfiguration chosen = chooseConfiguration(configList, mode);
 			config = chosen;
 		}
 		return config;
