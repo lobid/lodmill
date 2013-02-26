@@ -17,3 +17,4 @@ plugin.xml_gen
 *-gen
 .antlr-generator-*.jar
 *.*~
+lodmill*.jar

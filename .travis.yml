@@ -13,4 +13,5 @@ script:
   - ../play-${PLAY_VERSION}/play compile
   - cd ..
   - cd metatext
+  - sh deploy.sh
   - mvn clean install -e
