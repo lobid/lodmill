@@ -51,7 +51,7 @@ public final class ZvddMarcIngest {
 			RecognitionException {
 		// collection resources:
 		flow = "src/main/resources/zvdd_collections.flow";
-		morph = "src/main/resources/morph-zvdd_collection-rdfld.xml";
+		// morph = "transformations/zvdd/morph-zvdd_collection-rdfld.xml";
 		// Metaflow.main(new String[] { "-f", flow });
 		// Visualize.main(new String[] { morph, morph + ".dot" });
 		// title resources:
@@ -67,7 +67,7 @@ public final class ZvddMarcIngest {
 	public void stats() throws IOException {
 		metamorph =
 				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream("morph-stats.xml"));
+						.getResourceAsStream("zvdd-morph-stats.xml"));
 		setUpErrorHandler(metamorph);
 		final ZvddStats stats = new ZvddStats();
 		reader.setReceiver(metamorph).setReceiver(stats);
@@ -84,6 +84,7 @@ public final class ZvddMarcIngest {
 
 	@Test
 	public void triples() throws IOException {
+		// the morph file resides in drawer /lodmill-rd/transformations/zvdd/
 		metamorph =
 				new Metamorph(Thread
 						.currentThread()
