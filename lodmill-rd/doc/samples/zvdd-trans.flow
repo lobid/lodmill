@@ -1,4 +1,4 @@
-default files = "/home/fsteeg/git/lodmill/lodmill-rd/doc/samples/";
+default files = ".";
 default output = "file://" + files;
 
 files + "zvdd-input.xml" |

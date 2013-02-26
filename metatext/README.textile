@@ -6,7 +6,7 @@ Metaflow is a domain-specific language (DSL) used to drive metadata transformati
 
 h1. Usage
 
-To install Metatext in Eclipse, add the @http://lobid.org/download/tools/p2@ site under _Help_ -> _Install New Software_ ->  _Add..._ and install the 'Metatext' feature. After a restart, *.flow files will open with the Metatext editor. To execute a *.flow file, choose _Run_ -> _Run As_ -> _Metatext Workflow_.
+To install Metatext in Eclipse, add the @http://lobid.org/download/tools/p2@ site under _Help_ -> _Install New Software_ ->  _Add..._ and install the 'Metatext' feature. Alternatively you can download an Eclipse workbench with Metatext installed for Windows, Linux, and Mac from "http://lobid.org/download/tools":http://lobid.org/download/tools. After a restart, *.flow files will open with the Metatext editor. To execute a *.flow file, choose _Run_ -> _Run As_ -> _Metatext Workflow_.
 
 h1. Sample
 
@@ -67,7 +67,7 @@ h2. Flow
 Finally, we create the flow file: create a file (_File_ -> _New_) called @zvdd-trans.flow@ with the following content:
 
 bc. 
-default files = ""; // set absolute path to the folder containing these files
+default files = ".";
 default output = "file://" + files;
 files + "zvdd-input.xml" |
 open("file") |
