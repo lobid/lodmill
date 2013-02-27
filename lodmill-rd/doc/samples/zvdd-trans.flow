@@ -5,5 +5,10 @@ files + "zvdd-input.xml" |
 open("file") |
 read("marcxml") |
 morph(files + "zvdd-morph.xml") |
-encode("n-triples") |
-write(output + "zvdd-output.nt");
+stream-tee | {
+	encode("n-triples") |
+	write(output + "zvdd-output.nt")
+}{
+	encode("dot") |
+	write(output + "zvdd-output.dot")
+};

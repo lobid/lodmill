@@ -73,12 +73,17 @@ files + "zvdd-input.xml" |
 open("file") |
 read("marcxml") |
 morph(files + "zvdd-morph.xml") |
-encode("n-triples") |
-write(output + "zvdd-output.nt");
+stream-tee | {
+	encode("n-triples") |
+	write(output + "zvdd-output.nt")
+}{
+	encode("dot") |
+	write(output + "zvdd-output.dot")
+};
 
-You can also download this file from "https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-trans.flow":https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-trans.flow.
+You can also download this file from "https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-trans.flow":https://raw.github.com/lobid/lodmill/master/lodmill-rd/doc/samples/zvdd-trans.flow. For advanced workflow definitions have a look at the Metaflow "samples":https://github.com/culturegraph/culturegraph-metaflow/tree/master/examples/flows.
 
-This file defines the workflow: open the input file, read it as MARC-XML, transform it using the morph definition from above, encode the result as N-Triples, and finally write the result to a file. To execute the workflow, choose the file and select _Run_ -> _Run As_ -> _Metatext Workflow_.  If you open the output file, you should see the following content:
+This file defines the workflow: open the input file, read it as MARC-XML, transform it using the morph definition from above, encode the result once as N-Triples and once as Graphviz DOT, and finally write both results to files. To execute the workflow, choose the file and select _Run_ -> _Run As_ -> _Metatext Workflow_.  If you open the *.nt output file, you should see the following content:
 
 bc. 
 <http://lobid.org/zvdd/hbz/184000> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -97,4 +102,26 @@ bc.
 <http://lobid.org/zvdd/hbz/183999> <http://iflastandards.info/ns/isbd/elements/P1004> "Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873" .
 <http://lobid.org/zvdd/hbz/183999> <http://lobid.org/vocab/lobid#fulltextOnline> <http://digi.ub.uni-heidelberg.de/diglit/luetzow1875> .
 
-For advanced workflow definitions have a look at the Metaflow "samples":https://github.com/culturegraph/culturegraph-metaflow/tree/master/examples/flows.
+The *.dot file should contain the following content:
+
+bc. 
+digraph g {
+	graph[layout=fdp]
+	"http://lobid.org/zvdd/hbz/184000" -> "<http://purl.org/dc/terms/BibliographicResource>" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	"http://lobid.org/zvdd/hbz/184000" -> "<http://purl.org/vocab/frbr/core#Manifestation>" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	"http://lobid.org/zvdd/hbz/184000" -> "<http://iflastandards.info/ns/isbd/terms/mediatype/T1010>" [label="http://www.w3.org/2004/02/skos/core#Concept"]
+	"http://lobid.org/zvdd/hbz/184000" -> "1848" [label="http://purl.org/dc/terms/medium/issued"]
+	"http://lobid.org/zvdd/hbz/184000" -> "Univ.-Bibl." [label="http://iflastandards.info/ns/isbd/elements/P1017"]
+	"http://lobid.org/zvdd/hbz/184000" -> "ger" [label="http://purl.org/dc/terms/language"]
+	"http://lobid.org/zvdd/hbz/184000" -> "Falke, Jakob" [label="http://purl.org/dc/elements/1.1/creator"]
+	"http://lobid.org/zvdd/hbz/184000" -> "<http://digi.ub.uni-heidelberg.de/diglit/falke1873>" [label="http://lobid.org/vocab/lobid#fulltextOnline"]
+	"http://lobid.org/zvdd/hbz/183999" -> "<http://purl.org/dc/terms/BibliographicResource>" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	"http://lobid.org/zvdd/hbz/183999" -> "<http://purl.org/vocab/frbr/core#Manifestation>" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	"http://lobid.org/zvdd/hbz/183999" -> "<http://iflastandards.info/ns/isbd/terms/mediatype/T1010>" [label="http://www.w3.org/2004/02/skos/core#Concept"]
+	"http://lobid.org/zvdd/hbz/183999" -> "Univ.-Bibl." [label="http://iflastandards.info/ns/isbd/elements/P1017"]
+	"http://lobid.org/zvdd/hbz/183999" -> "ger" [label="http://purl.org/dc/terms/language"]
+	"http://lobid.org/zvdd/hbz/183999" -> "Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873" [label="http://iflastandards.info/ns/isbd/elements/P1004"]
+	"http://lobid.org/zvdd/hbz/183999" -> "<http://digi.ub.uni-heidelberg.de/diglit/luetzow1875>" [label="http://lobid.org/vocab/lobid#fulltextOnline"]
+}
+
+For an instant visualization of the generated DOT, you can open the 'Zest Graph' view (Window -> Show View -> Other... -> Visualization -> Zest Graph). If you enable the first (leftmost) button on that view, any changes to *.dot files will be automatically picked up and visualized, i.e. upon running the *.flow file, the visualization is updated. This can be used to tweak and debug the transformation rules on small input sets.
