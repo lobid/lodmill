@@ -11,6 +11,7 @@ dist
 lodmill-ui/.classpath
 test.*
 *.dot*
+!lodmill-rd/doc/samples/*.dot
 .project
 .settings
 plugin.xml_gen
