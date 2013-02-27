@@ -12,5 +12,5 @@ java -classpath .:log4j-1.2.12.jar:harvester2.jar:xalan.jar ORG.oclc.oai.harvest
 
 java -classpath .:log4j-1.2.12.jar:harvester2.jar:xalan.jar ORG.oclc.oai.harvester2.app.RawWrite  \
         -metadataPrefix "marcxml" \
-        -out "hbz_zvdd_resource_marc.xml" \
+        -out "zvdd.xml" \
         http://www.digitalisiertedrucke.de/oai2d
