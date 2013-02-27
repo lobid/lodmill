@@ -4,6 +4,10 @@
       label="Metatext SDK Feature "
       version="0.1.0.qualifier">
 
+   <includes
+         id="org.eclipse.gef4.zest.sdk"
+         version="0.0.0"/>
+
    <plugin
          id="org.lobid.metatext"
          download-size="0"
