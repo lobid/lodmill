@@ -3,6 +3,7 @@
 package org.lobid.lodmill;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.Map.Entry;
 
 import org.antlr.runtime.RecognitionException;
 import org.culturegraph.metaflow.Metaflow;
+import org.culturegraph.metamorph.Visualize;
 import org.culturegraph.metamorph.core.Metamorph;
 import org.culturegraph.metamorph.core.MetamorphErrorHandler;
 import org.culturegraph.metamorph.reader.MarcXmlReader;
@@ -43,7 +45,9 @@ public final class ZvddMarcIngest {
 			.getLogger(ZvddMarcIngest.class);
 	private static final String ZVDD_MARC = "../../zvdd.xml";
 	private final Reader reader = new MarcXmlReader();
-	private Metamorph metamorph;
+	private Metamorph metamorph = new Metamorph(Thread.currentThread()
+			.getContextClassLoader()
+			.getResourceAsStream("morph-zvdd_title-digital-rdfld.xml"));
 	private static String flow;
 	private static String morph;
 
@@ -51,15 +55,12 @@ public final class ZvddMarcIngest {
 			RecognitionException {
 		// collection resources:
 		flow = "src/main/resources/zvdd_collections.flow";
-		// morph = "transformations/zvdd/morph-zvdd_collection-rdfld.xml";
-		// Metaflow.main(new String[] { "-f", flow });
-		// Visualize.main(new String[] { morph, morph + ".dot" });
+		morph = "src/main/resources/morph-zvdd_collection-rdfld.xml";
 		// title resources:
-
 		// flow = "src/main/resources/zvdd.flow";
 		// morph = "src/main/resources/morph-zvdd_title-print-rdfld.xml";
 		Metaflow.main(new String[] { "-f", flow }); //
-		// Visualize.main(new String[] { morph, morph + ".dot" });
+		Visualize.main(new String[] { morph, morph + ".dot" });
 
 	}
 
@@ -84,16 +85,29 @@ public final class ZvddMarcIngest {
 
 	@Test
 	public void triples() throws IOException {
-		// the morph file resides in drawer /lodmill-rd/transformations/zvdd/
-		metamorph =
-				new Metamorph(Thread
-						.currentThread()
-						.getContextClassLoader()
-						.getResourceAsStream(
-								"morph-zvdd_title-digital-rdfld.xml"));
 		setUpErrorHandler(metamorph);
-		final File triples = new File("zvdd-title-digitalisation.nt");
-		final PipeEncodeTriples sink = new PipeEncodeTriples();
+		process(new PipeEncodeTriples(), new File(
+				"zvdd-title-digitalisation.nt"));
+	}
+
+	@Test
+	public void dot() throws IOException {
+		setUpErrorHandler(metamorph);
+		process(new PipeEncodeDot(), new File("zvdd-title-digitalisation.dot"));
+	}
+
+	private void process(final AbstractGraphPipeEncoder encoder, final File file)
+			throws FileNotFoundException {
+		final ObjectTee<String> tee = outputTee(file);
+		reader.setReceiver(metamorph).setReceiver(encoder).setReceiver(tee);
+		reader.process(new FileReader(ZVDD_MARC));
+		reader.closeStream();
+		Assert.assertTrue("File should exist", file.exists());
+		Assert.assertTrue("File should not be empty", file.length() > 0);
+		file.deleteOnExit();
+	}
+
+	private ObjectTee<String> outputTee(final File triples) {
 		final ObjectTee<String> tee = new ObjectTee<>();
 		tee.addReceiver(new ObjectMultiWriter<String>("stdout"));
 		/*
@@ -102,12 +116,7 @@ public final class ZvddMarcIngest {
 		 */
 		tee.addReceiver(new ObjectMultiWriter<String>("file://"
 				+ triples.getAbsolutePath()));
-		reader.setReceiver(metamorph).setReceiver(sink).setReceiver(tee);
-		reader.process(new FileReader(ZVDD_MARC));
-		Assert.assertTrue("Triples file should exist", triples.exists());
-		Assert.assertTrue("Triples file should not be empty",
-				triples.length() > 0);
-		triples.deleteOnExit();
+		return tee;
 	}
 
 	private static class ZvddStats extends DefaultStreamReceiver {

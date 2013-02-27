@@ -3,17 +3,12 @@
 
 package org.lobid.lodmill;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.culturegraph.metastream.annotation.Description;
 import org.culturegraph.metastream.annotation.In;
 import org.culturegraph.metastream.annotation.Out;
-import org.culturegraph.metastream.converter.Encoder;
-import org.culturegraph.metastream.framework.DefaultStreamPipe;
-import org.culturegraph.metastream.framework.ObjectReceiver;
 import org.culturegraph.metastream.framework.StreamReceiver;
 
 /**
@@ -22,11 +17,8 @@ import org.culturegraph.metastream.framework.StreamReceiver;
 @Description("Encode a stream as N-Triples")
 @In(StreamReceiver.class)
 @Out(String.class)
-public final class PipeEncodeTriples extends
-		DefaultStreamPipe<ObjectReceiver<String>> implements Encoder {
+public final class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
-	private static final String SUBJECT_NAME = "subject";
-	private String subject;
 	private List<String> list;
 
 	@Override
@@ -40,28 +32,8 @@ public final class PipeEncodeTriples extends
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 			this.subject = value;
 		} else {
-			final String object =
-					isUriWithScheme(value) ? "<" + value + ">" : "\"" + value
-							+ "\"";
-			list.add(String.format("<%s> %s .", name, object));
+			list.add(String.format("<%s> %s .", name, uriOrLiteral(value)));
 		}
-	}
-
-	private boolean isUriWithScheme(final String value) {
-		try {
-			URI u = new URI(value);
-			/*
-			 * collection:example.org" is a valid URI, though no URL, and
-			 * " 1483-1733" is also a valid (java-)URI, but not for us - a
-			 * "scheme" is mandatory.
-			 */
-			if (u.getScheme() == null) {
-				return false;
-			}
-		} catch (URISyntaxException e) {
-			return false;
-		}
-		return true;
 	}
 
 	@Override
