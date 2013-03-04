@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package tests;
 
@@ -35,11 +35,12 @@ import controllers.Application;
  */
 public class SearchTests {
 
-	static final String TERM = "ray";
+	static final String TERM = "abr";
 
 	@Test
 	public void searchViaModel() {
-		final List<Document> docs = Document.search(TERM, "gnd-index");
+		final List<Document> docs =
+				Document.search(TERM, "lobid-index", "author");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.matchedField.toLowerCase()).contains(TERM);
@@ -49,15 +50,15 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				Document.search("Schmidt, Karla (1974-)", "gnd-index").size())
-				.isEqualTo(1);
+				Document.search("Abrahamson, Mark (1939-)", "lobid-index",
+						"author").size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
-				Document.search("Schmidt, Karl (1902-1945)", "gnd-index")
-						.size()).isEqualTo(1);
+				Document.search("Abrahams, Israel (1858-1925)", "lobid-index",
+						"author").size()).isEqualTo(1);
 	}
 
 	@Test
@@ -79,7 +80,8 @@ public class SearchTests {
 
 	@Test
 	public void searchViaApiPage() throws IOException {
-		assertThat(call("?index=lobid-index&query=ferdi&format=page"))
+		assertThat(
+				call("search?index=lobid-index&query=abraham&format=page&category=author"))
 				.contains("<html>");
 
 	}
@@ -87,7 +89,7 @@ public class SearchTests {
 	@Test
 	public void searchViaApiFull() throws IOException {
 		final JsonNode jsonObject =
-				Json.parse(call("?index=lobid-index&query=ferdi&format=full"));
+				Json.parse(call("search?index=lobid-index&query=abraham&format=full&category=author"));
 		assertThat(jsonObject.isArray()).isTrue();
 		assertThat(jsonObject.size()).isGreaterThan(10);
 		assertThat(jsonObject.getElements().next().isContainerNode()).isTrue();
@@ -96,7 +98,7 @@ public class SearchTests {
 	@Test
 	public void searchViaApiShort() throws IOException {
 		final JsonNode jsonObject =
-				Json.parse(call("?index=lobid-index&query=ferdi&format=short"));
+				Json.parse(call("search?index=lobid-index&query=abraham&format=short&category=author"));
 		assertThat(jsonObject.isArray()).isTrue();
 		assertThat(jsonObject.size()).isGreaterThan(10);
 		assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
@@ -105,7 +107,7 @@ public class SearchTests {
 	private String call(final String request) throws IOException,
 			MalformedURLException {
 		return CharStreams.toString(new InputStreamReader(new URL(
-				"http://localhost:7000/search" + request).openStream(),
+				"http://localhost:7000/" + request).openStream(),
 				Charsets.UTF_8));
 	}
 }

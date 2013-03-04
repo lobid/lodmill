@@ -1,10 +1,9 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.TreeSet;
 
 import models.Document;
 
@@ -31,28 +30,41 @@ public final class Application extends Controller {
 		/* No instantiation */
 	}
 
-	private enum Format {
+	public enum Format {
 		PAGE, FULL, SHORT
 	}
 
-	public static final List<String> INDEXES = new ArrayList<>(new TreeSet<>(
-			Document.searchFieldsMap.keySet()));
-	public static String index = "lobid-index"; // NOPMD
-	private static List<Document> docs = new ArrayList<>();
+	/*
+	 * These static variables are used by the autocomplete function which uses
+	 * the Jquery-UI autocomplete widget. According to my current understanding,
+	 * this widget requires an endpoint that expects a single String parameter,
+	 * so we set the other required info here:
+	 */
+	public static String index = "lobid-index";
+	public static String category = "author";
 
 	public static Result index() {
-		return redirect(routes.Application.search());
+		return results("", new ArrayList<Document>(), index, category).get(
+				Format.PAGE);
 	}
 
-	public static Result search() {
-		if (request().queryString().isEmpty()) {
-			return results("", new ArrayList<Document>()).get(Format.PAGE);
+	public static Result config(String index, String category, String format) {
+		Application.index = index;
+		Application.category = category;
+		return ok(views.html.index.render(new ArrayList<Document>(), index, "",
+				category, format));
+	}
+
+	public static Result search(final String index, final String category,
+			final String format, final String query) {
+		List<Document> docs = new ArrayList<>();
+		try {
+			docs = Document.search(query, index, category);
+		} catch (IllegalArgumentException e) {
+			return badRequest(e.getMessage());
 		}
-		final String query = request().queryString().get("query")[0];
-		index = request().queryString().get("index")[0];
-		docs = Document.search(query, index);
-		final ImmutableMap<Format, Result> results = results(query, docs);
-		final String format = request().queryString().get("format")[0];
+		final ImmutableMap<Format, Result> results =
+				results(query, docs, index, category);
 		try {
 			return results.get(Format.valueOf(format.toUpperCase()));
 		} catch (IllegalArgumentException e) {
@@ -62,7 +74,8 @@ public final class Application extends Controller {
 	}
 
 	public static Result autocomplete(final String term) {
-		return results(term, Document.search(term, index)).get(Format.SHORT);
+		return results(term, Document.search(term, index, category), index,
+				category).get(Format.SHORT);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =
@@ -80,7 +93,8 @@ public final class Application extends Controller {
 			};
 
 	private static ImmutableMap<Format, Result> results(final String query,
-			final List<Document> documents) {
+			final List<Document> documents, final String index,
+			final String category) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null
@@ -91,8 +105,9 @@ public final class Application extends Controller {
 		final ImmutableMap<Format, Result> results =
 				new ImmutableMap.Builder<Format, Result>()
 						.put(Format.PAGE,
-								ok(views.html.index.render(documents,
-										INDEXES.indexOf(index), query)))
+								ok(views.html.index.render(documents, index,
+										query, category, Format.PAGE.toString()
+												.toLowerCase())))
 						.put(Format.FULL,
 								ok(Json.toJson(ImmutableSet.copyOf(Lists
 										.transform(documents, jsonFull)))))
