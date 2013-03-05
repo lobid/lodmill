@@ -6,10 +6,6 @@ label {
 	padding: 10px;
 }
 
-#index {
-	width: 150px;
-}
-
 .ui-autocomplete {
 	max-height: 200px;
 	overflow-y: auto;
