@@ -7,7 +7,7 @@ then
 fi
 
 export HADOOP=/opt/hadoop/hadoop
-export HADOOP_CLASSPATH=../target/lodmill-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+export HADOOP_CLASSPATH=../../target/lodmill-ld-0.1.0-SNAPSHOT-jar-with-dependencies.jar
 
 # rm -rf ./$2
 $HADOOP/bin/hadoop fs -rmr $2

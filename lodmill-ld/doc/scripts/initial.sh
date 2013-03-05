@@ -1,5 +1,8 @@
 #!/bin/sh
 
+rm -rf logs
+mkdir logs
+
 ORGANISATIONS=output/json-ld-lobid-organisations
 sh convert-orgs.sh hbzlod/lobid-organisations.nt $ORGANISATIONS > logs/lobid-organisations-convert.log
 sh index.sh $ORGANISATIONS > logs/lobid-organisations-index.log

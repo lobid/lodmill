@@ -1,6 +1,6 @@
-@* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
+@* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(docs: List[Document], index: Int, query: String)
+@(docs: List[Document], index: String, query: String, category: String, resultFormat: String)
 
 @import helper._
 @import helper.twitterBootstrap._
@@ -8,31 +8,83 @@
 
 @main("Document list") {
 
-    <h1>Search in '@Application.index' on '@Document.ES_CLUSTER_NAME' (@Document.ES_SERVER.address())</h1>
+    <h1>@Document.ES_CLUSTER_NAME on @Document.ES_SERVER.address()</h1>
 
-    <p>API usage: <i>GET /search?format=&lt;page|full|short&gt;&index=&lt;lobid-index|lobid-orgs-index|gnd-index&gt;&query=&lt;query&gt;</i></p>
+    <p>API sample usage: <pre>GET /search?format=full&index=lobid-index&category=author&query=Abramson</pre></p>
 
-    <form action="@routes.Application.search()" class="form-inline" method="GET">
-		<input type='hidden' name='format' value='page' />
-		<select name="index" id="index" onChange="this.form.submit()">
-			@for(i<-Application.INDEXES){
-				<option value="@i" @if(index==Application.INDEXES.indexOf(i)){selected="selected"}else{}>
-					@i
-				</option>
-			}
-		</select>
-	    <input type="text" name="query" id="query" class="autocomplete"
-			data-url="@{routes.Application.autocomplete()}"
-			placeholder="query"
-			@if(query!=""){value="@query"}/>
-		<button type="submit" class="btn">Search</button>
-	    <script>
-	    $('input.autocomplete').each( function() {
-	        var $input = $(this);
-	        var serverUrl = $input.data('url');
-	        $input.autocomplete({ source:serverUrl });
-	    });
-	    </script>
+	<form action="@routes.Application.config(index, category, resultFormat)" class="form-horizontal" method="GET">
+		<!-- TODO: create a custom tag and extract the common code of these 3 option divs: -->
+		<div class="control-group">
+		    <label class="control-label" for="format">GET parameter: 'format'</label>
+		    <div class="controls">
+				<select name="format" id="format">
+					@for(formatOption <- controllers.Application.Format.values().map(_.toString.toLowerCase)){
+						<option value="@formatOption"  @if(formatOption == resultFormat) {selected="selected"} else{}>
+							@formatOption
+						</option>
+					}
+				</select>
+			</div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="index">GET parameter: 'index'</label>
+		    <div class="controls">
+				<!-- We submit on change to update the valid categories for the index: -->
+				<select name="index" id="index" onChange="this.form.submit()">
+					@for(indexOption <- Document.searchFieldsMap.keySet()){
+						<option value="@indexOption" @if(indexOption == index) {selected="selected"} else{}>
+							@indexOption
+						</option>
+					}
+				</select>
+			</div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="category">GET parameter: 'category'</label>
+		    <div class="controls">
+				<select name="category" id="category">
+					@for(categoryOption<-Document.searchFieldsMap.get(index).keySet()){
+						<option value="@categoryOption" @if(categoryOption == category) {selected="selected"} else{}>
+							@categoryOption
+						</option>
+					}
+				</select>
+			</div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="submit">Update parameters for auto-suggest and search</label>
+		    <div class="controls">
+				<button type="submit" class="btn">Update</button>
+			</div>
+		</div>
+	</form>
+
+    <form action="@routes.Application.search(index, category, resultFormat, query)" class="form-horizontal" method="GET">
+		<input type='hidden' name='format' value='@resultFormat' />
+		<input type='hidden' name='index' value='@index' />
+		<input type='hidden' name='category' value='@category' />
+		<div class="control-group">
+		    <label class="control-label" for="query">GET parameter: 'query'</label>
+		    <div class="controls">
+			    <input type="text" name="query" id="query" class="autocomplete"
+					data-url="@{routes.Application.autocomplete()}"
+					placeholder="query"
+					@if(query != "") {value="@query"} />
+			</div>
+		</div>
+		<div class="control-group">
+		    <label class="control-label" for="submit">GET /search with parameters set above</label>
+		    <div class="controls">
+				<button type="submit" class="btn">Search</button>
+			    <script>
+			    $('input.autocomplete').each( function() {
+			        var $input = $(this);
+			        var serverUrl = $input.data('url');
+			        $input.autocomplete({ source:serverUrl });
+			    });
+			    </script>
+			</div>
+		</div>
     </form>
 
     <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h1>
