@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<harvest>
+  <?xml-stylesheet type="text/xsl" href="img/oai2.xsl"?>
+	<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+		<responseDate>2013-01-28T15:50:48Z</responseDate>
+		<request verb="ListSets">http://www.digitalisiertedrucke.de/oai2d/</request>
+		<ListSets>
+			<set>
+				<setSpec>collection:feldzeitungen.ub.hd.de</setSpec>
+				<setName>Feldzeitungen des 1. Weltkriegs, Universitätsbibliothek Heidelberg</setName>
+			</set>
+		</ListSets>
+	</OAI-PMH>
+<?xml-stylesheet type="text/xsl" href="img/oai2.xsl"?>
+	<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+		<responseDate>2013-01-28T15:51:20Z</responseDate>
+		<request verb="ListRecords">http://www.digitalisiertedrucke.de/oai2d/</request>
+		<ListRecords>
+			<record>
+				<header>
+					<identifier>oai:digitalisiertedrucke.de:46713</identifier>
+					<datestamp>2009-05-25T09:34:33Z</datestamp>
+					<setSpec>collection</setSpec>
+					<setSpec>collection:zvdd.hbz.k.de</setSpec>
+				</header>
+				<metadata>
+					<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+						<marc:leader>00000coc 2200000uu 4500</marc:leader>
+						<marc:controlfield tag="001">46713</marc:controlfield>
+						<marc:datafield ind1="8" ind2=" " tag="024">
+							<marc:subfield code="a">oai:digitalisiertedrucke.de:46713</marc:subfield>
+							<marc:subfield code="p">collection</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="8" ind2=" " tag="024">
+							<marc:subfield code="p">collection:zvdd.hbz.k.de</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="0" ind2="0" tag="245">
+							<marc:subfield code="a">Feldzeitungen des 1. Weltkriegs</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="260">
+							<marc:subfield code="a">Heidelberg</marc:subfield>
+							<marc:subfield code="c">1914-1918</marc:subfield>
+							<marc:subfield code="g">2005</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="300">
+							<marc:subfield code="a">18 Titel, 39 Bände, 35.038 Seiten</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="513">
+							<marc:subfield code="b">1914-1918</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="3" ind2=" " tag="520">
+							<marc:subfield code="a">Die Universitätsbibliothek Heidelberg hat mit
+								Unterstützung der Landesarchivdirektion Baden-Württemberg 19 ihrer Feldzeitungen
+								aus der Zeit des Ersten Weltkrieges digitalisiert und mikroverfilmt. Die ersten
+								„Schützengrabenzeitungen“ entstanden vi elfach auf Initiative von Soldaten und
+								ohne staatliche Aufsicht. Die Zeitungen boten Ablenkung vom oft monotonen Alltag
+								an der Front und waren zugleich ein Forum für die Sorgen und Nöte der einfachen
+								Soldaten: Sehnsucht nach der Heimat, Versorgungsengpässe, ungerechte Behan dlung
+								durch Vorgesetzte. Um dem interessierten Benutzer online einen möglichst
+								lückenlosen Bestand anbieten zu können, wurden vorhandene Lücken im Printbestand
+								durch Digitalisierung von Exemplaren aus anderen Bibliotheken geschlossen.</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="520">
+							<marc:subfield code="a">Verzeichnung in Clio online</marc:subfield>
+							<marc:subfield code="b">shortDescription</marc:subfield>
+							<marc:subfield code="u"> http://www.clio-online.de/Web=17770</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="520">
+							<marc:subfield code="a">Hauptitelaufnahme, Bandsätze (nur lokal),
+								Inhaltsverzeichnisse</marc:subfield>
+							<marc:subfield code="b">description: data levels</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="520">
+							<marc:subfield code="a">Titeldaten in Pica; Images in TIFF gescannt und
+								als jpg; angeboten (zusätzlich höhere Auflösung als PDF); Struktur- und Metadaten
+								in XML</marc:subfield>
+							<marc:subfield code="b">description: standards and techniques used</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="522">
+							<marc:subfield code="a">Deutschland, Frankreich, Belgien</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="546">
+							<marc:subfield code="a">de</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="546">
+							<marc:subfield code="a">fr</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="594">
+							<marc:subfield code="a">collection</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="0" ind2="7" tag="655">
+							<marc:subfield code="a">Zeitungen</marc:subfield>
+							<marc:subfield code="2">local (zvdd) </marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="1" ind2=" " tag="700">
+							<marc:subfield code="a">Dr. Thomas Wolf, Universitätsbibliothek Plöck
+								107-109, 69117 Heidelberg, Tel.: 06221/ 54-2798, e-mail: Wolf@ub.uni-heidelberg.de</marc:subfield>
+							<marc:subfield code="e">administrator</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="2" ind2=" " tag="710">
+							<marc:subfield code="a">Universitätsbibliothek</marc:subfield>
+							<marc:subfield code="e">creator</marc:subfield>
+							<marc:subfield code="u">http://www.ub.uni-heidelberg.de/</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="980">
+							<marc:subfield code="a">collection</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1=" " ind2=" " tag="992">
+							<marc:subfield code="a">collection:feldzeitungen.ub.hd.de</marc:subfield>
+							<marc:subfield code="b">zvdd (Zentrales Verzeichnis Digitalisierter
+								Drucke)</marc:subfield>
+							<marc:subfield code="c">http://www.zvdd.de</marc:subfield>
+							<marc:subfield code="d">http://www.zvdd.de</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="4" ind2=" " tag="856">
+							<marc:subfield code="u">http://feldzeitungen.uni-hd.de</marc:subfield>
+							<marc:subfield code="3">Projektseite</marc:subfield>
+							<marc:subfield code="x">homepage</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="4" ind2=" " tag="856">
+							<marc:subfield code="u">http://www.ub.uni-heidelberg.de/helios/kataloge/heidi.html</marc:subfield>
+							<marc:subfield code="3">Suche über OPAC (Heidi)</marc:subfield>
+							<marc:subfield code="x">search-interface</marc:subfield>
+						</marc:datafield>
+						<marc:datafield ind1="4" ind2=" " tag="856">
+							<marc:subfield code="u">http://feldzeitungen.uni-hd.de</marc:subfield>
+							<marc:subfield code="3">Titelliste</marc:subfield>
+							<marc:subfield code="x">browsing-access</marc:subfield>
+						</marc:datafield>
+					</marc:record>
+				</metadata>
+			</record>
+		</ListRecords>
+	</OAI-PMH>
+</harvest>

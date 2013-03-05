@@ -1,0 +1,10 @@
+default files = "./";
+default output = "file://" + files;
+
+files + "zvdd_print_and_digital-test-set.xml" |
+open("file") |
+read("marcxml") |
+morph(files + "../morph-zvdd_title-print-rdfld.xml") |
+encode("dot") |
+write(output + "morph-zvdd_title-print-rdfld.dot")
+;

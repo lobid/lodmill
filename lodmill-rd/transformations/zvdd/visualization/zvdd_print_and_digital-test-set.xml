@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<harvest>
+<?xml-stylesheet type="text/xsl" href="img/oai2.xsl"?>
+	<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+		<responseDate>2013-01-31T14:11:56Z</responseDate>
+		<request verb="Identify">http://www.digitalisiertedrucke.de/oai2d/</request>
+		<Identify>
+			<repositoryName>Zentrales Verzeichnis Digitalisierter Drucke</repositoryName>
+			<baseURL>http://www.digitalisiertedrucke.de/oai2d</baseURL>
+			<protocolVersion>2.0</protocolVersion>
+			<adminEmail>pelzer@hbz-nrw.de</adminEmail>
+			<earliestDatestamp>2009-04-09T07:06:46Z</earliestDatestamp>
+			<deletedRecord>no</deletedRecord>
+			<granularity>YYYY-MM-DDThh:mm:ssZ</granularity>
+			<description>
+				<oai-identifier xmlns="http://www.openarchives.org/OAI/2.0/oai-identifier"
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai-identifier http://www.openarchives.org/OAI/2.0/oai-identifier.xsd">
+					<scheme> oai
+					</scheme>
+					<repositoryIdentifier> www.digitalisiertedrucke.de
+					</repositoryIdentifier>
+					<delimiter> :
+					</delimiter>
+					<sampleIdentifier> oai:www.digitalisiertedrucke.de:1
+					</sampleIdentifier>
+				</oai-identifier>
+			</description>
+			<description>
+				<eprints xmlns="http://www.openarchives.org/OAI/1.1/eprints" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xsi:schemaLocation="http://www.openarchives.org/OAI/1.1/eprints http://www.openarchives.org/OAI/1.1/eprints.xsd">
+					<content>
+						<URL>http://www.digitalisiertedrucke.de/</URL>
+					</content>
+					<metadataPolicy>
+						<text>Free and unlimited use by anybody with obligation to refer to original record
+						</text>
+					</metadataPolicy>
+					<dataPolicy>
+						<text>Full content, i.e. preprints may not be harvested by robots</text>
+					</dataPolicy>
+					<submissionPolicy>
+						<text>Submission restricted. Submitted documents are subject of approval by OAI
+							repository admins.
+						</text>
+					</submissionPolicy>
+				</eprints>
+			</description>
+		</Identify>
+	</OAI-PMH>
+<?xml-stylesheet type="text/xsl" href="img/oai2.xsl"?>
+	<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+		<responseDate>2013-01-31T14:12:01Z</responseDate>
+		<request verb="ListMetadataFormats">http://www.digitalisiertedrucke.de/oai2d/</request>
+		<ListMetadataFormats>
+			<metadataFormat>
+				<metadataPrefix>oai_dc</metadataPrefix>
+				<schema>http://www.openarchives.org/OAI/1.1/dc.xsd</schema>
+				<metadataNamespace>http://purl.org/dc/elements/1.1/</metadataNamespace>
+			</metadataFormat>
+			<metadataFormat>
+				<metadataPrefix>marcxml</metadataPrefix>
+				<schema>http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd</schema>
+				<metadataNamespace>http://www.loc.gov/MARC21/slim</metadataNamespace>
+			</metadataFormat>
+			<metadataFormat>
+				<metadataPrefix>mabxml</metadataPrefix>
+				<schema>http://www.ddb.de/professionell/mabxml/mabxml-1.xsd</schema>
+				<metadataNamespace>http://www.ddb.de/professionell/mabxml/mabxml-1.xsd
+				</metadataNamespace>
+			</metadataFormat>
+			<metadataFormat>
+				<metadataPrefix>mods</metadataPrefix>
+				<schema>http://www.loc.gov/standards/mods/v3/mods-3-3.xsd</schema>
+				<metadataNamespace>http://www.loc.gov/mods/v3</metadataNamespace>
+			</metadataFormat>
+		</ListMetadataFormats>
+	</OAI-PMH>
+<?xml-stylesheet type="text/xsl" href="img/oai2.xsl"?>
+	<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+		<responseDate>2013-01-31T14:12:05Z</responseDate>
+		<request verb="ListSets">http://www.digitalisiertedrucke.de/oai2d/</request>
+		<ListSets>
+			<set>
+				<setSpec>collection:feldzeitungen.ub.hd.de</setSpec>
+				<setName>Feldzeitungen des 1. Weltkriegs, Universitätsbibliothek Heidelberg</setName>
+			</set>
+		</ListSets>
+	</OAI-PMH>
+<?xml-stylesheet type="text/xsl" href="img/oai2.xsl"?>
+	<OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
+		<responseDate>2013-01-31T14:13:30Z</responseDate>
+		<request verb="ListRecords">http://www.digitalisiertedrucke.de/oai2d/</request>
+		<ListRecords>
+			<record>
+				<header>
+					<identifier>oai:digitalisiertedrucke.de:46713</identifier>
+					<datestamp>2009-05-25T09:34:33Z</datestamp>
+					<setSpec>collection</setSpec>
+					<setSpec>collection:zvdd.hbz.k.de</setSpec>
+				</header>
+				<metadata>
+					<marc:record xmlns:marc="http://www.loc.gov/MARC21/slim" type="Bibliographic"
+						xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						xsi:schemaLocation="http://www.loc.gov/MARC21/slim http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd">
+						<record>
+							<controlfield tag="001">409902</controlfield>
+							<controlfield tag="008"> 19161918</controlfield>
+							<datafield tag="024" ind1="8" ind2=" ">
+								<subfield code="a">oai:digitalisiertedrucke.de:409902</subfield>
+								<subfield code="p">collection:feldzeitungen.ub.hd.de</subfield>
+							</datafield>
+							<datafield tag="024" ind1="8" ind2=" ">
+								<subfield code="p">collection:zvdd.hbz.k.de</subfield>
+							</datafield>
+							<datafield tag="992" ind1=" " ind2=" ">
+								<subfield code="a">976798980</subfield>
+								<subfield code="b">collection:feldzeitungen.ub.hd.de</subfield>
+								<subfield code="c">http://feldzeitungen.uni-hd.de</subfield>
+								<subfield code="d">http://www.zvdd.de</subfield>
+							</datafield>
+							<datafield tag="016" ind1="7" ind2="4">
+								<subfield code="a">2207347-4</subfield>
+								<subfield code="2">GyBeDBIZ</subfield>
+							</datafield>
+							<datafield tag="040" ind1=" " ind2=" ">
+								<subfield code="a">0016</subfield>
+								<subfield code="c">DNB</subfield>
+								<subfield code="d">0016</subfield>
+							</datafield>
+							<datafield tag="041" ind1=" " ind2=" ">
+								<subfield code="a">ger</subfield>
+							</datafield>
+							<datafield tag="084" ind1=" " ind2=" ">
+								<subfield code="a">100</subfield>
+								<subfield code="2">z</subfield>
+							</datafield>
+							<datafield tag="084" ind1=" " ind2=" ">
+								<subfield code="a">300</subfield>
+								<subfield code="2">z</subfield>
+							</datafield>
+							<datafield tag="084" ind1=" " ind2=" ">
+								<subfield code="a">z685</subfield>
+								<subfield code="2">z</subfield>
+							</datafield>
+							<datafield tag="245" ind1=" " ind2=" ">
+								<subfield code="a">Kriegszeitung der 7. Armee</subfield>
+								<subfield code="h">Elektronische Ressource</subfield>
+							</datafield>
+							<datafield tag="246" ind1="1" ind2=" ">
+								<subfield code="a">Kriegs-Zeitung der 7. Armee</subfield>
+							</datafield>
+							<datafield tag="362" ind1=" " ind2=" ">
+								<subfield code="a">1916 - 1918 = Nr. 152-386</subfield>
+							</datafield>
+							<datafield tag="260" ind1=" " ind2=" ">
+								<subfield code="a">Laon [u.a.]</subfield>
+							</datafield>
+							<datafield tag="515" ind1=" " ind2=" ">
+								<subfield code="a">Mehr nicht digitalisiert</subfield>
+							</datafield>
+							<datafield tag="516" ind1=" " ind2=" ">
+								<subfield code="a">Online-Ressource</subfield>
+							</datafield>
+							<datafield tag="533" ind1=" " ind2=" ">
+								<subfield code="a">Digitalisierte Ausgabe</subfield>
+								<subfield code="b">Heidelberg</subfield>
+								<subfield code="c">Universitätsbibliothek</subfield>
+								<subfield code="d">2005</subfield>
+							</datafield>
+							<datafield tag="710" ind1="2" ind2="1">
+								<subfield code="a">Deutschland Deutsches Reich</subfield>
+								<subfield code="b">Armee 7</subfield>
+								<subfield code="0">310016-9</subfield>
+							</datafield>
+							<datafield tag="751" ind1=" " ind2=" ">
+								<subfield code="a">Laon</subfield>
+								<subfield code="0">1028422-9</subfield>
+								<subfield code="4">dbp</subfield>
+							</datafield>
+							<datafield tag="775" ind1="0" ind2="8">
+								<subfield code="i">Druckausg.</subfield>
+								<subfield code="a">Deutschland - Deutsches Reich / Armee 7: Kriegs-Zeitung
+									der 7. Armee/>
+								</subfield>
+								<subfield code="w">380153-6</subfield>
+							</datafield>
+							<datafield tag="776" ind1=" " ind2="1">
+								<subfield code="k">Feldzeitungen des 1.Weltkriegs - online</subfield>
+							</datafield>
+							<datafield tag="594" ind1=" " ind2=" ">
+								<subfield code="a">title:serial</subfield>
+							</datafield>
+							<datafield tag="595" ind1=" " ind2=" ">
+								<subfield code="a">ldd</subfield>
+							</datafield>
+							<datafield tag="980" ind1=" " ind2=" ">
+								<subfield code="a">295</subfield>
+							</datafield>
+							<datafield tag="856" ind1="4" ind2=" ">
+								<subfield code="u">http://digi.ub.uni-heidelberg.de/diglit/feldztgkr7armee1916
+								</subfield>
+								<subfield code="x">Digitalisierung</subfield>
+								<subfield code="z">kostenfrei</subfield>
+							</datafield>
+							<datafield tag="856" ind1="4" ind2=" ">
+								<subfield code="u">http://digi.ub.uni-heidelberg.de/diglit/feldztgkr7armee1917
+								</subfield>
+								<subfield code="x">Digitalisierung</subfield>
+								<subfield code="z">kostenfrei</subfield>
+							</datafield>
+							<datafield tag="856" ind1="4" ind2=" ">
+								<subfield code="u">http://digi.ub.uni-heidelberg.de/diglit/feldztgkr7armee1918
+								</subfield>
+								<subfield code="x">Digitalisierung</subfield>
+								<subfield code="z">kostenfrei</subfield>
+							</datafield>
+						</record>
+					</marc:record>
+				</metadata>
+			</record>
+		</ListRecords>
+	</OAI-PMH>
+</harvest>
