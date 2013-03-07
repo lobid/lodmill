@@ -11,13 +11,6 @@
 	</properties>
 	<repositories>
 		<repository>
-			<id>culturegraph-snapshots</id>
-			<url>http://culturegraph.github.com/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
 			<id>lobid-snapshots</id>
 			<url>http://lobid.github.com/snapshots/</url>
 			<snapshots>
