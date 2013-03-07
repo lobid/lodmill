@@ -1,6 +1,6 @@
 Following a statistic about URIs in the zvdd-lod dump predicated as "lv:fulltextOnline":http://lobid.org/vocab/lobid#fulltextOnline .
 The statistic was generated using "this linkchecker":https://github.com/dr0i/tools/blob/master/src/main/java/Linkchecker.java .
-Many (some?) links are answered with an "200" status code, but obviously it should be "404" (e. g. http://nbn-resolving.org/urn:nbn:de:gbv:3:1-96420 ) , so you cannot rely solely of this statistic.
+Many (some?) links are answered with an "200" status code, but obviously it should be "404" ( see an "example":http://nbn-resolving.org/urn:nbn:de:gbv:3:1-96420 ) , so you cannot rely solely of this statistic.
 |http status code or description| count|
 |200|434251|
 |300|102|
