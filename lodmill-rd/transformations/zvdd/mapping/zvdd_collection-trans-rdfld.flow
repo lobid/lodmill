@@ -3,10 +3,10 @@ default output = "file://" + files;
  // the input files are not provided here, 
 //  see https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/harvestOAI_hbz_zvdd.sh
  //  how to obtain them
-default input ="../../../../"; 
-"./"+input + "/zvdd.xml"|
+default input ="../../../../../"; 
+"./"+input + "/hbz_zvdd_collections_marc.xml"|
 open("file") |
 read("marcxml") |
-morph(files + "morph-zvdd_title-digital-rdfld.xml") |
+morph(files + "morph-zvdd_collection-rdfld.xml") |
 encode("n-triples") |
-write(output + "zvdd_title-digital-output_trans.nt");
+write(output + "zvdd_collection-output_trans.nt");
