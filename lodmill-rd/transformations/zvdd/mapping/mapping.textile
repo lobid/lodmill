@@ -1,37 +1,37 @@
 |*field*|*frequency*|*content*|*mapping*|*status*|
-|980  .a|1130252|ignore ca. 100 different values, s. "980-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/980-a.textile  | ignore |
-|0248 .p|995816| collection, ca. 205 different values, ignore ddc: s. "0248-p.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/0248-p.textile | D: http://purl.org/dc/terms/isPartOf (Link to collectionURI/bnode) | done |
+|980  .a|1130252|ignore ca. 100 different values, s. "980-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/980-a.textile  | ignore |
+|0248 .p|995816| collection, ca. 205 different values, ignore ddc: s. "0248-p.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/0248-p.textile | D: http://purl.org/dc/terms/isPartOf (Link to collectionURI/bnode) | done |
 |001|491271| Database-unique internal identifier. Could be used to create a URI? | Yes. Use as part of HTTP-URIs for both P and D. A nice way to encode different string IDs in RDF doesn't exist yet. Every "D" is an isbd:T1002, every "P" an isbd:T1010 | done |
 |8564 .u|491258| URL: Landing-page of the described E-Ressource | If target a pdf, serve file via HTTP accept header, otherwise link D to landing page with http://lobid.org/vocab/lobid#fulltextOnline | latter done |
 |533  .c|491033| a remark, that it's also about an E-ressource. Nothing new here - we know that because of "8564 .u" | ignore |
 |992  .d|491032| ignore. only one value "www.zvddd.de"| ignore |
-|992  .b|491032| ignore. collection, ca. 33 different values, s. "992-b.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/992-b.textile . Seems to be part of "0248 .p" | ignore |
+|992  .b|491032| ignore. collection, ca. 33 different values, s. "992-b.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/992-b.textile . Seems to be part of "0248 .p" | ignore |
 |992  .c|491032| ignore. (Is dealt with on Collection level.) URL of the website of the aggregator| ignore |
 |type|491032| ignore | ignore |
 |0248 .a|491032| ignore. oai-id. Most certainly an internal identifier | ignore  |
 |leader|491032| ignore | ignore |
-|594  .a|490907| document type. 4 different types, s. "594-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/594-a.textile | P & D: rdfs:type bibo:Article, bibo:Book, bibo:Series | done |
-|533  .b|490886| ignore ? provenance of the e-resource, already in the collection-set . Mostly cities, s. "553-b.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/553-b.textile | ignore |
+|594  .a|490907| document type. 4 different types, s. "594-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/594-a.textile | P & D: rdfs:type bibo:Article, bibo:Book, bibo:Series | done |
+|533  .b|490886| ignore ? provenance of the e-resource, already in the collection-set . Mostly cities, s. "553-b.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/553-b.textile | ignore |
 |533  .d|490885| creation date of the e-resource. sometimes only "year", sometimes "year-year" | D: dct:created | done |
 |533  .c|490883| publisher (name, location etc.) as a concatenated string | D: dc:publisher | done |
 |595  .a|490860| ignore. "Abrufkennzeichnen" . Only one value: "ldd"| - | ignore |
-|776 1.k|489524| ignore. is this true for e-resource AND origin? collection ? s. "77601-k.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/77601-k.textile , similar also to 773-t.textile and 7730-t.textile  | ? isPartOf | ignore|
+|776 1.k|489524| ignore. is this true for e-resource AND origin? collection ? s. "77601-k.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/77601-k.textile , similar also to 773-t.textile and 7730-t.textile  | ? isPartOf | ignore|
 |24500.a|415095| Main title | http://purl.org/dc/terms/title | done |
-|773  .t|405992| concatenate with 773 .g , s. "773-t.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/773-t.textile Later we might also link to ZDB URI of the digitized series, e.g. http://ld.zdb-services.de/resource/2125514-3 | P: dct:bibliographicCitation| done |
+|773  .t|405992| concatenate with 773 .g , s. "773-t.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/773-t.textile Later we might also link to ZDB URI of the digitized series, e.g. http://ld.zdb-services.de/resource/2125514-3 | P: dct:bibliographicCitation| done |
 |773  .g|405956| see 773 .t| s. 773 t | done |
-|533  .f|312153| ignore. (Is dealt with on collection level.) publishers name for the collection or the project namei, collection ? ca. 27 different strings, s. "533-f.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/533-f.textile |  | ignore |
-|887 (OBJECT TYPE)|265894| 6 different values, s.: "887_OBJECT_TYPE.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/887_OBJECT_TYPE.textile .  | bibo:article , ? ... | ignore for now |
+|533  .f|312153| ignore. (Is dealt with on collection level.) publishers name for the collection or the project namei, collection ? ca. 27 different strings, s. "533-f.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/533-f.textile |  | ignore |
+|887 (OBJECT TYPE)|265894| 6 different values, s.: "887_OBJECT_TYPE.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/887_OBJECT_TYPE.textile .  | bibo:article , ? ... | ignore for now |
 |992  .a|220908| ignore. Internal ID of item in digitized collection (might be useful to generate direct links to file) | - | ignore |
 |1001 .a|185825| creator as string, see also "1001 .e" | P: dc:creator | done |
 |887 (MAB2:050)|172706| ignore. MAB2 "Datentraeger"| s. https://wiki1.hbz-nrw.de/display/SEM/Format+050 | ignore |
 |887 (MAB2:030)|172677|  ignore. MAB2 " VERARBEITUNGSTECHNISCHE ANGABEN"| - | ignore |
 |008|167905| ignore. Controllfield|- | ignore |
-|040  .c|165191| ignore. most probably ignore. s, "040-c.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/040-c.textile | - | ignore |
-|500  .a|137869| ignore. (too diverse) diverse notes, s. "500-a_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/500-a_smallExampleSet.textile | ? | ignore |
-|533  .7|118040| ignore. creation date of the e-rsource. Seems to be equivalent to "533  .d". Is just another notation. s, "533-7.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/533-7.textile | dct:created | ignore |
+|040  .c|165191| ignore. most probably ignore. s, "040-c.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/040-c.textile | - | ignore |
+|500  .a|137869| ignore. (too diverse) diverse notes, s. "500-a_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/500-a_smallExampleSet.textile | ? | ignore |
+|533  .7|118040| ignore. creation date of the e-rsource. Seems to be equivalent to "533  .d". Is just another notation. s, "533-7.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/533-7.textile | dct:created | ignore |
 |24500.b|111716| extension of the main title | dct:alternative   | done |
-|260  .c|101041| date of the (first?) printing. ca 1271 different values, s. "260-c.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/260-c.textile | P: dct:issued (sanitize first!) | done|
-|041  .a|92278| language code iso 639-1 (and some other notations, s. "041-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/041-a.textile . Seems to be save to erase all non-alphabeticals and split with length 3  <= if multiple language. If "en" and "de" stands alone, map them to iso639) | http://purl.org/dc/terms/language, and http://id.loc.gov/vocabulary/iso639-2/ for the objects | done |
+|260  .c|101041| date of the (first?) printing. ca 1271 different values, s. "260-c.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/260-c.textile | P: dct:issued (sanitize first!) | done|
+|041  .a|92278| language code iso 639-1 (and some other notations, s. "041-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/041-a.textile . Seems to be save to erase all non-alphabeticals and split with length 3  <= if multiple language. If "en" and "de" stands alone, map them to iso639) | http://purl.org/dc/terms/language, and http://id.loc.gov/vocabulary/iso639-2/ for the objects | done |
 |005|89230| | | ignore|
 |24500.h|83446| ignore. Material. Mostly "computer file", "2 Musikdruck", rest rubbish, s. 24500-h.textile  | - | ignore |
 |270  .a|83381| ignore. second publisher, printer? has only one value : "Godesberger Allee 149, 53175 Bonn"| ? | ignore |
@@ -49,11 +49,11 @@
 |040  .d|73150| | |
 |24510.a|65177| | |
 |040  .a|56775| | |
-|516  .a|51886| some infos about the kind of the e-ressource, s. "516-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/516-a.textile | use pdf info to directly serve pdf via D URI, when asked for in Accept header | TODO |
+|516  .a|51886| some infos about the kind of the e-ressource, s. "516-a.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/516-a.textile | use pdf info to directly serve pdf via D URI, when asked for in Accept header | TODO |
 |24500.c|48226| creator of origin resource, same as  "1001 .a"? , sligtly different Notation| dc:creator | done |
 |7730 .t|46637| s. "773  .t" |  | done |
-|7730 .g|46637| he same as "773  .g". s. "7731-g_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/7730-g_smallExampleSet.textile | see "773  .g" | done |
-|887 (Publikation_Typ)|46637| 8 different types , s. "887-Publikation_Typ.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/887-Publikation_Typ.textile | s. "887-Publikation_Typ.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/887-Publikation_Typ.textile for RDF properties| done |
+|7730 .g|46637| he same as "773  .g". s. "7731-g_smallExampleSet.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/7730-g_smallExampleSet.textile | see "773  .g" | done |
+|887 (Publikation_Typ)|46637| 8 different types , s. "887-Publikation_Typ.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/887-Publikation_Typ.textile | s. "887-Publikation_Typ.textile":https://github.com/lobid/lodmill/blob/master/lodmill-rd/transformations/zvdd/statistic/887-Publikation_Typ.textile for RDF properties| done |
 |300  .a|37469| | |
 |260  .a|36225| | |
 |260  .x|35553| | |
