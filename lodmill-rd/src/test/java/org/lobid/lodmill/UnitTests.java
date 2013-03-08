@@ -11,7 +11,6 @@ import org.junit.runners.Suite;
  * @author Fabian Steeg (fsteeg)
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ GndTests.class, LobidTests.class,
-		TransformationZVDDTests.class })
+@Suite.SuiteClasses({ TransformationZVDDTests.class })
 public final class UnitTests {
 }

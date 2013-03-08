@@ -2,8 +2,8 @@
 
 package org.lobid.lodmill;
 
-import org.culturegraph.metamorph.test.TestSuite;
-import org.culturegraph.metamorph.test.TestSuite.TestDefinitions;
+import org.culturegraph.mf.test.TestSuite;
+import org.culturegraph.mf.test.TestSuite.TestDefinitions;
 import org.junit.runner.RunWith;
 
 /**

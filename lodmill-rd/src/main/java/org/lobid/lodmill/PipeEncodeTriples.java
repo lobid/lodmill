@@ -6,10 +6,10 @@ package org.lobid.lodmill;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.culturegraph.metastream.annotation.Description;
-import org.culturegraph.metastream.annotation.In;
-import org.culturegraph.metastream.annotation.Out;
-import org.culturegraph.metastream.framework.StreamReceiver;
+import org.culturegraph.mf.framework.StreamReceiver;
+import org.culturegraph.mf.framework.annotations.Description;
+import org.culturegraph.mf.framework.annotations.In;
+import org.culturegraph.mf.framework.annotations.Out;
 
 /**
  * @author Fabian Steeg, Pascal Christoph

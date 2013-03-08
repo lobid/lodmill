@@ -15,11 +15,11 @@ import java.util.TreeSet;
 
 import junit.framework.Assert;
 
-import org.culturegraph.metamorph.core.Metamorph;
-import org.culturegraph.metamorph.core.MetamorphErrorHandler;
-import org.culturegraph.metamorph.reader.MarcReader;
-import org.culturegraph.metamorph.reader.Reader;
-import org.culturegraph.metastream.sink.StringListMap;
+import org.culturegraph.mf.morph.Metamorph;
+import org.culturegraph.mf.morph.MorphErrorHandler;
+import org.culturegraph.mf.stream.reader.MarcReader;
+import org.culturegraph.mf.stream.reader.Reader;
+import org.culturegraph.mf.stream.sink.StringListMap;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -53,7 +53,7 @@ public final class HbzMarcIngest {
 		reader.setReceiver(metamorph).setReceiver(map);
 		final BufferedWriter rawReportWriter =
 				new BufferedWriter(new FileWriter(REPORT_RAW));
-		metamorph.setErrorHandler(new MetamorphErrorHandler() {
+		metamorph.setErrorHandler(new MorphErrorHandler() {
 			@Override
 			public void error(final Exception exception) {
 				final String name = exception.getClass().getSimpleName();
