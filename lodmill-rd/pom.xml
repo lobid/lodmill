@@ -9,37 +9,11 @@
 		<target.jdk>1.7</target.jdk>
 		<junit.version>4.8.2</junit.version>
 	</properties>
-	<repositories>
-		<repository>
-			<id>lobid-snapshots</id>
-			<url>http://lobid.github.com/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>lobid-releases</id>
-			<url>http://lobid.github.com/releases/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 	<dependencies>
 		<dependency>
-			<groupId>org.culturegraph</groupId>
-			<artifactId>metaflow</artifactId>
-			<version>0.1.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.culturegraph</groupId>
-			<artifactId>semanticweb</artifactId>
-			<version>0.4-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.culturegraph</groupId>
-			<artifactId>cluster</artifactId>
-			<version>0.4-SNAPSHOT</version>
+		    <groupId>org.culturegraph</groupId>
+		    <artifactId>metafacture-core</artifactId>
+		    <version>0.0.0</version>
 		</dependency>
 	</dependencies>
 	<build>
