@@ -1,0 +1,21 @@
+#for i in $(cat 404_uniqe_domains.txt); do grep "HTTP error 404" log.start.sh | grep -m1 $i >> 404_example_URL.txt ; done
+INFO: Status of URL 'http://caliban.mpiz-koeln.mpg.de/~stueber/debary/index.html' is accessible URL, HTTP error 404, checked in 45 ms
+INFO: Status of URL 'http://dbs.hab.de/feast.htm' is accessible URL, HTTP error 404, checked in 90 ms
+INFO: Status of URL 'http://digbib.ubka.uni-karlsruhe.de/eva/wasbleibt/45654727' is accessible URL, HTTP error 404, checked in 667 ms
+INFO: Status of URL 'http://digi.ub.uni-heidelberg.de/matrikelregister' is accessible URL, HTTP error 404, checked in 47 ms
+INFO: Status of URL 'http://docsrv1.digizeitschriften.de/digitools/browsing.php' is accessible URL, HTTP error 404, checked in 758 ms
+INFO: Status of URL 'http://fondosdigitales.us.es/books/list%5Fbooks%5Fby%5Fgroup?oid=13' is accessible URL, HTTP error 404, checked in 607 ms
+INFO: Status of URL 'http://geb.uni-giessen.de/geb/volltexte/2005/2090/index.html' is accessible URL, HTTP error 404, checked in 62 ms
+INFO: Status of URL 'http://germazope.uni-trier.de/Projects/WBB/woerterbuecher/gwb/suchmaschine' is accessible URL, HTTP error 404, checked in 154 ms
+INFO: Status of URL 'http://karten.bibliothek.uni-halle.de/altkt/A_IV_5_1_5-15/index.htm' is accessible URL, HTTP error 404, checked in 85 ms
+INFO: Status of URL 'http://library.fes.de/spdpd/1952/521204.pdf' is accessible URL, HTTP error 404, checked in 69 ms
+INFO: Status of URL 'http://mdz1.bib-bvb.de/~db/ausgaben/dodausgabe.html?recherche=ja&ordnung=alpha' is accessible URL, HTTP error 404, checked in 153 ms
+INFO: Status of URL 'http://mdz.bib-bvb.de/digbib/lexika/adelung' is accessible URL, HTTP error 404, checked in 97 ms
+INFO: Status of URL 'http://portal.hsb.hs-wismar.de/pub/lbmv/mjb/jb025.355123053.html' is accessible URL, HTTP error 404, checked in 76 ms
+INFO: Status of URL 'http://resolver.sub.uni-goettingen.de/PURL?GDZPPN00105323X' is accessible URL, HTTP error 404, checked in 68 ms
+INFO: Status of URL 'http://wafr.lbmv.de/indexsuche.htm' is accessible URL, HTTP error 404, checked in 225 ms
+INFO: Status of URL 'http://www.arthistoricum.net/ressourcen/glaspalastkataloge/' is accessible URL, HTTP error 404, checked in 1029 ms
+INFO: Status of URL 'http://www.bayerische-landesbibliothek-online.de/glaspalast/index.html?pcontent=startseite' is accessible URL, HTTP error 404, checked in 11816 ms
+INFO: Status of URL 'http://www.biologie.uni-hamburg.de/b-online/italien/index.html' is accessible URL, HTTP error 404, checked in 88 ms
+INFO: Status of URL 'http://www.jalb.de/agora/html/237TABLE_OF_CONTENTS.html' is accessible URL, HTTP error 404, checked in 102 ms
+INFO: Status of URL 'http://www.sub.uni-goettingen.de/~sub/' is accessible URL, HTTP error 404, checked in 304 ms
