@@ -1,0 +1,17 @@
+INFO: Status of URL 'http://www.lbz-rlp.de/cms/rheinische-landesbibliothek/digitale-angebote/digitalisate/digitalisierte-quellen-zur-mittelrheinischen-geschichte-und-landeskunde/index.html' is non-accessible URL, unknown host, checked in 27 ms
+INFO: Status of URL 'http://141.48.65.28/login?f=auth&user=usera&pwd=usera&lang=de' is non-accessible URL, unknown host, checked in 13 ms
+INFO: Status of URL 'http://altedrucke.staatsbibliothek-berlin.de/Rechtsquellen/quellen.html' is non-accessible URL, unknown host, checked in 46 ms
+INFO: Status of URL 'http://amtspresse.staatsbibliothek-berlin.de/verzeichnis.php' is non-accessible URL, unknown host, checked in 17 ms
+INFO: Status of URL 'http://archimedes2.mpiwg-berlin.mpg.de/archimedes_templates/biography.html?-table=archimedes_authors' is non-accessible URL, unknown host, checked in 20868 ms
+INFO: Status of URL 'http://cl03.rz.uni-rostock.de/servlets/YearbookInquiry?docid=180' is non-accessible URL, unknown host, checked in 7 ms
+INFO: Status of URL 'uhttp://digi.ub.uni-heidelberg.de/diglit/feldztgkrzeit1914bis1916' is non-accessible URL, unknown host, checked in 1 ms
+INFO: Status of URL 'http://isgv.serveftp.org/codex+/' is non-accessible URL, unknown host, checked in 74 ms
+INFO: Status of URL 'http://nbn-resolving.de/urn/resolver.pl?urn=urn:nbn:de:bvb:12-bsb00005746-9' is non-accessible URL, unknown host, checked in 3 ms
+INFO: Status of URL 'http://ßßportal.hsb.hs-wismar.de/pub/lbmv/mmh/jg002/393362116.pdf' is non-accessible URL, unknown host, checked in 16 ms
+INFO: Status of URL 'http://www.bundesarchiv.de/kabinettsprotokolle/web/index.jsp' is non-accessible URL, unknown host, checked in 36 ms
+INFO: Status of URL 'http://www.deutschefotothek.de/?ARCHIV_KUENSTLERZEITSCHRIFTEN' is non-accessible URL, unknown host, checked in 80 ms
+INFO: Status of URL 'http://www.emis.de/MATH/JFM/JFM.html' is non-accessible URL, unknown host, checked in 87 ms
+INFO: Status of URL 'http://www.gdz-sub.uni-goettingen.de/cgi-bin/' is non-accessible URL, unknown host, checked in 16 ms
+INFO: Status of URL 'http://www.gdz-sub.uni-goettingen.de/cgi-bin/' is non-accessible URL, unknown host, checked in 16 ms
+INFO: Status of URL 'http://www.gdz-ub.uni-goettingen.de/~cgi-bin/' is non-accessible URL, unknown host, checked in 23 ms
+INFO: Status of URL 'http://www.lbz-rlp.de/cms/rheinische-landesbibliothek/digitale-angebote/digitalisate/digitalisierte-quellen-zur-mittelrheinischen-geschichte-und-landeskunde/index.html' is non-accessible URL, unknown host, checked in 27 ms
