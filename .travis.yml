@@ -11,7 +11,3 @@ script:
   - mvn test -e -q --settings settings.xml
   - cd lodmill-ui
   - ../play-${PLAY_VERSION}/play compile
-  - cd ..
-  - cd metatext
-  - sh deploy.sh
-  - mvn clean install -e
