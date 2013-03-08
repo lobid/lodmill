@@ -6,13 +6,12 @@ package org.lobid.lodmill;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.culturegraph.metastream.annotation.Description;
-import org.culturegraph.metastream.annotation.In;
-import org.culturegraph.metastream.annotation.Out;
-import org.culturegraph.metastream.converter.Encoder;
-import org.culturegraph.metastream.framework.DefaultStreamPipe;
-import org.culturegraph.metastream.framework.ObjectReceiver;
-import org.culturegraph.metastream.framework.StreamReceiver;
+import org.culturegraph.mf.framework.DefaultStreamPipe;
+import org.culturegraph.mf.framework.ObjectReceiver;
+import org.culturegraph.mf.framework.StreamReceiver;
+import org.culturegraph.mf.framework.annotations.Description;
+import org.culturegraph.mf.framework.annotations.In;
+import org.culturegraph.mf.framework.annotations.Out;
 
 /**
  * @author Fabian Steeg, Pascal Christoph
@@ -21,7 +20,7 @@ import org.culturegraph.metastream.framework.StreamReceiver;
 @In(StreamReceiver.class)
 @Out(String.class)
 public abstract class AbstractGraphPipeEncoder extends
-		DefaultStreamPipe<ObjectReceiver<String>> implements Encoder {
+		DefaultStreamPipe<ObjectReceiver<String>> {
 
 	static final String SUBJECT_NAME = "subject";
 	String subject;

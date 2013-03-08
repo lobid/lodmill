@@ -1,6 +1,0 @@
-"../../hbz_zvdd_collections_marc.xml"|
-open("file")|
-read("marcxml")|
-morph("morph-zvdd_collection-rdfld.xml")|
-encode("pretty-print")|
-write("stdout");

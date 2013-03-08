@@ -15,16 +15,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.antlr.runtime.RecognitionException;
-import org.culturegraph.metaflow.Metaflow;
-import org.culturegraph.metamorph.Visualize;
-import org.culturegraph.metamorph.core.Metamorph;
-import org.culturegraph.metamorph.core.MetamorphErrorHandler;
-import org.culturegraph.metamorph.reader.MarcXmlReader;
-import org.culturegraph.metamorph.reader.Reader;
-import org.culturegraph.metastream.framework.DefaultStreamReceiver;
-import org.culturegraph.metastream.pipe.ObjectTee;
-import org.culturegraph.metastream.sink.ObjectMultiWriter;
+import org.culturegraph.mf.framework.DefaultStreamReceiver;
+import org.culturegraph.mf.morph.Metamorph;
+import org.culturegraph.mf.morph.MorphErrorHandler;
+import org.culturegraph.mf.stream.pipe.ObjectTee;
+import org.culturegraph.mf.stream.reader.MarcXmlReader;
+import org.culturegraph.mf.stream.reader.Reader;
+import org.culturegraph.mf.stream.sink.ObjectWriter;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -48,21 +45,6 @@ public final class ZvddMarcIngest {
 	private Metamorph metamorph = new Metamorph(Thread.currentThread()
 			.getContextClassLoader()
 			.getResourceAsStream("morph-zvdd_title-digital-rdfld.xml"));
-	private static String flow;
-	private static String morph;
-
-	public static void main(String[] args) throws IOException,
-			RecognitionException {
-		// collection resources:
-		flow = "src/main/resources/zvdd_collections.flow";
-		morph = "src/main/resources/morph-zvdd_collection-rdfld.xml";
-		// title resources:
-		// flow = "src/main/resources/zvdd.flow";
-		// morph = "src/main/resources/morph-zvdd_title-print-rdfld.xml";
-		Metaflow.main(new String[] { "-f", flow }); //
-		Visualize.main(new String[] { morph, morph + ".dot" });
-
-	}
 
 	@Test
 	public void stats() throws IOException {
@@ -109,13 +91,8 @@ public final class ZvddMarcIngest {
 
 	private ObjectTee<String> outputTee(final File triples) {
 		final ObjectTee<String> tee = new ObjectTee<>();
-		tee.addReceiver(new ObjectMultiWriter<String>("stdout"));
-		/*
-		 * ObjectMultiWriter expects 'file:///path' format, while File#toURI
-		 * creates a 'file:/path' URI, so we assemble the string by hand:
-		 */
-		tee.addReceiver(new ObjectMultiWriter<String>("file://"
-				+ triples.getAbsolutePath()));
+		tee.addReceiver(new ObjectWriter<String>("stdout"));
+		tee.addReceiver(new ObjectWriter<String>(triples.getAbsolutePath()));
 		return tee;
 	}
 
@@ -130,7 +107,7 @@ public final class ZvddMarcIngest {
 	}
 
 	private void setUpErrorHandler(Metamorph metamorph) {
-		metamorph.setErrorHandler(new MetamorphErrorHandler() {
+		metamorph.setErrorHandler(new MorphErrorHandler() {
 			@Override
 			public void error(final Exception exception) {
 				LOG.error(exception.getMessage(), exception);
