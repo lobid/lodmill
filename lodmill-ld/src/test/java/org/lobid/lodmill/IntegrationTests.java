@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill;
 
@@ -17,4 +17,5 @@ import org.lobid.lodmill.sparql.GutenbergTests;
 @Suite.SuiteClasses({ IndexFromHdfsInElasticSearchTests.class,
 		GutenbergTests.class, FourStoreTests.class })
 public final class IntegrationTests {
+	/* Suite class, groups tests via annotation above */
 }

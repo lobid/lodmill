@@ -15,13 +15,13 @@ public class LobidToJsonLd implements Tool {
 	private static final int SLOTS = 2; // e.g. 2 cores per node
 	private Configuration conf;
 
-	public static void main(final String[] args) throws Exception {
+	public static void main(final String[] args) throws Exception { // NOPMD
 		final int res = ToolRunner.run(new LobidToJsonLd(), args);
 		System.exit(res);
 	}
 
 	@Override
-	public final int run(final String[] args) throws Exception {
+	public final int run(final String[] args) throws Exception { // NOPMD
 		if (args.length != 2) {
 			System.err
 					.println("Usage: LobidToJsonLd <input path> <output path>");

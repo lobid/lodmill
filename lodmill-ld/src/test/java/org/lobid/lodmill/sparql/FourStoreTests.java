@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.sparql;
 
@@ -8,7 +8,6 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
@@ -33,6 +32,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  * 
  * @author Fabian Steeg (fsteeg)
  */
+@SuppressWarnings("javadoc")
 public final class FourStoreTests {
 
 	private static final String URL = "http://aither.hbz-nrw.de:8000";
@@ -42,6 +42,7 @@ public final class FourStoreTests {
 			.getLogger(FourStoreTests.class);
 	private final FourStore store = new FourStore(URL);
 
+	@SuppressWarnings("static-method")
 	@Test
 	public void sparqlSimple() throws IOException {
 		/* Most simple way to send a SPARQL query: use a URL object */
@@ -49,19 +50,17 @@ public final class FourStoreTests {
 				new URL(URL
 						+ "/sparql/"
 						+ "?query="
-						+ URLEncoder.encode(
-								"SELECT * FROM <http://example.com/G>"
-										+ " WHERE { ?s ?p ?o } LIMIT 50",
-								ENCODING));
+						+ URLEncoder.encode("SELECT * FROM <http://example.com/G>"
+								+ " WHERE { ?s ?p ?o } LIMIT 50", ENCODING));
 		final String response =
-				CharStreams.toString(new InputStreamReader(url.openStream(),
-						"UTF-8"));
+				CharStreams.toString(new InputStreamReader(url.openStream(), "UTF-8"));
 		assertFalse("Output string should contain something", response.trim()
 				.isEmpty());
 	}
 
+	@SuppressWarnings("static-method")
 	@Test
-	public void read() throws URISyntaxException, IOException {
+	public void read() {
 		Model model = ModelFactory.createDefaultModel();
 		final URL url = findUrl(LOBID);
 		model = model.read(url.toString(), Format.N_TRIPLE.getName());
@@ -69,8 +68,9 @@ public final class FourStoreTests {
 				.size() > 0);
 	}
 
+	@SuppressWarnings("static-method")
 	@Test
-	public void readAll() throws URISyntaxException {
+	public void readAll() {
 		final Graph graph = loadGraph();
 		final Triple any = Triple.createMatch(null, null, null);
 		final List<Triple> triples = graph.find(any).toList();
@@ -87,26 +87,24 @@ public final class FourStoreTests {
 		final HttpResponse response =
 				store.insertTriple(graph, Triple.create(
 						Node.createURI("http://example.com/s"),
-						Node.createURI("http://example.com/p"),
-						Node.createLiteral("o")));
+						Node.createURI("http://example.com/p"), Node.createLiteral("o")));
 		assertEquals("Response should indicate status OK", HttpStatus.SC_OK,
 				response.getStatusLine().getStatusCode());
 		final List<QuerySolution> result =
 				store.sparqlSelect(String.format(
-						"SELECT * FROM <%s> WHERE { ?s ?p ?o } LIMIT 100",
-						graph));
+						"SELECT * FROM <%s> WHERE { ?s ?p ?o } LIMIT 100", graph));
 		assertEquals("New triple should be in named graph", 1, result.size());
 
 	}
 
-	private Graph loadGraph() {
+	private static Graph loadGraph() {
 		Model model = ModelFactory.createDefaultModel();
 		final URL url = findUrl(LOBID);
 		model = model.read(url.toString(), Format.N_TRIPLE.getName());
 		return model.getGraph();
 	}
 
-	private URL findUrl(final String name) {
+	private static URL findUrl(final String name) {
 		return Thread.currentThread().getContextClassLoader().getResource(name);
 	}
 }

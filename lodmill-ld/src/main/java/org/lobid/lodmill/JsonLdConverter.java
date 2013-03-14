@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill;
 
@@ -30,9 +30,13 @@ public class JsonLdConverter {
 			.getLogger(JsonLdConverter.class);
 	private final Format format;
 
+	/**
+	 * RDF serialization formats.
+	 */
+	@SuppressWarnings("javadoc")
 	public static enum Format {
-		RDF_XML("RDF/XML"), RDF_XML_ABBREV("RDF/XML-ABBREV"), N_TRIPLE(
-				"N-TRIPLE"), N3("N3"), TURTLE("TURTLE");
+		RDF_XML("RDF/XML"), RDF_XML_ABBREV("RDF/XML-ABBREV"), N_TRIPLE("N-TRIPLE"), N3(
+				"N3"), TURTLE("TURTLE");
 
 		private final String name;
 
@@ -45,10 +49,17 @@ public class JsonLdConverter {
 		}
 	}
 
+	/**
+	 * @param format The RDF serialization format to use for conversions.
+	 */
 	public JsonLdConverter(final Format format) {
 		this.format = format;
 	}
 
+	/**
+	 * @param jsonLd The JSON-LD string to convert
+	 * @return The input, converted to this converters RDF serialization
+	 */
 	public String toRdf(final String jsonLd) {
 		try {
 			final JSONLDProcessor processor = new JSONLDProcessor();
@@ -63,6 +74,10 @@ public class JsonLdConverter {
 		return null;
 	}
 
+	/**
+	 * @param rdf The RDF string in this converter's format
+	 * @return The input, converted to JSON-LD
+	 */
 	public String toJsonLd(final String rdf) {
 		final Model model = ModelFactory.createDefaultModel();
 		model.read(new StringReader(rdf), null, format.getName());

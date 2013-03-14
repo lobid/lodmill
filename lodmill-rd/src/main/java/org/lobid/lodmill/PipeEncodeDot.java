@@ -57,8 +57,8 @@ public final class PipeEncodeDot extends AbstractGraphPipeEncoder {
 			String object = objects.get(i);
 			object = object.charAt(0) == '"' ? object : "\"" + object + "\"";
 			getReceiver().process(
-					String.format("\t\"<%s>\" -> %s [label=\"%s\"]", subject,
-							object, predicates.get(i)));
+					String.format("\t\"<%s>\" -> %s [label=\"%s\"]", subject, object,
+							predicates.get(i)));
 		}
 	}
 

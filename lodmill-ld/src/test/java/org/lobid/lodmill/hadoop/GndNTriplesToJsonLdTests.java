@@ -1,6 +1,6 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
-package org.lobid.lodmill.hadoop;
+package org.lobid.lodmill.hadoop; // NOPMD
 
 import static org.lobid.lodmill.hadoop.LobidNTriplesToJsonLdTests.indexMap;
 import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_CREATOR_ID;
@@ -16,6 +16,7 @@ import java.util.Map;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mrunit.TestDriver;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.json.simple.JSONValue;
@@ -29,6 +30,7 @@ import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
  * 
  * @author Fabian Steeg (fsteeg)
  */
+@SuppressWarnings("javadoc")
 public final class GndNTriplesToJsonLdTests {
 
 	private static final String TRIPLE_ID = "http://d-nb.info/gnd/"
@@ -48,13 +50,18 @@ public final class GndNTriplesToJsonLdTests {
 		final NTriplesToJsonLdReducer reducer = new NTriplesToJsonLdReducer();
 		mapDriver = MapDriver.newMapDriver(mapper);
 		reduceDriver = ReduceDriver.newReduceDriver(reducer);
-		mapDriver.setConfiguration(configuration);
-		reduceDriver.setConfiguration(configuration);
+		setConfiguration(mapDriver);
+		setConfiguration(reduceDriver);
+	}
+
+	private static void setConfiguration(final TestDriver<?, ?, ?, ?, ?> driver) {
+		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_NAME, INDEX);
+		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_TYPE, TYPE);
 	}
 
 	@Test
 	public void testMapper() throws IOException { // NOPMD (MRUnit, no explicit
-													// assertion)
+		// assertion)
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_1));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_2));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_3));
@@ -66,12 +73,11 @@ public final class GndNTriplesToJsonLdTests {
 
 	@Test
 	public void testReducer() throws IOException { // NOPMD (MRUnit, no explicit
-													// assertion)
+		// assertion)
 		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
 				GND_TRIPLE_1), new Text(GND_TRIPLE_2), new Text(GND_TRIPLE_3)));
 		reduceDriver.withOutput(
-				new Text(JSONValue
-						.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
+				new Text(JSONValue.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
 				new Text(JSONValue.toJSONString(jsonMap())));
 		reduceDriver.runTest();
 	}
