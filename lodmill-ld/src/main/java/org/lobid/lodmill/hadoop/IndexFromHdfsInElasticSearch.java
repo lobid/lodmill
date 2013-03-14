@@ -59,14 +59,10 @@ public class IndexFromHdfsInElasticSearch {
 		final FileSystem hdfs =
 				FileSystem.get(URI.create(args[0]), new Configuration());
 		final Client client =
-				new TransportClient(ImmutableSettings
-						.settingsBuilder()
-						.put("cluster.name", args[3])
-						.put("client.transport.sniff", false)
-						.put("client.transport.ping_timeout", 20,
-								TimeUnit.SECONDS).build())
-						.addTransportAddress(new InetSocketTransportAddress(
-								args[2], 9300));
+				new TransportClient(ImmutableSettings.settingsBuilder()
+						.put("cluster.name", args[3]).put("client.transport.sniff", false)
+						.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build())
+						.addTransportAddress(new InetSocketTransportAddress(args[2], 9300));
 		final IndexFromHdfsInElasticSearch indexer =
 				new IndexFromHdfsInElasticSearch(hdfs, client);
 		indexer.indexAll(args[1].endsWith("/") ? args[1] : args[1] + "/");
@@ -76,8 +72,7 @@ public class IndexFromHdfsInElasticSearch {
 	 * @param hdfs The HDFS to index from
 	 * @param client The ElasticSearch client for indexing
 	 */
-	public IndexFromHdfsInElasticSearch(final FileSystem hdfs,
-			final Client client) {
+	public IndexFromHdfsInElasticSearch(final FileSystem hdfs, final Client client) {
 		this.hdfs = hdfs;
 		this.client = client;
 	}
@@ -109,8 +104,7 @@ public class IndexFromHdfsInElasticSearch {
 	 * @return A list of responses for requests that failed
 	 * @throws IOException When HDFS operations fail
 	 */
-	public List<BulkItemResponse> indexOne(final String data)
-			throws IOException {
+	public List<BulkItemResponse> indexOne(final String data) throws IOException {
 		checkPathInHdfs(data);
 		final FSDataInputStream inputStream = hdfs.open(new Path(data));
 		final Scanner scanner = new Scanner(inputStream, "UTF-8");
@@ -188,8 +182,7 @@ public class IndexFromHdfsInElasticSearch {
 		final String id = (String) object.get("_id"); // NOPMD
 		final IndicesAdminClient admin = client.admin().indices();
 		if (!admin.prepareExists(index).execute().actionGet().exists()) {
-			admin.prepareCreate(index).setSource(config()).execute()
-					.actionGet();
+			admin.prepareCreate(index).setSource(config()).execute().actionGet();
 		}
 		return client.prepareIndex(index, type, id).setSource(map);
 	}
@@ -223,9 +216,9 @@ public class IndexFromHdfsInElasticSearch {
 				} catch (InterruptedException x) {
 					LOG.error(x.getMessage(), x);
 				}
-				LOG.error(String
-						.format("Retry bulk index request after exception: %s (%s more retries)",
-								e.getMessage(), retries));
+				LOG.error(String.format(
+						"Retry bulk index request after exception: %s (%s more retries)",
+						e.getMessage(), retries));
 			}
 		}
 		return bulkResponse;

@@ -32,8 +32,7 @@ public final class LobidNTriplesToJsonLdTests {
 			+ "<http://purl.org/dc/elements/1.1/creator>"
 			+ "<http://d-nb.info/gnd/118643606>.";
 	private static final String TRIPLE_2 = TRIPLE_URI
-			+ "<http://purl.org/dc/elements/1.1/creator>"
-			+ "\"Adamucci, Antonio\".";
+			+ "<http://purl.org/dc/elements/1.1/creator>" + "\"Adamucci, Antonio\".";
 	private static final String TRIPLE_3 = TRIPLE_URI
 			+ " <http://purl.org/dc/terms/subject>"
 			/* Some N-Triples contain (malformed) URIs as literals: */
@@ -61,7 +60,7 @@ public final class LobidNTriplesToJsonLdTests {
 
 	@Test
 	public void testMapper() throws IOException { // NOPMD (MRUnit, no explicit
-													// assertion)
+		// assertion)
 		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_1));
 		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_2));
 		mapDriver.addInput(new LongWritable(), new Text(TRIPLE_3));
@@ -75,13 +74,11 @@ public final class LobidNTriplesToJsonLdTests {
 
 	@Test
 	public void testReducer() throws IOException { // NOPMD (MRUnit, no explicit
-													// assertion)
+		// assertion)
 		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
-				TRIPLE_1), new Text(TRIPLE_2), new Text(TRIPLE_3), new Text(
-				TRIPLE_4)));
+				TRIPLE_1), new Text(TRIPLE_2), new Text(TRIPLE_3), new Text(TRIPLE_4)));
 		reduceDriver.withOutput(
-				new Text(JSONValue
-						.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
+				new Text(JSONValue.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
 				new Text(JSONValue.toJSONString(jsonMap())));
 		reduceDriver.runTest();
 	}

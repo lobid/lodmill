@@ -49,35 +49,42 @@ public class Document {
 	public static final String ES_CLUSTER_NAME = "es-lod-hydra";
 	public static ImmutableMap<String, Map<String, List<String>>> searchFieldsMap =
 			new ImmutableMap.Builder<String, Map<String, List<String>>>()
-					.put("lobid-index",
+					.put(
+							"lobid-index",
 							new ImmutableMap.Builder<String, List<String>>()
-									.put("author",
-											Arrays.asList(
-													"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
-													"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
-													"http://purl.org/dc/elements/1.1/creator#dateOfDeath"))
-									.put("id",
-											Arrays.asList(
-													"@id",
+									.put(
+											"author",
+											Arrays
+													.asList(
+															"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
+															"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
+															"http://purl.org/dc/elements/1.1/creator#dateOfDeath"))
+									.put(
+											"id",
+											Arrays.asList("@id",
 													"http://purl.org/ontology/bibo/isbn13",
-													"http://purl.org/ontology/bibo/isbn10"))
-									.build())
-					.put("gnd-index",
+													"http://purl.org/ontology/bibo/isbn10")).build())
+					.put(
+							"gnd-index",
 							new ImmutableMap.Builder<String, List<String>>()
-									.put("author",
-											Arrays.asList(
-													"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-													"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-													"http://d-nb.info/standards/elementset/gnd#dateOfDeath"))
+									.put(
+											"author",
+											Arrays
+													.asList(
+															"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+															"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
+															"http://d-nb.info/standards/elementset/gnd#dateOfDeath"))
 									.build())
-					.put("lobid-orgs-index",
-							new ImmutableMap.Builder<String, List<String>>()
-									.put("title",
-											Arrays.asList("http://www.w3.org/2004/02/skos/core#prefLabel"))
+					.put(
+							"lobid-orgs-index",
+							new ImmutableMap.Builder<String, List<String>>().put(
+									"title",
+									Arrays
+											.asList("http://www.w3.org/2004/02/skos/core#prefLabel"))
 									.build()).build();
 
-	public static List<String> searchFields = searchFieldsMap
-			.get("lobid-index").get("author");
+	public static List<String> searchFields = searchFieldsMap.get("lobid-index")
+			.get("author");
 
 	private static final Client CLIENT = new TransportClient(ImmutableSettings
 			.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME).build())
@@ -120,8 +127,8 @@ public class Document {
 						.setQuery(constructQuery(query, category));
 		/* TODO: pass limit as a parameter */
 		final SearchResponse response =
-				requestBuilder.setFrom(0).setSize(50).setExplain(true)
-						.execute().actionGet();
+				requestBuilder.setFrom(0).setSize(50).setExplain(true).execute()
+						.actionGet();
 		final SearchHits hits = response.getHits();
 		return asDocuments(query, hits);
 	}
@@ -134,11 +141,9 @@ public class Document {
 		}
 		searchFields = searchFieldsMap.get(index).get(category);
 		if (searchFields == null) {
-			throw new IllegalArgumentException(
-					String.format(
-							"Invalid type ('%s') for specified index ('%s') - valid types: %s",
-							category, index, searchFieldsMap.get(index)
-									.keySet()));
+			throw new IllegalArgumentException(String.format(
+					"Invalid type ('%s') for specified index ('%s') - valid types: %s",
+					category, index, searchFieldsMap.get(index).keySet()));
 		}
 	}
 
@@ -155,14 +160,12 @@ public class Document {
 			/* HT number -> URL (temp. until we have an HBZ-ID field) */
 			"http://lobid.org/resource/" + search : search;
 			query =
-					multiMatchQuery(fixedQuery,
-							searchFields.toArray(new String[] {}));
+					multiMatchQuery(fixedQuery, searchFields.toArray(new String[] {}));
 		} else {
 			/* Search all in name field: */
 			query =
 					boolQuery().must(
-							matchQuery(searchFields.get(0), search).operator(
-									Operator.AND));
+							matchQuery(searchFields.get(0), search).operator(Operator.AND));
 		}
 		LOG.debug("Using query: " + query);
 		return query;
@@ -172,11 +175,12 @@ public class Document {
 			final String search, final Matcher matcher) {
 		/* Search name in name field and birth in birth field: */
 		final BoolQueryBuilder birthQuery =
-				boolQuery().must(
-						matchQuery(searchFields.get(0),
-								search.replaceAll(lifeDates, "").trim())
-								.operator(Operator.AND)).must(
-						matchQuery(searchFields.get(1), matcher.group(1)));
+				boolQuery()
+						.must(
+								matchQuery(searchFields.get(0),
+										search.replaceAll(lifeDates, "").trim()).operator(
+										Operator.AND)).must(
+								matchQuery(searchFields.get(1), matcher.group(1)));
 		return matcher.group(2).equals("") ? birthQuery :
 		/* If we have one, search death in death field: */
 		birthQuery.must(matchQuery(searchFields.get(2), matcher.group(2)));
@@ -199,8 +203,8 @@ public class Document {
 		return ImmutableList.copyOf(Iterables.filter(res, predicate));
 	}
 
-	private static void withMatchedField(final String query,
-			final SearchHit hit, final Document document) {
+	private static void withMatchedField(final String query, final SearchHit hit,
+			final Document document) {
 		final Object matchedField = firstExisting(hit);
 		if (matchedField instanceof List
 				&& ((List<?>) matchedField).get(0) instanceof String) {
@@ -215,8 +219,7 @@ public class Document {
 			} else {
 				final String format =
 						String.format("%s (%s-%s)", matchedField.toString(),
-								birth.toString(),
-								death == null ? "" : death.toString());
+								birth.toString(), death == null ? "" : death.toString());
 				document.matchedField = format;
 			}
 		} else if (matchedField instanceof String) {

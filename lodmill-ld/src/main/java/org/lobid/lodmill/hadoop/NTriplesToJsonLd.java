@@ -110,13 +110,12 @@ public class NTriplesToJsonLd implements Tool {
 				try {
 					/* Convert literal URIs in N-Triple to real URIs: */
 					final String triple =
-							value.toString().replaceAll(
-									"\"\\s*?(http[s]?://[^\"]+)s*?\"", "<$1>");
-					model.read(new StringReader(triple), null,
-							Format.N_TRIPLE.getName());
+							value.toString().replaceAll("\"\\s*?(http[s]?://[^\"]+)s*?\"",
+									"<$1>");
+					model.read(new StringReader(triple), null, Format.N_TRIPLE.getName());
 				} catch (Exception e) {
-					System.err.println(String.format("Could not read '%s': %s",
-							value, e.getMessage()));
+					System.err.println(String.format("Could not read '%s': %s", value,
+							e.getMessage()));
 				}
 			}
 			// And convert the model to JSON-LD:
@@ -125,8 +124,7 @@ public class NTriplesToJsonLd implements Tool {
 			final String resource = JSONUtils.toString(serializer.asObject());
 			context.write(
 					// write both with JSONValue for consistent escaping:
-					new Text(JSONValue
-							.toJSONString(createIndexMap(key, context))),
+					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
 					new Text(JSONValue.toJSONString(JSONValue.parse(resource))));
 		}
 

@@ -59,8 +59,8 @@ public final class ZvddMarcIngest {
 				sortedByValuesDescending(stats);
 		final File mapping = writeTextileMappingTable(entries);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
-		Assert.assertTrue("Values should have descending frequency", entries
-				.get(0).getValue() > entries.get(entries.size() - 1).getValue());
+		Assert.assertTrue("Values should have descending frequency", entries.get(0)
+				.getValue() > entries.get(entries.size() - 1).getValue());
 		Assert.assertTrue("Mapping table should exist", mapping.exists());
 		mapping.deleteOnExit();
 	}
@@ -68,8 +68,7 @@ public final class ZvddMarcIngest {
 	@Test
 	public void triples() throws IOException {
 		setUpErrorHandler(metamorph);
-		process(new PipeEncodeTriples(), new File(
-				"zvdd-title-digitalisation.nt"));
+		process(new PipeEncodeTriples(), new File("zvdd-title-digitalisation.nt"));
 	}
 
 	@Test

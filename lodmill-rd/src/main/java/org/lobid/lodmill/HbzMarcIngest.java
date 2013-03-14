@@ -44,8 +44,7 @@ public final class HbzMarcIngest {
 			.getResourceAsStream("mapping/ingest.marc21.xml"));
 
 	private final SortedSet<String> errorSet = new TreeSet<String>();
-	private final Map<String, Integer> errorMap =
-			new HashMap<String, Integer>();
+	private final Map<String, Integer> errorMap = new HashMap<String, Integer>();
 
 	@Test
 	public void ingest() throws IOException {
@@ -63,8 +62,7 @@ public final class HbzMarcIngest {
 				processError(rawReportWriter, name, errorMessage);
 			}
 		});
-		final BufferedReader scanner =
-				new BufferedReader(new FileReader(HBZ_MARC));
+		final BufferedReader scanner = new BufferedReader(new FileReader(HBZ_MARC));
 		int all = 0;
 		String line = null;
 		while ((line = scanner.readLine()) != null) { // NOPMD (idiomatic usage)
@@ -74,8 +72,8 @@ public final class HbzMarcIngest {
 			} catch (Exception e) {
 				final String name = e.getClass().getSimpleName();
 				final String errorMessage =
-						String.format("Metastream error (%s): %s, record: %s",
-								name, e.getMessage(), line);
+						String.format("Metastream error (%s): %s, record: %s", name,
+								e.getMessage(), line);
 				processError(rawReportWriter, name, errorMessage);
 			}
 		}
@@ -87,8 +85,8 @@ public final class HbzMarcIngest {
 				REPORT_PROCESSED).exists());
 	}
 
-	private void writeProcessedReport(final BufferedReader scanner,
-			final int all) throws IOException {
+	private void writeProcessedReport(final BufferedReader scanner, final int all)
+			throws IOException {
 		final BufferedWriter processedReportWriter =
 				new BufferedWriter(new FileWriter(REPORT_PROCESSED));
 		int err = 0;
@@ -101,8 +99,8 @@ public final class HbzMarcIngest {
 		processedReportWriter.write(summary + "\n");
 		for (String s : errorMap.keySet()) {
 			System.out.println(String.format("%s: %s", s, errorMap.get(s)));
-			processedReportWriter.write(String.format("%s: %s\n", s,
-					errorMap.get(s)));
+			processedReportWriter
+					.write(String.format("%s: %s\n", s, errorMap.get(s)));
 		}
 		scanner.close();
 		for (String string : errorSet) {

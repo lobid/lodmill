@@ -35,10 +35,10 @@ public final class Application extends Controller {
 	}
 
 	/*
-	 * These static variables are used by the autocomplete function which uses
-	 * the Jquery-UI autocomplete widget. According to my current understanding,
-	 * this widget requires an endpoint that expects a single String parameter,
-	 * so we set the other required info here:
+	 * These static variables are used by the autocomplete function which uses the
+	 * Jquery-UI autocomplete widget. According to my current understanding, this
+	 * widget requires an endpoint that expects a single String parameter, so we
+	 * set the other required info here:
 	 */
 	public static String index = "lobid-index";
 	public static String category = "author";
@@ -93,28 +93,27 @@ public final class Application extends Controller {
 			};
 
 	private static ImmutableMap<Format, Result> results(final String query,
-			final List<Document> documents, final String index,
-			final String category) {
+			final List<Document> documents, final String index, final String category) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
-				request() == null || request().queryString() == null ? null
-						: request().queryString().get("callback");
+				request() == null || request().queryString() == null ? null : request()
+						.queryString().get("callback");
 		final JsonNode shortJson =
-				Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
-						jsonShort)));
+				Json.toJson(ImmutableSet.copyOf(Lists.transform(documents, jsonShort)));
 		final ImmutableMap<Format, Result> results =
 				new ImmutableMap.Builder<Format, Result>()
-						.put(Format.PAGE,
-								ok(views.html.index.render(documents, index,
-										query, category, Format.PAGE.toString()
-												.toLowerCase())))
-						.put(Format.FULL,
-								ok(Json.toJson(ImmutableSet.copyOf(Lists
-										.transform(documents, jsonFull)))))
-						.put(Format.SHORT,
-								callback != null ? ok(String.format("%s(%s)",
-										callback[0], shortJson))
-										: ok(shortJson)).build();
+						.put(
+								Format.PAGE,
+								ok(views.html.index.render(documents, index, query, category,
+										Format.PAGE.toString().toLowerCase())))
+						.put(
+								Format.FULL,
+								ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
+										jsonFull)))))
+						.put(
+								Format.SHORT,
+								callback != null ? ok(String.format("%s(%s)", callback[0],
+										shortJson)) : ok(shortJson)).build();
 		return results;
 	}
 

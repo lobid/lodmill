@@ -31,8 +31,8 @@ public class JsonLdConverter {
 	private final Format format;
 
 	public static enum Format {
-		RDF_XML("RDF/XML"), RDF_XML_ABBREV("RDF/XML-ABBREV"), N_TRIPLE(
-				"N-TRIPLE"), N3("N3"), TURTLE("TURTLE");
+		RDF_XML("RDF/XML"), RDF_XML_ABBREV("RDF/XML-ABBREV"), N_TRIPLE("N-TRIPLE"), N3(
+				"N3"), TURTLE("TURTLE");
 
 		private final String name;
 

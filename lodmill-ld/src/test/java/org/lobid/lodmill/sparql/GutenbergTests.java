@@ -48,8 +48,8 @@ public final class GutenbergTests {
 			.getLogger(GutenbergTests.class);
 	/* First run, pass '-Xmx3000m -XX:+UseConcMarkSweepGC' as JVM args for Jena */
 	private static final Gutenberg GUTENBERG = new Gutenberg(new File(MAP_BIN));
-	private final FourStore store = new FourStore(
-			"http://aither.hbz-nrw.de:8000");
+	private final FourStore store =
+			new FourStore("http://aither.hbz-nrw.de:8000");
 
 	@Test
 	public void gutenbergWorksForLobidAuthor() throws URISyntaxException,
@@ -61,8 +61,8 @@ public final class GutenbergTests {
 				GUTENBERG.linkGutenbergToGndAuthors(gndIds, store, writer);
 		writer.close();
 		LOG.info(String.format("Created new model, size %s", newModel.size()));
-		assertTrue("New triples should have been found", newModel.getGraph()
-				.size() > 0);
+		assertTrue("New triples should have been found",
+				newModel.getGraph().size() > 0);
 		/* Upload and use our small testing data: */
 		upload(OUT, store, GRAPH);
 		newModelSampleUsage(gndIds, newModel.getGraph());
@@ -84,8 +84,7 @@ public final class GutenbergTests {
 		final List<Triple> triples = model.getGraph().find(any).toList();
 		for (Triple triple : triples) {
 			final HttpResponse response = store.insertTriple(graph, triple);
-			LOG.info(String.format("Insert triple %s, response %s", triple,
-					response));
+			LOG.info(String.format("Insert triple %s, response %s", triple, response));
 			assertEquals("Response should be OK", HttpStatus.SC_OK, response
 					.getStatusLine().getStatusCode());
 		}
@@ -108,8 +107,7 @@ public final class GutenbergTests {
 		while (scanner.hasNextLine()) {
 			final String line = scanner.nextLine();
 			final String gndId =
-					line.substring(line.lastIndexOf('<') + 1,
-							line.lastIndexOf('>'));
+					line.substring(line.lastIndexOf('<') + 1, line.lastIndexOf('>'));
 			if (gndId.startsWith("http://d-nb.info/gnd/")) {
 				ids.add(gndId);
 			}
@@ -124,13 +122,11 @@ public final class GutenbergTests {
 		for (String gndId : gndIds) {
 			final List<Triple> find =
 					newGraph.find(
-							Triple.createMatch(null,
-									Node.createURI(Gutenberg.CREATOR),
+							Triple.createMatch(null, Node.createURI(Gutenberg.CREATOR),
 									Node.createURI(gndId))).toList();
 			if (!find.isEmpty()) {
-				LOG.info(String
-						.format("\nWorks at Gutenberg by %s (author of a lobid entry):\n",
-								gndId));
+				LOG.info(String.format(
+						"\nWorks at Gutenberg by %s (author of a lobid entry):\n", gndId));
 				for (Triple newTriple : find) {
 					LOG.info(newTriple.getSubject().toString());
 				}

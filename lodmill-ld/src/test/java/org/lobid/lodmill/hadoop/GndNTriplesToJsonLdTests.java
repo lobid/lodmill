@@ -54,7 +54,7 @@ public final class GndNTriplesToJsonLdTests {
 
 	@Test
 	public void testMapper() throws IOException { // NOPMD (MRUnit, no explicit
-													// assertion)
+		// assertion)
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_1));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_2));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_3));
@@ -66,12 +66,11 @@ public final class GndNTriplesToJsonLdTests {
 
 	@Test
 	public void testReducer() throws IOException { // NOPMD (MRUnit, no explicit
-													// assertion)
+		// assertion)
 		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
 				GND_TRIPLE_1), new Text(GND_TRIPLE_2), new Text(GND_TRIPLE_3)));
 		reduceDriver.withOutput(
-				new Text(JSONValue
-						.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
+				new Text(JSONValue.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
 				new Text(JSONValue.toJSONString(jsonMap())));
 		reduceDriver.runTest();
 	}

@@ -101,19 +101,17 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 	@Test
 	public void testReducerGnd() throws IOException { // NOPMD
 		// (MRUnit, no explicit assertion)
-		reduceDriver.addInput(new Text("<http://d-nb.info/gnd/118643606>"),
-				Arrays.asList(new Text(LOBID_TRIPLE_1), new Text(GND_TRIPLE_1),
-						new Text(GND_TRIPLE_2), new Text(GND_TRIPLE_3)));
+		reduceDriver.addInput(new Text("<http://d-nb.info/gnd/118643606>"), Arrays
+				.asList(new Text(LOBID_TRIPLE_1), new Text(GND_TRIPLE_1), new Text(
+						GND_TRIPLE_2), new Text(GND_TRIPLE_3)));
 		final String lobidResource = "<http://lobid.org/resource/HT000000716>";
 		reduceDriver.addOutput(new Text(lobidResource), new Text(
 				"<http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson>"
 						+ "\"Adamucci, Antonio\"."));
 		reduceDriver.addOutput(new Text(lobidResource), new Text(
-				"<http://purl.org/dc/elements/1.1/creator#dateOfDeath>"
-						+ "\"1885\"."));
+				"<http://purl.org/dc/elements/1.1/creator#dateOfDeath>" + "\"1885\"."));
 		reduceDriver.addOutput(new Text(lobidResource), new Text(
-				"<http://purl.org/dc/elements/1.1/creator#dateOfBirth>"
-						+ "\"1828\"."));
+				"<http://purl.org/dc/elements/1.1/creator#dateOfBirth>" + "\"1828\"."));
 		reduceDriver.addOutput(new Text(lobidResource), new Text(
 				"<http://purl.org/dc/elements/1.1/creator>"
 						+ "<http://d-nb.info/gnd/118643606>."));
@@ -124,16 +122,13 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 	public void testReducerDewey() throws IOException { // NOPMD
 		// (MRUnit, no explicit assertion)
 		reduceDriver.addInput(new Text(
-				"<http://dewey.info/class/325/2009/08/about.en>"), Arrays
-				.asList(new Text(LOBID_DEWEY_TRIPLE_SUFFIXED), new Text(
-						DEWEY_TRIPLE)));
-		reduceDriver.addOutput(new Text(
-				"<http://lobid.org/resource/HT007307035>"), new Text(
-				"<http://purl.org/dc/terms/subject#prefLabel>"
+				"<http://dewey.info/class/325/2009/08/about.en>"), Arrays.asList(
+				new Text(LOBID_DEWEY_TRIPLE_SUFFIXED), new Text(DEWEY_TRIPLE)));
+		reduceDriver.addOutput(new Text("<http://lobid.org/resource/HT007307035>"),
+				new Text("<http://purl.org/dc/terms/subject#prefLabel>"
 						+ "\"International migration & colonization@en\"."));
-		reduceDriver.addOutput(new Text(
-				"<http://lobid.org/resource/HT007307035>"), new Text(
-				"<http://purl.org/dc/terms/subject>"
+		reduceDriver.addOutput(new Text("<http://lobid.org/resource/HT007307035>"),
+				new Text("<http://purl.org/dc/terms/subject>"
 						+ "<http://dewey.info/class/325/2009/08/about.en>."));
 		reduceDriver.runTest();
 	}

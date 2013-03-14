@@ -58,15 +58,15 @@ public class IndexFromHdfsInElasticSearchTests {
 	@Test
 	public void testIndexOne() throws IOException, JSONException,
 			InterruptedException {
-		assertEquals("Indexing one should yield no errors", 0, indexer
-				.indexOne(DATA_1).size());
+		assertEquals("Indexing one should yield no errors", 0,
+				indexer.indexOne(DATA_1).size());
 	}
 
 	@Test
 	public void testIndexAll() throws IOException, JSONException,
 			InterruptedException {
-		assertEquals("Indexing all should yield no errors", 0, indexer
-				.indexAll("json-es-test/").size());
+		assertEquals("Indexing all should yield no errors", 0,
+				indexer.indexAll("json-es-test/").size());
 	}
 
 	@Test
@@ -75,7 +75,8 @@ public class IndexFromHdfsInElasticSearchTests {
 		indexer.indexAll("json-es-test/");
 		Thread.sleep(200); // it seems the ngram analyzer needs a moment
 		final SearchResponse response =
-				search("lobid-index",
+				search(
+						"lobid-index",
 						"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
 						"loft");
 		assertTrue(
@@ -88,9 +89,8 @@ public class IndexFromHdfsInElasticSearchTests {
 		final SearchResponse response =
 				client.prepareSearch(index)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(QueryBuilders.termQuery(field, term))
-						.setFrom(0).setSize(10).setExplain(true).execute()
-						.actionGet();
+						.setQuery(QueryBuilders.termQuery(field, term)).setFrom(0)
+						.setSize(10).setExplain(true).execute().actionGet();
 		return response;
 	}
 

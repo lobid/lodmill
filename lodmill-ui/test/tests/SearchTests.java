@@ -39,8 +39,7 @@ public class SearchTests {
 
 	@Test
 	public void searchViaModel() {
-		final List<Document> docs =
-				Document.search(TERM, "lobid-index", "author");
+		final List<Document> docs = Document.search(TERM, "lobid-index", "author");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.matchedField.toLowerCase()).contains(TERM);
@@ -50,15 +49,16 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				Document.search("Abrahamson, Mark (1939-)", "lobid-index",
-						"author").size()).isEqualTo(1);
+				Document.search("Abrahamson, Mark (1939-)", "lobid-index", "author")
+						.size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
-				Document.search("Abrahams, Israel (1858-1925)", "lobid-index",
-						"author").size()).isEqualTo(1);
+				Document
+						.search("Abrahams, Israel (1858-1925)", "lobid-index", "author")
+						.size()).isEqualTo(1);
 	}
 
 	@Test
@@ -67,8 +67,7 @@ public class SearchTests {
 		Http.Context.current.set(new Http.Context(null, data, data));
 		final Result result = Application.autocomplete(TERM);
 		System.out.println(result.getWrappedResult().getClass());
-		assertThat(
-				((SimpleResult<?>) result.getWrappedResult()).header().status())
+		assertThat(((SimpleResult<?>) result.getWrappedResult()).header().status())
 				.isEqualTo(Status.OK);
 	}
 
@@ -107,7 +106,6 @@ public class SearchTests {
 	private String call(final String request) throws IOException,
 			MalformedURLException {
 		return CharStreams.toString(new InputStreamReader(new URL(
-				"http://localhost:7000/" + request).openStream(),
-				Charsets.UTF_8));
+				"http://localhost:7000/" + request).openStream(), Charsets.UTF_8));
 	}
 }

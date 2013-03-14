@@ -47,14 +47,13 @@ public final class JsonLdConverterTests {
 			"https:\\/\\/dewey.info\\/class\\/892.1\\/");
 
 	@Test
-	public void testConversion() throws JsonParseException,
-			JsonMappingException {
+	public void testConversion() throws JsonParseException, JsonMappingException {
 		final JsonLdConverter converter = new JsonLdConverter(format);
 		final String rdf1 = converter.toRdf(jsonLdSample);
 		final String json = converter.toJsonLd(rdf1);
 		final String rdf2 = converter.toRdf(json);
 		assertEquals(
-				"Original and round-tripped RDF serialization should be equal",
-				rdf1, rdf2);
+				"Original and round-tripped RDF serialization should be equal", rdf1,
+				rdf2);
 	}
 }

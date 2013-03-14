@@ -26,8 +26,7 @@ public class LobidToElasticSearchLocal {
 	private static final String LOCALHOST = "localhost:9200";
 
 	public static void main(final String[] args) {
-		final LobidToElasticSearchLocal importer =
-				new LobidToElasticSearchLocal();
+		final LobidToElasticSearchLocal importer = new LobidToElasticSearchLocal();
 
 		if (args.length < 2) {
 			System.err.println("Params: <input> <output> [<server>]");
@@ -46,15 +45,13 @@ public class LobidToElasticSearchLocal {
 	private void indexInElasticSearch(final String output, final String server) {
 		for (final File file : new File(output).listFiles(new PartFilter())) {
 			final ProcessBuilder splitProcessBuilder =
-					new ProcessBuilder("split", "-l 10",
-							file.getAbsolutePath(), "segment-" + file.getName()
-									+ "-");
+					new ProcessBuilder("split", "-l 10", file.getAbsolutePath(),
+							"segment-" + file.getName() + "-");
 			run(splitProcessBuilder, file.getParentFile());
 			for (File seg : new File(output).listFiles(new SegmentFilter(file))) {
 				final ProcessBuilder curlProcessBuilder =
-						new ProcessBuilder("curl", "-s", "-XPOST", server
-								+ "/_bulk", "--data-binary", "@"
-								+ seg.getName());
+						new ProcessBuilder("curl", "-s", "-XPOST", server + "/_bulk",
+								"--data-binary", "@" + seg.getName());
 				run(curlProcessBuilder, seg.getParentFile());
 			}
 		}
@@ -94,8 +91,8 @@ public class LobidToElasticSearchLocal {
 	private void runHadoopJobs(final String inputPath, final String interPath,
 			final String outputPath) {
 		try {
-			ResolveObjectUrisInLobidNTriples.main(new String[] { inputPath,
-					interPath });
+			ResolveObjectUrisInLobidNTriples
+					.main(new String[] { inputPath, interPath });
 			NTriplesToJsonLd.main(new String[] { interPath, outputPath });
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -104,14 +101,14 @@ public class LobidToElasticSearchLocal {
 
 	private void printOutput(final Process process) throws IOException {
 		final String errors =
-				CharStreams.toString(new InputStreamReader(process
-						.getErrorStream(), Charsets.UTF_8));
+				CharStreams.toString(new InputStreamReader(process.getErrorStream(),
+						Charsets.UTF_8));
 		if (!errors.trim().isEmpty()) {
 			System.err.println("Error: " + errors);
 		}
 		final String infos =
-				CharStreams.toString(new InputStreamReader(process
-						.getInputStream(), Charsets.UTF_8));
+				CharStreams.toString(new InputStreamReader(process.getInputStream(),
+						Charsets.UTF_8));
 		if (!infos.trim().isEmpty()) {
 			System.out.println("Info: " + infos);
 		}

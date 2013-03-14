@@ -80,8 +80,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	}
 
 	private static SortedSet<String> props(final String key) {
-		return new TreeSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(
-				";")));
+		return new TreeSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(";")));
 	}
 
 	private Configuration conf;
@@ -111,8 +110,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	}
 
 	/**
-	 * Collect (non-blank) lobid triples and triples required for resolving
-	 * lobid triples, using the resolution ID as a key.
+	 * Collect (non-blank) lobid triples and triples required for resolving lobid
+	 * triples, using the resolution ID as a key.
 	 * 
 	 * @author Fabian Steeg (fsteeg)
 	 */
@@ -128,14 +127,13 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					&& (exists(val, PREDICATES) || val.substring(1).startsWith(
 							LOBID_RESOURCE))) {
 				/*
-				 * We always group under the resolution ID key: for triples to
-				 * be resolved, that's the object (i.e. the entity to be
-				 * resolved), for others (i.e. entities providing resolution
-				 * information), it's the subject:
+				 * We always group under the resolution ID key: for triples to be
+				 * resolved, that's the object (i.e. the entity to be resolved), for
+				 * others (i.e. entities providing resolution information), it's the
+				 * subject:
 				 */
 				final String newKey =
-						exists(val, TO_RESOLVE) ? resolvable(objUri(val))
-								: subjUri(val);
+						exists(val, TO_RESOLVE) ? resolvable(objUri(val)) : subjUri(val);
 				context.write(new Text(newKey), preprocess(val));
 			}
 		}
@@ -158,16 +156,16 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		}
 
 		/*
-		 * These methods make sure that we can resolve the triples we are using.
-		 * For Dewey triples, this requires changing the format to conform to
-		 * something in the subject position in the Dewey data, e.g. we change
+		 * These methods make sure that we can resolve the triples we are using. For
+		 * Dewey triples, this requires changing the format to conform to something
+		 * in the subject position in the Dewey data, e.g. we change
 		 * <http://dewey.info/class/325> -->
 		 * <http://dewey.info/class/325/2009/08/about.en>
 		 * 
-		 * This way, what we have in object position (what we want to resolve)
-		 * is identical to a subject in the Dewey data, and we can thus find an
-		 * FSL path like 'o/dct:subject/o/skos:prefLabel/text()'. See
-		 * resolve.properties for actual paths (replaced * with o for Javadoc).
+		 * This way, what we have in object position (what we want to resolve) is
+		 * identical to a subject in the Dewey data, and we can thus find an FSL
+		 * path like 'o/dct:subject/o/skos:prefLabel/text()'. See resolve.properties
+		 * for actual paths (replaced * with o for Javadoc).
 		 */
 
 		private Text preprocess(final String triple) {
@@ -216,13 +214,12 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 				if (triple.getSubject().toString().startsWith(LOBID_RESOURCE)) {
 					final String objString = triple.getObject().toString();
 					final String objResult =
-							triple.getObject().isURI() ? wrapped(objString)
-									: objString;
+							triple.getObject().isURI() ? wrapped(objString) : objString;
 					final Text predAndObj =
-							new Text(wrapped(triple.getPredicate().toString())
-									+ objResult + ".");
-					context.write(new Text(wrapped(triple.getSubject()
-							.toString())), predAndObj);
+							new Text(wrapped(triple.getPredicate().toString()) + objResult
+									+ ".");
+					context.write(new Text(wrapped(triple.getSubject().toString())),
+							predAndObj);
 				}
 			}
 		}
@@ -276,8 +273,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		private String newPred(final String fslPath, final String prefix,
 				final String namespace) {
 			return prefix
-					+ fslPath.substring(
-							fslPath.indexOf(namespace) + namespace.length(),
+					+ fslPath.substring(fslPath.indexOf(namespace) + namespace.length(),
 							fslPath.lastIndexOf('/'));
 		}
 
@@ -289,10 +285,9 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			final Vector<Vector<Object>> pathInstances = fje.evaluatePath(path); // NOPMD
 			for (Vector<Object> object : pathInstances) { // NOPMD
 				final Triple resolved =
-						Triple.create(Node.createURI(object.firstElement()
-								.toString()), Node.createURI(newPredicate),
-								Node.createLiteral(object.lastElement()
-										.toString()));
+						Triple.create(Node.createURI(object.firstElement().toString()),
+								Node.createURI(newPredicate),
+								Node.createLiteral(object.lastElement().toString()));
 				model.getGraph().add(resolved);
 			}
 			return model;

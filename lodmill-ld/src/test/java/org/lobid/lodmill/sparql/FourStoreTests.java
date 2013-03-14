@@ -49,13 +49,10 @@ public final class FourStoreTests {
 				new URL(URL
 						+ "/sparql/"
 						+ "?query="
-						+ URLEncoder.encode(
-								"SELECT * FROM <http://example.com/G>"
-										+ " WHERE { ?s ?p ?o } LIMIT 50",
-								ENCODING));
+						+ URLEncoder.encode("SELECT * FROM <http://example.com/G>"
+								+ " WHERE { ?s ?p ?o } LIMIT 50", ENCODING));
 		final String response =
-				CharStreams.toString(new InputStreamReader(url.openStream(),
-						"UTF-8"));
+				CharStreams.toString(new InputStreamReader(url.openStream(), "UTF-8"));
 		assertFalse("Output string should contain something", response.trim()
 				.isEmpty());
 	}
@@ -87,14 +84,12 @@ public final class FourStoreTests {
 		final HttpResponse response =
 				store.insertTriple(graph, Triple.create(
 						Node.createURI("http://example.com/s"),
-						Node.createURI("http://example.com/p"),
-						Node.createLiteral("o")));
+						Node.createURI("http://example.com/p"), Node.createLiteral("o")));
 		assertEquals("Response should indicate status OK", HttpStatus.SC_OK,
 				response.getStatusLine().getStatusCode());
 		final List<QuerySolution> result =
 				store.sparqlSelect(String.format(
-						"SELECT * FROM <%s> WHERE { ?s ?p ?o } LIMIT 100",
-						graph));
+						"SELECT * FROM <%s> WHERE { ?s ?p ?o } LIMIT 100", graph));
 		assertEquals("New triple should be in named graph", 1, result.size());
 
 	}

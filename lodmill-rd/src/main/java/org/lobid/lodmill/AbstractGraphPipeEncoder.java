@@ -33,9 +33,8 @@ public abstract class AbstractGraphPipeEncoder extends
 		try {
 			final URI uri = new URI(value);
 			/*
-			 * collection:example.org" is a valid URI, though no URL, and
-			 * " 1483-1733" is also a valid (java-)URI, but not for us - a
-			 * "scheme" is mandatory.
+			 * collection:example.org" is a valid URI, though no URL, and " 1483-1733"
+			 * is also a valid (java-)URI, but not for us - a "scheme" is mandatory.
 			 */
 			if (uri.getScheme() == null) {
 				return false;
