@@ -30,8 +30,16 @@ public final class Application extends Controller {
 		/* No instantiation */
 	}
 
+	/**
+	 * The result format.
+	 */
 	public enum Format {
-		PAGE, FULL, SHORT
+		/** Complete HTML page with search form on top, results at bottom. */
+		PAGE,
+		/** The fulle JSON representation from the index. */
+		FULL,
+		/** Short results strings for auto-completion suggestions. */
+		SHORT
 	}
 
 	/*
@@ -40,39 +48,72 @@ public final class Application extends Controller {
 	 * widget requires an endpoint that expects a single String parameter, so we
 	 * set the other required info here:
 	 */
+	/** The index to search in (see {@link Document#searchFieldsMap}). */
 	public static String index = "lobid-index";
+
+	/** The search category (see {@link Document#searchFieldsMap}). */
 	public static String category = "author";
 
+	/**
+	 * @return The main page.
+	 */
 	public static Result index() {
 		return results("", new ArrayList<Document>(), index, category).get(
 				Format.PAGE);
 	}
 
-	public static Result config(String index, String category, String format) {
-		Application.index = index;
-		Application.category = category;
-		return ok(views.html.index.render(new ArrayList<Document>(), index, "",
-				category, format));
+	/**
+	 * Config endpoint for setting search parameters.
+	 * 
+	 * @param indexParameter The index to search (see
+	 *          {@link Document#searchFieldsMap}).
+	 * @param categoryParameter The search category (see
+	 *          {@link Document#searchFieldsMap}).
+	 * @param formatParameter The result format
+	 * @return The search page, with the config set
+	 */
+	public static Result config(final String indexParameter,
+			final String categoryParameter, final String formatParameter) {
+		Application.index = indexParameter;
+		Application.category = categoryParameter;
+		return ok(views.html.index.render(new ArrayList<Document>(),
+				indexParameter, "", categoryParameter, formatParameter));
 	}
 
-	public static Result search(final String index, final String category,
-			final String format, final String query) {
+	/**
+	 * Search enpoint for actual queries.
+	 * 
+	 * @param indexParameter The index to search (see
+	 *          {@link Document#searchFieldsMap}).
+	 * @param categoryParameter The search category (see
+	 *          {@link Document#searchFieldsMap}).
+	 * @param formatParameter The result format
+	 * @param queryParameter The search query
+	 * @return The results, in the format specified
+	 */
+	public static Result search(final String indexParameter,
+			final String categoryParameter, final String formatParameter,
+			final String queryParameter) {
 		List<Document> docs = new ArrayList<>();
 		try {
-			docs = Document.search(query, index, category);
+			docs = Document.search(queryParameter, indexParameter, categoryParameter);
 		} catch (IllegalArgumentException e) {
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<Format, Result> results =
-				results(query, docs, index, category);
+				results(queryParameter, docs, indexParameter, categoryParameter);
 		try {
-			return results.get(Format.valueOf(format.toUpperCase()));
+			return results.get(Format.valueOf(formatParameter.toUpperCase()));
 		} catch (IllegalArgumentException e) {
 			return badRequest("Invalid 'format' parameter, use one of: "
 					+ Joiner.on(", ").join(results.keySet()).toLowerCase());
 		}
 	}
 
+	/**
+	 * @param term The term to auto-complete
+	 * @return A list of completion suggestions for the given term
+	 */
 	public static Result autocomplete(final String term) {
 		return results(term, Document.search(term, index, category), index,
 				category).get(Format.SHORT);
@@ -80,6 +121,7 @@ public final class Application extends Controller {
 
 	private static Function<Document, JsonNode> jsonFull =
 			new Function<Document, JsonNode>() {
+				@Override
 				public JsonNode apply(final Document doc) {
 					return Json.parse(doc.source);
 				}
@@ -87,13 +129,15 @@ public final class Application extends Controller {
 
 	private static Function<Document, String> jsonShort =
 			new Function<Document, String>() {
+				@Override
 				public String apply(final Document doc) {
 					return doc.matchedField;
 				}
 			};
 
 	private static ImmutableMap<Format, Result> results(final String query,
-			final List<Document> documents, final String index, final String category) {
+			final List<Document> documents, final String selectedIndex,
+			final String selectedCategory) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
@@ -104,8 +148,8 @@ public final class Application extends Controller {
 				new ImmutableMap.Builder<Format, Result>()
 						.put(
 								Format.PAGE,
-								ok(views.html.index.render(documents, index, query, category,
-										Format.PAGE.toString().toLowerCase())))
+								ok(views.html.index.render(documents, selectedIndex, query,
+										selectedCategory, Format.PAGE.toString().toLowerCase())))
 						.put(
 								Format.FULL,
 								ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,

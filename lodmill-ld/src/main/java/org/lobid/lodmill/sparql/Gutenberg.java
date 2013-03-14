@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.sparql;
 
@@ -40,6 +40,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  */
 public final class Gutenberg {
 
+	/** The creator identifier */
 	public static final String CREATOR =
 			"http://purl.org/dc/elements/1.1/creator";
 	private static final String DEATH =
@@ -107,12 +108,12 @@ public final class Gutenberg {
 		}
 	}
 
-	private Map<String, String> map(final File serializedMap) {
+	private static Map<String, String> map(final File serializedMap) {
 		return serializedMap.exists() ? readMap(serializedMap)
 				: writeMap(serializedMap);
 	}
 
-	public static List<String> getKeys(final String gndPersonId,
+	private static List<String> getKeys(final String gndPersonId,
 			final FourStore store) {
 		final Graph graph =
 				store.sparqlConstruct(String.format(
@@ -142,19 +143,19 @@ public final class Gutenberg {
 		return birthString + deathString;
 	}
 
-	private Graph remoteZippedGraph(final URL url) throws IOException {
+	private static Graph remoteZippedGraph(final URL url) throws IOException {
 		final File tempFile = File.createTempFile("temp", ".rdf");
 		tempFile.deleteOnExit();
 		ByteStreams.copy(url.openStream(), new FileOutputStream(tempFile));
-		final ZipFile zipFile = new ZipFile(tempFile);
-		final ZipEntry zipEntry = zipFile.entries().nextElement();
-		final Graph graph =
-				ModelFactory
-						.createDefaultModel()
-						.read(zipFile.getInputStream(zipEntry), null,
-								Format.RDF_XML.getName()).getGraph();
-		zipFile.close();
-		return graph;
+		try (ZipFile zipFile = new ZipFile(tempFile)) {
+			final ZipEntry zipEntry = zipFile.entries().nextElement();
+			final Graph graph =
+					ModelFactory
+							.createDefaultModel()
+							.read(zipFile.getInputStream(zipEntry), null,
+									Format.RDF_XML.getName()).getGraph();
+			return graph;
+		}
 	}
 
 	private static List<Triple> triplesWithPredicate(final String predicate,
@@ -164,7 +165,7 @@ public final class Gutenberg {
 				.toList();
 	}
 
-	private Map<String, String> writeMap(final File serializedMap) {
+	private static Map<String, String> writeMap(final File serializedMap) {
 		try (final ObjectOutputStream stream =
 				new ObjectOutputStream(new FileOutputStream(serializedMap))) {
 			final Map<String, String> map = mapLiteralsToGutenbergIds();
@@ -176,7 +177,8 @@ public final class Gutenberg {
 		return null;
 	}
 
-	private Map<String, String> mapLiteralsToGutenbergIds() throws IOException {
+	private static Map<String, String> mapLiteralsToGutenbergIds()
+			throws IOException {
 		final Graph gutenbergGraph = remoteZippedGraph(new URL(GUTENBERG));
 		final Map<String, String> authors = new HashMap<>();
 		final List<Triple> literals = triplesWithPredicate(CREATOR, gutenbergGraph);
@@ -190,12 +192,10 @@ public final class Gutenberg {
 		return authors;
 	}
 
-	private Map<String, String> readMap(final File serializedMap) {
+	private static Map<String, String> readMap(final File serializedMap) {
 		try (final ObjectInputStream stream =
 				new ObjectInputStream(new FileInputStream(serializedMap))) {
-			@SuppressWarnings("unchecked")
-			final Map<String, String> map = (Map<String, String>) stream.readObject();
-			return map;
+			return (Map<String, String>) stream.readObject();
 		} catch (ClassNotFoundException | IOException e) {
 			LOG.error(e.getMessage(), e);
 		}

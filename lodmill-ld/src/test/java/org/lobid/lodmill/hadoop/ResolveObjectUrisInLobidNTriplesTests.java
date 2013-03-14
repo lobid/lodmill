@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -21,6 +21,7 @@ import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesR
  * 
  * @author Fabian Steeg (fsteeg)
  */
+@SuppressWarnings("javadoc")
 public final class ResolveObjectUrisInLobidNTriplesTests {
 
 	static final String GND_CREATOR_ID = "118643606";
@@ -62,8 +63,9 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 				GND_CREATOR_ID, predicate, literal);
 	}
 
+	@SuppressWarnings("static-method")
 	@Test
-	public void testProperties() throws IOException {
+	public void testProperties() {
 		assertEquals("number of predicates", 4,
 				ResolveObjectUrisInLobidNTriples.PREDICATES.size());
 		assertEquals("number of fsl-paths", 4,

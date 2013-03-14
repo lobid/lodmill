@@ -29,7 +29,7 @@ public abstract class AbstractGraphPipeEncoder extends
 		return isUriWithScheme(value) ? "<" + value + ">" : "\"" + value + "\"";
 	}
 
-	private boolean isUriWithScheme(final String value) {
+	private static boolean isUriWithScheme(final String value) {
 		try {
 			final URI uri = new URI(value);
 			/*

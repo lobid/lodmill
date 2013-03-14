@@ -44,9 +44,12 @@ import com.hp.hpl.jena.shared.BadURIException;
  */
 public class Document {
 
+	/** The ElasticSearch server to use. */
 	public static final InetSocketTransportAddress ES_SERVER =
 			new InetSocketTransportAddress("10.1.2.111", 9300); // NOPMD
+	/** The ElasticSearch cluster to use. */
 	public static final String ES_CLUSTER_NAME = "es-lod-hydra";
+	/** A mapping index names to categories to search fields. */
 	public static ImmutableMap<String, Map<String, List<String>>> searchFieldsMap =
 			new ImmutableMap.Builder<String, Map<String, List<String>>>()
 					.put(
@@ -83,28 +86,35 @@ public class Document {
 											.asList("http://www.w3.org/2004/02/skos/core#prefLabel"))
 									.build()).build();
 
-	public static List<String> searchFields = searchFieldsMap.get("lobid-index")
+	private static List<String> searchFields = searchFieldsMap.get("lobid-index")
 			.get("author");
 
 	private static final Client CLIENT = new TransportClient(ImmutableSettings
 			.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME).build())
 			.addTransportAddress(ES_SERVER);
 
+	/** The field that matched the query. */
 	public transient String matchedField;
+	/** The JSON source for this document. */
 	public transient String source;
+	/** The document ID. */
 	public transient String id; // NOPMD
 
 	private static final Logger LOG = LoggerFactory.getLogger(Document.class);
 
+	/**
+	 * @param id The document ID
+	 * @param source The document JSON source
+	 */
 	public Document(final String id, final String source) { // NOPMD
 		this.id = id;
 		this.source = source;
 	}
 
-	public Document() {
-		/* Empty constructor required by Play */
-	}
-
+	/**
+	 * @param format The RDF serialization format to represent this document as
+	 * @return This documents, in the given RDF format
+	 */
 	public String as(final Format format) { // NOPMD
 		final JsonLdConverter converter = new JsonLdConverter(format);
 		final String json = JSONValue.toJSONString(JSONValue.parse(source));
@@ -117,6 +127,12 @@ public class Document {
 		return result;
 	}
 
+	/**
+	 * @param term The search term
+	 * @param index The index to search (see {@link #searchFieldsMap})
+	 * @param category The search category (see {@link #searchFieldsMap})
+	 * @return The documents matching the given parameters
+	 */
 	public static List<Document> search(final String term, final String index,
 			final String category) {
 		validate(index, category);
@@ -196,6 +212,7 @@ public class Document {
 			res.add(document);
 		}
 		final Predicate<Document> predicate = new Predicate<Document>() {
+			@Override
 			public boolean apply(final Document doc) {
 				return doc.matchedField != null;
 			}
@@ -239,6 +256,7 @@ public class Document {
 	private static String firstMatching(final String query,
 			final List<String> list) {
 		final Predicate<String> predicate = new Predicate<String>() {
+			@Override
 			public boolean apply(final String string) {
 				return string.toLowerCase().contains(query);
 			}

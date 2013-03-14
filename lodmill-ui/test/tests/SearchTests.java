@@ -33,6 +33,7 @@ import controllers.Application;
  * 
  * @author Fabian Steeg (fsteeg)
  */
+@SuppressWarnings("javadoc")
 public class SearchTests {
 
 	static final String TERM = "abr";
@@ -103,7 +104,7 @@ public class SearchTests {
 		assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
 	}
 
-	private String call(final String request) throws IOException,
+	private static String call(final String request) throws IOException,
 			MalformedURLException {
 		return CharStreams.toString(new InputStreamReader(new URL(
 				"http://localhost:7000/" + request).openStream(), Charsets.UTF_8));

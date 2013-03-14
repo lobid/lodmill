@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -7,9 +7,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mrunit.TestDriver;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
 import org.json.simple.JSONValue;
@@ -23,6 +23,7 @@ import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
  * 
  * @author Fabian Steeg (fsteeg)
  */
+@SuppressWarnings("javadoc")
 public final class LobidNTriplesToJsonLdTests {
 
 	private static final String TRIPLE_ID =
@@ -47,15 +48,17 @@ public final class LobidNTriplesToJsonLdTests {
 
 	@Before
 	public void setUp() {
-		final Configuration configuration = new Configuration();
-		configuration.set(NTriplesToJsonLd.INDEX_NAME, INDEX);
-		configuration.set(NTriplesToJsonLd.INDEX_TYPE, TYPE);
 		final NTriplesToJsonLdMapper mapper = new NTriplesToJsonLdMapper();
 		final NTriplesToJsonLdReducer reducer = new NTriplesToJsonLdReducer();
 		mapDriver = MapDriver.newMapDriver(mapper);
 		reduceDriver = ReduceDriver.newReduceDriver(reducer);
-		mapDriver.setConfiguration(configuration);
-		reduceDriver.setConfiguration(configuration);
+		setConfiguration(mapDriver);
+		setConfiguration(reduceDriver);
+	}
+
+	private static void setConfiguration(TestDriver<?, ?, ?, ?, ?> driver) {
+		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_NAME, INDEX);
+		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_TYPE, TYPE);
 	}
 
 	@Test

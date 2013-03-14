@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.sparql;
 
@@ -11,7 +11,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.net.URISyntaxException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
@@ -51,21 +50,21 @@ public final class GutenbergTests {
 	private final FourStore store =
 			new FourStore("http://aither.hbz-nrw.de:8000");
 
+	@SuppressWarnings("javadoc")
 	@Test
-	public void gutenbergWorksForLobidAuthor() throws URISyntaxException,
-			IOException {
+	public void gutenbergWorksForLobidAuthor() throws IOException {
 		final Set<String> gndIds = gndAuthorIds(CREATORS);
 		LOG.info(String.format("Got %s author ids", gndIds.size()));
-		final Writer writer = new FileWriter(new File(OUT));
-		final Model newModel =
-				GUTENBERG.linkGutenbergToGndAuthors(gndIds, store, writer);
-		writer.close();
-		LOG.info(String.format("Created new model, size %s", newModel.size()));
-		assertTrue("New triples should have been found",
-				newModel.getGraph().size() > 0);
-		/* Upload and use our small testing data: */
-		upload(OUT, store, GRAPH);
-		newModelSampleUsage(gndIds, newModel.getGraph());
+		try (Writer writer = new FileWriter(new File(OUT))) {
+			final Model newModel =
+					GUTENBERG.linkGutenbergToGndAuthors(gndIds, store, writer);
+			LOG.info(String.format("Created new model, size %s", newModel.size()));
+			assertTrue("New triples should have been found", newModel.getGraph()
+					.size() > 0);
+			/* Upload and use our small testing data: */
+			upload(OUT, store, GRAPH);
+			newModelSampleUsage(gndIds, newModel.getGraph());
+		}
 		/* Do something useful with full data (see also data-info.textile): */
 		// upload("bin/new_full.nt", store /* or into production */, GRAPH);
 	}
@@ -76,10 +75,12 @@ public final class GutenbergTests {
 	 * @param graph The name of the graph to store the model
 	 * @throws IOException If we can't read the input file or write to the store
 	 */
-	public void upload(final String file, final FourStore store,
+	private static void upload(final String file, final FourStore store,
 			final String graph) throws IOException {
 		final Model model = ModelFactory.createDefaultModel();
-		model.read(new FileReader(file), null, Format.N_TRIPLE.getName());
+		try (FileReader reader = new FileReader(file)) {
+			model.read(reader, null, Format.N_TRIPLE.getName());
+		}
 		final Triple any = Triple.createMatch(null, null, null);
 		final List<Triple> triples = model.getGraph().find(any).toList();
 		for (Triple triple : triples) {
@@ -99,25 +100,25 @@ public final class GutenbergTests {
 	 * @param authors The file with creator n-triples
 	 * @return The unique GND author ID, picked out of the objects in the file
 	 */
-	public Set<String> gndAuthorIds(final String authors) {
-		final Scanner scanner =
+	private static Set<String> gndAuthorIds(final String authors) {
+		try (Scanner scanner =
 				new Scanner(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream(authors));
-		final Set<String> ids = new HashSet<>();
-		while (scanner.hasNextLine()) {
-			final String line = scanner.nextLine();
-			final String gndId =
-					line.substring(line.lastIndexOf('<') + 1, line.lastIndexOf('>'));
-			if (gndId.startsWith("http://d-nb.info/gnd/")) {
-				ids.add(gndId);
+						.getResourceAsStream(authors))) {
+			final Set<String> ids = new HashSet<>();
+			while (scanner.hasNextLine()) {
+				final String line = scanner.nextLine();
+				final String gndId =
+						line.substring(line.lastIndexOf('<') + 1, line.lastIndexOf('>'));
+				if (gndId.startsWith("http://d-nb.info/gnd/")) {
+					ids.add(gndId);
+				}
 			}
+			LOG.info("Unique authors: " + ids.size());
+			return ids;
 		}
-		scanner.close();
-		LOG.info("Unique authors: " + ids.size());
-		return ids;
 	}
 
-	private void newModelSampleUsage(final Set<String> gndIds,
+	private static void newModelSampleUsage(final Set<String> gndIds,
 			final Graph newGraph) {
 		for (String gndId : gndIds) {
 			final List<Triple> find =

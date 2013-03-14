@@ -3,7 +3,6 @@
 package org.lobid.lodmill;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,6 +34,7 @@ import org.slf4j.LoggerFactory;
  * 
  * @author Fabian Steeg (fsteeg)
  */
+@SuppressWarnings("javadoc")
 public final class ZvddMarcIngest {
 
 	private static final String TEXTILE_MAPPING_TABLE = "mapping.textile";
@@ -54,7 +54,9 @@ public final class ZvddMarcIngest {
 		setUpErrorHandler(metamorph);
 		final ZvddStats stats = new ZvddStats();
 		reader.setReceiver(metamorph).setReceiver(stats);
-		reader.process(new FileReader(ZVDD_MARC));
+		try (FileReader fileReader = new FileReader(ZVDD_MARC)) {
+			reader.process(fileReader);
+		}
 		final List<Entry<String, Integer>> entries =
 				sortedByValuesDescending(stats);
 		final File mapping = writeTextileMappingTable(entries);
@@ -66,29 +68,32 @@ public final class ZvddMarcIngest {
 	}
 
 	@Test
-	public void triples() throws IOException {
+	public void triples() {
 		setUpErrorHandler(metamorph);
 		process(new PipeEncodeTriples(), new File("zvdd-title-digitalisation.nt"));
 	}
 
 	@Test
-	public void dot() throws IOException {
+	public void dot() {
 		setUpErrorHandler(metamorph);
 		process(new PipeEncodeDot(), new File("zvdd-title-digitalisation.dot"));
 	}
 
-	private void process(final AbstractGraphPipeEncoder encoder, final File file)
-			throws FileNotFoundException {
+	private void process(final AbstractGraphPipeEncoder encoder, final File file) {
 		final ObjectTee<String> tee = outputTee(file);
 		reader.setReceiver(metamorph).setReceiver(encoder).setReceiver(tee);
-		reader.process(new FileReader(ZVDD_MARC));
+		try (FileReader fileReader = new FileReader(ZVDD_MARC)) {
+			reader.process(fileReader);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		reader.closeStream();
 		Assert.assertTrue("File should exist", file.exists());
 		Assert.assertTrue("File should not be empty", file.length() > 0);
 		file.deleteOnExit();
 	}
 
-	private ObjectTee<String> outputTee(final File triples) {
+	private static ObjectTee<String> outputTee(final File triples) {
 		final ObjectTee<String> tee = new ObjectTee<>();
 		tee.addReceiver(new ObjectWriter<String>("stdout"));
 		tee.addReceiver(new ObjectWriter<String>(triples.getAbsolutePath()));
@@ -105,7 +110,7 @@ public final class ZvddMarcIngest {
 		}
 	}
 
-	private void setUpErrorHandler(Metamorph metamorph) {
+	private static void setUpErrorHandler(Metamorph metamorph) {
 		metamorph.setErrorHandler(new MorphErrorHandler() {
 			@Override
 			public void error(final Exception exception) {
@@ -114,7 +119,7 @@ public final class ZvddMarcIngest {
 		});
 	}
 
-	private List<Entry<String, Integer>> sortedByValuesDescending(
+	private static List<Entry<String, Integer>> sortedByValuesDescending(
 			final ZvddStats stats) {
 		final List<Entry<String, Integer>> entries =
 				new ArrayList<>(stats.map.entrySet());
@@ -129,7 +134,7 @@ public final class ZvddMarcIngest {
 		return entries;
 	}
 
-	private File writeTextileMappingTable(
+	private static File writeTextileMappingTable(
 			final List<Entry<String, Integer>> entries) throws IOException {
 		StringBuilder textileBuilder =
 				new StringBuilder("|*field*|*frequency*|*content*|*mapping*|\n");

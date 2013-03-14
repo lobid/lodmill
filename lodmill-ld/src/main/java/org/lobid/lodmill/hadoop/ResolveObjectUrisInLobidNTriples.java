@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -49,8 +49,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 
 	private static final Properties PROPERTIES = load();
 	private static final Set<String> TO_RESOLVE = props("resolve");
-	public static final Set<String> PREDICATES = props("predicates");
-	public static final Set<String> FSL_PATHS = props("fsl-paths");
+	static final Set<String> PREDICATES = props("predicates");
+	static final Set<String> FSL_PATHS = props("fsl-paths");
 	private static final String LOBID_RESOURCE = "http://lobid.org/resource/";
 	private static final String DEWEY = "http://dewey.info/class";
 	private static final String DEWEY_SUFFIX = "2009/08/about.en";
@@ -62,10 +62,17 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(ResolveObjectUrisInLobidNTriples.class);
 
-	public static void main(final String[] args) throws Exception {
-		final int res =
-				ToolRunner.run(new ResolveObjectUrisInLobidNTriples(), args);
-		System.exit(res);
+	/**
+	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
+	 */
+	public static void main(final String[] args) {
+		int res;
+		try {
+			res = ToolRunner.run(new ResolveObjectUrisInLobidNTriples(), args);
+			System.exit(res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static Properties load() {
@@ -92,7 +99,6 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					.println("Usage: ResolveObjectUrisInLobidNTriples <input path> <output path>");
 			System.exit(-1);
 		}
-		final Configuration conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", "");
 		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
 		final Job job = new Job(conf);
@@ -140,17 +146,18 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 
 		private static boolean exists(final String val, final Set<String> vals) {
 			return Sets.filter(vals, new Predicate<String>() {
+				@Override
 				public boolean apply(final String string) {
 					return val.contains(string);
 				}
 			}).size() > 0;
 		}
 
-		private String subjUri(final String triple) {
+		private static String subjUri(final String triple) {
 			return triple.substring(0, triple.indexOf('>') + 1);
 		}
 
-		private String objUri(final String triple) {
+		private static String objUri(final String triple) {
 			return triple.substring(triple.lastIndexOf('<'),
 					triple.lastIndexOf('>') + 1);
 		}
@@ -168,16 +175,15 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		 * for actual paths (replaced * with o for Javadoc).
 		 */
 
-		private Text preprocess(final String triple) {
+		private static Text preprocess(final String triple) {
 			if (triple.contains(DEWEY)) {
 				final String obj = objUri(triple);
 				return new Text(triple.replace(obj, resolvable(obj)));
-			} else {
-				return new Text(triple);
 			}
+			return new Text(triple);
 		}
 
-		private String resolvable(final String uri) {
+		private static String resolvable(final String uri) {
 			return uri.contains(DEWEY) ? /**/
 			(uri.substring(0, uri.lastIndexOf('>')) + DEWEY_SUFFIX + ">") : uri;
 		}
@@ -208,7 +214,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			writeResolvedLobidTriples(context, model);
 		}
 
-		private void writeResolvedLobidTriples(final Context context,
+		private static void writeResolvedLobidTriples(final Context context,
 				final Model model) throws IOException, InterruptedException {
 			for (Triple triple : model.getGraph().find(Triple.ANY).toList()) {
 				if (triple.getSubject().toString().startsWith(LOBID_RESOURCE)) {
@@ -224,7 +230,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			}
 		}
 
-		private String wrapped(final String string) {
+		private static String wrapped(final String string) {
 			return "<" + string + ">";
 		}
 
@@ -270,20 +276,18 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			return model;
 		}
 
-		private String newPred(final String fslPath, final String prefix,
+		private static String newPred(final String fslPath, final String prefix,
 				final String namespace) {
 			return prefix
 					+ fslPath.substring(fslPath.indexOf(namespace) + namespace.length(),
 							fslPath.lastIndexOf('/'));
 		}
 
-		private Model addResolvedTriples(final Model model,
+		private static Model addResolvedTriples(final Model model,
 				final FSLJenaEvaluator fje, final FSLPath path,
 				final String newPredicate) {
-			@SuppressWarnings("unchecked")
-			/* API returns raw Vectors (same reason for NOPMDs below) */
-			final Vector<Vector<Object>> pathInstances = fje.evaluatePath(path); // NOPMD
-			for (Vector<Object> object : pathInstances) { // NOPMD
+			final Vector<Vector<Object>> pathInstances = fje.evaluatePath(path);
+			for (Vector<Object> object : pathInstances) {
 				final Triple resolved =
 						Triple.create(Node.createURI(object.firstElement().toString()),
 								Node.createURI(newPredicate),

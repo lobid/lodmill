@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.sparql;
 
@@ -86,10 +86,12 @@ public final class FourStore {
 	public HttpResponse deleteGraph(final String graph) throws IOException {
 		LOG.info("DELETE " + graph);
 		return new DefaultHttpClient().execute(new HttpRequestBase() {
+			@Override
 			public String getMethod() {
 				return "DELETE";
 			}
 
+			@Override
 			public URI getURI() {
 				return URI.create(root + "/data/" + graph);
 			}
@@ -121,7 +123,7 @@ public final class FourStore {
 				String.format("INSERT DATA { GRAPH <%s> {%s}} ", graph, triple));
 	}
 
-	private HttpResponse post(final String endpoint, final String sparql)
+	private static HttpResponse post(final String endpoint, final String sparql)
 			throws IOException {
 		/* Update via Jena API, but 4store req. x-www-form-urlencoded */
 		// final UpdateRequest queryObj = UpdateFactory.create(sparql);
