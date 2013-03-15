@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.sparql;
 
@@ -86,10 +86,12 @@ public final class FourStore {
 	public HttpResponse deleteGraph(final String graph) throws IOException {
 		LOG.info("DELETE " + graph);
 		return new DefaultHttpClient().execute(new HttpRequestBase() {
+			@Override
 			public String getMethod() {
 				return "DELETE";
 			}
 
+			@Override
 			public URI getURI() {
 				return URI.create(root + "/data/" + graph);
 			}
@@ -98,10 +100,9 @@ public final class FourStore {
 
 	/**
 	 * Insert a triple into a named graph using SPARQL syntax. <br/>
-	 * NOTICE: this method DOES use standard SPARQL, but sets the content type
-	 * to "application/x-www-form-urlencoded" as required by 4store. This might
-	 * work with other stores, but it's not what i.e. Jena does (see inline
-	 * comment).
+	 * NOTICE: this method DOES use standard SPARQL, but sets the content type to
+	 * "application/x-www-form-urlencoded" as required by 4store. This might work
+	 * with other stores, but it's not what i.e. Jena does (see inline comment).
 	 * 
 	 * @param graph The named graph to insert the triple
 	 * @param triple The triple as to be inserted into the graph
@@ -111,8 +112,8 @@ public final class FourStore {
 	public HttpResponse insertTriple(final String graph, final Triple triple)
 			throws IOException {
 		return insertTriple(graph, String.format("<%s> <%s> <%s>", triple
-				.getSubject().toString(), triple.getPredicate().toString(),
-				triple.getObject().toString()));
+				.getSubject().toString(), triple.getPredicate().toString(), triple
+				.getObject().toString()));
 	}
 
 	private HttpResponse insertTriple(final String graph, final String triple)
@@ -122,7 +123,7 @@ public final class FourStore {
 				String.format("INSERT DATA { GRAPH <%s> {%s}} ", graph, triple));
 	}
 
-	private HttpResponse post(final String endpoint, final String sparql)
+	private static HttpResponse post(final String endpoint, final String sparql)
 			throws IOException {
 		/* Update via Jena API, but 4store req. x-www-form-urlencoded */
 		// final UpdateRequest queryObj = UpdateFactory.create(sparql);

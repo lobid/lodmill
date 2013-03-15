@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -25,10 +25,10 @@ public class LobidToElasticSearchLocal {
 
 	private static final String LOCALHOST = "localhost:9200";
 
+	/**
+	 * @param args Params: input output [server]
+	 */
 	public static void main(final String[] args) {
-		final LobidToElasticSearchLocal importer =
-				new LobidToElasticSearchLocal();
-
 		if (args.length < 2) {
 			System.err.println("Params: <input> <output> [<server>]");
 			System.exit(-1);
@@ -39,22 +39,21 @@ public class LobidToElasticSearchLocal {
 		final String inter = new File(output).getParent() + "/inter";
 		final String server = args.length == 3 ? args[2] : LOCALHOST;
 
-		importer.runHadoopJobs(input, inter, output);
-		importer.indexInElasticSearch(output, server);
+		LobidToElasticSearchLocal.runHadoopJobs(input, inter, output);
+		LobidToElasticSearchLocal.indexInElasticSearch(output, server);
 	}
 
-	private void indexInElasticSearch(final String output, final String server) {
+	private static void indexInElasticSearch(final String output,
+			final String server) {
 		for (final File file : new File(output).listFiles(new PartFilter())) {
 			final ProcessBuilder splitProcessBuilder =
-					new ProcessBuilder("split", "-l 10",
-							file.getAbsolutePath(), "segment-" + file.getName()
-									+ "-");
+					new ProcessBuilder("split", "-l 10", file.getAbsolutePath(),
+							"segment-" + file.getName() + "-");
 			run(splitProcessBuilder, file.getParentFile());
 			for (File seg : new File(output).listFiles(new SegmentFilter(file))) {
 				final ProcessBuilder curlProcessBuilder =
-						new ProcessBuilder("curl", "-s", "-XPOST", server
-								+ "/_bulk", "--data-binary", "@"
-								+ seg.getName());
+						new ProcessBuilder("curl", "-s", "-XPOST", server + "/_bulk",
+								"--data-binary", "@" + seg.getName());
 				run(curlProcessBuilder, seg.getParentFile());
 			}
 		}
@@ -80,7 +79,7 @@ public class LobidToElasticSearchLocal {
 		}
 	}
 
-	private void run(final ProcessBuilder processBuilder, final File work) {
+	private static void run(final ProcessBuilder processBuilder, final File work) {
 		processBuilder.directory(work);
 		try {
 			final Process splitProcess = processBuilder.start();
@@ -91,27 +90,27 @@ public class LobidToElasticSearchLocal {
 		}
 	}
 
-	private void runHadoopJobs(final String inputPath, final String interPath,
-			final String outputPath) {
+	private static void runHadoopJobs(final String inputPath,
+			final String interPath, final String outputPath) {
 		try {
-			ResolveObjectUrisInLobidNTriples.main(new String[] { inputPath,
-					interPath });
+			ResolveObjectUrisInLobidNTriples
+					.main(new String[] { inputPath, interPath });
 			NTriplesToJsonLd.main(new String[] { interPath, outputPath });
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void printOutput(final Process process) throws IOException {
+	private static void printOutput(final Process process) throws IOException {
 		final String errors =
-				CharStreams.toString(new InputStreamReader(process
-						.getErrorStream(), Charsets.UTF_8));
+				CharStreams.toString(new InputStreamReader(process.getErrorStream(),
+						Charsets.UTF_8));
 		if (!errors.trim().isEmpty()) {
 			System.err.println("Error: " + errors);
 		}
 		final String infos =
-				CharStreams.toString(new InputStreamReader(process
-						.getInputStream(), Charsets.UTF_8));
+				CharStreams.toString(new InputStreamReader(process.getInputStream(),
+						Charsets.UTF_8));
 		if (!infos.trim().isEmpty()) {
 			System.out.println("Info: " + infos);
 		}

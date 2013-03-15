@@ -29,13 +29,12 @@ public abstract class AbstractGraphPipeEncoder extends
 		return isUriWithScheme(value) ? "<" + value + ">" : "\"" + value + "\"";
 	}
 
-	private boolean isUriWithScheme(final String value) {
+	private static boolean isUriWithScheme(final String value) {
 		try {
 			final URI uri = new URI(value);
 			/*
-			 * collection:example.org" is a valid URI, though no URL, and
-			 * " 1483-1733" is also a valid (java-)URI, but not for us - a
-			 * "scheme" is mandatory.
+			 * collection:example.org" is a valid URI, though no URL, and " 1483-1733"
+			 * is also a valid (java-)URI, but not for us - a "scheme" is mandatory.
 			 */
 			if (uri.getScheme() == null) {
 				return false;

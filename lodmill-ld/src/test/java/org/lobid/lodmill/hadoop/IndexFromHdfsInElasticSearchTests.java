@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -17,7 +17,6 @@ import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.QueryBuilders;
-import org.json.JSONException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,6 +28,7 @@ import org.junit.Test;
  * 
  * @author Fabian Steeg (fsteeg)
  */
+@SuppressWarnings("javadoc")
 public class IndexFromHdfsInElasticSearchTests {
 	private static final InetSocketTransportAddress ES_SERVER =
 			new InetSocketTransportAddress("10.1.1.101", 9300); // NOPMD
@@ -56,26 +56,24 @@ public class IndexFromHdfsInElasticSearchTests {
 	}
 
 	@Test
-	public void testIndexOne() throws IOException, JSONException,
-			InterruptedException {
-		assertEquals("Indexing one should yield no errors", 0, indexer
-				.indexOne(DATA_1).size());
+	public void testIndexOne() throws IOException {
+		assertEquals("Indexing one should yield no errors", 0,
+				indexer.indexOne(DATA_1).size());
 	}
 
 	@Test
-	public void testIndexAll() throws IOException, JSONException,
-			InterruptedException {
-		assertEquals("Indexing all should yield no errors", 0, indexer
-				.indexAll("json-es-test/").size());
+	public void testIndexAll() throws IOException {
+		assertEquals("Indexing all should yield no errors", 0,
+				indexer.indexAll("json-es-test/").size());
 	}
 
 	@Test
-	public void testNGram() throws IOException, JSONException,
-			InterruptedException {
+	public void testNGram() throws IOException, InterruptedException {
 		indexer.indexAll("json-es-test/");
 		Thread.sleep(200); // it seems the ngram analyzer needs a moment
 		final SearchResponse response =
-				search("lobid-index",
+				search(
+						"lobid-index",
 						"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
 						"loft");
 		assertTrue(
@@ -83,14 +81,13 @@ public class IndexFromHdfsInElasticSearchTests {
 				response.getHits().iterator().hasNext());
 	}
 
-	private SearchResponse search(final String index, final String field,
+	private static SearchResponse search(final String index, final String field,
 			final String term) {
 		final SearchResponse response =
 				client.prepareSearch(index)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(QueryBuilders.termQuery(field, term))
-						.setFrom(0).setSize(10).setExplain(true).execute()
-						.actionGet();
+						.setQuery(QueryBuilders.termQuery(field, term)).setFrom(0)
+						.setSize(10).setExplain(true).execute().actionGet();
 		return response;
 	}
 

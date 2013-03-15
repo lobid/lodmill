@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -49,8 +49,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 
 	private static final Properties PROPERTIES = load();
 	private static final Set<String> TO_RESOLVE = props("resolve");
-	public static final Set<String> PREDICATES = props("predicates");
-	public static final Set<String> FSL_PATHS = props("fsl-paths");
+	static final Set<String> PREDICATES = props("predicates");
+	static final Set<String> FSL_PATHS = props("fsl-paths");
 	private static final String LOBID_RESOURCE = "http://lobid.org/resource/";
 	private static final String DEWEY = "http://dewey.info/class";
 	private static final String DEWEY_SUFFIX = "2009/08/about.en";
@@ -62,10 +62,17 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(ResolveObjectUrisInLobidNTriples.class);
 
-	public static void main(final String[] args) throws Exception {
-		final int res =
-				ToolRunner.run(new ResolveObjectUrisInLobidNTriples(), args);
-		System.exit(res);
+	/**
+	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
+	 */
+	public static void main(final String[] args) {
+		int res;
+		try {
+			res = ToolRunner.run(new ResolveObjectUrisInLobidNTriples(), args);
+			System.exit(res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private static Properties load() {
@@ -80,8 +87,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	}
 
 	private static SortedSet<String> props(final String key) {
-		return new TreeSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(
-				";")));
+		return new TreeSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(";")));
 	}
 
 	private Configuration conf;
@@ -93,7 +99,6 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					.println("Usage: ResolveObjectUrisInLobidNTriples <input path> <output path>");
 			System.exit(-1);
 		}
-		final Configuration conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", "");
 		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
 		final Job job = new Job(conf);
@@ -111,8 +116,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	}
 
 	/**
-	 * Collect (non-blank) lobid triples and triples required for resolving
-	 * lobid triples, using the resolution ID as a key.
+	 * Collect (non-blank) lobid triples and triples required for resolving lobid
+	 * triples, using the resolution ID as a key.
 	 * 
 	 * @author Fabian Steeg (fsteeg)
 	 */
@@ -128,58 +133,57 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					&& (exists(val, PREDICATES) || val.substring(1).startsWith(
 							LOBID_RESOURCE))) {
 				/*
-				 * We always group under the resolution ID key: for triples to
-				 * be resolved, that's the object (i.e. the entity to be
-				 * resolved), for others (i.e. entities providing resolution
-				 * information), it's the subject:
+				 * We always group under the resolution ID key: for triples to be
+				 * resolved, that's the object (i.e. the entity to be resolved), for
+				 * others (i.e. entities providing resolution information), it's the
+				 * subject:
 				 */
 				final String newKey =
-						exists(val, TO_RESOLVE) ? resolvable(objUri(val))
-								: subjUri(val);
+						exists(val, TO_RESOLVE) ? resolvable(objUri(val)) : subjUri(val);
 				context.write(new Text(newKey), preprocess(val));
 			}
 		}
 
 		private static boolean exists(final String val, final Set<String> vals) {
 			return Sets.filter(vals, new Predicate<String>() {
+				@Override
 				public boolean apply(final String string) {
 					return val.contains(string);
 				}
 			}).size() > 0;
 		}
 
-		private String subjUri(final String triple) {
+		private static String subjUri(final String triple) {
 			return triple.substring(0, triple.indexOf('>') + 1);
 		}
 
-		private String objUri(final String triple) {
+		private static String objUri(final String triple) {
 			return triple.substring(triple.lastIndexOf('<'),
 					triple.lastIndexOf('>') + 1);
 		}
 
 		/*
-		 * These methods make sure that we can resolve the triples we are using.
-		 * For Dewey triples, this requires changing the format to conform to
-		 * something in the subject position in the Dewey data, e.g. we change
+		 * These methods make sure that we can resolve the triples we are using. For
+		 * Dewey triples, this requires changing the format to conform to something
+		 * in the subject position in the Dewey data, e.g. we change
 		 * <http://dewey.info/class/325> -->
 		 * <http://dewey.info/class/325/2009/08/about.en>
 		 * 
-		 * This way, what we have in object position (what we want to resolve)
-		 * is identical to a subject in the Dewey data, and we can thus find an
-		 * FSL path like 'o/dct:subject/o/skos:prefLabel/text()'. See
-		 * resolve.properties for actual paths (replaced * with o for Javadoc).
+		 * This way, what we have in object position (what we want to resolve) is
+		 * identical to a subject in the Dewey data, and we can thus find an FSL
+		 * path like 'o/dct:subject/o/skos:prefLabel/text()'. See resolve.properties
+		 * for actual paths (replaced * with o for Javadoc).
 		 */
 
-		private Text preprocess(final String triple) {
+		private static Text preprocess(final String triple) {
 			if (triple.contains(DEWEY)) {
 				final String obj = objUri(triple);
 				return new Text(triple.replace(obj, resolvable(obj)));
-			} else {
-				return new Text(triple);
 			}
+			return new Text(triple);
 		}
 
-		private String resolvable(final String uri) {
+		private static String resolvable(final String uri) {
 			return uri.contains(DEWEY) ? /**/
 			(uri.substring(0, uri.lastIndexOf('>')) + DEWEY_SUFFIX + ">") : uri;
 		}
@@ -210,24 +214,23 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			writeResolvedLobidTriples(context, model);
 		}
 
-		private void writeResolvedLobidTriples(final Context context,
+		private static void writeResolvedLobidTriples(final Context context,
 				final Model model) throws IOException, InterruptedException {
 			for (Triple triple : model.getGraph().find(Triple.ANY).toList()) {
 				if (triple.getSubject().toString().startsWith(LOBID_RESOURCE)) {
 					final String objString = triple.getObject().toString();
 					final String objResult =
-							triple.getObject().isURI() ? wrapped(objString)
-									: objString;
+							triple.getObject().isURI() ? wrapped(objString) : objString;
 					final Text predAndObj =
-							new Text(wrapped(triple.getPredicate().toString())
-									+ objResult + ".");
-					context.write(new Text(wrapped(triple.getSubject()
-							.toString())), predAndObj);
+							new Text(wrapped(triple.getPredicate().toString()) + objResult
+									+ ".");
+					context.write(new Text(wrapped(triple.getSubject().toString())),
+							predAndObj);
 				}
 			}
 		}
 
-		private String wrapped(final String string) {
+		private static String wrapped(final String string) {
 			return "<" + string + ">";
 		}
 
@@ -273,26 +276,22 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			return model;
 		}
 
-		private String newPred(final String fslPath, final String prefix,
+		private static String newPred(final String fslPath, final String prefix,
 				final String namespace) {
 			return prefix
-					+ fslPath.substring(
-							fslPath.indexOf(namespace) + namespace.length(),
+					+ fslPath.substring(fslPath.indexOf(namespace) + namespace.length(),
 							fslPath.lastIndexOf('/'));
 		}
 
-		private Model addResolvedTriples(final Model model,
+		private static Model addResolvedTriples(final Model model,
 				final FSLJenaEvaluator fje, final FSLPath path,
 				final String newPredicate) {
-			@SuppressWarnings("unchecked")
-			/* API returns raw Vectors (same reason for NOPMDs below) */
-			final Vector<Vector<Object>> pathInstances = fje.evaluatePath(path); // NOPMD
-			for (Vector<Object> object : pathInstances) { // NOPMD
+			final Vector<Vector<Object>> pathInstances = fje.evaluatePath(path);
+			for (Vector<Object> object : pathInstances) {
 				final Triple resolved =
-						Triple.create(Node.createURI(object.firstElement()
-								.toString()), Node.createURI(newPredicate),
-								Node.createLiteral(object.lastElement()
-										.toString()));
+						Triple.create(Node.createURI(object.firstElement().toString()),
+								Node.createURI(newPredicate),
+								Node.createLiteral(object.lastElement().toString()));
 				model.getGraph().add(resolved);
 			}
 			return model;

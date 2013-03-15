@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.sparql;
 
@@ -40,6 +40,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  */
 public final class Gutenberg {
 
+	/** The creator identifier */
 	public static final String CREATOR =
 			"http://purl.org/dc/elements/1.1/creator";
 	private static final String DEATH =
@@ -56,9 +57,9 @@ public final class Gutenberg {
 
 	/**
 	 * @param serializedAuthorMap The file to cache the author mapping to avoid
-	 *            costly processing of the Gutenberg catalogue on every run. The
-	 *            map is loaded from the given file, or created and stored in
-	 *            the file, if it does not exist yet.
+	 *          costly processing of the Gutenberg catalogue on every run. The map
+	 *          is loaded from the given file, or created and stored in the file,
+	 *          if it does not exist yet.
 	 */
 	public Gutenberg(final File serializedAuthorMap) {
 		this.authorMap = map(serializedAuthorMap);
@@ -76,8 +77,8 @@ public final class Gutenberg {
 		int count = 1;
 		for (String gndId : gndIds) {
 			/*
-			 * When we have a few million authors, this can get quite long, so
-			 * we want some kind of progress indicator:
+			 * When we have a few million authors, this can get quite long, so we want
+			 * some kind of progress indicator:
 			 */
 			if (count % PROGRESS_STEPS == 0) {
 				LOG.info(count + "...");
@@ -94,13 +95,12 @@ public final class Gutenberg {
 			final String val = authorMap.get(key);
 			if (val != null) {
 				final Triple newTriple =
-						Triple.create(Node.createURI(val),
-								Node.createURI(CREATOR), Node.createURI(gndId));
+						Triple.create(Node.createURI(val), Node.createURI(CREATOR),
+								Node.createURI(gndId));
 				LOG.info("New triple: " + newTriple);
 				/*
-				 * We write the model after every new triple that was found to
-				 * be able to continue later if the process dies halfway
-				 * through:
+				 * We write the model after every new triple that was found to be able
+				 * to continue later if the process dies halfway through:
 				 */
 				newModel.write(writer, Format.N_TRIPLE.getName());
 				newModel.getGraph().add(newTriple);
@@ -108,25 +108,24 @@ public final class Gutenberg {
 		}
 	}
 
-	private Map<String, String> map(final File serializedMap) {
+	private static Map<String, String> map(final File serializedMap) {
 		return serializedMap.exists() ? readMap(serializedMap)
 				: writeMap(serializedMap);
 	}
 
-	public static List<String> getKeys(final String gndPersonId,
+	private static List<String> getKeys(final String gndPersonId,
 			final FourStore store) {
 		final Graph graph =
 				store.sparqlConstruct(String.format(
 						"CONSTRUCT { <%s> ?p ?o } WHERE { <%s> ?p ?o ."
-								+ "FILTER ( ?p=<%s> || ?p=<%s> || ?p=<%s> ) }",
-						gndPersonId, gndPersonId, NAME, BIRTH, DEATH));
+								+ "FILTER ( ?p=<%s> || ?p=<%s> || ?p=<%s> ) }", gndPersonId,
+						gndPersonId, NAME, BIRTH, DEATH));
 		final String lifeDates = lifeDates(graph);
 		final List<String> result = new ArrayList<>();
 		for (Triple name : triplesWithPredicate(NAME, graph)) {
 			// e.g. "Flygare-Carlen, Emilie, 1807-1892"
 			final String key =
-					String.format("%s%s", name.getObject().getLiteralValue(),
-							lifeDates);
+					String.format("%s%s", name.getObject().getLiteralValue(), lifeDates);
 			result.add(key);
 		}
 		return result;
@@ -136,37 +135,37 @@ public final class Gutenberg {
 		final List<Triple> birth = triplesWithPredicate(BIRTH, graph);
 		final List<Triple> death = triplesWithPredicate(DEATH, graph);
 		final String birthString =
-				birth.isEmpty() ? "" : String.format(", %s-", birth.get(0)
-						.getObject().getLiteralValue());
+				birth.isEmpty() ? "" : String.format(", %s-", birth.get(0).getObject()
+						.getLiteralValue());
 		final String deathString =
-				death.isEmpty() ? "" : death.get(0).getObject()
-						.getLiteralValue().toString();
+				death.isEmpty() ? "" : death.get(0).getObject().getLiteralValue()
+						.toString();
 		return birthString + deathString;
 	}
 
-	private Graph remoteZippedGraph(final URL url) throws IOException {
+	private static Graph remoteZippedGraph(final URL url) throws IOException {
 		final File tempFile = File.createTempFile("temp", ".rdf");
 		tempFile.deleteOnExit();
 		ByteStreams.copy(url.openStream(), new FileOutputStream(tempFile));
-		final ZipFile zipFile = new ZipFile(tempFile);
-		final ZipEntry zipEntry = zipFile.entries().nextElement();
-		final Graph graph =
-				ModelFactory
-						.createDefaultModel()
-						.read(zipFile.getInputStream(zipEntry), null,
-								Format.RDF_XML.getName()).getGraph();
-		zipFile.close();
-		return graph;
+		try (ZipFile zipFile = new ZipFile(tempFile)) {
+			final ZipEntry zipEntry = zipFile.entries().nextElement();
+			final Graph graph =
+					ModelFactory
+							.createDefaultModel()
+							.read(zipFile.getInputStream(zipEntry), null,
+									Format.RDF_XML.getName()).getGraph();
+			return graph;
+		}
 	}
 
 	private static List<Triple> triplesWithPredicate(final String predicate,
 			final Graph graph) {
-		return graph.find(
-				Triple.createMatch(null, Node.createURI(predicate), null))
+		return graph
+				.find(Triple.createMatch(null, Node.createURI(predicate), null))
 				.toList();
 	}
 
-	private Map<String, String> writeMap(final File serializedMap) {
+	private static Map<String, String> writeMap(final File serializedMap) {
 		try (final ObjectOutputStream stream =
 				new ObjectOutputStream(new FileOutputStream(serializedMap))) {
 			final Map<String, String> map = mapLiteralsToGutenbergIds();
@@ -178,28 +177,25 @@ public final class Gutenberg {
 		return null;
 	}
 
-	private Map<String, String> mapLiteralsToGutenbergIds() throws IOException {
+	private static Map<String, String> mapLiteralsToGutenbergIds()
+			throws IOException {
 		final Graph gutenbergGraph = remoteZippedGraph(new URL(GUTENBERG));
 		final Map<String, String> authors = new HashMap<>();
-		final List<Triple> literals =
-				triplesWithPredicate(CREATOR, gutenbergGraph);
+		final List<Triple> literals = triplesWithPredicate(CREATOR, gutenbergGraph);
 		for (Triple triple : literals) {
 			final Node object = triple.getObject();
 			if (object.isLiteral()) {
-				authors.put(object.getLiteralValue().toString(), triple
-						.getSubject().getURI());
+				authors.put(object.getLiteralValue().toString(), triple.getSubject()
+						.getURI());
 			}
 		}
 		return authors;
 	}
 
-	private Map<String, String> readMap(final File serializedMap) {
+	private static Map<String, String> readMap(final File serializedMap) {
 		try (final ObjectInputStream stream =
 				new ObjectInputStream(new FileInputStream(serializedMap))) {
-			@SuppressWarnings("unchecked")
-			final Map<String, String> map =
-					(Map<String, String>) stream.readObject();
-			return map;
+			return (Map<String, String>) stream.readObject();
 		} catch (ClassNotFoundException | IOException e) {
 			LOG.error(e.getMessage(), e);
 		}

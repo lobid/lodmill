@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill;
 
@@ -19,4 +19,5 @@ import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests;
 		GndNTriplesToJsonLdTests.class,
 		ResolveObjectUrisInLobidNTriplesTests.class, JsonLdConverterTests.class })
 public final class UnitTests {
+	/* Suite class, groups tests via annotation above */
 }

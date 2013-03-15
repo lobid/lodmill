@@ -17,7 +17,7 @@ import junit.framework.Assert;
 
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.morph.MorphErrorHandler;
-import org.culturegraph.mf.stream.reader.MarcReader;
+import org.culturegraph.mf.stream.reader.MarcXmlReader;
 import org.culturegraph.mf.stream.reader.Reader;
 import org.culturegraph.mf.stream.sink.StringListMap;
 import org.junit.Test;
@@ -37,78 +37,77 @@ public final class HbzMarcIngest {
 	private static final String REPORT_RAW = HBZ_MARC + "-report-raw.txt";
 	private static final String REPORT_PROCESSED = HBZ_MARC
 			+ "-report-processed.txt";
-	private final Reader reader = new MarcReader();
+	private final Reader reader = new MarcXmlReader();
 	private final Metamorph metamorph = new Metamorph(Thread.currentThread()
-			.getContextClassLoader()
-			/* actual config file is in culturegraph-cluster */
-			.getResourceAsStream("mapping/ingest.marc21.xml"));
+			.getContextClassLoader().getResourceAsStream("ingest.marc21.xml"));
 
-	private final SortedSet<String> errorSet = new TreeSet<String>();
-	private final Map<String, Integer> errorMap =
-			new HashMap<String, Integer>();
+	private final SortedSet<String> errorSet = new TreeSet<>();
+	private final Map<String, Integer> errorMap = new HashMap<>();
 
+	@SuppressWarnings("javadoc")
 	@Test
 	public void ingest() throws IOException {
 		final StringListMap map = new StringListMap();
 		reader.setReceiver(metamorph).setReceiver(map);
-		final BufferedWriter rawReportWriter =
-				new BufferedWriter(new FileWriter(REPORT_RAW));
-		metamorph.setErrorHandler(new MorphErrorHandler() {
-			@Override
-			public void error(final Exception exception) {
-				final String name = exception.getClass().getSimpleName();
-				final String errorMessage =
-						String.format("Metamorph error (%s): %s", name,
-								exception.getMessage());
-				processError(rawReportWriter, name, errorMessage);
-			}
-		});
-		final BufferedReader scanner =
-				new BufferedReader(new FileReader(HBZ_MARC));
-		int all = 0;
-		String line = null;
-		while ((line = scanner.readLine()) != null) { // NOPMD (idiomatic usage)
-			all++;
-			try {
-				reader.read(line);
-			} catch (Exception e) {
-				final String name = e.getClass().getSimpleName();
-				final String errorMessage =
-						String.format("Metastream error (%s): %s, record: %s",
-								name, e.getMessage(), line);
-				processError(rawReportWriter, name, errorMessage);
+		try (BufferedWriter rawReportWriter =
+				new BufferedWriter(new FileWriter(REPORT_RAW))) {
+			metamorph.setErrorHandler(new MorphErrorHandler() {
+				@Override
+				public void error(final Exception exception) {
+					final String name = exception.getClass().getSimpleName();
+					final String errorMessage =
+							String.format("Metamorph error (%s): %s", name,
+									exception.getMessage());
+					processError(rawReportWriter, name, errorMessage);
+				}
+			});
+			try (BufferedReader scanner =
+					new BufferedReader(new FileReader(HBZ_MARC))) {
+				int all = 0;
+				String line = null;
+				while ((line = scanner.readLine()) != null) { // NOPMD (idiomatic usage)
+					all++;
+					try {
+						reader.read(line);
+					} catch (Exception e) {
+						final String name = e.getClass().getSimpleName();
+						final String errorMessage =
+								String.format("Metastream error (%s): %s, record: %s", name,
+										e.getMessage(), line);
+						processError(rawReportWriter, name, errorMessage);
+					}
+				}
+				Assert.assertTrue("Raw report file should exist",
+						new File(REPORT_RAW).exists());
+				writeProcessedReport(scanner, all);
 			}
 		}
-		rawReportWriter.close();
-		Assert.assertTrue("Raw report file should exist",
-				new File(REPORT_RAW).exists());
-		writeProcessedReport(scanner, all);
 		Assert.assertTrue("Processed report file should exist", new File(
 				REPORT_PROCESSED).exists());
 	}
 
-	private void writeProcessedReport(final BufferedReader scanner,
-			final int all) throws IOException {
-		final BufferedWriter processedReportWriter =
-				new BufferedWriter(new FileWriter(REPORT_PROCESSED));
-		int err = 0;
-		for (Integer i : errorMap.values()) {
-			err += i;
+	private void writeProcessedReport(final BufferedReader scanner, final int all)
+			throws IOException {
+		try (BufferedWriter processedReportWriter =
+				new BufferedWriter(new FileWriter(REPORT_PROCESSED))) {
+			int err = 0;
+			for (Integer i : errorMap.values()) {
+				err += i;
+			}
+			final String summary =
+					String.format("Processed %s records, got %s errors:", all, err);
+			System.out.println(summary);
+			processedReportWriter.write(summary + "\n");
+			for (String s : errorMap.keySet()) {
+				System.out.println(String.format("%s: %s", s, errorMap.get(s)));
+				processedReportWriter.write(String.format("%s: %s\n", s,
+						errorMap.get(s)));
+			}
+			scanner.close();
+			for (String string : errorSet) {
+				processedReportWriter.write(string + "\n");
+			}
 		}
-		final String summary =
-				String.format("Processed %s records, got %s errors:", all, err);
-		System.out.println(summary);
-		processedReportWriter.write(summary + "\n");
-		for (String s : errorMap.keySet()) {
-			System.out.println(String.format("%s: %s", s, errorMap.get(s)));
-			processedReportWriter.write(String.format("%s: %s\n", s,
-					errorMap.get(s)));
-		}
-		scanner.close();
-		for (String string : errorSet) {
-			processedReportWriter.write(string + "\n");
-		}
-		processedReportWriter.close();
 	}
 
 	private void processError(final BufferedWriter fullReportWriter,

@@ -1,4 +1,4 @@
-/* Copyright 2012 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -40,9 +40,16 @@ public class NTriplesToJsonLd implements Tool {
 	static final String INDEX_NAME = "index.name";
 	static final String INDEX_TYPE = "index.type";
 
-	public static void main(final String[] args) throws Exception {
-		final int res = ToolRunner.run(new NTriplesToJsonLd(), args);
-		System.exit(res);
+	/**
+	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
+	 */
+	public static void main(final String[] args) {
+		try {
+			int res = ToolRunner.run(new NTriplesToJsonLd(), args);
+			System.exit(res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private Configuration conf;
@@ -54,7 +61,7 @@ public class NTriplesToJsonLd implements Tool {
 					+ " <input path> <output path> <index name> <index type>");
 			System.exit(-1);
 		}
-		final Configuration conf = getConf();
+		conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
 		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
 		conf.set(INDEX_NAME, args[2]);
@@ -110,13 +117,12 @@ public class NTriplesToJsonLd implements Tool {
 				try {
 					/* Convert literal URIs in N-Triple to real URIs: */
 					final String triple =
-							value.toString().replaceAll(
-									"\"\\s*?(http[s]?://[^\"]+)s*?\"", "<$1>");
-					model.read(new StringReader(triple), null,
-							Format.N_TRIPLE.getName());
+							value.toString().replaceAll("\"\\s*?(http[s]?://[^\"]+)s*?\"",
+									"<$1>");
+					model.read(new StringReader(triple), null, Format.N_TRIPLE.getName());
 				} catch (Exception e) {
-					System.err.println(String.format("Could not read '%s': %s",
-							value, e.getMessage()));
+					System.err.println(String.format("Could not read '%s': %s", value,
+							e.getMessage()));
 				}
 			}
 			// And convert the model to JSON-LD:
@@ -125,12 +131,11 @@ public class NTriplesToJsonLd implements Tool {
 			final String resource = JSONUtils.toString(serializer.asObject());
 			context.write(
 					// write both with JSONValue for consistent escaping:
-					new Text(JSONValue
-							.toJSONString(createIndexMap(key, context))),
+					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
 					new Text(JSONValue.toJSONString(JSONValue.parse(resource))));
 		}
 
-		private Map<String, Map<?, ?>> createIndexMap(final Text key,
+		private static Map<String, Map<?, ?>> createIndexMap(final Text key,
 				final Context context) {
 			final Map<String, String> map = new HashMap<>();
 			map.put("_index", context.getConfiguration().get(INDEX_NAME));
