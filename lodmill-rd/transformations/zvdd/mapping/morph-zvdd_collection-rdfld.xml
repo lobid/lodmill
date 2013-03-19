@@ -1,79 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		version="1">
-		<rules>
-				<!-- General attributes for each record: -->
-				<data source="001" name="http://purl.org/dc/terms/isPartOf"> <!-- the same as in zvdd-title -->
-						<regexp match=".*" format="http://www.zvdd.de/"/>
-				</data>
-				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-						<regexp match=".*" format="http://purl.org/dc/dcmitype/Collection"/>
-				</data>
-				<data source="0248 .p" name="http://purl.org/dc/terms/subject">
-						<regexp match="ddc:(\d{3})" format="http://dewey.info/class/${1}/"/>
-				</data>
-				<data source="082  .a" name="http://purl.org/dc/terms/subject">
-						<regexp match="(\d{3})" format="http://dewey.info/class/${1}/"/> <!-- some sanitizing -->
-				</data>
-				<data source="24600.a" name="http://rdvocab.info/Elements/otherTitleInformation"/>
-				<data source="260  .c" name="http://purl.org/dc/terms/temporal"/>
-				<data source="300  .a" name="http://purl.org/dc/terms/extent"/>
-				<data source="520  .u" name="http://xmlns.com/foaf/spec/#term_isPrimaryTopicOf">
-						<regexp match="(https?://.*)" format="${1}"/> <!-- some sanitizing -->
-				</data>
-				<data source="5203 .a" name="http://purl.org/dc/elements/1.1/description"/>
-				<data source="522  .a" name="http://purl.org/dc/terms/spatial"/>
-				<data source="546  .a" name="http://purl.org/dc/terms/language">
-						<regexp match="(\w{2})" format="http://id.loc.gov/vocabulary/iso639-1/${1}"/>
-				</data>
-				<data source="65007.a" name="http://purl.org/dc/elements/1.1/subject"/>
-				<combine name="http://xmlns.com/foaf/spec/#term_homepage" value="${hp-url}"
-						sameEntity="true">
-						<data source="8564 .x" name="">
-								<regexp match="homepage" format=""/>
-						</data>
-						<data source="8564 .u" name="hp-url">
-								<regexp match="(https?://.*)" format="${1}"/> <!-- some sanitizing -->
-						</data>
-				</combine>
-				<combine name="http://purl.org/dc/elements/1.1/creator" value="${creator_literal}"
-						sameEntity="true">
-						<data source="7102 .a" name="creator_literal">
-						</data>
-						<data source="7102 .e" name="">
-								<regexp match="creator" format=""/>
-						</data>
-				</combine>
-				<combine name="http://purl.org/dc/terms/creator" value="${creator_url}"
-						sameEntity="true">
-						<data source="7102 .u" name="creator_url">
-						</data>
-						<data source="7102 .e" name="">
-								<regexp match="creator" format=""/>
-						</data>
-				</combine>
-				<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributor_literal}"
-						sameEntity="true">
-						<data source="7102 .a" name="contributor_literal">
-						</data>
-						<data source="7102 .e" name="">
-								<regexp match="cooperation" format=""/>
-						</data>
-				</combine>
-				<combine name="http://purl.org/dc/terms/contributor" value="${contributor_url}"
-						sameEntity="true">
-						<data source="7102 .u" name="contributor_url">
-						</data>
-						<data source="7102 .e" name="">
-								<regexp match="cooperation" format=""/>
-						</data>
-				</combine>
-				<data source="992  .a" name="subject">
-						<regexp match=".*:(.*\..*)" format="http://lobid.org/zvdd/hbz/${1}"/><!-- some sanitizing -->
-				</data>
-				<data source="992  .a" name="http://purl.org/dc/elements/1.1/subject">
-						<regexp match="(.*:.*\..*)" format="${1}"/>
-				</data>
-				<!-- Leave all other fields untransformed: <data source="_else"/> -->
-		</rules>
+	version="1">
+	<rules>
+		<!-- General attributes for each record: -->
+		<data source="001" name="http://purl.org/dc/terms/isPartOf"> <!-- the same as in zvdd-title -->
+			<regexp match=".*" format="http://www.zvdd.de/"/>
+		</data>
+		<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/dc/dcmitype/Collection"/>
+		</data>
+		<data source="0248 .p" name="http://purl.org/dc/terms/subject">
+			<regexp match="ddc:(\d{3})" format="http://dewey.info/class/${1}/"/>
+		</data>
+		<data source="082  .a" name="http://purl.org/dc/terms/subject">
+			<regexp match="(\d{3})" format="http://dewey.info/class/${1}/"/> <!-- some sanitizing -->
+		</data>
+		<data source="24500.a" name="http://purl.org/dc/terms/title">
+			<!-- Strip newlines with surrounding space: -->
+			<replace pattern="\s*\n+\s*" with=" "/>
+		</data>
+		<data source="24600.a" name="http://rdvocab.info/Elements/otherTitleInformation"/>
+		<data source="260  .c" name="http://purl.org/dc/terms/temporal"/>
+		<data source="300  .a" name="http://purl.org/dc/terms/extent"/>
+		<data source="520  .u" name="http://xmlns.com/foaf/0.1/term_isPrimaryTopicOf">
+			<regexp match="(https?://.*)" format="${1}"/> <!-- some sanitizing -->
+		</data>
+		<data source="5203 .a" name="http://purl.org/dc/elements/1.1/description"/>
+		<data source="522  .a" name="http://purl.org/dc/terms/spatial"/>
+		<data source="546  .a" name="http://purl.org/dc/terms/language">
+			<regexp match="(\w{2})" format="http://id.loc.gov/vocabulary/iso639-1/${1}"/>
+		</data>
+		<data source="65007.a" name="http://purl.org/dc/elements/1.1/subject"/>
+		<combine name="http://xmlns.com/foaf/0.1/term_homepage" value="${hp-url}"
+			sameEntity="true">
+			<data source="8564 .x" name="">
+				<regexp match="homepage" format=""/>
+			</data>
+			<data source="8564 .u" name="hp-url">
+				<regexp match="(https?://.*)" format="${1}"/> <!-- some sanitizing -->
+			</data>
+		</combine>
+		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creator_literal}"
+			sameEntity="true">
+			<data source="7102 .a" name="creator_literal">
+			</data>
+			<data source="7102 .e" name="">
+				<regexp match="creator" format=""/>
+			</data>
+		</combine>
+		<combine name="http://purl.org/dc/terms/creator" value="${creator_url}"
+			sameEntity="true">
+			<data source="7102 .u" name="creator_url">
+			</data>
+			<data source="7102 .e" name="">
+				<regexp match="creator" format=""/>
+			</data>
+		</combine>
+		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributor_literal}"
+			sameEntity="true">
+			<data source="7102 .a" name="contributor_literal">
+			</data>
+			<data source="7102 .e" name="">
+				<regexp match="cooperation" format=""/>
+			</data>
+		</combine>
+		<combine name="http://purl.org/dc/terms/contributor" value="${contributor_url}"
+			sameEntity="true">
+			<data source="7102 .u" name="contributor_url">
+			</data>
+			<data source="7102 .e" name="">
+				<regexp match="cooperation" format=""/>
+			</data>
+		</combine>
+		<data source="992  .a" name="subject">
+			<regexp match=".*:(.*\..*)" format="http://lobid.org/zvdd/hbz/${1}"/><!-- some sanitizing -->
+		</data>
+		<data source="992  .a" name="http://purl.org/dc/elements/1.1/subject">
+			<regexp match="(.*:.*\..*)" format="${1}"/>
+		</data>
+		<!-- Leave all other fields untransformed: <data source="_else"/> -->
+	</rules>
 </metamorph>
