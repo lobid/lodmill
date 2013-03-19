@@ -1,0 +1,3 @@
+Here reside the mappings and configs for the LOD transformation of "hbz-zvdd":http://datahub.io/dataset/hbz-zvdd. See an "example of a visualization of a dot file":https://wiki1.hbz-nrw.de/display/SEM/Visualizing+hbz-zvdd+LOD+transformation.
+
+Further information about the usage of these files reside in the "parent folder":https://github.com/lobid/lodmill/tree/master/lodmill-rd/transformations.
