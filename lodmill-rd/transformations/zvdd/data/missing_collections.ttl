@@ -1,0 +1,39 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+<collection:die_arbeit.fes.bn.de>
+   dct:title "Die Arbeit. Zeitschrift für Gewerkschaftspolitik und Wirtschaftskunde" ;
+   dc:creator "Friedrich Ebert Stiftung, Bonn" ;
+   foaf:homepage <http://library.fes.de/arbeit/> .
+
+<collection:digitale_sammlungen.uni.bn.de >
+   dct:title "Digitale Sammlungen der ULB Bonn" ;
+   dc:creator "Universitäts- und Landesbibliothek Bonn" ;
+   foaf:homepage <http://s2w.hbz-nrw.de/ulbbn> .
+
+<collection:digiwunsch.sub.goe.de>
+   dct:title "DigiWunschbuch" ;
+   dc:creator "Niedersächsische Staats- und Universitätsbibliothek Göttingen" ;
+   foaf:homepage <http://digiwunschbuch.sub.uni-goettingen.de> .
+
+<collection:juedische_periodika.rwth.ac.de>
+   dct:title "Compact Memory" ;
+   dc:creator "Lehr- und Forschungsgebiet Deutsch-Jüdische Literaturgeschichte, RWTH Aachen; Universitätsbibliothek Johann Christian Senckenberg, Frankfurt a.M.; Bibliothek Germania" ;
+   foaf:homepage <http://www.compactmemory.de/> .
+
+<collection:sammlung_ponickau.ulb.hal.de>
+   dct:title "Sammlung Ponickau" ;
+   dc:creator "Universitäts- und Landesbibliothek Sachsen-Anhalt (Halle an der Saale)" ;
+   foaf:homepage <http://bibliothek.uni-halle.de/dbib/digital/historische_drucke/sammlung_ponickau/> .
+
+<collection:sozialistische_monatshefte.fes.bn.de>
+   dct:title "Sozialistische Monatshefte" ;
+   dc:creator "Friedrich Ebert Stiftung Bonn" ;
+   foaf:homepage <http://library.fes.de/sozmon/> .
+
+<collection:zvdd.gbv.goe.de>
+   dct:title "Zentrales Verzeichnis Digitalisierter Drucke (ZVDD)" ;
+   dc:creator "Niedersächsische Staats- und Universitätsbibliothek Göttingen" ;
+   foaf:homepage <http://www.zvdd.de/> .
