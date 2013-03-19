@@ -224,8 +224,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					final String objResult =
 							triple.getObject().isURI() ? wrapped(objString) : objString;
 					final Text predAndObj =
-							new Text(wrapped(triple.getPredicate().toString()) + objResult
-									+ ".");
+							new Text(wrapped(triple.getPredicate().toString()) + " "
+									+ objResult + " .");
 					context.write(new Text(wrapped(triple.getSubject().toString())),
 							predAndObj);
 				}

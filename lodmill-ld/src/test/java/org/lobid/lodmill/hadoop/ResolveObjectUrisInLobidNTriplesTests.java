@@ -109,14 +109,16 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 		final String lobidResource = "<http://lobid.org/resource/HT000000716>";
 		reduceDriver.addOutput(new Text(lobidResource), new Text(
 				"<http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson>"
-						+ "\"Adamucci, Antonio\"."));
-		reduceDriver.addOutput(new Text(lobidResource), new Text(
-				"<http://purl.org/dc/elements/1.1/creator#dateOfDeath>" + "\"1885\"."));
-		reduceDriver.addOutput(new Text(lobidResource), new Text(
-				"<http://purl.org/dc/elements/1.1/creator#dateOfBirth>" + "\"1828\"."));
+						+ " \"Adamucci, Antonio\" ."));
+		reduceDriver.addOutput(new Text(lobidResource),
+				new Text("<http://purl.org/dc/elements/1.1/creator#dateOfDeath>"
+						+ " \"1885\" ."));
+		reduceDriver.addOutput(new Text(lobidResource),
+				new Text("<http://purl.org/dc/elements/1.1/creator#dateOfBirth>"
+						+ " \"1828\" ."));
 		reduceDriver.addOutput(new Text(lobidResource), new Text(
 				"<http://purl.org/dc/elements/1.1/creator>"
-						+ "<http://d-nb.info/gnd/118643606>."));
+						+ " <http://d-nb.info/gnd/118643606> ."));
 		reduceDriver.runTest();
 	}
 
@@ -128,10 +130,10 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 				new Text(LOBID_DEWEY_TRIPLE_SUFFIXED), new Text(DEWEY_TRIPLE)));
 		reduceDriver.addOutput(new Text("<http://lobid.org/resource/HT007307035>"),
 				new Text("<http://purl.org/dc/terms/subject#prefLabel>"
-						+ "\"International migration & colonization@en\"."));
+						+ " \"International migration & colonization@en\" ."));
 		reduceDriver.addOutput(new Text("<http://lobid.org/resource/HT007307035>"),
 				new Text("<http://purl.org/dc/terms/subject>"
-						+ "<http://dewey.info/class/325/2009/08/about.en>."));
+						+ " <http://dewey.info/class/325/2009/08/about.en> ."));
 		reduceDriver.runTest();
 	}
 
