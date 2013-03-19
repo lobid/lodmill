@@ -4,10 +4,10 @@
 		<rules>
 				<!-- General attributes for each record: -->
 				<data source="001" name="subject">
-						<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/D${1}"/>
+						<regexp match="(.*)" format="resource:D${1}"/>
 				</data>
 				<data source="001" name="http://purl.org/dc/terms/isFormatOf">
-						<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/P${1}"/>
+						<regexp match="(.*)" format="resource:P${1}"/>
 				</data>
 				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 						<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
@@ -19,24 +19,24 @@
 						<regexp match=".*" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1002"/>
 				</data>
 				<!-- <data source="0248 .p" name="@http://purl.org/dc/terms/isPartOf"> <regexp match="collection:(.*)" 
-						format="http://lobid.org/zvdd/hbz/${1}"/> </data> -->
+						format="${1}"/> </data> -->
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<equals string="collection:exilzeitschriften.d-nb.f.de"/>
-						<regexp match=".*" format="http://lobid.org/zvdd/hbz/exil-zeitschriften.ddb.f.de"/>
+						<regexp match=".*" format="collection:exil-zeitschriften.ddb.f.de"/>
 				</data>
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<equals string="collection:juedische_periodika.d-nb.f.de"/>
-						<regexp match=".*" format="http://lobid.org/zvdd/hbz/juedische_periodika.ddb.f.de"/>
+						<regexp match=".*" format="collection:juedische_periodika.ddb.f.de"/>
 				</data>
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<equals string="collection:verteilte_rechtsquellen.d-nb.f.de"/>
-						<regexp match=".*" format="http://lobid.org/zvdd/hbz/verteilte_rechtsquellen.ddb.f.de"/>
+						<regexp match=".*" format="collection:verteilte_rechtsquellen.ddb.f.de"/>
 				</data>
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<not-equals string="collection:exilzeitschriften.d-nb.f.de"/>
 						<not-equals string="collection:juedische_periodika.d-nb.f.de"/>
 						<not-equals string="collection:verteilte_rechtsquellen.d-nb.f.de"/>
-						<regexp match="collection:(.*)" format="http://lobid.org/zvdd/hbz/${1}"/>
+						<regexp match="(collection:.*)" format="${1}"/>
 				</data>
 				<!-- TODO: If target a pdf, serve file via HTTP accept header -->
 				<data source="8564 .u" name="http://lobid.org/vocab/lobid#fulltextOnline"/>
@@ -47,7 +47,7 @@
 		<!-- Nice to have, using map lookup instead of regex . Whats missing, now: if no entry was found, the to be looked up key should be used as value
 		<maps>
 				<map name="collection">
-						<entry name="collection:die_arbeit.fes.bn.de" value="http://lobid.org/zvdd/hbz/sozialistische_mitteilungen.fes.bn.de"/>
+						<entry name="collection:die_arbeit.fes.bn.de" value="sozialistische_mitteilungen.fes.bn.de"/>
 				</map>
 		</maps>-->
 </metamorph>

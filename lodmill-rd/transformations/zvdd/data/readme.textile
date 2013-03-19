@@ -1,0 +1,1 @@
+Because some descriptions of collections were missing in the OAI-dump, we provide them here in RDF turtle.
