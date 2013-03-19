@@ -73,7 +73,7 @@
 			</data>
 		</combine>
 		<data source="992  .a" name="subject">
-			<regexp match=".*:(.*\..*)" format="http://lobid.org/zvdd/hbz/${1}"/><!-- some sanitizing -->
+			<regexp match="(.*:.*\..*)" format="${1}"/><!-- some sanitizing -->
 		</data>
 		<data source="992  .a" name="http://purl.org/dc/elements/1.1/subject">
 			<regexp match="(.*:.*\..*)" format="${1}"/>
