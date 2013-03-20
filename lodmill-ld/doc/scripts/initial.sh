@@ -12,6 +12,5 @@ sh convert-gnd.sh extlod/GND.nt $GND > logs/gnd-convert.log
 sh index.sh $GND > logs/gnd-index.log
 
 RESOURCES=output/json-ld-lobid-resources
-sh convert-lobid.sh extlod,hbzlod $RESOURCES > logs/lobid-resources-convert.log
+sh convert-lobid.sh extlod,hbzlod,enrich $RESOURCES > logs/lobid-resources-convert.log
 sh index.sh $RESOURCES > logs/lobid-resources.log
-
