@@ -1,12 +1,13 @@
-default files = "./";
-default output = "file://" + files;
+default files = FLUX_DIR;
  // the input files are not provided here, 
 //  see https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/harvestOAI_hbz_zvdd.sh
  //  how to obtain them
 default input ="../../../../../"; 
-"./"+input + "/hbz_zvdd_collections_marc.xml"|
-open("file") |
-read("marcxml") |
+
+files+input + "hbz_zvdd_collections_marc.xml" |
+open-file |
+decode-xml |
+handle-marcxml |
 morph(files + "morph-zvdd_collection-rdfld.xml") |
-encode("n-triples") |
-write(output + "zvdd_collection-output_trans.nt");
+encode-ntriples |
+write(files + "zvdd_collection-output_trans.nt");
