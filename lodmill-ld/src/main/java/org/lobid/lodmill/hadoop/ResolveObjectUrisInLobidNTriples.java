@@ -128,10 +128,12 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString();
-			// we take non-blank nodes and map them to their triples:
-			if (val.startsWith("<http")
-					&& (exists(val, PREDICATES) || val.substring(1).startsWith(
-							LOBID_RESOURCE))) {
+			if (val.trim().isEmpty() || val.contains("_:")) {
+				return; /* Skip empty lines and triples with blank nodes */
+			}
+			/* Process lobid triples and triples needed to resolve lobid triples: */
+			if (val.substring(1).startsWith(LOBID_RESOURCE)
+					|| exists(val, PREDICATES)) {
 				/*
 				 * We always group under the resolution ID key: for triples to be
 				 * resolved, that's the object (i.e. the entity to be resolved), for
@@ -222,8 +224,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					final String objResult =
 							triple.getObject().isURI() ? wrapped(objString) : objString;
 					final Text predAndObj =
-							new Text(wrapped(triple.getPredicate().toString()) + objResult
-									+ ".");
+							new Text(wrapped(triple.getPredicate().toString()) + " "
+									+ objResult + " .");
 					context.write(new Text(wrapped(triple.getSubject().toString())),
 							predAndObj);
 				}

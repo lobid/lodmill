@@ -6,8 +6,8 @@ then
   exit 65
 fi
 
-HADOOP=/opt/hadoop/hadoop
-HADOOP_CLASSPATH=../../target/lodmill-ld-0.1.0-SNAPSHOT-jar-with-dependencies.jar
+export HADOOP=/opt/hadoop/hadoop
+export HADOOP_CLASSPATH=../../target/lodmill-ld-0.1.0-SNAPSHOT-jar-with-dependencies.jar
 TMP=output/json-ld-tmp
 
 $HADOOP/bin/hadoop fs -rmr $TMP
