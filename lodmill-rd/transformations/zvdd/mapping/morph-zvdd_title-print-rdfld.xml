@@ -4,10 +4,10 @@
 		<rules>
 				<!-- General attributes for each record: -->
 				<data source="001" name="subject">
-						<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/P${1}"/>
+						<regexp match="(.*)" format="resource:P${1}"/>
 				</data>
 				<data source="001" name="http://purl.org/dc/terms/hasFormat">
-						<regexp match="(.*)" format="http://lobid.org/zvdd/hbz/D${1}"/>
+						<regexp match="(.*)" format="resource:D${1}"/>
 				</data>
 				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 						<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
