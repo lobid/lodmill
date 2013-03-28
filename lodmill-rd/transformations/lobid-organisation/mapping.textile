@@ -13,10 +13,10 @@
 |001B.0|14664| | |
 |001D.0|14664| | |
 |002@.0|14664| | |
-|008H.e|14645| ISIL | subject-URI | done |
+|008H.e|14645| ISIL | subject-URI; a foaf:Organization; dct:identifier | foaf:isPrimaryTopicOf | done |
 |035E.f|14162| | |
 |032P.a|14015| | |
-|009Q.u|12891| | |
+|009Q.u|12891| @acka47 : in combination with 009Q.z ? What predicates? foaf:homepage ? or are multiple urls in vcard allowed? | |
 |009Q.z|12888| | |
 |050D.a|12715| | |
 |035E.b|10915| | |
@@ -36,9 +36,9 @@
 |035B.f|6110| | |
 |035B.d|6108| | |
 |035B.e|6107| | |
-|035B.k|5762| | |
+|035B.k|5762| vcard:email | done |
 |008H.b|5082| | |
-|035I.c|4799| | |
+|035I.c|4799| org:linkedTo | done |
 |035B.i|4755| | |
 |035B.g|4751| | |
 |035B.h|4748| | |
