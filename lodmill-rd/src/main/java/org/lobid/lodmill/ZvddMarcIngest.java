@@ -44,13 +44,13 @@ public final class ZvddMarcIngest {
 	private final Reader reader = new MarcXmlReader();
 	private Metamorph metamorph = new Metamorph(Thread.currentThread()
 			.getContextClassLoader()
-			.getResourceAsStream("morph-zvdd_title-digital-rdfld.xml"));
+			.getResourceAsStream("morph_zvdd-title-digital2ld.xml"));
 
 	@Test
 	public void stats() throws IOException {
 		metamorph =
 				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream("zvdd-morph-stats.xml"));
+						.getResourceAsStream("zvdd_morph-stats.xml"));
 		setUpErrorHandler(metamorph);
 		final ZvddStats stats = new ZvddStats();
 		reader.setReceiver(metamorph).setReceiver(stats);

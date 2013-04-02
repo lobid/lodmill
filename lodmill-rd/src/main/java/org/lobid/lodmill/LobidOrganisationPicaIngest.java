@@ -40,18 +40,18 @@ public final class LobidOrganisationPicaIngest {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(LobidOrganisationPicaIngest.class);
 	private static final String LOBID_ORGA_PICA =
-			"/home/shared/data/git/github/dr0i/lodmill/lodmill-rd/transformations/lobid-organisations/Bibdat1303pp_sample1.xml";
+			"/home/shared/data/git/github/dr0i/lodmill/lodmill-rd/transformations/lobid-organisation/Bibdat1303pp_sample1.xml";
 	private final Reader reader = new PicaXmlReader();
 	private Metamorph metamorph = new Metamorph(Thread.currentThread()
 			.getContextClassLoader()
-			.getResourceAsStream("morph-zdb-isil-file-pica2ld.xml"));
+			.getResourceAsStream("morph_zdb-isil-file-pica2ld.xml"));
 
 	// @Test
 	public void stats() throws IOException {
 		// "zvdd-morph-stats.xml" is also fine for zdb-adress-file stats
 		metamorph =
 				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream("zvdd-morph-stats.xml"));
+						.getResourceAsStream("zvdd_morph-stats.xml"));
 		setUpErrorHandler(metamorph);
 		final ZvddStats stats = new ZvddStats();
 		reader.setReceiver(metamorph).setReceiver(stats);
