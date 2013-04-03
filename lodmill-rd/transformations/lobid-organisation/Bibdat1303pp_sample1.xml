@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+<collection>
+  <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
+    <ppxml:global opacflag="" status="">
+      <ppxml:tag id="00900004" occ=""/>
+      <ppxml:tag id="001A" occ="">
+        <ppxml:subf id="0">9006:18-11-99</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001B" occ="">
+        <ppxml:subf id="0">9006:16-05-12</ppxml:subf>
+        <ppxml:subf id="t">16:29:54.000</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001D" occ="">
+        <ppxml:subf id="0">9999:27-05-05</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001U" occ="">
+        <ppxml:subf id="0">utf8</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="002@" occ="">
+        <ppxml:subf id="0">Tw</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="003@" occ="">
+        <ppxml:subf id="0">009000046</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="008H" occ="">
+        <ppxml:subf id="a">101005-0</ppxml:subf>
+        <ppxml:subf id="b">AK001</ppxml:subf>
+        <ppxml:subf id="d">1a</ppxml:subf>
+        <ppxml:subf id="e">DE-1a</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="009Q" occ="">
+        <ppxml:subf id="u">http://www.staatsbibliothek-berlin.de</ppxml:subf>
+        <ppxml:subf id="z">A</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="009Q" occ="">
+        <ppxml:subf id="u">http://stabikat.de</ppxml:subf>
+        <ppxml:subf id="z">B</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="009Q" occ="">
+        <ppxml:subf id="u">http://staatsbibliothek-berlin.de/service/auskunft/</ppxml:subf>
+        <ppxml:subf id="x">Online-Auskunft</ppxml:subf>
+        <ppxml:subf id="z">W</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029@" occ="">
+        <ppxml:subf id="a">SBB-PK, Potsdamer Stra&#xDF;e</ppxml:subf>
+        <ppxml:subf id="4">a</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029@" occ="">
+        <ppxml:subf id="a">Berlin SBB Haus Potsdamer Str</ppxml:subf>
+        <ppxml:subf id="4">c</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029A" occ="">
+        <ppxml:subf id="a">Staatsbibliothek zu Berlin - Preu&#xDF;ischer Kulturbesitz, Haus Potsdamer Stra&#xDF;e</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="032P" occ="">
+        <ppxml:subf id="a">Potsdamer Str. 33</ppxml:subf>
+        <ppxml:subf id="b">Berlin</ppxml:subf>
+        <ppxml:subf id="d">DE</ppxml:subf>
+        <ppxml:subf id="e">10785</ppxml:subf>
+        <ppxml:subf id="f">Berlin</ppxml:subf>
+        <ppxml:subf id="i">Mo-Fr 9.00-21.00, Sa 9.00-19.00</ppxml:subf>
+        <ppxml:subf id="j">O&#x308;ffnungszeiten besonderer Bereiche s. Homepage</ppxml:subf>
+        <ppxml:subf id="k">13.37063</ppxml:subf>
+        <ppxml:subf id="l">52.50771</ppxml:subf>
+        <ppxml:subf id="n">11000000</ppxml:subf>
+        <ppxml:subf id="p">j</ppxml:subf>
+        <ppxml:subf id="2">S</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="032P" occ="">
+        <ppxml:subf id="b">Berlin</ppxml:subf>
+        <ppxml:subf id="d">DE</ppxml:subf>
+        <ppxml:subf id="e">10772</ppxml:subf>
+        <ppxml:subf id="f">Berlin</ppxml:subf>
+        <ppxml:subf id="p">j</ppxml:subf>
+        <ppxml:subf id="2">P</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035B" occ="">
+        <ppxml:subf id="a">S</ppxml:subf>
+        <ppxml:subf id="c">j</ppxml:subf>
+        <ppxml:subf id="d">49</ppxml:subf>
+        <ppxml:subf id="e">30</ppxml:subf>
+        <ppxml:subf id="f">2 66-433888 (Auskunft)</ppxml:subf>
+        <ppxml:subf id="g">49</ppxml:subf>
+        <ppxml:subf id="h">30</ppxml:subf>
+        <ppxml:subf id="i">2 66-333501</ppxml:subf>
+        <ppxml:subf id="k">info@sbb.spk-berlin.de</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035B" occ="">
+        <ppxml:subf id="a">W</ppxml:subf>
+        <ppxml:subf id="b">Benutzung</ppxml:subf>
+        <ppxml:subf id="c">j</ppxml:subf>
+        <ppxml:subf id="k">benutzung.h2@sbb.spk-berlin.de</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035D" occ="">
+        <ppxml:subf id="a">B 3</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035E" occ="">
+        <ppxml:subf id="a">H</ppxml:subf>
+        <ppxml:subf id="b">s</ppxml:subf>
+        <ppxml:subf id="c">0011</ppxml:subf>
+        <ppxml:subf id="e">GBV</ppxml:subf>
+        <ppxml:subf id="f">11</ppxml:subf>
+        <ppxml:subf id="g">07</ppxml:subf>
+        <ppxml:subf id="h">10</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035G" occ="">
+        <ppxml:subf id="a">Recht</ppxml:subf>
+        <ppxml:subf id="a">Orientalistik</ppxml:subf>
+        <ppxml:subf id="a">Osteuropa</ppxml:subf>
+        <ppxml:subf id="a">Ostasien</ppxml:subf>
+        <ppxml:subf id="a">Afrika</ppxml:subf>
+        <ppxml:subf id="a">Amtsdruckschriften</ppxml:subf>
+        <ppxml:subf id="a">Handschriften</ppxml:subf>
+        <ppxml:subf id="a">Karten</ppxml:subf>
+        <ppxml:subf id="a">Geistes- und Sozialwissenschaften</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035H" occ="">
+        <ppxml:subf id="a">Rechtswissenschaft [2]</ppxml:subf>
+        <ppxml:subf id="a">Ost- und Su&#x308;dostasien [6,25]</ppxml:subf>
+        <ppxml:subf id="a">Slawistik [7,39]</ppxml:subf>
+        <ppxml:subf id="a">Einzelne slawische Sprachen und Literaturen [7,40]</ppxml:subf>
+        <ppxml:subf id="a">Vero&#x308;ffentlichungen zur Kartographie [14,1]</ppxml:subf>
+        <ppxml:subf id="a">Parlamentsschriften [27]</ppxml:subf>
+        <ppxml:subf id="a">Topographische Karten [28,1]</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035I" occ="">
+        <ppxml:subf id="a">BER</ppxml:subf>
+        <ppxml:subf id="b">U&#x308;LV</ppxml:subf>
+        <ppxml:subf id="c">GBV</ppxml:subf>
+        <ppxml:subf id="e">l</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035K" occ="">
+        <ppxml:subf id="a">S</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="047A" occ="">
+        <ppxml:subf id="a">UNO- und UNESCO-Deposita&#x308;rbibliothek. U&#x308;bernommene Bibliothek: B 3 (Bibliothek der ehemaligen Preu&#xDF;ischen Geologischen Landesanstalt)</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="050D" occ="">
+        <ppxml:subf id="a">KOBV:04-05-06:N:weitere E-Mailadresse; ZRB:23-10-06:K:775=b[7,39]DFG-Liste; 1aGD:30-05-07:L:SSG 6,20:K:Tel.; Umfrage2009:01-07-09; 29-03-11:K:online-auskunft</ppxml:subf>
+      </ppxml:tag>
+    </ppxml:global>
+  </ppxml:record>
+  <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
+    <ppxml:global opacflag="" status="">
+      <ppxml:tag id="00900021" occ=""/>
+      <ppxml:tag id="001A" occ="">
+        <ppxml:subf id="0">9006:18-11-99</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001B" occ="">
+        <ppxml:subf id="0">9006:15-02-12</ppxml:subf>
+        <ppxml:subf id="t">15:05:22.000</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001D" occ="">
+        <ppxml:subf id="0">9999:23-03-05</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001U" occ="">
+        <ppxml:subf id="0">utf8</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="002@" occ="">
+        <ppxml:subf id="0">Tw</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="003@" occ="">
+        <ppxml:subf id="0">009000216</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="008H" occ="">
+        <ppxml:subf id="d">11/42</ppxml:subf>
+        <ppxml:subf id="e">DE-11-42</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029A" occ="">
+        <ppxml:subf id="a">fru&#x308;her: Humboldt-Universita&#x308;t zu Berlin, Universita&#x308;tsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek im Institut fu&#x308;r Gartenbauwissenschaften, Fachgebiet Pflanzenzu&#x308;chtung</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035E" occ="">
+        <ppxml:subf id="a">I</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="047A" occ="">
+        <ppxml:subf id="a">Aufgegangen in DE-11-97</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="050D" occ="">
+        <ppxml:subf id="a">KOBV:01-06-10:K:Sitzadr., Tel., URL; N:Mailadr.OPAC-URL, O&#x308;ffz.; Umbuchungen 2012/1: Komplettlo&#x308;schung, BIK war 130042-8, ILN 0019</ppxml:subf>
+      </ppxml:tag>
+    </ppxml:global>
+  </ppxml:record>
+  <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
+    <ppxml:global opacflag="" status="">
+      <ppxml:tag id="00900023" occ=""/>
+      <ppxml:tag id="001A" occ="">
+        <ppxml:subf id="0">9006:18-11-99</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001B" occ="">
+        <ppxml:subf id="0">9006:28-08-12</ppxml:subf>
+        <ppxml:subf id="t">14:28:06.000</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001D" occ="">
+        <ppxml:subf id="0">9999:23-03-05</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001U" occ="">
+        <ppxml:subf id="0">utf8</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="002@" occ="">
+        <ppxml:subf id="0">Tw</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="003@" occ="">
+        <ppxml:subf id="0">009000232</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="008H" occ="">
+        <ppxml:subf id="a">110748-3</ppxml:subf>
+        <ppxml:subf id="b">CM392</ppxml:subf>
+        <ppxml:subf id="d">83/748</ppxml:subf>
+        <ppxml:subf id="e">DE-83-748</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="009Q" occ="">
+        <ppxml:subf id="u">http://opac.ub.tu-berlin.de/</ppxml:subf>
+        <ppxml:subf id="z">B</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029@" occ="">
+        <ppxml:subf id="a">Berlin UBTU LandschaftEntwickl</ppxml:subf>
+        <ppxml:subf id="4">c</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029A" occ="">
+        <ppxml:subf id="a">TU Berlin, Institut fu&#x308;r Landschafts- und Umweltplanung, Fachgebiet Ingenieurbiologie, Bibliothek</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="032P" occ="">
+        <ppxml:subf id="a">Ko&#x308;nigin-Luise Str. 22</ppxml:subf>
+        <ppxml:subf id="b">Berlin</ppxml:subf>
+        <ppxml:subf id="d">DE</ppxml:subf>
+        <ppxml:subf id="e">14195</ppxml:subf>
+        <ppxml:subf id="f">Berlin</ppxml:subf>
+        <ppxml:subf id="h">Sekr. KL-ZA</ppxml:subf>
+        <ppxml:subf id="i">Mi 14.00-18.00</ppxml:subf>
+        <ppxml:subf id="j">Sekretariat: Mo-Do 8.00-12.00</ppxml:subf>
+        <ppxml:subf id="n">11000000</ppxml:subf>
+        <ppxml:subf id="p">j</ppxml:subf>
+        <ppxml:subf id="2">S</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035B" occ="">
+        <ppxml:subf id="a">S</ppxml:subf>
+        <ppxml:subf id="c">j</ppxml:subf>
+        <ppxml:subf id="d">49</ppxml:subf>
+        <ppxml:subf id="e">230</ppxml:subf>
+        <ppxml:subf id="f">3 14-71412</ppxml:subf>
+        <ppxml:subf id="g">49</ppxml:subf>
+        <ppxml:subf id="h">30</ppxml:subf>
+        <ppxml:subf id="i">3 14-71226</ppxml:subf>
+        <ppxml:subf id="k">sabine.raabe@tu-berlin.de</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035E" occ="">
+        <ppxml:subf id="a">H</ppxml:subf>
+        <ppxml:subf id="c">0051</ppxml:subf>
+        <ppxml:subf id="d">BVB</ppxml:subf>
+        <ppxml:subf id="f">65</ppxml:subf>
+        <ppxml:subf id="g">07</ppxml:subf>
+        <ppxml:subf id="h">05</ppxml:subf>
+        <ppxml:subf id="k">B 748</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035G" occ="">
+        <ppxml:subf id="a">Landschaftsbau</ppxml:subf>
+        <ppxml:subf id="a">Bodenkunde</ppxml:subf>
+        <ppxml:subf id="a">Umweltschutz</ppxml:subf>
+        <ppxml:subf id="a">Kultivierung</ppxml:subf>
+        <ppxml:subf id="a">Gru&#x308;nlandwirtschaft</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035I" occ="">
+        <ppxml:subf id="a">BER</ppxml:subf>
+        <ppxml:subf id="c">KOBV</ppxml:subf>
+        <ppxml:subf id="e">n</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="050D" occ="">
+        <ppxml:subf id="a">KOBV:22-03-07:K:Mailadr. O&#x308;ffnungszeiten; KOBV 11-08-11; 24-08-12</ppxml:subf>
+      </ppxml:tag>
+    </ppxml:global>
+  </ppxml:record>
+</collection>

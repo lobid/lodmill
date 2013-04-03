@@ -40,7 +40,7 @@ public final class LobidOrganisationPicaIngest {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(LobidOrganisationPicaIngest.class);
 	private static final String LOBID_ORGA_PICA =
-			"/home/shared/data/git/github/dr0i/lodmill/lodmill-rd/transformations/lobid-organisation/Bibdat1303pp_sample1.xml";
+			"transformations/lobid-organisation/Bibdat1303pp_sample1.xml";
 	private final Reader reader = new PicaXmlReader();
 	private Metamorph metamorph = new Metamorph(Thread.currentThread()
 			.getContextClassLoader()
