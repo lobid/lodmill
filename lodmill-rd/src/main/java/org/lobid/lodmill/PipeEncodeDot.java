@@ -47,7 +47,7 @@ public final class PipeEncodeDot extends AbstractGraphPipeEncoder {
 			this.subject = value;
 		} else {
 			predicates.add(name);
-			objects.add(uriOrLiteral(value));
+			objects.add(uriOrLiteralorBnode(value));
 		}
 	}
 

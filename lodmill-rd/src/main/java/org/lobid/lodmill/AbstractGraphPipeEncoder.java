@@ -5,6 +5,7 @@ package org.lobid.lodmill;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.culturegraph.mf.framework.DefaultStreamPipe;
 import org.culturegraph.mf.framework.ObjectReceiver;
@@ -14,6 +15,9 @@ import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
 
 /**
+ * URIs, Literals and Blank Nodes are handled.
+ * 
+ * 
  * @author Fabian Steeg, Pascal Christoph
  */
 @Description("Superclass for graph-based pipe encoders")
@@ -23,10 +27,22 @@ public abstract class AbstractGraphPipeEncoder extends
 		DefaultStreamPipe<ObjectReceiver<String>> {
 
 	static final String SUBJECT_NAME = "subject";
+	static final String BNODE_NAME = "bnode";
 	String subject;
+	protected static final AtomicInteger atomicInt = new AtomicInteger();
 
-	String uriOrLiteral(final String value) {
-		return isUriWithScheme(value) ? "<" + value + ">" : "\"" + value + "\"";
+	/**
+	 * URIs, Literals and Blank Nodes are handled and properly ntriples-encoded .
+	 * An atomic integer is suffixed to named blank nodes so that every named
+	 * blank node will be unique within a record.
+	 * 
+	 * @param value
+	 * @return string, which is encoded as URI, Blank Node or Literal
+	 */
+	String uriOrLiteralorBnode(final String value) {
+		return isUriWithScheme(value) ? "<" + value + ">"
+				: value.startsWith("_:") ? value + atomicInt.get() : "\"" + value
+						+ "\"";
 	}
 
 	private static boolean isUriWithScheme(final String value) {

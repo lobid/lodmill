@@ -7,7 +7,6 @@
 			<regexp match="(.*)" format="http://lobid.org/organisation/${1}"/>
 		</data>
 		<data source="008H.e" name="http://purl.org/dc/terms/identifier">
-			<regexp match="(.*)" format="${1}"/>
 		</data>
 		<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://xmlns.com/foaf/0.1/Organization"/>
@@ -15,6 +14,40 @@
 		<data source="008H.e" name="http://xmlns.com/foaf/0.1/isPrimaryTopicOf">
 			<regexp match="(.*)"
 				format="http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&amp;IKT=8529&amp;TRM=${1}"/>
+		</data>
+		<data source="029A.a" name="http://xmlns.com/foaf/0.1/name">
+		</data>
+		<!-- assume, that every 032P subfield is a vcard:adr -->
+		<data source="032P.*" name="http://www.w3.org/2006/vcard/ns#adr">
+			<regexp match=".*" format="_:a"/>
+		</data>
+		<data source="032P.*" name="bnode">
+			<regexp match=".*"
+				format="_:a http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/2006/vcard/ns#Address"/>
+		</data>
+		<data source="032P.*" name="bnode">
+			<regexp match=".*"
+				format="_:a http://www.w3.org/1999/02/22-rdf-syntax-ns#type http://www.w3.org/2006/vcard/ns#Work"/>
+		</data>
+		<data source="032P.a" name="bnode">
+			<regexp match="(.*)" format="_:a http://www.w3.org/2006/vcard/ns#street-address ${1}"/>
+		</data>
+		<data source="032P.b" name="bnode">
+			<regexp match="(.*)" format="_:a http://www.w3.org/2006/vcard/ns#locality ${1}"/>
+		</data>
+		<data source="032P.e" name="bnode">
+			<regexp match="(.*)" format="_:a http://www.w3.org/2006/vcard/ns#postal-code ${1}"/>
+		</data>
+		<combine name="bnode" value="_:a http://www.w3.org/2006/vcard/ns#country-name ${country}">
+			<data source="032P.d" name="country">
+				<lookup in="country-map"/>
+			</data>
+		</combine>
+		<data source="032P.i" name="http://purl.org/goodrelations/v1#hasOpeningHoursSpecification">
+			<regexp match="(.*)" format="_:b"/>
+		</data>
+		<data source="032P.i" name="bnode">
+			<regexp match="(.*)" format="_:b http://purl.org/dc/terms/description ${1}"/>
 		</data>
 		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
 			<regexp match="(?i).*gbv" format="http://lobid.org/organisation/DE-601"/>
@@ -37,17 +70,25 @@
 		<data source="035B.k" name="http://www.w3.org/2006/vcard/ns#email">
 			<regexp match="(.*)" format="mailto:${1}"/>
 		</data>
-
-				<combine name="http://www.w3.org/2006/vcard/ns#url" value="${hp}"
-			sameEntity="true">
+		<combine name="http://www.w3.org/2006/vcard/ns#url" value="${hp}" sameEntity="true">
 			<data source="009Q.u" name="hp">
 			</data>
 			<data source="009Q.z" name="">
 				<regexp match="A" format=""/>
 			</data>
 		</combine>
-		
-		<!-- Leave all other fields untransformed: 
-		<data source="_else"/>-->
+		<combine name="http://purl.org/ontology/daia/provides" value="${url}"
+			sameEntity="true">
+			<data source="009Q.u" name="url">
+			</data>
+			<data source="009Q.z" name="">
+				<regexp match="B" format=""/>
+			</data>
+		</combine>
+		<!-- Leave all other fields untransformed: <data source="_else"/> -->
 	</rules>
+	<maps>
+		<include href="transformations/include/country-map.xml" parse="xml"
+			xmlns="http://www.w3.org/2001/XInclude"/>
+	</maps>
 </metamorph>
