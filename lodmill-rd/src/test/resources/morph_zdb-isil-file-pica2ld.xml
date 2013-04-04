@@ -27,7 +27,7 @@
 				<lookup in="geolocation-long_map"/>
 			</data>
 		</combine>
-				<combine name="bnode" value="_:c http://www.w3.org/2003/01/geo/wgs84_pos#lat ${lat}">
+		<combine name="bnode" value="_:c http://www.w3.org/2003/01/geo/wgs84_pos#lat ${lat}">
 			<data source="008H.e" name="lat">
 				<lookup in="geolocation-lat_map"/>
 			</data>
@@ -136,15 +136,20 @@
 		<data source="035B.k" name="http://www.w3.org/2006/vcard/ns#email">
 			<regexp match="(.*)" format="mailto:${1}"/>
 		</data>
-		<data source="035E.h" name="TODO">
-			<regexp match="(.*)" format="http://lobid.org/vocab/collectionsize#${1}"/>
+		<data source="035E.f" name="http://www.w3.org/ns/org#classification">
+			<regexp match="(.*)" format="http://purl.org/lobid/libtype#n${1}"/>
+		</data>
+		<data source="035E.g" name="http://purl.org/lobid/lv#fundertype">
+			<regexp match="(.*)" format="http://purl.org/lobid/fundertype#n${1}"/>
+		</data>
+		<data source="035E.h" name="http://purl.org/lobid/lv#stocksize">
+			<regexp match="(.*)" format="http://purl.org/lobid/stocksize#${1}"/>
 		</data>
 		<data source="035G.a" name="http://purl.org/dc/terms/subject">
 		</data>
 		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
 			<regexp match="(?i).*gbv" format="http://lobid.org/organisation/DE-601"/>
 		</data>
-		
 		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
 			<regexp match="(?i).*bvb" format="http://lobid.org/organisation/DE-604"/>
 		</data>
