@@ -15,6 +15,23 @@
 			<regexp match="(.*)"
 				format="http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&amp;IKT=8529&amp;TRM=${1}"/>
 		</data>
+		<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://xmlns.com/foaf/0.1/Organization"/>
+		</data>
+		<!-- we can savely generate a bnode for geo-location in every record -->
+		<data source="008H.e" name="http://www.w3.org/2003/01/geo/wgs84_pos#location">
+			<regexp match=".*" format="_:c"/>
+		</data>
+		<combine name="bnode" value="_:c http://www.w3.org/2003/01/geo/wgs84_pos#long ${long}">
+			<data source="008H.e" name="long">
+				<lookup in="geolocation-long_map"/>
+			</data>
+		</combine>
+				<combine name="bnode" value="_:c http://www.w3.org/2003/01/geo/wgs84_pos#lat ${lat}">
+			<data source="008H.e" name="lat">
+				<lookup in="geolocation-lat_map"/>
+			</data>
+		</combine>
 		<combine name="http://www.w3.org/2006/vcard/ns#url" value="${hp}" sameEntity="true">
 			<data source="009Q.u" name="hp">
 			</data>
@@ -63,9 +80,6 @@
 		</data>
 		<data source="032P.i" name="bnode">
 			<regexp match="(.*)" format="_:b http://purl.org/dc/terms/description ${1}"/>
-		</data>
-		<data source="032P.k" name="http://www.w3.org/2003/01/geo/wgs84_pos#location">
-			<regexp match="(.*)" format="_:c"/>
 		</data>
 		<data source="032P.k" name="bnode">
 			<regexp match="(.*)"
@@ -119,9 +133,18 @@
 			<data source="035B.f" name="faxnr">
 			</data>
 		</combine>
+		<data source="035B.k" name="http://www.w3.org/2006/vcard/ns#email">
+			<regexp match="(.*)" format="mailto:${1}"/>
+		</data>
+		<data source="035E.h" name="TODO">
+			<regexp match="(.*)" format="http://lobid.org/vocab/collectionsize#${1}"/>
+		</data>
+		<data source="035G.a" name="http://purl.org/dc/terms/subject">
+		</data>
 		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
 			<regexp match="(?i).*gbv" format="http://lobid.org/organisation/DE-601"/>
 		</data>
+		
 		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
 			<regexp match="(?i).*bvb" format="http://lobid.org/organisation/DE-604"/>
 		</data>
@@ -137,13 +160,13 @@
 		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
 			<regexp match="(?i).*swb" format="http://lobid.org/organisation/DE-576"/>
 		</data>
-		<data source="035B.k" name="http://www.w3.org/2006/vcard/ns#email">
-			<regexp match="(.*)" format="mailto:${1}"/>
-		</data>
-		<!-- Leave all other fields untransformed: <data source="_else"/> -->
 	</rules>
 	<maps>
 		<include href="transformations/include/country-map.xml" parse="xml"
 			xmlns="http://www.w3.org/2001/XInclude"/>
+		<include href="transformations/lobid-organisation/include/geolocation-lat_map.xml"
+			parse="xml" xmlns="http://www.w3.org/2001/XInclude"/>
+		<include href="transformations/lobid-organisation/include/geolocation-long_map.xml"
+			parse="xml" xmlns="http://www.w3.org/2001/XInclude"/>
 	</maps>
 </metamorph>

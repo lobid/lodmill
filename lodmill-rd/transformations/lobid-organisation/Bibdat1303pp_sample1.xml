@@ -269,4 +269,107 @@
       </ppxml:tag>
     </ppxml:global>
   </ppxml:record>
+ <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
+    <ppxml:global opacflag="" status="">
+      <ppxml:tag id="00900791" occ=""/>
+      <ppxml:tag id="001A" occ="">
+        <ppxml:subf id="0">9006:18-11-99</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001B" occ="">
+        <ppxml:subf id="0">9006:24-04-12</ppxml:subf>
+        <ppxml:subf id="t">14:16:06.000</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001D" occ="">
+        <ppxml:subf id="0">9999:23-03-05</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001U" occ="">
+        <ppxml:subf id="0">utf8</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="002@" occ="">
+        <ppxml:subf id="0">Tw</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="003@" occ="">
+        <ppxml:subf id="0">009007911</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="008H" occ="">
+        <ppxml:subf id="a">461000-3</ppxml:subf>
+        <ppxml:subf id="b">AB294</ppxml:subf>
+        <ppxml:subf id="d">294</ppxml:subf>
+        <ppxml:subf id="e">DE-294</ppxml:subf>
+        <ppxml:subf id="f">RUBO</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="009Q" occ="">
+        <ppxml:subf id="u">http://www.ub.ruhr-uni-bochum.de</ppxml:subf>
+        <ppxml:subf id="z">A</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="009Q" occ="">
+        <ppxml:subf id="u">https://opac.ub.ruhr-uni-bochum.de/webOPACClient/start.do</ppxml:subf>
+        <ppxml:subf id="z">B</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029@" occ="">
+        <ppxml:subf id="a">Bochum UB</ppxml:subf>
+        <ppxml:subf id="4">c</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029A" occ="">
+        <ppxml:subf id="a">Ruhr-Universita&#x308;t Bochum, Universita&#x308;tsbibliothek</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="032P" occ="">
+        <ppxml:subf id="a">Universita&#x308;tsstr. 150</ppxml:subf>
+        <ppxml:subf id="b">Bochum</ppxml:subf>
+        <ppxml:subf id="d">DE</ppxml:subf>
+        <ppxml:subf id="e">44801</ppxml:subf>
+        <ppxml:subf id="f">Nordrhein-Westfalen</ppxml:subf>
+        <ppxml:subf id="i">Mo-Fr 8.00-24.00, Sa 11.00-20.00, So 11.00-18.00</ppxml:subf>
+        <ppxml:subf id="n">05911000</ppxml:subf>
+        <ppxml:subf id="p">j</ppxml:subf>
+        <ppxml:subf id="2">S</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="032P" occ="">
+        <ppxml:subf id="b">Bochum</ppxml:subf>
+        <ppxml:subf id="d">DE</ppxml:subf>
+        <ppxml:subf id="e">44780</ppxml:subf>
+        <ppxml:subf id="f">Nordrhein-Westfalen</ppxml:subf>
+        <ppxml:subf id="p">j</ppxml:subf>
+        <ppxml:subf id="2">P</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035B" occ="">
+        <ppxml:subf id="a">S</ppxml:subf>
+        <ppxml:subf id="c">j</ppxml:subf>
+       <ppxml:subf id="d">49</ppxml:subf>
+        <ppxml:subf id="e">234</ppxml:subf>
+        <ppxml:subf id="f">32-26270</ppxml:subf>
+       <ppxml:subf id="h">234</ppxml:subf>
+        <ppxml:subf id="i">32-14737</ppxml:subf>
+        <ppxml:subf id="k">benutzung.ub@ruhr-uni-bochum.de</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035D" occ="">
+        <ppxml:subf id="a">294/54</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035D" occ="">
+        <ppxml:subf id="b">GyBochU (fru&#x308;herer MARC Code)</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035E" occ="">
+        <ppxml:subf id="a">H</ppxml:subf>
+        <ppxml:subf id="b">s</ppxml:subf>
+        <ppxml:subf id="c">0073</ppxml:subf>
+        <ppxml:subf id="d">HBZ</ppxml:subf>
+        <ppxml:subf id="f">60</ppxml:subf>
+        <ppxml:subf id="g">07</ppxml:subf>
+        <ppxml:subf id="h">10</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035I" occ="">
+        <ppxml:subf id="a">NRW</ppxml:subf>
+        <ppxml:subf id="b">U&#x308;LV</ppxml:subf>
+        <ppxml:subf id="c">HBZ</ppxml:subf>
+        <ppxml:subf id="e">l</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035K" occ="">
+        <ppxml:subf id="b">A</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="050D" occ="">
+        <ppxml:subf id="a">ZRB:10-07-07:N:MARC code; HBZ:03-04-08:N:ABZ; 294:06-05-08:K:Fernleihindikator, O&#x308;ffnungszeiten; 294:04-06-08:K:Fernleihindikator; Umfrage2009:25-03-09</ppxml:subf>
+      </ppxml:tag>
+    </ppxml:global>
+  </ppxml:record>
+
 </collection>
