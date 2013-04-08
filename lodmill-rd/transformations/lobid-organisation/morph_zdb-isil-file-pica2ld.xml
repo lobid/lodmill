@@ -18,6 +18,7 @@
 		<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://xmlns.com/foaf/0.1/Organization"/>
 		</data>
+		
 		<!-- we can savely generate a bnode for geo-location in every record -->
 		<data source="008H.e" name="http://www.w3.org/2003/01/geo/wgs84_pos#location">
 			<regexp match=".*" format="_:c"/>
@@ -67,9 +68,11 @@
 		<data source="032P.b" name="bnode">
 			<regexp match="(.*)" format="_:a http://www.w3.org/2006/vcard/ns#locality ${1}"/>
 		</data>
-		<data source="032P.e" name="bnode">
-			<regexp match="(.*)" format="_:a http://www.w3.org/2006/vcard/ns#postal-code ${1}"/>
-		</data>
+		<!-- there are sometimes double 032P, one for the city and one for the adress -->
+		<combine name="bnode"  value="_:a http://www.w3.org/2006/vcard/ns#postal-code ${plz}" sameEntity="true">
+				<data source="032P.e" name="plz" />
+			<data source="032P.a" name="" />
+		</combine>
 		<combine name="bnode" value="_:a http://www.w3.org/2006/vcard/ns#country-name ${country}">
 			<data source="032P.d" name="country">
 				<lookup in="country-map"/>

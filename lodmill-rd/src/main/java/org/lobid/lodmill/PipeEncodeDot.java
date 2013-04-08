@@ -47,7 +47,7 @@ public final class PipeEncodeDot extends AbstractGraphPipeEncoder {
 			this.subject = value;
 		} else {
 			predicates.add(name);
-			objects.add(uriOrLiteralorBnode(value));
+			objects.add(uriOrLiteral(value));
 		}
 	}
 
@@ -60,6 +60,10 @@ public final class PipeEncodeDot extends AbstractGraphPipeEncoder {
 					String.format("\t\"<%s>\" -> %s [label=\"%s\"]", subject, object,
 							predicates.get(i)));
 		}
+	}
+
+	private static String uriOrLiteral(final String value) {
+		return isUriWithScheme(value) ? "<" + value + ">" : "\"" + value + "\"";
 	}
 
 }
