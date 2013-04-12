@@ -10,7 +10,7 @@
 
     <h1>@Document.ES_CLUSTER_NAME on @Document.ES_SERVER.address()</h1>
 
-    <p>API sample usage: <pre>GET /id/9783458171652 ; GET /author/Abramson ; GET /author/Abramson?format=full&index=gnd-index ; GET /search?format=full&index=lobid-index&category=author&query=Abramson</pre></p>
+    <p>API sample usage: <pre>GET /id/9783458171652 ; GET /author/Abramson ; GET /author/Abramson?format=page&index=gnd-index ; GET /search?format=full&index=lobid-index&category=author&query=Abramson</pre></p>
 
 	<form action="@routes.Application.config(index, category, resultFormat)" class="form-horizontal" method="GET">
 		<!-- TODO: create a custom tag and extract the common code of these 3 option divs: -->
