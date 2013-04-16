@@ -19,6 +19,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFWriter;
 import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.util.ResourceUtils;
 
 /**
  * Is aware of Literals, URIs and Blank Nodes . If the literal "name" equals
@@ -41,7 +42,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void startRecord(final String identifier) {
-		this.subject = null;
+		this.subject = "null";
 		ATOMIC_INT.getAndIncrement();
 		model = ModelFactory.createDefaultModel();
 	}
@@ -92,6 +93,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void endRecord() {
+		ResourceUtils.renameResource(model.getResource("null"), subject);
 		final RDFWriter fasterWriter = model.getWriter("N-TRIPLES");
 		final StringWriter tripleWriter = new StringWriter();
 		fasterWriter.write(model, new PrintWriter(tripleWriter), null);
