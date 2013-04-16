@@ -14,7 +14,7 @@ import org.junit.Test;
  * Run as JUnit test to print some stats, transform the fields, and output
  * results as N-Triples.
  * 
- * @author Pascal Christoph (dr0ide)
+ * @author Pascal Christoph (dr0i)
  */
 @SuppressWarnings("javadoc")
 public final class LobidOrganisationPicaIngest extends Ingest {
