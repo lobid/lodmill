@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map name="country-map" xmlns="http://www.culturegraph.org/metamorph">
+	<entry name="AT" value="Austrian" />
+	<entry name="AU" value="Australian" />
+	<entry name="CH" value="Swizerland" />
+	<entry name="DE" value="Germany" />
+	<entry name="DK" value="Denmark" />
+	<entry name="ES" value="Spain" />
+	<entry name="FR" value="France" />
+	<entry name="GB" value="England" />
+	<entry name="HU" value="Hungary" />
+	<entry name="IT" value="Italian" />
+	<entry name="JP" value="Japan" />
+	<entry name="LB" value="Lebanon" />
+	<entry name="LU" value="Luxembourg" />
+	<entry name="NL" value="Netherlands" />
+	<entry name="PL" value="Poland" />
+	<entry name="SE" value="Sweden" />
+	<entry name="TR" value="Turkey" />
+	<entry name="US" value="USA" />
+</map>

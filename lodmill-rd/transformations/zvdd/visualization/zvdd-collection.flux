@@ -1,10 +1,10 @@
 default files = FLUX_DIR;
 
-files + "zvdd_collections-test-set.xml" |
+files + "zvdd-collections-test-set.xml" |
 open-file |
 decode-xml |
 handle-marcxml |
-morph(files + "../mapping/morph-zvdd_collection-rdfld.xml") |
+morph(files + "../mapping/morph_zvdd-collection2ld.xml") |
 encode-dot  |
-write(files + "morph-zvdd_collection-rdfld.dot")
+write(files + "morph_zvdd-collection2ld.dot")
 ;

@@ -62,4 +62,8 @@ public final class PipeEncodeDot extends AbstractGraphPipeEncoder {
 		}
 	}
 
+	private static String uriOrLiteral(final String value) {
+		return isUriWithScheme(value) ? "<" + value + ">" : "\"" + value + "\"";
+	}
+
 }
