@@ -1,0 +1,4 @@
+Here reside the mappings and configs for the LOD transformation of the "zdb-isil-file":http://datahub.io/dataset/zdb (aka "ISIL- und Sigelverzeichnis", aka "Bibliotheksdatei").
+The "hbz":http://www.hbz-nrw.de/ will use this transformation for their LOD service "lobid.org" (see an "an example":http://www.lobid.org/organisation/DE-605)
+
+Further information about the usage of these files reside in the "parent folder":https://github.com/lobid/lodmill/tree/master/lodmill-rd/transformations.

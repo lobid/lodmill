@@ -25,11 +25,11 @@ public abstract class AbstractGraphPipeEncoder extends
 	static final String SUBJECT_NAME = "subject";
 	String subject;
 
-	String uriOrLiteral(final String value) {
-		return isUriWithScheme(value) ? "<" + value + ">" : "\"" + value + "\"";
-	}
-
-	private static boolean isUriWithScheme(final String value) {
+	/**
+	 * @param value The string which is checked.
+	 * @return True if string is a URI with a scheme.
+	 */
+	protected static boolean isUriWithScheme(final String value) {
 		try {
 			final URI uri = new URI(value);
 			/*

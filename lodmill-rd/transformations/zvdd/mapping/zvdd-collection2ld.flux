@@ -3,10 +3,11 @@ default files = FLUX_DIR;
 //  see https://github.com/lobid/lodmill/blob/master/lodmill-rd/doc/zvdd/harvestOAI_hbz_zvdd.sh
  //  how to obtain them
 default input ="../../../../../"; 
-files+input + "/zvdd.xml"|
+
+files+input + "hbz-zvdd-collections_marc.xml" |
 open-file |
 decode-xml |
 handle-marcxml |
-morph(files + "morph-zvdd_title-print-rdfld.xml") |
+morph(files + "morph_zvdd-collection2ld.xml") |
 encode-ntriples |
-write(files + "zvdd_title-print-output_trans.nt");
+write(files + "zvdd-collection_output.nt");

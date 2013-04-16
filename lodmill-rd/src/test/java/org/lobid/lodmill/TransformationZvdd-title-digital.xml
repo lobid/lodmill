@@ -17,7 +17,7 @@
 								</cgxml:records>
 						</cgxml:cgxml>
 				</input>
-				<transformation type="text/x-metamorph+xml" src="morph-zvdd_title-digital-rdfld.xml"/>
+				<transformation type="text/x-metamorph+xml" src="morph_zvdd-title-digital2ld.xml"/>
 				<result type="text/x-cg+xml">
 						<cgxml:cgxml version="1.0">
 								<cgxml:records>

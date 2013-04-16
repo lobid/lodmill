@@ -7,6 +7,6 @@ files+input + "/zvdd.xml"|
 open-file |
 decode-xml |
 handle-marcxml |
-morph(files + "morph-zvdd_title-digital-rdfld.xml") |
+morph(files + "morph_zvdd-title-digital2ld.xml") |
 encode-ntriples |
-write(files+"zvdd_title-digital-output_trans.nt");
+write(files+"zvdd-title-digital_output.nt");
