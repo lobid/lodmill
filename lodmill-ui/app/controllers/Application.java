@@ -3,11 +3,13 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import models.Document;
 
 import org.codehaus.jackson.JsonNode;
+import org.lobid.lodmill.JsonLdConverter;
 
 import play.libs.Json;
 import play.mvc.Controller;
@@ -15,8 +17,10 @@ import play.mvc.Result;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
+import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 /**
@@ -150,10 +154,7 @@ public final class Application extends Controller {
 								Format.PAGE,
 								ok(views.html.index.render(documents, selectedIndex, query,
 										selectedCategory, Format.PAGE.toString().toLowerCase())))
-						.put(
-								Format.FULL,
-								ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
-										jsonFull)))))
+						.put(Format.FULL, negotiateContent(documents))
 						.put(
 								Format.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],
@@ -161,4 +162,50 @@ public final class Application extends Controller {
 		return results;
 	}
 
+	private static Result negotiateContent(List<Document> documents) {
+		for (final Serialization serialization : Serialization.values()) {
+			if (accepted(serialization)) {
+				return ok(Joiner.on("\n").join(transform(documents, serialization)));
+			}
+		}
+		return ok(Json
+				.toJson(ImmutableSet.copyOf(Lists.transform(documents, jsonFull))));
+	}
+
+	private enum Serialization {/* @formatter:off */
+		N_TRIPLE(JsonLdConverter.Format.N_TRIPLE, Arrays.asList("text/plain")),
+		N3(JsonLdConverter.Format.N3, Arrays.asList("text/rdf+n3", "text/n3")),
+		TURTLE(JsonLdConverter.Format.TURTLE, /* @formatter:on */
+				Arrays.asList("application/x-turtle", "text/turtle"));
+
+		private List<String> types;
+		private JsonLdConverter.Format format;
+
+		private Serialization(JsonLdConverter.Format format, List<String> types) {
+			this.format = format;
+			this.types = types;
+		}
+	}
+
+	private static boolean accepted(Serialization serialization) {
+		return request() != null
+				&& Iterables.any(serialization.types, new Predicate<String>() {
+					@Override
+					public boolean apply(String s) {
+						return request().accept().contains(s);
+					}
+				});
+	}
+
+	private static List<String> transform(List<Document> documents,
+			final Serialization serialization) {
+		List<String> transformed =
+				Lists.transform(documents, new Function<Document, String>() {
+					@Override
+					public String apply(final Document doc) {
+						return doc.as(serialization.format);
+					}
+				});
+		return transformed;
+	}
 }

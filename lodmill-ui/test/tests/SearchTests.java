@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -57,8 +58,7 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
-				Document
-						.search("Abrahams, Israel (1858-1925)", "lobid-index", "author")
+				Document.search("Abrahams, Israel (1858-1925)", "gnd-index", "author")
 						.size()).isEqualTo(1);
 	}
 
@@ -104,9 +104,29 @@ public class SearchTests {
 		assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
 	}
 
+	@Test
+	public void searchViaApiWithContentNegotiation() throws IOException {
+		final String nTriples = call("author/abraham", "text/plain");
+		final String turtle = call("author/abraham", "text/turtle");
+		final String n3 = call("author/abraham", "text/n3"); // NOPMD
+		assertThat(nTriples).isNotEmpty();
+		assertThat(turtle).isNotEmpty();
+		assertThat(n3).isNotEmpty();
+		assertThat(nTriples).isNotEqualTo(turtle);
+		assertThat(turtle).isEqualTo(n3); /* turtle is a subset of n3 for RDF */
+	}
+
 	private static String call(final String request) throws IOException,
 			MalformedURLException {
-		return CharStreams.toString(new InputStreamReader(new URL(
-				"http://localhost:7000/" + request).openStream(), Charsets.UTF_8));
+		return call(request, "text/html");
+	}
+
+	private static String call(final String request, final String contentType)
+			throws IOException, MalformedURLException {
+		final URLConnection url =
+				new URL("http://localhost:7000/" + request).openConnection();
+		url.setRequestProperty("Accept", contentType);
+		return CharStreams.toString(new InputStreamReader(url.getInputStream(),
+				Charsets.UTF_8));
 	}
 }

@@ -8,86 +8,70 @@
 
 @main("Document list") {
 
-    <h1>@Document.ES_CLUSTER_NAME on @Document.ES_SERVER.address()</h1>
+    <h1>Welcome to the Lobid API test server</h1>
+	<p>Running against index @Document.ES_CLUSTER_NAME on @Document.ES_SERVER.address()</p>
+    <h2>Basic API usage</h2>
+    <p>The API currently supports queries for lobid resources (by ID and author name), lobid organisations, and GND entries (both by name), e.g.:</p>
+    <pre>GET /id/HT002189125 ; GET /author/Abramson ; GET /author/Abramson?index=gnd-index ; GET /search?index=lobid-orgs-index&category=title&query=Escola</pre>
+    <p>See the form below for additional usage samples and optional parameters.</p>
 
-    <p>API sample usage: <pre>GET /id/9783458171652 ; GET /author/Abramson ; GET /author/Abramson?format=page&index=gnd-index ; GET /search?format=full&index=lobid-index&category=author&query=Abramson</pre></p>
+	<h2>Content Negotiation</h2>
+	<p>To return different RDF serializations as the result format (default is JSON-LD), you can specify an accept header, e.g. for N-Triples:</p>
+	<pre>curl --header "Accept: text/plain" http://api.lobid.org/id/HT002189125</pre>
+	<p>Currently supported are JSON-LD, N-Triples, Turtle, and N3.</p>
 
-	<form action="@routes.Application.config(index, category, resultFormat)" class="form-horizontal" method="GET">
+	<h2>Build an API request using a form</h2>
+	<p>Use the form below to set up your query parameters (index, category, result format):
+	<form action="@routes.Application.config(index, category, resultFormat)" class="form-inline" method="GET">
 		<!-- TODO: create a custom tag and extract the common code of these 3 option divs: -->
-		<div class="control-group">
-		    <label class="control-label" for="format">GET parameter: 'format'</label>
-		    <div class="controls">
-				<select name="format" id="format">
-					@for(formatOption <- controllers.Application.Format.values().map(_.toString.toLowerCase)){
-						<option value="@formatOption"  @if(formatOption == resultFormat) {selected="selected"} else{}>
-							@formatOption
-						</option>
-					}
-				</select>
-			</div>
-		</div>
-		<div class="control-group">
-		    <label class="control-label" for="index">GET parameter: 'index'</label>
-		    <div class="controls">
-				<!-- We submit on change to update the valid categories for the index: -->
-				<select name="index" id="index" onChange="this.form.submit()">
-					@for(indexOption <- Document.searchFieldsMap.keySet()){
-						<option value="@indexOption" @if(indexOption == index) {selected="selected"} else{}>
-							@indexOption
-						</option>
-					}
-				</select>
-			</div>
-		</div>
-		<div class="control-group">
-		    <label class="control-label" for="category">GET parameter: 'category'</label>
-		    <div class="controls">
-				<select name="category" id="category">
-					@for(categoryOption<-Document.searchFieldsMap.get(index).keySet()){
-						<option value="@categoryOption" @if(categoryOption == category) {selected="selected"} else{}>
-							@categoryOption
-						</option>
-					}
-				</select>
-			</div>
-		</div>
-		<div class="control-group">
-		    <label class="control-label" for="submit">Update parameters for auto-suggest and search</label>
-		    <div class="controls">
-				<button type="submit" class="btn">Update</button>
-			</div>
-		</div>
+	    <label class="control-label" for="index">index:</label>
+		<!-- We submit on change to update the valid categories for the index: -->
+		<select name="index" id="index" onChange="this.form.submit()">
+			@for(indexOption <- Document.searchFieldsMap.keySet()){
+				<option value="@indexOption" @if(indexOption == index) {selected="selected"} else{}>
+					@indexOption
+				</option>
+			}
+		</select>
+	    <label class="control-label" for="category">category:</label>
+		<select name="category" id="category">
+			@for(categoryOption<-Document.searchFieldsMap.get(index).keySet()){
+				<option value="@categoryOption" @if(categoryOption == category) {selected="selected"} else{}>
+					@categoryOption
+				</option>
+			}
+		</select>
+		<label class="control-label" for="format">format:</label>
+		<select name="format" id="format">
+			@for(formatOption <- controllers.Application.Format.values().map(_.toString.toLowerCase)){
+				<option value="@formatOption"  @if(formatOption == resultFormat) {selected="selected"} else{}>
+					@formatOption
+				</option>
+			}
+		</select>
+		<button type="submit" class="btn">Update</button>
 	</form>
-
-    <form action="@routes.Application.search(index, category, resultFormat, query)" class="form-horizontal" method="GET">
+	<p>After confirming the parameters above using the 'Update' button, you will get auto-suggestions in the query field below (based on the 'short' result format):</p>
+    <form action="@routes.Application.search(index, category, resultFormat, query)" class="form-inline" method="GET">
 		<input type='hidden' name='format' value='@resultFormat' />
 		<input type='hidden' name='index' value='@index' />
 		<input type='hidden' name='category' value='@category' />
-		<div class="control-group">
-		    <label class="control-label" for="query">GET parameter: 'query'</label>
-		    <div class="controls">
-			    <input type="text" name="query" id="query" class="autocomplete"
-					data-url="@{routes.Application.autocomplete()}"
-					placeholder="query"
-					@if(query != "") {value="@query"} />
-			</div>
-		</div>
-		<div class="control-group">
-		    <label class="control-label" for="submit">GET /search with parameters set above</label>
-		    <div class="controls">
-				<button type="submit" class="btn">Search</button>
-			    <script>
-			    $('input.autocomplete').each( function() {
-			        var $input = $(this);
-			        var serverUrl = $input.data('url');
-			        $input.autocomplete({ source:serverUrl });
-			    });
-			    </script>
-			</div>
-		</div>
+	    <label class="control-label" for="query">GET /search with parameters set above and query:</label>
+	    <input type="text" name="query" id="query" class="autocomplete"
+			data-url="@{routes.Application.autocomplete()}"
+			placeholder="query"
+			@if(query != "") {value="@query"} />
+		<button type="submit" class="btn">Search</button>
+	    <script>
+	    $('input.autocomplete').each( function() {
+	        var $input = $(this);
+	        var serverUrl = $input.data('url');
+	        $input.autocomplete({ source:serverUrl });
+	    });
+	    </script>
     </form>
 
-    <h1>@docs.size() @if(docs.size() == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h1>
+    <h2>@docs.size() @if(docs.size() == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h2>
     
     @for(doc <- docs) {
 		@defining(doc.id.split("/").last) { id =>
