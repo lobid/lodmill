@@ -176,14 +176,18 @@ public final class Application extends Controller {
 		return badRequest("No accepted content type");
 	}
 
-	private enum Serialization {/* @formatter:off */
+	/** Supported RDF serializations for content negotiation. */
+	@SuppressWarnings("javadoc")
+	/* no javadoc for elements */
+	public enum Serialization {/* @formatter:off */
 		JSON_LD(null, Arrays.asList("application/json", "application/ld+json")),
 		N_TRIPLE(JsonLdConverter.Format.N_TRIPLE, Arrays.asList("text/plain")),
 		N3(JsonLdConverter.Format.N3, Arrays.asList("text/rdf+n3", "text/n3")),
 		TURTLE(JsonLdConverter.Format.TURTLE, /* @formatter:on */
 				Arrays.asList("application/x-turtle", "text/turtle"));
 
-		private List<String> types;
+		/** The content types associated with this serialization. */
+		public List<String> types;
 		private JsonLdConverter.Format format;
 
 		private Serialization(JsonLdConverter.Format format, List<String> types) {
