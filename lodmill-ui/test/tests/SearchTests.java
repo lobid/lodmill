@@ -9,25 +9,17 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import models.Document;
 
 import org.codehaus.jackson.JsonNode;
 import org.junit.Test;
 
-import play.api.mvc.SimpleResult;
 import play.libs.Json;
-import play.mvc.Http;
-import play.mvc.Http.Status;
-import play.mvc.Result;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
-
-import controllers.Application;
 
 /**
  * Tests for the search functionality.
@@ -63,19 +55,8 @@ public class SearchTests {
 	}
 
 	@Test
-	public void searchViaController() {
-		final Map<String, String> data = Collections.emptyMap();
-		Http.Context.current.set(new Http.Context(null, data, data));
-		final Result result = Application.autocomplete(TERM);
-		System.out.println(result.getWrappedResult().getClass());
-		assertThat(((SimpleResult<?>) result.getWrappedResult()).header().status())
-				.isEqualTo(Status.OK);
-	}
-
-	@Test
 	public void searchViaApiPageEmpty() throws IOException {
 		assertThat(call("")).contains("<html>");
-
 	}
 
 	@Test
@@ -118,7 +99,7 @@ public class SearchTests {
 
 	private static String call(final String request) throws IOException,
 			MalformedURLException {
-		return call(request, "text/html");
+		return call(request, "application/json");
 	}
 
 	private static String call(final String request, final String contentType)

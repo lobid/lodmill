@@ -11,6 +11,7 @@ import models.Document;
 import org.codehaus.jackson.JsonNode;
 import org.lobid.lodmill.JsonLdConverter;
 
+import play.api.http.MediaRange;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -163,16 +164,20 @@ public final class Application extends Controller {
 	}
 
 	private static Result negotiateContent(List<Document> documents) {
+		if (accepted(Serialization.JSON_LD)) {
+			return ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
+					jsonFull))));
+		}
 		for (final Serialization serialization : Serialization.values()) {
 			if (accepted(serialization)) {
 				return ok(Joiner.on("\n").join(transform(documents, serialization)));
 			}
 		}
-		return ok(Json
-				.toJson(ImmutableSet.copyOf(Lists.transform(documents, jsonFull))));
+		return badRequest("No accepted content type");
 	}
 
 	private enum Serialization {/* @formatter:off */
+		JSON_LD(null, Arrays.asList("application/json", "application/ld+json")),
 		N_TRIPLE(JsonLdConverter.Format.N_TRIPLE, Arrays.asList("text/plain")),
 		N3(JsonLdConverter.Format.N3, Arrays.asList("text/rdf+n3", "text/n3")),
 		TURTLE(JsonLdConverter.Format.TURTLE, /* @formatter:on */
@@ -189,12 +194,20 @@ public final class Application extends Controller {
 
 	private static boolean accepted(Serialization serialization) {
 		return request() != null
-				&& Iterables.any(serialization.types, new Predicate<String>() {
-					@Override
-					public boolean apply(String s) {
-						return request().accept().contains(s);
-					}
-				});
+		/* Any of the types associated with the serialization... */
+		&& Iterables.any(serialization.types, new Predicate<String>() {
+			@Override
+			public boolean apply(final String mediaType) {
+				/* ...is accepted by any of the accepted types of the request: */
+				return Iterables.any(request().acceptedTypes(),
+						new Predicate<MediaRange>() {
+							@Override
+							public boolean apply(MediaRange media) {
+								return media.accepts(mediaType);
+							}
+						});
+			}
+		});
 	}
 
 	private static List<String> transform(List<Document> documents,
