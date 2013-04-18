@@ -3,20 +3,25 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import models.Document;
 
 import org.codehaus.jackson.JsonNode;
+import org.lobid.lodmill.JsonLdConverter;
 
+import play.api.http.MediaRange;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
+import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 /**
@@ -150,10 +155,7 @@ public final class Application extends Controller {
 								Format.PAGE,
 								ok(views.html.index.render(documents, selectedIndex, query,
 										selectedCategory, Format.PAGE.toString().toLowerCase())))
-						.put(
-								Format.FULL,
-								ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
-										jsonFull)))))
+						.put(Format.FULL, negotiateContent(documents))
 						.put(
 								Format.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],
@@ -161,4 +163,66 @@ public final class Application extends Controller {
 		return results;
 	}
 
+	private static Result negotiateContent(List<Document> documents) {
+		if (accepted(Serialization.JSON_LD)) {
+			return ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
+					jsonFull))));
+		}
+		for (final Serialization serialization : Serialization.values()) {
+			if (accepted(serialization)) {
+				return ok(Joiner.on("\n").join(transform(documents, serialization)));
+			}
+		}
+		return badRequest("No accepted content type");
+	}
+
+	/** Supported RDF serializations for content negotiation. */
+	@SuppressWarnings("javadoc")
+	/* no javadoc for elements */
+	public enum Serialization {/* @formatter:off */
+		JSON_LD(null, Arrays.asList("application/json", "application/ld+json")),
+		N_TRIPLE(JsonLdConverter.Format.N_TRIPLE, Arrays.asList("text/plain")),
+		N3(JsonLdConverter.Format.N3, Arrays.asList("text/rdf+n3", "text/n3")),
+		TURTLE(JsonLdConverter.Format.TURTLE, /* @formatter:on */
+				Arrays.asList("application/x-turtle", "text/turtle"));
+
+		/** The content types associated with this serialization. */
+		public List<String> types;
+		private JsonLdConverter.Format format;
+
+		private Serialization(JsonLdConverter.Format format, List<String> types) {
+			this.format = format;
+			this.types = types;
+		}
+	}
+
+	private static boolean accepted(Serialization serialization) {
+		return request() != null
+		/* Any of the types associated with the serialization... */
+		&& Iterables.any(serialization.types, new Predicate<String>() {
+			@Override
+			public boolean apply(final String mediaType) {
+				/* ...is accepted by any of the accepted types of the request: */
+				return Iterables.any(request().acceptedTypes(),
+						new Predicate<MediaRange>() {
+							@Override
+							public boolean apply(MediaRange media) {
+								return media.accepts(mediaType);
+							}
+						});
+			}
+		});
+	}
+
+	private static List<String> transform(List<Document> documents,
+			final Serialization serialization) {
+		List<String> transformed =
+				Lists.transform(documents, new Function<Document, String>() {
+					@Override
+					public String apply(final Document doc) {
+						return doc.as(serialization.format);
+					}
+				});
+		return transformed;
+	}
 }

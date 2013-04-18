@@ -1,11 +1,11 @@
 language: java
 env:
-  - PLAY_VERSION=2.0.4
+  - PLAY_VERSION=2.1.1
 jdk: oraclejdk7
 install:
   - mvn clean install -e -q -DskipTests=true --settings settings.xml
 before_script:
-  - wget http://download.playframework.org/releases/play-${PLAY_VERSION}.zip
+  - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
   - unzip -q play-${PLAY_VERSION}.zip
 script:
   - mvn test -e -q --settings settings.xml
