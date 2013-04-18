@@ -20,3 +20,4 @@ lodmill*.jar
 *.nt
 *.png
 *.xsd
+.cache
