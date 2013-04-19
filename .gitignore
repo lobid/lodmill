@@ -21,3 +21,4 @@ lodmill*.jar
 *.png
 *.xsd
 .cache
+lodmill-ui/data/

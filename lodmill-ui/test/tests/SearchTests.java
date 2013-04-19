@@ -2,21 +2,39 @@
 
 package tests;
 
+import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 import static org.fest.assertions.Assertions.assertThat;
+import static play.mvc.Http.Status.OK;
+import static play.test.Helpers.GET;
+import static play.test.Helpers.fakeApplication;
+import static play.test.Helpers.fakeRequest;
+import static play.test.Helpers.route;
+import static play.test.Helpers.running;
+import static play.test.Helpers.status;
+import static play.test.Helpers.testServer;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
+import java.util.Scanner;
 
 import models.Document;
 
 import org.codehaus.jackson.JsonNode;
+import org.elasticsearch.action.bulk.BulkItemResponse;
+import org.elasticsearch.client.Client;
+import org.elasticsearch.node.Node;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import org.lobid.lodmill.hadoop.IndexFromHdfsInElasticSearch;
 
 import play.libs.Json;
+import play.mvc.Result;
+import play.test.TestServer;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
@@ -29,85 +47,167 @@ import com.google.common.io.CharStreams;
 @SuppressWarnings("javadoc")
 public class SearchTests {
 
-	static final String TERM = "abr";
+	private static final String TEST_INDEX = "lobid-index";
+	static final String TERM = "theo";
+	private static final int TEST_SERVER_PORT = 5000;
+	private static final TestServer TEST_SERVER = testServer(TEST_SERVER_PORT);
+	private static Node node;
+	private static Client client;
+
+	@BeforeClass
+	public static void setup() throws IOException, InterruptedException {
+		node = nodeBuilder().local(true).node();
+		client = node.client();
+		File sampleData = new File("test/tests/json-ld-index-data");
+		try (Scanner scanner = new Scanner(sampleData)) {
+			List<BulkItemResponse> runBulkRequests =
+					IndexFromHdfsInElasticSearch.runBulkRequests(scanner, client);
+			for (BulkItemResponse bulkItemResponse : runBulkRequests) {
+				System.out.println(bulkItemResponse.toString());
+			}
+		}
+		Thread.sleep(1000);
+		Document.clientSet(client);
+	}
+
+	@AfterClass
+	public static void down() {
+		client.admin().indices().prepareDelete(TEST_INDEX).execute().actionGet();
+		node.close();
+		Document.clientReset();
+	}
+
+	@Test
+	public void accessIndex() {
+		assertThat(
+				client.prepareSearch().execute().actionGet().getHits().totalHits())
+				.isEqualTo(15);
+		JsonNode json =
+				Json.parse(client
+						.prepareGet("lobid-index", "json-ld-lobid",
+								"http://lobid.org/resource/BT000001260").execute().actionGet()
+						.getSourceAsString());
+		assertThat(json.isObject()).isTrue();
+		assertThat(
+				json.get("http://purl.org/dc/elements/1.1/creator#dateOfBirth")
+						.toString()).isEqualTo("\"1906\"");
+	}
 
 	@Test
 	public void searchViaModel() {
 		final List<Document> docs = Document.search(TERM, "lobid-index", "author");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
-			assertThat(document.matchedField.toLowerCase()).contains(TERM);
+			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
 		}
 	}
 
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				Document.search("Abrahamson, Mark (1939-)", "lobid-index", "author")
-						.size()).isEqualTo(1);
+				Document.search("Hundt, Theo (1906-)", "lobid-index", "author").size())
+				.isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
-				Document.search("Abrahams, Israel (1858-1925)", "gnd-index", "author")
-						.size()).isEqualTo(1);
+				Document.search("Goeters, Johann F. Gerhard (1926-1996)",
+						"lobid-index", "author").size()).isEqualTo(1);
 	}
 
 	@Test
-	public void searchViaApiPageEmpty() throws IOException {
-		assertThat(call("")).contains("<html>");
+	public void indexRoute() {
+		running(fakeApplication(), new Runnable() {
+			@Override
+			public void run() {
+				Result result = route(fakeRequest(GET, "/"));
+				assertThat(status(result)).isEqualTo(OK);
+			}
+		});
 	}
 
 	@Test
-	public void searchViaApiPage() throws IOException {
-		assertThat(
-				call("search?index=lobid-index&query=abraham&format=page&category=author"))
-				.contains("<html>");
-
+	public void searchViaApiPageEmpty() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(call("")).contains("<html>");
+			}
+		});
 	}
 
 	@Test
-	public void searchViaApiFull() throws IOException {
-		final JsonNode jsonObject =
-				Json.parse(call("search?index=lobid-index&query=abraham&format=full&category=author"));
-		assertThat(jsonObject.isArray()).isTrue();
-		assertThat(jsonObject.size()).isGreaterThan(10);
-		assertThat(jsonObject.getElements().next().isContainerNode()).isTrue();
+	public void searchViaApiPage() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(
+						call("search?index=lobid-index&query=abraham&format=page&category=author"))
+						.contains("<html>");
+			}
+		});
 	}
 
 	@Test
-	public void searchViaApiShort() throws IOException {
-		final JsonNode jsonObject =
-				Json.parse(call("search?index=lobid-index&query=abraham&format=short&category=author"));
-		assertThat(jsonObject.isArray()).isTrue();
-		assertThat(jsonObject.size()).isGreaterThan(10);
-		assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
+	public void searchViaApiFull() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject =
+						Json.parse(call("search?index=lobid-index&query=abraham&format=full&category=author"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
+				assertThat(jsonObject.getElements().next().isContainerNode()).isTrue();
+			}
+		});
 	}
 
 	@Test
-	public void searchViaApiWithContentNegotiation() throws IOException {
-		final String nTriples = call("author/abraham", "text/plain");
-		final String turtle = call("author/abraham", "text/turtle");
-		final String n3 = call("author/abraham", "text/n3"); // NOPMD
-		assertThat(nTriples).isNotEmpty();
-		assertThat(turtle).isNotEmpty();
-		assertThat(n3).isNotEmpty();
-		assertThat(nTriples).isNotEqualTo(turtle);
-		assertThat(turtle).isEqualTo(n3); /* turtle is a subset of n3 for RDF */
+	public void searchViaApiShort() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject =
+						Json.parse(call("search?index=lobid-index&query=abraham&format=short&category=author"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
+				assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
+			}
+		});
 	}
 
-	private static String call(final String request) throws IOException,
-			MalformedURLException {
+	@Test
+	public void searchViaApiWithContentNegotiation() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final String nTriples = call("author/abraham", "text/plain");
+				final String turtle = call("author/abraham", "text/turtle");
+				final String n3 = call("author/abraham", "text/n3"); // NOPMD
+				assertThat(nTriples).isNotEmpty().isNotEqualTo(turtle);
+				/* turtle is a subset of n3 for RDF */
+				assertThat(turtle).isNotEmpty().isEqualTo(n3);
+				assertThat(n3).isNotEmpty();
+			}
+		});
+	}
+
+	private static String call(final String request) {
 		return call(request, "application/json");
 	}
 
-	private static String call(final String request, final String contentType)
-			throws IOException, MalformedURLException {
-		final URLConnection url =
-				new URL("http://localhost:7000/" + request).openConnection();
-		url.setRequestProperty("Accept", contentType);
-		return CharStreams.toString(new InputStreamReader(url.getInputStream(),
-				Charsets.UTF_8));
+	private static String call(final String request, final String contentType) {
+		try {
+			final URLConnection url =
+					new URL("http://localhost:" + TEST_SERVER_PORT + "/" + request)
+							.openConnection();
+			url.setRequestProperty("Accept", contentType);
+			return CharStreams.toString(new InputStreamReader(url.getInputStream(),
+					Charsets.UTF_8));
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

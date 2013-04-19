@@ -10,4 +10,4 @@ before_script:
 script:
   - mvn test -e -q --settings settings.xml
   - cd lodmill-ui
-  - ../play-${PLAY_VERSION}/play compile
+  - ../play-${PLAY_VERSION}/play test

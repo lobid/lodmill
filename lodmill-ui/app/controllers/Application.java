@@ -128,7 +128,7 @@ public final class Application extends Controller {
 			new Function<Document, JsonNode>() {
 				@Override
 				public JsonNode apply(final Document doc) {
-					return Json.parse(doc.source);
+					return Json.parse(doc.getSource());
 				}
 			};
 
@@ -136,7 +136,7 @@ public final class Application extends Controller {
 			new Function<Document, String>() {
 				@Override
 				public String apply(final Document doc) {
-					return doc.matchedField;
+					return doc.getMatchedField();
 				}
 			};
 
@@ -186,9 +186,13 @@ public final class Application extends Controller {
 		TURTLE(JsonLdConverter.Format.TURTLE, /* @formatter:on */
 				Arrays.asList("application/x-turtle", "text/turtle"));
 
-		/** The content types associated with this serialization. */
-		public List<String> types;
 		private JsonLdConverter.Format format;
+		private List<String> types;
+
+		/** @return The content types associated with this serialization. */
+		public List<String> getTypes() {
+			return types;
+		}
 
 		private Serialization(JsonLdConverter.Format format, List<String> types) {
 			this.format = format;
