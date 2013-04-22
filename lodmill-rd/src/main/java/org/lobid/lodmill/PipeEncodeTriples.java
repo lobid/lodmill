@@ -57,6 +57,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 			} else {
 				resource = model.createResource(subject);
 				final Property prop = model.createProperty(name);
+				// create bnode in subject position
 				if (value.startsWith("_:")) {
 					resource.addProperty(
 							prop,

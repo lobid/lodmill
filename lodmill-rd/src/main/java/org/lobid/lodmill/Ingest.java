@@ -85,7 +85,7 @@ public abstract class Ingest {
 		reader.closeStream();
 		Assert.assertTrue("File should exist", file.exists());
 		Assert.assertTrue("File should not be empty", file.length() > 0);
-		// file.deleteOnExit();
+		file.deleteOnExit();
 	}
 
 	private static ObjectTee<String> outputTee(final File triples) {
