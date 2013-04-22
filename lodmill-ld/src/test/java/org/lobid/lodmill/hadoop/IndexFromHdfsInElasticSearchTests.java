@@ -2,75 +2,86 @@
 
 package org.lobid.lodmill.hadoop;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 import java.io.IOException;
-import java.net.URI;
+import java.util.List;
 
-import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.mapred.ClusterMapReduceTestCase;
+import org.elasticsearch.action.bulk.BulkItemResponse;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
-import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.ImmutableSettings;
-import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.client.Client;
 import org.elasticsearch.index.query.QueryBuilders;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.elasticsearch.node.Node;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.LoggerFactory;
 
 /**
  * Test the {@link IndexFromHdfsInElasticSearch} class.
  * <p/>
- * Requires local HDFS and ElasticSearch instances (set constants below).
+ * Uses mock in-memory HDFS and ElasticSearch instances.
  * 
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public class IndexFromHdfsInElasticSearchTests {
-	private static final InetSocketTransportAddress ES_SERVER =
-			new InetSocketTransportAddress("10.1.1.101", 9300); // NOPMD
-	private static final String ES_CLUSTER_NAME = "es-lod-local";
+public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase {
 	private static final String TEST_FILE =
 			"src/test/resources/json-ld-sample-output";
 	private static final String DATA_1 = "json-es-test/part-r-00000";
 	private static final String DATA_2 = "json-es-test/part-r-00001";
-	private static final String HDFS_SERVER = "hdfs://localhost:9000/";
-	private static FileSystem hdfs = null;
+	private FileSystem hdfs = null;
 	private static IndexFromHdfsInElasticSearch indexer = null;
-	private static TransportClient client;
+	private static Client client;
+	private static Node node;
 
-	@BeforeClass
-	public static void upload() throws IOException {
-		hdfs = FileSystem.get(URI.create(HDFS_SERVER), new Configuration());
+	@Before
+	@Override
+	public void setUp() throws Exception {
+		System.setProperty("hadoop.log.dir", "/tmp/logs");
+		super.setUp();
+		hdfs = getFileSystem();
 		final Path srcPath = new Path(TEST_FILE);
 		hdfs.copyFromLocalFile(srcPath, new Path(DATA_1));
 		hdfs.copyFromLocalFile(srcPath, new Path(DATA_2));
-		client =
-				new TransportClient(ImmutableSettings.settingsBuilder()
-						.put("cluster.name", ES_CLUSTER_NAME).build())
-						.addTransportAddress(ES_SERVER);
+		node = nodeBuilder().local(true).node();
+		client = node.client();
 		indexer = new IndexFromHdfsInElasticSearch(hdfs, client);
 	}
 
 	@Test
-	public void testIndexOne() throws IOException {
-		assertEquals("Indexing one should yield no errors", 0,
-				indexer.indexOne(DATA_1).size());
+	public void testIndexOne() throws IOException, InterruptedException {
+		assertNotNull("Indexer should have been created", indexer);
+		final List<BulkItemResponse> errors = indexer.indexOne(DATA_1);
+		for (BulkItemResponse error : errors) {
+			System.err.println("Index error: " + error.getFailureMessage());
+		}
+		Thread.sleep(1000);
+		assertEquals("All documents should be indexed", 25, client.prepareSearch()
+				.execute().actionGet().getHits().totalHits());
+		assertEquals("Indexing one should yield no errors", 0, errors.size());
 	}
 
 	@Test
-	public void testIndexAll() throws IOException {
-		assertEquals("Indexing all should yield no errors", 0,
-				indexer.indexAll("json-es-test/").size());
+	public void testIndexAll() throws IOException, InterruptedException {
+		final List<BulkItemResponse> errors = indexer.indexAll("json-es-test/");
+		for (BulkItemResponse error : errors) {
+			System.err.println("Index error: " + error.getFailureMessage());
+		}
+		Thread.sleep(1000);
+		assertEquals("All documents should be indexed", 25, client.prepareSearch()
+				.execute().actionGet().getHits().totalHits());
+		assertEquals("Indexing all should yield no errors", 0, errors.size());
 	}
 
 	@Test
 	public void testNGram() throws IOException, InterruptedException {
 		indexer.indexAll("json-es-test/");
-		Thread.sleep(200); // it seems the ngram analyzer needs a moment
+		Thread.sleep(1000);
 		final SearchResponse response =
 				search(
 						"lobid-index",
@@ -91,8 +102,16 @@ public class IndexFromHdfsInElasticSearchTests {
 		return response;
 	}
 
-	@AfterClass
-	public static void close() throws IOException {
-		hdfs.close();
+	@After
+	public void close() {
+		client.admin().indices().prepareDelete().execute().actionGet();
+		node.close();
+		try {
+			hdfs.close();
+			super.stopCluster();
+		} catch (Exception e) {
+			LoggerFactory.getLogger(IndexFromHdfsInElasticSearchTests.class).error(
+					e.getMessage(), e);
+		}
 	}
 }

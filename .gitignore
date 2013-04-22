@@ -22,3 +22,5 @@ lodmill*.jar
 *.xsd
 .cache
 lodmill-ui/data/
+lodmill-ld/data/
+build
