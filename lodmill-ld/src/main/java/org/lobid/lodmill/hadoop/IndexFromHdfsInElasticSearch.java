@@ -118,28 +118,34 @@ public class IndexFromHdfsInElasticSearch {
 		checkPathInHdfs(data);
 		final FSDataInputStream inputStream = hdfs.open(new Path(data));
 		try (Scanner scanner = new Scanner(inputStream, "UTF-8")) {
-			final List<BulkItemResponse> result = runBulkRequests(scanner);
+			final List<BulkItemResponse> result = runBulkRequests(scanner, client);
 			return result;
 		}
 	}
 
-	private List<BulkItemResponse> runBulkRequests(final Scanner scanner) {
+	/** 
+	 @param scanner The scanner for reading the data to index
+	 @param c The elasticsearch client to use for indexing
+	 @return A list responses for requests that errored
+	 */
+	public static List<BulkItemResponse> runBulkRequests(final Scanner scanner,
+			Client c) {
 		final List<BulkItemResponse> result = new ArrayList<>();
 		int lineNumber = 0;
 		String meta = null;
-		BulkRequestBuilder bulkRequest = client.prepareBulk();
+		BulkRequestBuilder bulkRequest = c.prepareBulk();
 		while (scanner.hasNextLine()) {
 			final String line = scanner.nextLine();
 			if (lineNumber % 2 == 0) { // every first line is index info
 				meta = line;
 			} else { // every second line is value object
-				addIndexRequest(meta, bulkRequest, line);
+				addIndexRequest(meta, bulkRequest, line, c);
 			}
 			lineNumber++;
 			/* Split into multiple bulks to ease server load: */
 			if (lineNumber % BULK_SIZE == 0) {
 				runBulkRequest(bulkRequest, result);
-				bulkRequest = client.prepareBulk();
+				bulkRequest = c.prepareBulk();
 			}
 		}
 		/* Run the final bulk, if there is anything to do: */
@@ -149,13 +155,13 @@ public class IndexFromHdfsInElasticSearch {
 		return result;
 	}
 
-	private void addIndexRequest(final String meta,
-			final BulkRequestBuilder bulkRequest, final String line) {
+	private static void addIndexRequest(final String meta,
+			final BulkRequestBuilder bulkRequest, final String line, Client c) {
 		try {
 			final Map<String, Object> map =
 					(Map<String, Object>) JSONValue.parseWithException(line);
 			final IndexRequestBuilder requestBuilder =
-					createRequestBuilder(meta, map);
+					createRequestBuilder(meta, map, c);
 			bulkRequest.add(requestBuilder);
 		} catch (ParseException e) {
 			LOG.error(e.getMessage(), e);
@@ -182,18 +188,18 @@ public class IndexFromHdfsInElasticSearch {
 		}
 	}
 
-	private IndexRequestBuilder createRequestBuilder(final String meta,
-			final Map<String, Object> map) {
+	private static IndexRequestBuilder createRequestBuilder(final String meta,
+			final Map<String, Object> map, Client c) {
 		final JSONObject object =
 				(JSONObject) ((JSONObject) JSONValue.parse(meta)).get("index");
 		final String index = (String) object.get("_index");
 		final String type = (String) object.get("_type");
 		final String id = (String) object.get("_id"); // NOPMD
-		final IndicesAdminClient admin = client.admin().indices();
+		final IndicesAdminClient admin = c.admin().indices();
 		if (!admin.prepareExists(index).execute().actionGet().exists()) {
 			admin.prepareCreate(index).setSource(config()).execute().actionGet();
 		}
-		return client.prepareIndex(index, type, id).setSource(map);
+		return c.prepareIndex(index, type, id).setSource(map);
 	}
 
 	private static String config() {

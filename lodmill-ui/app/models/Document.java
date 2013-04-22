@@ -49,6 +49,24 @@ public class Document {
 			new InetSocketTransportAddress("10.1.2.111", 9300); // NOPMD
 	/** The ElasticSearch cluster to use. */
 	public static final String ES_CLUSTER_NAME = "es-lod-hydra";
+
+	private static Client productionClient = new TransportClient(
+			ImmutableSettings.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME)
+					.build()).addTransportAddress(ES_SERVER);
+	private static Client client = productionClient;
+
+	/* TODO find a better way to inject the client for testing */
+
+	/** @param newClient The new elasticsearch client to use. */
+	public static void clientSet(Client newClient) {
+		client = newClient;
+	}
+
+	/** Reset the elasticsearch client. */
+	public static void clientReset() {
+		client = productionClient;
+	}
+
 	/** A mapping index names to categories to search fields. */
 	public static ImmutableMap<String, Map<String, List<String>>> searchFieldsMap =
 			new ImmutableMap.Builder<String, Map<String, List<String>>>()
@@ -89,16 +107,24 @@ public class Document {
 	private static List<String> searchFields = searchFieldsMap.get("lobid-index")
 			.get("author");
 
-	private static final Client CLIENT = new TransportClient(ImmutableSettings
-			.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME).build())
-			.addTransportAddress(ES_SERVER);
+	private transient String matchedField;
+	private transient String source;
+	private transient String id; // NOPMD
 
-	/** The field that matched the query. */
-	public transient String matchedField;
-	/** The JSON source for this document. */
-	public transient String source;
-	/** The document ID. */
-	public transient String id; // NOPMD
+	/** @return The document ID. */
+	public String getId() {
+		return id;
+	}
+
+	/** @return The JSON source for this document. */
+	public String getSource() {
+		return source;
+	}
+
+	/** @return The field that matched the query. */
+	public String getMatchedField() {
+		return matchedField;
+	}
 
 	private static final Logger LOG = LoggerFactory.getLogger(Document.class);
 
@@ -138,7 +164,7 @@ public class Document {
 		validate(index, category);
 		final String query = term.toLowerCase();
 		final SearchRequestBuilder requestBuilder =
-				CLIENT.prepareSearch(index)
+				client.prepareSearch(index)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 						.setQuery(constructQuery(query, category));
 		/* TODO: pass limit as a parameter */
