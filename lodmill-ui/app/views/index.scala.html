@@ -7,7 +7,7 @@
 @import controllers.Application.Serialization
 @import helper.twitterBootstrap._
 @import org.lobid.lodmill.JsonLdConverter.Format
-@import play.libs.Json
+@import play.api.libs.json.Json
 
 @main("Document list") {
 
@@ -90,7 +90,7 @@
 		<div class="tab-content">
 		  <div class="tab-pane active" id="@id-rdfa">
 			@index match {
-				case "lobid-index" => {<pre>@lobid_resource(Json.parse(doc.getSource))</pre>}
+				case "lobid-index" => {@lobid_resource(Json.parse(doc.getSource))}
 				case "gnd-index" => {<pre>@gnd(Json.parse(doc.getSource))</pre>}
 				case "lobid-orgs-index" => {<pre>@lobid_organisation(Json.parse(doc.getSource))</pre>}
 			}

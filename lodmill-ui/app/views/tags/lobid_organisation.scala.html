@@ -1,7 +1,7 @@
-@(doc: org.codehaus.jackson.JsonNode)
+@(doc: play.api.libs.json.JsValue)
 <div xmlns:foaf="http://xmlns.com/foaf/0.1/">
 <table>
 	<tr>
-		<td property="foaf:name">@doc.get("http://xmlns.com/foaf/0.1/name").asText</td>
+		<td property="foaf:name">@(doc \ "http://xmlns.com/foaf/0.1/name")</td>
 	</tr>
 </table>
