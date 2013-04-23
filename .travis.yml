@@ -8,6 +8,7 @@ before_script:
   - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
   - unzip -q play-${PLAY_VERSION}.zip
 script:
+  - umask 0022
   - mvn test -e -q --settings settings.xml
   - cd lodmill-ui
   - ../play-${PLAY_VERSION}/play test

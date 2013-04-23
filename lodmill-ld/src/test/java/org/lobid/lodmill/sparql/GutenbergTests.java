@@ -41,8 +41,8 @@ public final class GutenbergTests {
 
 	private static final String CREATORS = "creators_small.nt";
 	private static final String GRAPH = "http://lobid.org/graph/gutenberg/gnd";
-	private static final String OUT = "bin/new.nt";
-	private static final String MAP_BIN = "bin/map.bin";
+	private static final String OUT = "target/new.nt";
+	private static final String MAP_BIN = "target/map.bin";
 	private static final Logger LOG = LoggerFactory
 			.getLogger(GutenbergTests.class);
 	/* First run, pass '-Xmx3000m -XX:+UseConcMarkSweepGC' as JVM args for Jena */

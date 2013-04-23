@@ -5,8 +5,6 @@ package org.lobid.lodmill;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.lobid.lodmill.hadoop.IndexFromHdfsInElasticSearchTests;
-import org.lobid.lodmill.sparql.FourStoreTests;
-import org.lobid.lodmill.sparql.GutenbergTests;
 
 /**
  * Main test suite for all integration tests.
@@ -14,8 +12,7 @@ import org.lobid.lodmill.sparql.GutenbergTests;
  * @author Fabian Steeg (fsteeg)
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ IndexFromHdfsInElasticSearchTests.class,
-		GutenbergTests.class, FourStoreTests.class })
+@Suite.SuiteClasses({ IndexFromHdfsInElasticSearchTests.class })
 public final class IntegrationTests {
 	/* Suite class, groups tests via annotation above */
 }
