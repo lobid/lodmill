@@ -1,0 +1,8 @@
+@(doc: org.codehaus.jackson.JsonNode)
+<div xmlns:dct="http://purl.org/dc/terms/">
+<table>
+	<tr>
+		<td property="dct:title">@doc.get("http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson").asText</td>
+		<td property="dct:title">(@doc.get("http://d-nb.info/standards/elementset/gnd#variantNameForThePerson"))</td>
+	</tr>
+</table>

@@ -3,9 +3,11 @@
 @(docs: List[Document], index: String, query: String, category: String, resultFormat: String)
 
 @import helper._
+@import tags._
 @import controllers.Application.Serialization
 @import helper.twitterBootstrap._
 @import org.lobid.lodmill.JsonLdConverter.Format
+@import play.libs.Json
 
 @main("Document list") {
 
@@ -72,12 +74,13 @@
 	    </script>
     </form>
 
-    <h2>@docs.size() @if(docs.size() == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h2>
+    <h2>@docs.size @if(docs.size == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h2>
     
     @for(doc <- docs) {
 		@defining(doc.getId.split("/").last) { id =>
 		<h2><a href="@doc.getId">@doc.getId</a></h2>
 		<ul class="nav nav-tabs" id="@id-serializations">
+		  <li><a href="#@id-rdfa" data-toggle="tab">RDFa</a></li>
 		  <li><a href="#@id-jld" data-toggle="tab">JLD</a></li>
 		  <li><a href="#@id-nt" data-toggle="tab">NT</a></li>
 		  <li><a href="#@id-n3" data-toggle="tab">N3</a></li>
@@ -85,7 +88,14 @@
 		</ul>
 
 		<div class="tab-content">
-		  <div class="tab-pane active" id="@id-jld"><pre>@doc.getSource</pre></div>
+		  <div class="tab-pane active" id="@id-rdfa">
+			@index match {
+				case "lobid-index" => {<pre>@lobid_resource(Json.parse(doc.getSource))</pre>}
+				case "gnd-index" => {<pre>@gnd(Json.parse(doc.getSource))</pre>}
+				case "lobid-orgs-index" => {<pre>@lobid_organisation(Json.parse(doc.getSource))</pre>}
+			}
+		  </div>
+		  <div class="tab-pane" id="@id-jld"><pre>@doc.getSource</pre></div>
 		  <div class="tab-pane" id="@id-nt"><pre>@doc.as(Format.N_TRIPLE)</pre></div>
 		  <div class="tab-pane" id="@id-n3"><pre>@doc.as(Format.N3)</pre></div>
 		  <div class="tab-pane" id="@id-ttl"><pre>@doc.as(Format.TURTLE)</pre></div>
