@@ -1,7 +1,52 @@
 @(doc: play.api.libs.json.JsValue)
-<div xmlns:foaf="http://xmlns.com/foaf/0.1/">
-<table>
-	<tr>
-		<td property="foaf:name">@(doc \ "http://xmlns.com/foaf/0.1/name")</td>
-	</tr>
+@import play.api.libs.json.JsValue
+@string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
+<table class="table table-striped">
+  <tr>
+    <td><a href="http://lobid.org/organisation">ID</a></td>
+    <td>
+      @defining(string(doc \ "@id")) { id =>
+        <a href="@id">@id</a>
+      }
+    </td>
+  </tr>
+  <tr>
+    @defining("http://xmlns.com/foaf/0.1/name") { name =>
+      <td><a href="@name">Name</a></td>
+      <td property="@name">@string(doc \ name)</td>
+    }
+  </tr>
+  <tr>
+    @defining("http://purl.org/dc/terms/identifier") { identifier =>
+      <td><a href="@identifier">ISIL</a></td>
+      <td property="@identifier">@string(doc \ identifier)</td>
+    }
+  </tr>
+  <tr>
+    @defining("http://lobid.org/vocab/lobid#contactqr") { qr =>
+      <td><a href="@qr">Kontakt-QR</a></td>
+      <td rel="@qr">
+        @((doc \ qr \ "@id").asOpt[String]) match {
+          case Some(link) => { <img src="@link"/> }
+          case None => { -- }
+        }
+      </td>
+    }
+  </tr>
+  <tr>
+    @defining("http://purl.org/ontology/mo/wikipedia") { wikipedia =>
+      <td><a href="@wikipedia">Wikipedia-Link</a></td>
+      @defining(string(doc \ wikipedia \ "@id")) { url =>
+        <td rel="@wikipedia"><a href="@url">@url</a></td>
+      }
+    }
+  </tr>
+  <tr>
+    @defining("http://www.w3.org/2000/01/rdf-schema#seeAlso") { seeAlso =>
+      <td><a href="@seeAlso">DBpedia-Link</a></td>
+      @defining(string(doc \ "rdfs:seeAlso" \ "@id")) { url =>
+        <td rel="@seeAlso"><a href="@url">@url</a></td>
+      }
+    }
+  </tr>
 </table>

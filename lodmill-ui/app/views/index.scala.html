@@ -92,7 +92,7 @@
 			@index match {
 				case "lobid-index" => {@lobid_resource(Json.parse(doc.getSource))}
 				case "gnd-index" => {<pre>@gnd(Json.parse(doc.getSource))</pre>}
-				case "lobid-orgs-index" => {<pre>@lobid_organisation(Json.parse(doc.getSource))</pre>}
+				case "lobid-orgs-index" => {@lobid_organisation(Json.parse(doc.getSource))}
 			}
 		  </div>
 		  <div class="tab-pane" id="@id-jld"><pre>@doc.getSource</pre></div>
