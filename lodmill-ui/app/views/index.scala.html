@@ -15,7 +15,7 @@
 	<pre>curl --header "Accept: text/plain" http://api.lobid.org/id/HT002189125</pre>
 	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
 
-	<h2>Build an API request using a form</h2>
+	<h2>API request form</h2>
 	<p>Use the form below to set up your query parameters (index, category, result format):
 	<form action="@routes.Application.config(index, category, resultFormat)" class="form-inline" method="GET">
 		<!-- TODO: create a custom tag and extract the common code of these 3 option divs: -->
@@ -65,4 +65,21 @@
 	    });
 	    </script>
     </form>
+
+	<h2>Sample requests</h2>
+	<p>Some clickable sample requests (omit the <code>format=page</code> parameter for JSON-LD output and send an accept header for different formats, see details above):</p>
+	<table class="table">
+		<tr>
+			<th>Lobid-Resources, by ID</th>
+			<th>Lobid-Resources, by Author</th>
+			<th>Lobid-Organisations, by Title</th>
+			<th>GND, by Author</td>
+		</tr>
+		<tr>
+			@defining("/id/HT002189125?format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/author/Abramson?format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/title/Universität?index=lobid-orgs-index&format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/author/Johann%20Sebastian%20Bach?index=gnd-index&format=page"){ref => <td><a href="@ref">@ref</a></td>}
+		</tr>
+	</table>
 }
