@@ -152,7 +152,7 @@ public final class Application extends Controller {
 				new ImmutableMap.Builder<Format, Result>()
 						.put(Format.PAGE,
 								ok(views.html.docs.render(documents, selectedIndex, query)))
-						.put(Format.FULL, negotiateContent(documents))
+						.put(Format.FULL, negotiateContent(documents, selectedIndex, query))
 						.put(
 								Format.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],
@@ -160,17 +160,20 @@ public final class Application extends Controller {
 		return results;
 	}
 
-	private static Result negotiateContent(List<Document> documents) {
+	private static Result negotiateContent(List<Document> documents,
+			String selectedIndex, String query) {
 		if (accepted(Serialization.JSON_LD)) {
 			return ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
 					jsonFull))));
+		} else if (accepted(Serialization.RDF_A)) {
+			return ok(views.html.docs.render(documents, selectedIndex, query));
 		}
 		for (final Serialization serialization : Serialization.values()) {
 			if (accepted(serialization)) {
 				return ok(Joiner.on("\n").join(transform(documents, serialization)));
 			}
 		}
-		return badRequest("No accepted content type");
+		return status(406, "Not acceptable: unsupported content type requested\n");
 	}
 
 	/** Supported RDF serializations for content negotiation. */
@@ -178,6 +181,7 @@ public final class Application extends Controller {
 	/* no javadoc for elements */
 	public enum Serialization {/* @formatter:off */
 		JSON_LD(null, Arrays.asList("application/json", "application/ld+json")),
+		RDF_A(null, Arrays.asList("text/html", "text/xml", "application/xml")),
 		N_TRIPLE(JsonLdConverter.Format.N_TRIPLE, Arrays.asList("text/plain")),
 		N3(JsonLdConverter.Format.N3, Arrays.asList("text/rdf+n3", "text/n3")),
 		TURTLE(JsonLdConverter.Format.TURTLE, /* @formatter:on */
