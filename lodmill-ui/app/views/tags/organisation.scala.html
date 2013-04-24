@@ -1,0 +1,12 @@
+@(doc: play.api.libs.json.JsValue)
+@import play.api.libs.json.JsValue
+@import controllers.Application.TableRow
+@import tags._
+<table class="table table-striped">
+  @rdfa("ID", "http://lobid.org/organisation", doc, TableRow.SINGLE_LINK, node = Option(doc))
+  @rdfa("Name", "http://xmlns.com/foaf/0.1/name", doc, TableRow.SINGLE_VALUE)
+  @rdfa("ISIL", "http://purl.org/dc/terms/identifier", doc, TableRow.SINGLE_VALUE)
+  @rdfa("Wikipedia", "http://purl.org/ontology/mo/wikipedia", doc, TableRow.SINGLE_LINK)
+  @rdfa("DBpedia", "http://www.w3.org/2000/01/rdf-schema#seeAlso", doc, TableRow.SINGLE_LINK,node = Option(doc \ "rdfs:seeAlso"))
+  @rdfa("Kontakt-QR", "http://lobid.org/vocab/lobid#contactqr", doc, TableRow.SINGLE_IMAGE)
+</table>
