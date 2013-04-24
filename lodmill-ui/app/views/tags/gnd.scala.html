@@ -1,77 +1,23 @@
 @(doc: play.api.libs.json.JsValue)
 @import play.api.libs.json.JsValue
-@string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
+@import controllers.Application.TableRow
+@import tags._
 <table class="table table-striped">
-  <tr>
-    <td><a href="http://d-nb.info/gnd">ID</a></td>
-    <td>
-      @defining(string(doc \ "@id")) { id =>
-        <a href="@id">@id</a>
-      }
-    </td>
-  </tr>
-  <tr>
-    @defining("http://www.w3.org/1999/02/22-rdf-syntax-ns#type") { resourceType =>
-      <td><a href="@resourceType">Typ</a></td>
-      @defining(string(doc \ "@type")) { url =>
-        <td rel="@resourceType"><a href="@url">@url</a></td>
-      }
-    }
-  </tr>
-  @singleValue("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson")
-  @singleValue("Kurzinfo", "http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation")
-  @singleLink("Geschlecht", "http://d-nb.info/standards/elementset/gnd#gender")
-  @singleLink("Sprache", "http://d-nb.info/standards/elementset/gnd#languageCode")
-  @singleLink("Wirkungsort", "http://d-nb.info/standards/elementset/gnd#placeOfActivity")
-  @multipleValuesInline("Alternative Namen", "http://d-nb.info/standards/elementset/gnd#variantNameForThePerson")
-  @multipleValuesInline("Alte GND-Nummern", "http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber")
-  @singleValue("Geburtsjahr", "http://d-nb.info/standards/elementset/gnd#dateOfBirth")
-  @singleValue("Sterbejahr", "http://d-nb.info/standards/elementset/gnd#dateOfDeath")
-  @singleLink("Geburtsort", "http://d-nb.info/standards/elementset/gnd#placeOfBirth")
-  @singleLink("Sterbeort", "http://d-nb.info/standards/elementset/gnd#placeOfDeath")
-  @multipleLinks("Beruf", "http://d-nb.info/standards/elementset/gnd#professionOrOccupation")
-  @multipleLinks("Freund", "http://d-nb.info/standards/elementset/gnd#acquaintanceshipOrFriendship")
-  @multipleLinks("Familie", "http://d-nb.info/standards/elementset/gnd#familialRelationship")
-  @multipleLinks("Kategorie", "http://d-nb.info/standards/elementset/gnd#gndSubjectCategory")
-
-  @singleValue(label: String, property: String) = {
-    <tr>
-        <td><a href="@property">@label</a></td>
-        <td property="@property">@string(doc \ property)</td>
-    </tr>
-  }
-
-  @multipleValuesInline(label:String, property: String) = {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      @defining((doc \ property).asOpt[Seq[JsValue]].getOrElse(Nil).map(_.as[String]).mkString("; ")) { allValues =>
-        <td property="@property">@if(allValues.isEmpty()) {--} else {@allValues}</td>
-      }
-    </tr>
-  }
-
-  @singleLink(label: String, property: String) = {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      <td rel="@property">
-        @((doc \ property \ "@id").asOpt[String]) match {
-          case Some(link) => {<a href=@link>@link</a>}
-          case None => {--}
-        }
-      </td>
-    </tr>
-  }
-
-  @multipleLinks(label: String, property: String) = {
-    @for(elem <- (doc \ property).asOpt[Seq[JsValue]].getOrElse(Nil)) {
-      <tr>
-        <td><a href="@property">@label</a></td>
-        <td rel="@property">
-          @defining(string(elem \ "@id")) { url =>
-            <a href=@url>@url</a>
-          }
-        </td>
-      </tr>
-    }
-  }
+  @rdfa("ID", "http://d-nb.info/gnd", doc, TableRow.SINGLE_LINK, node = Option(doc))
+  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.SINGLE_VALUE, node = Option(doc \ "@type"))
+  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson", doc, TableRow.SINGLE_VALUE)
+  @rdfa("Kurzinfo", "http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation", doc, TableRow.SINGLE_VALUE)
+  @rdfa("Geschlecht", "http://d-nb.info/standards/elementset/gnd#gender", doc, TableRow.SINGLE_LINK)
+  @rdfa("Sprache", "http://d-nb.info/standards/elementset/gnd#languageCode", doc, TableRow.SINGLE_LINK)
+  @rdfa("Wirkungsort", "http://d-nb.info/standards/elementset/gnd#placeOfActivity", doc, TableRow.SINGLE_LINK)
+  @rdfa("Geburtsjahr", "http://d-nb.info/standards/elementset/gnd#dateOfBirth", doc, TableRow.SINGLE_VALUE)
+  @rdfa("Sterbejahr", "http://d-nb.info/standards/elementset/gnd#dateOfDeath", doc, TableRow.SINGLE_VALUE)
+  @rdfa("Geburtsort", "http://d-nb.info/standards/elementset/gnd#placeOfBirth", doc, TableRow.SINGLE_LINK)
+  @rdfa("Sterbeort", "http://d-nb.info/standards/elementset/gnd#placeOfDeath", doc, TableRow.SINGLE_LINK)
+  @rdfa("Alternativer Name", "http://d-nb.info/standards/elementset/gnd#variantNameForThePerson", doc, TableRow.MULTI_VALUE)
+  @rdfa("Alte GND-Nummer", "http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber", doc, TableRow.MULTI_VALUE)
+  @rdfa("Beruf", "http://d-nb.info/standards/elementset/gnd#professionOrOccupation", doc, TableRow.MULTI_LINK)
+  @rdfa("Freund", "http://d-nb.info/standards/elementset/gnd#acquaintanceshipOrFriendship", doc, TableRow.MULTI_LINK)
+  @rdfa("Familie", "http://d-nb.info/standards/elementset/gnd#familialRelationship", doc, TableRow.MULTI_LINK)
+  @rdfa("Kategorie", "http://d-nb.info/standards/elementset/gnd#gndSubjectCategory", doc, TableRow.MULTI_LINK)
 </table>

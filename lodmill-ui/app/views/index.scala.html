@@ -90,9 +90,9 @@
 		<div class="tab-content">
 		  <div class="tab-pane active" id="@id-rdfa">
 			@index match {
-				case "lobid-index" => {@lobid_resource(Json.parse(doc.getSource))}
+				case "lobid-index" => {@resource(Json.parse(doc.getSource))}
 				case "gnd-index" => {@gnd(Json.parse(doc.getSource))}
-				case "lobid-orgs-index" => {@lobid_organisation(Json.parse(doc.getSource))}
+				case "lobid-orgs-index" => {@organisation(Json.parse(doc.getSource))}
 			}
 		  </div>
 		  <div class="tab-pane" id="@id-jld"><pre>@doc.getSource</pre></div>
