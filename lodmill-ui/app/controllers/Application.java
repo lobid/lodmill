@@ -63,8 +63,8 @@ public final class Application extends Controller {
 	 * @return The main page.
 	 */
 	public static Result index() {
-		return results("", new ArrayList<Document>(), index, category).get(
-				Format.PAGE);
+		return ok(views.html.index.render(index, "", category, Format.PAGE
+				.toString().toLowerCase()));
 	}
 
 	/**
@@ -81,8 +81,8 @@ public final class Application extends Controller {
 			final String categoryParameter, final String formatParameter) {
 		Application.index = indexParameter;
 		Application.category = categoryParameter;
-		return ok(views.html.index.render(new ArrayList<Document>(),
-				indexParameter, "", categoryParameter, formatParameter));
+		return ok(views.html.index.render(indexParameter, "", categoryParameter,
+				formatParameter));
 	}
 
 	/**
@@ -106,7 +106,7 @@ public final class Application extends Controller {
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<Format, Result> results =
-				results(queryParameter, docs, indexParameter, categoryParameter);
+				results(queryParameter, docs, indexParameter);
 		try {
 			return results.get(Format.valueOf(formatParameter.toUpperCase()));
 		} catch (IllegalArgumentException e) {
@@ -120,8 +120,8 @@ public final class Application extends Controller {
 	 * @return A list of completion suggestions for the given term
 	 */
 	public static Result autocomplete(final String term) {
-		return results(term, Document.search(term, index, category), index,
-				category).get(Format.SHORT);
+		return results(term, Document.search(term, index, category), index).get(
+				Format.SHORT);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =
@@ -141,8 +141,7 @@ public final class Application extends Controller {
 			};
 
 	private static ImmutableMap<Format, Result> results(final String query,
-			final List<Document> documents, final String selectedIndex,
-			final String selectedCategory) {
+			final List<Document> documents, final String selectedIndex) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
@@ -151,10 +150,8 @@ public final class Application extends Controller {
 				Json.toJson(ImmutableSet.copyOf(Lists.transform(documents, jsonShort)));
 		final ImmutableMap<Format, Result> results =
 				new ImmutableMap.Builder<Format, Result>()
-						.put(
-								Format.PAGE,
-								ok(views.html.index.render(documents, selectedIndex, query,
-										selectedCategory, Format.PAGE.toString().toLowerCase())))
+						.put(Format.PAGE,
+								ok(views.html.docs.render(documents, selectedIndex, query)))
 						.put(Format.FULL, negotiateContent(documents))
 						.put(
 								Format.SHORT,
