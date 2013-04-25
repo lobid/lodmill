@@ -184,8 +184,10 @@ public class SearchTests {
 			public void run() {
 				final String nTriples = call("author/abraham", "text/plain");
 				final String turtle = call("author/abraham", "text/turtle");
+				final String rdfa = call("author/abraham", "text/html");
 				final String n3 = call("author/abraham", "text/n3"); // NOPMD
 				assertThat(nTriples).isNotEmpty().isNotEqualTo(turtle);
+				assertThat(rdfa).isNotEmpty().contains("<html>");
 				/* turtle is a subset of n3 for RDF */
 				assertThat(turtle).isNotEmpty().isEqualTo(n3);
 				assertThat(n3).isNotEmpty();

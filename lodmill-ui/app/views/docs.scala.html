@@ -1,0 +1,43 @@
+@* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
+
+@(docs: List[Document], index: String, query: String)
+
+@import tags._
+@import org.lobid.lodmill.JsonLdConverter.Format
+@import play.api.libs.json.Json
+
+@main("Lobid API - Documents") {
+    <h2>@docs.size @if(docs.size == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h2>
+    @for(doc <- docs) {
+		@defining(doc.getId.split("/").last) { id =>
+		<h2><a href="@doc.getId">@doc.getId</a></h2>
+		<ul class="nav nav-tabs" id="@id-serializations">
+		  <li><a href="#@id-rdfa" data-toggle="tab">RDFa</a></li>
+		  <li><a href="#@id-jld" data-toggle="tab">JLD</a></li>
+		  <li><a href="#@id-nt" data-toggle="tab">NT</a></li>
+		  <li><a href="#@id-n3" data-toggle="tab">N3</a></li>
+		  <li><a href="#@id-ttl" data-toggle="tab">TTL</a></li>
+		</ul>
+
+		<div class="tab-content">
+		  <div class="tab-pane active" id="@id-rdfa">
+			@index match {
+				case "lobid-index" => {@resource(Json.parse(doc.getSource))}
+				case "gnd-index" => {@gnd(Json.parse(doc.getSource))}
+				case "lobid-orgs-index" => {@organisation(Json.parse(doc.getSource))}
+			}
+		  </div>
+		  <div class="tab-pane" id="@id-jld"><pre>@doc.getSource</pre></div>
+		  <div class="tab-pane" id="@id-nt"><pre>@doc.as(Format.N_TRIPLE)</pre></div>
+		  <div class="tab-pane" id="@id-n3"><pre>@doc.as(Format.N3)</pre></div>
+		  <div class="tab-pane" id="@id-ttl"><pre>@doc.as(Format.TURTLE)</pre></div>
+		</div>
+
+		<script>
+		  $(function () {
+		    $('#@id-serializations a:first').tab('show');
+		  })
+		</script>
+		}
+    }
+}

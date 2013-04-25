@@ -1,0 +1,58 @@
+@(label: String, property: String, doc: play.api.libs.json.JsValue, row: controllers.Application.TableRow, node: Option[play.api.libs.json.JsValue] = None)
+@import controllers.Application.TableRow
+@import play.api.libs.json.JsValue
+
+@string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
+@jsonVal = @{ node match {
+  case Some(node) => node
+  case None => doc \ property
+}}
+
+@row match {
+  case TableRow.SINGLE_VALUE => {
+    <tr>
+      <td><a href="@property">@label</a></td>
+      <td property="@property">@string(jsonVal)</td>
+    </tr>
+  }
+  case TableRow.SINGLE_LINK => {
+    <tr>
+      <td><a href="@property">@label</a></td>
+      <td rel="@property">
+        @((jsonVal \ "@id").asOpt[String]) match {
+          case Some(link) => {<a href=@link>@link</a>}
+          case None => {--}
+        }
+      </td>
+    </tr>
+  }
+  case TableRow.MULTI_VALUE => {
+    @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
+      <tr>
+        <td><a href="@property">@label</a></td>
+        <td property="@property">@string(elem)</td>
+      </tr>
+    }
+  }
+  case TableRow.MULTI_LINK => {
+    @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
+      <tr>
+        <td><a href="@property">@label</a></td>
+        <td rel="@property">
+          @defining(string(elem \ "@id")) { url => <a href=@url>@url</a> }
+        </td>
+      </tr>
+    }
+  }
+  case TableRow.SINGLE_IMAGE => {
+    <tr>
+      <td><a href="@property">@label</a></td>
+      <td rel="@property">
+        @((doc \ property \ "@id").asOpt[String]) match {
+          case Some(link) => { <img src="@link"/> }
+          case None => { -- }
+        }
+      </td>
+    </tr>
+  }
+}

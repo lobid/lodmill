@@ -1,16 +1,10 @@
 @* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(docs: List[Document], index: String, query: String, category: String, resultFormat: String)
+@(index: String, query: String, category: String, resultFormat: String)
 
-@import helper._
 @import controllers.Application.Serialization
-@import helper.twitterBootstrap._
-@import org.lobid.lodmill.JsonLdConverter.Format
 
-@main("Document list") {
-
-    <h1>Welcome to the Lobid API test server</h1>
-	<p>Running against index @Document.ES_CLUSTER_NAME on @Document.ES_SERVER.address()</p>
+@main("Lobid API - Index") {
     <h2>Basic API usage</h2>
     <p>The API currently supports queries for lobid resources (by ID and author name), lobid organisations, and GND entries (both by name), e.g.:</p>
     <pre>GET /id/HT002189125 ; GET /author/Abramson ; GET /author/Abramson?index=gnd-index ; GET /search?index=lobid-orgs-index&category=title&query=Escola&format=page</pre>
@@ -21,7 +15,7 @@
 	<pre>curl --header "Accept: text/plain" http://api.lobid.org/id/HT002189125</pre>
 	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
 
-	<h2>Build an API request using a form</h2>
+	<h2>API request form</h2>
 	<p>Use the form below to set up your query parameters (index, category, result format):
 	<form action="@routes.Application.config(index, category, resultFormat)" class="form-inline" method="GET">
 		<!-- TODO: create a custom tag and extract the common code of these 3 option divs: -->
@@ -72,31 +66,20 @@
 	    </script>
     </form>
 
-    <h2>@docs.size() @if(docs.size() == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h2>
-    
-    @for(doc <- docs) {
-		@defining(doc.getId.split("/").last) { id =>
-		<h2><a href="@doc.getId">@doc.getId</a></h2>
-		<ul class="nav nav-tabs" id="@id-serializations">
-		  <li><a href="#@id-jld" data-toggle="tab">JLD</a></li>
-		  <li><a href="#@id-nt" data-toggle="tab">NT</a></li>
-		  <li><a href="#@id-n3" data-toggle="tab">N3</a></li>
-		  <li><a href="#@id-ttl" data-toggle="tab">TTL</a></li>
-		</ul>
-
-		<div class="tab-content">
-		  <div class="tab-pane active" id="@id-jld"><pre>@doc.getSource</pre></div>
-		  <div class="tab-pane" id="@id-nt"><pre>@doc.as(Format.N_TRIPLE)</pre></div>
-		  <div class="tab-pane" id="@id-n3"><pre>@doc.as(Format.N3)</pre></div>
-		  <div class="tab-pane" id="@id-ttl"><pre>@doc.as(Format.TURTLE)</pre></div>
-		</div>
-
-		<script>
-		  $(function () {
-		    $('#@id-serializations a:first').tab('show');
-		  })
-		</script>
-		}
-    }
-
+	<h2>Sample requests</h2>
+	<p>Some clickable sample requests (omit the <code>format=page</code> parameter for JSON-LD output and send an accept header for different formats, see details above):</p>
+	<table class="table">
+		<tr>
+			<th>Lobid-Resources, by ID</th>
+			<th>Lobid-Resources, by Author</th>
+			<th>Lobid-Organisations, by Title</th>
+			<th>GND, by Author</td>
+		</tr>
+		<tr>
+			@defining("/id/HT002189125?format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/author/Abramson?format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/title/Universität?index=lobid-orgs-index&format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/author/Johann%20Sebastian%20Bach?index=gnd-index&format=page"){ref => <td><a href="@ref">@ref</a></td>}
+		</tr>
+	</table>
 }
