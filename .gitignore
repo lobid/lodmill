@@ -18,5 +18,6 @@ plugin.xml_gen
 *.*~
 lodmill*.jar
 *.nt
+!lodmill-rd/src/test/resources/*.nt
 *.png
 *.xsd

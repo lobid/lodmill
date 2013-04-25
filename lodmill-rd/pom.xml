@@ -41,11 +41,6 @@
 					<source>${target.jdk}</source>
 					<target>${target.jdk}</target>
 					<showWarnings>true</showWarnings>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-            </manifest>
-          </archive>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -66,14 +61,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-  <resources>
-    <resource>
-      <directory>transformations</directory>
-    </resource>
-    <resource>
-      <directory>src</directory>
-    </resource>
-  </resources>
 		<!-- Make resources from both the source and resources folders available 
 			(metamorph test definitions need to be placed in the same location as the 
 			corresponding JUnit class): -->

@@ -1,4 +1,4 @@
-/* Copyright 2013 Fabian Steeg, Pascal Christoph.
+/* Copyright 2013 hbz, Pascal Christoph
  * Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill;
@@ -39,34 +39,39 @@ import com.hp.hpl.jena.rdf.model.NodeIterator;
 @In(StreamReceiver.class)
 @Out(String.class)
 public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
+	private enum VcardNs {
+		LOCALITY("http://www.w3.org/2006/vcard/ns#locality"), COUNTRY_NAME(
+				"http://www.w3.org/2006/vcard/ns#country-name"), STREET_ADDRESS(
+				"http://www.w3.org/2006/vcard/ns#street-address"), POSTAL_CODE(
+				"http://www.w3.org/2006/vcard/ns#postal-code");
+		String uri;
+
+		VcardNs(String uri) {
+			this.uri = uri;
+		}
+	}
+
 	private static final String GEO_WGS84_POS =
 			"http://www.w3.org/2003/01/geo/wgs84_pos#";
 	private static final String GEO_WGS84_POS_LONG = GEO_WGS84_POS + "long";
 	private static final String GEO_WGS84_POS_LAT = GEO_WGS84_POS + "lat";
-	private static final String VCARD_NS_LOCALITY =
-			"http://www.w3.org/2006/vcard/ns#locality";
-	private static final String VCARD_NS_COUNTRY_NAME =
-			"http://www.w3.org/2006/vcard/ns#country-name";
-	private static final String VCARD_NS_STREET_ADDRESS =
-			"http://www.w3.org/2006/vcard/ns#street-address";
-	private static final String VCARD_NS_POSTAL_CODE =
-			"http://www.w3.org/2006/vcard/ns#postal-code";
+	private static final String latlonFn = "src/main/resources/latlon.ser";
+	private static final String urlOsmLookupFormatParameter = "?format=json";
+	private static final String urlOsmApiBaseUrl =
+			"http://nominatim.openstreetmap.org/search/";
+	private String urlOsmLookupSearchParameters;
 	private String bnodeIDGeoPos;
 	private String countryName;
 	private String locality;
 	private String postalcode;
 	private String street;
-	private HashMap<URL, Double[]> latLon = new HashMap<>();
-	private final String latlonFn = "latlon.ser";
+	private HashMap<String, Double[]> latLon = new HashMap<>();
 	private URL url;
-	final String urlOsmLookupFormatParameter = "?format=json";
-	private String urlOsmLookupSearchParameters;
-	private String urlOsmApiBaseUrl =
-			"http://nominatim.openstreetmap.org/search/";
 	private Double lat = null;
 	private Double lon = null;
-	final int urlConnectionTimeOut = 10000; // 10 secs
+	private static final int urlConnectionTimeOut = 10000; // 10 secs
 	private BufferedReader br;
+	private boolean latLonChanged;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(GeolocationLookupTriplesEncoder.class);
 
@@ -87,8 +92,8 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 			Double.valueOf(getObjectOfProperty(GEO_WGS84_POS_LAT));
 			Double.valueOf(getObjectOfProperty(GEO_WGS84_POS_LONG));
 		} catch (Exception e) {
-			this.countryName = getObjectOfProperty(VCARD_NS_COUNTRY_NAME);
-			if ((this.locality = getObjectOfProperty(VCARD_NS_LOCALITY)) != null) {
+			this.countryName = getObjectOfProperty(VcardNs.COUNTRY_NAME.uri);
+			if ((this.locality = getObjectOfProperty(VcardNs.LOCALITY.uri)) != null) {
 				// OSM Api doesn't like e.g /Marburg%2FLahn/ but accepts /Marburg/.
 				// Having also the postcode we will not encounter ambigous cities
 				try {
@@ -99,41 +104,43 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 					e1.printStackTrace();
 				}
 			}
-			this.postalcode = getObjectOfProperty(VCARD_NS_POSTAL_CODE);
-			this.street = getObjectOfProperty(VCARD_NS_STREET_ADDRESS);
-			makeOsmApiUrl();
-			if (this.urlOsmLookupSearchParameters != null) {
-				lookupLocation(this.urlOsmLookupSearchParameters);
+			this.postalcode = getObjectOfProperty(VcardNs.POSTAL_CODE.uri);
+			this.street = getObjectOfProperty(VcardNs.STREET_ADDRESS.uri);
+			if (makeOsmApiSearchParameters()) {
+				lookupLocation();
 			}
 		}
 		super.endRecord();
 	}
 
-	private String makeOsmApiUrl() {
+	private boolean makeOsmApiSearchParameters() {
+		boolean ret = false;
 		if (this.countryName != null && this.locality != null
 				&& this.postalcode != null && this.street != null) {
 			this.urlOsmLookupSearchParameters =
 					String.format("%s/%s/%s/%s", this.countryName, this.locality,
 							this.postalcode, this.street);
-			return urlOsmApiBaseUrl + urlOsmLookupSearchParameters
-					+ urlOsmLookupFormatParameter;
+			ret = true;
+		} else {
+			LOG.warn("One or more parameter needing by the OSM API is missing for "
+					+ subject + " : " + this.countryName + "/" + this.locality + "/"
+					+ this.postalcode + "/" + this.street);
 		}
-		LOG.warn("One or more parameter needing by the OSM API is missing for "
-				+ subject + " : " + this.countryName + "/" + this.locality + "/"
-				+ this.postalcode + "/" + this.street);
-		return null;
+		return ret;
 	}
 
-	private boolean makeUrlAndLookupInMap(String urlstr) {
+	private boolean makeUrlAndLookupInMap() {
 		boolean ret = false;
 		try {
-			this.url = new URL(urlstr);
+			this.url =
+					new URL(urlOsmApiBaseUrl + urlOsmLookupSearchParameters
+							+ urlOsmLookupFormatParameter);
 		} catch (MalformedURLException e) {
 			LOG.error(subject + " " + e.getMessage(), e);
 		}
-		if (latLon.containsKey(this.urlOsmLookupSearchParameters)) {
-			lat = latLon.get(this.urlOsmLookupSearchParameters)[0];
-			lon = latLon.get(this.urlOsmLookupSearchParameters)[1];
+		if (latLon.containsKey(urlOsmLookupSearchParameters)) {
+			lat = latLon.get(urlOsmLookupSearchParameters)[0];
+			lon = latLon.get(urlOsmLookupSearchParameters)[1];
 			ret = true;
 		}
 		return ret;
@@ -145,10 +152,10 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 	 * 
 	 * @param regex
 	 */
-	private void lookupLocation(String urlstr) {
+	private void lookupLocation() {
 		lat = null;
 		lon = null;
-		if (!makeUrlAndLookupInMap(urlstr)) {
+		if (!makeUrlAndLookupInMap()) {
 			try {
 				this.br = getUrlContent();
 			} catch (IOException e) {
@@ -157,21 +164,19 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 			try {
 				parseJsonAndStoreLatLon();
 			} catch (Exception e) {
-				// "Albertus-Magnus-Pl. 23 (Zimmer 2)" => "Albertus-Magnus-Pl. 23"
-				sanitizeStreetnameAndRetrieveOsmApiResult("(.*?\\d+){1}?.*");
 				try {
-					parseJsonAndStoreLatLon();
+					// "Albertus-Magnus-Pl. 23 (Zimmer 2)" => "Albertus-Magnus-Pl. 23"
+					sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon("(.*?\\d+){1}?.*");
 				} catch (Exception e1) {
-					// "Albertus-Magnus-Pl. 23 (Zimmer 2)" => "Albertus-Magnus-Pl."
-					sanitizeStreetnameAndRetrieveOsmApiResult("(.*?){1}\\ .*");
 					try {
-						parseJsonAndStoreLatLon();
+						// "Albertus-Magnus-Pl. 23 (Zimmer 2)" => "Albertus-Magnus-Pl."
+						sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon("(.*?){1}\\ .*");
 					} catch (Exception e2) {
 						// failed definetly
-						LOG.error(subject + " URL:" + url + " ," + e2.getLocalizedMessage());
+						LOG.warn("Could not generate geo location for " + subject
+								+ ". The URL is:" + url, e2);
 					}
 				}
-
 			}
 		}
 		if (lat != null && lon != null) {
@@ -182,7 +187,8 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 		}
 	}
 
-	private void sanitizeStreetnameAndRetrieveOsmApiResult(String regex) {
+	private void sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon(
+			String regex) throws Exception {
 		String tmp = "";
 		try {
 			tmp =
@@ -195,10 +201,13 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 		// make new request only if strings differ
 		if (!tmp.equals(this.street)) {
 			this.street = tmp;
-			String urlString = makeOsmApiUrl();
 			try {
-				makeUrlAndLookupInMap(urlString);
-				this.br = getUrlContent();
+				if (makeOsmApiSearchParameters()) {
+					if (!makeUrlAndLookupInMap()) {
+						this.br = getUrlContent();
+						parseJsonAndStoreLatLon();
+					}
+				}
 			} catch (IOException e1) {
 				LOG.error(subject + " " + e1.getLocalizedMessage());
 			}
@@ -218,19 +227,24 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 		JSONObject jo = (JSONObject) osm.get(0);
 		lat = Double.valueOf(jo.get("lat").toString());
 		lon = Double.valueOf(jo.get("lon").toString());
+		Double doubleArr[] = new Double[2];
+		doubleArr[0] = lat;
+		doubleArr[1] = lon;
+		latLon.put(this.urlOsmLookupSearchParameters, doubleArr);
+		this.latLonChanged = true;
 	}
 
 	private BufferedReader getUrlContent() throws IOException {
 		URLConnection urlConnection = this.url.openConnection();
-		urlConnection.setConnectTimeout(this.urlConnectionTimeOut);
+		urlConnection.setConnectTimeout(urlConnectionTimeOut);
 		br =
 				new BufferedReader(
 						new InputStreamReader(urlConnection.getInputStream()));
 		return br;
 	}
 
-	private String getObjectOfProperty(String pro) {
-		NodeIterator it = model.listObjectsOfProperty(model.getProperty(pro));
+	private String getObjectOfProperty(String ns) {
+		NodeIterator it = model.listObjectsOfProperty(model.getProperty(ns));
 		if (it.hasNext()) {
 			try {
 				return URIUtil.encodeQuery(it.next().asLiteral().getLexicalForm(),
@@ -250,8 +264,9 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 				"java.net.URLConnection, email=<semweb@hbz-nrw.de>");
 		try (FileInputStream fis = new FileInputStream(latlonFn);
 				ObjectInputStream ois = new ObjectInputStream(fis)) {
-			latLon = (HashMap<URL, Double[]>) ois.readObject();
-			System.out.println(latLon.size());
+			latLon = (HashMap<String, Double[]>) ois.readObject();
+			System.out.println("Number of cached URLs in file " + latlonFn + ":"
+					+ latLon.size());
 			ois.close();
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
@@ -263,11 +278,10 @@ public class GeolocationLookupTriplesEncoder extends PipeEncodeTriples {
 	@Override
 	protected void onCloseStream() {
 		super.onCloseStream();
-		if (this.latLon.size() > 0) {
+		if (this.latLon.size() > 0 && latLonChanged) {
 			try (FileOutputStream fos = new FileOutputStream(latlonFn);
 					ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 				oos.writeObject(latLon);
-				System.out.println("latLon=" + latLon.size());
 				oos.close();
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
