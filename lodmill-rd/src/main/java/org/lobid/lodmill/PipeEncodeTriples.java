@@ -29,6 +29,8 @@ import com.hp.hpl.jena.util.ResourceUtils;
  * <data source="032P.a" name="bnode"> <regexp match="(.*)"
  * format="_:a http://www.w3.org/2006/vcard/ns#street-address ${1}"/> </data>
  * 
+ * @TODO this workaround can maybe be substituted through use of <entity>, see
+ *       http://lists.d-nb.de/pipermail/culturegraph/2013-April/000068.html
  * @author Fabian Steeg, Pascal Christoph
  */
 @Description("Encode a stream as N-Triples")
@@ -38,7 +40,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	Model model;
 	Resource resource;
 	static final String BNODE_NAME = "bnode";
-	static final AtomicInteger ATOMIC_INT = new AtomicInteger();
+	final AtomicInteger ATOMIC_INT = new AtomicInteger();
 
 	@Override
 	public void startRecord(final String identifier) {
@@ -57,6 +59,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 			} else {
 				resource = model.createResource(subject);
 				final Property prop = model.createProperty(name);
+				// create bnode in subject position
 				if (value.startsWith("_:")) {
 					resource.addProperty(
 							prop,

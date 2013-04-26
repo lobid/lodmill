@@ -11,7 +11,8 @@ import org.junit.runners.Suite;
  * @author Fabian Steeg (fsteeg)
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ TransformationZVDDTests.class })
+@Suite.SuiteClasses({ TransformationZVDDTests.class,
+		LobidOrganisationPicaIngestTest.class, ZvddMarcIngestTest.class })
 public final class UnitTests {
 	/* Suite class, groups tests via annotation above */
 }
