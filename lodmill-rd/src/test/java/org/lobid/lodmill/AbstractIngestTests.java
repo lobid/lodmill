@@ -10,18 +10,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Scanner;
 
+import org.culturegraph.mf.framework.DefaultStreamPipe;
 import org.culturegraph.mf.framework.DefaultStreamReceiver;
+import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.morph.MorphErrorHandler;
 import org.culturegraph.mf.stream.pipe.ObjectTee;
 import org.culturegraph.mf.stream.reader.Reader;
 import org.culturegraph.mf.stream.sink.ObjectWriter;
 import org.junit.Assert;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,17 +37,17 @@ import org.slf4j.LoggerFactory;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public abstract class Ingest {
+public abstract class AbstractIngestTests {
 
-	private static final String TEXTILE_MAPPING_TABLE = "mapping.textile";
-	private static final Logger LOG = LoggerFactory.getLogger(Ingest.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(AbstractIngestTests.class);
 	private final String dataFile;
 	private final Reader reader;
 	protected Metamorph metamorph;
 	private String statsMorphFile;
 
-	public Ingest(String dataFile, String morphFile, String statsMorphFile,
-			Reader reader) {
+	public AbstractIngestTests(String dataFile, String morphFile,
+			String statsMorphFile, Reader reader) {
 		this.dataFile = dataFile;
 		this.statsMorphFile = statsMorphFile;
 		metamorph =
@@ -53,8 +56,51 @@ public abstract class Ingest {
 		this.reader = reader;
 	}
 
-	@Test
-	public void stats() throws IOException {
+	/**
+	 * Tests if the generated triples equals the triples in the test file
+	 * 
+	 * @param testFileName The test file name, resideing in the resource folder
+	 * @param generatedFileName The to be generated file name .
+	 * @param dsp A DefaultStreampipe
+	 */
+	public void triples(String testFileName, String generatedFileName,
+			DefaultStreamPipe<ObjectReceiver<String>> dsp) {
+		setUpErrorHandler(metamorph);
+		final File file = new File(generatedFileName);
+		process(dsp, file);
+		try (Scanner actual = new Scanner(file);
+				Scanner expected =
+						new Scanner(Thread.currentThread().getContextClassLoader()
+								.getResourceAsStream(testFileName))) {
+			// HashSet necessary because the order of triples in the files may differ
+			Assert.assertEquals(asSet(expected), asSet(actual));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		file.deleteOnExit();
+	}
+
+	private static HashSet<String> asSet(Scanner scanner) {
+		HashSet<String> set = new HashSet<>();
+		while (scanner.hasNextLine()) {
+			String actual = scanner.nextLine();
+			if (!actual.isEmpty()) {
+				set.add(actual);
+			}
+		}
+		return set;
+	}
+
+	public void dot(String fname) {
+		setUpErrorHandler(metamorph);
+		final File file = new File(fname);
+		process(new PipeEncodeDot(), file);
+		Assert.assertTrue(file.exists());
+		file.deleteOnExit();
+	}
+
+	public void stats(final String fileName) throws IOException {
+		final File file = new File(fileName);
 		metamorph =
 				new Metamorph(Thread.currentThread().getContextClassLoader()
 						.getResourceAsStream(statsMorphFile));
@@ -66,15 +112,16 @@ public abstract class Ingest {
 		}
 		final List<Entry<String, Integer>> entries =
 				sortedByValuesDescending(stats);
-		final File mapping = writeTextileMappingTable(entries);
+		writeTextileMappingTable(entries, file);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
 		Assert.assertTrue("Values should have descending frequency", entries.get(0)
 				.getValue() > entries.get(entries.size() - 1).getValue());
-		Assert.assertTrue("Mapping table should exist", mapping.exists());
-		mapping.deleteOnExit();
+		Assert.assertTrue("Mapping table should exist", file.exists());
+		file.deleteOnExit();
 	}
 
-	protected void process(final AbstractGraphPipeEncoder encoder, final File file) {
+	protected void process(
+			final DefaultStreamPipe<ObjectReceiver<String>> encoder, final File file) {
 		final ObjectTee<String> tee = outputTee(file);
 		reader.setReceiver(metamorph).setReceiver(encoder).setReceiver(tee);
 		try (FileReader fileReader = new FileReader(dataFile)) {
@@ -85,7 +132,6 @@ public abstract class Ingest {
 		reader.closeStream();
 		Assert.assertTrue("File should exist", file.exists());
 		Assert.assertTrue("File should not be empty", file.length() > 0);
-		// file.deleteOnExit();
 	}
 
 	private static ObjectTee<String> outputTee(final File triples) {
@@ -129,8 +175,9 @@ public abstract class Ingest {
 		return entries;
 	}
 
-	private static File writeTextileMappingTable(
-			final List<Entry<String, Integer>> entries) throws IOException {
+	private static void writeTextileMappingTable(
+			final List<Entry<String, Integer>> entries, final File textileMappingFile)
+			throws IOException {
 		StringBuilder textileBuilder =
 				new StringBuilder(
 						"|*field*|*frequency*|*content*|*mapping*|*status*|\n");
@@ -141,11 +188,9 @@ public abstract class Ingest {
 			textileBuilder.append(String.format("|%s|%s| | | |\n", e.getKey(),
 					e.getValue()));
 		}
-		final File mapping = new File(TEXTILE_MAPPING_TABLE);
-		try (FileWriter textileWriter = new FileWriter(mapping)) {
+		try (FileWriter textileWriter = new FileWriter(textileMappingFile)) {
 			textileWriter.write(textileBuilder.toString());
 			textileWriter.flush();
 		}
-		return mapping;
 	}
 }

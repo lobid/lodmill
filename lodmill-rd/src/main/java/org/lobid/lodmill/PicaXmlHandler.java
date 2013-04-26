@@ -59,7 +59,6 @@ public final class PicaXmlHandler extends DefaultXmlPipe<StreamReceiver> {
 			getReceiver().endEntity();
 		} else if (RECORD.equals(localName) && NAMESPACE.equals(uri)) {
 			getReceiver().endRecord();
-
 		}
 	}
 
