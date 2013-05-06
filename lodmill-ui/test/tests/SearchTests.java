@@ -49,8 +49,8 @@ public class SearchTests {
 
 	private static final String TEST_INDEX = "lobid-index";
 	static final String TERM = "theo";
-	private static final int TEST_SERVER_PORT = 5000;
-	private static final TestServer TEST_SERVER = testServer(TEST_SERVER_PORT);
+	static final int TEST_SERVER_PORT = 5000;
+	static final TestServer TEST_SERVER = testServer(TEST_SERVER_PORT);
 	private static Node node;
 	private static Client client;
 
@@ -81,7 +81,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(15);
+				.isEqualTo(25);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet("lobid-index", "json-ld-lobid",
@@ -195,7 +195,7 @@ public class SearchTests {
 		});
 	}
 
-	private static String call(final String request) {
+	static String call(final String request) {
 		return call(request, "application/json");
 	}
 
