@@ -7,7 +7,7 @@
   @rdfa("Titel", "http://iflastandards.info/ns/isbd/elements/P1004", doc, TableRow.SINGLE_VALUE)
   @rdfa("Titelzusatz", "http://iflastandards.info/ns/isbd/elements/P1006", doc, TableRow.SINGLE_VALUE)
   @rdfa("Autor", "http://purl.org/dc/elements/1.1/creator", doc, TableRow.SINGLE_LINK)
-  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson", doc, TableRow.SINGLE_VALUE,
+  @rdfa("Name", "http://purl.org/dc/elements/1.1/creator", doc, TableRow.SINGLE_VALUE,
     node = Option(doc \ "http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson"))
   @rdfa("Erscheinungsjahr", "http://purl.org/dc/terms/issued", doc, TableRow.SINGLE_VALUE)
   @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.MULTI_VALUE, node = Option(doc \ "@type"))
