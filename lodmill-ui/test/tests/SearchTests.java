@@ -58,6 +58,7 @@ public class SearchTests {
 	public static void setup() throws IOException, InterruptedException {
 		node = nodeBuilder().local(true).node();
 		client = node.client();
+		client.admin().indices().prepareDelete().execute().actionGet();
 		File sampleData = new File("test/tests/json-ld-index-data");
 		try (Scanner scanner = new Scanner(sampleData)) {
 			List<BulkItemResponse> runBulkRequests =
@@ -186,6 +187,35 @@ public class SearchTests {
 						Json.parse(call("search?index=gnd-index&query=bach&format=short&category=author"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(5); /* differentiated only */
+			}
+		});
+	}
+
+	/* @formatter:off */
+	@Test public void searchAltNamePlain() { searchName("Schmidt, Loki", 1); }
+	@Test public void searchAltNameSwap()  { searchName("Loki Schmidt", 1); }
+	@Test public void searchAltNameSecond(){ searchName("Hannelore Glaser", 1); }
+	@Test public void searchAltNameShort() { searchName("Loki", 1); }
+	@Test public void searchAltNameNgram() { searchName("Lok", 1); }
+	@Test public void searchPrefNameNgram(){ searchName("Hanne", 3); }
+	@Test public void searchAltNameDates() { searchName("Loki Schmidt (1919-2010)", 1); }
+	@Test public void searchAltNameBirth() { searchName("Loki Schmidt (1919-)", 1); }
+	@Test public void searchAltNameNone()  { searchName("Loki Müller", 0); }
+	/* @formatter:on */
+
+	private static void searchName(final String name, final int results) {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject =
+						Json.parse(call("search?index=gnd-index&query="
+								+ name.replace(" ", "%20") + "&format=short&category=author"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(results);
+				if (results > 0) {
+					assertThat(jsonObject.get(0).asText()).isEqualTo(
+							"Schmidt, Hannelore (1919-2010)");
+				}
 			}
 		});
 	}
