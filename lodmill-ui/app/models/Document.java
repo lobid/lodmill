@@ -166,7 +166,7 @@ public class Document {
 		final SearchRequestBuilder requestBuilder =
 				client.prepareSearch(index)
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(constructQuery(query, category));
+						.setQuery(constructQuery(index, query, category));
 		/* TODO: pass limit as a parameter */
 		final SearchResponse response =
 				requestBuilder.setFrom(0).setSize(50).setExplain(true).execute()
@@ -189,8 +189,8 @@ public class Document {
 		}
 	}
 
-	private static QueryBuilder constructQuery(final String search,
-			final String category) {
+	private static QueryBuilder constructQuery(final String index,
+			final String search, final String category) {
 		final String lifeDates = "\\((\\d+)-(\\d*)\\)";
 		final Matcher matcher =
 				Pattern.compile("[^(]+" + lifeDates).matcher(search);
@@ -209,8 +209,19 @@ public class Document {
 					boolQuery().must(
 							matchQuery(searchFields.get(0), search).operator(Operator.AND));
 		}
+		if (index.equals("gnd-index")) { /* TODO: use enum for the index names */
+			query = filterUndifferentiatedPersons(query);
+		}
 		LOG.debug("Using query: " + query);
 		return query;
+	}
+
+	private static QueryBuilder filterUndifferentiatedPersons(QueryBuilder query) {
+		/* TODO: set up a filters map if we have any more such cases */
+		return boolQuery().must(query).must(
+				matchQuery("@type",
+						"http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson")
+						.operator(Operator.AND));
 	}
 
 	private static QueryBuilder createAuthorQuery(final String lifeDates,

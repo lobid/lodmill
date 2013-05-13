@@ -81,7 +81,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(25);
+				.isEqualTo(30);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet("lobid-index", "json-ld-lobid",
@@ -173,6 +173,19 @@ public class SearchTests {
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
+			}
+		});
+	}
+
+	@Test
+	public void searchViaApiGnd() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject =
+						Json.parse(call("search?index=gnd-index&query=bach&format=short&category=author"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(5); /* differentiated only */
 			}
 		});
 	}
