@@ -18,9 +18,9 @@
   case TableRow.SINGLE_LINK => {
     <tr>
       <td><a href="@property">@label</a></td>
-      <td rel="@property">
+      <td>
         @((jsonVal \ "@id").asOpt[String]) match {
-          case Some(link) => {<a href=@link>@link</a>}
+          case Some(link) => {<a rel="@property" href="@link">@link</a>}
           case None => {--}
         }
       </td>
@@ -38,8 +38,8 @@
     @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
       <tr>
         <td><a href="@property">@label</a></td>
-        <td rel="@property">
-          @defining(string(elem \ "@id")) { url => <a href=@url>@url</a> }
+        <td>
+          @defining(string(elem \ "@id")) { url => <a rel="@property" href="@url">@url</a> }
         </td>
       </tr>
     }
@@ -47,9 +47,9 @@
   case TableRow.SINGLE_IMAGE => {
     <tr>
       <td><a href="@property">@label</a></td>
-      <td rel="@property">
+      <td>
         @((doc \ property \ "@id").asOpt[String]) match {
-          case Some(link) => { <img src="@link"/> }
+          case Some(link) => { <a rel="@property" href="@link"> <img src="@link" alt="@property: @link"/> </a> }
           case None => { -- }
         }
       </td>
