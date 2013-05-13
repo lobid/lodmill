@@ -22,6 +22,7 @@ import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
+import org.elasticsearch.index.query.MultiMatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -94,7 +95,8 @@ public class Document {
 													.asList(
 															"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
 															"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-															"http://d-nb.info/standards/elementset/gnd#dateOfDeath"))
+															"http://d-nb.info/standards/elementset/gnd#dateOfDeath",
+															"http://d-nb.info/standards/elementset/gnd#variantNameForThePerson"))
 									.build())
 					.put(
 							"lobid-orgs-index",
@@ -205,9 +207,7 @@ public class Document {
 					multiMatchQuery(fixedQuery, searchFields.toArray(new String[] {}));
 		} else {
 			/* Search all in name field: */
-			query =
-					boolQuery().must(
-							matchQuery(searchFields.get(0), search).operator(Operator.AND));
+			query = nameMatchQuery(search);
 		}
 		if (index.equals("gnd-index")) { /* TODO: use enum for the index names */
 			query = filterUndifferentiatedPersons(query);
@@ -228,15 +228,18 @@ public class Document {
 			final String search, final Matcher matcher) {
 		/* Search name in name field and birth in birth field: */
 		final BoolQueryBuilder birthQuery =
-				boolQuery()
-						.must(
-								matchQuery(searchFields.get(0),
-										search.replaceAll(lifeDates, "").trim()).operator(
-										Operator.AND)).must(
-								matchQuery(searchFields.get(1), matcher.group(1)));
+				boolQuery().must(
+						nameMatchQuery(search.replaceAll(lifeDates, "").trim())).must(
+						matchQuery(searchFields.get(1), matcher.group(1)));
 		return matcher.group(2).equals("") ? birthQuery :
 		/* If we have one, search death in death field: */
 		birthQuery.must(matchQuery(searchFields.get(2), matcher.group(2)));
+	}
+
+	private static QueryBuilder nameMatchQuery(final String search) {
+		final MultiMatchQueryBuilder query =
+				multiMatchQuery(search, searchFields.get(0)).operator(Operator.AND);
+		return searchFields.size() > 3 ? query.field(searchFields.get(3)) : query;
 	}
 
 	private static List<Document> asDocuments(final String query,
