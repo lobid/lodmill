@@ -221,6 +221,21 @@ public class SearchTests {
 	}
 
 	@Test
+	public void searchViaApiResourcesAuthorId() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				String gndId = "171932048";
+				final JsonNode jsonObject = Json.parse(call("author/" + gndId));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(1);
+				assertThat(jsonObject.get(0).toString()).contains(
+						"http://d-nb.info/gnd/" + gndId);
+			}
+		});
+	}
+
+	@Test
 	public void searchViaApiWithContentNegotiation() {
 		running(TEST_SERVER, new Runnable() {
 			@Override
