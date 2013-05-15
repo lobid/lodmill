@@ -80,7 +80,8 @@ public class Document {
 													.asList(
 															"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
 															"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
-															"http://purl.org/dc/elements/1.1/creator#dateOfDeath"))
+															"http://purl.org/dc/elements/1.1/creator#dateOfDeath",
+															"http://purl.org/dc/elements/1.1/creator"))
 									.put(
 											"id",
 											Arrays.asList("@id",
@@ -193,26 +194,40 @@ public class Document {
 
 	private static QueryBuilder constructQuery(final String index,
 			final String search, final String category) {
-		final String lifeDates = "\\((\\d+)-(\\d*)\\)";
-		final Matcher matcher =
-				Pattern.compile("[^(]+" + lifeDates).matcher(search);
 		QueryBuilder query = null;
-		if (matcher.find() && category.equals("author")) {
-			query = createAuthorQuery(lifeDates, search, matcher);
+		if (category.equals("author")) {
+			query = processAuthor(search);
 		} else if (category.equals("id")) {
-			final String fixedQuery = search.matches("ht[\\d]{9}") ?
-			/* HT number -> URL (temp. until we have an HBZ-ID field) */
-			"http://lobid.org/resource/" + search : search;
-			query =
-					multiMatchQuery(fixedQuery, searchFields.toArray(new String[] {}));
-		} else {
-			/* Search all in name field: */
-			query = nameMatchQuery(search);
+			query = processId(search);
 		}
 		if (index.equals("gnd-index")) { /* TODO: use enum for the index names */
 			query = filterUndifferentiatedPersons(query);
 		}
 		LOG.debug("Using query: " + query);
+		return query;
+	}
+
+	private static QueryBuilder processAuthor(final String search) {
+		QueryBuilder query;
+		final String lifeDates = "\\((\\d+)-(\\d*)\\)";
+		final Matcher lifeDatesMatcher =
+				Pattern.compile("[^(]+" + lifeDates).matcher(search);
+		if (lifeDatesMatcher.find()) {
+			query = createAuthorQuery(lifeDates, search, lifeDatesMatcher);
+		} else if (search.matches("\\d+")) {
+			query = matchQuery(searchFields.get(3) + ".@id", search);
+		} else {
+			query = nameMatchQuery(search);
+		}
+		return query;
+	}
+
+	private static QueryBuilder processId(final String search) {
+		QueryBuilder query;
+		final String fixedQuery = search.matches("ht[\\d]{9}") ?
+		/* HT number -> URL (temp. until we have an HBZ-ID field) */
+		"http://lobid.org/resource/" + search : search;
+		query = multiMatchQuery(fixedQuery, searchFields.toArray(new String[] {}));
 		return query;
 	}
 
@@ -263,11 +278,8 @@ public class Document {
 	private static void withMatchedField(final String query, final SearchHit hit,
 			final Document document) {
 		final Object matchedField = firstExisting(hit);
-		if (matchedField instanceof List
-				&& ((List<?>) matchedField).get(0) instanceof String) {
-			@SuppressWarnings("unchecked")
-			final List<String> list = (List<String>) matchedField;
-			document.matchedField = firstMatching(query, list);
+		if (matchedField instanceof List) {
+			processList(query, document, matchedField);
 		} else if (searchFields.get(0).contains("preferredNameForThePerson")) {
 			final Object birth = hit.getSource().get(searchFields.get(1));
 			final Object death = hit.getSource().get(searchFields.get(2));
@@ -291,6 +303,26 @@ public class Document {
 			}
 		}
 		return null;
+	}
+
+	private static void processList(final String query, final Document document,
+			final Object matchedField) {
+		List<?> list = (List<?>) matchedField;
+		if (list.get(0) instanceof String) {
+			@SuppressWarnings("unchecked")
+			final List<String> strings = (List<String>) matchedField;
+			document.matchedField = firstMatching(query, strings);
+		} else if (list.get(0) instanceof Map) {
+			@SuppressWarnings("unchecked")
+			final List<Map<String, Object>> maps =
+					(List<Map<String, Object>>) matchedField;
+			for (Object value : maps.get(0).values()) {
+				if (value.toString().contains(query)) {
+					document.matchedField = value.toString();
+					break;
+				}
+			}
+		}
 	}
 
 	private static String firstMatching(final String query,
