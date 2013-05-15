@@ -5,6 +5,7 @@ package models;
 import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
+import static org.elasticsearch.index.query.QueryBuilders.nestedQuery;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +24,7 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
 import org.elasticsearch.index.query.MultiMatchQueryBuilder;
+import org.elasticsearch.index.query.NestedQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -86,7 +88,10 @@ public class Document {
 											"id",
 											Arrays.asList("@id",
 													"http://purl.org/ontology/bibo/isbn13",
-													"http://purl.org/ontology/bibo/isbn10")).build())
+													"http://purl.org/ontology/bibo/isbn10"))
+									.put("keyword",
+											Arrays.asList("http://purl.org/dc/terms/subject"))
+									.build())
 					.put(
 							"gnd-index",
 							new ImmutableMap.Builder<String, List<String>>()
@@ -172,7 +177,7 @@ public class Document {
 						.setQuery(constructQuery(index, query, category));
 		/* TODO: pass limit as a parameter */
 		final SearchResponse response =
-				requestBuilder.setFrom(0).setSize(50).setExplain(true).execute()
+				requestBuilder.setFrom(0).setSize(50).setExplain(false).execute()
 						.actionGet();
 		final SearchHits hits = response.getHits();
 		return asDocuments(query, hits);
@@ -195,10 +200,12 @@ public class Document {
 	private static QueryBuilder constructQuery(final String index,
 			final String search, final String category) {
 		QueryBuilder query = null;
-		if (category.equals("author")) {
+		if (category.equals("author")) { /* TODO: replace with polymorphic dispatch */
 			query = processAuthor(search);
 		} else if (category.equals("id")) {
 			query = processId(search);
+		} else if (category.equals("keyword")) {
+			query = processKeyword(search);
 		}
 		if (index.equals("gnd-index")) { /* TODO: use enum for the index names */
 			query = filterUndifferentiatedPersons(query);
@@ -229,6 +236,13 @@ public class Document {
 		"http://lobid.org/resource/" + search : search;
 		query = multiMatchQuery(fixedQuery, searchFields.toArray(new String[] {}));
 		return query;
+	}
+
+	private static NestedQueryBuilder processKeyword(final String search) {
+		return nestedQuery(
+				searchFields.get(0),
+				matchQuery(searchFields.get(0) + ".@id", "http://d-nb.info/gnd/"
+						+ search));
 	}
 
 	private static QueryBuilder filterUndifferentiatedPersons(QueryBuilder query) {
@@ -278,6 +292,7 @@ public class Document {
 	private static void withMatchedField(final String query, final SearchHit hit,
 			final Document document) {
 		final Object matchedField = firstExisting(hit);
+		/* TODO: replace with polymorphic dispatch */
 		if (matchedField instanceof List) {
 			processList(query, document, matchedField);
 		} else if (searchFields.get(0).contains("preferredNameForThePerson")) {
@@ -293,6 +308,10 @@ public class Document {
 			}
 		} else if (matchedField instanceof String) {
 			document.matchedField = matchedField.toString();
+		} else if (matchedField instanceof Map) {
+			@SuppressWarnings("unchecked")
+			Map<String, Object> map = (Map<String, Object>) matchedField;
+			processMaps(query, document, Arrays.asList(map));
 		}
 	}
 
@@ -316,11 +335,16 @@ public class Document {
 			@SuppressWarnings("unchecked")
 			final List<Map<String, Object>> maps =
 					(List<Map<String, Object>>) matchedField;
-			for (Object value : maps.get(0).values()) {
-				if (value.toString().contains(query)) {
-					document.matchedField = value.toString();
-					break;
-				}
+			processMaps(query, document, maps);
+		}
+	}
+
+	private static void processMaps(final String query, final Document document,
+			final List<Map<String, Object>> maps) {
+		for (Map<String, Object> map : maps) {
+			if (map.get("@id").toString().contains(query)) {
+				document.matchedField = map.get("@id").toString();
+				break;
 			}
 		}
 	}

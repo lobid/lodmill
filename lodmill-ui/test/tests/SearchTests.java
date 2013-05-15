@@ -235,6 +235,25 @@ public class SearchTests {
 		});
 	}
 
+	/* @formatter:off */
+	@Test public void resourceByGndSubjectMulti(){gndSubject("44141956", 2);}
+	@Test public void resourceByGndSubjectDashed(){gndSubject("4414195-6", 1);}
+	@Test public void resourceByGndSubjectSingle(){gndSubject("189452846", 1);}
+	/* @formatter:on */
+
+	public void gndSubject(final String gndId, final int results) {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject = Json.parse(call("keyword/" + gndId));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(results);
+				assertThat(jsonObject.get(0).toString()).contains(
+						"http://d-nb.info/gnd/" + gndId);
+			}
+		});
+	}
+
 	@Test
 	public void searchViaApiWithContentNegotiation() {
 		running(TEST_SERVER, new Runnable() {
