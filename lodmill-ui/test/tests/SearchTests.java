@@ -23,6 +23,7 @@ import java.util.Scanner;
 
 import models.Document;
 import models.DocumentHelper;
+import models.Index;
 
 import org.codehaus.jackson.JsonNode;
 import org.elasticsearch.action.bulk.BulkItemResponse;
@@ -40,7 +41,6 @@ import play.test.TestServer;
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
 
-import controllers.Index;
 
 /**
  * Tests for the search functionality.

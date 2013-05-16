@@ -33,10 +33,8 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 
-import controllers.Index;
 
 /**
  * Documents returned from the ElasticSearch index.
@@ -68,58 +66,16 @@ public class DocumentHelper {
 		client = productionClient;
 	}
 
-	/** A mapping index names to categories to search fields. */
-	public static ImmutableMap<Index, Map<String, List<String>>> searchFieldsMap =
-			new ImmutableMap.Builder<Index, Map<String, List<String>>>()
-					.put(
-							Index.LOBID_RESOURCES,
-							new ImmutableMap.Builder<String, List<String>>()
-									.put(
-											"author",
-											Arrays
-													.asList(
-															"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
-															"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
-															"http://purl.org/dc/elements/1.1/creator#dateOfDeath",
-															"http://purl.org/dc/elements/1.1/creator"))
-									.put(
-											"id",
-											Arrays.asList("@id",
-													"http://purl.org/ontology/bibo/isbn13",
-													"http://purl.org/ontology/bibo/isbn10"))
-									.put("keyword",
-											Arrays.asList("http://purl.org/dc/terms/subject"))
-									.build())
-					.put(
-							Index.GND,
-							new ImmutableMap.Builder<String, List<String>>()
-									.put(
-											"author",
-											Arrays
-													.asList(
-															"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-															"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-															"http://d-nb.info/standards/elementset/gnd#dateOfDeath",
-															"http://d-nb.info/standards/elementset/gnd#variantNameForThePerson"))
-									.build())
-					.put(
-							Index.LOBID_ORGANISATIONS,
-							new ImmutableMap.Builder<String, List<String>>().put(
-									"title",
-									Arrays
-											.asList("http://www.w3.org/2004/02/skos/core#prefLabel"))
-									.build()).build();
-
-	private static List<String> searchFields = searchFieldsMap.get(
-			Index.LOBID_RESOURCES).get("author");
+	private static List<String> searchFields = Index.LOBID_RESOURCES.fields()
+			.get("author");
 
 	private static final Logger LOG = LoggerFactory
 			.getLogger(DocumentHelper.class);
 
 	/**
 	 * @param term The search term
-	 * @param index The index to search (see {@link #searchFieldsMap})
-	 * @param category The search category (see {@link #searchFieldsMap})
+	 * @param index The index to search (see {@link Index})
+	 * @param category The search category (see {@link Index#fields()})
 	 * @return The documents matching the given parameters
 	 */
 	public static List<Document> search(final String term, final Index index,
@@ -139,16 +95,15 @@ public class DocumentHelper {
 	}
 
 	private static void validate(final Index index, final String category) {
-		if (searchFieldsMap.get(index) == null) {
+		if (index == null) {
 			throw new IllegalArgumentException(String.format(
-					"Invalid index ('%s') - valid indexes: %s", index,
-					searchFieldsMap.keySet()));
+					"Invalid index ('%s') - valid indexes: %s", index, Index.values()));
 		}
-		searchFields = searchFieldsMap.get(index).get(category);
+		searchFields = index.fields().get(category);
 		if (searchFields == null) {
 			throw new IllegalArgumentException(String.format(
 					"Invalid type ('%s') for specified index ('%s') - valid types: %s",
-					category, index, searchFieldsMap.get(index).keySet()));
+					category, index, index.fields().keySet()));
 		}
 	}
 

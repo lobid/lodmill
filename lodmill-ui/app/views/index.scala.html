@@ -1,9 +1,9 @@
 @* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(index: controllers.Index, query: String, category: String, resultFormat: String)
+@(index: models.Index, query: String, category: String, resultFormat: String)
 
 @import controllers.Serialization
-@import controllers.Index
+@import models.Index
 
 @main("Lobid API - Index") {
     <h2>Basic API usage</h2>
@@ -23,7 +23,7 @@
 	    <label class="control-label" for="index">index:</label>
 		<!-- We submit on change to update the valid categories for the index: -->
 		<select name="index" id="index" onChange="this.form.submit()">
-			@for(indexOption <- DocumentHelper.searchFieldsMap.keySet()){
+			@for(indexOption <- index.fields().keySet()){
 				<option value="@indexOption" @if(indexOption == index) {selected="selected"} else{}>
 					@indexOption
 				</option>
@@ -31,7 +31,7 @@
 		</select>
 	    <label class="control-label" for="category">category:</label>
 		<select name="category" id="category">
-			@for(categoryOption<-DocumentHelper.searchFieldsMap.get(index).keySet()){
+			@for(categoryOption<-index.fields().keySet()){
 				<option value="@categoryOption" @if(categoryOption == category) {selected="selected"} else{}>
 					@categoryOption
 				</option>

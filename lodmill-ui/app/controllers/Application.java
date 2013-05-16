@@ -7,6 +7,7 @@ import java.util.List;
 
 import models.Document;
 import models.DocumentHelper;
+import models.Index;
 
 import org.codehaus.jackson.JsonNode;
 
@@ -40,10 +41,10 @@ public final class Application extends Controller {
 	 * widget requires an endpoint that expects a single String parameter, so we
 	 * set the other required info here:
 	 */
-	/** The index to search in (see {@link DocumentHelper#searchFieldsMap}). */
+	/** The index to search in (see {@link Index}). */
 	public static Index index = Index.LOBID_RESOURCES;
 
-	/** The search category (see {@link DocumentHelper#searchFieldsMap}). */
+	/** The search category (see {@link Index#fields()}). */
 	public static String category = "author";
 
 	/**
@@ -57,10 +58,8 @@ public final class Application extends Controller {
 	/**
 	 * Config endpoint for setting search parameters.
 	 * 
-	 * @param indexParameter The index to search (see
-	 *          {@link DocumentHelper#searchFieldsMap}).
-	 * @param categoryParameter The search category (see
-	 *          {@link DocumentHelper#searchFieldsMap}).
+	 * @param indexParameter The index to search (see {@link Index}).
+	 * @param categoryParameter The search category (see {@link Index#fields()}).
 	 * @param formatParameter The result format
 	 * @return The search page, with the config set
 	 */
@@ -75,10 +74,8 @@ public final class Application extends Controller {
 	/**
 	 * Search enpoint for actual queries.
 	 * 
-	 * @param indexParameter The index to search (see
-	 *          {@link DocumentHelper#searchFieldsMap}).
-	 * @param categoryParameter The search category (see
-	 *          {@link DocumentHelper#searchFieldsMap}).
+	 * @param indexParameter The index to search (see {@link Index}).
+	 * @param categoryParameter The search category (see {@link Index#fields()}).
 	 * @param formatParameter The result format
 	 * @param queryParameter The search query
 	 * @return The results, in the format specified
