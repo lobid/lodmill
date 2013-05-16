@@ -4,15 +4,11 @@ package models;
 
 import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
-import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
-import static org.elasticsearch.index.query.QueryBuilders.nestedQuery;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
@@ -21,10 +17,7 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
-import org.elasticsearch.index.query.MultiMatchQueryBuilder;
-import org.elasticsearch.index.query.NestedQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -34,7 +27,6 @@ import org.slf4j.LoggerFactory;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
-
 
 /**
  * Documents returned from the ElasticSearch index.
@@ -109,50 +101,12 @@ public class DocumentHelper {
 
 	private static QueryBuilder constructQuery(final Index index,
 			final String search, final String category) {
-		QueryBuilder query = null;
-		if (category.equals("author")) { /* TODO: replace with polymorphic dispatch */
-			query = processAuthor(search);
-		} else if (category.equals("id")) {
-			query = processId(search);
-		} else if (category.equals("keyword")) {
-			query = processKeyword(search);
-		}
+		QueryBuilder query = Parameter.id(category).query(search, index);
 		if (index.equals(Index.GND)) {
 			query = filterUndifferentiatedPersons(query);
 		}
 		LOG.debug("Using query: " + query);
 		return query;
-	}
-
-	private static QueryBuilder processAuthor(final String search) {
-		QueryBuilder query;
-		final String lifeDates = "\\((\\d+)-(\\d*)\\)";
-		final Matcher lifeDatesMatcher =
-				Pattern.compile("[^(]+" + lifeDates).matcher(search);
-		if (lifeDatesMatcher.find()) {
-			query = createAuthorQuery(lifeDates, search, lifeDatesMatcher);
-		} else if (search.matches("\\d+")) {
-			query = matchQuery(searchFields.get(3) + ".@id", search);
-		} else {
-			query = nameMatchQuery(search);
-		}
-		return query;
-	}
-
-	private static QueryBuilder processId(final String search) {
-		QueryBuilder query;
-		final String fixedQuery = search.matches("ht[\\d]{9}") ?
-		/* HT number -> URL (temp. until we have an HBZ-ID field) */
-		"http://lobid.org/resource/" + search : search;
-		query = multiMatchQuery(fixedQuery, searchFields.toArray(new String[] {}));
-		return query;
-	}
-
-	private static NestedQueryBuilder processKeyword(final String search) {
-		return nestedQuery(
-				searchFields.get(0),
-				matchQuery(searchFields.get(0) + ".@id", "http://d-nb.info/gnd/"
-						+ search));
 	}
 
 	private static QueryBuilder filterUndifferentiatedPersons(QueryBuilder query) {
@@ -161,24 +115,6 @@ public class DocumentHelper {
 				matchQuery("@type",
 						"http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson")
 						.operator(Operator.AND));
-	}
-
-	private static QueryBuilder createAuthorQuery(final String lifeDates,
-			final String search, final Matcher matcher) {
-		/* Search name in name field and birth in birth field: */
-		final BoolQueryBuilder birthQuery =
-				boolQuery().must(
-						nameMatchQuery(search.replaceAll(lifeDates, "").trim())).must(
-						matchQuery(searchFields.get(1), matcher.group(1)));
-		return matcher.group(2).equals("") ? birthQuery :
-		/* If we have one, search death in death field: */
-		birthQuery.must(matchQuery(searchFields.get(2), matcher.group(2)));
-	}
-
-	private static QueryBuilder nameMatchQuery(final String search) {
-		final MultiMatchQueryBuilder query =
-				multiMatchQuery(search, searchFields.get(0)).operator(Operator.AND);
-		return searchFields.size() > 3 ? query.field(searchFields.get(3)) : query;
 	}
 
 	private static List<Document> asDocuments(final String query,
