@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import models.Document;
+import models.DocumentHelper;
 
 import org.codehaus.jackson.JsonNode;
 import org.elasticsearch.action.bulk.BulkItemResponse;
@@ -70,7 +71,7 @@ public class SearchTests {
 			}
 		}
 		Thread.sleep(1000);
-		Document.clientSet(client);
+		DocumentHelper.clientSet(client);
 	}
 
 	@AfterClass
@@ -78,7 +79,7 @@ public class SearchTests {
 		client.admin().indices().prepareDelete(TEST_INDEX.id()).execute()
 				.actionGet();
 		node.close();
-		Document.clientReset();
+		DocumentHelper.clientReset();
 	}
 
 	@Test
@@ -100,7 +101,7 @@ public class SearchTests {
 	@Test
 	public void searchViaModel() {
 		final List<Document> docs =
-				Document.search(TERM, Index.LOBID_RESOURCES, "author");
+				DocumentHelper.search(TERM, Index.LOBID_RESOURCES, "author");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
@@ -110,14 +111,14 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				Document.search("Hundt, Theo (1906-)", Index.LOBID_RESOURCES, "author")
-						.size()).isEqualTo(1);
+				DocumentHelper.search("Hundt, Theo (1906-)", Index.LOBID_RESOURCES,
+						"author").size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
-				Document.search("Goeters, Johann F. Gerhard (1926-1996)",
+				DocumentHelper.search("Goeters, Johann F. Gerhard (1926-1996)",
 						Index.LOBID_RESOURCES, "author").size()).isEqualTo(1);
 	}
 

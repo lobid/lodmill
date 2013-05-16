@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Document;
+import models.DocumentHelper;
 
 import org.codehaus.jackson.JsonNode;
 
@@ -39,10 +40,10 @@ public final class Application extends Controller {
 	 * widget requires an endpoint that expects a single String parameter, so we
 	 * set the other required info here:
 	 */
-	/** The index to search in (see {@link Document#searchFieldsMap}). */
+	/** The index to search in (see {@link DocumentHelper#searchFieldsMap}). */
 	public static Index index = Index.LOBID_RESOURCES;
 
-	/** The search category (see {@link Document#searchFieldsMap}). */
+	/** The search category (see {@link DocumentHelper#searchFieldsMap}). */
 	public static String category = "author";
 
 	/**
@@ -57,9 +58,9 @@ public final class Application extends Controller {
 	 * Config endpoint for setting search parameters.
 	 * 
 	 * @param indexParameter The index to search (see
-	 *          {@link Document#searchFieldsMap}).
+	 *          {@link DocumentHelper#searchFieldsMap}).
 	 * @param categoryParameter The search category (see
-	 *          {@link Document#searchFieldsMap}).
+	 *          {@link DocumentHelper#searchFieldsMap}).
 	 * @param formatParameter The result format
 	 * @return The search page, with the config set
 	 */
@@ -75,9 +76,9 @@ public final class Application extends Controller {
 	 * Search enpoint for actual queries.
 	 * 
 	 * @param indexParameter The index to search (see
-	 *          {@link Document#searchFieldsMap}).
+	 *          {@link DocumentHelper#searchFieldsMap}).
 	 * @param categoryParameter The search category (see
-	 *          {@link Document#searchFieldsMap}).
+	 *          {@link DocumentHelper#searchFieldsMap}).
 	 * @param formatParameter The result format
 	 * @param queryParameter The search query
 	 * @return The results, in the format specified
@@ -88,7 +89,9 @@ public final class Application extends Controller {
 		List<Document> docs = new ArrayList<>();
 		Index selectedIndex = Index.id(indexParameter);
 		try {
-			docs = Document.search(queryParameter, selectedIndex, categoryParameter);
+			docs =
+					DocumentHelper.search(queryParameter, selectedIndex,
+							categoryParameter);
 		} catch (IllegalArgumentException e) {
 			return badRequest(e.getMessage());
 		}
@@ -107,8 +110,8 @@ public final class Application extends Controller {
 	 * @return A list of completion suggestions for the given term
 	 */
 	public static Result autocomplete(final String term) {
-		return results(term, Document.search(term, index, category), index).get(
-				ResultFormat.SHORT);
+		return results(term, DocumentHelper.search(term, index, category), index)
+				.get(ResultFormat.SHORT);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =
@@ -139,7 +142,8 @@ public final class Application extends Controller {
 				new ImmutableMap.Builder<ResultFormat, Result>()
 						.put(ResultFormat.PAGE,
 								ok(views.html.docs.render(documents, selectedIndex, query)))
-						.put(ResultFormat.FULL, negotiateContent(documents, selectedIndex, query))
+						.put(ResultFormat.FULL,
+								negotiateContent(documents, selectedIndex, query))
 						.put(
 								ResultFormat.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],

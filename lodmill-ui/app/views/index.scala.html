@@ -23,7 +23,7 @@
 	    <label class="control-label" for="index">index:</label>
 		<!-- We submit on change to update the valid categories for the index: -->
 		<select name="index" id="index" onChange="this.form.submit()">
-			@for(indexOption <- Document.searchFieldsMap.keySet()){
+			@for(indexOption <- DocumentHelper.searchFieldsMap.keySet()){
 				<option value="@indexOption" @if(indexOption == index) {selected="selected"} else{}>
 					@indexOption
 				</option>
@@ -31,7 +31,7 @@
 		</select>
 	    <label class="control-label" for="category">category:</label>
 		<select name="category" id="category">
-			@for(categoryOption<-Document.searchFieldsMap.get(index).keySet()){
+			@for(categoryOption<-DocumentHelper.searchFieldsMap.get(index).keySet()){
 				<option value="@categoryOption" @if(categoryOption == category) {selected="selected"} else{}>
 					@categoryOption
 				</option>
