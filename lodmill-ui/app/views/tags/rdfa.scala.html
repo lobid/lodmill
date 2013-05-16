@@ -1,5 +1,5 @@
-@(label: String, property: String, doc: play.api.libs.json.JsValue, row: controllers.Application.TableRow, node: Option[play.api.libs.json.JsValue] = None)
-@import controllers.Application.TableRow
+@(label: String, property: String, doc: play.api.libs.json.JsValue, row: controllers.TableRow, node: Option[play.api.libs.json.JsValue] = None)
+@import controllers.TableRow
 @import play.api.libs.json.JsValue
 
 @string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }

@@ -39,7 +39,7 @@ import play.test.TestServer;
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
 
-import controllers.Application.Index;
+import controllers.Index;
 
 /**
  * Tests for the search functionality.

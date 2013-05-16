@@ -9,7 +9,7 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 GET     /search                     controllers.Application.search(index: String, category: String, format: String, query: String)
-GET     /:category/:query           controllers.Application.search(index: String ?= controllers.Application.Index.LOBID_RESOURCES.id(), category: String, format: String ?= "full", query: String)
+GET     /:category/:query           controllers.Application.search(index: String ?= controllers.Index.LOBID_RESOURCES.id(), category: String, format: String ?= "full", query: String)
 
 GET     /config                     controllers.Application.config(index: String, category: String, format: String)
 

@@ -1,9 +1,9 @@
 @* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(index: controllers.Application.Index, query: String, category: String, resultFormat: String)
+@(index: controllers.Index, query: String, category: String, resultFormat: String)
 
-@import controllers.Application.Serialization
-@import controllers.Application.Index
+@import controllers.Serialization
+@import controllers.Index
 
 @main("Lobid API - Index") {
     <h2>Basic API usage</h2>
@@ -39,7 +39,7 @@
 		</select>
 		<label class="control-label" for="format">format:</label>
 		<select name="format" id="format">
-			@for(formatOption <- controllers.Application.Format.values().map(_.toString.toLowerCase)){
+			@for(formatOption <- controllers.ResultFormat.values().map(_.toString.toLowerCase)){
 				<option value="@formatOption"  @if(formatOption == resultFormat) {selected="selected"} else{}>
 					@formatOption
 				</option>

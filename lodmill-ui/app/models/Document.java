@@ -40,7 +40,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.hp.hpl.jena.shared.BadURIException;
 
-import controllers.Application.Index;
+import controllers.Index;
 
 /**
  * Documents returned from the ElasticSearch index.

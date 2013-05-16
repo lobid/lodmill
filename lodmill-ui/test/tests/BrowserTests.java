@@ -18,7 +18,7 @@ import org.junit.Test;
 import play.libs.F.Callback;
 import play.test.TestBrowser;
 import play.test.TestServer;
-import controllers.Application.Index;
+import controllers.Index;
 
 /**
  * Browser-based tests using Selenium WebDriver and FluentLenium.
