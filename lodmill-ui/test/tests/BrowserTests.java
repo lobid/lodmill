@@ -18,6 +18,7 @@ import org.junit.Test;
 import play.libs.F.Callback;
 import play.test.TestBrowser;
 import play.test.TestServer;
+import controllers.Application.Index;
 
 /**
  * Browser-based tests using Selenium WebDriver and FluentLenium.
@@ -112,8 +113,8 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.click("a",
-						withText("/title/Universität?index=lobid-orgs-index&format=page"));
+				browser.click("a", withText("/title/Universität?index="
+						+ Index.LOBID_ORGANISATIONS.id() + "&format=page"));
 				assertThat(browser.pageSource())
 						.contains("Universität")
 						.contains("Universität Basel")
@@ -135,7 +136,8 @@ public class BrowserTests {
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
 				final String link =
-						"/author/Johann%20Sebastian%20Bach?index=gnd-index&format=page";
+						"/author/Johann%20Sebastian%20Bach?index=" + Index.GND.id()
+								+ "&format=page";
 				browser.click("a", withText(link));
 				assertThat(browser.pageSource()).contains("Bach, Johann Sebastian")
 						.contains("Lithograph, tätig in Leipzig um 1835-1837")

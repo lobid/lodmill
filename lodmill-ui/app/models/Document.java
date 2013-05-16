@@ -40,6 +40,8 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 import com.hp.hpl.jena.shared.BadURIException;
 
+import controllers.Application.Index;
+
 /**
  * Documents returned from the ElasticSearch index.
  * 
@@ -71,10 +73,10 @@ public class Document {
 	}
 
 	/** A mapping index names to categories to search fields. */
-	public static ImmutableMap<String, Map<String, List<String>>> searchFieldsMap =
-			new ImmutableMap.Builder<String, Map<String, List<String>>>()
+	public static ImmutableMap<Index, Map<String, List<String>>> searchFieldsMap =
+			new ImmutableMap.Builder<Index, Map<String, List<String>>>()
 					.put(
-							"lobid-index",
+							Index.LOBID_RESOURCES,
 							new ImmutableMap.Builder<String, List<String>>()
 									.put(
 											"author",
@@ -93,7 +95,7 @@ public class Document {
 											Arrays.asList("http://purl.org/dc/terms/subject"))
 									.build())
 					.put(
-							"gnd-index",
+							Index.GND,
 							new ImmutableMap.Builder<String, List<String>>()
 									.put(
 											"author",
@@ -105,15 +107,15 @@ public class Document {
 															"http://d-nb.info/standards/elementset/gnd#variantNameForThePerson"))
 									.build())
 					.put(
-							"lobid-orgs-index",
+							Index.LOBID_ORGANISATIONS,
 							new ImmutableMap.Builder<String, List<String>>().put(
 									"title",
 									Arrays
 											.asList("http://www.w3.org/2004/02/skos/core#prefLabel"))
 									.build()).build();
 
-	private static List<String> searchFields = searchFieldsMap.get("lobid-index")
-			.get("author");
+	private static List<String> searchFields = searchFieldsMap.get(
+			Index.LOBID_RESOURCES).get("author");
 
 	private transient String matchedField;
 	private transient String source;
@@ -167,12 +169,12 @@ public class Document {
 	 * @param category The search category (see {@link #searchFieldsMap})
 	 * @return The documents matching the given parameters
 	 */
-	public static List<Document> search(final String term, final String index,
+	public static List<Document> search(final String term, final Index index,
 			final String category) {
 		validate(index, category);
 		final String query = term.toLowerCase();
 		final SearchRequestBuilder requestBuilder =
-				client.prepareSearch(index)
+				client.prepareSearch(index.id())
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 						.setQuery(constructQuery(index, query, category));
 		/* TODO: pass limit as a parameter */
@@ -183,7 +185,7 @@ public class Document {
 		return asDocuments(query, hits);
 	}
 
-	private static void validate(final String index, final String category) {
+	private static void validate(final Index index, final String category) {
 		if (searchFieldsMap.get(index) == null) {
 			throw new IllegalArgumentException(String.format(
 					"Invalid index ('%s') - valid indexes: %s", index,
@@ -197,7 +199,7 @@ public class Document {
 		}
 	}
 
-	private static QueryBuilder constructQuery(final String index,
+	private static QueryBuilder constructQuery(final Index index,
 			final String search, final String category) {
 		QueryBuilder query = null;
 		if (category.equals("author")) { /* TODO: replace with polymorphic dispatch */
@@ -207,7 +209,7 @@ public class Document {
 		} else if (category.equals("keyword")) {
 			query = processKeyword(search);
 		}
-		if (index.equals("gnd-index")) { /* TODO: use enum for the index names */
+		if (index.equals(Index.GND)) {
 			query = filterUndifferentiatedPersons(query);
 		}
 		LOG.debug("Using query: " + query);

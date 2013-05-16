@@ -47,6 +47,40 @@ public final class Application extends Controller {
 		SHORT
 	}
 
+	/**
+	 * The different indices to use.
+	 */
+	public enum Index {
+		/***/
+		LOBID_RESOURCES("lobid-index"), /***/
+		LOBID_ORGANISATIONS("lobid-orgs-index"), /***/
+		GND("gnd-index");
+		private String id;
+
+		Index(String name) {
+			this.id = name;
+		}
+
+		/** @return The Elasticsearch index name. */
+		public String id() {
+			return id;
+		}
+
+		/**
+		 * @param id The Elasticsearch index name
+		 * @return The index enum element with the given id
+		 * @throws IllegalArgumentException if there is no index with the id
+		 */
+		public static Index id(String id) {
+			for (Index i : values()) {
+				if (i.id().equals(id)) {
+					return i;
+				}
+			}
+			throw new IllegalArgumentException("No such index: " + id);
+		}
+	}
+
 	/*
 	 * These static variables are used by the autocomplete function which uses the
 	 * Jquery-UI autocomplete widget. According to my current understanding, this
@@ -54,7 +88,7 @@ public final class Application extends Controller {
 	 * set the other required info here:
 	 */
 	/** The index to search in (see {@link Document#searchFieldsMap}). */
-	public static String index = "lobid-index";
+	public static Index index = Index.LOBID_RESOURCES;
 
 	/** The search category (see {@link Document#searchFieldsMap}). */
 	public static String category = "author";
@@ -79,10 +113,10 @@ public final class Application extends Controller {
 	 */
 	public static Result config(final String indexParameter,
 			final String categoryParameter, final String formatParameter) {
-		Application.index = indexParameter;
+		Application.index = Index.id(indexParameter);
 		Application.category = categoryParameter;
-		return ok(views.html.index.render(indexParameter, "", categoryParameter,
-				formatParameter));
+		return ok(views.html.index.render(Index.id(indexParameter), "",
+				categoryParameter, formatParameter));
 	}
 
 	/**
@@ -100,13 +134,14 @@ public final class Application extends Controller {
 			final String categoryParameter, final String formatParameter,
 			final String queryParameter) {
 		List<Document> docs = new ArrayList<>();
+		Index selectedIndex = Index.id(indexParameter);
 		try {
-			docs = Document.search(queryParameter, indexParameter, categoryParameter);
+			docs = Document.search(queryParameter, selectedIndex, categoryParameter);
 		} catch (IllegalArgumentException e) {
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<Format, Result> results =
-				results(queryParameter, docs, indexParameter);
+				results(queryParameter, docs, selectedIndex);
 		try {
 			return results.get(Format.valueOf(formatParameter.toUpperCase()));
 		} catch (IllegalArgumentException e) {
@@ -141,7 +176,7 @@ public final class Application extends Controller {
 			};
 
 	private static ImmutableMap<Format, Result> results(final String query,
-			final List<Document> documents, final String selectedIndex) {
+			final List<Document> documents, final Index selectedIndex) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
@@ -161,7 +196,7 @@ public final class Application extends Controller {
 	}
 
 	private static Result negotiateContent(List<Document> documents,
-			String selectedIndex, String query) {
+			Index selectedIndex, String query) {
 		if (accepted(Serialization.JSON_LD)) {
 			return ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
 					jsonFull))));

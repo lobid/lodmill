@@ -1,13 +1,14 @@
 @* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 *@
 
-@(index: String, query: String, category: String, resultFormat: String)
+@(index: controllers.Application.Index, query: String, category: String, resultFormat: String)
 
 @import controllers.Application.Serialization
+@import controllers.Application.Index
 
 @main("Lobid API - Index") {
     <h2>Basic API usage</h2>
     <p>The API currently supports queries for lobid resources (by ID and author name), lobid organisations, and GND entries (both by name), e.g.:</p>
-    <pre>GET /id/HT002189125 ; GET /author/Abramson ; GET /author/Abramson?index=gnd-index ; GET /search?index=lobid-orgs-index&amp;category=title&amp;query=Escola&amp;format=page</pre>
+    <pre>GET /id/HT002189125 ; GET /author/Abramson ; GET /author/Abramson?index=@Index.GND.id() ; GET /search?index=@Index.LOBID_ORGANISATIONS.id()&amp;category=title&amp;query=Escola&amp;format=page</pre>
     <p>See the form below for additional usage samples and optional parameters.</p>
 
 	<h2>Content Negotiation</h2>
@@ -17,7 +18,7 @@
 
 	<h2>API request form</h2>
 	<p>Use the form below to set up your query parameters (index, category, result format):
-	<form action="@routes.Application.config(index, category, resultFormat)" class="form-inline" method="GET">
+	<form action="@routes.Application.config(index.id(), category, resultFormat)" class="form-inline" method="GET">
 		<!-- TODO: create a custom tag and extract the common code of these 3 option divs: -->
 	    <label class="control-label" for="index">index:</label>
 		<!-- We submit on change to update the valid categories for the index: -->
@@ -47,9 +48,9 @@
 		<button type="submit" class="btn">Update</button>
 	</form>
 	<p>After confirming the parameters above using the 'Update' button, you will get auto-suggestions in the query field below (based on the 'short' result format):</p>
-    <form action="@routes.Application.search(index, category, resultFormat, query)" class="form-inline" method="GET">
+    <form action="@routes.Application.search(index.id(), category, resultFormat, query)" class="form-inline" method="GET">
 		<input type='hidden' name='format' value='@resultFormat' />
-		<input type='hidden' name='index' value='@index' />
+		<input type='hidden' name='index' value='@index.id()' />
 		<input type='hidden' name='category' value='@category' />
 	    <label class="control-label" for="query">GET /search with parameters set above and query:</label>
 	    <input type="text" name="query" id="query" class="autocomplete"
@@ -78,8 +79,8 @@
 		<tr>
 			@defining("/id/HT002189125?format=page"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/author/Abramson?format=page"){ref => <td><a href="@ref">@ref</a></td>}
-			@defining("/title/Universität?index=lobid-orgs-index&format=page"){ref => <td><a href="@ref">@ref</a></td>}
-			@defining("/author/Johann%20Sebastian%20Bach?index=gnd-index&format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/title/Universität?index="+Index.LOBID_ORGANISATIONS.id()+"&format=page"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/author/Johann%20Sebastian%20Bach?index="+Index.GND.id()+"&format=page"){ref => <td><a href="@ref">@ref</a></td>}
 		</tr>
 	</table>
 }

@@ -39,6 +39,8 @@ import play.test.TestServer;
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
 
+import controllers.Application.Index;
+
 /**
  * Tests for the search functionality.
  * 
@@ -47,7 +49,7 @@ import com.google.common.io.CharStreams;
 @SuppressWarnings("javadoc")
 public class SearchTests {
 
-	private static final String TEST_INDEX = "lobid-index";
+	private static final Index TEST_INDEX = Index.LOBID_RESOURCES;
 	static final String TERM = "theo";
 	static final int TEST_SERVER_PORT = 5000;
 	static final TestServer TEST_SERVER = testServer(TEST_SERVER_PORT);
@@ -73,7 +75,8 @@ public class SearchTests {
 
 	@AfterClass
 	public static void down() {
-		client.admin().indices().prepareDelete(TEST_INDEX).execute().actionGet();
+		client.admin().indices().prepareDelete(TEST_INDEX.id()).execute()
+				.actionGet();
 		node.close();
 		Document.clientReset();
 	}
@@ -85,7 +88,7 @@ public class SearchTests {
 				.isEqualTo(30);
 		JsonNode json =
 				Json.parse(client
-						.prepareGet("lobid-index", "json-ld-lobid",
+						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
 								"http://lobid.org/resource/BT000001260").execute().actionGet()
 						.getSourceAsString());
 		assertThat(json.isObject()).isTrue();
@@ -96,7 +99,8 @@ public class SearchTests {
 
 	@Test
 	public void searchViaModel() {
-		final List<Document> docs = Document.search(TERM, "lobid-index", "author");
+		final List<Document> docs =
+				Document.search(TERM, Index.LOBID_RESOURCES, "author");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
@@ -106,15 +110,15 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				Document.search("Hundt, Theo (1906-)", "lobid-index", "author").size())
-				.isEqualTo(1);
+				Document.search("Hundt, Theo (1906-)", Index.LOBID_RESOURCES, "author")
+						.size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
 				Document.search("Goeters, Johann F. Gerhard (1926-1996)",
-						"lobid-index", "author").size()).isEqualTo(1);
+						Index.LOBID_RESOURCES, "author").size()).isEqualTo(1);
 	}
 
 	@Test
@@ -144,8 +148,9 @@ public class SearchTests {
 			@Override
 			public void run() {
 				assertThat(
-						call("search?index=lobid-index&query=abraham&format=page&category=author"))
-						.contains("<html>");
+						call("search?index=" + Index.LOBID_RESOURCES.id()
+								+ "&query=abraham&format=page&category=author")).contains(
+						"<html>");
 			}
 		});
 	}
@@ -156,7 +161,8 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=lobid-index&query=abraham&format=full&category=author"));
+						Json.parse(call("search?index=" + Index.LOBID_RESOURCES.id()
+								+ "&query=abraham&format=full&category=author"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.getElements().next().isContainerNode()).isTrue();
@@ -170,7 +176,8 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=lobid-index&query=abraham&format=short&category=author"));
+						Json.parse(call("search?index=" + Index.LOBID_RESOURCES.id()
+								+ "&query=abraham&format=short&category=author"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
@@ -184,7 +191,8 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=gnd-index&query=bach&format=short&category=author"));
+						Json.parse(call("search?index=" + Index.GND.id()
+								+ "&query=bach&format=short&category=author"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(5); /* differentiated only */
 			}
@@ -208,7 +216,7 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=gnd-index&query="
+						Json.parse(call("search?index=" + Index.GND.id() + "&query="
 								+ name.replace(" ", "%20") + "&format=short&category=author"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(results);
