@@ -1,15 +1,15 @@
-/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package controllers;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import models.Document;
+import models.Index;
+import models.Search;
 
 import org.codehaus.jackson.JsonNode;
-import org.lobid.lodmill.JsonLdConverter;
 
 import play.api.http.MediaRange;
 import play.libs.Json;
@@ -35,63 +35,47 @@ public final class Application extends Controller {
 		/* No instantiation */
 	}
 
-	/**
-	 * The result format.
-	 */
-	public enum Format {
-		/** Complete HTML page with search form on top, results at bottom. */
-		PAGE,
-		/** The fulle JSON representation from the index. */
-		FULL,
-		/** Short results strings for auto-completion suggestions. */
-		SHORT
-	}
-
 	/*
 	 * These static variables are used by the autocomplete function which uses the
 	 * Jquery-UI autocomplete widget. According to my current understanding, this
 	 * widget requires an endpoint that expects a single String parameter, so we
 	 * set the other required info here:
 	 */
-	/** The index to search in (see {@link Document#searchFieldsMap}). */
-	public static String index = "lobid-index";
+	/** The index to search in (see {@link Index}). */
+	public static Index index = Index.LOBID_RESOURCES;
 
-	/** The search category (see {@link Document#searchFieldsMap}). */
+	/** The search category (see {@link Index#fields()}). */
 	public static String category = "author";
 
 	/**
 	 * @return The main page.
 	 */
 	public static Result index() {
-		return ok(views.html.index.render(index, "", category, Format.PAGE
+		return ok(views.html.index.render(index, "", category, ResultFormat.PAGE
 				.toString().toLowerCase()));
 	}
 
 	/**
 	 * Config endpoint for setting search parameters.
 	 * 
-	 * @param indexParameter The index to search (see
-	 *          {@link Document#searchFieldsMap}).
-	 * @param categoryParameter The search category (see
-	 *          {@link Document#searchFieldsMap}).
+	 * @param indexParameter The index to search (see {@link Index}).
+	 * @param categoryParameter The search category (see {@link Index#fields()}).
 	 * @param formatParameter The result format
 	 * @return The search page, with the config set
 	 */
 	public static Result config(final String indexParameter,
 			final String categoryParameter, final String formatParameter) {
-		Application.index = indexParameter;
+		Application.index = Index.id(indexParameter);
 		Application.category = categoryParameter;
-		return ok(views.html.index.render(indexParameter, "", categoryParameter,
-				formatParameter));
+		return ok(views.html.index.render(Index.id(indexParameter), "",
+				categoryParameter, formatParameter));
 	}
 
 	/**
 	 * Search enpoint for actual queries.
 	 * 
-	 * @param indexParameter The index to search (see
-	 *          {@link Document#searchFieldsMap}).
-	 * @param categoryParameter The search category (see
-	 *          {@link Document#searchFieldsMap}).
+	 * @param indexParameter The index to search (see {@link Index}).
+	 * @param categoryParameter The search category (see {@link Index#fields()}).
 	 * @param formatParameter The result format
 	 * @param queryParameter The search query
 	 * @return The results, in the format specified
@@ -100,15 +84,16 @@ public final class Application extends Controller {
 			final String categoryParameter, final String formatParameter,
 			final String queryParameter) {
 		List<Document> docs = new ArrayList<>();
+		Index selectedIndex = Index.id(indexParameter);
 		try {
-			docs = Document.search(queryParameter, indexParameter, categoryParameter);
+			docs = Search.documents(queryParameter, selectedIndex, categoryParameter);
 		} catch (IllegalArgumentException e) {
 			return badRequest(e.getMessage());
 		}
-		final ImmutableMap<Format, Result> results =
-				results(queryParameter, docs, indexParameter);
+		final ImmutableMap<ResultFormat, Result> results =
+				results(queryParameter, docs, selectedIndex);
 		try {
-			return results.get(Format.valueOf(formatParameter.toUpperCase()));
+			return results.get(ResultFormat.valueOf(formatParameter.toUpperCase()));
 		} catch (IllegalArgumentException e) {
 			return badRequest("Invalid 'format' parameter, use one of: "
 					+ Joiner.on(", ").join(results.keySet()).toLowerCase());
@@ -120,8 +105,8 @@ public final class Application extends Controller {
 	 * @return A list of completion suggestions for the given term
 	 */
 	public static Result autocomplete(final String term) {
-		return results(term, Document.search(term, index, category), index).get(
-				Format.SHORT);
+		return results(term, Search.documents(term, index, category), index).get(
+				ResultFormat.SHORT);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =
@@ -140,28 +125,29 @@ public final class Application extends Controller {
 				}
 			};
 
-	private static ImmutableMap<Format, Result> results(final String query,
-			final List<Document> documents, final String selectedIndex) {
+	private static ImmutableMap<ResultFormat, Result> results(final String query,
+			final List<Document> documents, final Index selectedIndex) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
 						.queryString().get("callback");
 		final JsonNode shortJson =
 				Json.toJson(ImmutableSet.copyOf(Lists.transform(documents, jsonShort)));
-		final ImmutableMap<Format, Result> results =
-				new ImmutableMap.Builder<Format, Result>()
-						.put(Format.PAGE,
+		final ImmutableMap<ResultFormat, Result> results =
+				new ImmutableMap.Builder<ResultFormat, Result>()
+						.put(ResultFormat.PAGE,
 								ok(views.html.docs.render(documents, selectedIndex, query)))
-						.put(Format.FULL, negotiateContent(documents, selectedIndex, query))
+						.put(ResultFormat.FULL,
+								negotiateContent(documents, selectedIndex, query))
 						.put(
-								Format.SHORT,
+								ResultFormat.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],
 										shortJson)) : ok(shortJson)).build();
 		return results;
 	}
 
 	private static Result negotiateContent(List<Document> documents,
-			String selectedIndex, String query) {
+			Index selectedIndex, String query) {
 		if (accepted(Serialization.JSON_LD)) {
 			return ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
 					jsonFull))));
@@ -174,38 +160,6 @@ public final class Application extends Controller {
 			}
 		}
 		return status(406, "Not acceptable: unsupported content type requested\n");
-	}
-
-	/** Supported RDF serializations for content negotiation. */
-	@SuppressWarnings("javadoc")
-	/* no javadoc for elements */
-	public enum Serialization {/* @formatter:off */
-		JSON_LD(null, Arrays.asList("application/json", "application/ld+json")),
-		RDF_A(null, Arrays.asList("text/html", "text/xml", "application/xml")),
-		N_TRIPLE(JsonLdConverter.Format.N_TRIPLE, Arrays.asList("text/plain")),
-		N3(JsonLdConverter.Format.N3, Arrays.asList("text/rdf+n3", "text/n3")),
-		TURTLE(JsonLdConverter.Format.TURTLE, /* @formatter:on */
-				Arrays.asList("application/x-turtle", "text/turtle"));
-
-		private JsonLdConverter.Format format;
-		private List<String> types;
-
-		/** @return The content types associated with this serialization. */
-		public List<String> getTypes() {
-			return types;
-		}
-
-		private Serialization(JsonLdConverter.Format format, List<String> types) {
-			this.format = format;
-			this.types = types;
-		}
-	}
-
-	/** Different ways of serializing a table row (used fo RDFa output) */
-	@SuppressWarnings("javadoc")
-	/* no javadoc for elements */
-	public enum TableRow {
-		SINGLE_VALUE, SINGLE_LINK, MULTI_VALUE, MULTI_LINK, SINGLE_IMAGE
 	}
 
 	private static boolean accepted(Serialization serialization) {
