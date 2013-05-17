@@ -1,6 +1,6 @@
 @(doc: play.api.libs.json.JsValue)
 @import play.api.libs.json.JsValue
-@import controllers.TableRow
+@import views.TableRow
 @import tags._
 <table class="table table-striped">
   @rdfa("ID", "http://d-nb.info/gnd", doc, TableRow.SINGLE_LINK, node = Option(doc))

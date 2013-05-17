@@ -1,5 +1,4 @@
-@(label: String, property: String, doc: play.api.libs.json.JsValue, row: controllers.TableRow, node: Option[play.api.libs.json.JsValue] = None)
-@import controllers.TableRow
+@(label: String, property: String, doc: play.api.libs.json.JsValue, row: views.TableRow, node: Option[play.api.libs.json.JsValue] = None)
 @import play.api.libs.json.JsValue
 
 @string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
@@ -9,13 +8,13 @@
 }}
 
 @row match {
-  case TableRow.SINGLE_VALUE => {
+  case views.TableRow.SINGLE_VALUE => {
     <tr>
       <td><a href="@property">@label</a></td>
       <td property="@property">@string(jsonVal)</td>
     </tr>
   }
-  case TableRow.SINGLE_LINK => {
+  case views.TableRow.SINGLE_LINK => {
     <tr>
       <td><a href="@property">@label</a></td>
       <td>
@@ -26,7 +25,7 @@
       </td>
     </tr>
   }
-  case TableRow.MULTI_VALUE => {
+  case views.TableRow.MULTI_VALUE => {
     @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
       <tr>
         <td><a href="@property">@label</a></td>
@@ -34,7 +33,7 @@
       </tr>
     }
   }
-  case TableRow.MULTI_LINK => {
+  case views.TableRow.MULTI_LINK => {
     @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
       <tr>
         <td><a href="@property">@label</a></td>
@@ -44,7 +43,7 @@
       </tr>
     }
   }
-  case TableRow.SINGLE_IMAGE => {
+  case views.TableRow.SINGLE_IMAGE => {
     <tr>
       <td><a href="@property">@label</a></td>
       <td>
