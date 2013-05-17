@@ -1,4 +1,4 @@
-/* Copyright 2013 hbz, Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package tests; // NOPMD
 
@@ -10,6 +10,8 @@ import static play.test.Helpers.running;
 import static tests.SearchTests.call;
 
 import java.io.IOException;
+
+import models.Index;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -112,8 +114,8 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.click("a",
-						withText("/title/Universität?index=lobid-orgs-index&format=page"));
+				browser.click("a", withText("/title/Universität?index="
+						+ Index.LOBID_ORGANISATIONS.id() + "&format=page"));
 				assertThat(browser.pageSource())
 						.contains("Universität")
 						.contains("Universität Basel")
@@ -135,7 +137,8 @@ public class BrowserTests {
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
 				final String link =
-						"/author/Johann%20Sebastian%20Bach?index=gnd-index&format=page";
+						"/author/Johann%20Sebastian%20Bach?index=" + Index.GND.id()
+								+ "&format=page";
 				browser.click("a", withText(link));
 				assertThat(browser.pageSource()).contains("Bach, Johann Sebastian")
 						.contains("Lithograph, tätig in Leipzig um 1835-1837")
