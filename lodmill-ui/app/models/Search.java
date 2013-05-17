@@ -23,11 +23,11 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 
 /**
- * Documents returned from the ElasticSearch index.
+ * Search documents in an ElasticSearch index.
  * 
  * @author Fabian Steeg (fsteeg)
  */
-public class DocumentHelper {
+public class Search {
 
 	/** The ElasticSearch server to use. */
 	public static final InetSocketTransportAddress ES_SERVER =
@@ -56,7 +56,7 @@ public class DocumentHelper {
 			.get("author");
 
 	private static final Logger LOG = LoggerFactory
-			.getLogger(DocumentHelper.class);
+			.getLogger(Search.class);
 
 	/**
 	 * @param term The search term
@@ -64,7 +64,7 @@ public class DocumentHelper {
 	 * @param category The search category (see {@link Index#fields()})
 	 * @return The documents matching the given parameters
 	 */
-	public static List<Document> search(final String term, final Index index,
+	public static List<Document> documents(final String term, final Index index,
 			final String category) {
 		validate(index, category);
 		final String query = term.toLowerCase();

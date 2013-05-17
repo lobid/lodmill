@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import models.Document;
-import models.DocumentHelper;
+import models.Search;
 import models.Index;
 
 import org.codehaus.jackson.JsonNode;
@@ -71,7 +71,7 @@ public class SearchTests {
 			}
 		}
 		Thread.sleep(1000);
-		DocumentHelper.clientSet(client);
+		Search.clientSet(client);
 	}
 
 	@AfterClass
@@ -79,7 +79,7 @@ public class SearchTests {
 		client.admin().indices().prepareDelete(TEST_INDEX.id()).execute()
 				.actionGet();
 		node.close();
-		DocumentHelper.clientReset();
+		Search.clientReset();
 	}
 
 	@Test
@@ -101,7 +101,7 @@ public class SearchTests {
 	@Test
 	public void searchViaModel() {
 		final List<Document> docs =
-				DocumentHelper.search(TERM, Index.LOBID_RESOURCES, "author");
+				Search.documents(TERM, Index.LOBID_RESOURCES, "author");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
@@ -111,14 +111,14 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				DocumentHelper.search("Hundt, Theo (1906-)", Index.LOBID_RESOURCES,
+				Search.documents("Hundt, Theo (1906-)", Index.LOBID_RESOURCES,
 						"author").size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
-				DocumentHelper.search("Goeters, Johann F. Gerhard (1926-1996)",
+				Search.documents("Goeters, Johann F. Gerhard (1926-1996)",
 						Index.LOBID_RESOURCES, "author").size()).isEqualTo(1);
 	}
 

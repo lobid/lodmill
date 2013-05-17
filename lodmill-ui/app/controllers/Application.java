@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Document;
-import models.DocumentHelper;
+import models.Search;
 import models.Index;
 
 import org.codehaus.jackson.JsonNode;
@@ -87,7 +87,7 @@ public final class Application extends Controller {
 		Index selectedIndex = Index.id(indexParameter);
 		try {
 			docs =
-					DocumentHelper.search(queryParameter, selectedIndex,
+					Search.documents(queryParameter, selectedIndex,
 							categoryParameter);
 		} catch (IllegalArgumentException e) {
 			return badRequest(e.getMessage());
@@ -107,7 +107,7 @@ public final class Application extends Controller {
 	 * @return A list of completion suggestions for the given term
 	 */
 	public static Result autocomplete(final String term) {
-		return results(term, DocumentHelper.search(term, index, category), index)
+		return results(term, Search.documents(term, index, category), index)
 				.get(ResultFormat.SHORT);
 	}
 
