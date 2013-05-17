@@ -6,9 +6,7 @@ import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
@@ -123,8 +121,7 @@ public class DocumentHelper {
 		for (SearchHit hit : hits) {
 			final Document document =
 					new Document(hit.getId(), new String(hit.source()));
-			withMatchedField(query, hit, document);
-			res.add(document);
+			res.add(Hit.of(hit, searchFields).process(query, document));
 		}
 		final Predicate<Document> predicate = new Predicate<Document>() {
 			@Override
@@ -133,76 +130,5 @@ public class DocumentHelper {
 			}
 		};
 		return ImmutableList.copyOf(Iterables.filter(res, predicate));
-	}
-
-	private static void withMatchedField(final String query, final SearchHit hit,
-			final Document document) {
-		final Object matchedField = firstExisting(hit);
-		/* TODO: replace with polymorphic dispatch */
-		if (matchedField instanceof List) {
-			processList(query, document, matchedField);
-		} else if (searchFields.get(0).contains("preferredNameForThePerson")) {
-			final Object birth = hit.getSource().get(searchFields.get(1));
-			final Object death = hit.getSource().get(searchFields.get(2));
-			if (birth == null) {
-				document.matchedField = matchedField.toString();
-			} else {
-				final String format =
-						String.format("%s (%s-%s)", matchedField.toString(),
-								birth.toString(), death == null ? "" : death.toString());
-				document.matchedField = format;
-			}
-		} else if (matchedField instanceof String) {
-			document.matchedField = matchedField.toString();
-		} else if (matchedField instanceof Map) {
-			@SuppressWarnings("unchecked")
-			Map<String, Object> map = (Map<String, Object>) matchedField;
-			processMaps(query, document, Arrays.asList(map));
-		}
-	}
-
-	private static Object firstExisting(final SearchHit hit) {
-		for (String field : searchFields) {
-			if (hit.getSource().containsKey(field)) {
-				return hit.getSource().get(field);
-			}
-		}
-		return null;
-	}
-
-	private static void processList(final String query, final Document document,
-			final Object matchedField) {
-		List<?> list = (List<?>) matchedField;
-		if (list.get(0) instanceof String) {
-			@SuppressWarnings("unchecked")
-			final List<String> strings = (List<String>) matchedField;
-			document.matchedField = firstMatching(query, strings);
-		} else if (list.get(0) instanceof Map) {
-			@SuppressWarnings("unchecked")
-			final List<Map<String, Object>> maps =
-					(List<Map<String, Object>>) matchedField;
-			processMaps(query, document, maps);
-		}
-	}
-
-	private static void processMaps(final String query, final Document document,
-			final List<Map<String, Object>> maps) {
-		for (Map<String, Object> map : maps) {
-			if (map.get("@id").toString().contains(query)) {
-				document.matchedField = map.get("@id").toString();
-				break;
-			}
-		}
-	}
-
-	private static String firstMatching(final String query,
-			final List<String> list) {
-		final Predicate<String> predicate = new Predicate<String>() {
-			@Override
-			public boolean apply(final String string) {
-				return string.toLowerCase().contains(query);
-			}
-		};
-		return Iterables.tryFind(list, predicate).orNull();
 	}
 }
