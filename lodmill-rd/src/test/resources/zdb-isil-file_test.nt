@@ -8,14 +8,16 @@ _:AX5fXX3aXd1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(07159) 92 64-
 _:AX5fXX3aXd1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
 _:AX5fXX3aXd1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Voice> .
 <http://lobid.org/organisation/DE-100-301> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-100-301> .
-<http://lobid.org/organisation/DE-100-301> <http://xmlns.com/foaf/0.1/name> "Teilstation fu\u0308r Pflanzenbau und Pflanzenschutz der Universita\u0308t Hohenheim, Bibliothek" .
 <http://lobid.org/organisation/DE-100-301> <http://purl.org/lobid/lv#fundertype> <http://purl.org/lobid/fundertype#n07> .
+<http://lobid.org/organisation/DE-100-301> <http://www.geonames.org/ontology#locatedIn> <http://sws.geonames.org/6557938> .
 <http://lobid.org/organisation/DE-100-301> <http://www.w3.org/ns/org#linkedTo> <http://lobid.org/organisation/DE-576> .
 <http://lobid.org/organisation/DE-100-301> <http://purl.org/lobid/lv#stocksize> <http://purl.org/lobid/stocksize#01> .
+<http://lobid.org/organisation/DE-100-301> <http://xmlns.com/foaf/0.1/name> "Teilstation fu\u0308r Pflanzenbau und Pflanzenschutz derUniversita\u0308t Hohenheim, Bibliothek" .
 <http://lobid.org/organisation/DE-100-301> <http://www.w3.org/2006/vcard/ns#adr> _:AX5fXX3aXa1 .
 <http://lobid.org/organisation/DE-100-301> <http://www.w3.org/ns/org#classification> <http://purl.org/lobid/libtype#n65> .
 <http://lobid.org/organisation/DE-100-301> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc1 .
 <http://lobid.org/organisation/DE-100-301> <http://purl.org/dc/terms/identifier> "DE-100-301" .
+<http://lobid.org/organisation/DE-100-301> <http://purl.org/lobid/lv#contactqr> <http://lobid.org/media/DE-100-301_contactqr.png> .
 <http://lobid.org/organisation/DE-100-301> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 <http://lobid.org/organisation/DE-100-301> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXd1 .
 _:AX5fXX3aXc1 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "8.92397325787105" .
@@ -27,16 +29,18 @@ _:AX5fXX3aXe2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(030) 8 38-564
 _:AX5fXX3aXe2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
 _:AX5fXX3aXe2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Fax> .
 <http://lobid.org/organisation/DE-188-867> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-188-867> .
-<http://lobid.org/organisation/DE-188-867> <http://xmlns.com/foaf/0.1/name> "Freie Universita\u0308t Berlin, Fachbereich Geschichts- und Kulturwissenschaften, Seminar fu\u0308r Katholische Theologie, Bibliothek" .
 <http://lobid.org/organisation/DE-188-867> <http://www.w3.org/2006/vcard/ns#url> <http://www.ub.fu-berlin.de/fbb/phi202.html> .
 <http://lobid.org/organisation/DE-188-867> <http://purl.org/dc/terms/subject> "Scholastik" .
 <http://lobid.org/organisation/DE-188-867> <http://purl.org/lobid/lv#fundertype> <http://purl.org/lobid/fundertype#n02> .
 <http://lobid.org/organisation/DE-188-867> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 <http://lobid.org/organisation/DE-188-867> <http://purl.org/dc/terms/subject> "Patristik" .
 <http://lobid.org/organisation/DE-188-867> <http://www.w3.org/ns/org#linkedTo> <http://lobid.org/organisation/DE-602> .
-<http://lobid.org/organisation/DE-188-867> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXe2 .
+<http://lobid.org/organisation/DE-188-867> <http://xmlns.com/foaf/0.1/name> "Freie Universita\u0308t Berlin, Fachbereich Geschichts- undKulturwissenschaften, Seminar fu\u0308r Katholische Theologie, Bibliothek" .
 <http://lobid.org/organisation/DE-188-867> <http://purl.org/lobid/lv#stocksize> <http://purl.org/lobid/stocksize#06> .
+<http://lobid.org/organisation/DE-188-867> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXe2 .
+<http://lobid.org/organisation/DE-188-867> <http://www.geonames.org/ontology#locatedIn> <http://sws.geonames.org/6547539> .
 <http://lobid.org/organisation/DE-188-867> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXd2 .
+<http://lobid.org/organisation/DE-188-867> <http://purl.org/lobid/lv#contactqr> <http://lobid.org/media/DE-188-867_contactqr.png> .
 <http://lobid.org/organisation/DE-188-867> <http://www.w3.org/2006/vcard/ns#adr> _:AX5fXX3aXa2 .
 <http://lobid.org/organisation/DE-188-867> <http://purl.org/ontology/daia/provides> <http://opac.fu-berlin.de> .
 <http://lobid.org/organisation/DE-188-867> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc2 .
@@ -73,12 +77,14 @@ _:AX5fXX3aXe3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.o
 <http://lobid.org/organisation/DE-7-133> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc3 .
 <http://lobid.org/organisation/DE-7-133> <http://www.w3.org/ns/org#linkedTo> <http://lobid.org/organisation/DE-601> .
 <http://lobid.org/organisation/DE-7-133> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXd3 .
+<http://lobid.org/organisation/DE-7-133> <http://xmlns.com/foaf/0.1/name> "Zentrum fu\u0308r Sportwissenschaften, Institut fu\u0308rSportwissenschaften, Bibliothek" .
+<http://lobid.org/organisation/DE-7-133> <http://purl.org/lobid/lv#contactqr> <http://lobid.org/media/DE-7-133_contactqr.png> .
 <http://lobid.org/organisation/DE-7-133> <http://www.w3.org/2006/vcard/ns#adr> _:AX5fXX3aXa3 .
 <http://lobid.org/organisation/DE-7-133> <http://purl.org/lobid/lv#fundertype> <http://purl.org/lobid/fundertype#n02> .
 <http://lobid.org/organisation/DE-7-133> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXe3 .
 <http://lobid.org/organisation/DE-7-133> <http://purl.org/dc/terms/identifier> "DE-7-133" .
 <http://lobid.org/organisation/DE-7-133> <http://purl.org/lobid/lv#stocksize> <http://purl.org/lobid/stocksize#06> .
-<http://lobid.org/organisation/DE-7-133> <http://xmlns.com/foaf/0.1/name> "Zentrum fu\u0308r Sportwissenschaften, Institut fu\u0308r\n\t\t\t\t\tSportwissenschaften, Bibliothek" .
+<http://lobid.org/organisation/DE-7-133> <http://www.geonames.org/ontology#locatedIn> <http://sws.geonames.org/6557373> .
 <http://lobid.org/organisation/DE-7-133> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 <http://lobid.org/organisation/DE-7-133> <http://www.w3.org/ns/org#classification> <http://purl.org/lobid/libtype#n65> .
 
@@ -91,6 +97,7 @@ _:AX5fXX3aXe4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.o
 <http://lobid.org/organisation/DE-1a> <http://www.w3.org/2006/vcard/ns#adr> _:AX5fXX3aXa4 .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/ontology/daia/provides> <http://stabikat.de> .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/dc/terms/subject> "Ostasien" .
+<http://lobid.org/organisation/DE-1a> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://dbpedia.org/resource/Staatsbibliothek_zu_Berlin> .
 <http://lobid.org/organisation/DE-1a> <http://www.w3.org/ns/org#classification> <http://purl.org/lobid/libtype#n11> .
 <http://lobid.org/organisation/DE-1a> <http://www.w3.org/2006/vcard/ns#email> <mailto:benutzung.h2@sbb.spk-berlin.de> .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/dc/terms/subject> "Geistes- und Sozialwissenschaften" .
@@ -99,12 +106,15 @@ _:AX5fXX3aXe4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.o
 <http://lobid.org/organisation/DE-1a> <http://purl.org/dc/terms/subject> "Afrika" .
 <http://lobid.org/organisation/DE-1a> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification> _:AX5fXX3aXb4 .
-<http://lobid.org/organisation/DE-1a> <http://xmlns.com/foaf/0.1/name> "Staatsbibliothek zu Berlin - Preu\u00DFischer Kulturbesitz,\n\t\t\t\t\tHaus Potsdamer Stra\u00DFe" .
+<http://lobid.org/organisation/DE-1a> <http://xmlns.com/foaf/0.1/name> "Staatsbibliothek zu Berlin - Preu\u00DFischer Kulturbesitz,Haus Potsdamer Stra\u00DFe" .
 <http://lobid.org/organisation/DE-1a> <http://www.w3.org/2006/vcard/ns#url> <http://www.staatsbibliothek-berlin.de> .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/dc/terms/subject> "Recht" .
+<http://lobid.org/organisation/DE-1a> <http://www.geonames.org/ontology#locatedIn> <http://sws.geonames.org/6547539> .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/lobid/lv#fundertype> <http://purl.org/lobid/fundertype#n07> .
 <http://lobid.org/organisation/DE-1a> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc4 .
+<http://lobid.org/organisation/DE-1a> <http://purl.org/ontology/mo/wikipedia> <http://de.wikipedia.org/wiki/Staatsbibliothek_zu_Berlin> .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/dc/terms/subject> "Karten" .
+<http://lobid.org/organisation/DE-1a> <http://purl.org/lobid/lv#contactqr> <http://lobid.org/media/DE-1a_contactqr.png> .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/dc/terms/subject> "Osteuropa" .
 <http://lobid.org/organisation/DE-1a> <http://purl.org/dc/terms/subject> "Orientalistik" .
 <http://lobid.org/organisation/DE-1a> <http://www.w3.org/2006/vcard/ns#email> <mailto:info@sbb.spk-berlin.de> .
@@ -124,83 +134,50 @@ _:AX5fXX3aXa4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.o
 _:AX5fXX3aXc4 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "52.50771" .
 _:AX5fXX3aXc4 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "13.37063" .
 _:AX5fXX3aXc4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
-<http://lobid.org/organisation/DE-11-39> <http://xmlns.com/foaf/0.1/name> "fru\u0308her: Humboldt-Universita\u0308t zu Berlin,\n\t\t\t\t\tUniversita\u0308tsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek im\n\t\t\t\t\tInstitut fu\u0308r Gartenbauwissenschaften, Fachgebiet Obstbau" .
+<http://lobid.org/organisation/DE-11-39> <http://xmlns.com/foaf/0.1/name> "fru\u0308her: Humboldt-Universita\u0308t zu Berlin,Universita\u0308tsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek imInstitut fu\u0308r Gartenbauwissenschaften, Fachgebiet Obstbau" .
 <http://lobid.org/organisation/DE-11-39> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc4 .
 <http://lobid.org/organisation/DE-11-39> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-11-39> .
 <http://lobid.org/organisation/DE-11-39> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 <http://lobid.org/organisation/DE-11-39> <http://purl.org/dc/terms/identifier> "DE-11-39" .
 
-<http://lobid.org/organisation/DE-11-42> <http://xmlns.com/foaf/0.1/name> "fru\u0308her: Humboldt-Universita\u0308t zu Berlin,\n\t\t\t\t\tUniversita\u0308tsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek im\n\t\t\t\t\tInstitut fu\u0308r Gartenbauwissenschaften, Fachgebiet Pflanzenzu\u0308chtung" .
+<http://lobid.org/organisation/DE-11-42> <http://xmlns.com/foaf/0.1/name> "fru\u0308her: Humboldt-Universita\u0308t zu Berlin,Universita\u0308tsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek imInstitut fu\u0308r Gartenbauwissenschaften, Fachgebiet Pflanzenzu\u0308chtung" .
 <http://lobid.org/organisation/DE-11-42> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc5 .
 <http://lobid.org/organisation/DE-11-42> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-11-42> .
 <http://lobid.org/organisation/DE-11-42> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 <http://lobid.org/organisation/DE-11-42> <http://purl.org/dc/terms/identifier> "DE-11-42" .
 
-_:AX5fXX3aXb6 <http://purl.org/dc/terms/description> "Mi 14.00-18.00" .
-_:AX5fXX3aXd6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(0230) 3 14-71412" .
+_:AX5fXX3aXb6 <http://purl.org/dc/terms/description> "Mo-Fr 8.00-24.00, Sa 11.00-20.00, So 11.00-18.00" .
+_:AX5fXX3aXd6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(0234) 32-26270" .
 _:AX5fXX3aXd6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
 _:AX5fXX3aXd6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Voice> .
-_:AX5fXX3aXa6 <http://www.w3.org/2006/vcard/ns#postal-code> "14195" .
+_:AX5fXX3aXa6 <http://www.w3.org/2006/vcard/ns#postal-code> "44801" .
 _:AX5fXX3aXa6 <http://www.w3.org/2006/vcard/ns#country-name> "Germany" .
-_:AX5fXX3aXa6 <http://www.w3.org/2006/vcard/ns#locality> "Berlin/Lahn" .
-_:AX5fXX3aXa6 <http://www.w3.org/2006/vcard/ns#street-address> "Ko\u0308nigin-Luise Str. 22" .
+_:AX5fXX3aXa6 <http://www.w3.org/2006/vcard/ns#locality> "Bochum" .
+_:AX5fXX3aXa6 <http://www.w3.org/2006/vcard/ns#street-address> "Universita\u0308tsstr. 150" .
 _:AX5fXX3aXa6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
 _:AX5fXX3aXa6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Address> .
-_:AX5fXX3aXc6 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "13.3044475" .
-_:AX5fXX3aXc6 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "52.4587718" .
-_:AX5fXX3aXe6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(030) 3 14-71226" .
+_:AX5fXX3aXc6 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "51.4451024" .
+_:AX5fXX3aXc6 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "7.2605524" .
+_:AX5fXX3aXe6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(0234) 32-14737" .
 _:AX5fXX3aXe6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
 _:AX5fXX3aXe6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Fax> .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/2006/vcard/ns#email> <mailto:sabine.raabe@tu-berlin.de> .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXe6 .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXd6 .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/dc/terms/identifier> "DE-83-748" .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/ns/org#classification> <http://purl.org/lobid/libtype#n65> .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/dc/terms/subject> "Landschaftsbau" .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc6 .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/2006/vcard/ns#adr> _:AX5fXX3aXa6 .
-<http://lobid.org/organisation/DE-83-748> <http://www.w3.org/ns/org#linkedTo> <http://lobid.org/organisation/DE-602> .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/dc/terms/subject> "Umweltschutz" .
-<http://lobid.org/organisation/DE-83-748> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-83-748> .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/dc/terms/subject> "Kultivierung" .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/lobid/lv#fundertype> <http://purl.org/lobid/fundertype#n07> .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification> _:AX5fXX3aXb6 .
-<http://lobid.org/organisation/DE-83-748> <http://xmlns.com/foaf/0.1/name> "TU Berlin, Institut fu\u0308r Landschafts- und\n\t\t\t\t\tUmweltplanung, Fachgebiet Ingenieurbiologie, Bibliothek" .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/ontology/daia/provides> <http://opac.ub.tu-berlin.de/> .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/dc/terms/subject> "Gru\u0308nlandwirtschaft" .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/lobid/lv#stocksize> <http://purl.org/lobid/stocksize#05> .
-<http://lobid.org/organisation/DE-83-748> <http://purl.org/dc/terms/subject> "Bodenkunde" .
-
-_:AX5fXX3aXc7 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "51.4451024" .
-_:AX5fXX3aXc7 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "7.2605524" .
-_:AX5fXX3aXe7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(0234) 32-14737" .
-_:AX5fXX3aXe7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
-_:AX5fXX3aXe7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Fax> .
-_:AX5fXX3aXb7 <http://purl.org/dc/terms/description> "Mo-Fr 8.00-24.00, Sa 11.00-20.00, So 11.00-18.00" .
-_:AX5fXX3aXd7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#value> "(0234) 32-26270" .
-_:AX5fXX3aXd7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
-_:AX5fXX3aXd7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Voice> .
-_:AX5fXX3aXa7 <http://www.w3.org/2006/vcard/ns#postal-code> "44801" .
-_:AX5fXX3aXa7 <http://www.w3.org/2006/vcard/ns#country-name> "Germany" .
-_:AX5fXX3aXa7 <http://www.w3.org/2006/vcard/ns#locality> "Bochum" .
-_:AX5fXX3aXa7 <http://www.w3.org/2006/vcard/ns#street-address> "Universita\u0308tsstr. 150" .
-_:AX5fXX3aXa7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
-_:AX5fXX3aXa7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Address> .
 <http://lobid.org/organisation/DE-294> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-294> .
-<http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#adr> _:AX5fXX3aXa7 .
+<http://lobid.org/organisation/DE-294> <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification> _:AX5fXX3aXb6 .
+<http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXe6 .
 <http://lobid.org/organisation/DE-294> <http://purl.org/lobid/lv#fundertype> <http://purl.org/lobid/fundertype#n07> .
-<http://lobid.org/organisation/DE-294> <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification> _:AX5fXX3aXb7 .
+<http://lobid.org/organisation/DE-294> <http://purl.org/ontology/mo/wikipedia> <http://de.wikipedia.org/wiki/Universit%C3%A4tsbibliothek_Bochum> .
+<http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXd6 .
 <http://lobid.org/organisation/DE-294> <http://purl.org/dc/terms/identifier> "DE-294" .
+<http://lobid.org/organisation/DE-294> <http://www.geonames.org/ontology#locatedIn> <http://sws.geonames.org/6553132> .
 <http://lobid.org/organisation/DE-294> <http://www.w3.org/ns/org#classification> <http://purl.org/lobid/libtype#n60> .
-<http://lobid.org/organisation/DE-294> <http://xmlns.com/foaf/0.1/name> "Ruhr-Universita\u0308t Bochum,\n\t\t\t\t\tUniversita\u0308tsbibliothek" .
 <http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#url> <http://www.ub.ruhr-uni-bochum.de> .
-<http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXe7 .
 <http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#email> <mailto:benutzung.ub@ruhr-uni-bochum.de> .
-<http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#tel> _:AX5fXX3aXd7 .
+<http://lobid.org/organisation/DE-294> <http://www.w3.org/2006/vcard/ns#adr> _:AX5fXX3aXa6 .
 <http://lobid.org/organisation/DE-294> <http://www.w3.org/ns/org#linkedTo> <http://lobid.org/organisation/DE-605> .
+<http://lobid.org/organisation/DE-294> <http://xmlns.com/foaf/0.1/name> "Ruhr-Universita\u0308t Bochum,Universita\u0308tsbibliothek" .
+<http://lobid.org/organisation/DE-294> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc6 .
 <http://lobid.org/organisation/DE-294> <http://purl.org/ontology/daia/provides> <https://opac.ub.ruhr-uni-bochum.de/webOPACClient/start.do> .
 <http://lobid.org/organisation/DE-294> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 <http://lobid.org/organisation/DE-294> <http://purl.org/lobid/lv#stocksize> <http://purl.org/lobid/stocksize#10> .
-<http://lobid.org/organisation/DE-294> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:AX5fXX3aXc7 .
+<http://lobid.org/organisation/DE-294> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://dbpedia.org/resource/Universit%C3%A4tsbibliothek_Bochum> .
 
