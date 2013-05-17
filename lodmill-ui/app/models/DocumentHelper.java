@@ -2,9 +2,6 @@
 
 package models;
 
-import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
-import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +12,6 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -72,10 +68,13 @@ public class DocumentHelper {
 			final String category) {
 		validate(index, category);
 		final String query = term.toLowerCase();
+		QueryBuilder queryBuilder =
+				index.constructQuery(query, Parameter.id(category));
+		LOG.info("Using query: " + query);
 		final SearchRequestBuilder requestBuilder =
 				client.prepareSearch(index.id())
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(constructQuery(index, query, category));
+						.setQuery(queryBuilder);
 		/* TODO: pass limit as a parameter */
 		final SearchResponse response =
 				requestBuilder.setFrom(0).setSize(50).setExplain(false).execute()
@@ -95,24 +94,6 @@ public class DocumentHelper {
 					"Invalid type ('%s') for specified index ('%s') - valid types: %s",
 					category, index, index.fields().keySet()));
 		}
-	}
-
-	private static QueryBuilder constructQuery(final Index index,
-			final String search, final String category) {
-		QueryBuilder query = Parameter.id(category).query(search, index);
-		if (index.equals(Index.GND)) {
-			query = filterUndifferentiatedPersons(query);
-		}
-		LOG.debug("Using query: " + query);
-		return query;
-	}
-
-	private static QueryBuilder filterUndifferentiatedPersons(QueryBuilder query) {
-		/* TODO: set up a filters map if we have any more such cases */
-		return boolQuery().must(query).must(
-				matchQuery("@type",
-						"http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson")
-						.operator(Operator.AND));
 	}
 
 	private static List<Document> asDocuments(final String query,
