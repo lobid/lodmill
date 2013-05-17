@@ -1,4 +1,4 @@
-/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package controllers;
 
@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Document;
-import models.Search;
 import models.Index;
+import models.Search;
 
 import org.codehaus.jackson.JsonNode;
 
@@ -86,9 +86,7 @@ public final class Application extends Controller {
 		List<Document> docs = new ArrayList<>();
 		Index selectedIndex = Index.id(indexParameter);
 		try {
-			docs =
-					Search.documents(queryParameter, selectedIndex,
-							categoryParameter);
+			docs = Search.documents(queryParameter, selectedIndex, categoryParameter);
 		} catch (IllegalArgumentException e) {
 			return badRequest(e.getMessage());
 		}
@@ -107,8 +105,8 @@ public final class Application extends Controller {
 	 * @return A list of completion suggestions for the given term
 	 */
 	public static Result autocomplete(final String term) {
-		return results(term, Search.documents(term, index, category), index)
-				.get(ResultFormat.SHORT);
+		return results(term, Search.documents(term, index, category), index).get(
+				ResultFormat.SHORT);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =

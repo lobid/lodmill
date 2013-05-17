@@ -1,3 +1,5 @@
+/* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
+
 package controllers;
 
 import java.util.Arrays;
@@ -5,7 +7,11 @@ import java.util.List;
 
 import org.lobid.lodmill.JsonLdConverter;
 
-/** Supported RDF serializations for content negotiation. */
+/**
+ * Supported RDF serializations for content negotiation.
+ * 
+ * @author Fabian Steeg (fsteeg)
+ */
 @SuppressWarnings("javadoc")
 /* no javadoc for elements */
 public enum Serialization {/* @formatter:off */

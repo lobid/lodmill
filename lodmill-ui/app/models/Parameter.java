@@ -1,3 +1,5 @@
+/* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
+
 package models;
 
 import static org.elasticsearch.index.query.QueryBuilders.boolQuery;

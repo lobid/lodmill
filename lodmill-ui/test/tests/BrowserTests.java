@@ -1,4 +1,4 @@
-/* Copyright 2013 hbz, Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package tests; // NOPMD
 

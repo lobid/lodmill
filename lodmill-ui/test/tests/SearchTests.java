@@ -1,4 +1,4 @@
-/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package tests;
 
@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import models.Document;
-import models.Search;
 import models.Index;
+import models.Search;
 
 import org.codehaus.jackson.JsonNode;
 import org.elasticsearch.action.bulk.BulkItemResponse;
@@ -40,7 +40,6 @@ import play.test.TestServer;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.CharStreams;
-
 
 /**
  * Tests for the search functionality.
@@ -111,8 +110,9 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				Search.documents("Hundt, Theo (1906-)", Index.LOBID_RESOURCES,
-						"author").size()).isEqualTo(1);
+				Search
+						.documents("Hundt, Theo (1906-)", Index.LOBID_RESOURCES, "author")
+						.size()).isEqualTo(1);
 	}
 
 	@Test

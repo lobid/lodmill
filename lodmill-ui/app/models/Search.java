@@ -1,4 +1,4 @@
-/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package models;
 
@@ -55,8 +55,7 @@ public class Search {
 	private static List<String> searchFields = Index.LOBID_RESOURCES.fields()
 			.get("author");
 
-	private static final Logger LOG = LoggerFactory
-			.getLogger(Search.class);
+	private static final Logger LOG = LoggerFactory.getLogger(Search.class);
 
 	/**
 	 * @param term The search term
