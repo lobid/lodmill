@@ -8,6 +8,15 @@ GET     /                           controllers.Application.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
+GET     /resource                   controllers.Api.resource(id: String ?= "", name: String ?= "", author: String ?= "", subject: String ?= "", format: String ?= "full")
+GET     /resource/:id               controllers.Api.resource(id: String, name: String ?= "", author: String ?= "", subject: String ?= "", format: String ?= "full")
+
+GET     /organisation               controllers.Api.organisation(id: String ?= "", name: String ?= "", format: String ?= "full")
+GET     /organisation/:id           controllers.Api.organisation(id: String, name: String ?= "", format: String ?= "full")
+
+GET     /person                     controllers.Api.person(id: String ?= "", name: String ?= "", format: String ?= "full")
+GET     /person/:id                 controllers.Api.person(id: String, name: String ?= "", format: String ?= "full")
+
 GET     /search                     controllers.Application.search(index: String, category: String, format: String, query: String)
 GET     /:category/:query           controllers.Application.search(index: String ?= models.Index.LOBID_RESOURCES.id(), category: String, format: String ?= "full", query: String)
 
