@@ -17,6 +17,8 @@ GET     /organisation/:id           controllers.Api.organisation(id: String, nam
 GET     /person                     controllers.Api.person(id: String ?= "", name: String ?= "", format: String ?= "full")
 GET     /person/:id                 controllers.Api.person(id: String, name: String ?= "", format: String ?= "full")
 
+GET     /entity                     controllers.Api.entity(id: String ?= "", name: String ?= "", format: String ?= "full")
+
 GET     /search                     controllers.Application.search(index: String, category: String, format: String, query: String)
 GET     /:category/:query           controllers.Application.search(index: String ?= models.Index.LOBID_RESOURCES.id(), category: String, format: String ?= "full", query: String)
 

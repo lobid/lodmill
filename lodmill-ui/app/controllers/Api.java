@@ -3,7 +3,14 @@
 package controllers;
 
 import models.Index;
+
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.node.ObjectNode;
+
 import play.Logger;
+import play.api.mvc.PlainResult;
+import play.core.j.JavaResultExtractor;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -88,6 +95,38 @@ public final class Api extends Controller {
 			// TODO: use 'name' internally (not 'author')
 		}
 		return result;
+	}
+
+	/**
+	 * @param id Some ID
+	 * @param name Some name
+	 * @param format The result format
+	 * @return Matching entities, combined in a JSON map
+	 */
+	public static Result entity(final String id, final String name, // NOPMD
+			final String format) {
+		Logger.debug(String.format("GET /entity; id: '%s', name: '%s'", id, name));
+		if (format.equals("page")) { // NOPMD
+			return badRequest("Result format 'page' not supported for /entity");
+		}
+		final ObjectNode json = Json.newObject();
+		putIfOk(json, "resource", resource(id, name, "", "", format));
+		putIfOk(json, "organisation", organisation(id, name, format));
+		putIfOk(json, "person", person(id, name, format));
+		Logger.trace("JSON response: " + json);
+		return ok(json);
+	}
+
+	private static void putIfOk(final ObjectNode json, final String key,
+			final Result result) {
+		/* TODO: there's got to be a better way, without casting */
+		if (((PlainResult) result.getWrappedResult()).header().status() == OK) {
+			json.put(key, json(result));
+		}
+	}
+
+	private static JsonNode json(final Result resources) {
+		return Json.parse(new String(JavaResultExtractor.getBody(resources)));
 	}
 
 	private static boolean defined(final String param) {
