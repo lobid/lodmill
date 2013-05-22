@@ -22,11 +22,12 @@ public final class LobidOrganisationEnrichmentTest extends AbstractIngestTests {
 				"morph_zdb-isil-file-pica2ld.xml", "default_morph-stats.xml",
 				new PicaXmlReader());
 		System.setProperty("geonames_de_filename", "geonames_DE.csv");
+		System.setProperty("doApiLookup", "true");
 	}
 
 	@Test
 	public void testTriples() { // NOPMD asserts are done in the superclass
-		super.triples("zdb-isil-file_test.nt", "zdb-isil-file.nt",
+		super.triples("zdb-isil-file_test.ttl", "zdb-isil-file.ttl",
 				new PipeLobidOrganisationEnrichment());
 	}
 
