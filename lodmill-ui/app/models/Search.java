@@ -15,8 +15,8 @@ import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import play.Logger;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
@@ -55,8 +55,6 @@ public class Search {
 	private static List<String> searchFields = Index.LOBID_RESOURCES.fields()
 			.get("author");
 
-	private static final Logger LOG = LoggerFactory.getLogger(Search.class);
-
 	/**
 	 * @param term The search term
 	 * @param index The index to search (see {@link Index})
@@ -67,19 +65,16 @@ public class Search {
 			final String category) {
 		validate(index, category);
 		final String query = term.toLowerCase();
-		QueryBuilder queryBuilder =
+		final QueryBuilder queryBuilder =
 				index.constructQuery(query, Parameter.id(category));
-		LOG.info("Using query: " + query);
-		final SearchRequestBuilder requestBuilder =
-				client.prepareSearch(index.id())
-						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(queryBuilder);
-		/* TODO: pass limit as a parameter */
-		final SearchResponse response =
-				requestBuilder.setFrom(0).setSize(50).setExplain(false).execute()
-						.actionGet();
+		Logger.debug("Using query: " + queryBuilder);
+		final SearchResponse response = search(index, queryBuilder);
+		Logger.trace("Got response: " + response);
 		final SearchHits hits = response.getHits();
-		return asDocuments(query, hits);
+		final List<Document> documents = asDocuments(query, hits);
+		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
+				hits.hits().length, documents.size()));
+		return documents;
 	}
 
 	private static void validate(final Index index, final String category) {
@@ -95,13 +90,31 @@ public class Search {
 		}
 	}
 
+	private static SearchResponse search(final Index index,
+			QueryBuilder queryBuilder) {
+		final SearchRequestBuilder requestBuilder =
+				client.prepareSearch(index.id())
+						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
+						.setQuery(queryBuilder);
+		/* TODO: pass limit as a parameter */
+		final SearchResponse response =
+				requestBuilder.setFrom(0).setSize(50).setExplain(false).execute()
+						.actionGet();
+		return response;
+	}
+
 	private static List<Document> asDocuments(final String query,
 			final SearchHits hits) {
 		final List<Document> res = new ArrayList<>();
 		for (SearchHit hit : hits) {
-			final Document document =
-					new Document(hit.getId(), new String(hit.source()));
-			res.add(Hit.of(hit, searchFields).process(query, document));
+			try {
+				Hit hitEnum = Hit.of(hit, searchFields);
+				final Document document =
+						new Document(hit.getId(), new String(hit.source()));
+				res.add(hitEnum.process(query, document));
+			} catch (IllegalArgumentException e) {
+				Logger.error(e.getMessage(), e);
+			}
 		}
 		final Predicate<Document> predicate = new Predicate<Document>() {
 			@Override

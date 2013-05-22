@@ -11,6 +11,7 @@ import models.Search;
 
 import org.codehaus.jackson.JsonNode;
 
+import play.Logger;
 import play.api.http.MediaRange;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -88,6 +89,7 @@ public final class Application extends Controller {
 		try {
 			docs = Search.documents(queryParameter, selectedIndex, categoryParameter);
 		} catch (IllegalArgumentException e) {
+			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<ResultFormat, Result> results =
