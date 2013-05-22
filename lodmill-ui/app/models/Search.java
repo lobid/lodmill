@@ -67,6 +67,11 @@ public class Search {
 		final String query = term.toLowerCase();
 		final QueryBuilder queryBuilder =
 				index.constructQuery(query, Parameter.id(category));
+		if (queryBuilder == null) {
+			throw new IllegalStateException(String.format(
+					"Could not construct query for term '%s', index '%s', category '%s'",
+					query, index, category));
+		}
 		Logger.debug("Using query: " + queryBuilder);
 		final SearchResponse response = search(index, queryBuilder);
 		Logger.trace("Got response: " + response);
