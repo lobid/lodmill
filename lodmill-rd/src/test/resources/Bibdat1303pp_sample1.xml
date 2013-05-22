@@ -1,5 +1,74 @@
 <?xml version="1.0"?>
 <collection>
+  <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
+    <ppxml:global opacflag="" status="">
+      <ppxml:tag id="98063402" occ=""/>
+      <ppxml:tag id="001A" occ="">
+        <ppxml:subf id="0">9006:25-07-06</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001B" occ="">
+        <ppxml:subf id="0">9006:19-10-07</ppxml:subf>
+        <ppxml:subf id="t">17:49:28.000</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001D" occ="">
+        <ppxml:subf id="0">9006:25-07-06</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="001U" occ="">
+        <ppxml:subf id="0">utf8</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="002@" occ="">
+        <ppxml:subf id="0">Tw</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="003@" occ="">
+        <ppxml:subf id="0">980634024</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="008H" occ="">
+        <ppxml:subf id="a">858015-7</ppxml:subf>
+        <ppxml:subf id="d">Tir 1</ppxml:subf>
+        <ppxml:subf id="e">DE-Tir1</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029@" occ="">
+        <ppxml:subf id="a">Tirschenreuth Stadtarchiv</ppxml:subf>
+        <ppxml:subf id="4">c</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="029A" occ="">
+        <ppxml:subf id="a">Stadtarchiv Tirschenreuth</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="032P" occ="">
+        <ppxml:subf id="a">Maximilianspl. 35</ppxml:subf>
+        <ppxml:subf id="b">Tirschenreuth</ppxml:subf>
+        <ppxml:subf id="d">DE</ppxml:subf>
+        <ppxml:subf id="e">95643</ppxml:subf>
+        <ppxml:subf id="f">Bayern</ppxml:subf>
+        <ppxml:subf id="n">09377154</ppxml:subf>
+        <ppxml:subf id="p">j</ppxml:subf>
+        <ppxml:subf id="2">S</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035B" occ="">
+        <ppxml:subf id="a">S</ppxml:subf>
+        <ppxml:subf id="c">j</ppxml:subf>
+        <ppxml:subf id="d">49</ppxml:subf>
+        <ppxml:subf id="e">9631</ppxml:subf>
+        <ppxml:subf id="f">6 09 43</ppxml:subf>
+        <ppxml:subf id="g">49</ppxml:subf>
+        <ppxml:subf id="h">9631</ppxml:subf>
+        <ppxml:subf id="i">6 09 49</ppxml:subf>
+        <ppxml:subf id="k">Poststelle@stadt-tirschenreuth.de</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035E" occ="">
+        <ppxml:subf id="a">H</ppxml:subf>
+        <ppxml:subf id="b">s</ppxml:subf>
+        <ppxml:subf id="c">0167</ppxml:subf>
+        <ppxml:subf id="f">85</ppxml:subf>
+        <ppxml:subf id="g">04</ppxml:subf>
+        <ppxml:subf id="h">01</ppxml:subf>
+      </ppxml:tag>
+      <ppxml:tag id="035I" occ="">
+        <ppxml:subf id="a">BAY</ppxml:subf>
+        <ppxml:subf id="e">n</ppxml:subf>
+      </ppxml:tag>
+    </ppxml:global>
+  </ppxml:record>
 	<ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00901858" occ=""/>
