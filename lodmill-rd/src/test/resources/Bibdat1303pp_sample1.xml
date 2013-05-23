@@ -59,7 +59,8 @@
         <ppxml:subf id="a">H</ppxml:subf>
         <ppxml:subf id="b">s</ppxml:subf>
         <ppxml:subf id="c">0167</ppxml:subf>
-        <ppxml:subf id="f">85</ppxml:subf>
+        <!-- changed to '86' aka "museum" -->
+        <ppxml:subf id="f">86</ppxml:subf>
         <ppxml:subf id="g">04</ppxml:subf>
         <ppxml:subf id="h">01</ppxml:subf>
       </ppxml:tag>
@@ -126,7 +127,8 @@
 				<ppxml:subf id="a">H</ppxml:subf>
 				<ppxml:subf id="c">0059</ppxml:subf>
 				<ppxml:subf id="d">SWB</ppxml:subf>
-				<ppxml:subf id="f">65</ppxml:subf>
+				<!-- changed to "87" aka "publisher -->
+				<ppxml:subf id="f">87</ppxml:subf>
 				<ppxml:subf id="g">07</ppxml:subf>
 				<ppxml:subf id="h">01</ppxml:subf>
 			</ppxml:tag>
@@ -517,7 +519,8 @@
 			</ppxml:tag>
 			<ppxml:tag id="008H" occ="">
 				<ppxml:subf id="d">11/42</ppxml:subf>
-				<ppxml:subf id="e">DE-11-42</ppxml:subf>
+				<!-- changed 'e' to 'h' to simulate missing isil -->
+				<ppxml:subf id="h">DE-11-42</ppxml:subf>
 			</ppxml:tag>
 			<ppxml:tag id="029A" occ="">
 				<ppxml:subf id="a">fru&#x308;her: Humboldt-Universita&#x308;t zu Berlin,
