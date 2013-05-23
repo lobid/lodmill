@@ -60,10 +60,10 @@ public class ApiTests {
 				// TODO {"person?id=136963781",/* -> */"Bach, Johann Sebastian"},
 				{ "person?name=Bach",/* -> */"Bach, Johann Sebastian" },
 				/*-------------*/
-				/* GET /entity */
+				/* GET /search */
 				/*-------------*/
-				{ "entity?name=Bas",/* -> */"Bach, Johann Sebastian" },
-				{ "entity?name=Bas",/* -> */"Universität Basel" } });
+				{ "search?name=Bas",/* -> */"Bach, Johann Sebastian" },
+				{ "search?name=Bas",/* -> */"Universität Basel" } });
 	}
 
 	/**

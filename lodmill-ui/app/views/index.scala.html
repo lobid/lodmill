@@ -1,86 +1,100 @@
 @* Copyright 2012-2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
 
-@(index: models.Index, query: String, category: String, resultFormat: String)
-
 @import controllers.Serialization
 @import models.Index
 
+@withPage(link:String) = {@link&format=page}
+
 @main("Lobid API - Index") {
-    <h2>Basic API usage</h2>
-    <p>The API currently supports queries for lobid resources (by ID and author name), lobid organisations, and GND entries (both by name), e.g.:</p>
-    <pre>GET /id/HT002189125 ; GET /author/Abramson ; GET /author/Abramson?index=@Index.GND.id() ; GET /search?index=@Index.LOBID_ORGANISATIONS.id()&amp;category=title&amp;query=Escola&amp;format=page</pre>
-    <p>See the form below for additional usage samples and optional parameters.</p>
+
+    <h2>API endpoints and parameters</h2>
+    <p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below):</p>
+    <table class="table table-striped">
+		<tr>
+			<th style="width: 10%">Parameters &rarr; <br/>&darr; Endpoint</th>
+			<th><code>id</code></th>
+			<th><code>name</code></th>
+			<th><code>author</code></th>
+			<th><code>subject</code></th>
+			<th style="width: 10%"><code>format</code></th>
+			<th style="width: 10%">Info</th>
+		</tr>
+		<tr>
+			<td><code>/resource</td>
+			@defining(("/resource?id=HT002189125","/resource/HT002189125")){refs =>
+				<td><a href="@withPage(refs._1)">@refs._1</a> <br/> <a href="@refs._2?format=page">@refs._2</a></td>}
+			<td>TODO: <pre>/resource?name=Faust</pre></td>
+			@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs =>
+				<td><a href="@withPage(refs._1)">@refs._1</a> <br/> <a href="@withPage(refs._2)">@refs._2</a></td>}
+			@defining("/resource?subject=44141956"){ref =>
+				<td><a href="@withPage(ref)">@ref</a> <br/> TODO: <pre>/resource?subject=Politik</pre></td>}
+			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			<td>Title data <br/> (lobid-resources)</td>
+		</tr>
+		<tr>
+			<td><code>/organisation</td>
+			<td>TODO: <pre>/organisation?id=SzBaU</pre></td>
+			@defining("/organisation?name=Universität"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
+			<td>&mdash;</td>
+			<td>&mdash;</td>
+			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			<td>Authority data <br/> (lobid-organisations)</td>
+		</tr>
+		<tr>
+			<td><code>/person</td>
+			<td>TODO: <pre>/person?id=118580604</pre></td>
+			@defining("/person?name=Johann+Sebastian+Bach"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
+			<td>&mdash;</td>
+			<td>&mdash;</td>
+			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			<td>Authority data <br/> (GND)</td>
+		</tr>
+		<tr>
+			<td><code>/search</td>
+			@defining("/search?id=HT002189125"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/search?name=Basel"){ref => <td><a href="@ref">@ref</a></td>}
+			<td>&mdash;</td>
+			<td>&mdash;</td>
+			<td><code>short</code>, <code>full</code> (default)</td>
+			<td>Search all <br/> (nested JSON result)
+		</tr>
+	</table>
+	<p>In addition to the missing API above (see TODO) we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints.</p>
+
+	<h2>API sample usage: auto-suggest</h2>
+	<p>Type an author name to get suggestions. Search will return resources with the selected author.</p>
+	<div>
+	<form method="GET" class="form-inline" action="/resource"> <!-- use full URL in your code, i.e. http://api.lobid.org/resource -->
+		<input type="text" class="search" name="author" id="author" style="width:300px"/>
+		<input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
+		<button type="submit" class="btn">Search</button>
+	</form>
+	<p>This calls the <code>/resource</code> endpoint with the <code>format=short</code> parameter to get the suggestions. See source of this page for the implementation using JavaScript and jQuery UI.</p>
+	<script>
+		$('input.search').each(function() {
+			var $input = $(this);
+			$input.autocomplete({
+				source : function(request, response) {
+					$.ajax({
+						// Get the autocomplete data from a remote URL (i.e. a different server from the one that
+						// serves this HTML) by using JSONP (use full URL in your code, i.e. http://api.lobid.org/resource):
+						url : "/resource",
+						dataType : "jsonp",
+						data : {
+							author : request.term,
+							format : "short"
+						},
+						success : function(data) {
+							response(data);
+						}
+					});
+				}
+			});
+		});
+	</script>
 
 	<h2>Content Negotiation</h2>
 	<p>To return different RDF serializations as the result format (default is JSON-LD), you can specify an accept header, e.g. for N-Triples:</p>
-	<pre>curl --header "Accept: text/plain" http://api.lobid.org/id/HT002189125</pre>
+	<pre>curl --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
 	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
-
-	<h2>API request form</h2>
-	<p>Use the form below to set up your query parameters (index, category, result format):
-	<form action="@routes.Application.config(index.id(), category, resultFormat)" class="form-inline" method="GET">
-		<!-- TODO: create a custom tag and extract the common code of these 3 option divs: -->
-	    <label class="control-label" for="index">index:</label>
-		<!-- We submit on change to update the valid categories for the index: -->
-		<select name="index" id="index" onChange="this.form.submit()">
-			@for(indexOption <- index.fields().keySet()){
-				<option value="@indexOption" @if(indexOption == index) {selected="selected"} else{}>
-					@indexOption
-				</option>
-			}
-		</select>
-	    <label class="control-label" for="category">category:</label>
-		<select name="category" id="category">
-			@for(categoryOption<-index.fields().keySet()){
-				<option value="@categoryOption" @if(categoryOption == category) {selected="selected"} else{}>
-					@categoryOption
-				</option>
-			}
-		</select>
-		<label class="control-label" for="format">format:</label>
-		<select name="format" id="format">
-			@for(formatOption <- controllers.ResultFormat.values().map(_.toString.toLowerCase)){
-				<option value="@formatOption"  @if(formatOption == resultFormat) {selected="selected"} else{}>
-					@formatOption
-				</option>
-			}
-		</select>
-		<button type="submit" class="btn">Update</button>
-	</form>
-	<p>After confirming the parameters above using the 'Update' button, you will get auto-suggestions in the query field below (based on the 'short' result format):</p>
-    <form action="@routes.Application.search(index.id(), category, resultFormat, query)" class="form-inline" method="GET">
-		<input type='hidden' name='format' value='@resultFormat' />
-		<input type='hidden' name='index' value='@index.id()' />
-		<input type='hidden' name='category' value='@category' />
-	    <label class="control-label" for="query">GET /search with parameters set above and query:</label>
-	    <input type="text" name="query" id="query" class="autocomplete"
-			data-url="@{routes.Application.autocomplete()}"
-			placeholder="query"
-			@if(query != "") {value="@query"} />
-		<button type="submit" class="btn">Search</button>
-	    <script>
-	    $('input.autocomplete').each( function() {
-	        var $input = $(this);
-	        var serverUrl = $input.data('url');
-	        $input.autocomplete({ source:serverUrl });
-	    });
-	    </script>
-    </form>
-
-	<h2>Sample requests</h2>
-	<p>Some clickable sample requests (omit the <code>format=page</code> parameter for JSON-LD output and send an accept header for different formats, see details above):</p>
-	<table class="table">
-		<tr>
-			<th>Lobid-Resources, by ID</th>
-			<th>Lobid-Resources, by Author</th>
-			<th>Lobid-Organisations, by Title</th>
-			<th>GND, by Author</th>
-		</tr>
-		<tr>
-			@defining("/id/HT002189125?format=page"){ref => <td><a href="@ref">@ref</a></td>}
-			@defining("/author/Abramson?format=page"){ref => <td><a href="@ref">@ref</a></td>}
-			@defining("/title/Universität?index="+Index.LOBID_ORGANISATIONS.id()+"&format=page"){ref => <td><a href="@ref">@ref</a></td>}
-			@defining("/author/Johann%20Sebastian%20Bach?index="+Index.GND.id()+"&format=page"){ref => <td><a href="@ref">@ref</a></td>}
-		</tr>
-	</table>
 }

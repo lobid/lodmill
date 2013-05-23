@@ -11,8 +11,6 @@ import static tests.SearchTests.call;
 
 import java.io.IOException;
 
-import models.Index;
-
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -62,7 +60,7 @@ public class BrowserTests {
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Index");
-				browser.find("input", withId("query")).text("Herman Melville");
+				browser.find("input", withId("author")).text("Herman Melville");
 				browser.find("button", withText("Search")).click();
 				assertThat(browser.url()).isNotEqualTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Documents");
@@ -77,7 +75,7 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.click("a", withText("/id/HT002189125?format=page"));
+				browser.click("a", withText("/resource?id=HT002189125"));
 				assertTypee(browser);
 			}
 		});
@@ -98,7 +96,7 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.click("a", withText("/author/Abramson?format=page"));
+				browser.click("a", withText("/resource?author=Abramson"));
 				assertThat(browser.pageSource()).contains("Abramson")
 						.contains("Error-correcting codes from linear sequential circuits")
 						.contains("The ethnic factor in American catholicism")
@@ -114,8 +112,7 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.click("a", withText("/title/Universität?index="
-						+ Index.LOBID_ORGANISATIONS.id() + "&format=page"));
+				browser.click("a", withText("/organisation?name=Universität"));
 				assertThat(browser.pageSource())
 						.contains("Universität")
 						.contains("Universität Basel")
@@ -136,9 +133,7 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				final String link =
-						"/author/Johann%20Sebastian%20Bach?index=" + Index.GND.id()
-								+ "&format=page";
+				final String link = "/person?name=Johann+Sebastian+Bach";
 				browser.click("a", withText(link));
 				assertThat(browser.pageSource()).contains("Bach, Johann Sebastian")
 						.contains("Lithograph, tätig in Leipzig um 1835-1837")

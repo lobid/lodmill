@@ -2,8 +2,13 @@ label {
 	font-style: italic;
 }
 
-.content {
-	padding: 10px;
+pre {
+	line-height: 100% !important;
+	padding: 2px 4px !important;
+}
+
+table {
+	table-layout: fixed;
 }
 
 .container-wide {

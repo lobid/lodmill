@@ -36,40 +36,11 @@ public final class Application extends Controller {
 		/* No instantiation */
 	}
 
-	/*
-	 * These static variables are used by the autocomplete function which uses the
-	 * Jquery-UI autocomplete widget. According to my current understanding, this
-	 * widget requires an endpoint that expects a single String parameter, so we
-	 * set the other required info here:
-	 */
-	/** The index to search in (see {@link Index}). */
-	public static Index index = Index.LOBID_RESOURCES;
-
-	/** The search category (see {@link Index#fields()}). */
-	public static String category = "author";
-
 	/**
 	 * @return The main page.
 	 */
 	public static Result index() {
-		return ok(views.html.index.render(index, "", category, ResultFormat.PAGE
-				.toString().toLowerCase()));
-	}
-
-	/**
-	 * Config endpoint for setting search parameters.
-	 * 
-	 * @param indexParameter The index to search (see {@link Index}).
-	 * @param categoryParameter The search category (see {@link Index#fields()}).
-	 * @param formatParameter The result format
-	 * @return The search page, with the config set
-	 */
-	public static Result config(final String indexParameter,
-			final String categoryParameter, final String formatParameter) {
-		Application.index = Index.id(indexParameter);
-		Application.category = categoryParameter;
-		return ok(views.html.index.render(Index.id(indexParameter), "",
-				categoryParameter, formatParameter));
+		return ok(views.html.index.render());
 	}
 
 	/**
@@ -81,7 +52,7 @@ public final class Application extends Controller {
 	 * @param queryParameter The search query
 	 * @return The results, in the format specified
 	 */
-	public static Result search(final String indexParameter,
+	static Result search(final String indexParameter,
 			final String categoryParameter, final String formatParameter,
 			final String queryParameter) {
 		List<Document> docs = new ArrayList<>();
@@ -100,15 +71,6 @@ public final class Application extends Controller {
 			return badRequest("Invalid 'format' parameter, use one of: "
 					+ Joiner.on(", ").join(results.keySet()).toLowerCase());
 		}
-	}
-
-	/**
-	 * @param term The term to auto-complete
-	 * @return A list of completion suggestions for the given term
-	 */
-	public static Result autocomplete(final String term) {
-		return results(term, Search.documents(term, index, category), index).get(
-				ResultFormat.SHORT);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =

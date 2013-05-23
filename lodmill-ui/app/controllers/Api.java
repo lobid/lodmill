@@ -103,9 +103,9 @@ public final class Api extends Controller {
 	 * @param format The result format
 	 * @return Matching entities, combined in a JSON map
 	 */
-	public static Result entity(final String id, final String name, // NOPMD
+	public static Result search(final String id, final String name, // NOPMD
 			final String format) {
-		Logger.debug(String.format("GET /entity; id: '%s', name: '%s'", id, name));
+		Logger.debug(String.format("GET /search; id: '%s', name: '%s'", id, name));
 		if (format.equals("page")) { // NOPMD
 			return badRequest("Result format 'page' not supported for /entity");
 		}
