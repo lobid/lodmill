@@ -326,13 +326,16 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		if (this.countryName != null && this.locality != null
 				&& this.postalcode != null) {
 			String OSM_SEARCH_TYPE = null;
-			String type =
-					getFirstResourceOfProperty(HTTP_WWW_W3_ORG_NS_ORG_CLASSIFICATION)
-							.toString();
-			if (Integer.parseInt(type.replaceAll(".*#n", "")) < 85) {
-				OSM_SEARCH_TYPE = "library";
-			} else if (type.equals(HTTP_PURL_ORG_LOBID_LIBTYPE_N86)) {
-				OSM_SEARCH_TYPE = "museum";
+			String type;
+			Resource res_type =
+					getFirstResourceOfProperty(HTTP_WWW_W3_ORG_NS_ORG_CLASSIFICATION);
+			if (res_type != null) {
+				type = res_type.toString();
+				if (Integer.parseInt(type.replaceAll(".*#n", "")) < 85) {
+					OSM_SEARCH_TYPE = "library";
+				} else if (type.equals(HTTP_PURL_ORG_LOBID_LIBTYPE_N86)) {
+					OSM_SEARCH_TYPE = "museum";
+				}
 			}
 			if (OSM_SEARCH_TYPE != null) {
 				this.urlOsmLookupSearchParameters[0] =
