@@ -62,6 +62,11 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 @In(StreamReceiver.class)
 @Out(String.class)
 public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
+	private static final String HTTP_PURL_ORG_LOBID_LIBTYPE_N86 =
+			"http://purl.org/lobid/libtype#n86";
+	private static final String HTTP_WWW_W3_ORG_NS_ORG_CLASSIFICATION =
+			"http://www.w3.org/ns/org#classification";
+
 	private enum VcardNs {
 		LOCALITY("http://www.w3.org/2006/vcard/ns#locality"), COUNTRY_NAME(
 				"http://www.w3.org/2006/vcard/ns#country-name"), STREET_ADDRESS(
@@ -121,6 +126,11 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static final String GEONAMES_DE_FILENAME_SYSTEM_PROPERTY =
 			"geonames_de_filename";
 	private static final String NS_LOBID = "http://lobid.org/";
+	private static final String RDF_SYNTAX_NS_TYPE =
+			"http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
+	private static final String WGS84_POS_SPATIALTHING =
+			"http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing";
+
 	boolean doApiLookup = false;
 
 	@Override
@@ -136,12 +146,17 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 
 	@Override
 	public void endRecord() {
-		startOsmLookupEnrichment();
-		startQREncodeEnrichment();
-		ResourceUtils.renameResource(model.getResource("null"), subject);
-		final StringWriter tripleWriter = new StringWriter();
-		RDFDataMgr.write(tripleWriter, model, Lang.TURTLE);
-		getReceiver().process(tripleWriter.toString());
+		if (subject != "null") {
+			startOsmLookupEnrichment();
+			startQREncodeEnrichment();
+			ResourceUtils.renameResource(model.getResource("null"), subject);
+			final StringWriter tripleWriter = new StringWriter();
+			RDFDataMgr.write(tripleWriter, model, Lang.TURTLE);
+			getReceiver().process(tripleWriter.toString());
+		} else {
+			LOG.info("Missing ISIL, thus ignoring that record.");
+			LOG.debug("Record with missing ISIL:" + model.toString());
+		}
 	}
 
 	@Override
@@ -300,14 +315,30 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 				lookupLocation();
 			}
 		}
+		if (this.lat != null && this.lon != null) {
+			super.literal("bnode", this.bnodeIDGeoPos + " " + RDF_SYNTAX_NS_TYPE
+					+ " " + WGS84_POS_SPATIALTHING);
+		}
 	}
 
 	private boolean makeOsmApiSearchParameters() {
 		boolean ret = false;
 		if (this.countryName != null && this.locality != null
 				&& this.postalcode != null) {
-			this.urlOsmLookupSearchParameters[0] =
-					String.format("library+%s+%s", this.postalcode, this.locality);
+			String OSM_SEARCH_TYPE = null;
+			String type =
+					getFirstResourceOfProperty(HTTP_WWW_W3_ORG_NS_ORG_CLASSIFICATION)
+							.toString();
+			if (Integer.parseInt(type.replaceAll(".*#n", "")) < 85) {
+				OSM_SEARCH_TYPE = "library";
+			} else if (type.equals(HTTP_PURL_ORG_LOBID_LIBTYPE_N86)) {
+				OSM_SEARCH_TYPE = "museum";
+			}
+			if (OSM_SEARCH_TYPE != null) {
+				this.urlOsmLookupSearchParameters[0] =
+						String.format(OSM_SEARCH_TYPE + "+%s+%s", this.postalcode,
+								this.locality);
+			}
 			if (this.street != null) {
 				this.urlOsmLookupSearchParameters[1] =
 						String.format("%s/%s/%s/%s", this.countryName, this.locality,
