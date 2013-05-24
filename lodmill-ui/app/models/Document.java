@@ -5,8 +5,8 @@ package models;
 import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import play.Logger;
 
 import com.hp.hpl.jena.shared.BadURIException;
 
@@ -17,7 +17,6 @@ import com.hp.hpl.jena.shared.BadURIException;
  */
 public class Document {
 
-	private static final Logger LOG = LoggerFactory.getLogger(Document.class);
 	transient String matchedField;
 	private final String source;
 	private transient String id; // NOPMD
@@ -57,7 +56,7 @@ public class Document {
 		try {
 			result = converter.toRdf(json);
 		} catch (BadURIException x) {
-			LOG.error(x.getMessage(), x);
+			Logger.error(x.getMessage(), x);
 		}
 		return result;
 	}

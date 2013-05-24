@@ -46,7 +46,7 @@ public enum Parameter {
 	TITLE("title") { /* TODO: use 'name' for organisations */
 		@Override
 		public QueryBuilder query(final String search, final Index index) {
-			return null; /* TODO: odd, this works */
+			return matchQuery(fields(index).get(0), search);
 		}
 	},
 	/***/

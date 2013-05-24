@@ -148,9 +148,7 @@ public class SearchTests {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(
-						call("search?index=" + Index.LOBID_RESOURCES.id()
-								+ "&query=abraham&format=page&category=author")).contains(
+				assertThat(call("resource?author=abraham&format=page")).contains(
 						"<html>");
 			}
 		});
@@ -162,8 +160,7 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=" + Index.LOBID_RESOURCES.id()
-								+ "&query=abraham&format=full&category=author"));
+						Json.parse(call("resource?author=abraham&format=full"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.getElements().next().isContainerNode()).isTrue();
@@ -177,8 +174,7 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=" + Index.LOBID_RESOURCES.id()
-								+ "&query=abraham&format=short&category=author"));
+						Json.parse(call("resource?author=abraham&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
@@ -192,8 +188,7 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=" + Index.GND.id()
-								+ "&query=bach&format=short&category=author"));
+						Json.parse(call("person?name=bach&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(5); /* differentiated only */
 			}
@@ -217,8 +212,8 @@ public class SearchTests {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("search?index=" + Index.GND.id() + "&query="
-								+ name.replace(" ", "%20") + "&format=short&category=author"));
+						Json.parse(call("person?name=" + name.replace(" ", "%20")
+								+ "&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(results);
 				if (results > 0) {
@@ -235,7 +230,8 @@ public class SearchTests {
 			@Override
 			public void run() {
 				String gndId = "171932048";
-				final JsonNode jsonObject = Json.parse(call("author/" + gndId));
+				final JsonNode jsonObject =
+						Json.parse(call("resource?author=" + gndId));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(1);
 				assertThat(jsonObject.get(0).toString()).contains(
@@ -254,7 +250,8 @@ public class SearchTests {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				final JsonNode jsonObject = Json.parse(call("keyword/" + gndId));
+				final JsonNode jsonObject =
+						Json.parse(call("resource?subject=" + gndId));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(results);
 				assertThat(jsonObject.get(0).toString()).contains(
@@ -268,10 +265,11 @@ public class SearchTests {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				final String nTriples = call("author/abraham", "text/plain");
-				final String turtle = call("author/abraham", "text/turtle");
-				final String rdfa = call("author/abraham", "text/html");
-				final String n3 = call("author/abraham", "text/n3"); // NOPMD
+				String endpoint = "resource?author=abraham";
+				final String nTriples = call(endpoint, "text/plain");
+				final String turtle = call(endpoint, "text/turtle");
+				final String rdfa = call(endpoint, "text/html");
+				final String n3 = call(endpoint, "text/n3"); // NOPMD
 				assertThat(nTriples).isNotEmpty().isNotEqualTo(turtle);
 				assertThat(rdfa).isNotEmpty().contains("<html>");
 				/* turtle is a subset of n3 for RDF */

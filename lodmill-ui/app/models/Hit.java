@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.elasticsearch.search.SearchHit;
 
+import play.Logger;
+
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 
@@ -81,7 +83,7 @@ public enum Hit {
 				return hitElement;
 			}
 		}
-		throw new IllegalArgumentException("No hit type for: " + field);
+		throw new IllegalArgumentException("No hit type for field: " + field);
 	}
 
 	private static Object firstExisting() {
@@ -90,6 +92,8 @@ public enum Hit {
 				return hit.getSource().get(currentField);
 			}
 		}
+		Logger.debug(String.format("Hit '%s' contains none of the fields: '%s'",
+				hit.getSource(), fields));
 		return null;
 	}
 
