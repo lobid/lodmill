@@ -4,6 +4,8 @@
 
 package org.lobid.lodmill;
 
+import java.text.Normalizer;
+
 import org.culturegraph.mf.framework.DefaultXmlPipe;
 import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.XmlReceiver;
@@ -54,7 +56,8 @@ public final class PicaXmlHandler extends DefaultXmlPipe<StreamReceiver> {
 	public void endElement(final String uri, final String localName,
 			final String qName) throws SAXException {
 		if (SUBFIELD.equals(localName)) {
-			getReceiver().literal(currentTag, builder.toString().trim());
+			getReceiver().literal(currentTag,
+					Normalizer.normalize(builder.toString().trim(), Normalizer.Form.NFC));
 		} else if (DATAFIELD.equals(localName)) {
 			getReceiver().endEntity();
 		} else if (RECORD.equals(localName) && NAMESPACE.equals(uri)) {

@@ -3,21 +3,21 @@
 
 package org.lobid.lodmill;
 
-import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
 
-import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.graph.NodeFactory;
 import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFWriter;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.ResourceUtils;
 
@@ -53,25 +53,22 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	public void literal(final String name, final String value) {
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 			this.subject = value;
+		} else if (name.equalsIgnoreCase(BNODE_NAME)) {
+			processBnodeInObjectPosition(value);
 		} else {
-			if (name.equalsIgnoreCase(BNODE_NAME)) {
-				processBnodeInObjectPosition(value);
+			resource = model.createResource(subject);
+			final Property prop = model.createProperty(name);
+			// create bnode in subject position
+			if (value != null && value.startsWith("_:")) {
+				resource.addProperty(
+						prop,
+						model.asRDFNode(NodeFactory.createAnon(new AnonId(value
+								+ ATOMIC_INT.get()))));
+			} else if (isUriWithScheme(value)) {
+				resource.addProperty(prop,
+						model.asRDFNode(NodeFactory.createURI(value)));
 			} else {
-				resource = model.createResource(subject);
-				final Property prop = model.createProperty(name);
-				// create bnode in subject position
-				if (value.startsWith("_:")) {
-					resource.addProperty(
-							prop,
-							model.asRDFNode(Node.createAnon(new AnonId(value
-									+ ATOMIC_INT.get()))));
-				} else {
-					if (isUriWithScheme(value)) {
-						resource.addProperty(prop, model.asRDFNode(Node.createURI(value)));
-					} else {
-						resource.addProperty(prop, value);
-					}
-				}
+				resource.addProperty(prop, value);
 			}
 		}
 	}
@@ -88,7 +85,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		final String obj = value.substring(indexOfSecondBlank + 1);
 		// check wether object is a URI or a literal
 		if (isUriWithScheme(obj)) {
-			resource.addProperty(pro, model.asRDFNode(Node.createURI(obj)));
+			resource.addProperty(pro, model.asRDFNode(NodeFactory.createURI(obj)));
 		} else {
 			resource.addProperty(pro, obj);
 		}
@@ -97,9 +94,9 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	@Override
 	public void endRecord() {
 		ResourceUtils.renameResource(model.getResource("null"), subject);
-		final RDFWriter fasterWriter = model.getWriter("N-TRIPLES");
 		final StringWriter tripleWriter = new StringWriter();
-		fasterWriter.write(model, new PrintWriter(tripleWriter), null);
+		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
 		getReceiver().process(tripleWriter.toString());
+
 	}
 }

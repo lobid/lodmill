@@ -12,7 +12,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ TransformationZVDDTests.class,
-		LobidOrganisationPicaIngestTest.class, ZvddMarcIngestTest.class })
+		LobidOrganisationEnrichmentTest.class, ZvddMarcIngestTest.class })
 public final class UnitTests {
 	/* Suite class, groups tests via annotation above */
 }
