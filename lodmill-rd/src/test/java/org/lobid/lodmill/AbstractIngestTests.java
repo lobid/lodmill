@@ -77,7 +77,7 @@ public abstract class AbstractIngestTests {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// file.deleteOnExit();
+		file.deleteOnExit();
 	}
 
 	private static HashSet<String> asSet(Scanner scanner) {

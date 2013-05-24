@@ -7,7 +7,7 @@
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n04> ;
         <http://purl.org/lobid/lv#stocksize>
-                <http://purl.org/lobid/stocksize#01> ;
+                <http://purl.org/lobid/stocksize#n01> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6558290> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
@@ -56,7 +56,7 @@
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n07> ;
         <http://purl.org/lobid/lv#stocksize>
-                <http://purl.org/lobid/stocksize#01> ;
+                <http://purl.org/lobid/stocksize#n01> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6557938> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
@@ -107,7 +107,7 @@
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n02> ;
         <http://purl.org/lobid/lv#stocksize>
-                <http://purl.org/lobid/stocksize#06> ;
+                <http://purl.org/lobid/stocksize#n06> ;
         <http://purl.org/ontology/daia/provides>
                 <http://opac.fu-berlin.de> ;
         <http://www.geonames.org/ontology#locatedIn>
@@ -160,7 +160,7 @@
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n02> ;
         <http://purl.org/lobid/lv#stocksize>
-                <http://purl.org/lobid/stocksize#06> ;
+                <http://purl.org/lobid/stocksize#n06> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6557373> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
@@ -218,7 +218,7 @@
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n07> ;
         <http://purl.org/lobid/lv#stocksize>
-                <http://purl.org/lobid/stocksize#10> ;
+                <http://purl.org/lobid/stocksize#n10> ;
         <http://purl.org/ontology/daia/provides>
                 <http://stabikat.de> ;
         <http://purl.org/ontology/mo/wikipedia>
@@ -294,7 +294,7 @@ _:b0    a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n07> ;
         <http://purl.org/lobid/lv#stocksize>
-                <http://purl.org/lobid/stocksize#10> ;
+                <http://purl.org/lobid/stocksize#n10> ;
         <http://purl.org/ontology/daia/provides>
                 <https://opac.ub.ruhr-uni-bochum.de/webOPACClient/start.do> ;
         <http://purl.org/ontology/mo/wikipedia>

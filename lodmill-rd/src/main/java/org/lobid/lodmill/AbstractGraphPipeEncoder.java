@@ -30,6 +30,9 @@ public abstract class AbstractGraphPipeEncoder extends
 	 * @return True if string is a URI with a scheme.
 	 */
 	protected static boolean isUriWithScheme(final String value) {
+		if (value == null) {
+			return false;
+		}
 		try {
 			final URI uri = new URI(value);
 			/*

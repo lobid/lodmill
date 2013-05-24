@@ -171,7 +171,7 @@
 			<regexp match="(.*)" format="http://purl.org/lobid/fundertype#n${1}"/>
 		</data>
 		<data source="035E.h" name="http://purl.org/lobid/lv#stocksize">
-			<regexp match="(.*)" format="http://purl.org/lobid/stocksize#${1}"/>
+			<regexp match="(.*)" format="http://purl.org/lobid/stocksize#n${1}"/>
 		</data>
 		<data source="035G.a" name="http://purl.org/dc/terms/subject">
 		</data>

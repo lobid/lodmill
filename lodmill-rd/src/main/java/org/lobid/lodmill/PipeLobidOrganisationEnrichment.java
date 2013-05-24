@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -34,6 +35,7 @@ import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.zxing.WriterException;
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.graph.Node;
 import com.hp.hpl.jena.graph.NodeFactory;
@@ -205,48 +207,51 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	}
 
 	private void startQREncodeEnrichment() {
-		/*
-		 * these are the mandatory variables to create an qr-code
-		 */
-		final String name = getFirstLiteralOfProperty(FOAF_NAME);
-		if (this.postalcode != null && this.street != null && this.locality != null) {
-			String qrCodeText =
-					"MECARD:N:" + name + ";" + "ADR:" + this.street + "," + this.locality
-							+ "," + this.postalcode;
-			Resource email = getFirstResourceOfProperty(VcardNs.EMAIL.uri);
-			if (email != null) {
-				qrCodeText =
-						qrCodeText + ";EMAIL:" + email.getURI().replaceAll("mailto:", "");
-			}
-			String telephone = getRdfsvalueOfSubjectHavingObject(VcardNs.VOICE.uri);
-			if (telephone != null)
-				qrCodeText = qrCodeText + ";TEL:" + telephone;
-			Resource homepage = getFirstResourceOfProperty(VcardNs.HOMEPAGE.uri);
-			if (homepage != null) {
-				qrCodeText = qrCodeText + ";URL:" + homepage;
-			}
-			qrCodeText = qrCodeText + ";END;";
-			try {
-				String isil = (new URI(this.subject)).getPath().replaceAll("/.*/", "");
-				QRENCODER.createQRImage(QR_FILE_PATH + isil, qrCodeText,
-						(int) (java.lang.Math.sqrt(qrCodeText.length() * 10) + 20) * 2);
-				this.model.add(
-						this.model.createResource(this.subject),
-						this.model.createProperty(LV_CONTACTQR),
-						this.model.asRDFNode(NodeFactory.createURI(NS_LOBID + QR_FILE_PATH
-								+ isil + QREncoder.fileSuffix + "." + QREncoder.fileType)));
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
+		if (this.postalcode == null || this.street == null || this.locality == null)
+			return;
+		String qrCodeText = createQrCodeText();
+		try {
+			String isil = (new URI(this.subject)).getPath().replaceAll("/.*/", "");
+			QRENCODER.createQRImage(QR_FILE_PATH + isil, qrCodeText,
+					(int) (java.lang.Math.sqrt(qrCodeText.length() * 10) + 20) * 2);
+			this.model.add(
+					this.model.createResource(this.subject),
+					this.model.createProperty(LV_CONTACTQR),
+					this.model.asRDFNode(NodeFactory.createURI(NS_LOBID + QR_FILE_PATH
+							+ isil + QREncoder.FILE_SUFFIX + "." + QREncoder.FILE_TYPE)));
+		} catch (URISyntaxException | WriterException | IOException e) {
+			e.printStackTrace();
 		}
 	}
 
-	private static String createGeonameLink(final String value) {
+	private String createQrCodeText() {
+		final String name = getFirstLiteralOfProperty(FOAF_NAME);
+		String qrCodeText =
+				"MECARD:N:" + name + ";" + "ADR:" + this.street + "," + this.locality
+						+ "," + this.postalcode;
+		Resource email = getFirstResourceOfProperty(VcardNs.EMAIL.uri);
+		if (email != null)
+			qrCodeText =
+					qrCodeText + ";EMAIL:" + email.getURI().replaceAll("mailto:", "");
+		String telephone = getRdfsvalueOfSubjectHavingObject(VcardNs.VOICE.uri);
+		if (telephone != null)
+			qrCodeText = qrCodeText + ";TEL:" + telephone;
+		Resource homepage = getFirstResourceOfProperty(VcardNs.HOMEPAGE.uri);
+		if (homepage != null)
+			qrCodeText = qrCodeText + ";URL:" + homepage;
+		qrCodeText = qrCodeText + ";END;";
+		return qrCodeText;
+	}
+
+	private String createGeonameLink(final String value) {
 		String ret = null;
 		if (GEONAMES_REGION_ID.containsKey(value)) {
 			ret = NS_GEONAMES + GEONAMES_REGION_ID.get(value);
+		}
+		if (ret == null) {
+			LOG.warn(String.format(
+					"Could not find geoname entry for value '%s' for subject '%s'",
+					value, this.subject));
 		}
 		return ret;
 	}
@@ -276,8 +281,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		try (FileInputStream fis = new FileInputStream(LAT_LON_FILENAME);
 				ObjectInputStream ois = new ObjectInputStream(fis)) {
 			LAT_LON = (HashMap<String, Double[]>) ois.readObject();
-			System.out.println("Number of cached URLs in file " + LAT_LON_FILENAME
-					+ ":" + LAT_LON.size());
+			LOG.info("Number of cached URLs in file " + LAT_LON_FILENAME + ":"
+					+ LAT_LON.size());
 			ois.close();
 		} catch (IOException e) {
 			LOG.info("File not found, will create a new one if necessary.",
@@ -292,11 +297,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			osmUrl[i] = null;
 			urlOsmLookupSearchParameters[1] = null;
 		}
-		try {
-			// if entries already there, do nothing
-			Double.valueOf(getFirstLiteralOfProperty(GEO_WGS84_POS_LAT));
-			Double.valueOf(getFirstLiteralOfProperty(GEO_WGS84_POS_LONG));
-		} catch (Exception e) {
+		if (!doubles()) {
 			this.countryName = getFirstLiteralOfProperty(VcardNs.COUNTRY_NAME.uri);
 			if ((this.locality = getFirstLiteralOfProperty(VcardNs.LOCALITY.uri)) != null) {
 				// OSM Api doesn't like e.g /Marburg%2FLahn/ but accepts /Marburg/.
@@ -312,7 +313,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			this.postalcode = getFirstLiteralOfProperty(VcardNs.POSTAL_CODE.uri);
 			this.street = getFirstLiteralOfProperty(VcardNs.STREET_ADDRESS.uri);
 			if (makeOsmApiSearchParameters()) {
-				lookupLocation();
+				lookupLocation(); // TODO check whats happening if geo data already in
+													// source file
 			}
 		}
 		if (this.lat != null && this.lon != null) {
@@ -321,25 +323,24 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		}
 	}
 
+	private boolean doubles() {
+		try {
+			Double.valueOf(getFirstLiteralOfProperty(GEO_WGS84_POS_LAT));
+			Double.valueOf(getFirstLiteralOfProperty(GEO_WGS84_POS_LONG));
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+
 	private boolean makeOsmApiSearchParameters() {
 		boolean ret = false;
 		if (this.countryName != null && this.locality != null
 				&& this.postalcode != null) {
-			String OSM_SEARCH_TYPE = null;
-			String type;
-			Resource res_type =
-					getFirstResourceOfProperty(HTTP_WWW_W3_ORG_NS_ORG_CLASSIFICATION);
-			if (res_type != null) {
-				type = res_type.toString();
-				if (Integer.parseInt(type.replaceAll(".*#n", "")) < 85) {
-					OSM_SEARCH_TYPE = "library";
-				} else if (type.equals(HTTP_PURL_ORG_LOBID_LIBTYPE_N86)) {
-					OSM_SEARCH_TYPE = "museum";
-				}
-			}
-			if (OSM_SEARCH_TYPE != null) {
+			String osmSearchType = getOsmApiSearchType();
+			if (osmSearchType != null) {
 				this.urlOsmLookupSearchParameters[0] =
-						String.format(OSM_SEARCH_TYPE + "+%s+%s", this.postalcode,
+						String.format(osmSearchType + "+%s+%s", this.postalcode,
 								this.locality);
 			}
 			if (this.street != null) {
@@ -356,6 +357,26 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		return ret;
 	}
 
+	private String getOsmApiSearchType() throws NumberFormatException {
+		String OSM_SEARCH_TYPE = null;
+		String type;
+		Resource res_type =
+				getFirstResourceOfProperty(HTTP_WWW_W3_ORG_NS_ORG_CLASSIFICATION);
+		if (res_type != null) {
+			type = res_type.toString();
+			if (Integer.parseInt(type.replaceAll(".*#n", "")) < 85) {
+				OSM_SEARCH_TYPE = "library";
+			} else if (type.equals(HTTP_PURL_ORG_LOBID_LIBTYPE_N86)) {
+				OSM_SEARCH_TYPE = "museum";
+			}
+		}
+		return OSM_SEARCH_TYPE;
+	}
+
+	/**
+	 * 
+	 * @return true if cached, otherwise false
+	 */
 	private boolean makeUrlAndLookupIfCached() {
 		boolean ret = false;
 		try {
@@ -394,6 +415,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private void lookupLocation() {
 		this.lat = null;
 		this.lon = null;
+		// TODO don't use exceptions as control structures
 		if (!makeUrlAndLookupIfCached() && this.doApiLookup) {
 			try {
 				this.osmApiLookupResult = getUrlContent(this.osmUrl[0]);
@@ -496,6 +518,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static BufferedReader getUrlContent(final URL url) throws IOException {
 		URLConnection urlConnection = url.openConnection();
 		urlConnection.setConnectTimeout(URL_CONNECTION_TIMEOUT);
+		LOG.debug("Lookup url:" + url);
 		return new BufferedReader(new InputStreamReader(
 				urlConnection.getInputStream()));
 	}

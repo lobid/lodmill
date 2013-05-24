@@ -12,8 +12,6 @@ import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.graph.NodeFactory;
 import com.hp.hpl.jena.rdf.model.AnonId;
@@ -43,8 +41,6 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	Resource resource;
 	static final String BNODE_NAME = "bnode";
 	final AtomicInteger ATOMIC_INT = new AtomicInteger();
-	private static final Logger LOG = LoggerFactory
-			.getLogger(PipeEncodeTriples.class);
 
 	@Override
 	public void startRecord(final String identifier) {
@@ -55,34 +51,25 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void literal(final String name, final String value) {
-		try {
-			if (name.equalsIgnoreCase(SUBJECT_NAME)) {
-				this.subject = value;
+		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
+			this.subject = value;
+		} else if (name.equalsIgnoreCase(BNODE_NAME)) {
+			processBnodeInObjectPosition(value);
+		} else {
+			resource = model.createResource(subject);
+			final Property prop = model.createProperty(name);
+			// create bnode in subject position
+			if (value != null && value.startsWith("_:")) {
+				resource.addProperty(
+						prop,
+						model.asRDFNode(NodeFactory.createAnon(new AnonId(value
+								+ ATOMIC_INT.get()))));
+			} else if (isUriWithScheme(value)) {
+				resource.addProperty(prop,
+						model.asRDFNode(NodeFactory.createURI(value)));
 			} else {
-				if (name.equalsIgnoreCase(BNODE_NAME)) {
-					processBnodeInObjectPosition(value);
-				} else {
-					resource = model.createResource(subject);
-					final Property prop = model.createProperty(name);
-					// create bnode in subject position
-					if (value != null && value.startsWith("_:")) {
-						resource.addProperty(
-								prop,
-								model.asRDFNode(NodeFactory.createAnon(new AnonId(value
-										+ ATOMIC_INT.get()))));
-					} else {
-						if (isUriWithScheme(value)) {
-							resource.addProperty(prop,
-									model.asRDFNode(NodeFactory.createURI(value)));
-						} else {
-							resource.addProperty(prop, value);
-						}
-					}
-				}
+				resource.addProperty(prop, value);
 			}
-		} catch (NullPointerException e) {
-			LOG.warn("NPE :name=" + name + "value=" + value + " subject=" + subject,
-					e.getLocalizedMessage());
 		}
 	}
 
@@ -108,7 +95,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	public void endRecord() {
 		ResourceUtils.renameResource(model.getResource("null"), subject);
 		final StringWriter tripleWriter = new StringWriter();
-		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES); // System.out
+		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
 		getReceiver().process(tripleWriter.toString());
 
 	}

@@ -31,12 +31,12 @@ public final class LobidOrganisationEnrichmentTest extends AbstractIngestTests {
 				new PipeLobidOrganisationEnrichment());
 	}
 
-	// @Test
+	@Test
 	public void testStatistics() throws IOException { // NOPMD
 		super.stats("mapping.textile");
 	}
 
-	// @Test
+	@Test
 	public void testDot() { // NOPMD
 		super.dot("zdb-isil-file_test.dot");
 	}
