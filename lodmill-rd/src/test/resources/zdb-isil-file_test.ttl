@@ -1,0 +1,344 @@
+<http://lobid.org/organisation/DE-Tir1>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-Tir1" ;
+        <http://purl.org/lobid/lv#contactqr>
+                <http://lobid.org/media/DE-Tir1_contactqr.png> ;
+        <http://purl.org/lobid/lv#fundertype>
+                <http://purl.org/lobid/fundertype#n04> ;
+        <http://purl.org/lobid/lv#stocksize>
+                <http://purl.org/lobid/stocksize#n01> ;
+        <http://www.geonames.org/ontology#locatedIn>
+                <http://sws.geonames.org/6558290> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                          "49.8791019" ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                          "12.338694"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#adr>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
+                  <http://www.w3.org/2006/vcard/ns#country-name>
+                          "Germany" ;
+                  <http://www.w3.org/2006/vcard/ns#locality>
+                          "Tirschenreuth" ;
+                  <http://www.w3.org/2006/vcard/ns#postal-code>
+                          "95643" ;
+                  <http://www.w3.org/2006/vcard/ns#street-address>
+                          "Maximilianspl. 35"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#email>
+                <mailto:Poststelle@stadt-tirschenreuth.de> ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(09631) 6 09 43"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(09631) 6 09 49"
+                ] ;
+        <http://www.w3.org/ns/org#classification>
+                <http://purl.org/lobid/libtype#n86> ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-Tir1> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Stadtarchiv Tirschenreuth" .
+
+<http://lobid.org/organisation/DE-100-301>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-100-301" ;
+        <http://purl.org/lobid/lv#contactqr>
+                <http://lobid.org/media/DE-100-301_contactqr.png> ;
+        <http://purl.org/lobid/lv#fundertype>
+                <http://purl.org/lobid/fundertype#n07> ;
+        <http://purl.org/lobid/lv#stocksize>
+                <http://purl.org/lobid/stocksize#n01> ;
+        <http://www.geonames.org/ontology#locatedIn>
+                <http://sws.geonames.org/6557938> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                          "49.8791019" ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                          "12.338694"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#adr>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
+                  <http://www.w3.org/2006/vcard/ns#country-name>
+                          "Germany" ;
+                  <http://www.w3.org/2006/vcard/ns#locality>
+                          "Renningen" ;
+                  <http://www.w3.org/2006/vcard/ns#postal-code>
+                          "71272" ;
+                  <http://www.w3.org/2006/vcard/ns#street-address>
+                          "Ihinger Hof"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(07159) 92 64-0"
+                ] ;
+        <http://www.w3.org/ns/org#classification>
+                <http://purl.org/lobid/libtype#n87> ;
+        <http://www.w3.org/ns/org#linkedTo>
+                <http://lobid.org/organisation/DE-576> ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-100-301> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Teilstation für Pflanzenbau und Pflanzenschutz derUniversität Hohenheim, Bibliothek" .
+
+<http://lobid.org/organisation/DE-188-867>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-188-867" ;
+        <http://purl.org/dc/terms/subject>
+                "Scholastik" , "Patristik" , "Katholische Theologie" ;
+        <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
+                [ a       <http://purl.org/goodrelations/v1#OpeningHoursSpecification> ;
+                  <http://purl.org/dc/terms/description>
+                          "Mo-Fr 10.00-18.00"
+                ] ;
+        <http://purl.org/lobid/lv#contactqr>
+                <http://lobid.org/media/DE-188-867_contactqr.png> ;
+        <http://purl.org/lobid/lv#fundertype>
+                <http://purl.org/lobid/fundertype#n02> ;
+        <http://purl.org/lobid/lv#stocksize>
+                <http://purl.org/lobid/stocksize#n06> ;
+        <http://purl.org/ontology/daia/provides>
+                <http://opac.fu-berlin.de> ;
+        <http://www.geonames.org/ontology#locatedIn>
+                <http://sws.geonames.org/6547539> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                          "52.4517662" ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                          "13.2883886"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#adr>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
+                  <http://www.w3.org/2006/vcard/ns#country-name>
+                          "Germany" ;
+                  <http://www.w3.org/2006/vcard/ns#locality>
+                          "Berlin" ;
+                  <http://www.w3.org/2006/vcard/ns#postal-code>
+                          "14195" ;
+                  <http://www.w3.org/2006/vcard/ns#street-address>
+                          "Schwendenerstr. 31"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 8 38-54225"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 8 38-56469"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#url>
+                <http://www.ub.fu-berlin.de/fbb/phi202.html> ;
+        <http://www.w3.org/ns/org#classification>
+                <http://purl.org/lobid/libtype#n65> ;
+        <http://www.w3.org/ns/org#linkedTo>
+                <http://lobid.org/organisation/DE-602> ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-188-867> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Freie Universität Berlin, Fachbereich Geschichts- undKulturwissenschaften, Seminar für Katholische Theologie, Bibliothek" .
+
+<http://lobid.org/organisation/DE-7-133>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-7-133" ;
+        <http://purl.org/lobid/lv#contactqr>
+                <http://lobid.org/media/DE-7-133_contactqr.png> ;
+        <http://purl.org/lobid/lv#fundertype>
+                <http://purl.org/lobid/fundertype#n02> ;
+        <http://purl.org/lobid/lv#stocksize>
+                <http://purl.org/lobid/stocksize#n06> ;
+        <http://www.geonames.org/ontology#locatedIn>
+                <http://sws.geonames.org/6557373> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                          "51.5394818" ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                          "9.9359323933643"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#adr>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
+                  <http://www.w3.org/2006/vcard/ns#country-name>
+                          "Germany" ;
+                  <http://www.w3.org/2006/vcard/ns#locality>
+                          "Göttingen" ;
+                  <http://www.w3.org/2006/vcard/ns#postal-code>
+                          "37075" ;
+                  <http://www.w3.org/2006/vcard/ns#street-address>
+                          "Sprangerweg 2"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0551) 39-5641"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0551) 39-5690"
+                ] ;
+        <http://www.w3.org/ns/org#classification>
+                <http://purl.org/lobid/libtype#n65> ;
+        <http://www.w3.org/ns/org#linkedTo>
+                <http://lobid.org/organisation/DE-601> ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-7-133> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Zentrum für Sportwissenschaften, Institut fürSportwissenschaften, Bibliothek" .
+
+<http://lobid.org/organisation/DE-1a>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                <http://dbpedia.org/resource/Staatsbibliothek_zu_Berlin> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-1a" ;
+        <http://purl.org/dc/terms/subject>
+                "Amtsdruckschriften" , "Ostasien" , "Geistes- und Sozialwissenschaften" , "Handschriften" , "Afrika" , "Recht" , "Karten" , "Osteuropa" , "Orientalistik" ;
+        <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
+                [ a       <http://purl.org/goodrelations/v1#OpeningHoursSpecification> ;
+                  <http://purl.org/dc/terms/description>
+                          "Mo-Fr 9.00-21.00, Sa 9.00-19.00"
+                ] ;
+        <http://purl.org/lobid/lv#contactqr>
+                <http://lobid.org/media/DE-1a_contactqr.png> ;
+        <http://purl.org/lobid/lv#fundertype>
+                <http://purl.org/lobid/fundertype#n07> ;
+        <http://purl.org/lobid/lv#stocksize>
+                <http://purl.org/lobid/stocksize#n10> ;
+        <http://purl.org/ontology/daia/provides>
+                <http://stabikat.de> ;
+        <http://purl.org/ontology/mo/wikipedia>
+                <http://de.wikipedia.org/wiki/Staatsbibliothek_zu_Berlin> ;
+        <http://www.geonames.org/ontology#locatedIn>
+                <http://sws.geonames.org/6547539> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                _:b0 ;
+        <http://www.w3.org/2006/vcard/ns#adr>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
+                  <http://www.w3.org/2006/vcard/ns#country-name>
+                          "Germany" ;
+                  <http://www.w3.org/2006/vcard/ns#locality>
+                          "Berlin" ;
+                  <http://www.w3.org/2006/vcard/ns#postal-code>
+                          "10785" ;
+                  <http://www.w3.org/2006/vcard/ns#street-address>
+                          "Potsdamer Str. 33"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#email>
+                <mailto:benutzung.h2@sbb.spk-berlin.de> , <mailto:info@sbb.spk-berlin.de> ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 2 66-433888 (Auskunft)"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 2 66-333501"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#url>
+                <http://www.staatsbibliothek-berlin.de> ;
+        <http://www.w3.org/ns/org#classification>
+                <http://purl.org/lobid/libtype#n11> ;
+        <http://www.w3.org/ns/org#linkedTo>
+                <http://lobid.org/organisation/DE-601> ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-1a> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz,Haus Potsdamer Straße" .
+
+_:b0    a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                "52.50771" ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                "13.37063" .
+
+<http://lobid.org/organisation/DE-11-39>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-11-39" ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                _:b0 ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-11-39> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "früher: Humboldt-Universität zu Berlin,Universitätsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek imInstitut für Gartenbauwissenschaften, Fachgebiet Obstbau" .
+
+<http://lobid.org/organisation/DE-294>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://www.w3.org/2000/01/rdf-schema#seeAlso>
+                <http://dbpedia.org/resource/Universitätsbibliothek_Bochum> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-294" ;
+        <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
+                [ a       <http://purl.org/goodrelations/v1#OpeningHoursSpecification> ;
+                  <http://purl.org/dc/terms/description>
+                          "Mo-Fr 8.00-24.00, Sa 11.00-20.00, So 11.00-18.00"
+                ] ;
+        <http://purl.org/lobid/lv#contactqr>
+                <http://lobid.org/media/DE-294_contactqr.png> ;
+        <http://purl.org/lobid/lv#fundertype>
+                <http://purl.org/lobid/fundertype#n07> ;
+        <http://purl.org/lobid/lv#stocksize>
+                <http://purl.org/lobid/stocksize#n10> ;
+        <http://purl.org/ontology/daia/provides>
+                <https://opac.ub.ruhr-uni-bochum.de/webOPACClient/start.do> ;
+        <http://purl.org/ontology/mo/wikipedia>
+                <http://de.wikipedia.org/wiki/Universitätsbibliothek_Bochum> ;
+        <http://www.geonames.org/ontology#locatedIn>
+                <http://sws.geonames.org/6553132> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                          "51.4451024" ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                          "7.2605524"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#adr>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
+                  <http://www.w3.org/2006/vcard/ns#country-name>
+                          "Germany" ;
+                  <http://www.w3.org/2006/vcard/ns#locality>
+                          "Bochum" ;
+                  <http://www.w3.org/2006/vcard/ns#postal-code>
+                          "44801" ;
+                  <http://www.w3.org/2006/vcard/ns#street-address>
+                          "Universitätsstr. 150"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#email>
+                <mailto:benutzung.ub@ruhr-uni-bochum.de> ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0234) 32-14737"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0234) 32-26270"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#url>
+                <http://www.ub.ruhr-uni-bochum.de> ;
+        <http://www.w3.org/ns/org#classification>
+                <http://purl.org/lobid/libtype#n60> ;
+        <http://www.w3.org/ns/org#linkedTo>
+                <http://lobid.org/organisation/DE-605> ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-294> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Ruhr-Universität Bochum,Universitätsbibliothek" .
+
