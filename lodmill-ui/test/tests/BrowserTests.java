@@ -107,6 +107,24 @@ public class BrowserTests {
 	}
 
 	@Test
+	public void sampleRequestResourceBySubjectId() {
+		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
+			@Override
+			public void invoke(final TestBrowser browser) {
+				browser.goTo(INDEX);
+				browser.click("a", withText("/resource?subject=44141956"));
+				assertThat(browser.pageSource())
+						.contains("Heimatstimmen aus dem Kreis Olpe")
+						.contains(
+								"Ein Papierkrieg um die Instandsetzung des Wittgensteiner "
+										+ "Kohlenwegs in der Gemarkung Heinsberg 1837 bis 1839 : die "
+										+ "Heinsberger machten Schwierigkeiten")
+						.contains("Hundt, Theo");
+			}
+		});
+	}
+
+	@Test
 	public void sampleRequestOrganisationByTitle() {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override

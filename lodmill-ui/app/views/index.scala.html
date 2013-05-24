@@ -21,13 +21,18 @@
 		</tr>
 		<tr>
 			<td><code>/resource</td>
-			@defining(("/resource?id=HT002189125","/resource/HT002189125")){refs =>
-				<td><a href="@withPage(refs._1)">@refs._1</a> <br/> <a href="@refs._2?format=page">@refs._2</a></td>}
+			@defining(("/resource?id=HT002189125", "/resource?id=0940450003", "/resource/HT002189125", "/resource/0940450003")){refs =>
+				<td>
+					<a href="@withPage(refs._1)">@refs._1</a> <br/>
+					<a href="@withPage(refs._2)">@refs._2</a> <br/>
+					<a href="@refs._3?format=page">@refs._3</a><br/>
+					<a href="@refs._4?format=page">@refs._4</a>
+				</td>}
 			<td>TODO: <pre>/resource?name=Faust</pre></td>
 			@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs =>
 				<td><a href="@withPage(refs._1)">@refs._1</a> <br/> <a href="@withPage(refs._2)">@refs._2</a></td>}
 			@defining("/resource?subject=44141956"){ref =>
-				<td><a href="@withPage(ref)">@ref</a> <br/> TODO: <pre>/resource?subject=Politik</pre></td>}
+				<td><a href="@withPage(ref)">@ref</a> <br/> (available after reindexing) <br/> TODO: <pre>/resource?subject=Politik</pre></td>}
 			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
