@@ -48,8 +48,7 @@ public final class Api extends Controller {
 		} else if (defined(author)) {
 			result = Application.search(index.id(), "author", format, author);
 		} else if (defined(subject)) {
-			result = Application.search(index.id(), "keyword", format, subject);
-			// TODO: use 'subject' internally (not 'keyword')
+			result = Application.search(index.id(), "subject", format, subject);
 		}
 		return result;
 	}
@@ -70,8 +69,7 @@ public final class Api extends Controller {
 			result = // TODO: implement organisation-by-id
 					badRequest("Parameter 'id' currently not supported for GET /organisation");
 		} else if (defined(name)) {
-			result = Application.search(index.id(), "title", format, name);
-			// TODO: use 'name' internally (not 'title')
+			result = Application.search(index.id(), "name", format, name);
 		}
 		return result;
 	}
@@ -91,8 +89,7 @@ public final class Api extends Controller {
 			result = // TODO: implement person-by-id
 					badRequest("Parameter 'id' currently not supported for GET /person");
 		} else if (defined(name)) {
-			result = Application.search(index.id(), "author", format, name);
-			// TODO: use 'name' internally (not 'author')
+			result = Application.search(index.id(), "name", format, name);
 		}
 		return result;
 	}

@@ -66,7 +66,7 @@ public class Search {
 		validate(index, category);
 		final String query = term.toLowerCase();
 		final QueryBuilder queryBuilder =
-				index.constructQuery(query, Parameter.id(category));
+				index.constructQuery(query, Parameter.valueOf(category.toUpperCase()));
 		if (queryBuilder == null) {
 			throw new IllegalStateException(String.format(
 					"Could not construct query for term '%s', index '%s', category '%s'",
