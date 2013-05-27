@@ -5,6 +5,8 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.queries.AbstractIndexQuery;
+
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
@@ -52,46 +54,43 @@ public class Search {
 		client = productionClient;
 	}
 
-	private static List<String> searchFields = Index.LOBID_RESOURCES.fields()
-			.get("author");
-
 	/**
 	 * @param term The search term
 	 * @param index The index to search (see {@link Index})
-	 * @param category The search category (see {@link Index#fields()})
+	 * @param parameter The search parameter (see {@link Index#queries()} )
 	 * @return The documents matching the given parameters
 	 */
 	public static List<Document> documents(final String term, final Index index,
-			final String category) {
-		validate(index, category);
+			final Parameter parameter) {
+		validate(index, parameter);
 		final String query = term.toLowerCase();
-		final QueryBuilder queryBuilder =
-				index.constructQuery(query, Parameter.valueOf(category.toUpperCase()));
+		AbstractIndexQuery indexQuery = index.queries().get(parameter);
+		final QueryBuilder queryBuilder = indexQuery.build(query);
 		if (queryBuilder == null) {
 			throw new IllegalStateException(String.format(
-					"Could not construct query for term '%s', index '%s', category '%s'",
-					query, index, category));
+					"Could not construct query for term '%s', index '%s', param '%s'",
+					query, index, parameter));
 		}
 		Logger.debug("Using query: " + queryBuilder);
 		final SearchResponse response = search(index, queryBuilder);
 		Logger.trace("Got response: " + response);
 		final SearchHits hits = response.getHits();
-		final List<Document> documents = asDocuments(query, hits);
+		final List<Document> documents =
+				asDocuments(query, hits, indexQuery.fields());
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
 				hits.hits().length, documents.size()));
 		return documents;
 	}
 
-	private static void validate(final Index index, final String category) {
+	private static void validate(final Index index, final Parameter parameter) {
 		if (index == null) {
 			throw new IllegalArgumentException(String.format(
 					"Invalid index ('%s') - valid indexes: %s", index, Index.values()));
 		}
-		searchFields = index.fields().get(category);
-		if (searchFields == null) {
+		if (!index.queries().containsKey(parameter)) {
 			throw new IllegalArgumentException(String.format(
-					"Invalid type ('%s') for specified index ('%s') - valid types: %s",
-					category, index, index.fields().keySet()));
+					"Invalid parameter ('%s') for specified index ('%s') - valid: %s",
+					parameter, index, index.queries().keySet()));
 		}
 	}
 
@@ -109,7 +108,7 @@ public class Search {
 	}
 
 	private static List<Document> asDocuments(final String query,
-			final SearchHits hits) {
+			final SearchHits hits, List<String> searchFields) {
 		final List<Document> res = new ArrayList<>();
 		for (SearchHit hit : hits) {
 			try {

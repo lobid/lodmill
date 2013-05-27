@@ -3,6 +3,7 @@
 package controllers;
 
 import models.Index;
+import models.Parameter;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.node.ObjectNode;
@@ -41,14 +42,14 @@ public final class Api extends Controller {
 		final Index index = Index.LOBID_RESOURCES;
 		Result result = null;
 		if (defined(id)) {
-			result = Application.search(index.id(), "id", format, id);
+			result = Application.search(index, Parameter.ID, id, format);
 		} else if (defined(name)) {
 			result = // TODO: implement resource-by-name
 					badRequest("Parameter 'name' currently not supported for GET /resource");
 		} else if (defined(author)) {
-			result = Application.search(index.id(), "author", format, author);
+			result = Application.search(index, Parameter.AUTHOR, author, format);
 		} else if (defined(subject)) {
-			result = Application.search(index.id(), "subject", format, subject);
+			result = Application.search(index, Parameter.SUBJECT, subject, format);
 		}
 		return result;
 	}
@@ -69,7 +70,7 @@ public final class Api extends Controller {
 			result = // TODO: implement organisation-by-id
 					badRequest("Parameter 'id' currently not supported for GET /organisation");
 		} else if (defined(name)) {
-			result = Application.search(index.id(), "name", format, name);
+			result = Application.search(index, Parameter.NAME, name, format);
 		}
 		return result;
 	}
@@ -89,7 +90,7 @@ public final class Api extends Controller {
 			result = // TODO: implement person-by-id
 					badRequest("Parameter 'id' currently not supported for GET /person");
 		} else if (defined(name)) {
-			result = Application.search(index.id(), "name", format, name);
+			result = Application.search(index, Parameter.NAME, name, format);
 		}
 		return result;
 	}

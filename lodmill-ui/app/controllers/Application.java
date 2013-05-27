@@ -7,6 +7,7 @@ import java.util.List;
 
 import models.Document;
 import models.Index;
+import models.Parameter;
 import models.Search;
 
 import org.codehaus.jackson.JsonNode;
@@ -47,24 +48,22 @@ public final class Application extends Controller {
 	 * Search enpoint for actual queries.
 	 * 
 	 * @param indexParameter The index to search (see {@link Index}).
-	 * @param categoryParameter The search category (see {@link Index#fields()}).
-	 * @param formatParameter The result format
+	 * @param parameter The search parameter type (see {@link Parameter}).
 	 * @param queryParameter The search query
+	 * @param formatParameter The result format
 	 * @return The results, in the format specified
 	 */
-	static Result search(final String indexParameter,
-			final String categoryParameter, final String formatParameter,
-			final String queryParameter) {
+	static Result search(final Index index, final Parameter parameter,
+			final String queryParameter, final String formatParameter) {
 		List<Document> docs = new ArrayList<>();
-		Index selectedIndex = Index.id(indexParameter);
 		try {
-			docs = Search.documents(queryParameter, selectedIndex, categoryParameter);
+			docs = Search.documents(queryParameter, index, parameter);
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<ResultFormat, Result> results =
-				results(queryParameter, docs, selectedIndex);
+				results(queryParameter, docs, index);
 		try {
 			return results.get(ResultFormat.valueOf(formatParameter.toUpperCase()));
 		} catch (IllegalArgumentException e) {
