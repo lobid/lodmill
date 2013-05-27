@@ -67,6 +67,7 @@ public final class Application extends Controller {
 		try {
 			return results.get(ResultFormat.valueOf(formatParameter.toUpperCase()));
 		} catch (IllegalArgumentException e) {
+			Logger.error(e.getMessage(), e);
 			return badRequest("Invalid 'format' parameter, use one of: "
 					+ Joiner.on(", ").join(results.keySet()).toLowerCase());
 		}

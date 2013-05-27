@@ -43,9 +43,8 @@ public final class Api extends Controller {
 		Result result = null;
 		if (defined(id)) {
 			result = Application.search(index, Parameter.ID, id, format);
-		} else if (defined(name)) {
-			result = // TODO: implement resource-by-name
-					badRequest("Parameter 'name' currently not supported for GET /resource");
+		} else if (defined(name)) { // TODO: implement resource-by-name
+			result = Application.search(index, Parameter.NAME, name, format);
 		} else if (defined(author)) {
 			result = Application.search(index, Parameter.AUTHOR, author, format);
 		} else if (defined(subject)) {
@@ -66,9 +65,8 @@ public final class Api extends Controller {
 				name));
 		final Index index = Index.LOBID_ORGANISATIONS;
 		Result result = null;
-		if (defined(id)) {
-			result = // TODO: implement organisation-by-id
-					badRequest("Parameter 'id' currently not supported for GET /organisation");
+		if (defined(id)) { // TODO: implement organisation-by-id
+			result = Application.search(index, Parameter.ID, id, format);
 		} else if (defined(name)) {
 			result = Application.search(index, Parameter.NAME, name, format);
 		}
@@ -86,9 +84,8 @@ public final class Api extends Controller {
 		Logger.debug(String.format("GET /person; id: '%s', name: '%s'", id, name));
 		final Index index = Index.GND;
 		Result result = null;
-		if (defined(id)) {
-			result = // TODO: implement person-by-id
-					badRequest("Parameter 'id' currently not supported for GET /person");
+		if (defined(id)) { // TODO: implement person-by-id
+			result = Application.search(index, Parameter.ID, id, format);
 		} else if (defined(name)) {
 			result = Application.search(index, Parameter.NAME, name, format);
 		}
@@ -105,7 +102,9 @@ public final class Api extends Controller {
 			final String format) {
 		Logger.debug(String.format("GET /search; id: '%s', name: '%s'", id, name));
 		if (format.equals("page")) { // NOPMD
-			return badRequest("Result format 'page' not supported for /entity");
+			final String message = "Result format 'page' not supported for /entity";
+			Logger.error(message);
+			return badRequest(message);
 		}
 		final ObjectNode json = Json.newObject();
 		putIfOk(json, "resource", resource(id, name, "", "", format));
