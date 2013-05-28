@@ -38,7 +38,11 @@
 		</tr>
 		<tr>
 			<td><code>/organisation</td>
-			<td>TODO: <pre>/organisation?id=SzBaU</pre></td>
+			@defining(("/organisation?id=SzBaU","/organisation/SzBaU")){refs =>
+				<td>
+					<a href="@withPage(refs._1)">@refs._1</a> <br/>
+					<a href="@refs._2?format=page">@refs._2</a>
+				</td> }
 			@defining("/organisation?name=Universität"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
 			<td>&mdash;</td>
 			<td>&mdash;</td>

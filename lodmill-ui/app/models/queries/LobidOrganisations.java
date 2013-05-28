@@ -15,6 +15,22 @@ import org.elasticsearch.index.query.QueryBuilder;
  * @author Fabian Steeg (fsteeg)
  */
 public class LobidOrganisations {
+	/**
+	 * Query the lobid-organisations index using an organisation's ID.
+	 */
+	public static class IdQuery extends AbstractIndexQuery {
+
+		@Override
+		public List<String> fields() {
+			return Arrays.asList("http://purl.org/dc/terms/identifier");
+		}
+
+		@Override
+		public QueryBuilder build(String queryString) {
+			return matchQuery(fields().get(0), queryString);
+		}
+
+	}
 
 	/**
 	 * Query the lobid-organisations index using an organisation's name.

@@ -65,7 +65,7 @@ public final class Api extends Controller {
 				name));
 		final Index index = Index.LOBID_ORGANISATIONS;
 		Result result = null;
-		if (defined(id)) { // TODO: implement organisation-by-id
+		if (defined(id)) {
 			result = Application.search(index, Parameter.ID, id, format);
 		} else if (defined(name)) {
 			result = Application.search(index, Parameter.NAME, name, format);
