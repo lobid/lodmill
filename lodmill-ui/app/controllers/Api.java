@@ -84,7 +84,7 @@ public final class Api extends Controller {
 		Logger.debug(String.format("GET /person; id: '%s', name: '%s'", id, name));
 		final Index index = Index.GND;
 		Result result = null;
-		if (defined(id)) { // TODO: implement person-by-id
+		if (defined(id)) {
 			result = Application.search(index, Parameter.ID, id, format);
 		} else if (defined(name)) {
 			result = Application.search(index, Parameter.NAME, name, format);

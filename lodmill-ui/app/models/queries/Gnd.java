@@ -19,6 +19,22 @@ import org.elasticsearch.index.query.QueryBuilder;
 public class Gnd {
 
 	/**
+	 * Query the GND index using a GND ID.
+	 */
+	public static class IdQuery extends AbstractIndexQuery {
+		@Override
+		public List<String> fields() {
+			return Arrays
+					.asList("http://d-nb.info/standards/elementset/gnd#gndIdentifier");
+		}
+
+		@Override
+		public QueryBuilder build(final String queryString) {
+			return matchQuery(fields().get(0), queryString);
+		}
+	}
+
+	/**
 	 * Query the GND index using a person's name.
 	 */
 	public static class NameQuery extends AbstractIndexQuery {
