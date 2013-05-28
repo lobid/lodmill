@@ -3,6 +3,7 @@
 package controllers;
 
 import models.Index;
+import models.Parameter;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.node.ObjectNode;
@@ -41,15 +42,13 @@ public final class Api extends Controller {
 		final Index index = Index.LOBID_RESOURCES;
 		Result result = null;
 		if (defined(id)) {
-			result = Application.search(index.id(), "id", format, id);
-		} else if (defined(name)) {
-			result = // TODO: implement resource-by-name
-					badRequest("Parameter 'name' currently not supported for GET /resource");
+			result = Application.search(index, Parameter.ID, id, format);
+		} else if (defined(name)) { // TODO: implement resource-by-name
+			result = Application.search(index, Parameter.NAME, name, format);
 		} else if (defined(author)) {
-			result = Application.search(index.id(), "author", format, author);
+			result = Application.search(index, Parameter.AUTHOR, author, format);
 		} else if (defined(subject)) {
-			result = Application.search(index.id(), "keyword", format, subject);
-			// TODO: use 'subject' internally (not 'keyword')
+			result = Application.search(index, Parameter.SUBJECT, subject, format);
 		}
 		return result;
 	}
@@ -66,12 +65,10 @@ public final class Api extends Controller {
 				name));
 		final Index index = Index.LOBID_ORGANISATIONS;
 		Result result = null;
-		if (defined(id)) {
-			result = // TODO: implement organisation-by-id
-					badRequest("Parameter 'id' currently not supported for GET /organisation");
+		if (defined(id)) { // TODO: implement organisation-by-id
+			result = Application.search(index, Parameter.ID, id, format);
 		} else if (defined(name)) {
-			result = Application.search(index.id(), "title", format, name);
-			// TODO: use 'name' internally (not 'title')
+			result = Application.search(index, Parameter.NAME, name, format);
 		}
 		return result;
 	}
@@ -88,11 +85,9 @@ public final class Api extends Controller {
 		final Index index = Index.GND;
 		Result result = null;
 		if (defined(id)) {
-			result = // TODO: implement person-by-id
-					badRequest("Parameter 'id' currently not supported for GET /person");
+			result = Application.search(index, Parameter.ID, id, format);
 		} else if (defined(name)) {
-			result = Application.search(index.id(), "author", format, name);
-			// TODO: use 'name' internally (not 'author')
+			result = Application.search(index, Parameter.NAME, name, format);
 		}
 		return result;
 	}
@@ -107,7 +102,9 @@ public final class Api extends Controller {
 			final String format) {
 		Logger.debug(String.format("GET /search; id: '%s', name: '%s'", id, name));
 		if (format.equals("page")) { // NOPMD
-			return badRequest("Result format 'page' not supported for /entity");
+			final String message = "Result format 'page' not supported for /entity";
+			Logger.error(message);
+			return badRequest(message);
 		}
 		final ObjectNode json = Json.newObject();
 		putIfOk(json, "resource", resource(id, name, "", "", format));

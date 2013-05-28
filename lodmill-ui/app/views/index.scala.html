@@ -47,7 +47,11 @@
 		</tr>
 		<tr>
 			<td><code>/person</td>
-			<td>TODO: <pre>/person?id=118580604</pre></td>
+			@defining(("/person?id=118580604","/person/118580604")){refs =>
+				<td>
+					<a href="@withPage(refs._1)">@refs._1</a> <br/>
+					<a href="@refs._2?format=page">@refs._2</a>
+				</td>}
 			@defining("/person?name=Johann+Sebastian+Bach"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
 			<td>&mdash;</td>
 			<td>&mdash;</td>

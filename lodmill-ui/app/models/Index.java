@@ -2,15 +2,12 @@
 
 package models;
 
-import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
-import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
-
-import java.util.Arrays;
-import java.util.List;
 import java.util.Map;
 
-import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
-import org.elasticsearch.index.query.QueryBuilder;
+import models.queries.AbstractIndexQuery;
+import models.queries.Gnd;
+import models.queries.LobidOrganisations;
+import models.queries.LobidResources;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -21,71 +18,26 @@ import com.google.common.collect.ImmutableMap;
  */
 public enum Index {
 	/***/
-	LOBID_RESOURCES(
-			"lobid-index",
-			new ImmutableMap.Builder<String, List<String>>()
-					.put(
-							"author",
-							Arrays
-									.asList(
-											"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
-											"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
-											"http://purl.org/dc/elements/1.1/creator#dateOfDeath",
-											"http://purl.org/dc/elements/1.1/creator"))
-					.put(
-							"id",
-							Arrays.asList("@id", "http://purl.org/ontology/bibo/isbn13",
-									"http://purl.org/ontology/bibo/isbn10"))
-					.put("keyword", Arrays.asList("http://purl.org/dc/terms/subject"))
-					.build()) {
-		@Override
-		QueryBuilder constructQuery(final String search, final Parameter parameter) {
-			return parameter.query(search, this);
-		}
-	},
+	LOBID_RESOURCES("lobid-index",
+			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+					.put(Parameter.AUTHOR, new LobidResources.AuthorQuery())
+					.put(Parameter.ID, new LobidResources.IdQuery())
+					.put(Parameter.SUBJECT, new LobidResources.SubjectQuery()).build()),
 	/***/
 	LOBID_ORGANISATIONS("lobid-orgs-index",
-			new ImmutableMap.Builder<String, List<String>>().put("title",
-					Arrays.asList("http://www.w3.org/2004/02/skos/core#prefLabel"))
-					.build()) {
-		@Override
-		QueryBuilder constructQuery(final String search, final Parameter parameter) {
-			return parameter.query(search, this);
-		}
-	},
+			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()/* @formatter:off */
+					.put(Parameter.NAME, new LobidOrganisations.NameQuery()).build()),
 	/***/
-	GND(
-			"gnd-index",
-			new ImmutableMap.Builder<String, List<String>>()
-					.put(
-							"author",
-							Arrays
-									.asList(
-											"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-											"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-											"http://d-nb.info/standards/elementset/gnd#dateOfDeath",
-											"http://d-nb.info/standards/elementset/gnd#variantNameForThePerson"))
-					.build()) {
-		@Override
-		QueryBuilder constructQuery(final String search, final Parameter parameter) {
-			return filterUndifferentiatedPersons(parameter.query(search, this));
-		}
+	GND("gnd-index", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+					.put(Parameter.NAME, new Gnd.NameQuery())
+					.put(Parameter.ID, new Gnd.IdQuery()).build());/* @formatter:on */
 
-		private QueryBuilder filterUndifferentiatedPersons(final QueryBuilder query) {
-			/* TODO: set up a filters map if we have any more such cases */
-			return boolQuery().must(query).must(
-					matchQuery("@type",
-							"http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson")
-							.operator(Operator.AND));
-		}
-	};
-
-	private Map<String, List<String>> fields;
 	private String id; // NOPMD
+	private Map<Parameter, AbstractIndexQuery> queries;
 
-	Index(final String name, final Map<String, List<String>> fields) {
+	Index(final String name, final Map<Parameter, AbstractIndexQuery> params) {
 		this.id = name;
-		this.fields = fields;
+		this.queries = params;
 	}
 
 	/** @return The Elasticsearch index name. */
@@ -108,11 +60,10 @@ public enum Index {
 	}
 
 	/**
-	 * @return A mapping of categories to corresponding fields
+	 * @return A mapping of parameters to corresponding queries for this index
 	 */
-	public Map<String, List<String>> fields() {
-		return fields;
+	public Map<Parameter, AbstractIndexQuery> queries() {
+		return queries;
 	}
 
-	abstract QueryBuilder constructQuery(String query, Parameter parameter);
 }
