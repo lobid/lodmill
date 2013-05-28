@@ -50,8 +50,9 @@ public class ApiTests {
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
-				// TODO { "organisation/SzBaU",/* -> */"Universität Basel" },
-				// TODO { "organisation?id=SzBaU",/* -> */"Universität Basel" },
+				{ "organisation/US-IdBoTIMB",/* -> */"Timberline High School" },
+				{ "organisation/SzBaU",/* -> */"Universität Basel" },
+				{ "organisation?id=SzBaU",/* -> */"Universität Basel" },
 				{ "organisation?name=Basel",/* -> */"Universität Basel" },
 				/*-------------*/
 				/* GET /person */
