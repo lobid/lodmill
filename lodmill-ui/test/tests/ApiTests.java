@@ -56,8 +56,8 @@ public class ApiTests {
 				/*-------------*/
 				/* GET /person */
 				/*-------------*/
-				// TODO {"person/136963781",/* -> */"Bach, Johann Sebastian"},
-				// TODO {"person?id=136963781",/* -> */"Bach, Johann Sebastian"},
+				{ "person/136963781",/* -> */"Bach, Johann Sebastian" }, // NOPMD
+				{ "person?id=136963781",/* -> */"Bach, Johann Sebastian" },
 				{ "person?name=Bach",/* -> */"Bach, Johann Sebastian" },
 				/*-------------*/
 				/* GET /search */

@@ -23,6 +23,7 @@ import java.util.Scanner;
 
 import models.Document;
 import models.Index;
+import models.Parameter;
 import models.Search;
 
 import org.codehaus.jackson.JsonNode;
@@ -100,7 +101,7 @@ public class SearchTests {
 	@Test
 	public void searchViaModel() {
 		final List<Document> docs =
-				Search.documents(TERM, Index.LOBID_RESOURCES, "author");
+				Search.documents(TERM, Index.LOBID_RESOURCES, Parameter.AUTHOR);
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
@@ -110,16 +111,15 @@ public class SearchTests {
 	@Test
 	public void searchViaModelBirth() {
 		assertThat(
-				Search
-						.documents("Hundt, Theo (1906-)", Index.LOBID_RESOURCES, "author")
-						.size()).isEqualTo(1);
+				Search.documents("Hundt, Theo (1906-)", Index.LOBID_RESOURCES,
+						Parameter.AUTHOR).size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelBirthDeath() {
 		assertThat(
 				Search.documents("Goeters, Johann F. Gerhard (1926-1996)",
-						Index.LOBID_RESOURCES, "author").size()).isEqualTo(1);
+						Index.LOBID_RESOURCES, Parameter.AUTHOR).size()).isEqualTo(1);
 	}
 
 	@Test
