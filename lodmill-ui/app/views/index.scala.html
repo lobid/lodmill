@@ -28,7 +28,7 @@
 					<a href="@refs._3?format=page">@refs._3</a><br/>
 					<a href="@refs._4?format=page">@refs._4</a>
 				</td>}
-			<td>TODO: <pre>/resource?name=Faust</pre></td>
+			@defining("/resource?name=Faust"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
 			@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs =>
 				<td><a href="@withPage(refs._1)">@refs._1</a> <br/> <a href="@withPage(refs._2)">@refs._2</a></td>}
 			@defining("/resource?subject=44141956"){ref =>

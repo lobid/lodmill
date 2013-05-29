@@ -42,7 +42,7 @@ public class ApiTests {
 				/*---------------*/
 				{ "resource/HT002189125",/* -> */"a peep at Polynesian life" }, // NOPMD
 				{ "resource?id=HT002189125",/* -> */"a peep at Polynesian life" },
-				// TODO { "resource?name=Typee",/* -> */"a peep at Polynesian life" },
+				{ "resource?name=Typee",/* -> */"a peep at Polynesian life" },
 				{ "resource?author=Melville",/* -> */"a peep at Polynesian life" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
