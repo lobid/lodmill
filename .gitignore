@@ -25,3 +25,6 @@ lodmill*.jar
 lodmill-ui/data/
 lodmill-ld/data/
 build
+latlon.ser_*_
+logging.properties
+media
