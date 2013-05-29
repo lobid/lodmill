@@ -44,27 +44,36 @@ public class ApiTests {
 				{ "resource?id=HT002189125",/* -> */"a peep at Polynesian life" },
 				{ "resource?name=Typee",/* -> */"a peep at Polynesian life" },
 				{ "resource?author=Melville",/* -> */"a peep at Polynesian life" },
+				{ "resource?author=Melville&format=short",/* -> */"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
-				// TODO { "resource?subject=Heinsberg",/* -> */"aus dem Kreis Olpe" },
+				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
+				{ "resource?subject=Chemistry&format=short",/* -> */
+				"Chemistry & allied sciences" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
 				{ "organisation/US-IdBoTIMB",/* -> */"Timberline High School" },
-				{ "organisation/SzBaU",/* -> */"Universität Basel" },
+				{ "organisation/SzBaU",/* -> */"Universität Basel" }, // NOPMD
 				{ "organisation?id=SzBaU",/* -> */"Universität Basel" },
 				{ "organisation?name=Basel",/* -> */"Universität Basel" },
+				{ "organisation?name=Basel&format=short",/* -> */
+				"Universität Basel" },
 				/*-------------*/
 				/* GET /person */
 				/*-------------*/
 				{ "person/136963781",/* -> */"Bach, Johann Sebastian" }, // NOPMD
 				{ "person?id=136963781",/* -> */"Bach, Johann Sebastian" },
 				{ "person?name=Bach",/* -> */"Bach, Johann Sebastian" },
+				{ "person?name=Bach&format=short",/* -> */
+				"Bach, Johann Sebastian (1685-1750)" },
 				/*-------------*/
 				/* GET /search */
 				/*-------------*/
 				{ "search?name=Bas",/* -> */"Bach, Johann Sebastian" },
-				{ "search?name=Bas",/* -> */"Universität Basel" } });
+				{ "search?name=Bas",/* -> */"Universität Basel" }
+		/**/
+		});
 	}
 
 	/**
