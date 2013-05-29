@@ -22,7 +22,8 @@ public enum Index {
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.AUTHOR, new LobidResources.AuthorQuery())
 					.put(Parameter.ID, new LobidResources.IdQuery())
-					.put(Parameter.SUBJECT, new LobidResources.SubjectQuery()).build()),
+					.put(Parameter.SUBJECT, new LobidResources.SubjectQuery())
+					.put(Parameter.NAME, new LobidResources.NameQuery()).build()),
 	/***/
 	LOBID_ORGANISATIONS("lobid-orgs-index",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()/* @formatter:off */

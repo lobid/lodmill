@@ -43,7 +43,7 @@ public final class Api extends Controller {
 		Result result = null;
 		if (defined(id)) {
 			result = Application.search(index, Parameter.ID, id, format);
-		} else if (defined(name)) { // TODO: implement resource-by-name
+		} else if (defined(name)) {
 			result = Application.search(index, Parameter.NAME, name, format);
 		} else if (defined(author)) {
 			result = Application.search(index, Parameter.AUTHOR, author, format);

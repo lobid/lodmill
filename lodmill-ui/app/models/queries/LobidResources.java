@@ -18,6 +18,23 @@ import org.elasticsearch.index.query.QueryBuilder;
  */
 public class LobidResources {
 	/**
+	 * Query the lobid-resources index using a resource name.
+	 */
+	public static class NameQuery extends AbstractIndexQuery {
+
+		@Override
+		public List<String> fields() {
+			return Arrays.asList("http://purl.org/dc/terms/title");
+		}
+
+		@Override
+		public QueryBuilder build(final String queryString) {
+			return matchQuery(fields().get(0), queryString);
+		}
+
+	}
+
+	/**
 	 * Query the lobid-resources index using a resource author.
 	 */
 	public static class AuthorQuery extends AbstractIndexQuery {
