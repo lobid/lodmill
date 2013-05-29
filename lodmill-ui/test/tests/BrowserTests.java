@@ -125,6 +125,20 @@ public class BrowserTests {
 	}
 
 	@Test
+	public void sampleRequestResourceBySubjectLabel() {
+		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
+			@Override
+			public void invoke(final TestBrowser browser) {
+				browser.goTo(INDEX);
+				browser.click("a", withText("/resource?subject=Chemistry"));
+				assertThat(browser.pageSource()).contains("Gerlach, Rainer").contains(
+						"Synthese, Eigenschaften und Reaktivität von Mangan- und "
+								+ "Chrom-Komplexen mit Stickstoff-Liganden");
+			}
+		});
+	}
+
+	@Test
 	public void sampleRequestOrganisationByTitle() {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override

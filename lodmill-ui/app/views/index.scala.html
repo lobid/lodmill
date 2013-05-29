@@ -31,8 +31,10 @@
 			@defining("/resource?name=Faust"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
 			@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs =>
 				<td><a href="@withPage(refs._1)">@refs._1</a> <br/> <a href="@withPage(refs._2)">@refs._2</a></td>}
-			@defining("/resource?subject=44141956"){ref =>
-				<td><a href="@withPage(ref)">@ref</a> <br/> (available after reindexing) <br/> TODO: <pre>/resource?subject=Politik</pre></td>}
+			@defining(("/resource?subject=44141956","/resource?subject=Chemistry")){ref =>
+				<td>
+					<a href="@withPage(ref._1)">@ref._1</a><br/>
+					<a href="@withPage(ref._2)">@ref._2</a><br/>(currently supported:<br/>GND by ID, Dewey by english label)</td>}
 			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
