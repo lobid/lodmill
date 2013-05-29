@@ -50,11 +50,6 @@
           "type":"string",
           "index_analyzer":"id_analyzer",
           "search_analyzer":"id_analyzer"
-        },
-        "http://purl.org/dc/terms/subject":{
-          "type":"nested",
-          "index_analyzer":"id_analyzer",
-          "search_analyzer":"id_analyzer"
         }
       }
     },

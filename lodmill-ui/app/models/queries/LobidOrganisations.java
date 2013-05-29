@@ -26,7 +26,7 @@ public class LobidOrganisations {
 		}
 
 		@Override
-		public QueryBuilder build(String queryString) {
+		public QueryBuilder build(final String queryString) {
 			return matchQuery(fields().get(0), queryString);
 		}
 
