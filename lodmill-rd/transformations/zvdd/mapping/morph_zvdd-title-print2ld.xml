@@ -3,20 +3,20 @@
 		version="1">
 		<rules>
 				<!-- General attributes for each record: -->
-				<data source="001" name="subject">
+				<data source="001." name="subject">
 						<regexp match="(.*)" format="resource:P${1}"/>
 				</data>
-				<data source="001" name="http://purl.org/dc/terms/hasFormat">
+				<data source="001." name="http://purl.org/dc/terms/hasFormat">
 						<regexp match="(.*)" format="resource:D${1}"/>
 				</data>
 				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-						<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
+						<constant value="http://purl.org/dc/terms/BibliographicResource"/>
 				</data>
 				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-						<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
+						<constant value="http://purl.org/vocab/frbr/core#Manifestation"/>
 				</data>
 				<data source="001" name="http://www.w3.org/2004/02/skos/core#Concept">
-						<regexp match=".*" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1010"/>
+						<constant value="http://iflastandards.info/ns/isbd/terms/mediatype/T1010"/>
 				</data>
 				<!-- parse "heb | grc | lat | fre | hebr. | gre | lat | franz." and "dutfreitalat" -->
 				<data source="041  .a" name="http://purl.org/dc/terms/language">
@@ -44,6 +44,7 @@
 				<data source="24500.c" name="http://purl.org/dc/elements/1.1/creator"/>
 				<data source="260  .c" name="http://purl.org/dc/terms/medium/issued">
 						<!-- One processing example: pick out first valid year: -->
+						<replace pattern="\[.+\]" with=""/>
 						<regexp match="(1\d{3}|200\d)" format="${1}"/>
 				</data>
 				<data source="594  .a" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">

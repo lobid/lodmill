@@ -1,33 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Fabian Steeg. Licensed under the Eclipse Public License -->
-<metamorph-test version="1.0" xmlns="http://www.culturegraph.org/metamorph-test"
-		xmlns:cgxml="http://www.culturegraph.org/cgxml">
-		<test-case name="ZVDD Transformation">
-				<input type="text/x-cg+xml">
-						<cgxml:cgxml version="1.0">
-								<cgxml:records>
-										<cgxml:record id="1">
-												<cgxml:entity name="0248 ">
-														<cgxml:literal name="p" value="collection:exilzeitschriften.d-nb.f.de"/>
-												</cgxml:entity>
-												<cgxml:entity name="0248 ">
-														<cgxml:literal name="p" value="collection:zvdd.hbz.k.de"/>
-												</cgxml:entity>
-										</cgxml:record>
-								</cgxml:records>
-						</cgxml:cgxml>
-				</input>
-				<transformation type="text/x-metamorph+xml" src="morph_zvdd-title-digital2ld.xml"/>
-				<result type="text/x-cg+xml">
-						<cgxml:cgxml version="1.0">
-								<cgxml:records>
-										<cgxml:record id="1">
-												<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
-														value="http://lobid.org/zvdd/hbz/exil-zeitschriften.ddb.f.de"/>
-												<cgxml:literal name="http://purl.org/dc/terms/isPartOf" value="http://lobid.org/zvdd/hbz/zvdd.hbz.k.de"/>
-										</cgxml:record>
-								</cgxml:records>
-						</cgxml:cgxml>
-				</result>
-		</test-case>
+<metamorph-test version="1.0"
+	xmlns="http://www.culturegraph.org/metamorph-test" xmlns:cgxml="http://www.culturegraph.org/cgxml">
+	<test-case name="ZVDD Transformation">
+		<input type="text/x-cg+xml">
+			<cgxml:cgxml version="1.0">
+				<cgxml:records>
+					<cgxml:record id="1">
+						<cgxml:entity name="001">
+							<cgxml:literal name="" value="184000" />
+						</cgxml:entity>
+						<cgxml:entity name="0248 ">
+							<cgxml:literal name="p"
+								value="collection:exilzeitschriften.d-nb.f.de" />
+						</cgxml:entity>
+						<cgxml:entity name="0248 ">
+							<cgxml:literal name="p"
+								value="collection:juedische_periodika.d-nb.f.de" />
+						</cgxml:entity>
+						<cgxml:entity name="0248 ">
+							<cgxml:literal name="p"
+								value="collection:verteilte_rechtsquellen.d-nb.f.de" />
+						</cgxml:entity>
+						<cgxml:entity name="0248 ">
+							<cgxml:literal name="p" value="collection:sonst.was.schönes" />
+						</cgxml:entity>
+						<cgxml:entity name="0248 ">
+							<cgxml:literal name="p" value="collection:zvdd.hbz.k.de" />
+						</cgxml:entity>
+						<cgxml:entity name="8564 ">
+							<cgxml:literal name="u" value="some.value" />
+						</cgxml:entity>
+						<cgxml:entity name="533  ">
+							<cgxml:literal name="c" value="some.value" />
+						</cgxml:entity>
+						<cgxml:entity name="533  ">
+							<cgxml:literal name="d" value="some.value" />
+						</cgxml:entity>
+					</cgxml:record>
+				</cgxml:records>
+			</cgxml:cgxml>
+		</input>
+		<transformation type="text/x-metamorph+xml" src="morph_zvdd-title-digital2ld.xml" />
+		<result type="text/x-cg+xml">
+			<cgxml:cgxml version="1.0">
+				<cgxml:records>
+					<cgxml:record id="1">
+						<cgxml:literal name="subject" value="resource:D184000" />
+						<cgxml:literal name="http://purl.org/dc/terms/isFormatOf"
+							value="resource:P184000" />
+						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+							value="http://purl.org/vocab/frbr/core#Manifestation" />
+						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+							value="http://purl.org/dc/terms/BibliographicResource" />
+						<cgxml:literal name="http://www.w3.org/2004/02/skos/core#Concept"
+							value="http://iflastandards.info/ns/isbd/terms/mediatype/T1002" />
+						<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
+							value="collection:exil-zeitschriften.ddb.f.de" />
+						<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
+							value="collection:juedische_periodika.ddb.f.de" />
+						<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
+							value="collection:verteilte_rechtsquellen.ddb.f.de" />
+						<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
+							value="collection:sonst.was.schönes" />
+						<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
+							value="collection:zvdd.hbz.k.de" />
+						<cgxml:literal name="http://lobid.org/vocab/lobid#fulltextOnline"
+							value="some.value" />
+						<cgxml:literal name="http://purl.org/dc/elements/1.1/publisher"
+							value="some.value" />
+						<cgxml:literal name="http://purl.org/dc/terms/created"
+							value="some.value" />
+					</cgxml:record>
+				</cgxml:records>
+			</cgxml:cgxml>
+		</result>
+	</test-case>
 </metamorph-test>

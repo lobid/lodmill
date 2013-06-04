@@ -3,34 +3,34 @@
 		version="1">
 		<rules>
 				<!-- General attributes for each record: -->
-				<data source="001" name="subject">
-						<regexp match="(.*)" format="resource:D${1}"/>
+				<data source="001." name="subject">
+						<regexp match=".*" format="resource:D${0}"/>
 				</data>
-				<data source="001" name="http://purl.org/dc/terms/isFormatOf">
-						<regexp match="(.*)" format="resource:P${1}"/>
-				</data>
-				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-						<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
+				<data source="001." name="http://purl.org/dc/terms/isFormatOf">
+						<regexp match=".*" format="resource:P${0}"/>
 				</data>
 				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-						<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
+						<constant value="http://purl.org/vocab/frbr/core#Manifestation"/>
+				</data>
+				<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+						<constant value="http://purl.org/dc/terms/BibliographicResource"/>
 				</data>
 				<data source="001" name="http://www.w3.org/2004/02/skos/core#Concept">
-						<regexp match=".*" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1002"/>
+						<constant value="http://iflastandards.info/ns/isbd/terms/mediatype/T1002"/>
 				</data>
 				<!-- <data source="0248 .p" name="@http://purl.org/dc/terms/isPartOf"> <regexp match="collection:(.*)" 
 						format="${1}"/> </data> -->
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<equals string="collection:exilzeitschriften.d-nb.f.de"/>
-						<regexp match=".*" format="collection:exil-zeitschriften.ddb.f.de"/>
+						<constant value="collection:exil-zeitschriften.ddb.f.de"/>
 				</data>
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<equals string="collection:juedische_periodika.d-nb.f.de"/>
-						<regexp match=".*" format="collection:juedische_periodika.ddb.f.de"/>
+						<constant value="collection:juedische_periodika.ddb.f.de"/>
 				</data>
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<equals string="collection:verteilte_rechtsquellen.d-nb.f.de"/>
-						<regexp match=".*" format="collection:verteilte_rechtsquellen.ddb.f.de"/>
+						<constant value="collection:verteilte_rechtsquellen.ddb.f.de"/>
 				</data>
 				<data source="0248 .p" name="http://purl.org/dc/terms/isPartOf">
 						<not-equals string="collection:exilzeitschriften.d-nb.f.de"/>

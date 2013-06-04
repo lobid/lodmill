@@ -4,10 +4,10 @@
 	<rules>
 		<!-- General attributes for each record: -->
 		<data source="001" name="http://purl.org/dc/terms/isPartOf"> <!-- the same as in zvdd-title -->
-			<regexp match=".*" format="http://www.zvdd.de/"/>
+			<constant value="http://www.zvdd.de/"/>
 		</data>
 		<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/dc/dcmitype/Collection"/>
+			<constant value="http://purl.org/dc/dcmitype/Collection"/>
 		</data>
 		<data source="0248 .p" name="http://purl.org/dc/terms/subject">
 			<regexp match="ddc:(\d{3})" format="http://dewey.info/class/${1}/"/>

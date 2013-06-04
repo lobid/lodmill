@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2013 Fabian Steeg. Licensed under the Eclipse Public License -->
+<metamorph-test version="1.0"
+	xmlns="http://www.culturegraph.org/metamorph-test" xmlns:cgxml="http://www.culturegraph.org/cgxml">
+	<test-case name="ZVDD Transformation">
+		<input type="text/x-cg+xml">
+			<cgxml:cgxml version="1.0">
+				<cgxml:records>
+					<cgxml:record id="1">
+						<cgxml:entity name="001">
+							<cgxml:literal name="" value="anything" />
+						</cgxml:entity>
+						<cgxml:entity name="0248 ">
+							<cgxml:literal name="p" value="ddc:111" />
+						</cgxml:entity>
+					</cgxml:record>
+				</cgxml:records>
+			</cgxml:cgxml>
+		</input>
+		<transformation type="text/x-metamorph+xml" src="morph_zvdd-collection2ld.xml" />
+		<result type="text/x-cg+xml">
+			<cgxml:cgxml version="1.0">
+				<cgxml:records>
+					<cgxml:record id="1">
+						<cgxml:literal name="http://purl.org/dc/terms/isPartOf"
+							value="http://www.zvdd.de/" />
+						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+							value="http://purl.org/dc/dcmitype/Collection" />
+						<cgxml:literal name="http://purl.org/dc/terms/subject"
+							value="http://dewey.info/class/111/" />
+					</cgxml:record>
+				</cgxml:records>
+			</cgxml:cgxml>
+		</result>
+	</test-case>
+</metamorph-test>

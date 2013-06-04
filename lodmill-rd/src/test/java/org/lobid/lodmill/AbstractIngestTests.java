@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import org.culturegraph.mf.framework.DefaultStreamPipe;
 import org.culturegraph.mf.framework.DefaultStreamReceiver;
@@ -72,16 +74,30 @@ public abstract class AbstractIngestTests {
 				Scanner expected =
 						new Scanner(Thread.currentThread().getContextClassLoader()
 								.getResourceAsStream(testFileName))) {
-			// HashSet necessary because the order of triples in the files may differ
-			Assert.assertEquals(asSet(expected), asSet(actual));
+			// Set necessary because the order of triples in the files may differ
+			SortedSet<String> expectedSet = asSet(expected);
+			SortedSet<String> actualSet = asSet(actual);
+			assertSetSize(expectedSet, actualSet);
+			assertSetElements(expectedSet, actualSet);
+			Assert.assertEquals(expectedSet, actualSet);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		file.deleteOnExit();
 	}
 
-	private static HashSet<String> asSet(Scanner scanner) {
-		HashSet<String> set = new HashSet<>();
+	private static void assertSetSize(SortedSet<String> expectedSet,
+			SortedSet<String> actualSet) {
+		if (expectedSet.size() != actualSet.size()) {
+			SortedSet<String> missingSet = new TreeSet<>(expectedSet);
+			missingSet.removeAll(actualSet);
+			LOG.error("Missing expected result set entries: " + missingSet);
+		}
+		Assert.assertEquals(expectedSet.size(), actualSet.size());
+	}
+
+	private static SortedSet<String> asSet(Scanner scanner) {
+		SortedSet<String> set = new TreeSet<>();
 		while (scanner.hasNextLine()) {
 			String actual = scanner.nextLine();
 			if (!actual.isEmpty()) {
@@ -89,6 +105,15 @@ public abstract class AbstractIngestTests {
 			}
 		}
 		return set;
+	}
+
+	private static void assertSetElements(SortedSet<String> expectedSet,
+			SortedSet<String> actualSet) {
+		Iterator<String> expectedIterator = expectedSet.iterator();
+		Iterator<String> actualIterator = actualSet.iterator();
+		for (int i = 0; i < expectedSet.size(); i++) {
+			Assert.assertEquals(expectedIterator.next(), actualIterator.next());
+		}
 	}
 
 	public void dot(String fname) {
