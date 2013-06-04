@@ -174,9 +174,9 @@
 		</data>
 	</rules>
 	<maps>
-		<mapfile name="country-map" files="country-map.csv"/>
-		<mapfile name="geolocation-long_map" files="geolocation-long_map.csv"/>
-		<mapfile name="geolocation-lat_map" files="geolocation-lat_map.csv"/>
-		<mapfile name="isil2dbpedia_map" files="isil2dbpedia_map.csv"/>
+		<filemap name="country-map" files="country-map.csv"/>
+		<filemap name="geolocation-long_map" files="geolocation-long_map.csv"/>
+		<filemap name="geolocation-lat_map" files="geolocation-lat_map.csv"/>
+		<filemap name="isil2dbpedia_map" files="isil2dbpedia_map.csv"/>
 	</maps>
 </metamorph>
