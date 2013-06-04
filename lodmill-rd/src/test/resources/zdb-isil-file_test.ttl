@@ -182,14 +182,14 @@
                           "Sprangerweg 2"
                 ] ;
         <http://www.w3.org/2006/vcard/ns#tel>
-                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
-                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
-                          "(0551) 39-5641"
-                ] ;
-        <http://www.w3.org/2006/vcard/ns#tel>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
                           "(0551) 39-5690"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0551) 39-5641"
                 ] ;
         <http://www.w3.org/ns/org#classification>
                 <http://purl.org/lobid/libtype#n65> ;
@@ -226,7 +226,12 @@
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6547539> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
-                _:b0 ;
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                          "52.50771" ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                          "13.37063"
+                ] ;
         <http://www.w3.org/2006/vcard/ns#adr>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
                   <http://www.w3.org/2006/vcard/ns#country-name>
@@ -241,14 +246,14 @@
         <http://www.w3.org/2006/vcard/ns#email>
                 <mailto:benutzung.h2@sbb.spk-berlin.de> , <mailto:info@sbb.spk-berlin.de> ;
         <http://www.w3.org/2006/vcard/ns#tel>
-                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
-                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
-                          "(030) 2 66-433888 (Auskunft)"
-                ] ;
-        <http://www.w3.org/2006/vcard/ns#tel>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
                           "(030) 2 66-333501"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 2 66-433888 (Auskunft)"
                 ] ;
         <http://www.w3.org/2006/vcard/ns#url>
                 <http://www.staatsbibliothek-berlin.de> ;
@@ -261,18 +266,10 @@
         <http://xmlns.com/foaf/0.1/name>
                 "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz,Haus Potsdamer Straße" .
 
-_:b0    a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
-        <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
-                "52.50771" ;
-        <http://www.w3.org/2003/01/geo/wgs84_pos#long>
-                "13.37063" .
-
 <http://lobid.org/organisation/DE-11-39>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://purl.org/dc/terms/identifier>
                 "DE-11-39" ;
-        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
-                _:b0 ;
         <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
                 <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-11-39> ;
         <http://xmlns.com/foaf/0.1/name>
