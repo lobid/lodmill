@@ -53,10 +53,9 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
  * 
  * @TODO instead of doing everything (transformation of zdb-isil-file and
  *       enrichment) in one class it may be better to first transform into
- *       ntriples using @PipeEncodeTriples and use the output file could be as
- *       input for another flux chain, serializing the new gained ntriples and
- *       merge the two files in the end. But then, this leads to great
- *       redundancy.
+ *       ntriples using @PipeEncodeTriples and use the output file as the input
+ *       for another flux chain, serializing the new gained ntriples and merge
+ *       the two files in the end. But then, this leads to greater redundancy.
  * 
  * @author Pascal Christoph
  */
@@ -100,7 +99,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	// [0]="http://nominatim.openstreetmap.org/search.php?q=germany+k%C3%B6ln+50679+library&format=json"
 	// [1]="http://nominatim.openstreetmap.org/search/95643/Tirschenreuth/bahnhofstr.?format=json"
 	private String[] urlOsmLookupSearchParameters = new String[2];
-	private String bnodeIDGeoPos;
+	private Resource bnodeIDGeoPos;
 	private String countryName;
 	private String locality;
 	private String postalcode;
@@ -136,11 +135,10 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	boolean doApiLookup = false;
 
 	@Override
-	public void literal(final String name, String value) {
-		if (name.startsWith(GEO_WGS84_POS)) {
-			this.bnodeIDGeoPos = value;
-		}
-		if (value != null) {
+	public void literal(final String name, final String value) {
+		if (value == null) {
+			LOG.warn("Value should not be null, ID " + "'" + super.subject + "'");
+		} else if (!name.equals("")) {
 			boolean isRegionalID = name.startsWith(GN_LOCATED_IN);
 			super.literal(name, isRegionalID ? createGeonameLink(value) : value);
 		}
@@ -148,10 +146,11 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 
 	@Override
 	public void endRecord() {
-		if (subject != "null") {
+		if (super.subject != super.DUMMY_SUBJECT) {
 			startOsmLookupEnrichment();
 			startQREncodeEnrichment();
-			ResourceUtils.renameResource(model.getResource("null"), subject);
+			ResourceUtils.renameResource(model.getResource(super.DUMMY_SUBJECT),
+					super.subject);
 			final StringWriter tripleWriter = new StringWriter();
 			RDFDataMgr.write(tripleWriter, model, Lang.TURTLE);
 			getReceiver().process(tripleWriter.toString());
@@ -189,6 +188,14 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		}
 	}
 
+	@Override
+	public void startEntity(final String name) {
+		super.startEntity(name);
+		if (name.startsWith(GEO_WGS84_POS)) {
+			this.bnodeIDGeoPos = super.resources.peek();
+		}
+	}
+
 	private String getRdfsvalueOfSubjectHavingObject(final String object) {
 		String ret = null;
 		Node nodeObject = NodeFactory.createURI(object);
@@ -211,11 +218,11 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			return;
 		String qrCodeText = createQrCodeText();
 		try {
-			String isil = (new URI(this.subject)).getPath().replaceAll("/.*/", "");
+			String isil = (new URI(super.subject)).getPath().replaceAll("/.*/", "");
 			QRENCODER.createQRImage(QR_FILE_PATH + isil, qrCodeText,
 					(int) (java.lang.Math.sqrt(qrCodeText.length() * 10) + 20) * 2);
 			this.model.add(
-					this.model.createResource(this.subject),
+					this.model.createResource(super.subject),
 					this.model.createProperty(LV_CONTACTQR),
 					this.model.asRDFNode(NodeFactory.createURI(NS_LOBID + QR_FILE_PATH
 							+ isil + QREncoder.FILE_SUFFIX + "." + QREncoder.FILE_TYPE)));
@@ -251,7 +258,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		if (ret == null) {
 			LOG.warn(String.format(
 					"Could not find geoname entry for value '%s' for subject '%s'",
-					value, this.subject));
+					value, super.subject));
 		}
 		return ret;
 	}
@@ -293,6 +300,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	}
 
 	private void startOsmLookupEnrichment() {
+		// activate the geo position bnode
+		enterBnode(this.bnodeIDGeoPos);
 		for (int i = 0; i < 2; i++) {
 			osmUrl[i] = null;
 			urlOsmLookupSearchParameters[1] = null;
@@ -318,8 +327,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			}
 		}
 		if (this.lat != null && this.lon != null) {
-			super.literal("bnode", this.bnodeIDGeoPos + " " + RDF_SYNTAX_NS_TYPE
-					+ " " + WGS84_POS_SPATIALTHING);
+			super.literal(RDF_SYNTAX_NS_TYPE, WGS84_POS_SPATIALTHING);
 		}
 	}
 
@@ -351,7 +359,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			}
 		} else {
 			LOG.warn("One or more parameter needing by the OSM API is missing for "
-					+ this.subject + " : country=" + this.countryName + ",locality="
+					+ super.subject + " : country=" + this.countryName + ",locality="
 					+ this.locality + ",postcode=" + this.postalcode);
 		}
 		return ret;
@@ -388,7 +396,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 					new URL(OSM_API_BASE_URL + "/" + this.urlOsmLookupSearchParameters[1]
 							+ "?" + OSM_LOOKUP_FORMAT_PARAMETER);
 		} catch (MalformedURLException e) {
-			LOG.error(this.subject + " " + e.getMessage(), e);
+			LOG.error(super.subject + " " + e.getMessage(), e);
 		}
 		for (int i = 0; i < 2; i++) {
 			if (LAT_LON.containsKey(this.urlOsmLookupSearchParameters[i])) {
@@ -399,7 +407,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		}
 		if (LAT_LON_LOOKUP_NULL.contains(this.urlOsmLookupSearchParameters[0])
 				&& LAT_LON_LOOKUP_NULL.contains(this.urlOsmLookupSearchParameters[1])) {
-			LOG.warn("Could not generate geo location for " + this.subject
+			LOG.warn("Could not generate geo location for " + super.subject
 					+ ". The URL is:" + this.osmUrl[1]);
 			ret = true; // do not store anything
 		}
@@ -442,7 +450,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 							sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon("(.*?){1}\\ .*");
 						} catch (Exception e2) {
 							// failed definetly
-							LOG.warn("Failed to generate geo location for " + this.subject
+							LOG.warn("Failed to generate geo location for " + super.subject
 									+ ". The URL is:" + this.osmUrl[1]);
 							LAT_LON_LOOKUP_NULL.add(this.urlOsmLookupSearchParameters[1]);
 						}
@@ -451,10 +459,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			}
 		}
 		if (this.lat != null && this.lon != null) {
-			super.literal("bnode", this.bnodeIDGeoPos + " " + GEO_WGS84_POS_LAT + " "
-					+ String.valueOf(this.lat));
-			super.literal("bnode", this.bnodeIDGeoPos + " " + GEO_WGS84_POS_LONG
-					+ " " + String.valueOf(this.lon));
+			super.literal(GEO_WGS84_POS_LAT, String.valueOf(this.lat));
+			super.literal(GEO_WGS84_POS_LONG, String.valueOf(this.lon));
 		}
 	}
 
@@ -480,7 +486,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 					}
 				}
 			} catch (IOException e1) {
-				LOG.error(this.subject + " " + e1.getLocalizedMessage());
+				LOG.error(super.subject + " " + e1.getLocalizedMessage());
 			}
 		}
 	}
@@ -496,12 +502,12 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		Object obj = JSONValue.parse(json);
 		JSONArray osm = (JSONArray) obj;
 		// ignore library search results if result > 1
-		// can lead to wrong results, though, e. g. if there are two libraries of
-		// which just one is tagged as library. See
-		// http://lobid.org/organisation/DE-Tir1 (which is in fact
-		// http://lobid.org/organisation/DE-1445 )
+		// this may lead to wrong results, though, e. g. if there are two libraries
+		// of which just one is tagged as library. See
+		// http://lobid.org/organisation/DE-Tir1 (where the geo location is in fact
+		// of http://lobid.org/organisation/DE-1445 )
 		if (osm.size() > 1 && this.osmUrl.toString().contains("library")) {
-			LOG.info("More than 1 result for " + this.subject + ", search "
+			LOG.info("More than 1 result for " + super.subject + ", search "
 					+ this.osmUrl);
 			throw new Exception();
 		}
@@ -531,7 +537,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 				return URIUtil.encodeQuery(it.next().asLiteral().getLexicalForm(),
 						"UTF-8");
 			} catch (URIException e) {
-				LOG.error(this.subject + " " + e.getMessage(), e);
+				LOG.error(super.subject + " " + e.getMessage(), e);
 			} catch (LiteralRequiredException le) {
 				LOG.warn(le.getMessage(), le);
 			}
@@ -548,7 +554,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 				res = it.next().asResource();
 			}
 		} catch (Exception e) {
-			LOG.warn("Exception with subject" + this.subject + " Resource=" + res,
+			LOG.warn("Exception with subject" + super.subject + " Resource=" + res,
 					e.getLocalizedMessage());
 		}
 		return res;
