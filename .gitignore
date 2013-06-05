@@ -28,3 +28,4 @@ build
 latlon.ser_*_
 logging.properties
 media
+log
