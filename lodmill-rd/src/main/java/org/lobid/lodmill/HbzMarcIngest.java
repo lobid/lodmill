@@ -13,13 +13,12 @@ import java.util.Map;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import junit.framework.Assert;
-
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.morph.MorphErrorHandler;
 import org.culturegraph.mf.stream.reader.MarcXmlReader;
 import org.culturegraph.mf.stream.reader.Reader;
 import org.culturegraph.mf.stream.sink.StringListMap;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,16 +40,17 @@ public final class HbzMarcIngest {
 	private final Metamorph metamorph = new Metamorph(Thread.currentThread()
 			.getContextClassLoader().getResourceAsStream("ingest.marc21.xml"));
 
-	private final SortedSet<String> errorSet = new TreeSet<>();
-	private final Map<String, Integer> errorMap = new HashMap<>();
+	private final SortedSet<String> errorSet = new TreeSet<String>();
+	private final Map<String, Integer> errorMap = new HashMap<String, Integer>();
 
 	@SuppressWarnings("javadoc")
 	@Test
 	public void ingest() throws IOException {
 		final StringListMap map = new StringListMap();
 		reader.setReceiver(metamorph).setReceiver(map);
-		try (BufferedWriter rawReportWriter =
-				new BufferedWriter(new FileWriter(REPORT_RAW))) {
+		final BufferedWriter rawReportWriter =
+				new BufferedWriter(new FileWriter(REPORT_RAW));
+		try {
 			metamorph.setErrorHandler(new MorphErrorHandler() {
 				@Override
 				public void error(final Exception exception) {
@@ -61,8 +61,9 @@ public final class HbzMarcIngest {
 					processError(rawReportWriter, name, errorMessage);
 				}
 			});
-			try (BufferedReader scanner =
-					new BufferedReader(new FileReader(HBZ_MARC))) {
+			final BufferedReader scanner =
+					new BufferedReader(new FileReader(HBZ_MARC));
+			try {
 				int all = 0;
 				String line = null;
 				while ((line = scanner.readLine()) != null) { // NOPMD (idiomatic usage)
@@ -80,7 +81,11 @@ public final class HbzMarcIngest {
 				Assert.assertTrue("Raw report file should exist",
 						new File(REPORT_RAW).exists());
 				writeProcessedReport(scanner, all);
+			} finally {
+				scanner.close();
 			}
+		} finally {
+			rawReportWriter.close();
 		}
 		Assert.assertTrue("Processed report file should exist", new File(
 				REPORT_PROCESSED).exists());
@@ -88,8 +93,9 @@ public final class HbzMarcIngest {
 
 	private void writeProcessedReport(final BufferedReader scanner, final int all)
 			throws IOException {
-		try (BufferedWriter processedReportWriter =
-				new BufferedWriter(new FileWriter(REPORT_PROCESSED))) {
+		final BufferedWriter processedReportWriter =
+				new BufferedWriter(new FileWriter(REPORT_PROCESSED));
+		try {
 			int err = 0;
 			for (Integer i : errorMap.values()) {
 				err += i;
@@ -107,6 +113,8 @@ public final class HbzMarcIngest {
 			for (String string : errorSet) {
 				processedReportWriter.write(string + "\n");
 			}
+		} finally {
+			processedReportWriter.close();
 		}
 	}
 
