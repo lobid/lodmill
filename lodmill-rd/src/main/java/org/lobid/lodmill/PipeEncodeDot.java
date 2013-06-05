@@ -37,8 +37,8 @@ public final class PipeEncodeDot extends AbstractGraphPipeEncoder {
 	@Override
 	public void startRecord(final String identifier) {
 		this.subject = null;
-		predicates = new ArrayList<>();
-		objects = new ArrayList<>();
+		predicates = new ArrayList<String>();
+		objects = new ArrayList<String>();
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public final class PipeEncodeDot extends AbstractGraphPipeEncoder {
 	public void endRecord() {
 		for (int i = 0; i < predicates.size(); i++) {
 			String object = objects.get(i);
-			object = object.charAt(0) == '"' ? object : "\"" + object + "\"";
+			object = object.charAt(0) == '"' ? object : "\"" + object + "\""; // NOPMD
 			getReceiver().process(
 					String.format("\t\"<%s>\" -> %s [label=\"%s\"]", subject, object,
 							predicates.get(i)));

@@ -20,7 +20,8 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 final class QREncoder {
 	final static String FILE_TYPE = "png";
 	final static String FILE_SUFFIX = "_contactqr";
-	static private Map<EncodeHintType, Object> hintMap = new HashMap<>();
+	static private Map<EncodeHintType, Object> hintMap =
+			new HashMap<EncodeHintType, Object>();
 	QRCodeWriter qrCodeWriter;
 	BufferedImage image;
 	Graphics2D graphics;

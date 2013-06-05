@@ -3,6 +3,7 @@
 package org.lobid.lodmill;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,6 +31,8 @@ import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.io.Closeables;
+
 /**
  * Ingest the ZVDD MARC-XML export.
  * 
@@ -46,10 +49,10 @@ public abstract class AbstractIngestTests {
 	private final String dataFile;
 	private final Reader reader;
 	protected Metamorph metamorph;
-	private String statsMorphFile;
+	private final String statsMorphFile;
 
-	public AbstractIngestTests(String dataFile, String morphFile,
-			String statsMorphFile, Reader reader) {
+	public AbstractIngestTests(final String dataFile, final String morphFile,
+			final String statsMorphFile, final Reader reader) {
 		this.dataFile = dataFile;
 		this.statsMorphFile = statsMorphFile;
 		metamorph =
@@ -65,41 +68,49 @@ public abstract class AbstractIngestTests {
 	 * @param generatedFileName The to be generated file name .
 	 * @param dsp A DefaultStreampipe
 	 */
-	public void triples(String testFileName, String generatedFileName,
-			DefaultStreamPipe<ObjectReceiver<String>> dsp) {
+	public void triples(final String testFileName,
+			final String generatedFileName,
+			final DefaultStreamPipe<ObjectReceiver<String>> dsp) {
 		setUpErrorHandler(metamorph);
 		final File file = new File(generatedFileName);
 		process(dsp, file);
-		try (Scanner actual = new Scanner(file);
-				Scanner expected =
-						new Scanner(Thread.currentThread().getContextClassLoader()
-								.getResourceAsStream(testFileName))) {
+		Scanner actual = null;
+		final Scanner expected =
+				new Scanner(Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream(testFileName));
+		try {
+			actual = new Scanner(file);
 			// Set necessary because the order of triples in the files may differ
-			SortedSet<String> expectedSet = asSet(expected);
-			SortedSet<String> actualSet = asSet(actual);
+			final SortedSet<String> expectedSet = asSet(expected);
+			final SortedSet<String> actualSet = asSet(actual);
 			assertSetSize(expectedSet, actualSet);
 			assertSetElements(expectedSet, actualSet);
 			Assert.assertEquals(expectedSet, actualSet);
 		} catch (IOException e) {
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
+		} finally {
+			if (actual != null) {
+				actual.close();
+			}
+			expected.close();
 		}
 		file.deleteOnExit();
 	}
 
-	private static void assertSetSize(SortedSet<String> expectedSet,
-			SortedSet<String> actualSet) {
+	private static void assertSetSize(final SortedSet<String> expectedSet,
+			final SortedSet<String> actualSet) {
 		if (expectedSet.size() != actualSet.size()) {
-			SortedSet<String> missingSet = new TreeSet<>(expectedSet);
+			final SortedSet<String> missingSet = new TreeSet<String>(expectedSet);
 			missingSet.removeAll(actualSet);
 			LOG.error("Missing expected result set entries: " + missingSet);
 		}
 		Assert.assertEquals(expectedSet.size(), actualSet.size());
 	}
 
-	private static SortedSet<String> asSet(Scanner scanner) {
-		SortedSet<String> set = new TreeSet<>();
+	private static SortedSet<String> asSet(final Scanner scanner) {
+		final SortedSet<String> set = new TreeSet<String>();
 		while (scanner.hasNextLine()) {
-			String actual = scanner.nextLine();
+			final String actual = scanner.nextLine();
 			if (!actual.isEmpty()) {
 				set.add(actual);
 			}
@@ -107,16 +118,16 @@ public abstract class AbstractIngestTests {
 		return set;
 	}
 
-	private static void assertSetElements(SortedSet<String> expectedSet,
-			SortedSet<String> actualSet) {
-		Iterator<String> expectedIterator = expectedSet.iterator();
-		Iterator<String> actualIterator = actualSet.iterator();
+	private static void assertSetElements(final SortedSet<String> expectedSet,
+			final SortedSet<String> actualSet) {
+		final Iterator<String> expectedIterator = expectedSet.iterator();
+		final Iterator<String> actualIterator = actualSet.iterator();
 		for (int i = 0; i < expectedSet.size(); i++) {
 			Assert.assertEquals(expectedIterator.next(), actualIterator.next());
 		}
 	}
 
-	public void dot(String fname) {
+	public void dot(final String fname) {
 		setUpErrorHandler(metamorph);
 		final File file = new File(fname);
 		process(new PipeEncodeDot(), file);
@@ -132,8 +143,11 @@ public abstract class AbstractIngestTests {
 		setUpErrorHandler(metamorph);
 		final Stats stats = new Stats();
 		reader.setReceiver(metamorph).setReceiver(stats);
-		try (FileReader fileReader = new FileReader(dataFile)) {
+		final FileReader fileReader = new FileReader(dataFile);
+		try {
 			reader.process(fileReader);
+		} finally {
+			fileReader.close();
 		}
 		final List<Entry<String, Integer>> entries =
 				sortedByValuesDescending(stats);
@@ -149,10 +163,14 @@ public abstract class AbstractIngestTests {
 			final DefaultStreamPipe<ObjectReceiver<String>> encoder, final File file) {
 		final ObjectTee<String> tee = outputTee(file);
 		reader.setReceiver(metamorph).setReceiver(encoder).setReceiver(tee);
-		try (FileReader fileReader = new FileReader(dataFile)) {
+		FileReader fileReader = null;
+		try {
+			fileReader = new FileReader(dataFile);
 			reader.process(fileReader);
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			LOG.error(e.getMessage(), e);
+		} finally {
+			Closeables.closeQuietly(fileReader);
 		}
 		reader.closeStream();
 		Assert.assertTrue("File should exist", file.exists());
@@ -160,7 +178,7 @@ public abstract class AbstractIngestTests {
 	}
 
 	private static ObjectTee<String> outputTee(final File triples) {
-		final ObjectTee<String> tee = new ObjectTee<>();
+		final ObjectTee<String> tee = new ObjectTee<String>();
 		tee.addReceiver(new ObjectWriter<String>("stdout"));
 		tee.addReceiver(new ObjectWriter<String>(triples.getAbsolutePath()));
 		return tee;
@@ -168,7 +186,7 @@ public abstract class AbstractIngestTests {
 
 	private static class Stats extends DefaultStreamReceiver {
 
-		private Map<String, Integer> map = new HashMap<>();
+		private final Map<String, Integer> map = new HashMap<String, Integer>();
 
 		@Override
 		public void literal(final String name, final String value) {
@@ -176,7 +194,7 @@ public abstract class AbstractIngestTests {
 		}
 	}
 
-	protected static void setUpErrorHandler(Metamorph metamorph) {
+	protected static void setUpErrorHandler(final Metamorph metamorph) {
 		metamorph.setErrorHandler(new MorphErrorHandler() {
 			@Override
 			public void error(final Exception exception) {
@@ -188,7 +206,7 @@ public abstract class AbstractIngestTests {
 	private static List<Entry<String, Integer>> sortedByValuesDescending(
 			final Stats stats) {
 		final List<Entry<String, Integer>> entries =
-				new ArrayList<>(stats.map.entrySet());
+				new ArrayList<Entry<String, Integer>>(stats.map.entrySet());
 		Collections.sort(entries, new Comparator<Entry<String, Integer>>() {
 			@Override
 			public int compare(final Entry<String, Integer> entry1,
@@ -203,7 +221,7 @@ public abstract class AbstractIngestTests {
 	private static void writeTextileMappingTable(
 			final List<Entry<String, Integer>> entries, final File textileMappingFile)
 			throws IOException {
-		StringBuilder textileBuilder =
+		final StringBuilder textileBuilder =
 				new StringBuilder(
 						"|*field*|*frequency*|*content*|*mapping*|*status*|\n");
 		LOG.info("Field\tFreq.");
@@ -213,9 +231,12 @@ public abstract class AbstractIngestTests {
 			textileBuilder.append(String.format("|%s|%s| | | |\n", e.getKey(),
 					e.getValue()));
 		}
-		try (FileWriter textileWriter = new FileWriter(textileMappingFile)) {
+		final FileWriter textileWriter = new FileWriter(textileMappingFile);
+		try {
 			textileWriter.write(textileBuilder.toString());
 			textileWriter.flush();
+		} finally {
+			textileWriter.close();
 		}
 	}
 }
