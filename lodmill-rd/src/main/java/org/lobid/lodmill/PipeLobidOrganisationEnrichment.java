@@ -19,7 +19,9 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.util.URIUtil;
@@ -35,6 +37,7 @@ import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.io.Closeables;
 import com.google.zxing.WriterException;
 import com.hp.hpl.jena.graph.Graph;
 import com.hp.hpl.jena.graph.Node;
@@ -105,10 +108,12 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private String postalcode;
 	private String street;
 
-	private static HashMap<String, Double[]> LAT_LON = new HashMap<>();
+	private static Map<String, Double[]> LAT_LON =
+			new HashMap<String, Double[]>();
 	// will be persisted only temporarily
-	private static HashSet<String> LAT_LON_LOOKUP_NULL = new HashSet<>();
-	private static HashMap<String, Integer> GEONAMES_REGION_ID = new HashMap<>();
+	private static Set<String> LAT_LON_LOOKUP_NULL = new HashSet<String>();
+	private static Map<String, Integer> GEONAMES_REGION_ID =
+			new HashMap<String, Integer>();
 	private URL[] osmUrl = new URL[2];
 	private Double lat = null;
 	private Double lon = null;
@@ -146,11 +151,11 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 
 	@Override
 	public void endRecord() {
-		if (super.subject != super.DUMMY_SUBJECT) {
+		if (super.subject != PipeEncodeTriples.DUMMY_SUBJECT) {
 			startOsmLookupEnrichment();
 			startQREncodeEnrichment();
-			ResourceUtils.renameResource(model.getResource(super.DUMMY_SUBJECT),
-					super.subject);
+			ResourceUtils.renameResource(
+					model.getResource(PipeEncodeTriples.DUMMY_SUBJECT), super.subject);
 			final StringWriter tripleWriter = new StringWriter();
 			RDFDataMgr.write(tripleWriter, model, Lang.TURTLE);
 			getReceiver().process(tripleWriter.toString());
@@ -178,12 +183,14 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	protected void onCloseStream() {
 		super.onCloseStream();
 		if (LAT_LON.size() > 0 && latLonChanged) {
-			try (FileOutputStream fos = new FileOutputStream(LAT_LON_FILENAME);
-					ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+			ObjectOutputStream oos = null;
+			try {
+				oos = new ObjectOutputStream(new FileOutputStream(LAT_LON_FILENAME));
 				oos.writeObject(LAT_LON);
-				oos.close();
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
+			} finally {
+				Closeables.closeQuietly(oos);
 			}
 		}
 	}
@@ -226,7 +233,11 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 					this.model.createProperty(LV_CONTACTQR),
 					this.model.asRDFNode(NodeFactory.createURI(NS_LOBID + QR_FILE_PATH
 							+ isil + QREncoder.FILE_SUFFIX + "." + QREncoder.FILE_TYPE)));
-		} catch (URISyntaxException | WriterException | IOException e) {
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		} catch (WriterException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -264,12 +275,13 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	}
 
 	private static void iniGeonamesDump() {
-		try (Scanner geonamesDump =
+		final Scanner geonamesDump =
 				new Scanner(Thread
 						.currentThread()
 						.getContextClassLoader()
 						.getResourceAsStream(
-								System.getProperty(GEONAMES_DE_FILENAME_SYSTEM_PROPERTY)))) {
+								System.getProperty(GEONAMES_DE_FILENAME_SYSTEM_PROPERTY)));
+		try {
 			while (geonamesDump.hasNextLine()) {
 				String[] geonameDumpLines = geonamesDump.nextLine().split("\t");
 				if (geonameDumpLines[13].matches("\\d+")) {
@@ -278,6 +290,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 					GEONAMES_REGION_ID.put(gnRegionalId, gnId);
 				}
 			}
+		} finally {
+			geonamesDump.close();
 		}
 	}
 
@@ -285,8 +299,11 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		// see https://wiki.openstreetmap.org/wiki/DE:Nominatim#Nutzungsbedingungen
 		System.setProperty("http.agent",
 				"java.net.URLConnection, email=<semweb@hbz-nrw.de>");
-		try (FileInputStream fis = new FileInputStream(LAT_LON_FILENAME);
-				ObjectInputStream ois = new ObjectInputStream(fis)) {
+		FileInputStream fis = null;
+		ObjectInputStream ois = null;
+		try {
+			fis = new FileInputStream(LAT_LON_FILENAME);
+			ois = new ObjectInputStream(fis);
 			LAT_LON = (HashMap<String, Double[]>) ois.readObject();
 			LOG.info("Number of cached URLs in file " + LAT_LON_FILENAME + ":"
 					+ LAT_LON.size());
@@ -296,6 +313,9 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 					e.getMessage());
 		} catch (ClassNotFoundException e) {
 			LOG.error(e.getMessage(), e);
+		} finally {
+			Closeables.closeQuietly(fis);
+			Closeables.closeQuietly(ois);
 		}
 	}
 

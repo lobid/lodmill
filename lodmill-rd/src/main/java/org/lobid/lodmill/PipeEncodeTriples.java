@@ -36,13 +36,13 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	Stack<Resource> resources;
 	final AtomicInteger ATOMIC_INT = new AtomicInteger();
 	// dummy subject to store data even if the subject is unknown at first
-	final String DUMMY_SUBJECT = "dummy_subject";
+	final static String DUMMY_SUBJECT = "dummy_subject";
 
 	@Override
 	public void startRecord(final String identifier) {
 		model = ModelFactory.createDefaultModel();
 		super.subject = DUMMY_SUBJECT;
-		resources = new Stack<>();
+		resources = new Stack<Resource>();
 		resources.push(model.createResource(DUMMY_SUBJECT));
 	}
 
@@ -63,7 +63,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	}
 
 	Resource makeBnode(final String value) {
-		Resource res =
+		final Resource res =
 				model.createResource(new AnonId("_:" + value
 						+ ATOMIC_INT.getAndIncrement()));
 		model.add(resources.peek(), model.createProperty(value), res);
@@ -76,8 +76,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void startEntity(final String name) {
-		Resource res = makeBnode(name);
-		enterBnode(res);
+		enterBnode(makeBnode(name));
 	}
 
 	@Override
