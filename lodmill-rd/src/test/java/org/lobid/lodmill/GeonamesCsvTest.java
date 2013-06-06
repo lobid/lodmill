@@ -8,7 +8,7 @@ import org.culturegraph.mf.stream.reader.CsvReader;
 import org.junit.Test;
 
 /**
- * Ingest the a geonames dump tsv .
+ * Ingest the geonames tsv dump.
  * 
  * Run as JUnit test to print some stats, transform the fields and output
  * results as N-Triples and graphiz dot file.
