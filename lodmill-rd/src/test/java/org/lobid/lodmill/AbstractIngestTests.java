@@ -154,7 +154,7 @@ public abstract class AbstractIngestTests {
 		writeTextileMappingTable(entries, file);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
 		Assert.assertTrue("Values should have descending frequency", entries.get(0)
-				.getValue() > entries.get(entries.size() - 1).getValue());
+				.getValue() >= entries.get(entries.size() - 1).getValue());
 		Assert.assertTrue("Mapping table should exist", file.exists());
 		file.deleteOnExit();
 	}

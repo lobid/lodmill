@@ -1,6 +1,6 @@
 default files = FLUX_DIR;
 
-files + "Bibdat1303pp_sample.xml" |
+files + "Bibdat1303pp_sample1.xml" |
 open-file |
 decode-xml |
 handle-picaxml |
