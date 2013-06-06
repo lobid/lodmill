@@ -8,7 +8,7 @@ import org.culturegraph.mf.stream.reader.CsvReader;
 import org.junit.Test;
 
 /**
- * Ingest the ZDB ISIL Authority File PICA-XML .
+ * Ingest the a geonames dump tsv .
  * 
  * Run as JUnit test to print some stats, transform the fields and output
  * results as N-Triples and graphiz dot file.
@@ -29,12 +29,12 @@ public final class GeonamesCsvTest extends AbstractIngestTests {
 		super.triples("geonames_test.nt", "geonames.nt", new PipeEncodeTriples());
 	}
 
-	// @Test
+	@Test
 	public void testStatistics() throws IOException { // NOPMD
 		super.stats("mapping.textile");
 	}
 
-	// @Test
+	@Test
 	public void testDot() { // NOPMD
 		super.dot("zdb-isil-file_test.dot");
 	}
