@@ -60,11 +60,12 @@ public class BrowserTests {
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Index");
-				browser.find("input", withId("author")).text("Herman Melville");
+				browser.find("input", withId("name")).text("Loki Schmidt");
 				browser.find("button", withText("Search")).click();
 				assertThat(browser.url()).isNotEqualTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Documents");
-				assertTypee(browser);
+				assertThat(browser.pageSource()).contains("Schmidt, Hannelore")
+						.contains("Glaser, Hannelore").contains("Schmidt, Loki");
 			}
 		});
 	}

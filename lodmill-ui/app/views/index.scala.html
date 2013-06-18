@@ -6,7 +6,6 @@
 @withPage(link:String) = {@link&format=page}
 
 @main("Lobid API - Index") {
-
     <h2>API endpoints and parameters</h2>
     <p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below):</p>
     <table class="table table-striped">
@@ -77,14 +76,14 @@
 	<p>In addition to the missing API above (see TODO) we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints.</p>
 
 	<h2>API sample usage: auto-suggest</h2>
-	<p>Type an author name to get suggestions. Search will return resources with the selected author.</p>
+	<p>Type a person's name to get suggestions. Search will return details on the selected person.</p>
 	<div>
-	<form method="GET" class="form-inline" action="/resource"> <!-- use full URL in your code, i.e. http://api.lobid.org/resource -->
-		<input type="text" class="search" name="author" id="author" style="width:300px"/>
+	<form method="GET" class="form-inline" action="/person"> <!-- use full URL in your code, i.e. http://api.lobid.org/person -->
+		<input type="text" class="search" name="name" id="name" style="width:300px"/>
 		<input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
 		<button type="submit" class="btn">Search</button>
 	</form>
-	<p>This calls the <code>/resource</code> endpoint with the <code>format=short</code> parameter to get the suggestions. See source of this page for the implementation using JavaScript and jQuery UI.</p>
+	<p>This calls the <code>/person</code> endpoint with the <code>format=short</code> parameter to get the suggestions. See source of this page for the implementation using JavaScript and jQuery UI.</p>
 	<script>
 		$('input.search').each(function() {
 			var $input = $(this);
@@ -92,11 +91,11 @@
 				source : function(request, response) {
 					$.ajax({
 						// Get the autocomplete data from a remote URL (i.e. a different server from the one that
-						// serves this HTML) by using JSONP (use full URL in your code, i.e. http://api.lobid.org/resource):
-						url : "/resource",
+						// serves this HTML) by using JSONP (use full URL in your code, i.e. http://api.lobid.org/person):
+						url : "/person",
 						dataType : "jsonp",
 						data : {
-							author : request.term,
+							name : request.term,
 							format : "short"
 						},
 						success : function(data) {
