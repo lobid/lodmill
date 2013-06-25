@@ -12,6 +12,8 @@ See the @.travis.yml@ file for details on the CI config used by Travis.
 
 h1. Setup
 
+Prerequisites: Java 7 and Maven 3 (check @mvn -version@ to make sure Maven is using Java 7)
+
 To set up a local build of the lodmill components follow these steps:
 
 h6. Clone and build metafacture-core from its master branch
