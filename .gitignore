@@ -29,3 +29,4 @@ latlon.ser_*_
 logging.properties
 media
 log
+.DS_Store

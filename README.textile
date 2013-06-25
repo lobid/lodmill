@@ -2,11 +2,40 @@ h1. Lodmill
 
 Blend, grind, and enjoy LOD - fresh from the mill!
 
-This is early alpha work. The @lodmill-ld@ folder contains code for processing RDF with Hadoop and for indexing it in ElasticSearch. The @lodmill-ui@ folder contains a web app based on the Play framework that interacts with the resulting ElasticSearch index. The @lodmill-rd@ folder contains experimental work for working with raw data and its transformation to LOD.
+The @lodmill-ld@ folder contains code for processing RDF with Hadoop and for indexing it in Elasticsearch. The @lodmill-ui@ folder contains a web app based on the Play framework that interacts with the resulting Elasticsearch index. It provides an HTTP API to the index and a UI for documentation and basic sample usage. The @lodmill-rd@ folder contains experimental work for working with raw data and its transformation to LOD, based on the Culturegraph Metafacture toolkit.
 
 h1. Build
 
 "!https://secure.travis-ci.org/lobid/lodmill.png!":https://travis-ci.org/lobid/lodmill
+
+See the @.travis.yml@ file for details on the CI config used by Travis.
+
+h1. Setup
+
+To set up a local build of the lodmill components follow these steps:
+
+h6. Clone and build metafacture-core from its master branch
+
+@git clone https://github.com/culturegraph/metafacture-core.git@
+@cd metafacture-core@
+@mvn clean install@
+@cd ..@
+
+h6. Clone lodmill and run the Maven build for lodmill-ld and lodmill-rd
+
+@git clone https://github.com/lobid/lodmill.git@
+@cd lodmill@
+@umask 0022@ (required for MRUnit tests)
+@mvn clean install --settings settings.xml@ (or copy 'settings.xml' to '~/.m2')
+
+h6. Download Play and run the tests
+
+@wget http://downloads.typesafe.com/play/2.1.1/play-2.1.1.zip@
+@unzip play-2.1.1.zip@
+@cd lodmill-ui@
+@../play-2.1.1/play test@
+
+Replace 'test' with other Play commands, e.g. 'run' or 'eclipse' (to generate Eclipse project config files).
 
 h1. License
 
