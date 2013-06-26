@@ -24,7 +24,10 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
  * @author Jan Schnasse
  * 
  */
-@Description("Decodes a record in ntriple format")
+@Description("Decodes a record in ntriple format. "
+		+ "Creates a new entity for each statement. "
+		+ "The rdf subject is decoded as entity, "
+		+ "rdf predicates and rdf objects are decoded as literals (as key-value pairs).")
 @In(String.class)
 @Out(StreamReceiver.class)
 public final class NTripleDecoder extends

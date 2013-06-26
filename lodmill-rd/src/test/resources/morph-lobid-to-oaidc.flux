@@ -1,8 +1,8 @@
 default files = FLUX_DIR;
 
 url+"" |
-open-http-cn |
+open-http-with-accept-header | // open-http("Accept:text/plain")
 stream-to-string |
-decode-ntriple |
+decode-ntriples |
 morph(files + "morph-lobid-to-oaidc.xml") |
-encode-xml | write(""+out) ;
+encode-oai-dc | write(""+out) ;

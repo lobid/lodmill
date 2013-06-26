@@ -3,8 +3,10 @@
 package org.lobid.lodmill;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 
+import org.antlr.runtime.RecognitionException;
 import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.pipe.StreamLogger;
@@ -18,7 +20,7 @@ import org.junit.Test;
  * @author Jan Schnasse
  * 
  */
-public class OAIDCFlowTest {
+public class OaiDcFlowTest {
 
 	@SuppressWarnings("javadoc")
 	@Test
@@ -46,14 +48,14 @@ public class OAIDCFlowTest {
 	@Test
 	public void testFlow() {
 
-		final HttpOpener opener = new HttpOpener();
+		final HttpOpenerWithAcceptHeader opener = new HttpOpenerWithAcceptHeader();
 		final StreamToStringReader reader = new StreamToStringReader();
 		final NTripleDecoder decoder = new NTripleDecoder();
 		final StreamLogger logger = new StreamLogger("decoder");
 		final Metamorph metamorph = new Metamorph("morph-lobid-to-oaidc.xml");
-		final ObjectStdoutWriter writer = new ObjectStdoutWriter();
+		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<String>();
 		final StreamTee tee = new StreamTee();
-		final XMLEncoder encoder = new XMLEncoder();
+		final OaiDcEncoder encoder = new OaiDcEncoder();
 
 		metamorph.setReceiver(encoder).setReceiver(writer);
 		tee.addReceiver(logger);
@@ -70,19 +72,15 @@ public class OAIDCFlowTest {
 
 	@SuppressWarnings("javadoc")
 	@Test
-	public void testFlux() throws URISyntaxException {
-
-		try {
-			String lobidUrl = "http://www.lobid.org/resource/HT015696519/about";
-			File outfile = File.createTempFile("oaidc", "xml");
-			outfile.deleteOnExit();
-			File fluxFile =
-					new File(Thread.currentThread().getContextClassLoader()
-							.getResource("morph-lobid-to-oaidc.flux").toURI());
-			Flux.main(new String[] { fluxFile.getAbsolutePath(), "url=" + lobidUrl,
-					"out=" + outfile.getAbsolutePath() });
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void testFlux() throws IOException, URISyntaxException,
+			RecognitionException {
+		String lobidUrl = "http://www.lobid.org/resource/HT015696519/about";
+		File outfile = File.createTempFile("oaidc", "xml");
+		outfile.deleteOnExit();
+		File fluxFile =
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("morph-lobid-to-oaidc.flux").toURI());
+		Flux.main(new String[] { fluxFile.getAbsolutePath(), "url=" + lobidUrl,
+				"out=" + outfile.getAbsolutePath() });
 	}
 }

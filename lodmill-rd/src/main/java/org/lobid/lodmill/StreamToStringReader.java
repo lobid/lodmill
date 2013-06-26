@@ -9,6 +9,9 @@ import java.io.Reader;
 import org.culturegraph.mf.exceptions.MetafactureException;
 import org.culturegraph.mf.framework.DefaultObjectPipe;
 import org.culturegraph.mf.framework.ObjectReceiver;
+import org.culturegraph.mf.framework.annotations.Description;
+import org.culturegraph.mf.framework.annotations.In;
+import org.culturegraph.mf.framework.annotations.Out;
 
 /**
  * Reads all content of Reader to one single string.
@@ -16,6 +19,9 @@ import org.culturegraph.mf.framework.ObjectReceiver;
  * @author Jan Schnasse
  * 
  */
+@Description("Reads all content of Reader to one single string.")
+@In(Reader.class)
+@Out(String.class)
 public class StreamToStringReader extends
 		DefaultObjectPipe<Reader, ObjectReceiver<String>> {
 	private static final int BUFFER_SIZE = 1024 * 1024 * 16;

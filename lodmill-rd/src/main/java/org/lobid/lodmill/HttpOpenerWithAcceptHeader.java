@@ -25,7 +25,7 @@ import org.culturegraph.mf.stream.source.Opener;
 @Description("Opens a http resource.")
 @In(String.class)
 @Out(java.io.Reader.class)
-public final class HttpOpener extends
+public final class HttpOpenerWithAcceptHeader extends
 		DefaultObjectPipe<String, ObjectReceiver<Reader>> implements Opener {
 
 	private String defaultEncoding = "UTF-8";

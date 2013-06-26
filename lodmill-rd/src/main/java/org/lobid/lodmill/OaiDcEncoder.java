@@ -20,10 +20,12 @@ import org.culturegraph.mf.framework.annotations.Out;
  * @author Jan Schnasse
  * 
  */
-@Description("Encodes streams in oai_dc xml.")
+@Description("Encodes streams in oai_dc xml. Takes the result of a morph "
+		+ "an treats all literal names as tag names and all literal values as "
+		+ "tag values.")
 @In(StreamReceiver.class)
 @Out(String.class)
-public final class XMLEncoder extends DefaultStreamPipe<ObjectReceiver<String>> {
+public final class OaiDcEncoder extends DefaultStreamPipe<ObjectReceiver<String>> {
 
 	private final StringWriter writer = new StringWriter();
 	private String result = null;
