@@ -20,9 +20,8 @@ import org.junit.Test;
  * @author Jan Schnasse
  * 
  */
+@SuppressWarnings("javadoc")
 public class OaiDcFlowTest {
-
-	@SuppressWarnings("javadoc")
 	@Test
 	public void testDecoder() {
 		final EventList expected = new EventList();
@@ -32,22 +31,19 @@ public class OaiDcFlowTest {
 				"http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT002234391");
 		expected.endEntity();
 		expected.endRecord();
-
 		final NTripleDecoder decoder = new NTripleDecoder();
 		final StreamLogger logger = new StreamLogger("decoder");
 		final StreamValidator validator = new StreamValidator(expected.getEvents());
-
 		decoder.setReceiver(logger).setReceiver(validator);
-
 		decoder
-				.process("<http://lobid.org/resource/TT002234391> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT002234391> .");
+				.process("<http://lobid.org/resource/TT002234391> "
+						+ "<http://xmlns.com/foaf/0.1/isPrimaryTopicOf> "
+						+ "<http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT002234391> .");
 		decoder.closeStream();
 	}
 
-	@SuppressWarnings("javadoc")
 	@Test
 	public void testFlow() {
-
 		final HttpOpenerWithAcceptHeader opener = new HttpOpenerWithAcceptHeader();
 		opener.setAccept("text/plain");
 		final StreamToStringReader reader = new StreamToStringReader();
@@ -57,21 +53,16 @@ public class OaiDcFlowTest {
 		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<String>();
 		final StreamTee tee = new StreamTee();
 		final OaiDcEncoder encoder = new OaiDcEncoder();
-
 		metamorph.setReceiver(encoder).setReceiver(writer);
 		tee.addReceiver(logger);
 		tee.addReceiver(metamorph);
-
 		opener.setReceiver(reader);
 		reader.setReceiver(decoder);
 		decoder.setReceiver(tee);
-
 		opener.process("http://www.lobid.org/resource/HT015696519/about");
 		opener.closeStream();
-
 	}
 
-	@SuppressWarnings("javadoc")
 	@Test
 	public void testFlux() throws IOException, URISyntaxException,
 			RecognitionException {

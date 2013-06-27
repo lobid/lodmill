@@ -32,29 +32,23 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 @Out(StreamReceiver.class)
 public final class NTripleDecoder extends
 		DefaultObjectPipe<String, StreamReceiver> {
-
 	private int count = 0;
 
 	@Override
 	public void process(final String str) {
-
 		getReceiver().startRecord(String.valueOf(++count));
-
 		Model model = ModelFactory.createDefaultModel();
 		model.read(new StringReader(str), "test:uri:" + count, "N-TRIPLE");
 		StmtIterator iterator = model.listStatements();
-
 		while (iterator.hasNext()) {
 			Statement stm = iterator.next();
 			Resource subject = stm.getSubject();
 			Property predicate = stm.getPredicate();
 			RDFNode object = stm.getObject();
-
 			getReceiver().startEntity(subject.toString());
 			getReceiver().literal(predicate.toString(), object.toString());
 			getReceiver().endEntity();
 		}
-
 		getReceiver().endRecord();
 	}
 }
