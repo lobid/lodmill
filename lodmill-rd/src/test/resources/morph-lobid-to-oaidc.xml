@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
+	<rules>
+		<!-- General attributes for each record: -->
+
+		<data source="*.http://iflastandards.info/ns/isbd/elements/P1004"
+			name="dc:title">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://purl.org/dc/elements/1.1/contributor"
+			name="dc:contributer">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://purl.org/dc/terms/issued" name="dc:date">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://purl.org/dc/terms/language" name="dc:language">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://xmlns.com/foaf/0.1/isPrimaryTopicOf" name="dc:relation">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://purl.org/dc/terms/isPartOf" name="dc:relation">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+			name="dc:type">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://iflastandards.info/ns/isbd/elements/P1016"
+			name="dc:coverage">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://iflastandards.info/ns/isbd/elements/P1006"
+			name="decription">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://lobid.org/vocab/lobid#fulltextOnline"
+			name="dc:relation">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<data source="*.http://purl.org/dc/terms/subject" name="dc:subject">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+	</rules>
+	
+</metamorph>
