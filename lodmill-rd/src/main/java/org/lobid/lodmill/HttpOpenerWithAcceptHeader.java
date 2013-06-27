@@ -5,10 +5,6 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 import org.culturegraph.mf.exceptions.MetafactureException;
 import org.culturegraph.mf.framework.DefaultObjectPipe;
@@ -16,7 +12,6 @@ import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
-import org.culturegraph.mf.framework.annotations.ReturnsAvailableArguments;
 import org.culturegraph.mf.stream.source.Opener;
 
 /**
@@ -33,71 +28,26 @@ import org.culturegraph.mf.stream.source.Opener;
 public final class HttpOpenerWithAcceptHeader extends
 		DefaultObjectPipe<String, ObjectReceiver<Reader>> implements Opener {
 
-	private String defaultEncoding = "UTF-8";
-	private String defaultAccept = "*/*";
-
-	private static final String ACCEPT_PARAM =
-			"\"Accept:{type}/{subtype}\", e.g. default is \"Accept:*/*\".";
-
-	private static final List<String> ARGUMENTS = Collections
-			.unmodifiableList(Arrays.asList(ACCEPT_PARAM));
-
-	public HttpOpenerWithAcceptHeader() {
-
-	}
-
-	public HttpOpenerWithAcceptHeader(final String acceptHeader) {
-		String aH = acceptHeader.toLowerCase().trim();
-		if (aH.startsWith("accept:")) {
-			this.setDefaultAccept(aH.substring(7));
-		} else {
-			// fallback to default
-		}
-	}
-
-	@ReturnsAvailableArguments
-	public static Collection<String> getArguments() {
-		return ARGUMENTS;
-	}
+	private String encoding = "UTF-8";
+	private String accept = "*/*";
 
 	/**
-	 * Returns the default encoding used when no encoding is provided by the
-	 * server. The default setting is UTF-8.
+	 * Sets the accept to use when no accept is provided by the server.
 	 * 
-	 * @return current default setting
+	 * @param accept The accept header.
 	 */
-	public String getDefaultEncoding() {
-		return defaultEncoding;
-	}
-
-	/**
-	 * Sets the default accept to use when no accept is provided by the server.
-	 * The default setting is text/plain.
-	 * 
-	 * @param defaultAccept new default encoding
-	 */
-	public void setDefaultAccept(final String defaultAccept) {
-		this.defaultAccept = defaultAccept;
-	}
-
-	/**
-	 * Returns the default accept used when no accept is provided by the server.
-	 * The default setting is text/plain.
-	 * 
-	 * @return current default setting
-	 */
-	public String getDefaultAccept() {
-		return defaultAccept;
+	public void setAccept(final String accept) {
+		this.accept = accept;
 	}
 
 	/**
 	 * Sets the default encoding to use when no encoding is provided by the
 	 * server. The default setting is UTF-8.
 	 * 
-	 * @param defaultEncoding new default encoding
+	 * @param encoding new default encoding
 	 */
-	public void setDefaultEncoding(final String defaultEncoding) {
-		this.defaultEncoding = defaultEncoding;
+	public void setEncoding(final String encoding) {
+		this.encoding = encoding;
 	}
 
 	@Override
@@ -105,10 +55,11 @@ public final class HttpOpenerWithAcceptHeader extends
 		try {
 			final URL url = new URL(urlStr);
 			final URLConnection con = url.openConnection();
-			con.addRequestProperty("Accept", defaultAccept);
+			con.addRequestProperty("Accept", accept);
+			con.addRequestProperty("Accept-Charset", encoding);
 			String enc = con.getContentEncoding();
 			if (enc == null) {
-				enc = defaultEncoding;
+				enc = encoding;
 			}
 			getReceiver().process(new InputStreamReader(con.getInputStream(), enc));
 		} catch (IOException e) {

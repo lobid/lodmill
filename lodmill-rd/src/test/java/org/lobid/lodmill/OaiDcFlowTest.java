@@ -48,8 +48,8 @@ public class OaiDcFlowTest {
 	@Test
 	public void testFlow() {
 
-		final HttpOpenerWithAcceptHeader opener =
-				new HttpOpenerWithAcceptHeader("accept:text/plain");
+		final HttpOpenerWithAcceptHeader opener = new HttpOpenerWithAcceptHeader();
+		opener.setAccept("text/plain");
 		final StreamToStringReader reader = new StreamToStringReader();
 		final NTripleDecoder decoder = new NTripleDecoder();
 		final StreamLogger logger = new StreamLogger("decoder");
