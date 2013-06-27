@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,6 +43,8 @@ import play.mvc.Result;
 import play.test.TestServer;
 
 import com.google.common.base.Charsets;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 import com.google.common.io.CharStreams;
 
 /**
@@ -176,10 +181,26 @@ public class SearchTests {
 				final JsonNode jsonObject =
 						Json.parse(call("resource?author=abraham&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(sorted(list(jsonObject))).isEqualTo(list(jsonObject));
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
 			}
+
+			private List<String> sorted(List<String> list) {
+				List<String> sorted = new ArrayList<>(list);
+				Collections.sort(sorted);
+				return sorted;
+			}
 		});
+	}
+
+	private static List<String> list(JsonNode jsonObject) {
+		List<String> list = new ArrayList<>();
+		Iterator<JsonNode> elements = jsonObject.getElements();
+		while (elements.hasNext()) {
+			list.add(elements.next().asText());
+		}
+		return list;
 	}
 
 	@Test
@@ -217,8 +238,12 @@ public class SearchTests {
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(results);
 				if (results > 0) {
-					assertThat(jsonObject.get(0).asText()).isEqualTo(
-							"Schmidt, Hannelore (1919-2010)");
+					assertThat(Iterables.any(list(jsonObject), new Predicate<String>() {
+						@Override
+						public boolean apply(String s) {
+							return s.equals("Schmidt, Hannelore (1919-2010)");
+						}
+					})).isTrue();
 				}
 			}
 		});

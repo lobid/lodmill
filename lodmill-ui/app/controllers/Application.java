@@ -23,6 +23,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
@@ -95,8 +96,9 @@ public final class Application extends Controller {
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
 						.queryString().get("callback");
+		final List<String> matchedFields = Lists.transform(documents, jsonShort);
 		final JsonNode shortJson =
-				Json.toJson(ImmutableSet.copyOf(Lists.transform(documents, jsonShort)));
+				Json.toJson(ImmutableSortedSet.copyOf(matchedFields));
 		final ImmutableMap<ResultFormat, Result> results =
 				new ImmutableMap.Builder<ResultFormat, Result>()
 						.put(ResultFormat.PAGE,
