@@ -57,10 +57,11 @@ public class BrowserTests {
 	public void queryForm() {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
-			public void invoke(final TestBrowser browser) {
+			public void invoke(final TestBrowser browser) throws InterruptedException {
 				browser.goTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Index");
-				browser.find("input", withId("name")).text("Loki Schmidt");
+				browser.find("input", withId("id")).text(
+						"http://d-nb.info/gnd/118836617");
 				browser.find("button", withText("Search")).click();
 				assertThat(browser.url()).isNotEqualTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Documents");
