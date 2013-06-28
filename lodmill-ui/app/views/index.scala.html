@@ -5,10 +5,17 @@
 
 @withPage(link:String) = {@link&format=page}
 
+@formats(ref:String) = {<td>
+				<code><a href="@ref=short">short</a></code>,
+				<code><a href="@ref=ids">ids</a></code>,
+				<code><a href="@ref=page">page</a></code>,
+				<code><a href="@ref=full">full</a></code> (default)
+		</td>}
+
 @main("Lobid API - Index") {
-    <h2>API endpoints and parameters</h2>
-    <p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below):</p>
-    <table class="table table-striped">
+		<h2>API endpoints and parameters</h2>
+		<p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below):</p>
+		<table class="table table-striped">
 		<tr>
 			<th style="width: 10%">Parameters &rarr; <br/>&darr; Endpoint</th>
 			<th><code>id</code></th>
@@ -34,7 +41,7 @@
 				<td>
 					<a href="@withPage(ref._1)">@ref._1</a><br/>
 					<a href="@withPage(ref._2)">@ref._2</a><br/>(currently supported:<br/>GND by ID, Dewey by english label)</td>}
-			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			@formats("/resource?name=Typee&format")
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
 		<tr>
@@ -47,7 +54,7 @@
 			@defining("/organisation?name=Universität"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
 			<td>&mdash;</td>
 			<td>&mdash;</td>
-			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			@formats("/organisation?name=Universität&format")
 			<td>Authority data <br/> (lobid-organisations)</td>
 		</tr>
 		<tr>
@@ -60,7 +67,7 @@
 			@defining("/person?name=Johann+Sebastian+Bach"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
 			<td>&mdash;</td>
 			<td>&mdash;</td>
-			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			@formats("/person?name=Johann+Sebastian+Bach&format")
 			<td>Authority data <br/> (GND)</td>
 		</tr>
 		<tr>
@@ -69,21 +76,24 @@
 			@defining("/search?name=Basel"){ref => <td><a href="@ref">@ref</a></td>}
 			<td>&mdash;</td>
 			<td>&mdash;</td>
-			<td><code>short</code>, <code>full</code> (default)</td>
+			@defining("/search?name=Basel&format"){ ref => <td>
+				<code><a href="@ref=short">short</a></code>,
+				<code><a href="@ref=ids">ids</a></code>,
+				<code><a href="@ref=full">full</a></code> (default)
+			</td>}
 			<td>Search all <br/> (nested JSON result)
 		</tr>
 	</table>
 	<p>In addition to the missing API above (see TODO) we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints.</p>
 
 	<h2>API sample usage: auto-suggest</h2>
-	<p>Type a person's name to get suggestions. Search will return details on the selected person.</p>
-	<div>
+	<p>Type a person's name to get suggestions. Upon selecting a suggestion, the corresponding ID will be inserted. Search will return details on the selected person.</p>
 	<form method="GET" class="form-inline" action="/person"> <!-- use full URL in your code, i.e. http://api.lobid.org/person -->
-		<input type="text" class="search" name="name" id="name" style="width:300px"/>
+		<input type="text" class="search" name="id" id="id" style="width:300px"/>
 		<input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
 		<button type="submit" class="btn">Search</button>
 	</form>
-	<p>This calls the <code>/person</code> endpoint with the <code>format=short</code> parameter to get the suggestions. See source of this page for the implementation using JavaScript and jQuery UI.</p>
+	<p>This calls the <code>/person</code> endpoint with the <code>format=ids</code> parameter to get the suggestions. See source of this page for the implementation using JavaScript and jQuery UI.</p>
 	<script>
 		$('input.search').each(function() {
 			var $input = $(this);
@@ -96,7 +106,7 @@
 						dataType : "jsonp",
 						data : {
 							name : request.term,
-							format : "short"
+							format : "ids"
 						},
 						success : function(data) {
 							response(data);

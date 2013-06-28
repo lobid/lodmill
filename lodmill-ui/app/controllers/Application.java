@@ -3,6 +3,8 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import models.Document;
@@ -11,6 +13,7 @@ import models.Parameter;
 import models.Search;
 
 import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.node.ObjectNode;
 
 import play.Logger;
 import play.api.http.MediaRange;
@@ -90,15 +93,27 @@ public final class Application extends Controller {
 				}
 			};
 
+	private static Function<Document, JsonNode> jsonLabelValue =
+			new Function<Document, JsonNode>() {
+				@Override
+				public JsonNode apply(final Document doc) {
+					final ObjectNode object = Json.newObject();
+					object.put("label", doc.getMatchedField());
+					object.put("value", doc.getId());
+					return object;
+				}
+			};
+
 	private static ImmutableMap<ResultFormat, Result> results(final String query,
 			final List<Document> documents, final Index selectedIndex) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
 						.queryString().get("callback");
-		final List<String> matchedFields = Lists.transform(documents, jsonShort);
 		final JsonNode shortJson =
-				Json.toJson(ImmutableSortedSet.copyOf(matchedFields));
+				Json.toJson(sortStrings(Lists.transform(documents, jsonShort)));
+		final JsonNode labelAndValue =
+				Json.toJson(sortNodes(Lists.transform(documents, jsonLabelValue)));
 		final ImmutableMap<ResultFormat, Result> results =
 				new ImmutableMap.Builder<ResultFormat, Result>()
 						.put(ResultFormat.PAGE,
@@ -108,8 +123,27 @@ public final class Application extends Controller {
 						.put(
 								ResultFormat.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],
-										shortJson)) : ok(shortJson)).build();
+										shortJson)) : ok(shortJson))
+						.put(
+								ResultFormat.IDS,
+								callback != null ? ok(String.format("%s(%s)", callback[0],
+										labelAndValue)) : ok(labelAndValue)).build();
 		return results;
+	}
+
+	private static ImmutableSortedSet<String> sortStrings(List<String> nodes) {
+		return ImmutableSortedSet.copyOf(nodes);
+	}
+
+	private static List<JsonNode> sortNodes(List<JsonNode> nodes) {
+		final List<JsonNode> sorted = new ArrayList<>(nodes);
+		Collections.sort(sorted, new Comparator<JsonNode>() {
+			@Override
+			public int compare(JsonNode o1, JsonNode o2) {
+				return o1.get("label").asText().compareTo(o2.get("label").asText());
+			}
+		});
+		return sorted;
 	}
 
 	private static Result negotiateContent(List<Document> documents,
