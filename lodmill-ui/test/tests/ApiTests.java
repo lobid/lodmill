@@ -50,6 +50,8 @@ public class ApiTests {
 				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
 				{ "resource?subject=Chemistry&format=short",/* -> */
 				"Chemistry & allied sciences" },
+				{ "resource?name=Typee&format=ids",/* -> */
+				"http://lobid.org/resource/HT002189125" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
@@ -59,6 +61,8 @@ public class ApiTests {
 				{ "organisation?name=Basel",/* -> */"Universität Basel" },
 				{ "organisation?name=Basel&format=short",/* -> */
 				"Universität Basel" },
+				{ "organisation?name=Basel&format=ids",/* -> */
+				"http://lobid.org/organisation/SzBaU" },
 				/*-------------*/
 				/* GET /person */
 				/*-------------*/
@@ -67,11 +71,15 @@ public class ApiTests {
 				{ "person?name=Bach",/* -> */"Bach, Johann Sebastian" },
 				{ "person?name=Bach&format=short",/* -> */
 				"Bach, Johann Sebastian (1685-1750)" },
+				{ "person?name=Bach&format=ids", /* -> */
+				"http://d-nb.info/gnd/11850553X" },
 				/*-------------*/
 				/* GET /search */
 				/*-------------*/
 				{ "search?name=Bas",/* -> */"Bach, Johann Sebastian" },
-				{ "search?name=Bas",/* -> */"Universität Basel" }
+				{ "search?name=Bas",/* -> */"Universität Basel" },
+				{ "search?name=Bas&format=ids",/* -> */
+				"http://lobid.org/organisation/SzBaU" }
 		/**/
 		});
 	}
