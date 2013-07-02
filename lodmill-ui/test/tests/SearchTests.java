@@ -91,7 +91,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(32);
+				.isEqualTo(33);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -113,18 +113,31 @@ public class SearchTests {
 		}
 	}
 
-	@Test
-	public void searchViaModelBirth() {
+	/*@formatter:off*/
+	@Test public void searchViaModelBirth0() { findOneBy("Theo Hundt"); }
+	@Test public void searchViaModelBirth1() { findOneBy("Hundt, Theo (1906-)"); }
+	@Test public void searchViaModelBirth2() { findOneBy("Theo Hundt (1906-)"); }
+	@Test public void searchViaModelBirth3() { findOneBy("Goeters, Johann F. Gerhard (1926-1996)"); }
+	@Test public void searchViaModelMulti1() { findOneBy("Vollhardt, Kurt Peter C."); }
+	@Test public void searchViaModelMulti2() { findOneBy("Kurt Peter C. Vollhardt"); }
+	@Test public void searchViaModelMulti3() { findOneBy("Vollhardt, Kurt Peter C. (1946-)"); }
+	@Test public void searchViaModelMulti4() { findOneBy("Neil Eric Schore (1948-)"); }
+	/*@formatter:on*/
+
+	private static void findOneBy(String name) {
 		assertThat(
-				Search.documents("Hundt, Theo (1906-)", Index.LOBID_RESOURCES,
-						Parameter.AUTHOR).size()).isEqualTo(1);
+				Search.documents(name, Index.LOBID_RESOURCES, Parameter.AUTHOR).size())
+				.isEqualTo(1);
 	}
 
 	@Test
-	public void searchViaModelBirthDeath() {
-		assertThat(
-				Search.documents("Goeters, Johann F. Gerhard (1926-1996)",
-						Index.LOBID_RESOURCES, Parameter.AUTHOR).size()).isEqualTo(1);
+	public void searchViaModelMultiResult() {
+		List<Document> documents =
+				Search.documents("Neil Eric Schore (1948-)", Index.LOBID_RESOURCES,
+						Parameter.AUTHOR);
+		assertThat(documents.size()).isEqualTo(1);
+		assertThat(documents.get(0).getMatchedField()).isEqualTo(
+				"[Vollhardt, Kurt Peter C., Schore, Neil Eric] ([1948, 1946]-)");
 	}
 
 	@Test
