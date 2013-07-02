@@ -33,6 +33,10 @@
   "mappings":{
     "json-ld-lobid":{
       "properties":{
+        "http://purl.org/dc/elements/1.1/creator.@id":{
+          "type":"string",
+          "index":"not_analyzed"
+        },
         "http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",

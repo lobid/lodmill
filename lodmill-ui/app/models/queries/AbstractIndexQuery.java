@@ -41,8 +41,10 @@ public abstract class AbstractIndexQuery {
 				Pattern.compile("[^(]+" + lifeDates).matcher(search);
 		if (lifeDatesMatcher.find()) {
 			query = createAuthorQuery(lifeDates, search, lifeDatesMatcher);
-		} else if (search.matches("\\d+")) {
-			query = matchQuery(fields().get(3) + ".@id", search);
+		} else if (search.matches("(http://d-nb\\.info/gnd/)?\\d+")) {
+			final String term =
+					search.startsWith("http") ? search : "http://d-nb.info/gnd/" + search;
+			query = matchQuery(fields().get(3) + ".@id", term);
 		} else {
 			query = nameMatchQuery(search);
 		}

@@ -122,6 +122,8 @@ public class SearchTests {
 	@Test public void searchViaModelMulti2() { findOneBy("Kurt Peter C. Vollhardt"); }
 	@Test public void searchViaModelMulti3() { findOneBy("Vollhardt, Kurt Peter C. (1946-)"); }
 	@Test public void searchViaModelMulti4() { findOneBy("Neil Eric Schore (1948-)"); }
+	@Test public void searchViaModelMulti5() { findOneBy("131392786"); }
+	@Test public void searchViaModelMulti6() { findOneBy("http://d-nb.info/gnd/131392786"); }
 	/*@formatter:on*/
 
 	private static void findOneBy(String name) {
