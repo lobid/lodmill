@@ -102,8 +102,9 @@ public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase 
 		return response;
 	}
 
+	@Override
 	@After
-	public void close() {
+	public void tearDown() {
 		client.admin().indices().prepareDelete().execute().actionGet();
 		node.close();
 		try {
