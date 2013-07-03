@@ -10,9 +10,6 @@ import org.elasticsearch.search.SearchHit;
 
 import play.Logger;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
-
 /**
  * Process different kinds of result hits.
  * 
@@ -25,9 +22,7 @@ public enum Hit {
 		Document process(final String query, final Document document) {
 			final List<?> list = (List<?>) field;
 			if (list.get(0) instanceof String) {
-				@SuppressWarnings("unchecked")
-				final List<String> strings = (List<String>) field;
-				document.matchedField = firstMatching(query, strings);
+				STRING.process(query, document);
 			} else if (list.get(0) instanceof Map) {
 				@SuppressWarnings("unchecked")
 				final List<Map<String, Object>> maps =
@@ -95,17 +90,6 @@ public enum Hit {
 		Logger.debug(String.format("Hit '%s' contains none of the fields: '%s'",
 				hit.getSource(), fields));
 		return null;
-	}
-
-	private static String firstMatching(final String query,
-			final List<String> list) {
-		final Predicate<String> predicate = new Predicate<String>() {
-			@Override
-			public boolean apply(final String string) {
-				return string.toLowerCase().contains(query);
-			}
-		};
-		return Iterables.tryFind(list, predicate).orNull();
 	}
 
 	private static void processMaps(final String query, final Document document,
