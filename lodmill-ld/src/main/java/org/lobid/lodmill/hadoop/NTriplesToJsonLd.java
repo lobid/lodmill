@@ -19,13 +19,11 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.json.simple.JSONValue;
+import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-
-import de.dfki.km.json.JSONUtils;
-import de.dfki.km.json.jsonld.impl.JenaJSONLDSerializer;
 
 /**
  * Convert RDF represented as N-Triples to JSON-LD for elasticsearch indexing.
@@ -91,8 +89,12 @@ public class NTriplesToJsonLd implements Tool {
 		@Override
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
-			final String val = value.toString();
-			// we take all non-blank nodes and map them to their triples:
+			mapNonBlankNodesToTheirTriples(value, context, value.toString());
+		}
+
+		private static void mapNonBlankNodesToTheirTriples(final Text value,
+				final Context context, final String val) throws IOException,
+				InterruptedException {
 			if (val.startsWith("<http")) {
 				final String subject = val.substring(0, val.indexOf('>') + 1);
 				context.write(new Text(subject), value);
@@ -111,28 +113,31 @@ public class NTriplesToJsonLd implements Tool {
 		@Override
 		public void reduce(final Text key, final Iterable<Text> values,
 				final Context context) throws IOException, InterruptedException {
-			// Load them into a model:
+			final Model model = loadTriplesIntoJenaModel(values);
+			final String jsonLd = JsonLdConverter.jenaModelToJsonLd(model);
+			context.write(
+					// write both with JSONValue for consistent escaping:
+					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
+					new Text(JSONValue.toJSONString(JSONValue.parse(jsonLd))));
+		}
+
+		private static Model loadTriplesIntoJenaModel(final Iterable<Text> values) {
 			final Model model = ModelFactory.createDefaultModel();
 			for (Text value : values) {
 				try {
-					/* Convert literal URIs in N-Triple to real URIs: */
-					final String triple =
-							value.toString().replaceAll("\"\\s*?(http[s]?://[^\"]+)s*?\"",
-									"<$1>");
+					final String triple = fixInvalidUriLiterals(value);
 					model.read(new StringReader(triple), null, Format.N_TRIPLE.getName());
 				} catch (Exception e) {
 					System.err.println(String.format("Could not read '%s': %s", value,
 							e.getMessage()));
 				}
 			}
-			// And convert the model to JSON-LD:
-			final JenaJSONLDSerializer serializer = new JenaJSONLDSerializer();
-			serializer.importModel(model);
-			final String resource = JSONUtils.toString(serializer.asObject());
-			context.write(
-					// write both with JSONValue for consistent escaping:
-					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
-					new Text(JSONValue.toJSONString(JSONValue.parse(resource))));
+			return model;
+		}
+
+		private static String fixInvalidUriLiterals(Text value) {
+			return value.toString().replaceAll("\"\\s*?(http[s]?://[^\"]+)s*?\"",
+					"<$1>");
 		}
 
 		private static Map<String, Map<?, ?>> createIndexMap(final Text key,
@@ -155,7 +160,5 @@ public class NTriplesToJsonLd implements Tool {
 	@Override
 	public void setConf(Configuration conf) {
 		this.conf = conf;
-
 	}
-
 }

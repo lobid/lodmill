@@ -87,11 +87,6 @@ public final class GndNTriplesToJsonLdTests {
 	static Map<String, ?> jsonMap() {
 		final String idKey = "@id";// @formatter:off
 		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
-			put("@context", new HashMap<String, String>() {{//NOPMD
-					put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-					put("xsd", "http://www.w3.org/2001/XMLSchema#");
-					put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-			}});
 			put(idKey, TRIPLE_ID);
 			put("http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
 					"Adamucci, Antonio");

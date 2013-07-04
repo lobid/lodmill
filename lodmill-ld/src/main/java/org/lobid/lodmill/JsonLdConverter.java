@@ -4,19 +4,21 @@ package org.lobid.lodmill;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.HashMap;
 
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.github.jsonldjava.core.JSONLD;
+import com.github.jsonldjava.core.JSONLDProcessingError;
+import com.github.jsonldjava.core.Options;
+import com.github.jsonldjava.impl.JenaRDFParser;
+import com.github.jsonldjava.impl.JenaTripleCallback;
+import com.github.jsonldjava.utils.JSONUtils;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-
-import de.dfki.km.json.JSONUtils;
-import de.dfki.km.json.jsonld.JSONLDProcessor;
-import de.dfki.km.json.jsonld.impl.JenaJSONLDSerializer;
-import de.dfki.km.json.jsonld.impl.JenaTripleCallback;
 
 /**
  * A simple API for JSON-LD conversion (JSON-LD to RDF and RDF to JSON-LD),
@@ -58,17 +60,17 @@ public class JsonLdConverter {
 
 	/**
 	 * @param jsonLd The JSON-LD string to convert
-	 * @return The input, converted to this converters RDF serialization
+	 * @return The input, converted to this converters RDF serialization, or null
 	 */
 	public String toRdf(final String jsonLd) {
 		try {
-			final JSONLDProcessor processor = new JSONLDProcessor();
+			final Object jsonObject = JSONUtils.fromString(jsonLd);
 			final JenaTripleCallback callback = new JenaTripleCallback();
-			processor.triples(JSONUtils.fromString(jsonLd), callback);
+			final Model model = (Model) JSONLD.toRDF(jsonObject, callback);
 			final StringWriter writer = new StringWriter();
-			callback.getJenaModel().write(writer, format.getName());
+			model.write(writer, format.getName());
 			return writer.toString();
-		} catch (JsonParseException | JsonMappingException e) {
+		} catch (JsonParseException | JsonMappingException | JSONLDProcessingError e) {
 			LOG.error(e.getMessage(), e);
 		}
 		return null;
@@ -76,14 +78,28 @@ public class JsonLdConverter {
 
 	/**
 	 * @param rdf The RDF string in this converter's format
-	 * @return The input, converted to JSON-LD
+	 * @return The input, converted to JSON-LD, or null
 	 */
 	public String toJsonLd(final String rdf) {
 		final Model model = ModelFactory.createDefaultModel();
 		model.read(new StringReader(rdf), null, format.getName());
-		final JenaJSONLDSerializer serializer = new JenaJSONLDSerializer();
-		serializer.importModel(model);
-		return JSONUtils.toString(serializer.asObject());
+		return jenaModelToJsonLd(model);
+	}
+
+	/**
+	 * @param model The Jena model to serialize as a JSON-LD string
+	 * @return The JSON-LD serialization of the Jena model, or null
+	 */
+	public static String jenaModelToJsonLd(final Model model) {
+		final JenaRDFParser parser = new JenaRDFParser();
+		try {
+			Object json = JSONLD.fromRDF(model, new Options(), parser);
+			json = JSONLD.compact(json, new HashMap<String, Object>());
+			return JSONUtils.toString(json);
+		} catch (JSONLDProcessingError e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
