@@ -19,13 +19,11 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.json.simple.JSONValue;
+import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-
-import de.dfki.km.json.JSONUtils;
-import de.dfki.km.json.jsonld.impl.JenaJSONLDSerializer;
 
 /**
  * Convert RDF represented as N-Triples to JSON-LD for elasticsearch indexing.
@@ -125,14 +123,11 @@ public class NTriplesToJsonLd implements Tool {
 							e.getMessage()));
 				}
 			}
-			// And convert the model to JSON-LD:
-			final JenaJSONLDSerializer serializer = new JenaJSONLDSerializer();
-			serializer.importModel(model);
-			final String resource = JSONUtils.toString(serializer.asObject());
+			final String jsonLd = JsonLdConverter.jenaModelToJsonLd(model);
 			context.write(
 					// write both with JSONValue for consistent escaping:
 					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
-					new Text(JSONValue.toJSONString(JSONValue.parse(resource))));
+					new Text(JSONValue.toJSONString(JSONValue.parse(jsonLd))));
 		}
 
 		private static Map<String, Map<?, ?>> createIndexMap(final Text key,

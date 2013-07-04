@@ -152,12 +152,6 @@
 			<version>1.0.3</version>
 			<type>jar</type>
 			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.codehaus.jackson</groupId>
-					<artifactId>jackson-mapper-asl</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -177,9 +171,15 @@
 		</dependency>
 
 		<dependency>
-			<groupId>dfki.km.json</groupId>
+			<groupId>com.github.jsonld-java</groupId>
 			<artifactId>jsonld-java</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.jsonld-java</groupId>
+			<artifactId>jsonld-java-jena</artifactId>
+			<version>0.2</version>
 		</dependency>
 
 		<dependency>
@@ -242,8 +242,8 @@
 			<version>4.2.1</version>
 		</dependency>
 
-		<!-- 'provided' deps for globel exlusion (are pulled in by jfresnel), see 
-			http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
+		<!-- 'provided' deps for globel exlusion (are pulled in by jfresnel and 
+			jsonld-java), see http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
 		<dependency>
 			<groupId>com.hp.hpl.jena</groupId>
 			<artifactId>jena</artifactId>
@@ -257,7 +257,13 @@
 			<version>2.4</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- end global exclusion -->
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+			<scope>provided</scope>
+		</dependency>
 
 	</dependencies>
 </project>
