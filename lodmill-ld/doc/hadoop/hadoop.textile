@@ -1,32 +1,53 @@
 h1. Overview
 
-This directory contains documentation and the configuration setup we used to set up a small Hadoop test cluster with 4 nodes running Ubuntu 12.04 server edition.
+This directory contains documentation and the configuration setup we used to set up a small Hadoop cluster with 5 nodes running Ubuntu 12.04.2 LTS server edition ('precise'), Java 7, Hadoop 1.0.3, and Puppet 2.7.22.
 
 h2. Puppet
 
-We used Puppet to install Hadoop on the nodes, see "http://puppetlabs.com/puppet/what-is-puppet":http://puppetlabs.com/puppet/what-is-puppet:
+We used Puppet to install Hadoop on the nodes, see "http://puppetlabs.com/puppet/what-is-puppet":http://puppetlabs.com/puppet/what-is-puppet. First, we need to install Puppet on all machines. To get a current version of Puppet, add the Puppet repositories, see also "http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu":http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu as described for the master and the agents below.
 
-* first, we need to install Puppet on all machines. To get a current version of Puppet, add the Puppet repositories, see also "http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu":http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu:
+h3. Master
+
 * @wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb@
 * @sudo dpkg -i puppetlabs-release-precise.deb@
 * @sudo apt-get update@
-* on one of the nodes (the puppet master) install: @sudo apt-get install puppetmaster puppet@
-* on the other nodes install: @sudo apt-get install puppet@
-* copy the @puppet@ directory in here to @/etc/puppet@ on the puppet master
-* install the required patched java and hadoop modules (see textile files in @puppet/modules@)
-* configure the cluster's master and slave nodes in @/etc/puppet/modules/hadoop/manifests/params.pp@
-* if the nodes don't have the host names used in @puppet/manifests/nodes.pp@, map them in the @/etc/hosts@ files on the nodes
-* remove the localhost mappings (127.x.x.x) from the @/etc/hosts@ files on the nodes
-* TODO: try to automate some of the steps above with Puppet
-* start the puppet master: @puppet master --mkusers@
-* from each node (master and clients), request a certificate from the master: @puppet agent --test --server hydra1@ (hydra1 is the master)
-* on the master, sign the certificates: @puppet cert -s hydra1 hydra2 hydra3 hydra4@
-* from each node (master and clients), set everything up: @puppet agent --test --server hydra1@
+* @sudo apt-get install puppetmaster=2.7.22-1puppetlabs1 puppet=2.7.22-1puppetlabs1@
+* @cp -R puppet /etc/puppet@
+* @cd /etc/puppet/modules@
+* @git clone https://github.com/fsteeg/puppet-java.git java@
+* @git clone https://github.com/fsteeg/puppet-hadoop.git hadoop@
+* @ssh-keygen ; cp ~/.ssh /etc/puppet/modules/hadoop/ssh@
+* @cd /etc/puppet/modules/java/files@
+* @wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7u21-b11/jdk-7u21-linux-x64.tar.gz"@
+* @cd /etc/puppet/modules/hadoop/files@
+* @wget http://archive.apache.org/dist/hadoop/core/hadoop-1.0.3/hadoop-1.0.3.tar.gz@
+* remove/comment the localhost mappings (127.x.x.x) from the @/etc/hosts@ file
+* configure the puppet agents in @puppet/manifests/nodes.pp@
+* configure the Java version to use in @/etc/puppet/modules/java/manifests/params.pp@
+* configure the cluster's master and slave nodes in @/etc/puppet/modules/hadoop/manifests/params.pp@ (use the hostnames, not the aliases, i.e. the first value after the IP in /etc/hosts, not the second; don't include the master in the slave nodes)
+* start the puppet master: @sudo puppet master --mkusers@
+
+h3. Agents
+
+* @wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb@
+* @sudo dpkg -i puppetlabs-release-precise.deb@
+* @sudo apt-get update@
+* @sudo apt-get install puppet=2.7.22-1puppetlabs1@
+* remove/comment the localhost mappings (127.x.x.x) from the @/etc/hosts@ file
+
+h3. Both
+
+* from each node (master and clients), request a certificate from the master: @puppet agent --test --server weywot1.hbz-nrw.de@ (weywot1.hbz-nrw.de is the master)
+* if this fails with certificate issues run @puppet cert clean weywot1.hbz-nrw.de@ on the master and @rm -rf /var/lib/puppet/ssl@ on the clients
+* on the master, sign the certificates: @sudo puppet cert -s weywot1.hbz-nrw.de weywot2.hbz-nrw.de weywot3.hbz-nrw.de weywot4.hbz-nrw.de weywot5.hbz-nrw.de@
+* from each node (master and clients), set everything up: @puppet agent --test --server weywot1.hbz-nrw.de@
 * become the Hadoop user: @sudo su hduser@
-* the automated formatting of a new HDFS currently fails, see "http://projects.puppetlabs.com/issues/5876":http://projects.puppetlabs.com/issues/5876, so we do it manually on the master: @bin/hadoop namenode -format@
-* start all daemons: @cd /opt/hadoop/hadoop; bin/start-all.sh@
+* the automated formatting of a new HDFS currently fails, see "http://projects.puppetlabs.com/issues/5876":http://projects.puppetlabs.com/issues/5876, so we do it manually on the master and the clients: @bin/hadoop namenode -format@
+* start all daemons: @cd /opt/hadoop/hadoop; sh bin/start-all.sh@
 * visit the admin UIs at @http://<master>:50070/@ and @http://<master>:50030/@ to check if the cluster is up
 * copy the sample job files from the @sample@ directory to @/opt/hadoop/hadoop@ and run it: @sh temperature-sample.sh@
+
+After everything is set up and changes are made to the Puppet scripts, run @puppet agent --test --server weywot1.hbz-nrw.de@ on all machines to update the setup.
 
 h2. MAAS
 

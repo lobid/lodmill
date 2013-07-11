@@ -33,7 +33,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 public class NTriplesToJsonLd implements Tool {
 
 	private static final int NODES = 4; // e.g. 4 nodes in cluster
-	private static final int SLOTS = 2; // e.g. 2 cores per node
+	private static final int SLOTS = 8; // e.g. 8 cores per node
 	private static final String NEWLINE = "\n";
 	static final String INDEX_NAME = "index.name";
 	static final String INDEX_TYPE = "index.type";
