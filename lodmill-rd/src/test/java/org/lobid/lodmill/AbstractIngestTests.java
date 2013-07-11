@@ -3,7 +3,6 @@
 package org.lobid.lodmill;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,11 +26,10 @@ import org.culturegraph.mf.morph.MorphErrorHandler;
 import org.culturegraph.mf.stream.pipe.ObjectTee;
 import org.culturegraph.mf.stream.reader.Reader;
 import org.culturegraph.mf.stream.sink.ObjectWriter;
+import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.common.io.Closeables;
 
 /**
  * Ingest the ZVDD MARC-XML export.
@@ -163,15 +161,10 @@ public abstract class AbstractIngestTests {
 			final DefaultStreamPipe<ObjectReceiver<String>> encoder, final File file) {
 		final ObjectTee<String> tee = outputTee(file);
 		reader.setReceiver(metamorph).setReceiver(encoder).setReceiver(tee);
-		FileReader fileReader = null;
-		try {
-			fileReader = new FileReader(dataFile);
-			reader.process(fileReader);
-		} catch (FileNotFoundException e) {
-			LOG.error(e.getMessage(), e);
-		} finally {
-			Closeables.closeQuietly(fileReader);
-		}
+		FileOpener fileOpener = null;
+		fileOpener = new FileOpener();
+		fileOpener.setReceiver(reader);
+		fileOpener.process(dataFile);
 		reader.closeStream();
 		Assert.assertTrue("File should exist", file.exists());
 		Assert.assertTrue("File should not be empty", file.length() > 0);
