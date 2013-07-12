@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:mm="http://www.culturegraph.org/metamorph"
+<metamorph xmlns="http://www.culturegraph.org/metamorph" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
 	<rules>
 		<!-- General attributes for each record: -->
@@ -22,7 +22,7 @@
 			<lookup in="isil2dbpedia_map"/>
 		</data>
 		<!-- geoLocation -->
-		<mm:entity name="http://www.w3.org/2003/01/geo/wgs84_pos#location" flushWith="record">
+		<entity name="http://www.w3.org/2003/01/geo/wgs84_pos#location" flushWith="record">
 			<!--All entries already have a geo position or it will be computed -->
 			<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 				<regexp match=".*" format="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
@@ -39,7 +39,7 @@
 					<lookup in="geolocation-long_map"/>
 				</data>
 			</combine>
-		</mm:entity>
+		</entity>
 		<!-- /geoLocation -->
 		<combine name="http://www.w3.org/2006/vcard/ns#url" value="${hp}" sameEntity="true">
 			<data source="009Q.u" name="hp">
@@ -69,7 +69,7 @@
 			</data>
 		</combine>
 		<!-- adress -->
-		<mm:entity name="http://www.w3.org/2006/vcard/ns#adr" flushWith="record">
+		<entity name="http://www.w3.org/2006/vcard/ns#adr" flushWith="record">
 			<!-- assuming that if 032P appears there are entries for a vcard:adr -->
 			<data source="032P.*" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 				<regexp match=".*" format="http://www.w3.org/2006/vcard/ns#Address"/>
@@ -92,22 +92,22 @@
 					<lookup in="country-map"/>
 				</data>
 			</combine>
-		</mm:entity>
+		</entity>
 		<!-- /adress -->
 		<!-- opening hours -->
-		<mm:entity name="http://purl.org/goodrelations/v1#hasOpeningHoursSpecification"
+		<entity name="http://purl.org/goodrelations/v1#hasOpeningHoursSpecification"
 			flushWith="record">
 			<data source="032P.i" name="http://purl.org/dc/terms/description">
 			</data>
 			<data source="032P.i" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 				<regexp match="(.*)" format="http://purl.org/goodrelations/v1#OpeningHoursSpecification"/>
 			</data>
-		</mm:entity>
+		</entity>
 		<data source="032P.n" name="http://www.geonames.org/ontology#locatedIn">
 		</data>
 		<!-- /opening hours -->
 		<!-- phone -->
-		<mm:entity name="http://www.w3.org/2006/vcard/ns#tel">
+		<entity name="http://www.w3.org/2006/vcard/ns#tel">
 			<data source="035B.f" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 				<regexp match="(.*)" format="http://www.w3.org/2006/vcard/ns#Voice"/>
 			</data>
@@ -121,10 +121,10 @@
 				<data source="035B.f" name="phonenr">
 				</data>
 			</combine>
-		</mm:entity>
+		</entity>
 		<!-- /phone -->
 		<!-- fax -->
-		<mm:entity name="http://www.w3.org/2006/vcard/ns#tel">
+		<entity name="http://www.w3.org/2006/vcard/ns#tel">
 			<data source="035B.i" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 				<regexp match="(.*)" format="http://www.w3.org/2006/vcard/ns#Fax"/>
 			</data>
@@ -138,7 +138,7 @@
 				<data source="035B.i" name="faxnr">
 				</data>
 			</combine>
-		</mm:entity>
+		</entity>
 		<!-- /fax -->
 		<data source="035B.k" name="http://www.w3.org/2006/vcard/ns#email">
 			<regexp match="(.*)" format="mailto:${1}"/>
