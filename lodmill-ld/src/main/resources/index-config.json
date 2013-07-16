@@ -84,6 +84,11 @@
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
+        },
+        "http://purl.org/dc/terms/identifier":{
+          "type":"string",
+          "index_analyzer":"id_analyzer",
+          "search_analyzer":"id_analyzer"
         }
       }
     }

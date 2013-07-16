@@ -114,10 +114,18 @@ public class SearchTests {
 	}
 
 	@Test
-	public void searchViaModelOrg() {
+	public void searchViaModelOrgName() {
 		final String term = "hbz Land";
 		final List<Document> docs =
 				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME);
+		assertThat(docs.size()).isEqualTo(1);
+	}
+
+	@Test
+	public void searchViaModelOrgId() {
+		final String term = "DE-605";
+		final List<Document> docs =
+				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.ID);
 		assertThat(docs.size()).isEqualTo(1);
 	}
 
