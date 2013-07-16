@@ -115,7 +115,7 @@ public class SearchTests {
 
 	@Test
 	public void searchViaModelOrg() {
-		final String term = "hbz Landes";
+		final String term = "hbz Land";
 		final List<Document> docs =
 				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME);
 		assertThat(docs.size()).isEqualTo(1);

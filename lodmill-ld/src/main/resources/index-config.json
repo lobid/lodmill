@@ -79,6 +79,11 @@
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
+        },
+        "http://xmlns.com/foaf/0.1/name":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
         }
       }
     }
