@@ -1,17 +1,17 @@
 h1. Overview
 
-This directory contains documentation and the configuration setup we used to set up a small Hadoop cluster with 5 nodes running Ubuntu 12.04.2 LTS server edition ('precise'), Java 7, Hadoop 1.0.3, and Puppet 2.7.22.
+This file contains documentation and the configuration setup we used to set up our small Hadoop (5 nodes) and Elasticsearch (3 nodes) clusters. All machines are running Ubuntu 12.04.2 LTS server edition ('precise') and Java 7. We're using Elasticsearch 0.19.11, Hadoop 1.0.3, and Puppet 2.7.22 to set up the Hadoop nodes.
 
-h2. Puppet
+h1. Hadoop and Puppet
 
 We used Puppet to install Hadoop on the nodes, see "http://puppetlabs.com/puppet/what-is-puppet":http://puppetlabs.com/puppet/what-is-puppet. First, we need to install Puppet on all machines. To get a current version of Puppet, add the Puppet repositories, see also "http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu":http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu as described for the master and the agents below.
 
-h3. Master
+h2. Master
 
 * @wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb@
 * @sudo dpkg -i puppetlabs-release-precise.deb@
 * @sudo apt-get update@
-* @sudo apt-get install puppetmaster=2.7.22-1puppetlabs1 puppet=2.7.22-1puppetlabs1@
+* @sudo apt-get install puppetmaster=2.7.22-1puppetlabs1 puppet-common=2.7.22-1puppetlabs1 puppetmaster-common=2.7.22-1puppetlabs1 puppet=2.7.22-1puppetlabs1@
 * @cp -R puppet /etc/puppet@
 * @cd /etc/puppet/modules@
 * @git clone https://github.com/fsteeg/puppet-java.git java@
@@ -27,15 +27,15 @@ h3. Master
 * configure the cluster's master and slave nodes in @/etc/puppet/modules/hadoop/manifests/params.pp@ (use the hostnames, not the aliases, i.e. the first value after the IP in /etc/hosts, not the second; don't include the master in the slave nodes)
 * start the puppet master: @sudo puppet master --mkusers@
 
-h3. Agents
+h2. Agents
 
 * @wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb@
 * @sudo dpkg -i puppetlabs-release-precise.deb@
 * @sudo apt-get update@
-* @sudo apt-get install puppet=2.7.22-1puppetlabs1@
+* @sudo apt-get install puppet=2.7.22-1puppetlabs1 puppet-common=2.7.22-1puppetlabs1@
 * remove/comment the localhost mappings (127.x.x.x) from the @/etc/hosts@ file
 
-h3. Both
+h2. Both
 
 * from each node (master and clients), request a certificate from the master: @puppet agent --test --server weywot1.hbz-nrw.de@ (weywot1.hbz-nrw.de is the master)
 * if this fails with certificate issues run @puppet cert clean weywot1.hbz-nrw.de@ on the master and @rm -rf /var/lib/puppet/ssl@ on the clients
@@ -49,25 +49,33 @@ h3. Both
 
 After everything is set up and changes are made to the Puppet scripts, run @puppet agent --test --server weywot1.hbz-nrw.de@ on all machines to update the setup.
 
-h2. MAAS
+h1. Elasticsearch
 
-We initially wanted to install Ubuntu on the machines using Ubuntu's Metal-As-A-Service (MAAS) tool. Due to our network setup with an existing DHCP server this turned out to be rather tricky at this point (setting up MAAS with an existing DHCP server seems to be possible in general, but documentation and testing currently focusses on a setup where the MAAS server acts as the DHCP server for the entire network). So in the end, we installed the Ubuntu 12.04 server edition manually on our 4 nodes. We wrote up what we tried to get it running with MAAS in case we or someone else wants to pick up that approach in the future:
+h2. Install Elasticsearch
 
-* install MAAS server: boot from Ubuntu server CD, follow instructions, see also "https://wiki.ubuntu.com/ServerTeam/MAAS":https://wiki.ubuntu.com/ServerTeam/MAAS
-* @sudo maas createsuperuser@; @sudo maas-import-isos@; @sudo shutdown -r now@
-* add nodes via their MAC addresses, see also "https://wiki.ubuntu.com/ServerTeam/MAAS/AddNodes":https://wiki.ubuntu.com/ServerTeam/MAAS/AddNodes
-* all nodes should now be in state _Commissioning_ in the MAAS web config UI
-* boot the nodes from an Avahi USB stick, see "https://wiki.ubuntu.com/ServerTeam/MAAS/AvahiBoot":https://wiki.ubuntu.com/ServerTeam/MAAS/AvahiBoot
-* they should boot, do some stuff, and then shut down
-* if during booting you see _waiting for network config_ and the node is stuck with a login prompt, delete @/media/maas-rootfs/etc/udev/rules.d/70-persistent-net.rules@ on the stick
-* all nodes should now be in state _Ready_ in the MAAS web config UI
-* setup and bootstrap the juju environment on the MAAS server, see also "https://wiki.ubuntu.com/ServerTeam/MAAS/Juju":https://wiki.ubuntu.com/ServerTeam/MAAS/Juju:
-* @sudo apt-get install juju@; @mkdir ~/.juju@; @touch ~/.juju/environments.yaml@
-* write the generated MAAS key to the yaml file:
-* e.g. open lynx, go to localhost/MAAS, log in, open preferences,hit @\@, @p@, save as @prefs@
-* check how your key starts (e.g. 5x5), then @grep 5x5 prefs > ~/.juju/environments.yaml@
-* edit environments.yaml as described on "https://wiki.ubuntu.com/ServerTeam/MAAS/Juju":https://wiki.ubuntu.com/ServerTeam/MAAS/Juju
-* bootstrap juju: @ssh-keygen; juju bootstrap@
-* check the MAAS admin UI to see which node is in state _Allocated to ..._
-* boot that node from the Avahi stick, MAAS should install the OS on it (takes time)
-* now @juju status@ should show information about the nodes (didn't work for us because the MAAS server doesn't act as the DHCP server in our setup)
+* @sudo apt-get install java7-jdk@
+* @wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.19.11.deb@
+* @sudo dpkg -i elasticsearch-0.19.11.deb@
+* set @cluster.name : quaoar@ in @/etc/elasticsearch/elasticsearch.yml@
+* @sudo service elasticsearch restart@
+* @curl http://localhost:9200@
+
+h1. Install the elasticsearch-head plugin
+
+* @sudo /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head@
+* @curl http://localhost:9200/_plugin/head/@
+
+h1. Workflow for updates
+
+*Our current workflow for automatic updates:*
+
+- Transform union catalogue to RDF in N-Triple serialization, trigger update (lod_hdfs_update.sh):
+- Copy N-Triples from local file system to HDFS: @hadoop fs -copyFromLocal *.nt hdfs://weywot1.hbz-nrw.de:8020/user/hduser/update/@
+- SSH into the Hadoop cluster and start the updates script: @ssh hduser@weywot1.hbz-nrw.de "cd /home/sol/git/lodmill/lodmill-ld/doc/scripts; bash -x job_updates.sh"@ (this requires a correct SSH key setup: public key of user logging in should be in hduser's authorized_keys).
+- Delete the updates in the local file system: @rm *.nt@
+
+*The job_updates.sh script calls the conversion and index scripts:*
+
+- Use the external LOD (for enrichment) and our updated LOD as the input: @sh convert-lobid.sh extlod,update output/json-ld-update@
+- Index the resulting output in elasticsearch: @sh index.sh output/json-ld-update@
+- Delete the updates in HDFS: @hadoop fs -rm update/*@
