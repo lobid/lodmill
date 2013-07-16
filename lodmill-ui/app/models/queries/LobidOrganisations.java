@@ -8,6 +8,7 @@ import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
 import java.util.Arrays;
 import java.util.List;
 
+import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
 import org.elasticsearch.index.query.QueryBuilder;
 
 /**
@@ -46,7 +47,8 @@ public class LobidOrganisations {
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return multiMatchQuery(queryString, fields().toArray(new String[] {}));
+			return multiMatchQuery(queryString, fields().toArray(new String[] {}))
+					.operator(Operator.AND);
 		}
 
 	}
