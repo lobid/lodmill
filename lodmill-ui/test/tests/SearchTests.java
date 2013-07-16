@@ -91,7 +91,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(33);
+				.isEqualTo(35);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -111,6 +111,22 @@ public class SearchTests {
 		for (Document document : docs) {
 			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
 		}
+	}
+
+	@Test
+	public void searchViaModelOrgName() {
+		final String term = "hbz Land";
+		final List<Document> docs =
+				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME);
+		assertThat(docs.size()).isEqualTo(1);
+	}
+
+	@Test
+	public void searchViaModelOrgId() {
+		final String term = "DE-605";
+		final List<Document> docs =
+				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.ID);
+		assertThat(docs.size()).isEqualTo(1);
 	}
 
 	/*@formatter:off*/
