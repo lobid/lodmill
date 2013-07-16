@@ -1,20 +1,24 @@
-node hydra1 {
+node weywot1 {
     include java
     include hadoop
 }
 
-node hydra2 {
+node weywot2 {
     include java
     include hadoop
 }
 
-node hydra3 {
+node weywot3 {
     include java
     include hadoop
 }
 
-node hydra4 {
+node weywot4 {
     include java
     include hadoop
 }
 
+node weywot5 {
+    include java
+    include hadoop
+}

@@ -1,34 +1,4 @@
-h1. Overview
-
-This directory contains documentation and the configuration setup we used to set up a small Hadoop test cluster with 4 nodes running Ubuntu 12.04 server edition.
-
-h2. Puppet
-
-We used Puppet to install Hadoop on the nodes, see "http://puppetlabs.com/puppet/what-is-puppet":http://puppetlabs.com/puppet/what-is-puppet:
-
-* first, we need to install Puppet on all machines. To get a current version of Puppet, add the Puppet repositories, see also "http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu":http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-debian-and-ubuntu:
-* @wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb@
-* @sudo dpkg -i puppetlabs-release-precise.deb@
-* @sudo apt-get update@
-* on one of the nodes (the puppet master) install: @sudo apt-get install puppetmaster puppet@
-* on the other nodes install: @sudo apt-get install puppet@
-* copy the @puppet@ directory in here to @/etc/puppet@ on the puppet master
-* install the required patched java and hadoop modules (see textile files in @puppet/modules@)
-* configure the cluster's master and slave nodes in @/etc/puppet/modules/hadoop/manifests/params.pp@
-* if the nodes don't have the host names used in @puppet/manifests/nodes.pp@, map them in the @/etc/hosts@ files on the nodes
-* remove the localhost mappings (127.x.x.x) from the @/etc/hosts@ files on the nodes
-* TODO: try to automate some of the steps above with Puppet
-* start the puppet master: @puppet master --mkusers@
-* from each node (master and clients), request a certificate from the master: @puppet agent --test --server hydra1@ (hydra1 is the master)
-* on the master, sign the certificates: @puppet cert -s hydra1 hydra2 hydra3 hydra4@
-* from each node (master and clients), set everything up: @puppet agent --test --server hydra1@
-* become the Hadoop user: @sudo su hduser@
-* the automated formatting of a new HDFS currently fails, see "http://projects.puppetlabs.com/issues/5876":http://projects.puppetlabs.com/issues/5876, so we do it manually on the master: @bin/hadoop namenode -format@
-* start all daemons: @cd /opt/hadoop/hadoop; bin/start-all.sh@
-* visit the admin UIs at @http://<master>:50070/@ and @http://<master>:50030/@ to check if the cluster is up
-* copy the sample job files from the @sample@ directory to @/opt/hadoop/hadoop@ and run it: @sh temperature-sample.sh@
-
-h2. MAAS
+h1. MAAS
 
 We initially wanted to install Ubuntu on the machines using Ubuntu's Metal-As-A-Service (MAAS) tool. Due to our network setup with an existing DHCP server this turned out to be rather tricky at this point (setting up MAAS with an existing DHCP server seems to be possible in general, but documentation and testing currently focusses on a setup where the MAAS server acts as the DHCP server for the entire network). So in the end, we installed the Ubuntu 12.04 server edition manually on our 4 nodes. We wrote up what we tried to get it running with MAAS in case we or someone else wants to pick up that approach in the future:
 
