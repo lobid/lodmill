@@ -56,7 +56,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	private static final String DEWEY_SUFFIX = "2009/08/about.en";
 
 	private static final int NODES = 4; // e.g. 4 nodes in cluster
-	private static final int SLOTS = 2; // e.g. 2 cores per node
+	private static final int SLOTS = 8; // e.g. 8 cores per node
 	private static final String NEWLINE = "\n";
 
 	private static final Logger LOG = LoggerFactory
