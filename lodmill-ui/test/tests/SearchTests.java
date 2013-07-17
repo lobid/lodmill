@@ -121,9 +121,12 @@ public class SearchTests {
 		assertThat(docs.size()).isEqualTo(1);
 	}
 
-	@Test
-	public void searchViaModelOrgId() {
-		final String term = "DE-605";
+	/*@formatter:off*/
+	@Test public void searchViaModelOrgIdShort() { searchOrgById("DE-605"); }
+	@Test public void searchViaModelOrgIdLong() { searchOrgById("http://lobid.org/organisation/DE-605"); }
+	/*@formatter:on*/
+
+	private static void searchOrgById(final String term) {
 		final List<Document> docs =
 				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.ID);
 		assertThat(docs.size()).isEqualTo(1);
