@@ -84,7 +84,9 @@
 			<td>Search all <br/> (nested JSON result)
 		</tr>
 	</table>
-	<p>In addition to the missing API above (see TODO) we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints.</p>
+
+	<p>All endpoints above support pagination via <code>from</code> and <code>size</code> parameters specifying the index to start the result set from (default is 0, must be >= 0), and the size of the result set (default is 50, must be <= 100). Sample request: <a href="/organisation?name=Universität&from=10&size=5&format=ids">/organisation?name=Universität&from=10&size=5&format=ids</a>.</p>
+	<p>In addition to the API above we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints. See our <a href="https://github.com/lobid/lodmill/issues?state=open">open issues</a> and <a href="https://github.com/lobid/lodmill/issues/milestones">milestones</a> on GitHub.</p>
 
 	<h2>API sample usage: auto-suggest</h2>
 	<p>Type a person's name to get suggestions. Upon selecting a suggestion, the corresponding ID will be inserted. Search will return details on the selected person.</p>

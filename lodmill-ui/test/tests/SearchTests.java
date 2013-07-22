@@ -55,6 +55,8 @@ import com.google.common.io.CharStreams;
 @SuppressWarnings("javadoc")
 public class SearchTests {
 
+	private static final int FROM = 0;
+	private static final int SIZE = 50;
 	private static final Index TEST_INDEX = Index.LOBID_RESOURCES;
 	static final String TERM = "theo";
 	static final int TEST_SERVER_PORT = 5000;
@@ -106,7 +108,8 @@ public class SearchTests {
 	@Test
 	public void searchViaModel() {
 		final List<Document> docs =
-				Search.documents(TERM, Index.LOBID_RESOURCES, Parameter.AUTHOR);
+				Search.documents(TERM, Index.LOBID_RESOURCES, Parameter.AUTHOR, FROM,
+						SIZE);
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
@@ -117,7 +120,8 @@ public class SearchTests {
 	public void searchViaModelOrgName() {
 		final String term = "hbz Land";
 		final List<Document> docs =
-				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME);
+				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME, FROM,
+						SIZE);
 		assertThat(docs.size()).isEqualTo(1);
 	}
 
@@ -128,7 +132,8 @@ public class SearchTests {
 
 	private static void searchOrgById(final String term) {
 		final List<Document> docs =
-				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.ID);
+				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.ID, FROM,
+						SIZE);
 		assertThat(docs.size()).isEqualTo(1);
 	}
 
@@ -147,15 +152,15 @@ public class SearchTests {
 
 	private static void findOneBy(String name) {
 		assertThat(
-				Search.documents(name, Index.LOBID_RESOURCES, Parameter.AUTHOR).size())
-				.isEqualTo(1);
+				Search.documents(name, Index.LOBID_RESOURCES, Parameter.AUTHOR, FROM,
+						SIZE).size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelMultiResult() {
 		List<Document> documents =
 				Search.documents("Neil Eric Schore (1948-)", Index.LOBID_RESOURCES,
-						Parameter.AUTHOR);
+						Parameter.AUTHOR, FROM, SIZE);
 		assertThat(documents.size()).isEqualTo(1);
 		assertThat(documents.get(0).getMatchedField()).isEqualTo(
 				"[Vollhardt, Kurt Peter C., Schore, Neil Eric] ([1948, 1946]-)");
@@ -334,6 +339,50 @@ public class SearchTests {
 				/* turtle is a subset of n3 for RDF */
 				assertThat(turtle).isNotEmpty().isEqualTo(n3);
 				assertThat(n3).isNotEmpty();
+			}
+		});
+	}
+
+	@Test
+	public void searchWithLimit() {
+		final Index index = Index.LOBID_RESOURCES;
+		final Parameter parameter = Parameter.AUTHOR;
+		assertThat(Search.documents("ha", index, parameter, 0, 3).size())
+				.isEqualTo(3);
+		assertThat(Search.documents("ha", index, parameter, 3, 6).size())
+				.isEqualTo(6);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void searchWithLimitInvalidFrom() {
+		Search.documents("ha", Index.LOBID_RESOURCES, Parameter.AUTHOR, -1, 3);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void searchWithLimitInvalidSize() {
+		Search.documents("ha", Index.LOBID_RESOURCES, Parameter.AUTHOR, 0, 101);
+	}
+
+	@Test
+	public void searchWithLimitApi() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(call("resource?author=ha&from=0&size=3")).isNotEmpty()
+						.isNotEqualTo(call("resource?author=ha&from=3&size=6"));
+			}
+		});
+	}
+
+	@Test
+	public void searchWithLimitApiDefaults() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(call("resource?author=ha&from=0&size=3")).isEqualTo(
+						call("resource?author=ha&size=3")); /* default 'from' is 0 */
+				assertThat(call("resource?author=ha&from=10&size=50")).isEqualTo(
+						call("resource?author=ha&from=10")); /* default 'size' is 50 */
 			}
 		});
 	}
