@@ -55,13 +55,16 @@ public final class Application extends Controller {
 	 * @param parameter The search parameter type (see {@link Parameter}).
 	 * @param queryParameter The search query
 	 * @param formatParameter The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
 	 * @return The results, in the format specified
 	 */
 	static Result search(final Index index, final Parameter parameter,
-			final String queryParameter, final String formatParameter) {
+			final String queryParameter, final String formatParameter,
+			final int from, final int size) {
 		List<Document> docs = new ArrayList<>();
 		try {
-			docs = Search.documents(queryParameter, index, parameter);
+			docs = Search.documents(queryParameter, index, parameter, from, size);
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());

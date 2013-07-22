@@ -32,23 +32,32 @@ public final class Api extends Controller {
 	 * @param author The resource author
 	 * @param subject The resource subject
 	 * @param format The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
 	 * @return Matching resources
 	 */
-	public static Result resource(final String id, final String name, // NOPMD
-			final String author, final String subject, final String format) {
+	public static Result resource(final String id,
+			final String name, // NOPMD
+			final String author, final String subject, final String format,
+			final int from, final int size) {
 		Logger.debug(String.format(
 				"GET /resource; id: '%s', name: '%s', author: '%s', subject: '%s'", id,
 				name, author, subject));
 		final Index index = Index.LOBID_RESOURCES;
 		Result result = null;
 		if (defined(id)) {
-			result = Application.search(index, Parameter.ID, id, format);
+			result = Application.search(index, Parameter.ID, id, format, from, size);
 		} else if (defined(name)) {
-			result = Application.search(index, Parameter.NAME, name, format);
+			result =
+					Application.search(index, Parameter.NAME, name, format, from, size);
 		} else if (defined(author)) {
-			result = Application.search(index, Parameter.AUTHOR, author, format);
+			result =
+					Application.search(index, Parameter.AUTHOR, author, format, from,
+							size);
 		} else if (defined(subject)) {
-			result = Application.search(index, Parameter.SUBJECT, subject, format);
+			result =
+					Application.search(index, Parameter.SUBJECT, subject, format, from,
+							size);
 		}
 		return result;
 	}
@@ -57,18 +66,21 @@ public final class Api extends Controller {
 	 * @param id The organisation ID
 	 * @param name The organisation name
 	 * @param format The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
 	 * @return Matching organisations
 	 */
 	public static Result organisation(final String id, final String name, // NOPMD
-			final String format) {
+			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /organisation; id: '%s', name: '%s'", id,
 				name));
 		final Index index = Index.LOBID_ORGANISATIONS;
 		Result result = null;
 		if (defined(id)) {
-			result = Application.search(index, Parameter.ID, id, format);
+			result = Application.search(index, Parameter.ID, id, format, from, size);
 		} else if (defined(name)) {
-			result = Application.search(index, Parameter.NAME, name, format);
+			result =
+					Application.search(index, Parameter.NAME, name, format, from, size);
 		}
 		return result;
 	}
@@ -77,17 +89,20 @@ public final class Api extends Controller {
 	 * @param id The person ID
 	 * @param name The person name
 	 * @param format The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
 	 * @return Matching persons
 	 */
 	public static Result person(final String id, final String name, // NOPMD
-			final String format) {
+			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /person; id: '%s', name: '%s'", id, name));
 		final Index index = Index.GND;
 		Result result = null;
 		if (defined(id)) {
-			result = Application.search(index, Parameter.ID, id, format);
+			result = Application.search(index, Parameter.ID, id, format, from, size);
 		} else if (defined(name)) {
-			result = Application.search(index, Parameter.NAME, name, format);
+			result =
+					Application.search(index, Parameter.NAME, name, format, from, size);
 		}
 		return result;
 	}
@@ -96,10 +111,12 @@ public final class Api extends Controller {
 	 * @param id Some ID
 	 * @param name Some name
 	 * @param format The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
 	 * @return Matching entities, combined in a JSON map
 	 */
 	public static Result search(final String id, final String name, // NOPMD
-			final String format) {
+			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /search; id: '%s', name: '%s'", id, name));
 		if (format.equals("page")) { // NOPMD
 			final String message = "Result format 'page' not supported for /entity";
@@ -107,9 +124,9 @@ public final class Api extends Controller {
 			return badRequest(message);
 		}
 		final ObjectNode json = Json.newObject();
-		putIfOk(json, "resource", resource(id, name, "", "", format));
-		putIfOk(json, "organisation", organisation(id, name, format));
-		putIfOk(json, "person", person(id, name, format));
+		putIfOk(json, "resource", resource(id, name, "", "", format, from, size));
+		putIfOk(json, "organisation", organisation(id, name, format, from, size));
+		putIfOk(json, "person", person(id, name, format, from, size));
 		Logger.trace("JSON response: " + json);
 		return ok(json);
 	}

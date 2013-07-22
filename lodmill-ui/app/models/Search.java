@@ -58,11 +58,13 @@ public class Search {
 	 * @param term The search term
 	 * @param index The index to search (see {@link Index})
 	 * @param parameter The search parameter (see {@link Index#queries()} )
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
 	 * @return The documents matching the given parameters
 	 */
 	public static List<Document> documents(final String term, final Index index,
-			final Parameter parameter) {
-		validate(index, parameter);
+			final Parameter parameter, final int from, final int size) {
+		validate(index, parameter, from, size);
 		final String query = term.toLowerCase();
 		AbstractIndexQuery indexQuery = index.queries().get(parameter);
 		final QueryBuilder queryBuilder = indexQuery.build(query);
@@ -72,7 +74,7 @@ public class Search {
 					query, index, parameter));
 		}
 		Logger.debug("Using query: " + queryBuilder);
-		final SearchResponse response = search(index, queryBuilder);
+		final SearchResponse response = search(index, queryBuilder, from, size);
 		Logger.trace("Got response: " + response);
 		final SearchHits hits = response.getHits();
 		final List<Document> documents =
@@ -82,7 +84,8 @@ public class Search {
 		return documents;
 	}
 
-	private static void validate(final Index index, final Parameter parameter) {
+	private static void validate(final Index index, final Parameter parameter,
+			final int from, final int size) {
 		if (index == null) {
 			throw new IllegalArgumentException(String.format(
 					"Invalid index ('%s') - valid indexes: %s", index, Index.values()));
@@ -92,17 +95,22 @@ public class Search {
 					"Invalid parameter ('%s') for specified index ('%s') - valid: %s",
 					parameter, index, index.queries().keySet()));
 		}
+		if (from < 0) {
+			throw new IllegalArgumentException("Parameter 'from' must be positive");
+		}
+		if (size > 100) {
+			throw new IllegalArgumentException("Parameter 'size' must be <= 100");
+		}
 	}
 
 	private static SearchResponse search(final Index index,
-			QueryBuilder queryBuilder) {
+			QueryBuilder queryBuilder, final int from, final int size) {
 		final SearchRequestBuilder requestBuilder =
 				client.prepareSearch(index.id())
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 						.setQuery(queryBuilder);
-		/* TODO: pass limit as a parameter */
 		final SearchResponse response =
-				requestBuilder.setFrom(0).setSize(50).setExplain(false).execute()
+				requestBuilder.setFrom(from).setSize(size).setExplain(false).execute()
 						.actionGet();
 		return response;
 	}
