@@ -35,7 +35,7 @@ public final class OaiDcEncoder extends
 					+ "\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n"
 					+ "\txmlns:dcterms=\"http://purl.org/dc/terms/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" \n"
 					+ "\txsi:schemaLocation=\"http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd\">\n";
-	private final String xmlPostambel = "</oai_dc>\n";
+	private final String xmlPostambel = "</oai_dc:dc>\n";
 
 	@Override
 	public void startRecord(final String id) {
