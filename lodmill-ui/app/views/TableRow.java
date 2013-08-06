@@ -10,5 +10,5 @@ package views;
 @SuppressWarnings("javadoc")
 /* no javadoc for elements. */
 public enum TableRow {
-	SINGLE_VALUE, SINGLE_LINK, MULTI_VALUE, MULTI_LINK, SINGLE_IMAGE
+	VALUES, LINKS, IMAGE
 }

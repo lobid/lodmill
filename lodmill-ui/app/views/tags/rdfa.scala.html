@@ -7,35 +7,21 @@
   case Some(node) => node
   case None => doc \ property
 }}
+@multiSingleOrEmptySeq(value: JsValue) = @{
+	jsonVal.asOpt[Seq[JsValue]].getOrElse(if(value.asOpt[String].isDefined) Seq(jsonVal) else Seq())
+}
 
 @row match {
-  case views.TableRow.SINGLE_VALUE => {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      <td property="@property">@string(jsonVal)</td>
-    </tr>
-  }
-  case views.TableRow.SINGLE_LINK => {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      <td>
-        @((jsonVal \ "@id").asOpt[String]) match {
-          case Some(link) => {<a rel="@property" href="@link">@link</a>}
-          case None => {--}
-        }
-      </td>
-    </tr>
-  }
-  case views.TableRow.MULTI_VALUE => {
-    @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
+  case views.TableRow.VALUES => {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal)) {
       <tr>
         <td><a href="@property">@label</a></td>
         <td property="@property">@string(elem)</td>
       </tr>
     }
   }
-  case views.TableRow.MULTI_LINK => {
-    @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
+  case views.TableRow.LINKS => {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal \ "@id")) {
       <tr>
         <td><a href="@property">@label</a></td>
         <td>
@@ -44,7 +30,7 @@
       </tr>
     }
   }
-  case views.TableRow.SINGLE_IMAGE => {
+  case views.TableRow.IMAGE => {
     <tr>
       <td><a href="@property">@label</a></td>
       <td>
