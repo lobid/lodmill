@@ -4,21 +4,21 @@
 @import views.TableRow
 @import tags._
 <table class="table table-striped">
-  @rdfa("ID", "http://lobid.org/resource", doc, TableRow.SINGLE_LINK, node = Option(doc))
-  @rdfa("Titel", "http://iflastandards.info/ns/isbd/elements/P1004", doc, TableRow.SINGLE_VALUE)
-  @rdfa("Titelzusatz", "http://iflastandards.info/ns/isbd/elements/P1006", doc, TableRow.SINGLE_VALUE)
-  @rdfa("Autor", "http://purl.org/dc/elements/1.1/creator", doc, TableRow.SINGLE_LINK)
-  @rdfa("Name", "http://purl.org/dc/elements/1.1/creator", doc, TableRow.SINGLE_VALUE,
+  @rdfa("ID", "http://lobid.org/resource", doc, TableRow.LINKS, node = Option(doc))
+  @rdfa("Titel", "http://iflastandards.info/ns/isbd/elements/P1004", doc, TableRow.VALUES)
+  @rdfa("Titelzusatz", "http://iflastandards.info/ns/isbd/elements/P1006", doc, TableRow.VALUES)
+  @rdfa("Autor", "http://purl.org/dc/elements/1.1/creator", doc, TableRow.LINKS)
+  @rdfa("Name", "http://purl.org/dc/elements/1.1/creator", doc, TableRow.VALUES,
     node = Option(doc \ "http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson"))
-  @rdfa("Erscheinungsjahr", "http://purl.org/dc/terms/issued", doc, TableRow.SINGLE_VALUE)
-  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.MULTI_VALUE, node = Option(doc \ "@type"))
-  @rdfa("Volltext", "http://lobid.org/vocab/lobid#fulltextOnline", doc, TableRow.MULTI_LINK)
-  @rdfa("Ausgabe", "http://purl.org/ontology/bibo/edition", doc, TableRow.SINGLE_VALUE)
-  @rdfa("Exemplar", "http://purl.org/vocab/frbr/core#exemplar", doc, TableRow.MULTI_LINK)
-  @rdfa("Erscheinungsort", "http://iflastandards.info/ns/isbd/elements/P1016", doc, TableRow.SINGLE_VALUE)
-  @rdfa("Verlag", "http://iflastandards.info/ns/isbd/elements/P1017", doc, TableRow.SINGLE_VALUE)
-  @rdfa("ISBN-10", "http://purl.org/ontology/bibo/isbn10", doc, TableRow.MULTI_VALUE)
-  @rdfa("ISBN-13", "http://purl.org/ontology/bibo/isbn13", doc, TableRow.MULTI_VALUE)
-  @rdfa("Werktitel", "http://rdvocab.info/RDARelationshipsWEMI/workManifested", doc, TableRow.MULTI_LINK)
-  @rdfa("Weitere Information", "http://xmlns.com/foaf/0.1/isPrimaryTopicOf", doc, TableRow.SINGLE_LINK)
+  @rdfa("Erscheinungsjahr", "http://purl.org/dc/terms/issued", doc, TableRow.VALUES)
+  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES, node = Option(doc \ "@type"))
+  @rdfa("Volltext", "http://lobid.org/vocab/lobid#fulltextOnline", doc, TableRow.LINKS)
+  @rdfa("Ausgabe", "http://purl.org/ontology/bibo/edition", doc, TableRow.VALUES)
+  @rdfa("Exemplar", "http://purl.org/vocab/frbr/core#exemplar", doc, TableRow.LINKS)
+  @rdfa("Erscheinungsort", "http://iflastandards.info/ns/isbd/elements/P1016", doc, TableRow.VALUES)
+  @rdfa("Verlag", "http://iflastandards.info/ns/isbd/elements/P1017", doc, TableRow.VALUES)
+  @rdfa("ISBN-10", "http://purl.org/ontology/bibo/isbn10", doc, TableRow.VALUES)
+  @rdfa("ISBN-13", "http://purl.org/ontology/bibo/isbn13", doc, TableRow.VALUES)
+  @rdfa("Werktitel", "http://rdvocab.info/RDARelationshipsWEMI/workManifested", doc, TableRow.LINKS)
+  @rdfa("Weitere Information", "http://xmlns.com/foaf/0.1/isPrimaryTopicOf", doc, TableRow.LINKS)
 </table>
