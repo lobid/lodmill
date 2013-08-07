@@ -251,6 +251,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 						"http://purl.org/dc/terms/subject#", "skos:" });
 				put("geo:location", new String[] {
 						"http://www.w3.org/2003/01/geo/wgs84_pos#", "geo:" });
+				put("vcard:adr", new String[] {
+						"http://www.w3.org/2006/vcard/ns#", "vcard:" });
 		}};
 
 		private Model resolveUrisToLiterals(final Model model) {
@@ -260,6 +262,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			nsr.addPrefixBinding("gnd", "http://d-nb.info/standards/elementset/gnd#");
 			nsr.addPrefixBinding("skos", "http://www.w3.org/2004/02/skos/core#");
 			nsr.addPrefixBinding("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#");
+			nsr.addPrefixBinding("vcard", "http://www.w3.org/2006/vcard/ns#");
 			// @formatter:on
 			final FSLHierarchyStore fhs = new FSLHierarchyStore();
 			final FSLJenaEvaluator fje = new FSLJenaEvaluator(nsr, fhs);
@@ -283,7 +286,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			return prefix
 					+ fslPath.substring(
 							fslPath.lastIndexOf(namespace) + namespace.length(),
-							fslPath.lastIndexOf('/'));
+							fslPath.lastIndexOf(fslPath.contains("exp('") ? '\'' : '/'));
 		}
 
 		private static Model addResolvedTriples(final Model model,

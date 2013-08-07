@@ -6,6 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 import org.apache.hadoop.io.LongWritable;
@@ -68,9 +69,9 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testProperties() {
-		assertEquals("number of predicates", 6,
+		assertEquals("number of predicates", 10,
 				ResolveObjectUrisInLobidNTriples.PREDICATES.size());
-		assertEquals("number of fsl-paths", 6,
+		assertEquals("number of fsl-paths", 10,
 				ResolveObjectUrisInLobidNTriples.FSL_PATHS.size());
 	}
 
@@ -138,7 +139,7 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 		reduceDriver.runTest();
 	}
 
-	private enum BlankNode {
+	private enum BlankGeo {
 		/*@formatter:off*/
 		LOBID("<http://lobid.org/organisation/AF-KaIS> "
 				+ "<http://www.w3.org/2003/01/geo/wgs84_pos#location> _:node16vicghfdx21 ."),
@@ -149,7 +150,7 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 		/*@formatter:on*/
 		final String triple;
 
-		BlankNode(String triple) {
+		BlankGeo(String triple) {
 			this.triple = triple;
 		}
 	}
@@ -160,21 +161,21 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 	 */
 
 	@Test
-	public void testMapperBlanks() throws IOException {
-		mapDriver.addInput(new LongWritable(), new Text(BlankNode.LOBID.triple));
-		mapDriver.addInput(new LongWritable(), new Text(BlankNode.BLANK_1.triple));
-		mapDriver.addInput(new LongWritable(), new Text(BlankNode.BLANK_2.triple));
+	public void testMapperBlanksGeo() throws IOException {
+		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.LOBID.triple));
+		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.BLANK_1.triple));
+		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.BLANK_2.triple));
 		final List<Pair<Text, Text>> result = mapDriver.run();
-		assertEquals(new Text(BlankNode.LOBID.triple), result.get(0).getSecond());
-		assertEquals(new Text(BlankNode.BLANK_1.triple), result.get(1).getSecond());
-		assertEquals(new Text(BlankNode.BLANK_2.triple), result.get(2).getSecond());
+		assertEquals(new Text(BlankGeo.LOBID.triple), result.get(0).getSecond());
+		assertEquals(new Text(BlankGeo.BLANK_1.triple), result.get(1).getSecond());
+		assertEquals(new Text(BlankGeo.BLANK_2.triple), result.get(2).getSecond());
 	}
 
 	@Test
-	public void testReducerBlanks() throws IOException {
+	public void testReducerBlanksGeo() throws IOException {
 		reduceDriver.addInput(new Text("_:node16vicghfdx21"), Arrays.asList(
-				new Text(BlankNode.LOBID.triple), new Text(BlankNode.BLANK_1.triple),
-				new Text(BlankNode.BLANK_2.triple)));
+				new Text(BlankGeo.LOBID.triple), new Text(BlankGeo.BLANK_1.triple),
+				new Text(BlankGeo.BLANK_2.triple)));
 		final Pair<Text, Text> lon =
 				new Pair<>(new Text("<http://lobid.org/organisation/AF-KaIS>"),
 						new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#long>"
@@ -184,6 +185,69 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 						new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#lat>"
 								+ " \"-25.6494315\" ."));
 		assertEquals(Arrays.asList(lon, lat), reduceDriver.run().subList(0, 2));
+	}
+
+	private enum BlankAddress {
+		/*@formatter:off*/
+		LOBID("<http://lobid.org/organisation/AE-ShAU> "
+				+ "<http://www.w3.org/2006/vcard/ns#adr> _:node16vicghfdx20 ."),
+		BLANK_1("_:node16vicghfdx20 "
+				+ "<http://www.w3.org/2006/vcard/ns#country-name> \"United Arab Emirates\" ."),
+		BLANK_2("_:node16vicghfdx20 "
+				+ "<http://www.w3.org/2006/vcard/ns#locality> \"Sharjah\" ."),
+		BLANK_3("_:node16vicghfdx20 "
+				+ "<http://www.w3.org/2006/vcard/ns#postal-code> \"12345\" ."),
+		BLANK_4("_:node16vicghfdx20 "
+				+ "<http://www.w3.org/2006/vcard/ns#street-address> \"Street 1\" .");
+		/*@formatter:on*/
+		final String triple;
+
+		BlankAddress(String triple) {
+			this.triple = triple;
+		}
+	}
+
+	@Test
+	public void testMapperBlanks() throws IOException {
+		for (BlankAddress elem : BlankAddress.values()) {
+			mapDriver.addInput(new LongWritable(), new Text(elem.triple));
+		}
+		final List<Pair<Text, Text>> result = mapDriver.run();
+		assertEquals(BlankAddress.values().length, result.size());
+		for (int i = 0; i < BlankAddress.values().length; i++) {
+			assertEquals(new Text(BlankAddress.values()[i].triple), result.get(i)
+					.getSecond());
+		}
+	}
+
+	@Test
+	public void testReducerBlanks() throws IOException {
+		reduceDriver.addInput(new Text("_:node16vicghfdx20"), Arrays
+				.asList(new Text(BlankAddress.LOBID.triple), new Text(
+						BlankAddress.BLANK_1.triple),
+						new Text(BlankAddress.BLANK_2.triple), new Text(
+								BlankAddress.BLANK_3.triple), new Text(
+								BlankAddress.BLANK_4.triple)));
+		final Pair<Text, Text> country =
+				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+						new Text("<http://www.w3.org/2006/vcard/ns#country-name>"
+								+ " \"United Arab Emirates\" ."));
+		final Pair<Text, Text> locality =
+				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+						new Text("<http://www.w3.org/2006/vcard/ns#locality>"
+								+ " \"Sharjah\" ."));
+		final Pair<Text, Text> postal =
+				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+						new Text("<http://www.w3.org/2006/vcard/ns#postal-code>"
+								+ " \"12345\" ."));
+		final Pair<Text, Text> street =
+				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+						new Text("<http://www.w3.org/2006/vcard/ns#street-address>"
+								+ " \"Street 1\" ."));
+		final List<Pair<Text, Text>> result = reduceDriver.run();
+		assertEquals(
+				new HashSet<>(Arrays.asList(country, locality, postal, street)),
+				new HashSet<>(result.subList(0, 4)));
 	}
 
 }
