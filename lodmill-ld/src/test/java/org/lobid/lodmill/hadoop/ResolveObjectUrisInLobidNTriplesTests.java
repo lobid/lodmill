@@ -6,11 +6,13 @@ import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
+import org.apache.hadoop.mrunit.types.Pair;
 import org.junit.Before;
 import org.junit.Test;
 import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesMapper;
@@ -66,9 +68,9 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testProperties() {
-		assertEquals("number of predicates", 4,
+		assertEquals("number of predicates", 6,
 				ResolveObjectUrisInLobidNTriples.PREDICATES.size());
-		assertEquals("number of fsl-paths", 4,
+		assertEquals("number of fsl-paths", 6,
 				ResolveObjectUrisInLobidNTriples.FSL_PATHS.size());
 	}
 
@@ -79,7 +81,7 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_1));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_2));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_3));
-		final String key = "<http://d-nb.info/gnd/118643606>";
+		final String key = "http://d-nb.info/gnd/118643606";
 		mapDriver.addOutput(new Text(key), new Text(LOBID_TRIPLE_1));
 		mapDriver.addOutput(new Text(key), new Text(GND_TRIPLE_1));
 		mapDriver.addOutput(new Text(key), new Text(GND_TRIPLE_2));
@@ -92,8 +94,7 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 		// (MRUnit, no explicit assertion)
 		mapDriver.addInput(new LongWritable(), new Text(LOBID_DEWEY_TRIPLE));
 		mapDriver.addInput(new LongWritable(), new Text(DEWEY_TRIPLE));
-		final String deweySubject =
-				"<http://dewey.info/class/325/2009/08/about.en>";
+		final String deweySubject = "http://dewey.info/class/325/2009/08/about.en";
 		mapDriver.addOutput(new Text(deweySubject), new Text(
 				LOBID_DEWEY_TRIPLE_SUFFIXED));
 		mapDriver.addOutput(new Text(deweySubject), new Text(DEWEY_TRIPLE));
@@ -135,6 +136,54 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 				new Text("<http://purl.org/dc/terms/subject>"
 						+ " <http://dewey.info/class/325/2009/08/about.en> ."));
 		reduceDriver.runTest();
+	}
+
+	private enum BlankNode {
+		/*@formatter:off*/
+		LOBID("<http://lobid.org/organisation/AF-KaIS> "
+				+ "<http://www.w3.org/2003/01/geo/wgs84_pos#location> _:node16vicghfdx21 ."),
+		BLANK_1("_:node16vicghfdx21 "
+				+ "<http://www.w3.org/2003/01/geo/wgs84_pos#lat> \"-25.6494315\" ."),
+		BLANK_2("_:node16vicghfdx21 "
+				+ "<http://www.w3.org/2003/01/geo/wgs84_pos#long> \"26.0451520\" .");
+		/*@formatter:on*/
+		final String triple;
+
+		BlankNode(String triple) {
+			this.triple = triple;
+		}
+	}
+
+	/*
+	 * We use run() and assert manually in the tests below because the blank node
+	 * IDs are generated internally and therefore can't be tested against here:
+	 */
+
+	@Test
+	public void testMapperBlanks() throws IOException {
+		mapDriver.addInput(new LongWritable(), new Text(BlankNode.LOBID.triple));
+		mapDriver.addInput(new LongWritable(), new Text(BlankNode.BLANK_1.triple));
+		mapDriver.addInput(new LongWritable(), new Text(BlankNode.BLANK_2.triple));
+		final List<Pair<Text, Text>> result = mapDriver.run();
+		assertEquals(new Text(BlankNode.LOBID.triple), result.get(0).getSecond());
+		assertEquals(new Text(BlankNode.BLANK_1.triple), result.get(1).getSecond());
+		assertEquals(new Text(BlankNode.BLANK_2.triple), result.get(2).getSecond());
+	}
+
+	@Test
+	public void testReducerBlanks() throws IOException {
+		reduceDriver.addInput(new Text("_:node16vicghfdx21"), Arrays.asList(
+				new Text(BlankNode.LOBID.triple), new Text(BlankNode.BLANK_1.triple),
+				new Text(BlankNode.BLANK_2.triple)));
+		final Pair<Text, Text> lon =
+				new Pair<>(new Text("<http://lobid.org/organisation/AF-KaIS>"),
+						new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#long>"
+								+ " \"26.0451520\" ."));
+		final Pair<Text, Text> lat =
+				new Pair<>(new Text("<http://lobid.org/organisation/AF-KaIS>"),
+						new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#lat>"
+								+ " \"-25.6494315\" ."));
+		assertEquals(Arrays.asList(lon, lat), reduceDriver.run().subList(0, 2));
 	}
 
 }
