@@ -99,7 +99,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					.println("Usage: ResolveObjectUrisInLobidNTriples <input path> <output path>");
 			System.exit(-1);
 		}
-		conf.setStrings("mapred.textoutputformat.separator", "");
+		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(NODES * SLOTS);
@@ -133,18 +133,30 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			}
 			/* Process lobid triples and triples needed to resolve lobid triples: */
 			if (val.substring(1).startsWith(LOBID) || exists(val, PREDICATES)) {
-				/*
-				 * We always group under the resolution ID key: for triples to be
-				 * resolved, that's the object (i.e. the entity to be resolved), for
-				 * others (i.e. entities providing resolution information), it's the
-				 * subject:
-				 */
-				final Triple triple = asTriple(val);
-				final String newKey =
-						exists(val, TO_RESOLVE) ? resolvable(triple.getObject().toString())
-								: triple.getSubject().toString();
-				context.write(new Text(newKey), preprocess(val));
+				context.write(new Text(createKey(val)), preprocess(val));
 			}
+		}
+
+		private static String createKey(final String val) {
+			final Triple triple = asTriple(val);
+			/*
+			 * We need to retain the actual blank node ID as the key, since Jena's
+			 * toString() representations of blank nodes are generated and differ for
+			 * identical input nodes:
+			 */
+			final String object =
+					triple.getObject().isBlank() ? val.substring(val.lastIndexOf("_:"),
+							val.lastIndexOf(".")).trim() : triple.getObject().toString();
+			final String subject =
+					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
+							val.indexOf(" ")).trim() : triple.getSubject().toString();
+			/*
+			 * We always group under the resolution ID key: for triples to be
+			 * resolved, that's the object (i.e. the entity to be resolved), for
+			 * others (i.e. entities providing resolution information), it's the
+			 * subject:
+			 */
+			return exists(val, TO_RESOLVE) ? resolvable(object) : subject;
 		}
 
 		private static Triple asTriple(final String val) {
