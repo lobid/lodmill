@@ -124,12 +124,14 @@ public class NTriplesToJsonLd implements Tool {
 		private static Model loadTriplesIntoJenaModel(final Iterable<Text> values) {
 			final Model model = ModelFactory.createDefaultModel();
 			for (Text value : values) {
+				final String triple = fixInvalidUriLiterals(value);
 				try {
-					final String triple = fixInvalidUriLiterals(value);
 					model.read(new StringReader(triple), null, Format.N_TRIPLE.getName());
 				} catch (Exception e) {
-					System.err.println(String.format("Could not read '%s': %s", value,
+					System.err.println(String.format(
+							"Could not read triple '%s': %s, skipping", triple,
 							e.getMessage()));
+					e.printStackTrace();
 				}
 			}
 			return model;

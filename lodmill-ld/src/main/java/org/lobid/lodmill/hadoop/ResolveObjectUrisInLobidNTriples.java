@@ -216,7 +216,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		private static void writeResolvedLobidTriples(final Context context,
 				final Model model) throws IOException, InterruptedException {
 			for (Triple triple : model.getGraph().find(Triple.ANY).toList()) {
-				if (triple.getSubject().toString().startsWith(LOBID)) {
+				if (!triple.getSubject().isBlank() && !triple.getObject().isBlank()
+						&& triple.getSubject().toString().startsWith(LOBID)) {
 					final String objString = triple.getObject().toString();
 					final String objResult =
 							triple.getObject().isURI() ? wrapped(objString) : objString;

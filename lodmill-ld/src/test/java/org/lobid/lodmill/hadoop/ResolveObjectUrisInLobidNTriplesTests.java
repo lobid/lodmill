@@ -5,8 +5,8 @@ package org.lobid.lodmill.hadoop;
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import org.apache.hadoop.io.LongWritable;
@@ -155,36 +155,32 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 		}
 	}
 
-	/*
-	 * We use run() and assert manually in the tests below because the blank node
-	 * IDs are generated internally and therefore can't be tested against here:
-	 */
-
 	@Test
 	public void testMapperBlanksGeo() throws IOException {
-		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.LOBID.triple));
-		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.BLANK_1.triple));
-		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.BLANK_2.triple));
-		final List<Pair<Text, Text>> result = mapDriver.run();
+		final List<Pair<Text, Text>> result = runGeoMapDriver();
 		assertEquals(new Text(BlankGeo.LOBID.triple), result.get(0).getSecond());
 		assertEquals(new Text(BlankGeo.BLANK_1.triple), result.get(1).getSecond());
 		assertEquals(new Text(BlankGeo.BLANK_2.triple), result.get(2).getSecond());
 	}
 
+	private List<Pair<Text, Text>> runGeoMapDriver() throws IOException {
+		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.LOBID.triple));
+		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.BLANK_1.triple));
+		mapDriver.addInput(new LongWritable(), new Text(BlankGeo.BLANK_2.triple));
+		return mapDriver.run();
+	}
+
 	@Test
-	public void testReducerBlanksGeo() throws IOException {
-		reduceDriver.addInput(new Text("_:node16vicghfdx21"), Arrays.asList(
-				new Text(BlankGeo.LOBID.triple), new Text(BlankGeo.BLANK_1.triple),
-				new Text(BlankGeo.BLANK_2.triple)));
-		final Pair<Text, Text> lon =
-				new Pair<>(new Text("<http://lobid.org/organisation/AF-KaIS>"),
-						new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#long>"
-								+ " \"26.0451520\" ."));
-		final Pair<Text, Text> lat =
-				new Pair<>(new Text("<http://lobid.org/organisation/AF-KaIS>"),
-						new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#lat>"
-								+ " \"-25.6494315\" ."));
-		assertEquals(Arrays.asList(lon, lat), reduceDriver.run().subList(0, 2));
+	public void testReducerBlanksGeo() throws IOException {// NOPMD
+		// (MRUnit, no explicit assertion)
+		setUpReduceInput(runGeoMapDriver());
+		reduceDriver.addOutput(new Text("<http://lobid.org/organisation/AF-KaIS>"),
+				new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#long>"
+						+ " \"26.0451520\" ."));
+		reduceDriver.addOutput(new Text("<http://lobid.org/organisation/AF-KaIS>"),
+				new Text("<http://www.w3.org/2003/01/geo/wgs84_pos#lat>"
+						+ " \"-25.6494315\" ."));
+		reduceDriver.runTest(false);
 	}
 
 	private enum BlankAddress {
@@ -208,11 +204,8 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 	}
 
 	@Test
-	public void testMapperBlanks() throws IOException {
-		for (BlankAddress elem : BlankAddress.values()) {
-			mapDriver.addInput(new LongWritable(), new Text(elem.triple));
-		}
-		final List<Pair<Text, Text>> result = mapDriver.run();
+	public void testMapperBlanksAddress() throws IOException {
+		final List<Pair<Text, Text>> result = runAddressMapDriver();
 		assertEquals(BlankAddress.values().length, result.size());
 		for (int i = 0; i < BlankAddress.values().length; i++) {
 			assertEquals(new Text(BlankAddress.values()[i].triple), result.get(i)
@@ -220,34 +213,37 @@ public final class ResolveObjectUrisInLobidNTriplesTests {
 		}
 	}
 
-	@Test
-	public void testReducerBlanks() throws IOException {
-		reduceDriver.addInput(new Text("_:node16vicghfdx20"), Arrays
-				.asList(new Text(BlankAddress.LOBID.triple), new Text(
-						BlankAddress.BLANK_1.triple),
-						new Text(BlankAddress.BLANK_2.triple), new Text(
-								BlankAddress.BLANK_3.triple), new Text(
-								BlankAddress.BLANK_4.triple)));
-		final Pair<Text, Text> country =
-				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
-						new Text("<http://www.w3.org/2006/vcard/ns#country-name>"
-								+ " \"United Arab Emirates\" ."));
-		final Pair<Text, Text> locality =
-				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
-						new Text("<http://www.w3.org/2006/vcard/ns#locality>"
-								+ " \"Sharjah\" ."));
-		final Pair<Text, Text> postal =
-				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
-						new Text("<http://www.w3.org/2006/vcard/ns#postal-code>"
-								+ " \"12345\" ."));
-		final Pair<Text, Text> street =
-				new Pair<>(new Text("<http://lobid.org/organisation/AE-ShAU>"),
-						new Text("<http://www.w3.org/2006/vcard/ns#street-address>"
-								+ " \"Street 1\" ."));
-		final List<Pair<Text, Text>> result = reduceDriver.run();
-		assertEquals(
-				new HashSet<>(Arrays.asList(country, locality, postal, street)),
-				new HashSet<>(result.subList(0, 4)));
+	private List<Pair<Text, Text>> runAddressMapDriver() throws IOException {
+		for (BlankAddress elem : BlankAddress.values()) {
+			mapDriver.addInput(new LongWritable(), new Text(elem.triple));
+		}
+		return mapDriver.run();
 	}
 
+	@Test
+	public void testReducerBlanksAddress() throws IOException {// NOPMD
+		// (MRUnit, no explicit assertion)
+		setUpReduceInput(runAddressMapDriver());
+		reduceDriver.addOutput(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+				new Text("<http://www.w3.org/2006/vcard/ns#country-name>"
+						+ " \"United Arab Emirates\" ."));
+		reduceDriver.addOutput(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+				new Text("<http://www.w3.org/2006/vcard/ns#locality>"
+						+ " \"Sharjah\" ."));
+		reduceDriver.addOutput(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+				new Text("<http://www.w3.org/2006/vcard/ns#postal-code>"
+						+ " \"12345\" ."));
+		reduceDriver.addOutput(new Text("<http://lobid.org/organisation/AE-ShAU>"),
+				new Text("<http://www.w3.org/2006/vcard/ns#street-address>"
+						+ " \"Street 1\" ."));
+		reduceDriver.runTest(false);
+	}
+
+	private void setUpReduceInput(final List<Pair<Text, Text>> mapResult) {
+		final List<Text> values = new ArrayList<>();
+		for (Pair<Text, Text> pair : mapResult) {
+			values.add(pair.getSecond());
+		}
+		reduceDriver.addInput(mapResult.get(0).getFirst(), values);
+	}
 }
