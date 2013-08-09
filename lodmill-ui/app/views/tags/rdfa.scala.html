@@ -31,14 +31,15 @@
     }
   }
   case views.TableRow.IMAGE => {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      <td>
-        @((doc \ property \ "@id").asOpt[String]) match {
-          case Some(link) => { <a rel="@property" href="@link"> <img class="qr" src="@link" alt="@property: @link"/> </a> }
-          case None => { -- }
+    @defining((doc \ property \ "@id").asOpt[String]) { qr =>
+        @if(qr.isDefined){
+            <tr>
+              <td><a href="@property">@label</a></td>
+              <td>
+                <a rel="@property" href="@qr.get"> <img class="qr" src="@qr.get" alt="@property: @qr.get"/> </a>
+              </td>
+            </tr>
         }
-      </td>
-    </tr>
-  }
+    }
+ }
 }
