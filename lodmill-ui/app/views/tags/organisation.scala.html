@@ -6,7 +6,8 @@
 <table class="table table-striped">
   @rdfa("ID", "http://lobid.org/organisation", doc, TableRow.LINKS, node = Option(doc))
   @rdfa("Name", "http://xmlns.com/foaf/0.1/name", doc, TableRow.VALUES)
-  @rdfa("ISIL", "http://purl.org/dc/terms/identifier", doc, TableRow.VALUES)
+  @map("Lage", "http://www.w3.org/2003/01/geo/wgs84_pos#location",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long", "http://www.w3.org/2003/01/geo/wgs84_pos#lat", doc)
   @rdfa("Wikipedia", "http://purl.org/ontology/mo/wikipedia", doc, TableRow.LINKS)
   @rdfa("DBpedia", "http://www.w3.org/2000/01/rdf-schema#seeAlso", doc, TableRow.LINKS, node = Option(doc \ "rdfs:seeAlso"))
   @rdfa("Straße", "http://www.w3.org/2006/vcard/ns#street-address", doc, TableRow.VALUES)
