@@ -35,7 +35,7 @@
       <td><a href="@property">@label</a></td>
       <td>
         @((doc \ property \ "@id").asOpt[String]) match {
-          case Some(link) => { <a rel="@property" href="@link"> <img src="@link" alt="@property: @link"/> </a> }
+          case Some(link) => { <a rel="@property" href="@link"> <img class="qr" src="@link" alt="@property: @link"/> </a> }
           case None => { -- }
         }
       </td>

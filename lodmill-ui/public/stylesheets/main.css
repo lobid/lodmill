@@ -16,6 +16,10 @@ table {
 	max-width: 1200px;
 }
 
+.qr {
+	border: 1px solid #ddd;
+}
+
 .ui-autocomplete {
 	max-height: 200px;
 	overflow-y: auto;
