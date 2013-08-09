@@ -20,6 +20,7 @@ lodmill*.jar
 *.nt
 !lodmill-rd/src/test/resources/*.nt
 *.png
+!lodmill-ui/public/images/*.png
 *.xsd
 .cache
 lodmill-ui/data/
