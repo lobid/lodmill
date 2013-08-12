@@ -1,0 +1,29 @@
+@* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
+@(label: String, property: String, lon: String, lat: String, doc: play.api.libs.json.JsValue)
+@import play.api.libs.json.JsValue
+@string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
+@if((doc \ lon).asOpt[String].isDefined && (doc \ lat).asOpt[String].isDefined) {
+    <tr>
+      <td><a href="@property">@label</a></td>
+      <td>
+        <div class="map" id="map-@((doc \ "@id").hashCode())"></div>
+        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+        <script>
+            map = new OpenLayers.Map("map-@((doc \ "@id").hashCode())");
+            map.addLayer(new OpenLayers.Layer.OSM());
+            var lonLat = new OpenLayers.LonLat(@string(doc \ lon), @string(doc \ lat))
+                  .transform(
+                    new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                    map.getProjectionObject() // to Spherical Mercator Projection
+                  );
+            var markers = new OpenLayers.Layer.Markers("Markers");
+            map.addLayer(markers);
+            var size = new OpenLayers.Size(21,25);
+            var offset = new OpenLayers.Pixel(-(size.w/2), -size.h);
+            var icon = new OpenLayers.Icon('/assets/images/marker-blue.png', size, offset);
+            markers.addMarker(new OpenLayers.Marker(lonLat, icon));
+            map.setCenter(lonLat, 14);
+        </script>
+      </td>
+    </tr>
+}
