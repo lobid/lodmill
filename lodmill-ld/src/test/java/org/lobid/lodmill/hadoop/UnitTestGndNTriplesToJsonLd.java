@@ -2,11 +2,11 @@
 
 package org.lobid.lodmill.hadoop; // NOPMD
 
-import static org.lobid.lodmill.hadoop.LobidNTriplesToJsonLdTests.indexMap;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_CREATOR_ID;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_TRIPLE_1;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_TRIPLE_2;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_TRIPLE_3;
+import static org.lobid.lodmill.hadoop.UnitTestLobidNTriplesToJsonLd.indexMap;
+import static org.lobid.lodmill.hadoop.UnitTestResolveObjectUrisInLobidNTriples.GND_CREATOR_ID;
+import static org.lobid.lodmill.hadoop.UnitTestResolveObjectUrisInLobidNTriples.GND_TRIPLE_1;
+import static org.lobid.lodmill.hadoop.UnitTestResolveObjectUrisInLobidNTriples.GND_TRIPLE_2;
+import static org.lobid.lodmill.hadoop.UnitTestResolveObjectUrisInLobidNTriples.GND_TRIPLE_3;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -31,7 +31,7 @@ import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public final class GndNTriplesToJsonLdTests {
+public final class UnitTestGndNTriplesToJsonLd {
 
 	private static final String TRIPLE_ID = "http://d-nb.info/gnd/"
 			+ GND_CREATOR_ID;

@@ -25,7 +25,7 @@ import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesR
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public final class ResolveObjectUrisInLobidNTriplesTests {
+public final class UnitTestResolveObjectUrisInLobidNTriples {
 
 	static final String GND_CREATOR_ID = "118643606";
 	private static final String LOBID_TRIPLE_1 =

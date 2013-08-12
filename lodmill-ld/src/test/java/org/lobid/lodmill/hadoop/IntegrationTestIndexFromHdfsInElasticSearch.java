@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase {
+public class IntegrationTestIndexFromHdfsInElasticSearch extends ClusterMapReduceTestCase {
 	private static final String TEST_FILE =
 			"src/test/resources/json-ld-sample-output";
 	private static final String DATA_1 = "json-es-test/part-r-00000";
@@ -111,7 +111,7 @@ public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase 
 			hdfs.close();
 			super.stopCluster();
 		} catch (Exception e) {
-			LoggerFactory.getLogger(IndexFromHdfsInElasticSearchTests.class).error(
+			LoggerFactory.getLogger(IntegrationTestIndexFromHdfsInElasticSearch.class).error(
 					e.getMessage(), e);
 		}
 	}
