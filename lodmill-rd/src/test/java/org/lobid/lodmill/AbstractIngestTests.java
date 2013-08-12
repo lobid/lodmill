@@ -3,7 +3,6 @@
 package org.lobid.lodmill;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -141,12 +140,8 @@ public abstract class AbstractIngestTests {
 		setUpErrorHandler(metamorph);
 		final Stats stats = new Stats();
 		reader.setReceiver(metamorph).setReceiver(stats);
-		final FileReader fileReader = new FileReader(dataFile);
-		try {
-			reader.process(fileReader);
-		} finally {
-			fileReader.close();
-		}
+		processFile();
+		reader.closeStream();
 		final List<Entry<String, Integer>> entries =
 				sortedByValuesDescending(stats);
 		writeTextileMappingTable(entries, file);
@@ -161,13 +156,17 @@ public abstract class AbstractIngestTests {
 			final DefaultStreamPipe<ObjectReceiver<String>> encoder, final File file) {
 		final ObjectTee<String> tee = outputTee(file);
 		reader.setReceiver(metamorph).setReceiver(encoder).setReceiver(tee);
+		processFile();
+		reader.closeStream();
+		Assert.assertTrue("File should exist", file.exists());
+		Assert.assertTrue("File should not be empty", file.length() > 0);
+	}
+
+	private void processFile() {
 		FileOpener fileOpener = null;
 		fileOpener = new FileOpener();
 		fileOpener.setReceiver(reader);
 		fileOpener.process(dataFile);
-		reader.closeStream();
-		Assert.assertTrue("File should exist", file.exists());
-		Assert.assertTrue("File should not be empty", file.length() > 0);
 	}
 
 	private static ObjectTee<String> outputTee(final File triples) {
