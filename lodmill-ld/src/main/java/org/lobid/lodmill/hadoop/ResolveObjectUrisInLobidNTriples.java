@@ -51,7 +51,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 	private static final Set<String> TO_RESOLVE = props("resolve");
 	static final Set<String> PREDICATES = props("predicates");
 	static final Set<String> FSL_PATHS = props("fsl-paths");
-	private static final String LOBID_RESOURCE = "http://lobid.org/resource/";
+	private static final String LOBID = "http://lobid.org/";
 	private static final String DEWEY = "http://dewey.info/class";
 	private static final String DEWEY_SUFFIX = "2009/08/about.en";
 
@@ -99,7 +99,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					.println("Usage: ResolveObjectUrisInLobidNTriples <input path> <output path>");
 			System.exit(-1);
 		}
-		conf.setStrings("mapred.textoutputformat.separator", "");
+		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(NODES * SLOTS);
@@ -128,22 +128,41 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString();
-			if (val.trim().isEmpty() || val.contains("_:")) {
-				return; /* Skip empty lines and triples with blank nodes */
+			if (val.trim().isEmpty()) {
+				return; /* Skip empty lines */
 			}
 			/* Process lobid triples and triples needed to resolve lobid triples: */
-			if (val.substring(1).startsWith(LOBID_RESOURCE)
-					|| exists(val, PREDICATES)) {
-				/*
-				 * We always group under the resolution ID key: for triples to be
-				 * resolved, that's the object (i.e. the entity to be resolved), for
-				 * others (i.e. entities providing resolution information), it's the
-				 * subject:
-				 */
-				final String newKey =
-						exists(val, TO_RESOLVE) ? resolvable(objUri(val)) : subjUri(val);
-				context.write(new Text(newKey), preprocess(val));
+			if (val.substring(1).startsWith(LOBID) || exists(val, PREDICATES)) {
+				context.write(new Text(createKey(val)), preprocess(val));
 			}
+		}
+
+		private static String createKey(final String val) {
+			final Triple triple = asTriple(val);
+			/*
+			 * We need to retain the actual blank node ID as the key, since Jena's
+			 * toString() representations of blank nodes are generated and differ for
+			 * identical input nodes:
+			 */
+			final String object =
+					triple.getObject().isBlank() ? val.substring(val.lastIndexOf("_:"),
+							val.lastIndexOf(".")).trim() : triple.getObject().toString();
+			final String subject =
+					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
+							val.indexOf(" ")).trim() : triple.getSubject().toString();
+			/*
+			 * We always group under the resolution ID key: for triples to be
+			 * resolved, that's the object (i.e. the entity to be resolved), for
+			 * others (i.e. entities providing resolution information), it's the
+			 * subject:
+			 */
+			return exists(val, TO_RESOLVE) ? resolvable(object) : subject;
+		}
+
+		private static Triple asTriple(final String val) {
+			final Model model = ModelFactory.createDefaultModel();
+			model.read(new StringReader(val), null, Format.N_TRIPLE.getName());
+			return model.getGraph().find(Triple.ANY).next();
 		}
 
 		private static boolean exists(final String val, final Set<String> vals) {
@@ -153,15 +172,6 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 					return val.contains(string);
 				}
 			}).size() > 0;
-		}
-
-		private static String subjUri(final String triple) {
-			return triple.substring(0, triple.indexOf('>') + 1);
-		}
-
-		private static String objUri(final String triple) {
-			return triple.substring(triple.lastIndexOf('<'),
-					triple.lastIndexOf('>') + 1);
 		}
 
 		/*
@@ -179,15 +189,14 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 
 		private static Text preprocess(final String triple) {
 			if (triple.contains(DEWEY)) {
-				final String obj = objUri(triple);
+				final String obj = asTriple(triple).getObject().toString();
 				return new Text(triple.replace(obj, resolvable(obj)));
 			}
 			return new Text(triple);
 		}
 
 		private static String resolvable(final String uri) {
-			return uri.contains(DEWEY) ? /**/
-			(uri.substring(0, uri.lastIndexOf('>')) + DEWEY_SUFFIX + ">") : uri;
+			return uri.contains(DEWEY) ? uri + DEWEY_SUFFIX : uri;
 		}
 	}
 
@@ -219,7 +228,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		private static void writeResolvedLobidTriples(final Context context,
 				final Model model) throws IOException, InterruptedException {
 			for (Triple triple : model.getGraph().find(Triple.ANY).toList()) {
-				if (triple.getSubject().toString().startsWith(LOBID_RESOURCE)) {
+				if (!triple.getSubject().isBlank() && !triple.getObject().isBlank()
+						&& triple.getSubject().toString().startsWith(LOBID)) {
 					final String objString = triple.getObject().toString();
 					final String objResult =
 							triple.getObject().isURI() ? wrapped(objString) : objString;
@@ -252,6 +262,10 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 						"http://purl.org/dc/elements/1.1/creator#", "gnd:" });
 				put("dct:subject", new String[] {
 						"http://purl.org/dc/terms/subject#", "skos:" });
+				put("geo:location", new String[] {
+						"http://www.w3.org/2003/01/geo/wgs84_pos#", "geo:" });
+				put("vcard:adr", new String[] {
+						"http://www.w3.org/2006/vcard/ns#", "vcard:" });
 		}};
 
 		private Model resolveUrisToLiterals(final Model model) {
@@ -260,6 +274,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			nsr.addPrefixBinding("dct", "http://purl.org/dc/terms/");
 			nsr.addPrefixBinding("gnd", "http://d-nb.info/standards/elementset/gnd#");
 			nsr.addPrefixBinding("skos", "http://www.w3.org/2004/02/skos/core#");
+			nsr.addPrefixBinding("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#");
+			nsr.addPrefixBinding("vcard", "http://www.w3.org/2006/vcard/ns#");
 			// @formatter:on
 			final FSLHierarchyStore fhs = new FSLHierarchyStore();
 			final FSLJenaEvaluator fje = new FSLJenaEvaluator(nsr, fhs);
@@ -281,8 +297,9 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		private static String newPred(final String fslPath, final String prefix,
 				final String namespace) {
 			return prefix
-					+ fslPath.substring(fslPath.indexOf(namespace) + namespace.length(),
-							fslPath.lastIndexOf('/'));
+					+ fslPath.substring(
+							fslPath.lastIndexOf(namespace) + namespace.length(),
+							fslPath.lastIndexOf(fslPath.contains("exp('") ? '\'' : '/'));
 		}
 
 		private static Model addResolvedTriples(final Model model,
