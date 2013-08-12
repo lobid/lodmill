@@ -4,6 +4,7 @@ package org.lobid.lodmill;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import org.lobid.lodmill.hadoop.CollectSubjectsOnMiniClusterTests;
 import org.lobid.lodmill.hadoop.IndexFromHdfsInElasticSearchTests;
 import org.lobid.lodmill.hadoop.ResolveBlankNodesOnMiniClusterTests;
 
@@ -14,7 +15,8 @@ import org.lobid.lodmill.hadoop.ResolveBlankNodesOnMiniClusterTests;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ IndexFromHdfsInElasticSearchTests.class,
-		ResolveBlankNodesOnMiniClusterTests.class })
+		ResolveBlankNodesOnMiniClusterTests.class,
+		CollectSubjectsOnMiniClusterTests.class })
 public final class IntegrationTests {
 	/* Suite class, groups tests via annotation above */
 }
