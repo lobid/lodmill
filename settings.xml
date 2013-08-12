@@ -10,11 +10,5 @@
 			<url>http://repo1.maven.org</url>
 			<mirrorOf>jena-repo,fascinator-releases</mirrorOf>
 		</mirror>
-		<mirror>
-			<id>travis-ci-central</id>
-			<name>Travis CI Central mirror</name>
-			<url>http://maven.mirrors.travis-ci.org/nexus/content/repositories/central/</url>
-			<mirrorOf>central</mirrorOf>
-		</mirror>
 	</mirrors>
 </settings>
