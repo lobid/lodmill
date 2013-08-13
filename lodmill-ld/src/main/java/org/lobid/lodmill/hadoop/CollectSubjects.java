@@ -106,7 +106,7 @@ public class CollectSubjects implements Tool {
 				LOG.info(String.format(
 						"Collectiong ID found in object position (%s) of subject (%s)",
 						object, subject));
-				context.write(new Text(subject), new Text(object));
+				context.write(new Text(object), new Text(subject));
 			} else
 				context.write(new Text(subject), new Text(subject));
 		}

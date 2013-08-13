@@ -5,6 +5,7 @@ package org.lobid.lodmill.hadoop;
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
@@ -69,10 +70,10 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 	private Job createJob() throws IOException {
 		final JobConf conf = createJobConf();
 		conf.setStrings("mapred.textoutputformat.separator", " ");
+		DistributedCache.addCacheFile(new Path(HDFS_IN_SUBJECTS).toUri(), conf);
 		final Job job = new Job(conf);
 		job.setJobName("IntegrationTestLobidNTriplesToJsonLd");
-		FileInputFormat
-				.addInputPaths(job, HDFS_IN_TRIPLES + "," + HDFS_IN_SUBJECTS);
+		FileInputFormat.addInputPaths(job, HDFS_IN_TRIPLES);
 		FileOutputFormat.setOutputPath(job, new Path(HDFS_OUT));
 		job.setMapperClass(NTriplesToJsonLdMapper.class);
 		job.setReducerClass(NTriplesToJsonLdReducer.class);

@@ -242,6 +242,12 @@
 			<version>4.2.1</version>
 		</dependency>
 
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
 		<!-- 'provided' deps for globel exlusion (are pulled in by jfresnel and 
 			jsonld-java), see http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
 		<dependency>
