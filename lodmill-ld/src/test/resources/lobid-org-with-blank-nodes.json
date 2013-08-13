@@ -1,0 +1,30 @@
+{
+  "@graph" : [ {
+    "@id" : "_:t0",
+    "@type" : "http://www.w3.org/2006/vcard/ns#Work",
+    "http://www.w3.org/2006/vcard/ns#country-name" : "France",
+    "http://www.w3.org/2006/vcard/ns#locality" : "Paris",
+    "http://www.w3.org/2006/vcard/ns#postal-code" : "75002",
+    "http://www.w3.org/2006/vcard/ns#street-address" : "Rue de Louvois 4"
+  }, {
+    "@id" : "_:t1",
+    "@type" : "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#lat" : "48.8681710",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long" : "2.3377220"
+  }, {
+    "@id" : "http://lobid.org/organisation/ACRPP",
+    "@type" : "http://xmlns.com/foaf/0.1/Organization",
+    "http://lobid.org/vocab/lobid#contactqr" : {
+      "@id" : "http://lobid.org/media/ACRPP_contactqr.png"
+    },
+    "http://purl.org/dc/terms/identifier" : "ACRPP",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#location" : {
+      "@id" : "_:t1"
+    },
+    "http://www.w3.org/2004/02/skos/core#prefLabel" : "Association pour la conservation et la réproduction photographique de la presse",
+    "http://www.w3.org/2006/vcard/ns#adr" : {
+      "@id" : "_:t0"
+    },
+    "http://xmlns.com/foaf/0.1/name" : "Association pour la conservation et la réproduction photographique de la presse"
+  } ]
+}

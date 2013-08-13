@@ -159,21 +159,22 @@ public class NTriplesToJsonLd implements Tool {
 		@Override
 		public void reduce(final Text key, final Iterable<Text> values,
 				final Context context) throws IOException, InterruptedException {
-			final Model model = loadTriplesIntoJenaModel(values);
-			final String jsonLd = JsonLdConverter.jenaModelToJsonLd(model);
+			final String triples = concatTriples(values);
+			final String jsonLd =
+					new JsonLdConverter(Format.N_TRIPLE).toJsonLd(triples);
 			context.write(
 					// write both with JSONValue for consistent escaping:
 					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
 					new Text(JSONValue.toJSONString(JSONValue.parse(jsonLd))));
 		}
 
-		private static Model loadTriplesIntoJenaModel(final Iterable<Text> values) {
-			final Model model = ModelFactory.createDefaultModel();
+		private static String concatTriples(final Iterable<Text> values) {
+			final StringBuilder builder = new StringBuilder();
 			for (Text value : values) {
 				final String triple = fixInvalidUriLiterals(value);
-				System.err.println("Load triple into model: " + triple);
 				try {
-					model.read(new StringReader(triple), null, Format.N_TRIPLE.getName());
+					validate(triple);
+					builder.append(triple).append(NEWLINE);
 				} catch (Exception e) {
 					System.err.println(String.format(
 							"Could not read triple '%s': %s, skipping", triple,
@@ -181,7 +182,12 @@ public class NTriplesToJsonLd implements Tool {
 					e.printStackTrace();
 				}
 			}
-			return model;
+			return builder.toString();
+		}
+
+		private static void validate(final String val) {
+			final Model model = ModelFactory.createDefaultModel();
+			model.read(new StringReader(val), null, Format.N_TRIPLE.getName());
 		}
 
 		private static String fixInvalidUriLiterals(Text value) {
