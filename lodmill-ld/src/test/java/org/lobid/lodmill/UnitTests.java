@@ -4,8 +4,10 @@ package org.lobid.lodmill;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
+import org.lobid.lodmill.hadoop.UnitTestGndNTriplesToJsonLd;
 import org.lobid.lodmill.hadoop.UnitTestJsonLdConverter;
 import org.lobid.lodmill.hadoop.UnitTestJsonLdConverterWithBlankNodes;
+import org.lobid.lodmill.hadoop.UnitTestLobidNTriplesToJsonLd;
 import org.lobid.lodmill.hadoop.UnitTestResolveObjectUrisInLobidNTriples;
 
 /**
@@ -14,13 +16,10 @@ import org.lobid.lodmill.hadoop.UnitTestResolveObjectUrisInLobidNTriples;
  * @author Fabian Steeg (fsteeg)
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ /*
-											 * disabled on branch issue-108-hadoop:
-											 * UnitTestLobidNTriplesToJsonLd.class,
-											 * UnitTestGndNTriplesToJsonLd.class,
-											 */
-UnitTestResolveObjectUrisInLobidNTriples.class, UnitTestJsonLdConverter.class,
-		UnitTestJsonLdConverterWithBlankNodes.class })
+@Suite.SuiteClasses({ UnitTestLobidNTriplesToJsonLd.class,
+		UnitTestGndNTriplesToJsonLd.class,
+		UnitTestResolveObjectUrisInLobidNTriples.class,
+		UnitTestJsonLdConverter.class, UnitTestJsonLdConverterWithBlankNodes.class })
 public final class UnitTests {
 	/* Suite class, groups tests via annotation above */
 }

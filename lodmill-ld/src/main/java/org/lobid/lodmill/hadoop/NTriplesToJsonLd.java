@@ -97,7 +97,7 @@ public class NTriplesToJsonLd implements Tool {
 	static final class NTriplesToJsonLdMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
 
-		static Map<String, Set<String>> subjects;
+		static Map<String, Set<String>> subjects = new HashMap<>();
 
 		@Override
 		protected void setup(Context context) throws IOException,
@@ -105,17 +105,19 @@ public class NTriplesToJsonLd implements Tool {
 			super.setup(context);
 			final Path[] localCacheFiles =
 					DistributedCache.getLocalCacheFiles(context.getConfiguration());
-			subjects = new HashMap<>();
-			if (localCacheFiles.length == 0)
-				throw new NoSubjectCacheFilesFound();
-			for (Path path : localCacheFiles)
-				try (Scanner scanner = new Scanner(new File(path.toString()))) {
-					while (scanner.hasNextLine()) {
-						final String[] subjectAndValues = scanner.nextLine().split(" ");
-						subjects.put(subjectAndValues[0].trim(),
-								new HashSet<>(Arrays.asList(subjectAndValues[1].split(","))));
+			if (localCacheFiles != null) {
+				subjects = new HashMap<>();
+				if (localCacheFiles.length == 0)
+					throw new NoSubjectCacheFilesFound();
+				for (Path path : localCacheFiles)
+					try (Scanner scanner = new Scanner(new File(path.toString()))) {
+						while (scanner.hasNextLine()) {
+							final String[] subjectAndValues = scanner.nextLine().split(" ");
+							subjects.put(subjectAndValues[0].trim(),
+									new HashSet<>(Arrays.asList(subjectAndValues[1].split(","))));
+						}
 					}
-				}
+			}
 		}
 
 		@Override
@@ -131,10 +133,11 @@ public class NTriplesToJsonLd implements Tool {
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			final Set<String> set = subjects.get(subject);
-			if (set != null)
-				for (String subj : set)
-					context.write(new Text(wrapped(subj)), value);
+			Set<String> set = subjects.get(subject);
+			if (set == null)
+				set = new HashSet<>(Arrays.asList(subject));
+			for (String subj : set)
+				context.write(new Text(wrapped(subj)), value);
 		}
 
 		private static String wrapped(final String string) {
