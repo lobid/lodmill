@@ -3,8 +3,10 @@
 package org.lobid.lodmill.hadoop;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URI;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,8 +16,11 @@ import java.util.Set;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.filecache.DistributedCache;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.MapFile;
+import org.apache.hadoop.io.MapFile.Reader;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -27,6 +32,8 @@ import org.apache.hadoop.util.ToolRunner;
 import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -44,10 +51,8 @@ public class NTriplesToJsonLd implements Tool {
 	private static final String NEWLINE = "\n";
 	static final String INDEX_NAME = "index.name";
 	static final String INDEX_TYPE = "index.type";
-
-	private static class NoSubjectCacheFilesFound extends RuntimeException {
-		private static final long serialVersionUID = -5578567573519613713L;
-	}
+	private static final Logger LOG = LoggerFactory
+			.getLogger(NTriplesToJsonLd.class);
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -96,8 +101,7 @@ public class NTriplesToJsonLd implements Tool {
 	 */
 	static final class NTriplesToJsonLdMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
-
-		static Map<String, Set<String>> subjects = new HashMap<>();
+		private Reader reader;
 
 		@Override
 		protected void setup(Context context) throws IOException,
@@ -105,39 +109,69 @@ public class NTriplesToJsonLd implements Tool {
 			super.setup(context);
 			final Path[] localCacheFiles =
 					DistributedCache.getLocalCacheFiles(context.getConfiguration());
-			if (localCacheFiles != null) {
-				subjects = new HashMap<>();
-				if (localCacheFiles.length == 0)
-					throw new NoSubjectCacheFilesFound();
-				for (Path path : localCacheFiles)
-					try (Scanner scanner = new Scanner(new File(path.toString()))) {
-						while (scanner.hasNextLine()) {
-							final String[] subjectAndValues = scanner.nextLine().split(" ");
-							subjects.put(subjectAndValues[0].trim(),
-									new HashSet<>(Arrays.asList(subjectAndValues[1].split(","))));
-						}
-					}
+			if (localCacheFiles != null && localCacheFiles.length > 0)
+				writeToMapFile(localCacheFiles);
+			else
+				LOG.warn("No subjects cache files found!");
+		}
+
+		private void writeToMapFile(final Path[] localCacheFiles)
+				throws IOException, FileNotFoundException {
+			final Configuration configuration = new Configuration();
+			final String uri = "subjects.map";
+			try (final FileSystem fs = FileSystem.get(URI.create(uri), configuration)) {
+				fs.delete(new Path(uri), true);
+				try (final MapFile.Writer writer =
+						new MapFile.Writer(configuration, fs, uri, Text.class, Text.class)) {
+					for (Path path : localCacheFiles)
+						writeToMapFile(path, writer);
+					reader = new MapFile.Reader(fs, uri, configuration);
+				}
+			}
+		}
+
+		private static void writeToMapFile(final Path path,
+				final MapFile.Writer writer) throws IOException, FileNotFoundException {
+			try (Scanner scanner = new Scanner(new File(path.toString()))) {
+				while (scanner.hasNextLine()) {
+					final String[] subjectAndValues = scanner.nextLine().split(" ");
+					writer.append(new Text(subjectAndValues[0].trim()), new Text(
+							subjectAndValues[1].trim()));
+				}
+			} finally {
+				writer.close();
 			}
 		}
 
 		@Override
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
-			mapNonBlankNodesToTheirTriples(value, context, value.toString());
+			mapSubjectsToTheirTriples(value, context, value.toString());
 		}
 
-		private static void mapNonBlankNodesToTheirTriples(final Text value,
+		private void mapSubjectsToTheirTriples(final Text value,
 				final Context context, final String val) throws IOException,
 				InterruptedException {
 			final Triple triple = asTriple(val);
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			Set<String> set = subjects.get(subject);
-			if (set == null)
-				set = new HashSet<>(Arrays.asList(subject));
+			final Set<String> set = new HashSet<>(Arrays.asList(subject));
+			if (reader != null)
+				addAdditionalSubjects(subject, set);
 			for (String subj : set)
-				context.write(new Text(wrapped(subj)), value);
+				if (!subj.trim().isEmpty() && subj.trim().contains("http:"))
+					context.write(new Text(wrapped(subj.trim())), value);
+		}
+
+		private void addAdditionalSubjects(final String subject,
+				final Set<String> set) throws IOException {
+			final Text res = new Text();
+			reader.get(new Text(subject), res);
+			if (res.toString().trim().isEmpty())
+				set.add(subject);
+			else
+				set.addAll(Arrays.asList(res.toString().split(",")));
 		}
 
 		private static String wrapped(final String string) {
