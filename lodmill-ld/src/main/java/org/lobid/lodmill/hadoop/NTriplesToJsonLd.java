@@ -70,22 +70,25 @@ public class NTriplesToJsonLd implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 4) {
-			System.err.println("Usage: NTriplesToJsonLd"
-					+ " <input path> <output path> <index name> <index type>");
+		if (args.length != 5) {
+			System.err
+					.println("Usage: NTriplesToJsonLd"
+							+ " <input path> <cache path> <output path> <index name> <index type>");
 			System.exit(-1);
 		}
 		conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
 		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
-		conf.set(INDEX_NAME, args[2]);
-		conf.set(INDEX_TYPE, args[3]);
+		conf.set(INDEX_NAME, args[3]);
+		conf.set(INDEX_TYPE, args[4]);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(NODES * SLOTS);
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
 		FileInputFormat.addInputPaths(job, args[0]);
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		final Path cacheFilePath = new Path(args[1] + "/part-r-00000");
+		DistributedCache.addCacheFile(cacheFilePath.toUri(), conf);
+		FileOutputFormat.setOutputPath(job, new Path(args[2]));
 		job.setMapperClass(NTriplesToJsonLdMapper.class);
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
 		job.setOutputKeyClass(Text.class);

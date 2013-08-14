@@ -39,8 +39,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 public class CollectSubjects implements Tool {
 
 	private static final String LOBID = "http://lobid.org/";
-	private static final int NODES = 4; // e.g. 4 nodes in cluster
-	private static final int SLOTS = 8; // e.g. 8 cores per node
+	private static final int REDUCERS = 1;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(CollectSubjects.class);
 
@@ -66,9 +65,9 @@ public class CollectSubjects implements Tool {
 			System.exit(-1);
 		}
 		conf.setStrings("mapred.textoutputformat.separator", " ");
-		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
+		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", REDUCERS);
 		final Job job = new Job(conf);
-		job.setNumReduceTasks(NODES * SLOTS);
+		job.setNumReduceTasks(REDUCERS);
 		job.setJarByClass(CollectSubjects.class);
 		job.setJobName("CollectSubjects");
 		FileInputFormat.addInputPaths(job, args[0]);
