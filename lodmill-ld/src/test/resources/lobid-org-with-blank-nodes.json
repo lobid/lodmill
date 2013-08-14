@@ -12,6 +12,11 @@
     "http://www.w3.org/2003/01/geo/wgs84_pos#lat" : "48.8681710",
     "http://www.w3.org/2003/01/geo/wgs84_pos#long" : "2.3377220"
   }, {
+    "@id" : "http://lobid.org/organisation/AAAAA",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#location" : {
+      "@id" : "_:t1"
+    }
+  }, {
     "@id" : "http://lobid.org/organisation/ACRPP",
     "@type" : "http://xmlns.com/foaf/0.1/Organization",
     "http://lobid.org/vocab/lobid#contactqr" : {
