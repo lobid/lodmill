@@ -42,6 +42,7 @@ import org.apache.hadoop.util.ToolRunner;
 import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
+import org.lobid.lodmill.hadoop.CollectSubjects.CollectSubjectsMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -206,13 +207,14 @@ public class NTriplesToJsonLd implements Tool {
 		@Override
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
-			mapSubjectsToTheirTriples(value, context, value.toString());
+			final Triple triple = CollectSubjectsMapper.asTriple(value.toString());
+			if (triple != null)
+				mapSubjectsToTheirTriples(value, context, value.toString(), triple);
 		}
 
 		private void mapSubjectsToTheirTriples(final Text value,
-				final Context context, final String val) throws IOException,
-				InterruptedException {
-			final Triple triple = asTriple(val);
+				final Context context, final String val, final Triple triple)
+				throws IOException, InterruptedException {
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
@@ -236,12 +238,6 @@ public class NTriplesToJsonLd implements Tool {
 
 		private static String wrapped(final String string) {
 			return "<" + string + ">";
-		}
-
-		private static Triple asTriple(final String val) {
-			final Model model = ModelFactory.createDefaultModel();
-			model.read(new StringReader(val), null, Format.N_TRIPLE.getName());
-			return model.getGraph().find(Triple.ANY).next();
 		}
 	}
 

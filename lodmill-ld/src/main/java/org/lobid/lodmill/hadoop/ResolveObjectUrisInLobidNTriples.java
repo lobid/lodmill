@@ -25,6 +25,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.lobid.lodmill.JsonLdConverter.Format;
+import org.lobid.lodmill.hadoop.CollectSubjects.CollectSubjectsMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -128,17 +129,17 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString();
-			if (val.trim().isEmpty()) {
-				return; /* Skip empty lines */
+			final Triple triple = CollectSubjectsMapper.asTriple(val);
+			if (val.trim().isEmpty() || triple == null) {
+				return; /* Skip empty and invalid lines */
 			}
 			/* Process lobid triples and triples needed to resolve lobid triples: */
 			if (val.substring(1).startsWith(LOBID) || exists(val, PREDICATES)) {
-				context.write(new Text(createKey(val)), preprocess(val));
+				context.write(new Text(createKey(triple, val)), preprocess(val));
 			}
 		}
 
-		private static String createKey(final String val) {
-			final Triple triple = asTriple(val);
+		private static String createKey(final Triple triple, final String val) {
 			/*
 			 * We need to retain the actual blank node ID as the key, since Jena's
 			 * toString() representations of blank nodes are generated and differ for
@@ -157,12 +158,6 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			 * subject:
 			 */
 			return exists(val, TO_RESOLVE) ? resolvable(object) : subject;
-		}
-
-		private static Triple asTriple(final String val) {
-			final Model model = ModelFactory.createDefaultModel();
-			model.read(new StringReader(val), null, Format.N_TRIPLE.getName());
-			return model.getGraph().find(Triple.ANY).next();
 		}
 
 		private static boolean exists(final String val, final Set<String> vals) {
@@ -189,7 +184,8 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 
 		private static Text preprocess(final String triple) {
 			if (triple.contains(DEWEY)) {
-				final String obj = asTriple(triple).getObject().toString();
+				final String obj =
+						CollectSubjectsMapper.asTriple(triple).getObject().toString();
 				return new Text(triple.replace(obj, resolvable(obj)));
 			}
 			return new Text(triple);

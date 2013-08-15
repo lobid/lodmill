@@ -1,3 +1,4 @@
+<http://lobid.org/organisation/ACRPP> <http://purl.org/dc/terms/identifier> invalid .
 <http://lobid.org/organisation/ACRPP> <http://purl.org/dc/terms/identifier> "ACRPP" .
 <http://lobid.org/organisation/ACRPP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 _:node16vicghfdx1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .

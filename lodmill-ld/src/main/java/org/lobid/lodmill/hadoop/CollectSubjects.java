@@ -93,7 +93,8 @@ public class CollectSubjects implements Tool {
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString().trim();
 			final Triple triple = asTriple(val);
-			if (val.isEmpty() || !triple.getSubject().toString().startsWith(LOBID))
+			if (val.isEmpty() || triple == null
+					|| !triple.getSubject().toString().startsWith(LOBID))
 				return;
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
@@ -110,10 +111,16 @@ public class CollectSubjects implements Tool {
 				context.write(new Text(subject), new Text(subject));
 		}
 
-		private static Triple asTriple(final String val) {
-			final Model model = ModelFactory.createDefaultModel();
-			model.read(new StringReader(val), null, Format.N_TRIPLE.getName());
-			return model.getGraph().find(Triple.ANY).next();
+		static Triple asTriple(final String val) {
+			try {
+				final Model model = ModelFactory.createDefaultModel();
+				model.read(new StringReader(val), null, Format.N_TRIPLE.getName());
+				return model.getGraph().find(Triple.ANY).next();
+			} catch (com.hp.hpl.jena.shared.SyntaxError e) {
+				LOG.warn(String.format("Could not parse triple '%s': %s, skipping",
+						val, e.getMessage()));
+			}
+			return null;
 		}
 	}
 

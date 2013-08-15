@@ -27,7 +27,8 @@ public final class UnitTestJsonLdConverterWithBlankNodes {
 				load("src/test/resources/lobid-org-with-blank-nodes.nt");
 		final String correctJson =
 				load("src/test/resources/lobid-org-with-blank-nodes.json");
-		final String generatedJson = converter.toJsonLd(rdfInput);
+		final String generatedJson = /* skip invalid first line (for other tests) */
+		converter.toJsonLd(rdfInput.substring(rdfInput.indexOf("\n") + 1));
 		System.out.println(generatedJson);
 		Assert.assertEquals(correctJson, generatedJson);
 	}
