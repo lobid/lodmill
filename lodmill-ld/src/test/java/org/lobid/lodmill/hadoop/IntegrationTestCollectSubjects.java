@@ -52,10 +52,9 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		final String string = readResults().toString();
 		System.err.println("Collection output:\n" + string);
 		assertTrue(string.contains("http://lobid.org/organisation/ACRPP"));
-		assertTrue(string.contains("http://xmlns.com/foaf/0.1/Organization"));
+		assertTrue(string.contains("http://lobid.org/organisation/AAAAA"));
 		assertTrue(string.contains("_:node16vicghfdx1"));
 		assertTrue(string.contains("_:node16vicghfdx2"));
-		assertTrue(string.contains("http://lobid.org/media/ACRPP_contactqr.png"));
 	}
 
 	private Job createJob() throws IOException {

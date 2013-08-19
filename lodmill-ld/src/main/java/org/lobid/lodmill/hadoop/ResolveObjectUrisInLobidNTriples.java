@@ -49,7 +49,7 @@ import fr.inria.jfresnel.fsl.jena.FSLJenaEvaluator;
 public class ResolveObjectUrisInLobidNTriples implements Tool {
 
 	private static final Properties PROPERTIES = load();
-	private static final Set<String> TO_RESOLVE = props("resolve");
+	static final Set<String> TO_RESOLVE = props("resolve");
 	static final Set<String> PREDICATES = props("predicates");
 	static final Set<String> FSL_PATHS = props("fsl-paths");
 	private static final String LOBID = "http://lobid.org/";
@@ -160,7 +160,7 @@ public class ResolveObjectUrisInLobidNTriples implements Tool {
 			return exists(val, TO_RESOLVE) ? resolvable(object) : subject;
 		}
 
-		private static boolean exists(final String val, final Set<String> vals) {
+		static boolean exists(final String val, final Set<String> vals) {
 			return Sets.filter(vals, new Predicate<String>() {
 				@Override
 				public boolean apply(final String string) {

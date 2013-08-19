@@ -10,12 +10,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URI;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -218,22 +215,21 @@ public class NTriplesToJsonLd implements Tool {
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			final Set<String> set = new HashSet<>(Arrays.asList(subject));
+			if (triple.getSubject().isURI())
+				context.write(new Text(wrapped(subject.trim())), value);
 			if (reader != null)
-				addAdditionalSubjects(subject, set);
-			for (String subj : set)
-				if (!subj.trim().isEmpty() && subj.trim().contains("http:"))
-					context.write(new Text(wrapped(subj.trim())), value);
+				writeAdditionalSubjects(subject, value, context);
 		}
 
-		private void addAdditionalSubjects(final String subject,
-				final Set<String> set) throws IOException {
+		private void writeAdditionalSubjects(final String subject,
+				final Text value, final Context context) throws IOException,
+				InterruptedException {
 			final Text res = new Text();
 			reader.get(new Text(subject), res);
-			if (res.toString().trim().isEmpty())
-				set.add(subject);
-			else
-				set.addAll(Arrays.asList(res.toString().split(",")));
+			if (!res.toString().isEmpty()) {
+				for (String subj : res.toString().split(","))
+					context.write(new Text(wrapped(subj.trim())), value);
+			}
 		}
 
 		private static String wrapped(final String string) {

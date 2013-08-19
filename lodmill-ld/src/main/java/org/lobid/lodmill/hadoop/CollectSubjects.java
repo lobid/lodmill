@@ -4,8 +4,6 @@ package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -19,6 +17,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.lobid.lodmill.JsonLdConverter.Format;
+import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,6 +64,7 @@ public class CollectSubjects implements Tool {
 			System.exit(-1);
 		}
 		conf.setStrings("mapred.textoutputformat.separator", " ");
+		conf.setStrings("mapred.reduce.child.java.opts", "-Xmx4g");
 		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", REDUCERS);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(REDUCERS);
@@ -93,13 +93,15 @@ public class CollectSubjects implements Tool {
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString().trim();
 			final Triple triple = asTriple(val);
-			if (val.isEmpty() || triple == null
+			if (val.isEmpty() || triple == null || !triple.getSubject().isURI()
 					|| !triple.getSubject().toString().startsWith(LOBID))
 				return;
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			if (triple.getObject().isBlank() || triple.getObject().isURI()) {
+			if (ResolveTriplesMapper.exists(val,
+					ResolveObjectUrisInLobidNTriples.TO_RESOLVE)
+					&& (triple.getObject().isBlank() || triple.getObject().isURI())) {
 				final String object =
 						triple.getObject().isBlank() ? val.substring(val.lastIndexOf("_:"),
 								val.lastIndexOf(".")).trim() : triple.getObject().toString();
@@ -107,8 +109,7 @@ public class CollectSubjects implements Tool {
 						"Collectiong ID found in object position (%s) of subject (%s)",
 						object, subject));
 				context.write(new Text(object), new Text(subject));
-			} else
-				context.write(new Text(subject), new Text(subject));
+			}
 		}
 
 		static Triple asTriple(final String val) {
@@ -135,10 +136,7 @@ public class CollectSubjects implements Tool {
 		@Override
 		public void reduce(final Text key, final Iterable<Text> values,
 				final Context context) throws IOException, InterruptedException {
-			final Set<String> set = new HashSet<>();
-			for (Text value : values)
-				set.add(value.toString());
-			context.write(key, new Text(Joiner.on(",").join(set)));
+			context.write(key, new Text(Joiner.on(",").join(values)));
 		}
 	}
 
