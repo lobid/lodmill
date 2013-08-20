@@ -2,13 +2,25 @@
 
 package org.lobid.lodmill.hadoop;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringReader;
+import java.net.URI;
+import java.util.Scanner;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FSDataOutputStream;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.Utils;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -41,6 +53,9 @@ public class CollectSubjects implements Tool {
 	private static final int REDUCERS = 1;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(CollectSubjects.class);
+	static final Configuration MAP_FILE_CONFIG = new Configuration();
+	static final String MAP_FILE_NAME = "subjects.map";
+	static final String MAP_FILE_ZIP = "map.subjects.zip";
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -65,7 +80,6 @@ public class CollectSubjects implements Tool {
 		}
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings("mapred.reduce.child.java.opts", "-Xmx4g");
-		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", REDUCERS);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(REDUCERS);
 		job.setJarByClass(CollectSubjects.class);
@@ -76,8 +90,58 @@ public class CollectSubjects implements Tool {
 		job.setReducerClass(CollectSubjectsReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
-		System.exit(job.waitForCompletion(true) ? 0 : 1);
+		boolean success = job.waitForCompletion(true);
+		asZippedMapFile(getFileSystem(), new Path(args[1] + "/part-r-00000"),
+				new Path(args[1] + "/" + MAP_FILE_ZIP));
+		System.exit(success ? 0 : 1);
 		return 0;
+	}
+
+	static URI asZippedMapFile(final FileSystem fs,
+			final Path subjectMappingsPath, final Path zipOutputLocation)
+			throws IOException {
+		writeToMapFile(subjectMappingsPath, fs);
+		final Path zippedMapFilePath = zipMapFile(fs, zipOutputLocation);
+		return zippedMapFilePath.toUri();
+	}
+
+	private static void writeToMapFile(final Path subjectMappingsPath,
+			final FileSystem fs) throws IOException {
+		try (final MapFile.Writer writer =
+				new MapFile.Writer(MAP_FILE_CONFIG, fs, MAP_FILE_NAME, Text.class,
+						Text.class);
+				final InputStream inputStream = fs.open(subjectMappingsPath);
+				final Scanner scanner = new Scanner(inputStream)) {
+			while (scanner.hasNextLine()) {
+				final String[] subjectAndValues = scanner.nextLine().split(" ");
+				writer.append(new Text(subjectAndValues[0].trim()), new Text(
+						subjectAndValues[1].trim()));
+			}
+		}
+	}
+
+	private static Path zipMapFile(final FileSystem fs,
+			final Path zipOutputLocation) throws IOException, FileNotFoundException {
+		final Path[] outputFiles =
+				FileUtil.stat2Paths(fs.listStatus(new Path(MAP_FILE_NAME),
+						new Utils.OutputFileUtils.OutputFilesFilter()));
+		try (final FSDataOutputStream fos = fs.create(zipOutputLocation);
+				final ZipOutputStream zos = new ZipOutputStream(fos)) {
+			add(zos, new ZipEntry("data"), fs.open(outputFiles[0]));
+			add(zos, new ZipEntry("index"), fs.open(outputFiles[1]));
+		}
+		return zipOutputLocation;
+	}
+
+	private static void add(final ZipOutputStream zos, final ZipEntry data,
+			final InputStream in) throws IOException, FileNotFoundException {
+		zos.putNextEntry(data);
+		IOUtils.copyBytes(in, zos, 1024);
+		zos.closeEntry();
+	}
+
+	static FileSystem getFileSystem() throws IOException {
+		return FileSystem.get(URI.create(MAP_FILE_NAME), MAP_FILE_CONFIG);
 	}
 
 	/**

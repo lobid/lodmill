@@ -39,6 +39,7 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 	private static final String HDFS_IN_TRIPLES = "blank-nodes-test/sample.nt";
 	private static final String HDFS_IN_SUBJECTS = "blank-nodes-test/subjects";
 	private static final String HDFS_OUT = "out/sample";
+	private static final String HDFS_OUT_ZIP = "out/zip";
 	private FileSystem hdfs = null;
 
 	@Before
@@ -72,7 +73,8 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		final JobConf conf = createJobConf();
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		final URI zippedMapFile =
-				NTriplesToJsonLd.asZippedMapFile(new Path(HDFS_IN_SUBJECTS), hdfs);
+				CollectSubjects.asZippedMapFile(hdfs, new Path(HDFS_IN_SUBJECTS),
+						new Path(HDFS_OUT_ZIP + "/" + CollectSubjects.MAP_FILE_ZIP));
 		DistributedCache.addCacheFile(zippedMapFile, conf);
 		final Job job = new Job(conf);
 		job.setJobName("IntegrationTestLobidNTriplesToJsonLd");

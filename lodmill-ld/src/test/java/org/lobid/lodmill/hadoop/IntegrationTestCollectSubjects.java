@@ -5,6 +5,7 @@ package org.lobid.lodmill.hadoop;
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
@@ -55,6 +56,19 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		assertTrue(string.contains("http://lobid.org/organisation/AAAAA"));
 		assertTrue(string.contains("_:node16vicghfdx1"));
 		assertTrue(string.contains("_:node16vicghfdx2"));
+		writeZippedMapFile();
+	}
+
+	private void writeZippedMapFile() throws IOException {
+		long time = System.currentTimeMillis();
+		final Path[] outputFiles =
+				FileUtil.stat2Paths(getFileSystem().listStatus(new Path(HDFS_OUT),
+						new Utils.OutputFileUtils.OutputFilesFilter()));
+		final Path zipOutputLocation =
+				new Path(HDFS_OUT + "/" + CollectSubjects.MAP_FILE_ZIP);
+		CollectSubjects.asZippedMapFile(hdfs, outputFiles[0], zipOutputLocation);
+		final FileStatus fileStatus = hdfs.getFileStatus(zipOutputLocation);
+		assertTrue(fileStatus.getModificationTime() >= time);
 	}
 
 	private Job createJob() throws IOException {

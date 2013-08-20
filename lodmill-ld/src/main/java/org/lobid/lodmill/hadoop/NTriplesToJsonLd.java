@@ -7,28 +7,20 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.filecache.DistributedCache;
-import org.apache.hadoop.fs.FSDataOutputStream;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.MapFile.Reader;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.Utils;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -62,8 +54,6 @@ public class NTriplesToJsonLd implements Tool {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(NTriplesToJsonLd.class);
 	private Configuration conf;
-	private static final Configuration MAP_FILE_CONFIG = new Configuration();
-	private static final String MAP_FILE_NAME = "subjects.map";
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -100,62 +90,13 @@ public class NTriplesToJsonLd implements Tool {
 		return 0;
 	}
 
-	private void createJobConfig(String[] args) throws IOException {
+	private void createJobConfig(String[] args) {
 		conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
-		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
 		conf.set(INDEX_NAME, args[3]);
 		conf.set(INDEX_TYPE, args[4]);
-		final Path subjectMappingsPath = new Path(args[1] + "/part-r-00000");
-		DistributedCache.addCacheFile(
-				asZippedMapFile(subjectMappingsPath, getFileSystem()), conf);
-	}
-
-	private static FileSystem getFileSystem() throws IOException {
-		return FileSystem.get(URI.create(MAP_FILE_NAME), MAP_FILE_CONFIG);
-	}
-
-	static URI asZippedMapFile(final Path subjectMappingsPath, final FileSystem fs)
-			throws IOException {
-		writeToMapFile(subjectMappingsPath, fs);
-		final Path zippedMapFilePath = zipMapFile(fs);
-		return zippedMapFilePath.toUri();
-	}
-
-	private static void writeToMapFile(final Path subjectMappingsPath,
-			final FileSystem fs) throws IOException {
-		try (final MapFile.Writer writer =
-				new MapFile.Writer(MAP_FILE_CONFIG, fs, MAP_FILE_NAME, Text.class,
-						Text.class);
-				final InputStream inputStream = fs.open(subjectMappingsPath);
-				final Scanner scanner = new Scanner(inputStream)) {
-			while (scanner.hasNextLine()) {
-				final String[] subjectAndValues = scanner.nextLine().split(" ");
-				writer.append(new Text(subjectAndValues[0].trim()), new Text(
-						subjectAndValues[1].trim()));
-			}
-		}
-	}
-
-	private static Path zipMapFile(final FileSystem fs) throws IOException,
-			FileNotFoundException {
-		final Path[] outputFiles =
-				FileUtil.stat2Paths(fs.listStatus(new Path(MAP_FILE_NAME),
-						new Utils.OutputFileUtils.OutputFilesFilter()));
-		final Path zipPath = new Path("map.subjects.zip");
-		try (final FSDataOutputStream fos = fs.create(zipPath);
-				final ZipOutputStream zos = new ZipOutputStream(fos)) {
-			add(zos, new ZipEntry("data"), fs.open(outputFiles[0]));
-			add(zos, new ZipEntry("index"), fs.open(outputFiles[1]));
-		}
-		return zipPath;
-	}
-
-	private static void add(final ZipOutputStream zos, final ZipEntry data,
-			final InputStream in) throws IOException, FileNotFoundException {
-		zos.putNextEntry(data);
-		IOUtils.copyBytes(in, zos, 1024);
-		zos.closeEntry();
+		DistributedCache.addCacheFile(new Path(args[1] + "/"
+				+ CollectSubjects.MAP_FILE_ZIP).toUri(), conf);
 	}
 
 	/**
@@ -181,9 +122,10 @@ public class NTriplesToJsonLd implements Tool {
 
 		private void initMapFileReader(final Path zipFile) throws IOException,
 				FileNotFoundException {
-			unzip(zipFile.toString(), MAP_FILE_NAME);
+			unzip(zipFile.toString(), CollectSubjects.MAP_FILE_NAME);
 			reader =
-					new MapFile.Reader(getFileSystem(), MAP_FILE_NAME, MAP_FILE_CONFIG);
+					new MapFile.Reader(CollectSubjects.getFileSystem(),
+							CollectSubjects.MAP_FILE_NAME, CollectSubjects.MAP_FILE_CONFIG);
 		}
 
 		private static void unzip(final String zipFile, final String outputFolder)
