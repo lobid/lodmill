@@ -49,13 +49,13 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  */
 public class CollectSubjects implements Tool {
 
-	private static final String LOBID = "http://lobid.org/";
 	private static final int REDUCERS = 1;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(CollectSubjects.class);
 	static final Configuration MAP_FILE_CONFIG = new Configuration();
 	static final String MAP_FILE_NAME = "subjects.map";
 	static final String MAP_FILE_ZIP = "map.subjects.zip";
+	static final String PREFIX_KEY = "target.subject.prefix";
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -74,12 +74,14 @@ public class CollectSubjects implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 2) {
-			System.err.println("Usage: CollectSubjects <input path> <output path>");
+		if (args.length != 3) {
+			System.err
+					.println("Usage: CollectSubjects <input path> <output path> <target subjects prefix>");
 			System.exit(-1);
 		}
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings("mapred.reduce.child.java.opts", "-Xmx4g");
+		conf.setStrings("target.subject.prefix", args[2]);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(REDUCERS);
 		job.setJarByClass(CollectSubjects.class);
@@ -157,8 +159,12 @@ public class CollectSubjects implements Tool {
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString().trim();
 			final Triple triple = asTriple(val);
-			if (val.isEmpty() || triple == null || !triple.getSubject().isURI()
-					|| !triple.getSubject().toString().startsWith(LOBID))
+			final String prefix = context.getConfiguration().get(PREFIX_KEY);
+			if (val.isEmpty()
+					|| triple == null
+					|| !triple.getSubject().isURI()
+					|| !triple.getSubject().toString()
+							.startsWith(prefix == null ? "" : prefix))
 				return;
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),

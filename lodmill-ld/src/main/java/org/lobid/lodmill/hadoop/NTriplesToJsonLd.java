@@ -69,10 +69,10 @@ public class NTriplesToJsonLd implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 5) {
+		if (args.length != 6) {
 			System.err
 					.println("Usage: NTriplesToJsonLd"
-							+ " <input path> <subjects path> <output path> <index name> <index type>");
+							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix>");
 			System.exit(-1);
 		}
 		createJobConfig(args);
@@ -93,6 +93,7 @@ public class NTriplesToJsonLd implements Tool {
 	private void createJobConfig(String[] args) {
 		conf = getConf();
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
+		conf.setStrings("target.subject.prefix", args[5]);
 		conf.set(INDEX_NAME, args[3]);
 		conf.set(INDEX_TYPE, args[4]);
 		DistributedCache.addCacheFile(new Path(args[1] + "/"
@@ -157,7 +158,11 @@ public class NTriplesToJsonLd implements Tool {
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			if (triple.getSubject().isURI())
+			final String prefix =
+					context.getConfiguration().get(CollectSubjects.PREFIX_KEY);
+			if (triple.getSubject().isURI()
+					&& triple.getSubject().toString()
+							.startsWith(prefix == null ? "" : prefix))
 				context.write(new Text(wrapped(subject.trim())), value);
 			if (reader != null)
 				writeAdditionalSubjects(subject, value, context);

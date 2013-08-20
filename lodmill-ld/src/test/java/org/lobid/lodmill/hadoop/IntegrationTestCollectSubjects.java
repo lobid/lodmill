@@ -74,6 +74,7 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 	private Job createJob() throws IOException {
 		final JobConf conf = createJobConf();
 		conf.setStrings("mapred.textoutputformat.separator", " ");
+		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
 		final Job job = new Job(conf);
 		job.setJobName("CollectSubjects");
 		FileInputFormat.addInputPaths(job, HDFS_IN);
