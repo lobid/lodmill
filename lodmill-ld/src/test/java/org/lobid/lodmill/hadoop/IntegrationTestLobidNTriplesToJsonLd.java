@@ -59,14 +59,22 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 			ClassNotFoundException, InterruptedException {
 		final Job job = createJob();
 		assertTrue("Job should complete successfully", job.waitForCompletion(true));
-		final String string = readResults().toString();
-		System.err.println("JSON-LD output:\n" + string);
-		assertTrue("Expect long", string.contains("pos#long"));
-		assertTrue("Expect lat", string.contains("pos#lat"));
-		assertTrue("Expect county", string.contains("ns#country-name"));
-		assertTrue("Expect locality", string.contains("ns#locality"));
-		assertTrue("Expect postal", string.contains("ns#postal-code"));
-		assertTrue("Expect adr", string.contains("ns#street-address"));
+		final String result = readResults().toString();
+		System.err.println("JSON-LD output:\n" + result);
+		assertEquals("Expect two lines", 2, result.trim().split("\n").length);
+		assertTrue("Expect a graph", result.contains("@graph"));
+		assertTrue("Expect correct long",
+				result.contains("pos#long\":\"2.3377220\""));
+		assertTrue("Expect correct lat",
+				result.contains("pos#lat\":\"48.8681710\""));
+		assertTrue("Expect correct country name",
+				result.contains("ns#country-name\":\"France\""));
+		assertTrue("Expect correct locality",
+				result.contains("ns#locality\":\"Paris\""));
+		assertTrue("Expect correct postal code",
+				result.contains("ns#postal-code\":\"75002\""));
+		assertTrue("Expect correct street-address",
+				result.contains("ns#street-address\":\"Rue de Louvois 4\""));
 	}
 
 	private Job createJob() throws IOException {

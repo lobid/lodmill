@@ -52,10 +52,9 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		assertTrue("Job should complete successfully", job.waitForCompletion(true));
 		final String string = readResults().toString();
 		System.err.println("Collection output:\n" + string);
-		assertTrue(string.contains("http://lobid.org/organisation/ACRPP"));
-		assertTrue(string.contains("http://lobid.org/organisation/AAAAA"));
-		assertTrue(string.contains("_:node16vicghfdx1"));
-		assertTrue(string.contains("_:node16vicghfdx2"));
+		assertEquals("_:node16vicghfdx1 http://lobid.org/organisation/ACRPP,"
+				+ "http://lobid.org/organisation/AAAAA\n"
+				+ "_:node16vicghfdx2 http://lobid.org/organisation/ACRPP\n", string);
 		writeZippedMapFile();
 	}
 
