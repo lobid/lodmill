@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URI;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -29,7 +30,6 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 import org.lobid.lodmill.JsonLdConverter.Format;
-import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -154,12 +154,21 @@ public class CollectSubjects implements Tool {
 	static final class CollectSubjectsMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
 
+		private String prefix;
+		private Set<String> resolve;
+
+		@Override
+		protected void setup(Context context) throws IOException,
+				InterruptedException {
+			prefix = context.getConfiguration().get(PREFIX_KEY);
+			resolve = ResolveObjectUrisInLobidNTriples.TO_RESOLVE;
+		}
+
 		@Override
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString().trim();
 			final Triple triple = asTriple(val);
-			final String prefix = context.getConfiguration().get(PREFIX_KEY);
 			if (val.isEmpty()
 					|| triple == null
 					|| !triple.getSubject().isURI()
@@ -169,8 +178,7 @@ public class CollectSubjects implements Tool {
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			if (ResolveTriplesMapper.exists(val,
-					ResolveObjectUrisInLobidNTriples.TO_RESOLVE)
+			if (resolve.contains(triple.getPredicate().toString())
 					&& (triple.getObject().isBlank() || triple.getObject().isURI())) {
 				final String object =
 						triple.getObject().isBlank() ? val.substring(val.lastIndexOf("_:"),

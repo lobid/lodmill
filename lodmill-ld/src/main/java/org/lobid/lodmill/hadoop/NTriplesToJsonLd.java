@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -21,6 +22,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.MapFile.Reader;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -108,11 +110,15 @@ public class NTriplesToJsonLd implements Tool {
 	static final class NTriplesToJsonLdMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
 		private Reader reader;
+		private String prefix;
+		private Set<String> predicates;
 
 		@Override
 		protected void setup(Context context) throws IOException,
 				InterruptedException {
 			super.setup(context);
+			prefix = context.getConfiguration().get(CollectSubjects.PREFIX_KEY);
+			predicates = ResolveObjectUrisInLobidNTriples.PREDICATES;
 			final Path[] localCacheFiles =
 					DistributedCache.getLocalCacheFiles(context.getConfiguration());
 			if (localCacheFiles != null && localCacheFiles.length == 1)
@@ -158,22 +164,21 @@ public class NTriplesToJsonLd implements Tool {
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			final String prefix =
-					context.getConfiguration().get(CollectSubjects.PREFIX_KEY);
 			if (triple.getSubject().isURI()
 					&& triple.getSubject().toString()
-							.startsWith(prefix == null ? "" : prefix))
+							.startsWith(prefix == null ? "" : prefix)) {
 				context.write(new Text(wrapped(subject.trim())), value);
-			if (reader != null)
+			}
+			if (predicates.contains(triple.getPredicate().toString())
+					&& reader != null)
 				writeAdditionalSubjects(subject, value, context);
 		}
 
 		private void writeAdditionalSubjects(final String subject,
 				final Text value, final Context context) throws IOException,
 				InterruptedException {
-			final Text res = new Text();
-			reader.get(new Text(subject), res);
-			if (!res.toString().isEmpty()) {
+			final Writable res = reader.get(new Text(subject), new Text());
+			if (res != null) {
 				for (String subj : res.toString().split(","))
 					context.write(new Text(wrapped(subj.trim())), value);
 			}
