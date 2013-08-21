@@ -11,8 +11,9 @@ export HADOOP_CLASSPATH=../../target/lodmill-ld-0.1.0-SNAPSHOT-jar-with-dependen
 
 TMP=output/json-ld-tmp
 SUBJ=http://lobid.org/organisation
+TIME=`date '+%Y%m%d-%H%M%S'`
 
 $HADOOP/bin/hadoop fs -rmr $TMP
 $HADOOP/bin/hadoop fs -rmr $2
 $HADOOP/bin/hadoop org.lobid.lodmill.hadoop.CollectSubjects $1 $TMP $SUBJ
-$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $1 $TMP $2 lobid-orgs-index json-ld-lobid-orgs $SUBJ
+$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $1 $TMP $2 lobid-orgs-index-$TIME json-ld-lobid-orgs $SUBJ
