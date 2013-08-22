@@ -118,7 +118,7 @@ public class NTriplesToJsonLd implements Tool {
 				InterruptedException {
 			super.setup(context);
 			prefix = context.getConfiguration().get(CollectSubjects.PREFIX_KEY);
-			predicates = ResolveObjectUrisInLobidNTriples.PREDICATES;
+			predicates = CollectSubjects.PREDICATES;
 			final Path[] localCacheFiles =
 					DistributedCache.getLocalCacheFiles(context.getConfiguration());
 			if (localCacheFiles != null && localCacheFiles.length == 1)

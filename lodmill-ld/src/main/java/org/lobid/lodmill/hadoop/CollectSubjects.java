@@ -7,8 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.URI;
+import java.util.Arrays;
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -56,6 +60,25 @@ public class CollectSubjects implements Tool {
 	static final String MAP_FILE_NAME = "subjects.map";
 	static final String MAP_FILE_ZIP = "map.subjects.zip";
 	static final String PREFIX_KEY = "target.subject.prefix";
+
+	private static final Properties PROPERTIES = load();
+	static final Set<String> TO_RESOLVE = props("resolve");
+	static final Set<String> PREDICATES = props("predicates");
+
+	private static Properties load() {
+		final Properties props = new Properties();
+		try {
+			props.load(Thread.currentThread().getContextClassLoader()
+					.getResourceAsStream("resolve.properties"));
+		} catch (IOException e) {
+			LOG.error(e.getMessage(), e);
+		}
+		return props;
+	}
+
+	private static SortedSet<String> props(final String key) {
+		return new TreeSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(";")));
+	}
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -154,40 +177,56 @@ public class CollectSubjects implements Tool {
 	static final class CollectSubjectsMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
 
+		private static final String DEWEY = "http://dewey.info/class";
+		private static final String DEWEY_SUFFIX = "2009/08/about.en";
+
 		private String prefix;
-		private Set<String> resolve;
 
 		@Override
 		protected void setup(Context context) throws IOException,
 				InterruptedException {
 			prefix = context.getConfiguration().get(PREFIX_KEY);
-			resolve = ResolveObjectUrisInLobidNTriples.TO_RESOLVE;
 		}
 
 		@Override
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
 			final String val = value.toString().trim();
-			final Triple triple = asTriple(val);
-			if (val.isEmpty()
-					|| triple == null
-					|| !triple.getSubject().isURI()
-					|| !triple.getSubject().toString()
-							.startsWith(prefix == null ? "" : prefix))
+			if (val.isEmpty())
 				return;
-			final String subject =
-					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
-							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			if (resolve.contains(triple.getPredicate().toString())
-					&& (triple.getObject().isBlank() || triple.getObject().isURI())) {
-				final String object =
-						triple.getObject().isBlank() ? val.substring(val.lastIndexOf("_:"),
-								val.lastIndexOf(".")).trim() : triple.getObject().toString();
+			final Triple triple = asTriple(val);
+			if (shouldProcess(triple)) {
+				final String subject = getSubject(val, triple);
+				final String object = preprocess(getObject(val, triple));
 				LOG.info(String.format(
 						"Collectiong ID found in object position (%s) of subject (%s)",
 						object, subject));
 				context.write(new Text(object), new Text(subject));
 			}
+		}
+
+		private boolean shouldProcess(final Triple triple) {
+			return triple != null
+					&& triple.getSubject().isURI()
+					&& triple.getSubject().toString()
+							.startsWith(prefix == null ? "" : prefix)
+					&& TO_RESOLVE.contains(triple.getPredicate().toString())
+					&& (triple.getObject().isBlank() || triple.getObject().isURI());
+		}
+
+		private static String getSubject(final String val, final Triple triple) {
+			return triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
+					val.indexOf(" ")).trim() : triple.getSubject().toString();
+		}
+
+		private static String getObject(final String val, final Triple triple) {
+			return triple.getObject().isBlank() ? val.substring(
+					val.lastIndexOf("_:"), val.lastIndexOf(".")).trim() : triple
+					.getObject().toString();
+		}
+
+		private static String preprocess(final String object) {
+			return object.contains(DEWEY) ? object + DEWEY_SUFFIX : object;
 		}
 
 		static Triple asTriple(final String val) {
