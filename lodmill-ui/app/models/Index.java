@@ -18,7 +18,7 @@ import com.google.common.collect.ImmutableMap;
  */
 public enum Index {
 	/***/
-	LOBID_RESOURCES("lobid-index",
+	LOBID_RESOURCES("lobid-resources",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.AUTHOR, new LobidResources.AuthorQuery())
 					.put(Parameter.ID, new LobidResources.IdQuery())

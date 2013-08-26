@@ -9,7 +9,8 @@
   @map("Lage", "http://www.w3.org/2003/01/geo/wgs84_pos#location",
     "http://www.w3.org/2003/01/geo/wgs84_pos#long", "http://www.w3.org/2003/01/geo/wgs84_pos#lat", doc)
   @rdfa("Wikipedia", "http://purl.org/ontology/mo/wikipedia", doc, TableRow.LINKS)
-  @rdfa("DBpedia", "http://www.w3.org/2000/01/rdf-schema#seeAlso", doc, TableRow.LINKS, node = Option(doc \ "rdfs:seeAlso"))
+  @rdfa("DBpedia", "http://www.w3.org/2000/01/rdf-schema#seeAlso", doc, TableRow.LINKS, 
+  	node = if((doc \\ "rdfs:seeAlso").isEmpty) None else Option((doc \\ "rdfs:seeAlso").head))
   @rdfa("Straße", "http://www.w3.org/2006/vcard/ns#street-address", doc, TableRow.VALUES)
   @rdfa("PLZ", "http://www.w3.org/2006/vcard/ns#postal-code", doc, TableRow.VALUES)
   @rdfa("Ort", "http://www.w3.org/2006/vcard/ns#locality", doc, TableRow.VALUES)

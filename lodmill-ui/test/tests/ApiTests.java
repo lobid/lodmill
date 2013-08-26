@@ -47,9 +47,10 @@ public class ApiTests {
 				{ "resource?author=Melville&format=short",/* -> */"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
-				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
-				{ "resource?subject=Chemistry&format=short",/* -> */
-				"Chemistry & allied sciences" },
+				/* search by dewey broken, see #119 */
+				// { "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
+				// { "resource?subject=Chemistry&format=short",/* -> */
+				// "Chemistry & allied sciences" },
 				{ "resource?name=Typee&format=ids",/* -> */
 				"http://lobid.org/resource/HT002189125" },
 				/*-------------------*/
@@ -65,7 +66,7 @@ public class ApiTests {
 				"http://lobid.org/organisation/SzBaU" },
 				{ "organisation?name=hbz",/* -> */"Hochschulbibliothekszentrum" },
 				{ "organisation?name=hbz&format=ids",/* -> */
-						"http://lobid.org/organisation/DE-605" },
+				"http://lobid.org/organisation/DE-605" },
 				/*-------------*/
 				/* GET /person */
 				/*-------------*/

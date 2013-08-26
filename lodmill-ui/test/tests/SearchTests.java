@@ -93,7 +93,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(36);
+				.isEqualTo(35);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -101,7 +101,7 @@ public class SearchTests {
 						.getSourceAsString());
 		assertThat(json.isObject()).isTrue();
 		assertThat(
-				json.get("http://purl.org/dc/elements/1.1/creator#dateOfBirth")
+				json.findValue("http://d-nb.info/standards/elementset/gnd#dateOfBirth")
 						.toString()).isEqualTo("\"1906\"");
 	}
 
@@ -163,7 +163,7 @@ public class SearchTests {
 						Parameter.AUTHOR, FROM, SIZE);
 		assertThat(documents.size()).isEqualTo(1);
 		assertThat(documents.get(0).getMatchedField()).isEqualTo(
-				"[Vollhardt, Kurt Peter C., Schore, Neil Eric] ([1948, 1946]-)");
+				"Vollhardt, Kurt Peter C.");
 	}
 
 	@Test
@@ -293,7 +293,7 @@ public class SearchTests {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				String gndId = "171932048";
+				String gndId = "118554808";
 				final JsonNode jsonObject =
 						Json.parse(call("resource?author=" + gndId));
 				assertThat(jsonObject.isArray()).isTrue();

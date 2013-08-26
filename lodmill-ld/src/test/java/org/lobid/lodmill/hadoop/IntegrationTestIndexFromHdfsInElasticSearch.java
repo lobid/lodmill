@@ -29,7 +29,9 @@ import org.slf4j.LoggerFactory;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public class IntegrationTestIndexFromHdfsInElasticSearch extends ClusterMapReduceTestCase {
+public class IntegrationTestIndexFromHdfsInElasticSearch extends
+		ClusterMapReduceTestCase {
+	private static final int DOC_COUNT = 19;
 	private static final String TEST_FILE =
 			"src/test/resources/json-ld-sample-output";
 	private static final String DATA_1 = "json-es-test/part-r-00000";
@@ -61,8 +63,8 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends ClusterMapReduc
 			System.err.println("Index error: " + error.getFailureMessage());
 		}
 		Thread.sleep(1000);
-		assertEquals("All documents should be indexed", 25, client.prepareSearch()
-				.execute().actionGet().getHits().totalHits());
+		assertEquals("All documents should be indexed", DOC_COUNT, client
+				.prepareSearch().execute().actionGet().getHits().totalHits());
 		assertEquals("Indexing one should yield no errors", 0, errors.size());
 	}
 
@@ -73,8 +75,8 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends ClusterMapReduc
 			System.err.println("Index error: " + error.getFailureMessage());
 		}
 		Thread.sleep(1000);
-		assertEquals("All documents should be indexed", 25, client.prepareSearch()
-				.execute().actionGet().getHits().totalHits());
+		assertEquals("All documents should be indexed", DOC_COUNT, client
+				.prepareSearch().execute().actionGet().getHits().totalHits());
 		assertEquals("Indexing all should yield no errors", 0, errors.size());
 	}
 
@@ -84,8 +86,8 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends ClusterMapReduc
 		Thread.sleep(1000);
 		final SearchResponse response =
 				search(
-						"lobid-index",
-						"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
+						"lobid-resources",
+						"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
 						"loft");
 		assertTrue(
 				"Substring of actual index term should yield results due to ngram config",
@@ -111,8 +113,9 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends ClusterMapReduc
 			hdfs.close();
 			super.stopCluster();
 		} catch (Exception e) {
-			LoggerFactory.getLogger(IntegrationTestIndexFromHdfsInElasticSearch.class).error(
-					e.getMessage(), e);
+			LoggerFactory
+					.getLogger(IntegrationTestIndexFromHdfsInElasticSearch.class).error(
+							e.getMessage(), e);
 		}
 	}
 }

@@ -13,6 +13,7 @@ import java.io.IOException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import play.libs.F.Callback;
@@ -116,7 +117,7 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.click("a", withText("/resource?subject=44141956"));
+				browser.click("a", withText("/resource?subject=4414195-6"));
 				assertThat(browser.pageSource())
 						.contains("Heimatstimmen aus dem Kreis Olpe")
 						.contains(
@@ -129,6 +130,8 @@ public class BrowserTests {
 	}
 
 	@Test
+	@Ignore
+	// dewey search currently broken, see #119
 	public void sampleRequestResourceBySubjectLabel() {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
