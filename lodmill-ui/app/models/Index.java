@@ -30,7 +30,7 @@ public enum Index {
 					.put(Parameter.NAME, new LobidOrganisations.NameQuery())
 					.put(Parameter.ID, new LobidOrganisations.IdQuery()).build()),
 	/***/
-	GND("gnd-index", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+	GND("gnd", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.NAME, new Gnd.NameQuery())
 					.put(Parameter.ID, new Gnd.IdQuery()).build());/* @formatter:on */
 
