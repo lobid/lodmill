@@ -83,11 +83,19 @@ public enum Hit {
 
 	private static Object firstExisting() {
 		for (String currentField : fields) {
-			if (hit.getSource().containsKey(currentField)) {
+			final String graphKey = "@graph";
+			if (currentField.contains(graphKey)) {
+				final String cleanField = currentField.replace(graphKey + ".", "");
+				final List<Map<String, ?>> objects =
+						(List<Map<String, ?>>) hit.getSource().get(graphKey);
+				for (Map<String, ?> map : objects)
+					if (map.containsKey(cleanField))
+						return map.get(cleanField);
+			} else if (hit.getSource().containsKey(currentField)) {
 				return hit.getSource().get(currentField);
 			}
 		}
-		Logger.debug(String.format("Hit '%s' contains none of the fields: '%s'",
+		Logger.warn(String.format("Hit '%s' contains none of the fields: '%s'",
 				hit.getSource(), fields));
 		return null;
 	}

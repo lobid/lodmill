@@ -4,7 +4,7 @@
 @import views.TableRow
 @import tags._
 <table class="table table-striped">
-  @rdfa("ID", "http://lobid.org/organisation", doc, TableRow.LINKS, node = Option(doc))
+  @rdfa("ID", "http://purl.org/dc/terms/identifier", doc, TableRow.VALUES)
   @rdfa("Name", "http://xmlns.com/foaf/0.1/name", doc, TableRow.VALUES)
   @map("Lage", "http://www.w3.org/2003/01/geo/wgs84_pos#location",
     "http://www.w3.org/2003/01/geo/wgs84_pos#long", "http://www.w3.org/2003/01/geo/wgs84_pos#lat", doc)

@@ -152,13 +152,12 @@ public class BrowserTests {
 				assertThat(browser.pageSource())
 						.contains("Universität")
 						.contains("Universität Basel")
-						.contains("http://de.wikipedia.org/wiki/Universität_Basel")
-						.contains("http://de.dbpedia.org/resource/Universität_Basel")
-						.contains("Technische Universität Graz")
+						.contains("Ruhr-Universität Bochum, Universitätsbibliothek")
+						.contains("Universitätsstr. 150")
+						.contains("http://www.ub.ruhr-uni-bochum.de")
+						.contains("mailto:benutzung.ub@ruhr-uni-bochum.de")
 						.contains(
-								"http://de.wikipedia.org/wiki/Technische_Universität_Graz")
-						.contains(
-								"http://de.dbpedia.org/resource/Technische_Universität_Graz");
+								"http://de.wikipedia.org/wiki/Universitätsbibliothek_Bochum");
 			}
 		});
 	}

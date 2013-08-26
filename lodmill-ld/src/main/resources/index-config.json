@@ -75,17 +75,17 @@
     "json-ld-lobid-orgs":{
       "date_detection":false,
       "properties":{
-        "http://www.w3.org/2004/02/skos/core#prefLabel":{
+        "@graph.http://www.w3.org/2004/02/skos/core#prefLabel":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "http://xmlns.com/foaf/0.1/name":{
+        "@graph.http://xmlns.com/foaf/0.1/name":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "http://purl.org/dc/terms/identifier":{
+        "@graph.http://purl.org/dc/terms/identifier":{
           "type":"string",
           "index_analyzer":"id_analyzer",
           "search_analyzer":"id_analyzer"

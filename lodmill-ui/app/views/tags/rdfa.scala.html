@@ -5,7 +5,7 @@
 @string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
 @jsonVal = @{ node match {
   case Some(node) => node
-  case None => doc \ property
+  case None => if ((doc \\ property).isEmpty) (doc \ property) else (doc \\ property).head
 }}
 @multiSingleOrEmptySeq(value: JsValue) = @{
 	jsonVal.asOpt[Seq[JsValue]].getOrElse(if(value.asOpt[String].isDefined) Seq(jsonVal) else Seq())
@@ -31,7 +31,7 @@
     }
   }
   case views.TableRow.IMAGE => {
-    @defining((doc \ property \ "@id").asOpt[String]) { qr =>
+    @defining((if ((doc \\ property).isEmpty) (doc \ property) else ((doc \\ property).head) \ "@id").asOpt[String]) { qr =>
         @if(qr.isDefined){
             <tr>
               <td><a href="@property">@label</a></td>
