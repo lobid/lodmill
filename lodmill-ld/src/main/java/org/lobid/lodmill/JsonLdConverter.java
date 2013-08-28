@@ -95,7 +95,12 @@ public class JsonLdConverter {
 		try {
 			Object json = JSONLD.fromRDF(model, new Options(), parser);
 			json = JSONLD.compact(json, new HashMap<String, Object>());
-			return JSONUtils.toString(json);
+			/* available options: */
+			// json = JSONLD.normalize(json);
+			// json = JSONLD.simplify(json);
+			// json = JSONLD.flatten(json);
+			// json = JSONLD.frame(json, new HashMap<String, Object>());
+			return JSONUtils.toPrettyString(json);
 		} catch (JSONLDProcessingError e) {
 			e.printStackTrace();
 		}

@@ -2,15 +2,27 @@
 
 package org.lobid.lodmill.hadoop;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.MapFile;
+import org.apache.hadoop.io.MapFile.Reader;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -21,7 +33,11 @@ import org.apache.hadoop.util.ToolRunner;
 import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
+import org.lobid.lodmill.hadoop.CollectSubjects.CollectSubjectsMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -37,6 +53,9 @@ public class NTriplesToJsonLd implements Tool {
 	private static final String NEWLINE = "\n";
 	static final String INDEX_NAME = "index.name";
 	static final String INDEX_TYPE = "index.type";
+	private static final Logger LOG = LoggerFactory
+			.getLogger(NTriplesToJsonLd.class);
+	private Configuration conf;
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -50,26 +69,21 @@ public class NTriplesToJsonLd implements Tool {
 		}
 	}
 
-	private Configuration conf;
-
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 4) {
-			System.err.println("Usage: NTriplesToJsonLd"
-					+ " <input path> <output path> <index name> <index type>");
+		if (args.length != 6) {
+			System.err
+					.println("Usage: NTriplesToJsonLd"
+							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix>");
 			System.exit(-1);
 		}
-		conf = getConf();
-		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
-		conf.setInt("mapred.tasktracker.reduce.tasks.maximum", SLOTS);
-		conf.set(INDEX_NAME, args[2]);
-		conf.set(INDEX_TYPE, args[3]);
+		createJobConfig(args);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(NODES * SLOTS);
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
 		FileInputFormat.addInputPaths(job, args[0]);
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
+		FileOutputFormat.setOutputPath(job, new Path(args[2]));
 		job.setMapperClass(NTriplesToJsonLdMapper.class);
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
 		job.setOutputKeyClass(Text.class);
@@ -78,27 +92,100 @@ public class NTriplesToJsonLd implements Tool {
 		return 0;
 	}
 
+	private void createJobConfig(String[] args) {
+		conf = getConf();
+		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
+		conf.setStrings("target.subject.prefix", args[5]);
+		conf.set(INDEX_NAME, args[3]);
+		conf.set(INDEX_TYPE, args[4]);
+		DistributedCache.addCacheFile(new Path(args[1] + "/"
+				+ CollectSubjects.MAP_FILE_ZIP).toUri(), conf);
+	}
+
 	/**
-	 * Map (non-blank) subject URIs of N-Triples to the triples.
+	 * Map subject URIs of N-Triples to the triples.
 	 * 
 	 * @author Fabian Steeg (fsteeg)
 	 */
 	static final class NTriplesToJsonLdMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
+		private Reader reader;
+		private String prefix;
+		private Set<String> predicates;
+
+		@Override
+		protected void setup(Context context) throws IOException,
+				InterruptedException {
+			super.setup(context);
+			prefix = context.getConfiguration().get(CollectSubjects.PREFIX_KEY);
+			predicates = CollectSubjects.PREDICATES;
+			final Path[] localCacheFiles =
+					DistributedCache.getLocalCacheFiles(context.getConfiguration());
+			if (localCacheFiles != null && localCacheFiles.length == 1)
+				initMapFileReader(localCacheFiles[0]);
+			else
+				LOG.warn("No subjects cache files found!");
+		}
+
+		private void initMapFileReader(final Path zipFile) throws IOException,
+				FileNotFoundException {
+			unzip(zipFile.toString(), CollectSubjects.MAP_FILE_NAME);
+			reader =
+					new MapFile.Reader(CollectSubjects.getFileSystem(),
+							CollectSubjects.MAP_FILE_NAME, CollectSubjects.MAP_FILE_CONFIG);
+		}
+
+		private static void unzip(final String zipFile, final String outputFolder)
+				throws FileNotFoundException, IOException {
+			new File(outputFolder).mkdir();
+			try (final ZipInputStream zis =
+					new ZipInputStream(new FileInputStream(zipFile))) {
+				for (ZipEntry ze; (ze = zis.getNextEntry()) != null; zis.closeEntry()) {
+					final File newFile = new File(outputFolder, ze.getName());
+					LOG.info("Unzipping to: " + newFile.getAbsoluteFile());
+					try (final FileOutputStream fos = new FileOutputStream(newFile)) {
+						IOUtils.copyBytes(zis, fos, 1024);
+					}
+				}
+			}
+		}
 
 		@Override
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
-			mapNonBlankNodesToTheirTriples(value, context, value.toString());
+			final Triple triple = CollectSubjectsMapper.asTriple(value.toString());
+			if (triple != null)
+				mapSubjectsToTheirTriples(value, context, value.toString(), triple);
 		}
 
-		private static void mapNonBlankNodesToTheirTriples(final Text value,
-				final Context context, final String val) throws IOException,
-				InterruptedException {
-			if (val.startsWith("<http")) {
-				final String subject = val.substring(0, val.indexOf('>') + 1);
-				context.write(new Text(subject), value);
+		private void mapSubjectsToTheirTriples(final Text value,
+				final Context context, final String val, final Triple triple)
+				throws IOException, InterruptedException {
+			final String subject =
+					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
+							val.indexOf(" ")).trim() : triple.getSubject().toString();
+			if (triple.getSubject().isURI()
+					&& triple.getSubject().toString()
+							.startsWith(prefix == null ? "" : prefix)) {
+				context.write(new Text(wrapped(subject.trim())), value);
 			}
+			if (predicates.contains(triple.getPredicate().toString())
+					&& reader != null)
+				writeAdditionalSubjects(subject, value, context);
+		}
+
+		private void writeAdditionalSubjects(final String subject,
+				final Text value, final Context context) throws IOException,
+				InterruptedException {
+			final Writable res = reader.get(new Text(subject), new Text());
+			if (res != null) {
+				for (String subj : res.toString().split(","))
+					context.write(new Text(wrapped(subj.trim())), value);
+			}
+		}
+
+		private static String wrapped(final String string) {
+			return "<" + string + ">";
 		}
 	}
 
@@ -113,20 +200,22 @@ public class NTriplesToJsonLd implements Tool {
 		@Override
 		public void reduce(final Text key, final Iterable<Text> values,
 				final Context context) throws IOException, InterruptedException {
-			final Model model = loadTriplesIntoJenaModel(values);
-			final String jsonLd = JsonLdConverter.jenaModelToJsonLd(model);
+			final String triples = concatTriples(values);
+			final String jsonLd =
+					new JsonLdConverter(Format.N_TRIPLE).toJsonLd(triples);
 			context.write(
 					// write both with JSONValue for consistent escaping:
 					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
 					new Text(JSONValue.toJSONString(JSONValue.parse(jsonLd))));
 		}
 
-		private static Model loadTriplesIntoJenaModel(final Iterable<Text> values) {
-			final Model model = ModelFactory.createDefaultModel();
+		private static String concatTriples(final Iterable<Text> values) {
+			final StringBuilder builder = new StringBuilder();
 			for (Text value : values) {
 				final String triple = fixInvalidUriLiterals(value);
 				try {
-					model.read(new StringReader(triple), null, Format.N_TRIPLE.getName());
+					validate(triple);
+					builder.append(triple).append(NEWLINE);
 				} catch (Exception e) {
 					System.err.println(String.format(
 							"Could not read triple '%s': %s, skipping", triple,
@@ -134,7 +223,12 @@ public class NTriplesToJsonLd implements Tool {
 					e.printStackTrace();
 				}
 			}
-			return model;
+			return builder.toString();
+		}
+
+		private static void validate(final String val) {
+			final Model model = ModelFactory.createDefaultModel();
+			model.read(new StringReader(val), null, Format.N_TRIPLE.getName());
 		}
 
 		private static String fixInvalidUriLiterals(Text value) {
