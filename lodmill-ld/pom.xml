@@ -23,11 +23,6 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>jfresnel-repository</id>
-			<name>JFresnel Repository</name>
-			<url>http://jfresnel.gforge.inria.fr/maven</url>
-		</repository>
-		<repository>
 			<id>acm-sl</id>
 			<url>http://maven.acm-sl.org/artifactory/list/libs-releases/</url>
 			<snapshots>
@@ -195,30 +190,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>fr.inria.jfresnel.fsl</groupId>
-			<artifactId>fsl-core</artifactId>
-			<version>0.7.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>fr.inria.jfresnel</groupId>
-			<artifactId>jfresnel-core</artifactId>
-			<version>0.3.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>fr.inria.jfresnel.jena</groupId>
-			<artifactId>jfresnel-jena</artifactId>
-			<version>0.3.2</version>
-		</dependency>
-
-		<dependency>
-			<groupId>fr.inria.jfresnel.fsl.jena</groupId>
-			<artifactId>fsl-jena</artifactId>
-			<version>0.7.1</version>
-		</dependency>
-
-		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>
 			<version>0.19.11</version>
@@ -240,6 +211,12 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
 			<version>4.2.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
 		</dependency>
 
 		<!-- 'provided' deps for globel exlusion (are pulled in by jfresnel and 

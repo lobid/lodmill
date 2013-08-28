@@ -1,9 +1,11 @@
+<http://lobid.org/organisation/ACRPP> <http://purl.org/dc/terms/identifier> invalid .
 <http://lobid.org/organisation/ACRPP> <http://purl.org/dc/terms/identifier> "ACRPP" .
 <http://lobid.org/organisation/ACRPP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
 _:node16vicghfdx1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
 _:node16vicghfdx1 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "48.8681710" .
 _:node16vicghfdx1 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "2.3377220" .
 <http://lobid.org/organisation/ACRPP> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:node16vicghfdx1 .
+<http://lobid.org/organisation/AAAAA> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:node16vicghfdx1 .
 <http://lobid.org/organisation/ACRPP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Association pour la conservation et la r\u00E9production photographique de la presse" .
 _:node16vicghfdx2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
 _:node16vicghfdx2 <http://www.w3.org/2006/vcard/ns#country-name> "France" .

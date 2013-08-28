@@ -24,7 +24,7 @@ import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public final class LobidNTriplesToJsonLdTests {
+public final class UnitTestLobidNTriplesToJsonLd {
 
 	private static final String TRIPLE_ID =
 			"http://lobid.org/resource/HT000000716";

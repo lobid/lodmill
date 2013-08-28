@@ -5,6 +5,7 @@ package org.lobid.lodmill.hadoop;
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
@@ -18,18 +19,17 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesMapper;
-import org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriples.ResolveTriplesReducer;
+import org.lobid.lodmill.hadoop.CollectSubjects.CollectSubjectsMapper;
+import org.lobid.lodmill.hadoop.CollectSubjects.CollectSubjectsReducer;
 import org.slf4j.LoggerFactory;
 
 /**
- * Test {@link #ResolveObjectUrisInLobidNTriples} job with blank nodes.
+ * Test {@link #CollectSubjects} job with blank nodes.
  * 
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public class ResolveBlankNodesOnMiniClusterTests extends
-		ClusterMapReduceTestCase {
+public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 	private static final String TEST_FILE =
 			"src/test/resources/lobid-org-with-blank-nodes.nt";
 	private static final String HDFS_IN = "blank-nodes-test/sample.nt";
@@ -50,25 +50,36 @@ public class ResolveBlankNodesOnMiniClusterTests extends
 			ClassNotFoundException, InterruptedException {
 		final Job job = createJob();
 		assertTrue("Job should complete successfully", job.waitForCompletion(true));
-		final StringBuilder builder = readResults();
-		System.err.println("Resolved triples:\n" + builder.toString());
-		assertTrue("Expect long", builder.toString().contains("pos#long"));
-		assertTrue("Expect lat", builder.toString().contains("pos#lat"));
-		assertTrue("Expect county", builder.toString().contains("ns#country-name"));
-		assertTrue("Expect locality", builder.toString().contains("ns#locality"));
-		assertTrue("Expect postal", builder.toString().contains("ns#postal-code"));
-		assertTrue("Expect adr", builder.toString().contains("ns#street-address"));
+		final String string = readResults().toString();
+		System.err.println("Collection output:\n" + string);
+		assertEquals("_:node16vicghfdx1 http://lobid.org/organisation/ACRPP,"
+				+ "http://lobid.org/organisation/AAAAA\n"
+				+ "_:node16vicghfdx2 http://lobid.org/organisation/ACRPP\n", string);
+		writeZippedMapFile();
+	}
+
+	private void writeZippedMapFile() throws IOException {
+		long time = System.currentTimeMillis();
+		final Path[] outputFiles =
+				FileUtil.stat2Paths(getFileSystem().listStatus(new Path(HDFS_OUT),
+						new Utils.OutputFileUtils.OutputFilesFilter()));
+		final Path zipOutputLocation =
+				new Path(HDFS_OUT + "/" + CollectSubjects.MAP_FILE_ZIP);
+		CollectSubjects.asZippedMapFile(hdfs, outputFiles[0], zipOutputLocation);
+		final FileStatus fileStatus = hdfs.getFileStatus(zipOutputLocation);
+		assertTrue(fileStatus.getModificationTime() >= time);
 	}
 
 	private Job createJob() throws IOException {
 		final JobConf conf = createJobConf();
 		conf.setStrings("mapred.textoutputformat.separator", " ");
+		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
 		final Job job = new Job(conf);
-		job.setJobName("ResolveObjectUrisInLobidNTriples");
+		job.setJobName("CollectSubjects");
 		FileInputFormat.addInputPaths(job, HDFS_IN);
 		FileOutputFormat.setOutputPath(job, new Path(HDFS_OUT));
-		job.setMapperClass(ResolveTriplesMapper.class);
-		job.setReducerClass(ResolveTriplesReducer.class);
+		job.setMapperClass(CollectSubjectsMapper.class);
+		job.setReducerClass(CollectSubjectsReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
 		return job;
@@ -80,7 +91,8 @@ public class ResolveBlankNodesOnMiniClusterTests extends
 						new Utils.OutputFileUtils.OutputFilesFilter()));
 		assertEquals("Expect a single output file", 1, outputFiles.length);
 		final StringBuilder builder = new StringBuilder();
-		try (final Scanner scanner = new Scanner(hdfs.open(outputFiles[0]))) {
+		try (final Scanner scanner =
+				new Scanner(getFileSystem().open(outputFiles[0]))) {
 			while (scanner.hasNextLine())
 				builder.append(scanner.nextLine()).append("\n");
 		}
@@ -94,7 +106,7 @@ public class ResolveBlankNodesOnMiniClusterTests extends
 			hdfs.close();
 			super.stopCluster();
 		} catch (Exception e) {
-			LoggerFactory.getLogger(ResolveBlankNodesOnMiniClusterTests.class).error(
+			LoggerFactory.getLogger(IntegrationTestCollectSubjects.class).error(
 					e.getMessage(), e);
 		}
 	}
