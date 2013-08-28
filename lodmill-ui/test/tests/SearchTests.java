@@ -93,7 +93,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(35);
+				.isEqualTo(36);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -164,6 +164,16 @@ public class SearchTests {
 		assertThat(documents.size()).isEqualTo(1);
 		assertThat(documents.get(0).getMatchedField()).isEqualTo(
 				"Vollhardt, Kurt Peter C.");
+	}
+
+	@Test
+	public void searchViaModelSetNwBib() {
+		List<Document> documents =
+				Search.documents("NwBib", Index.LOBID_RESOURCES, Parameter.SET, FROM,
+						SIZE);
+		assertThat(documents.size()).isEqualTo(1);
+		assertThat(documents.get(0).getMatchedField()).isEqualTo(
+				"http://lobid.org/resource/NWBib");
 	}
 
 	@Test

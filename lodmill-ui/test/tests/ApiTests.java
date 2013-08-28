@@ -44,15 +44,19 @@ public class ApiTests {
 				{ "resource?id=HT002189125",/* -> */"a peep at Polynesian life" },
 				{ "resource?name=Typee",/* -> */"a peep at Polynesian life" },
 				{ "resource?author=Melville",/* -> */"a peep at Polynesian life" },
-				{ "resource?author=Melville&format=short",/* -> */"Melville, Herman" },
+				{ "resource?author=Melville&format=short",/* -> */
+				"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
 				/* search by dewey broken, see #119 */
-				// { "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
+				// { "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften"
+				// },
 				// { "resource?subject=Chemistry&format=short",/* -> */
 				// "Chemistry & allied sciences" },
 				{ "resource?name=Typee&format=ids",/* -> */
 				"http://lobid.org/resource/HT002189125" },
+				{ "resource?set=NWBib",/* -> */
+				"Wann en Kölle de Chress-Stäne blöhe" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/

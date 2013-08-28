@@ -31,6 +31,7 @@ public final class Api extends Controller {
 	 * @param name The resource name
 	 * @param author The resource author
 	 * @param subject The resource subject
+	 * @param set The resource set
 	 * @param format The result format
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
@@ -38,8 +39,8 @@ public final class Api extends Controller {
 	 */
 	public static Result resource(final String id,
 			final String name, // NOPMD
-			final String author, final String subject, final String format,
-			final int from, final int size) {
+			final String author, final String subject, final String set,
+			final String format, final int from, final int size) {
 		Logger.debug(String.format(
 				"GET /resource; id: '%s', name: '%s', author: '%s', subject: '%s'", id,
 				name, author, subject));
@@ -58,6 +59,9 @@ public final class Api extends Controller {
 			result =
 					Application.search(index, Parameter.SUBJECT, subject, format, from,
 							size);
+		} else if (defined(set)) {
+			result =
+					Application.search(index, Parameter.SET, set, format, from, size);
 		}
 		return result;
 	}
@@ -124,7 +128,8 @@ public final class Api extends Controller {
 			return badRequest(message);
 		}
 		final ObjectNode json = Json.newObject();
-		putIfOk(json, "resource", resource(id, name, "", "", format, from, size));
+		putIfOk(json, "resource",
+				resource(id, name, "", "", "", format, from, size));
 		putIfOk(json, "organisation", organisation(id, name, format, from, size));
 		putIfOk(json, "person", person(id, name, format, from, size));
 		Logger.trace("JSON response: " + json);
