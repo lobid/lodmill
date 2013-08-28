@@ -18,19 +18,19 @@ import com.google.common.collect.ImmutableMap;
  */
 public enum Index {
 	/***/
-	LOBID_RESOURCES("lobid-index",
+	LOBID_RESOURCES("lobid-resources",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.AUTHOR, new LobidResources.AuthorQuery())
 					.put(Parameter.ID, new LobidResources.IdQuery())
 					.put(Parameter.SUBJECT, new LobidResources.SubjectQuery())
 					.put(Parameter.NAME, new LobidResources.NameQuery()).build()),
 	/***/
-	LOBID_ORGANISATIONS("lobid-orgs-index",
+	LOBID_ORGANISATIONS("lobid-organisations",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()/* @formatter:off */
 					.put(Parameter.NAME, new LobidOrganisations.NameQuery())
 					.put(Parameter.ID, new LobidOrganisations.IdQuery()).build()),
 	/***/
-	GND("gnd-index", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+	GND("gnd", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.NAME, new Gnd.NameQuery())
 					.put(Parameter.ID, new Gnd.IdQuery()).build());/* @formatter:on */
 

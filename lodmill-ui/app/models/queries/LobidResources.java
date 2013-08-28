@@ -26,7 +26,7 @@ public class LobidResources {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList("http://purl.org/dc/terms/title");
+			return Arrays.asList("@graph.http://purl.org/dc/terms/title");
 		}
 
 		@Override
@@ -42,11 +42,12 @@ public class LobidResources {
 	public static class AuthorQuery extends AbstractIndexQuery {
 		@Override
 		public List<String> fields() {
-			return Arrays.asList(
-					"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
-					"http://purl.org/dc/elements/1.1/creator#dateOfBirth",
-					"http://purl.org/dc/elements/1.1/creator#dateOfDeath",
-					"http://purl.org/dc/elements/1.1/creator");
+			return Arrays
+					.asList(
+							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath",
+							"@graph.http://purl.org/dc/elements/1.1/creator");
 		}
 
 		@Override
@@ -62,8 +63,8 @@ public class LobidResources {
 		@Override
 		public List<String> fields() {
 			return Arrays.asList(/* @formatter:off*/
-					"http://purl.org/dc/terms/subject#prefLabel",
-					"http://purl.org/dc/terms/subject");/* @formatter:on */
+					"@graph.http://www.w3.org/2004/02/skos/core#prefLabel",
+					"@graph.http://purl.org/dc/terms/subject");/* @formatter:on */
 		}
 
 		@Override
@@ -84,9 +85,9 @@ public class LobidResources {
 		@Override
 		public List<String> fields() {
 			return Arrays.asList(/* @formatter:off*/
-					"@id", 
-					"http://purl.org/ontology/bibo/isbn13",
-					"http://purl.org/ontology/bibo/isbn10"); /* @formatter:on */
+					"@graph.@id",
+					"@graph.http://purl.org/ontology/bibo/isbn13",
+					"@graph.http://purl.org/ontology/bibo/isbn10"); /* @formatter:on */
 		}
 
 		@Override

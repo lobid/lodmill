@@ -10,10 +10,12 @@ object ApplicationBuild extends Build {
     val appDependencies = Seq(
       javaCore,
       "org.elasticsearch" % "elasticsearch" % "0.19.11" withSources(),
-      "org.lobid" % "lodmill-ld" % "0.1.0-SNAPSHOT"
+      "org.lobid" % "lodmill-ld" % "0.1.0-SNAPSHOT",
+      "org.scalatest" %% "scalatest" % "1.9.1" % "test"
     )
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
+      parallelExecution in Test := false,
       resolvers := Seq("codehaus" at "http://repository.codehaus.org/org/codehaus", "typesafe" at "http://repo.typesafe.com/typesafe/repo", Resolver.mavenLocal)
     )
 	
