@@ -46,7 +46,7 @@
 		</tr>
 		<tr>
 			<td><code>/organisation</td>
-			@defining(("/organisation?id=SzBaU","/organisation/SzBaU")){refs =>
+			@defining(("/organisation?id=DE-605","/organisation/DE-605")){refs =>
 				<td>
 					<a href="@withPage(refs._1)">@refs._1</a> <br/>
 					<a href="@refs._2?format=page">@refs._2</a>
@@ -84,9 +84,13 @@
 			<td>Search all <br/> (nested JSON result)
 		</tr>
 	</table>
+	<h2>Pagination and Limits</h2>
+	<p>All endpoints support pagination via <code>from</code> and <code>size</code> parameters specifying the index to start the result set from (default is 0, must be >= 0), and the size of the result set (default is 50, must be <= 100). Sample request: <a href="/organisation?name=Universität&from=10&size=5&format=ids">/organisation?name=Universität&from=10&size=5&format=ids</a>.</p>
 
-	<p>All endpoints above support pagination via <code>from</code> and <code>size</code> parameters specifying the index to start the result set from (default is 0, must be >= 0), and the size of the result set (default is 50, must be <= 100). Sample request: <a href="/organisation?name=Universität&from=10&size=5&format=ids">/organisation?name=Universität&from=10&size=5&format=ids</a>.</p>
-	<p>In addition to the API above we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints. See our <a href="https://github.com/lobid/lodmill/issues?state=open">open issues</a> and <a href="https://github.com/lobid/lodmill/issues/milestones">milestones</a> on GitHub.</p>
+	<h2>Content Negotiation</h2>
+	<p>To return different RDF serializations as the result format (default is JSON-LD), you can specify an accept header, e.g. for N-Triples:</p>
+	<pre>curl --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
+	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
 
 	<h2>API sample usage: auto-suggest</h2>
 	<p>Type a person's name to get suggestions. Upon selecting a suggestion, the corresponding ID will be inserted. Search will return details on the selected person.</p>
@@ -119,8 +123,6 @@
 		});
 	</script>
 
-	<h2>Content Negotiation</h2>
-	<p>To return different RDF serializations as the result format (default is JSON-LD), you can specify an accept header, e.g. for N-Triples:</p>
-	<pre>curl --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
-	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
+	<h2>Outlook and Planning</h2>
+	<p>In addition to the API above we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints. See our <a href="https://github.com/lobid/lodmill/issues?state=open">open issues</a> and <a href="https://github.com/lobid/lodmill/issues/milestones">milestones</a> on GitHub.</p>
 }
