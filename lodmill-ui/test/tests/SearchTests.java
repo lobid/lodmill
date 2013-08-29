@@ -171,7 +171,7 @@ public class SearchTests {
 		List<Document> documents =
 				Search.documents("NwBib", Index.LOBID_RESOURCES, Parameter.SET, FROM,
 						SIZE);
-		assertThat(documents.size()).isEqualTo(1);
+		assertThat(documents.size()).isEqualTo(3);
 		assertThat(documents.get(0).getMatchedField()).isEqualTo(
 				"http://lobid.org/resource/NWBib");
 	}

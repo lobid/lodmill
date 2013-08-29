@@ -103,14 +103,31 @@ public enum Hit {
 				currentField.replace(graphKey + ".", "").replace("." + idKey, "");
 		final List<Map<String, ?>> objects =
 				(List<Map<String, ?>>) hit.getSource().get(graphKey);
-		for (Map<String, ?> map : objects)
-			if (map.containsKey(cleanField)) {
-				final Object value = map.get(cleanField);
-				boolean valueIsNested =
-						currentField.endsWith("." + idKey) && value instanceof Map;
-				return valueIsNested ? ((Map<String, String>) map.get(cleanField))
-						.get(idKey) : map.get(cleanField);
+		Object result = null;
+		if (objects != null)
+			for (Map<String, ?> map : objects) {
+				result = processMap(currentField, idKey, cleanField, map);
+				if (result != null)
+					return result;
 			}
+		return result;
+	}
+
+	private static Object processMap(final String currentField,
+			final String idKey, final String cleanField, final Map<String, ?> map) {
+		if (map.containsKey(cleanField)) {
+			final Object value = map.get(cleanField);
+			if (currentField.endsWith("." + idKey)) {
+				if (value instanceof Map)
+					return ((Map<String, String>) map.get(cleanField)).get(idKey);
+				else if (value instanceof List) {
+					final List<?> list = (List<?>) value;
+					if (!list.isEmpty() && list.get(0) instanceof Map)
+						return ((Map<String, String>) list.get(0)).get(idKey);
+				}
+			} else
+				return map.get(cleanField);
+		}
 		return null;
 	}
 
