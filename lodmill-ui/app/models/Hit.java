@@ -6,9 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.JsonNode;
 import org.elasticsearch.search.SearchHit;
 
 import play.Logger;
+import play.libs.Json;
 
 /**
  * Process different kinds of result hits.
@@ -37,20 +39,25 @@ public enum Hit {
 		@Override
 		Document process(final String query, final Document document) {
 			if (fields.get(0).contains("preferredNameForThePerson")) {
-				final Object birth = hit.getSource().get(fields.get(1));
-				final Object death = hit.getSource().get(fields.get(2));
+				final JsonNode json = Json.toJson(hit.getSource());
+				final JsonNode birth = json.findValue(stripGraphPrefix(fields.get(1)));
+				final JsonNode death = json.findValue(stripGraphPrefix(fields.get(2)));
 				if (birth == null) {
 					document.matchedField = field.toString();
 				} else {
 					final String format =
-							String.format("%s (%s-%s)", field.toString(), birth.toString(),
-									death == null ? "" : death.toString());
+							String.format("%s (%s-%s)", field.toString(), birth.asText(),
+									death == null ? "" : death.asText());
 					document.matchedField = format;
 				}
 			} else {
 				document.matchedField = field.toString();
 			}
 			return document;
+		}
+
+		private String stripGraphPrefix(final String fieldString) {
+			return fieldString.replace(GRAPH_KEY + ".", "");
 		}
 	},
 	/***/
@@ -68,6 +75,7 @@ public enum Hit {
 	private static List<String> fields;
 	private static SearchHit hit;
 	private final Class<?> fieldType; // NOPMD
+	private static final String GRAPH_KEY = "@graph";
 
 	static Hit of(final SearchHit searchHit, final List<String> searchFields) { // NOPMD
 		hit = searchHit;
@@ -83,9 +91,8 @@ public enum Hit {
 
 	private static Object firstExisting() {
 		for (String currentField : fields) {
-			final String graphKey = "@graph";
-			if (currentField.contains(graphKey)) {
-				final Object result = findInGraph(currentField, graphKey);
+			if (currentField.contains(GRAPH_KEY)) {
+				final Object result = findInGraph(currentField, GRAPH_KEY);
 				if (result != null)
 					return result;
 			} else if (hit.getSource().containsKey(currentField))

@@ -163,7 +163,7 @@ public class SearchTests {
 						Parameter.AUTHOR, FROM, SIZE);
 		assertThat(documents.size()).isEqualTo(1);
 		assertThat(documents.get(0).getMatchedField()).isEqualTo(
-				"Vollhardt, Kurt Peter C.");
+				"Vollhardt, Kurt Peter C. (1946-)");
 	}
 
 	@Test
