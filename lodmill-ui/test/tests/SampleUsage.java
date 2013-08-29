@@ -19,6 +19,8 @@ import java.util.Scanner;
  */
 public class SampleUsage {
 
+	private static final int SIZE = 100;
+
 	/**
 	 * @param args The base URL, content type, and output file name, or nothing
 	 *          (for default values). See api.lobid.org for URLs & content types.
@@ -36,8 +38,8 @@ public class SampleUsage {
 		String content = args.length == 3 ? args[1] : defaultContent;
 		String file = args.length == 3 ? args[2] : defaultFile;
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-			for (int from = 0; load(base, from, content, writer) > 0; from += 50)
-				Thread.sleep(1000); // give the server a little break
+			for (int from = 0; load(base, from, content, writer) > 0; from += SIZE)
+				Thread.sleep(500); // give the server a little break
 		}
 	}
 
@@ -54,7 +56,9 @@ public class SampleUsage {
 
 	private static long load(String base, int from, String content, Writer writer)
 			throws IOException, MalformedURLException {
-		URLConnection connection = new URL(base + "&from=" + from).openConnection();
+		URLConnection connection =
+				new URL(String.format("%s&from=%s&size=%s", base, from, SIZE))
+						.openConnection();
 		connection.setRequestProperty("Accept", content);
 		System.out.println("GET " + connection.getURL());
 		try (Scanner scanner =
