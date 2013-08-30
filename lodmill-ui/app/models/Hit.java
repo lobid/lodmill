@@ -76,6 +76,7 @@ public enum Hit {
 	private static SearchHit hit;
 	private final Class<?> fieldType; // NOPMD
 	private static final String GRAPH_KEY = "@graph";
+	private static final String ID_KEY = "@id";
 
 	static Hit of(final SearchHit searchHit, final List<String> searchFields) { // NOPMD
 		hit = searchHit;
@@ -91,58 +92,26 @@ public enum Hit {
 
 	private static Object firstExisting() {
 		for (String currentField : fields) {
-			if (currentField.contains(GRAPH_KEY)) {
-				final Object result = findInGraph(currentField, GRAPH_KEY);
-				if (result != null)
-					return result;
-			} else if (hit.getSource().containsKey(currentField))
-				return hit.getSource().get(currentField);
+			final String searchField =
+					(currentField.contains(GRAPH_KEY) ? currentField.replace(GRAPH_KEY
+							+ ".", "") : currentField).replace("." + ID_KEY, "");
+			final JsonNode value =
+					Json.toJson(hit.getSource()).findValue(searchField);
+			if (value != null) {
+				final JsonNode nestedValue = value.findValue(ID_KEY);
+				return nestedValue != null ? nestedValue.asText() : value.asText();
+			}
 		}
 		Logger.warn(String.format("Hit '%s' contains none of the fields: '%s'",
 				hit.getSource(), fields));
 		return null;
 	}
 
-	private static Object findInGraph(final String currentField,
-			final String graphKey) {
-		final String idKey = "@id";
-		final String cleanField =
-				currentField.replace(graphKey + ".", "").replace("." + idKey, "");
-		final List<Map<String, ?>> objects =
-				(List<Map<String, ?>>) hit.getSource().get(graphKey);
-		Object result = null;
-		if (objects != null)
-			for (Map<String, ?> map : objects) {
-				result = processMap(currentField, idKey, cleanField, map);
-				if (result != null)
-					return result;
-			}
-		return result;
-	}
-
-	private static Object processMap(final String currentField,
-			final String idKey, final String cleanField, final Map<String, ?> map) {
-		if (map.containsKey(cleanField)) {
-			final Object value = map.get(cleanField);
-			if (currentField.endsWith("." + idKey)) {
-				if (value instanceof Map)
-					return ((Map<String, String>) map.get(cleanField)).get(idKey);
-				else if (value instanceof List) {
-					final List<?> list = (List<?>) value;
-					if (!list.isEmpty() && list.get(0) instanceof Map)
-						return ((Map<String, String>) list.get(0)).get(idKey);
-				}
-			} else
-				return map.get(cleanField);
-		}
-		return null;
-	}
-
 	private static void processMaps(final String query, final Document document,
 			final List<Map<String, Object>> maps) {
 		for (Map<String, Object> map : maps) {
-			if (map.get("@id").toString().contains(query)) {
-				document.matchedField = map.get("@id").toString();
+			if (map.get(ID_KEY).toString().contains(query)) {
+				document.matchedField = map.get(ID_KEY).toString();
 				break;
 			}
 		}
