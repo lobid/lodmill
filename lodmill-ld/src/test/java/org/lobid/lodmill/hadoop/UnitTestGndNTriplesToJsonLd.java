@@ -87,12 +87,14 @@ public final class UnitTestGndNTriplesToJsonLd {
 	static Map<String, ?> jsonMap() {
 		final String idKey = "@id";// @formatter:off
 		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
-			put(idKey, TRIPLE_ID);
-			put("http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-					"Adamucci, Antonio");
-			put("http://d-nb.info/standards/elementset/gnd#dateOfDeath", "1885");
-			put("http://d-nb.info/standards/elementset/gnd#dateOfBirth", "1828");
-		}};// @formatter:on
+			put("@graph", Arrays.asList(new HashMap<String, Object>() {{//NOPMD
+				put(idKey, TRIPLE_ID);
+				put("http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+						"Adamucci, Antonio");
+				put("http://d-nb.info/standards/elementset/gnd#dateOfDeath", "1885");
+				put("http://d-nb.info/standards/elementset/gnd#dateOfBirth", "1828");
+			}}));
+			}};// @formatter:on
 		return json;
 	}
 }

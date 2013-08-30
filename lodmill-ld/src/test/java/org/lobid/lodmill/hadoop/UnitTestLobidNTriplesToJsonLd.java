@@ -102,18 +102,20 @@ public final class UnitTestLobidNTriplesToJsonLd {
 	static Map<String, ?> jsonMap() {
 		final String idKey = "@id";// @formatter:off
 		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
-			put(idKey, TRIPLE_ID);
-			put("http://purl.org/dc/elements/1.1/creator", Arrays.asList(
-					"Adamucci, Antonio", // resolved literal
-					new HashMap<String, String>() {{//NOPMD
-							put(idKey, "http://d-nb.info/gnd/118643606");
-					}}));
-			put("http://purl.org/dc/terms/subject",
-					new HashMap<String, String>() {{//NOPMD
-							put(idKey, "https://dewey.info/class/[892.1, 22]/");
-					}});
-			put("http://purl.org/dc/terms/subject#prefLabel",
-					"International migration & colonization@en");
+			put("@graph", Arrays.asList(new HashMap<String, Object>() {{//NOPMD
+				put(idKey, TRIPLE_ID);
+				put("http://purl.org/dc/elements/1.1/creator", Arrays.asList(
+						"Adamucci, Antonio", // resolved literal
+						new HashMap<String, String>() {{//NOPMD
+								put(idKey, "http://d-nb.info/gnd/118643606");
+						}}));
+				put("http://purl.org/dc/terms/subject",
+						new HashMap<String, String>() {{//NOPMD
+								put(idKey, "https://dewey.info/class/[892.1, 22]/");
+						}});
+				put("http://purl.org/dc/terms/subject#prefLabel",
+						"International migration & colonization@en");
+			}}));
 		}};// @formatter:on
 		return json;
 	}

@@ -9,7 +9,7 @@ package models;
  */
 @SuppressWarnings("javadoc")
 public enum Parameter {
-	ID, NAME, AUTHOR, SUBJECT;
+	ID, NAME, AUTHOR, SUBJECT, SET;
 	/**
 	 * @return The parameter id (the string passed to the API)
 	 */

@@ -9,8 +9,8 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Individual, specialized endpoints for different resource types
-GET     /resource                   controllers.Api.resource(id: String ?= "", name: String ?= "", author: String ?= "", subject: String ?= "", format: String ?= "full", from: Int ?= 0, size: Int ?= 50)
-GET     /resource/:id               controllers.Api.resource(id: String, name: String ?= "", author: String ?= "", subject: String ?= "", format: String ?= "full", from: Int ?= 0, size: Int ?= 50)
+GET     /resource                   controllers.Api.resource(id: String ?= "", name: String ?= "", author: String ?= "", subject: String ?= "", set: String ?= "", format: String ?= "full", from: Int ?= 0, size: Int ?= 50)
+GET     /resource/:id               controllers.Api.resource(id: String, name: String ?= "", author: String ?= "", subject: String ?= "", set: String ?= "", format: String ?= "full", from: Int ?= 0, size: Int ?= 50)
 GET     /organisation               controllers.Api.organisation(id: String ?= "", name: String ?= "", format: String ?= "full", from: Int ?= 0, size: Int ?= 50)
 GET     /organisation/:id           controllers.Api.organisation(id: String, name: String ?= "", format: String ?= "full", from: Int ?= 0, size: Int ?= 50)
 GET     /person                     controllers.Api.person(id: String ?= "", name: String ?= "", format: String ?= "full", from: Int ?= 0, size: Int ?= 50)
