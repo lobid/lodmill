@@ -6,9 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.JsonNode;
 import org.elasticsearch.search.SearchHit;
 
 import play.Logger;
+import play.libs.Json;
 
 /**
  * Process different kinds of result hits.
@@ -37,20 +39,25 @@ public enum Hit {
 		@Override
 		Document process(final String query, final Document document) {
 			if (fields.get(0).contains("preferredNameForThePerson")) {
-				final Object birth = hit.getSource().get(fields.get(1));
-				final Object death = hit.getSource().get(fields.get(2));
+				final JsonNode json = Json.toJson(hit.getSource());
+				final JsonNode birth = json.findValue(stripGraphPrefix(fields.get(1)));
+				final JsonNode death = json.findValue(stripGraphPrefix(fields.get(2)));
 				if (birth == null) {
 					document.matchedField = field.toString();
 				} else {
 					final String format =
-							String.format("%s (%s-%s)", field.toString(), birth.toString(),
-									death == null ? "" : death.toString());
+							String.format("%s (%s-%s)", field.toString(), birth.asText(),
+									death == null ? "" : death.asText());
 					document.matchedField = format;
 				}
 			} else {
 				document.matchedField = field.toString();
 			}
 			return document;
+		}
+
+		private String stripGraphPrefix(final String fieldString) {
+			return fieldString.replace(GRAPH_KEY + ".", "");
 		}
 	},
 	/***/
@@ -68,6 +75,8 @@ public enum Hit {
 	private static List<String> fields;
 	private static SearchHit hit;
 	private final Class<?> fieldType; // NOPMD
+	private static final String GRAPH_KEY = "@graph";
+	private static final String ID_KEY = "@id";
 
 	static Hit of(final SearchHit searchHit, final List<String> searchFields) { // NOPMD
 		hit = searchHit;
@@ -83,16 +92,14 @@ public enum Hit {
 
 	private static Object firstExisting() {
 		for (String currentField : fields) {
-			final String graphKey = "@graph";
-			if (currentField.contains(graphKey)) {
-				final String cleanField = currentField.replace(graphKey + ".", "");
-				final List<Map<String, ?>> objects =
-						(List<Map<String, ?>>) hit.getSource().get(graphKey);
-				for (Map<String, ?> map : objects)
-					if (map.containsKey(cleanField))
-						return map.get(cleanField);
-			} else if (hit.getSource().containsKey(currentField)) {
-				return hit.getSource().get(currentField);
+			final String searchField =
+					(currentField.contains(GRAPH_KEY) ? currentField.replace(GRAPH_KEY
+							+ ".", "") : currentField).replace("." + ID_KEY, "");
+			final JsonNode value =
+					Json.toJson(hit.getSource()).findValue(searchField);
+			if (value != null) {
+				final JsonNode nestedValue = value.findValue(ID_KEY);
+				return nestedValue != null ? nestedValue.asText() : value.asText();
 			}
 		}
 		Logger.warn(String.format("Hit '%s' contains none of the fields: '%s'",
@@ -103,8 +110,8 @@ public enum Hit {
 	private static void processMaps(final String query, final Document document,
 			final List<Map<String, Object>> maps) {
 		for (Map<String, Object> map : maps) {
-			if (map.get("@id").toString().contains(query)) {
-				document.matchedField = map.get("@id").toString();
+			if (map.get(ID_KEY).toString().contains(query)) {
+				document.matchedField = map.get(ID_KEY).toString();
 				break;
 			}
 		}

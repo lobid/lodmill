@@ -19,6 +19,28 @@ import org.elasticsearch.index.query.QueryBuilder;
  * @author Fabian Steeg (fsteeg)
  */
 public class LobidResources {
+
+	/**
+	 * Query the lobid-resources index using a resource set.
+	 */
+	public static class SetQuery extends AbstractIndexQuery {
+
+		@Override
+		public List<String> fields() {
+			return Arrays.asList("@graph.http://purl.org/dc/terms/isPartOf.@id");
+		}
+
+		@Override
+		public QueryBuilder build(final String queryString) {
+			return matchQuery(
+					fields().get(0),
+					queryString.startsWith("http://") ? queryString
+							: "http://lobid.org/resource/" + queryString).operator(
+					Operator.AND);
+		}
+
+	}
+
 	/**
 	 * Query the lobid-resources index using a resource name.
 	 */

@@ -4,8 +4,9 @@
 @import views.TableRow
 @import tags._
 <table class="table table-striped">
-  @rdfa("ID", "http://d-nb.info/gnd", doc, TableRow.LINKS, node = Option(doc))
-  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES, node = Option(doc \ "@type"))
+  @rdfa("ID", "http://d-nb.info/standards/elementset/gnd#gndIdentifier", doc, TableRow.LINKS)
+  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES,
+    node = if((doc \\ "@type").isEmpty) None else Option((doc \\ "@type").head))
   @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson", doc, TableRow.VALUES)
   @rdfa("Kurzinfo", "http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation", doc, TableRow.VALUES)
   @rdfa("Geschlecht", "http://d-nb.info/standards/elementset/gnd#gender", doc, TableRow.LINKS)

@@ -25,7 +25,7 @@ public class Gnd {
 		@Override
 		public List<String> fields() {
 			return Arrays
-					.asList("http://d-nb.info/standards/elementset/gnd#gndIdentifier");
+					.asList("@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier");
 		}
 
 		@Override
@@ -43,10 +43,10 @@ public class Gnd {
 		public List<String> fields() {
 			return Arrays
 					.asList(
-							"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-							"http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-							"http://d-nb.info/standards/elementset/gnd#dateOfDeath",
-							"http://d-nb.info/standards/elementset/gnd#variantNameForThePerson");
+							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath",
+							"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson");
 		}
 
 		@Override
@@ -57,7 +57,7 @@ public class Gnd {
 		private static QueryBuilder filterUndifferentiatedPersons(
 				final QueryBuilder query) {
 			return boolQuery().must(query).must(
-					matchQuery("@type",
+					matchQuery("@graph.@type",
 							"http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson")
 							.operator(Operator.AND));
 		}

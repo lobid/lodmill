@@ -60,12 +60,12 @@
     "json-ld-gnd":{
       "date_detection":false,
       "properties":{
-        "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "http://d-nb.info/standards/elementset/gnd#variantNameForThePerson":{
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
