@@ -31,7 +31,7 @@
     }
   }
   case views.TableRow.IMAGE => {
-    @defining((if ((doc \\ property).isEmpty) (doc \ property) else ((doc \\ property).head) \ "@id").asOpt[String]) { qr =>
+    @defining((jsonVal \ "@id").asOpt[String]) { qr =>
         @if(qr.isDefined){
             <tr>
               <td><a href="@property">@label</a></td>
