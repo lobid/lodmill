@@ -69,6 +69,10 @@ public class ApiTests {
 				{ "organisation?name=Basel&format=ids",/* -> */
 				"http://lobid.org/organisation/SzBaU" },
 				{ "organisation?name=hbz",/* -> */"Hochschulbibliothekszentrum" },
+				{ "organisation?name=Hochschulbibliotheksz",/* -> */
+				"Hochschulbibliothekszentrum" },
+				{ "organisation?id=DE-605",/* -> */
+				"Hochschulbibliothekszentrum" },
 				{ "organisation?name=hbz&format=ids",/* -> */
 				"http://lobid.org/organisation/DE-605" },
 				/*-------------*/

@@ -33,7 +33,7 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 		ClusterMapReduceTestCase {
 	private static final int DOC_COUNT = 19;
 	private static final String TEST_FILE =
-			"src/test/resources/json-ld-sample-output";
+			"src/test/resources/json-ld-sample-output.json";
 	private static final String DATA_1 = "json-es-test/part-r-00000";
 	private static final String DATA_2 = "json-es-test/part-r-00001";
 	private FileSystem hdfs = null;

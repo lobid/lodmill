@@ -69,7 +69,7 @@ public class SearchTests {
 		node = nodeBuilder().local(true).node();
 		client = node.client();
 		client.admin().indices().prepareDelete().execute().actionGet();
-		File sampleData = new File("test/tests/json-ld-index-data");
+		File sampleData = new File("test/tests/json-ld-index-data.json");
 		try (Scanner scanner = new Scanner(sampleData)) {
 			List<BulkItemResponse> runBulkRequests =
 					IndexFromHdfsInElasticSearch.runBulkRequests(scanner, client);
