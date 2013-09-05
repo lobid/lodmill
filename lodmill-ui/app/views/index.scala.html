@@ -12,6 +12,51 @@
 				<code><a href="@ref=full">full</a></code> (default)
 		</td>}
 
+@sampleUsageCode(resourceType: String, resultType: String) = {
+    $('input.search-@resourceType').each(function() {
+        var $input = $(this);
+        $input.autocomplete({
+            source : function(request, response) {
+                $.ajax({
+                    url : "/@resourceType",
+                    dataType : "jsonp",
+                    data : {
+                        name : request.term,
+                        format : "@resultType"
+                    },
+                    success : function(data) {
+                        response(data);
+                    }
+                });
+            }
+        });
+    });
+}
+
+@sampleUsage(resourceType: String, queryType: String, resultType: String) = {
+    <h4>For /@resourceType</h4>
+    <div class="row-fluid">
+        <div class="span6">
+            <p>Type a @resourceType's name to get suggestions. Upon selecting a suggestion, the corresponding value will be inserted (here: @if(resultType=="short") {the completed term} else {the ID}). Search will return details on the selected @resourceType.</p>
+            <form method="GET" class="form-inline" action="/@resourceType"> <!-- use full URL in your code, i.e. http://api.lobid.org/@resourceType -->
+                <input type="text" class="search-@resourceType" name="@queryType" id="id" style="width:300px"/>
+                <input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
+                <button type="submit" class="btn">Search</button>
+            </form>
+            <p>This calls the <code>/@resourceType</code> endpoint with the <code>format=@resultType</code> parameter to get the suggestions. The actual search uses the <code>@queryType</code> parameter with the inserted value. See the implementation using JavaScript and jQuery UI on the right and the source of this page.</p>
+            <p>The sample on the right gets the autocomplete data from a remote URL (i.e. a different server from the one that serves the HTML) by using JSONP (use full URL in your code, i.e. <code>http://api.lobid.org/@resourceType</code> for the <code>url</code> attribute).</p>
+            <script>
+                @sampleUsageCode(resourceType, resultType)
+            </script>
+        </div>
+        <div class="span6">
+            <pre>
+                @sampleUsageCode(resourceType, resultType)
+            </pre>
+        </div>
+    </div>
+}
+
 @main("Lobid API - Index") {
 		<h2>API endpoints and parameters</h2>
 		<p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below).</p>
@@ -98,36 +143,10 @@
 	<pre>curl --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
 	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
 
-	<h2>API sample usage: auto-suggest</h2>
-	<p>Type a person's name to get suggestions. Upon selecting a suggestion, the corresponding ID will be inserted. Search will return details on the selected person.</p>
-	<form method="GET" class="form-inline" action="/person"> <!-- use full URL in your code, i.e. http://api.lobid.org/person -->
-		<input type="text" class="search" name="id" id="id" style="width:300px"/>
-		<input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
-		<button type="submit" class="btn">Search</button>
-	</form>
-	<p>This calls the <code>/person</code> endpoint with the <code>format=ids</code> parameter to get the suggestions. See source of this page for the implementation using JavaScript and jQuery UI.</p>
-	<script>
-		$('input.search').each(function() {
-			var $input = $(this);
-			$input.autocomplete({
-				source : function(request, response) {
-					$.ajax({
-						// Get the autocomplete data from a remote URL (i.e. a different server from the one that
-						// serves this HTML) by using JSONP (use full URL in your code, i.e. http://api.lobid.org/person):
-						url : "/person",
-						dataType : "jsonp",
-						data : {
-							name : request.term,
-							format : "ids"
-						},
-						success : function(data) {
-							response(data);
-						}
-					});
-				}
-			});
-		});
-	</script>
+  <h2>Sample usage: auto suggest</h2>
+	@sampleUsage("person", "id", "ids")
+	@sampleUsage("resource", "name", "short")
+	@sampleUsage("organisation", "id", "ids")
 
 	<h2>Outlook and Planning</h2>
 	<p>In addition to the API above we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints. See our <a href="https://github.com/lobid/lodmill/issues?state=open">open issues</a> and <a href="https://github.com/lobid/lodmill/issues/milestones">milestones</a> on GitHub.</p>
