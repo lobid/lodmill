@@ -1,20 +1,20 @@
 {
   "@graph" : [ {
     "@id" : "_:t0",
+    "@type" : "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#lat" : "48.8681710",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long" : "2.3377220"
+  }, {
+    "@id" : "_:t1",
     "@type" : "http://www.w3.org/2006/vcard/ns#Work",
     "http://www.w3.org/2006/vcard/ns#country-name" : "France",
     "http://www.w3.org/2006/vcard/ns#locality" : "Paris",
     "http://www.w3.org/2006/vcard/ns#postal-code" : "75002",
     "http://www.w3.org/2006/vcard/ns#street-address" : "Rue de Louvois 4"
   }, {
-    "@id" : "_:t1",
-    "@type" : "http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing",
-    "http://www.w3.org/2003/01/geo/wgs84_pos#lat" : "48.8681710",
-    "http://www.w3.org/2003/01/geo/wgs84_pos#long" : "2.3377220"
-  }, {
     "@id" : "http://lobid.org/organisation/AAAAA",
     "http://www.w3.org/2003/01/geo/wgs84_pos#location" : {
-      "@id" : "_:t1"
+      "@id" : "_:t0"
     }
   }, {
     "@id" : "http://lobid.org/organisation/ACRPP",
@@ -23,13 +23,47 @@
       "@id" : "http://lobid.org/media/ACRPP_contactqr.png"
     },
     "http://purl.org/dc/terms/identifier" : "ACRPP",
+    "http://purl.org/lobid/lv#fundertype" : {
+      "@id" : "http://purl.org/lobid/fundertype#n08"
+    },
+    "http://purl.org/lobid/lv#stocksize" : {
+      "@id" : "http://purl.org/lobid/stocksize#n06"
+    },
     "http://www.w3.org/2003/01/geo/wgs84_pos#location" : {
-      "@id" : "_:t1"
+      "@id" : "_:t0"
     },
     "http://www.w3.org/2004/02/skos/core#prefLabel" : "Association pour la conservation et la réproduction photographique de la presse",
     "http://www.w3.org/2006/vcard/ns#adr" : {
-      "@id" : "_:t0"
+      "@id" : "_:t1"
     },
     "http://xmlns.com/foaf/0.1/name" : "Association pour la conservation et la réproduction photographique de la presse"
+  }, {
+    "@id" : "http://purl.org/lobid/fundertype#n08",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "http://www.w3.org/2004/02/skos/core#inScheme" : {
+      "@id" : "http://purl.org/lobid/fundertype#scheme"
+    },
+    "http://www.w3.org/2004/02/skos/core#notation" : "08",
+    "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+      "@language" : "de",
+      "@value" : "Körperschaft oder Stiftung des privaten Rechts"
+    }, {
+      "@language" : "en",
+      "@value" : "Corporate Body or Foundation under Private Law"
+    } ]
+  }, {
+    "@id" : "http://purl.org/lobid/stocksize#n06",
+    "@type" : "http://www.w3.org/2004/02/skos/core#Concept",
+    "http://www.w3.org/2004/02/skos/core#inScheme" : {
+      "@id" : "http://purl.org/lobid/stocksize#scheme"
+    },
+    "http://www.w3.org/2004/02/skos/core#notation" : "06",
+    "http://www.w3.org/2004/02/skos/core#prefLabel" : [ {
+      "@language" : "de",
+      "@value" : "10.001 - 30.000"
+    }, {
+      "@language" : "en",
+      "@value" : "10,001 - 30,000"
+    } ]
   } ]
 }

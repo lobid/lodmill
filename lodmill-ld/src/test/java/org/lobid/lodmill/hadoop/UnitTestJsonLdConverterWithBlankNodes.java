@@ -6,11 +6,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import junit.framework.Assert;
-
+import org.json.JSONException;
 import org.junit.Test;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 
 /**
  * Test conversion to JSON-LD using the {@link JsonLdConverter} class.
@@ -21,7 +22,7 @@ public final class UnitTestJsonLdConverterWithBlankNodes {
 
 	@SuppressWarnings({ "javadoc", "static-method" })
 	@Test
-	public void testConversion() throws FileNotFoundException {
+	public void testConversion() throws FileNotFoundException, JSONException {
 		final JsonLdConverter converter = new JsonLdConverter(Format.N_TRIPLE);
 		final String rdfInput =
 				load("src/test/resources/lobid-org-with-blank-nodes.nt");
@@ -30,7 +31,12 @@ public final class UnitTestJsonLdConverterWithBlankNodes {
 		final String generatedJson = /* skip invalid first line (for other tests) */
 		converter.toJsonLd(rdfInput.substring(rdfInput.indexOf("\n") + 1));
 		System.out.println(generatedJson);
-		Assert.assertEquals(correctJson, generatedJson);
+		JSONAssert.assertEquals(removeBlankNodes(correctJson),
+				removeBlankNodes(generatedJson), JSONCompareMode.LENIENT);
+	}
+
+	private static String removeBlankNodes(String string) {
+		return string.replaceAll("_:t\\d", "");
 	}
 
 	private static String load(final String fileName)

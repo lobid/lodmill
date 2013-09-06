@@ -59,7 +59,7 @@ public final class UnitTestCollectSubjects {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testProperties() {
-		assertEquals("number of entries to resolve", 4,
+		assertEquals("number of entries to resolve", 6,
 				CollectSubjects.TO_RESOLVE.size());
 		assertEquals("number of predicates", 10, CollectSubjects.PREDICATES.size());
 	}

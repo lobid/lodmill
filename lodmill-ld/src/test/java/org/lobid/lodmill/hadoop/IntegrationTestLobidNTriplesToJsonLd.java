@@ -75,6 +75,9 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 				result.contains("ns#postal-code\":\"75002\""));
 		assertTrue("Expect correct street-address",
 				result.contains("ns#street-address\":\"Rue de Louvois 4\""));
+		assertTrue("Expect resolved funder type",
+				result.contains("Corporate Body or Foundation under Private Law"));
+		assertTrue("Expect resolved stock size", result.contains("10,001 - 30,000"));
 	}
 
 	private Job createJob() throws IOException {
