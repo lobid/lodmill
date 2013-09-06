@@ -71,8 +71,9 @@ public class ApiTests {
 				{ "organisation?name=hbz",/* -> */"Hochschulbibliothekszentrum" },
 				{ "organisation?name=Hochschulbibliotheksz",/* -> */
 				"Hochschulbibliothekszentrum" },
-				{ "organisation?id=DE-605",/* -> */
-				"Hochschulbibliothekszentrum" },
+				{ "organisation?id=DE-605",/* -> */"Hochschulbibliothekszentrum" },
+				{ "organisation?id=DE-605",/* -> */"Einrichtung ohne Bestand" },
+				{ "organisation?id=DE-605",/* -> */"Land" },
 				{ "organisation?name=hbz&format=ids",/* -> */
 				"http://lobid.org/organisation/DE-605" },
 				/*-------------*/

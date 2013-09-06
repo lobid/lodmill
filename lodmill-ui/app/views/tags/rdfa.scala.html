@@ -1,5 +1,6 @@
 @* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
 @(label: String, property: String, doc: play.api.libs.json.JsValue, row: views.TableRow, node: Option[play.api.libs.json.JsValue] = None)
+
 @import play.api.libs.json.JsValue
 
 @string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
@@ -31,13 +32,23 @@
     }
   }
   case views.TableRow.IMAGE => {
-    @defining((if ((doc \\ property).isEmpty) (doc \ property) else ((doc \\ property).head) \ "@id").asOpt[String]) { qr =>
+    @defining((jsonVal \ "@id").asOpt[String]) { qr =>
         @if(qr.isDefined){
             <tr>
               <td><a href="@property">@label</a></td>
               <td>
                 <a rel="@property" href="@qr.get"> <img class="qr" src="@qr.get" alt="@property: @qr.get"/> </a>
               </td>
+            </tr>
+        }
+    }
+ }
+ case views.TableRow.LABEL => {
+    @defining(views.tags.TagHelper.getLabelValue(property, "de", doc)) { value =>
+        @if(value.isDefined){
+            <tr>
+                <td><a href="@property">@label</a></td>
+                <td property="@property">@value</td>
             </tr>
         }
     }
