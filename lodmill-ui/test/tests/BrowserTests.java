@@ -63,7 +63,7 @@ public class BrowserTests {
 				assertThat(browser.title()).isEqualTo("Lobid API - Index");
 				browser.find("input", withId("id")).text(
 						"http://d-nb.info/gnd/118836617");
-				browser.find("button", withText("Search")).click();
+				browser.find("button", withText("Search")).first().click();
 				assertThat(browser.url()).isNotEqualTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Documents");
 				assertThat(browser.pageSource()).contains("Schmidt, Hannelore")
