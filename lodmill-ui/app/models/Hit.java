@@ -99,7 +99,10 @@ public enum Hit {
 					Json.toJson(hit.getSource()).findValue(searchField);
 			if (value != null) {
 				final JsonNode nestedValue = value.findValue(ID_KEY);
-				return nestedValue != null ? nestedValue.asText() : value.asText();
+				if (nestedValue != null)
+					return nestedValue.asText();
+				if (!value.asText().trim().isEmpty())
+					return value.asText();
 			}
 		}
 		Logger.warn(String.format("Hit '%s' contains none of the fields: '%s'",
