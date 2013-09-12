@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
+	<rules>
+		<!-- General attributes for each record: -->
+<!-- 		<data source="identifier.value" name="subject"> -->
+<!-- 			<regexp match="(urn[^\ ]*)" format="${1}" /> -->
+<!-- 		</data> -->
+		<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource" />
+		</data>
+		<data source="001" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation" />
+		</data>
+		<data source="001" name="http://www.w3.org/2004/02/skos/core#Concept">
+			<regexp match=".*"
+				format="http://iflastandards.info/ns/isbd/terms/mediatype/T1010" />
+		</data>
+		<!-- Map specific fields: -->
+		<data source="title.value" name="http://iflastandards.info/ns/isbd/elements/P1004">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="language.value" name="http://purl.org/dc/terms/language">
+			<regexp match="((.*))" format="http://id.loc.gov/vocabulary/iso639-2/${1}" />
+		</data>
+		<data source="subject.ddc.value" name="http://purl.org/dc/terms/subject">
+			<regexp match="((.*))" format="http://dewey.info/class/${1}" />
+		</data>
+
+		<data source="identifier.value" name="http://purl.org/ontology/bibo/doi">
+			<regexp match="(doi[^\ ]*)" format="${1}" />
+		</data>
+		<data source="identifier.value" name="http://hbz-nrw.de/regal/urn">
+			<regexp match="(urn[^\ ]*)" format="${1}" />
+		</data>
+		<data source="subject.unclassified.value" name="http://schemas.talis.com/2005/dir/schema#tag">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="creator.pndIdentifier.value" name="http://purl.org/dc/terms/contributor">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+
+		<combine name="http://purl.org/dc/elements/1.1/contributor"
+			value="${creatorLastName}, ${creatorAcademicTitle} ${creatorFirstName}">
+			<data source="creator.firstName.value" name="creatorFirstName">
+				<regexp match="((.*))" format="${1}" />
+			</data>
+			<data source="creator.lastName.value" name="creatorLastName">
+				<regexp match="((.*))" format="${1}" />
+			</data>
+			<!-- <data source="creator.academicTitle.value" name="creatorAcademicTitle"> -->
+			<!-- <regexp match="((.*))" format="${1}" /> -->
+			<!-- </data> -->
+		</combine>
+
+		<combine name="http://purl.org/dc/terms/isPartOf"
+			value="${jt}, ${jv}">
+			<data source="bibliographicCitation.journalTitle.value" name="jt">
+				<regexp match="((.*))" format="${1}" />
+			</data>
+
+			<data source="bibliographicCitation.journalVolume.value" name="jv">
+				<regexp match="((.*))" format="${1}" />
+			</data>
+		</combine>
+		
+		<data source="type.value" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="bibliographicCitation.journalIssueDate.value" name="http://purl.org/dc/terms/issued">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+<!-- 		<data source="creator.organization.value" name="creatororganization"> -->
+<!-- 			<regexp match="((.*))" format="${1}" /> -->
+<!-- 		</data> -->
+<!-- 		<data source="creator.email.value" name="creatoremail"> -->
+<!-- 			<regexp match="((.*))" format="${1}" /> -->
+<!-- 		</data> -->
+<!-- 		<data source="creator.postal.value" name="creatorpostal"> -->
+<!-- 			<regexp match="((.*))" format="${1}" /> -->
+<!-- 		</data> -->
+<!-- 		<data source="bibliographicCitation.journalIssueNumber.value" -->
+<!-- 			name="journalIssueNumber"> -->
+<!-- 			<regexp match="((.*))" format="${1}" /> -->
+<!-- 		</data> -->
+	</rules>
+</metamorph>

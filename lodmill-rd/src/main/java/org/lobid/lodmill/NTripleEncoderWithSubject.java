@@ -30,7 +30,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 @Description("Encode a stream as N-Triples")
 @In(StreamReceiver.class)
 @Out(String.class)
-public class NTripleEncoder extends AbstractGraphPipeEncoder {
+public class NTripleEncoderWithSubject extends AbstractGraphPipeEncoder {
 	Model model;
 	Stack<Resource> resources;
 	final AtomicInteger ATOMIC_INT = new AtomicInteger();
