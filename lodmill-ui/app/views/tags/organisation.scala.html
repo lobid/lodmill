@@ -4,10 +4,20 @@
 @import views.TableRow
 @import tags._
 <table class="table table-striped">
-  @rdfa("ID", "http://lobid.org/organisation", doc, TableRow.SINGLE_LINK, node = Option(doc))
-  @rdfa("Name", "http://xmlns.com/foaf/0.1/name", doc, TableRow.SINGLE_VALUE)
-  @rdfa("ISIL", "http://purl.org/dc/terms/identifier", doc, TableRow.SINGLE_VALUE)
-  @rdfa("Wikipedia", "http://purl.org/ontology/mo/wikipedia", doc, TableRow.SINGLE_LINK)
-  @rdfa("DBpedia", "http://www.w3.org/2000/01/rdf-schema#seeAlso", doc, TableRow.SINGLE_LINK,node = Option(doc \ "rdfs:seeAlso"))
-  @rdfa("Kontakt-QR", "http://lobid.org/vocab/lobid#contactqr", doc, TableRow.SINGLE_IMAGE)
+  @rdfa("ID", "http://purl.org/dc/terms/identifier", doc, TableRow.VALUES)
+  @rdfa("Name", "http://xmlns.com/foaf/0.1/name", doc, TableRow.VALUES)
+  @map("Lage", "http://www.w3.org/2003/01/geo/wgs84_pos#location",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long", "http://www.w3.org/2003/01/geo/wgs84_pos#lat", doc)
+  @rdfa("Wikipedia", "http://purl.org/ontology/mo/wikipedia", doc, TableRow.LINKS)
+  @rdfa("DBpedia", "http://www.w3.org/2000/01/rdf-schema#seeAlso", doc, TableRow.LINKS, 
+  	node = if((doc \\ "rdfs:seeAlso").isEmpty) None else Option((doc \\ "rdfs:seeAlso").head))
+  @rdfa("Straße", "http://www.w3.org/2006/vcard/ns#street-address", doc, TableRow.VALUES)
+  @rdfa("PLZ", "http://www.w3.org/2006/vcard/ns#postal-code", doc, TableRow.VALUES)
+  @rdfa("Ort", "http://www.w3.org/2006/vcard/ns#locality", doc, TableRow.VALUES)
+  @rdfa("Land", "http://www.w3.org/2006/vcard/ns#country-name", doc, TableRow.VALUES)
+  @rdfa("E-Mail", "http://www.w3.org/2006/vcard/ns#email", doc, TableRow.LINKS)
+  @rdfa("Homepage", "http://www.w3.org/2006/vcard/ns#url", doc, TableRow.LINKS)
+  @rdfa("Unterhaltsträger", "http://purl.org/lobid/lv#fundertype", doc, TableRow.LABEL)
+  @rdfa("Bestandsgröße", "http://purl.org/lobid/lv#stocksize", doc, TableRow.LABEL)
+  @rdfa("Kontakt-QR", "http://purl.org/lobid/lv#contactqr", doc, TableRow.IMAGE)
 </table>

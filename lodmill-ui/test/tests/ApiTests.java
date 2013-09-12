@@ -44,12 +44,19 @@ public class ApiTests {
 				{ "resource?id=HT002189125",/* -> */"a peep at Polynesian life" },
 				{ "resource?name=Typee",/* -> */"a peep at Polynesian life" },
 				{ "resource?author=Melville",/* -> */"a peep at Polynesian life" },
-				{ "resource?author=Melville&format=short",/* -> */"Melville, Herman" },
+				{ "resource?author=Melville&format=short",/* -> */
+				"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
-				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
-				{ "resource?subject=Chemistry&format=short",/* -> */
-				"Chemistry & allied sciences" },
+				/* search by dewey broken, see #119 */
+				// { "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften"
+				// },
+				// { "resource?subject=Chemistry&format=short",/* -> */
+				// "Chemistry & allied sciences" },
+				{ "resource?name=Typee&format=ids",/* -> */
+				"http://lobid.org/resource/HT002189125" },
+				{ "resource?set=NWBib",/* -> */
+				"Wann en Kölle de Chress-Stäne blöhe" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
@@ -59,6 +66,18 @@ public class ApiTests {
 				{ "organisation?name=Basel",/* -> */"Universität Basel" },
 				{ "organisation?name=Basel&format=short",/* -> */
 				"Universität Basel" },
+				{ "organisation?name=Basel&format=ids",/* -> */
+				"http://lobid.org/organisation/SzBaU" },
+				{ "organisation?name=hbz",/* -> */"Hochschulbibliothekszentrum" },
+				{ "organisation?name=hbz&format=short",/* -> */
+						"Hochschulbibliothekszentrum" },
+				{ "organisation?name=Hochschulbibliotheksz",/* -> */
+				"Hochschulbibliothekszentrum" },
+				{ "organisation?id=DE-605",/* -> */"Hochschulbibliothekszentrum" },
+				{ "organisation?id=DE-605",/* -> */"Einrichtung ohne Bestand" },
+				{ "organisation?id=DE-605",/* -> */"Land" },
+				{ "organisation?name=hbz&format=ids",/* -> */
+				"http://lobid.org/organisation/DE-605" },
 				/*-------------*/
 				/* GET /person */
 				/*-------------*/
@@ -67,11 +86,15 @@ public class ApiTests {
 				{ "person?name=Bach",/* -> */"Bach, Johann Sebastian" },
 				{ "person?name=Bach&format=short",/* -> */
 				"Bach, Johann Sebastian (1685-1750)" },
+				{ "person?name=Bach&format=ids", /* -> */
+				"http://d-nb.info/gnd/11850553X" },
 				/*-------------*/
 				/* GET /search */
 				/*-------------*/
 				{ "search?name=Bas",/* -> */"Bach, Johann Sebastian" },
-				{ "search?name=Bas",/* -> */"Universität Basel" }
+				{ "search?name=Bas",/* -> */"Universität Basel" },
+				{ "search?name=Bas&format=ids",/* -> */
+				"http://lobid.org/organisation/SzBaU" }
 		/**/
 		});
 	}

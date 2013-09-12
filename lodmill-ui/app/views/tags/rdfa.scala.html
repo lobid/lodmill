@@ -1,41 +1,28 @@
 @* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
 @(label: String, property: String, doc: play.api.libs.json.JsValue, row: views.TableRow, node: Option[play.api.libs.json.JsValue] = None)
+
 @import play.api.libs.json.JsValue
 
 @string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
 @jsonVal = @{ node match {
   case Some(node) => node
-  case None => doc \ property
+  case None => if ((doc \\ property).isEmpty) (doc \ property) else (doc \\ property).head
 }}
+@multiSingleOrEmptySeq(value: JsValue) = @{
+	jsonVal.asOpt[Seq[JsValue]].getOrElse(if(value.asOpt[String].isDefined) Seq(jsonVal) else Seq())
+}
 
 @row match {
-  case views.TableRow.SINGLE_VALUE => {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      <td property="@property">@string(jsonVal)</td>
-    </tr>
-  }
-  case views.TableRow.SINGLE_LINK => {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      <td>
-        @((jsonVal \ "@id").asOpt[String]) match {
-          case Some(link) => {<a rel="@property" href="@link">@link</a>}
-          case None => {--}
-        }
-      </td>
-    </tr>
-  }
-  case views.TableRow.MULTI_VALUE => {
-    @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
+  case views.TableRow.VALUES => {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal)) {
       <tr>
         <td><a href="@property">@label</a></td>
         <td property="@property">@string(elem)</td>
       </tr>
     }
   }
-  case views.TableRow.MULTI_LINK => {
-    @for(elem <- jsonVal.asOpt[Seq[JsValue]].getOrElse(Nil)) {
+  case views.TableRow.LINKS => {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal \ "@id")) {
       <tr>
         <td><a href="@property">@label</a></td>
         <td>
@@ -44,15 +31,26 @@
       </tr>
     }
   }
-  case views.TableRow.SINGLE_IMAGE => {
-    <tr>
-      <td><a href="@property">@label</a></td>
-      <td>
-        @((doc \ property \ "@id").asOpt[String]) match {
-          case Some(link) => { <a rel="@property" href="@link"> <img src="@link" alt="@property: @link"/> </a> }
-          case None => { -- }
+  case views.TableRow.IMAGE => {
+    @defining((jsonVal \ "@id").asOpt[String]) { qr =>
+        @if(qr.isDefined){
+            <tr>
+              <td><a href="@property">@label</a></td>
+              <td>
+                <a rel="@property" href="@qr.get"> <img class="qr" src="@qr.get" alt="@property: @qr.get"/> </a>
+              </td>
+            </tr>
         }
-      </td>
-    </tr>
-  }
+    }
+ }
+ case views.TableRow.LABEL => {
+    @defining(views.tags.TagHelper.getLabelValue(property, "de", doc)) { value =>
+        @if(value.isDefined){
+            <tr>
+                <td><a href="@property">@label</a></td>
+                <td property="@property">@value</td>
+            </tr>
+        }
+    }
+ }
 }

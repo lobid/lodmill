@@ -24,7 +24,7 @@
           "ngram":{
             "type":"nGram",
             "min_gram":1,
-            "max_gram":20
+            "max_gram":40
           }
         }
       }
@@ -33,20 +33,24 @@
   "mappings":{
     "json-ld-lobid":{
       "properties":{
-        "http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson":{
+        "@graph.http://purl.org/dc/elements/1.1/creator.@id":{
+          "type":"string",
+          "index":"not_analyzed"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "http://purl.org/ontology/bibo/isbn13":{
+        "@graph.http://purl.org/ontology/bibo/isbn13":{
           "type":"string",
           "index":"not_analyzed"
         },
-        "http://purl.org/ontology/bibo/isbn10":{
+        "@graph.http://purl.org/ontology/bibo/isbn10":{
           "type":"string",
           "index":"not_analyzed"
         },
-        "@id":{
+        "@graph.@id":{
           "type":"string",
           "index_analyzer":"id_analyzer",
           "search_analyzer":"id_analyzer"
@@ -56,12 +60,12 @@
     "json-ld-gnd":{
       "date_detection":false,
       "properties":{
-        "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "http://d-nb.info/standards/elementset/gnd#variantNameForThePerson":{
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
@@ -71,10 +75,20 @@
     "json-ld-lobid-orgs":{
       "date_detection":false,
       "properties":{
-        "http://www.w3.org/2004/02/skos/core#prefLabel":{
+        "@graph.http://www.w3.org/2004/02/skos/core#prefLabel":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
+        },
+        "@graph.http://xmlns.com/foaf/0.1/name":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://purl.org/dc/terms/identifier":{
+          "type":"string",
+          "index_analyzer":"id_analyzer",
+          "search_analyzer":"id_analyzer"
         }
       }
     }

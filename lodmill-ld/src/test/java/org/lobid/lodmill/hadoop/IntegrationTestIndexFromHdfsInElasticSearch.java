@@ -29,9 +29,11 @@ import org.slf4j.LoggerFactory;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase {
+public class IntegrationTestIndexFromHdfsInElasticSearch extends
+		ClusterMapReduceTestCase {
+	private static final int DOC_COUNT = 19;
 	private static final String TEST_FILE =
-			"src/test/resources/json-ld-sample-output";
+			"src/test/resources/json-ld-sample-output.json";
 	private static final String DATA_1 = "json-es-test/part-r-00000";
 	private static final String DATA_2 = "json-es-test/part-r-00001";
 	private FileSystem hdfs = null;
@@ -61,8 +63,8 @@ public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase 
 			System.err.println("Index error: " + error.getFailureMessage());
 		}
 		Thread.sleep(1000);
-		assertEquals("All documents should be indexed", 25, client.prepareSearch()
-				.execute().actionGet().getHits().totalHits());
+		assertEquals("All documents should be indexed", DOC_COUNT, client
+				.prepareSearch().execute().actionGet().getHits().totalHits());
 		assertEquals("Indexing one should yield no errors", 0, errors.size());
 	}
 
@@ -73,8 +75,8 @@ public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase 
 			System.err.println("Index error: " + error.getFailureMessage());
 		}
 		Thread.sleep(1000);
-		assertEquals("All documents should be indexed", 25, client.prepareSearch()
-				.execute().actionGet().getHits().totalHits());
+		assertEquals("All documents should be indexed", DOC_COUNT, client
+				.prepareSearch().execute().actionGet().getHits().totalHits());
 		assertEquals("Indexing all should yield no errors", 0, errors.size());
 	}
 
@@ -84,8 +86,8 @@ public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase 
 		Thread.sleep(1000);
 		final SearchResponse response =
 				search(
-						"lobid-index",
-						"http://purl.org/dc/elements/1.1/creator#preferredNameForThePerson",
+						"lobid-resources",
+						"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
 						"loft");
 		assertTrue(
 				"Substring of actual index term should yield results due to ngram config",
@@ -102,16 +104,18 @@ public class IndexFromHdfsInElasticSearchTests extends ClusterMapReduceTestCase 
 		return response;
 	}
 
+	@Override
 	@After
-	public void close() {
+	public void tearDown() {
 		client.admin().indices().prepareDelete().execute().actionGet();
 		node.close();
 		try {
 			hdfs.close();
 			super.stopCluster();
 		} catch (Exception e) {
-			LoggerFactory.getLogger(IndexFromHdfsInElasticSearchTests.class).error(
-					e.getMessage(), e);
+			LoggerFactory
+					.getLogger(IntegrationTestIndexFromHdfsInElasticSearch.class).error(
+							e.getMessage(), e);
 		}
 	}
 }

@@ -6,12 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import org.codehaus.jackson.JsonNode;
 import org.elasticsearch.search.SearchHit;
 
 import play.Logger;
-
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
+import play.libs.Json;
 
 /**
  * Process different kinds of result hits.
@@ -25,9 +24,7 @@ public enum Hit {
 		Document process(final String query, final Document document) {
 			final List<?> list = (List<?>) field;
 			if (list.get(0) instanceof String) {
-				@SuppressWarnings("unchecked")
-				final List<String> strings = (List<String>) field;
-				document.matchedField = firstMatching(query, strings);
+				STRING.process(query, document);
 			} else if (list.get(0) instanceof Map) {
 				@SuppressWarnings("unchecked")
 				final List<Map<String, Object>> maps =
@@ -42,20 +39,25 @@ public enum Hit {
 		@Override
 		Document process(final String query, final Document document) {
 			if (fields.get(0).contains("preferredNameForThePerson")) {
-				final Object birth = hit.getSource().get(fields.get(1));
-				final Object death = hit.getSource().get(fields.get(2));
+				final JsonNode json = Json.toJson(hit.getSource());
+				final JsonNode birth = json.findValue(stripGraphPrefix(fields.get(1)));
+				final JsonNode death = json.findValue(stripGraphPrefix(fields.get(2)));
 				if (birth == null) {
 					document.matchedField = field.toString();
 				} else {
 					final String format =
-							String.format("%s (%s-%s)", field.toString(), birth.toString(),
-									death == null ? "" : death.toString());
+							String.format("%s (%s-%s)", field.toString(), birth.asText(),
+									death == null ? "" : death.asText());
 					document.matchedField = format;
 				}
 			} else {
 				document.matchedField = field.toString();
 			}
 			return document;
+		}
+
+		private String stripGraphPrefix(final String fieldString) {
+			return fieldString.replace(GRAPH_KEY + ".", "");
 		}
 	},
 	/***/
@@ -73,6 +75,8 @@ public enum Hit {
 	private static List<String> fields;
 	private static SearchHit hit;
 	private final Class<?> fieldType; // NOPMD
+	private static final String GRAPH_KEY = "@graph";
+	private static final String ID_KEY = "@id";
 
 	static Hit of(final SearchHit searchHit, final List<String> searchFields) { // NOPMD
 		hit = searchHit;
@@ -88,31 +92,29 @@ public enum Hit {
 
 	private static Object firstExisting() {
 		for (String currentField : fields) {
-			if (hit.getSource().containsKey(currentField)) {
-				return hit.getSource().get(currentField);
+			final String searchField =
+					(currentField.contains(GRAPH_KEY) ? currentField.replace(GRAPH_KEY
+							+ ".", "") : currentField).replace("." + ID_KEY, "");
+			final JsonNode value =
+					Json.toJson(hit.getSource()).findValue(searchField);
+			if (value != null) {
+				final JsonNode nestedValue = value.findValue(ID_KEY);
+				if (nestedValue != null)
+					return nestedValue.asText();
+				if (!value.asText().trim().isEmpty())
+					return value.asText();
 			}
 		}
-		Logger.debug(String.format("Hit '%s' contains none of the fields: '%s'",
+		Logger.warn(String.format("Hit '%s' contains none of the fields: '%s'",
 				hit.getSource(), fields));
 		return null;
-	}
-
-	private static String firstMatching(final String query,
-			final List<String> list) {
-		final Predicate<String> predicate = new Predicate<String>() {
-			@Override
-			public boolean apply(final String string) {
-				return string.toLowerCase().contains(query);
-			}
-		};
-		return Iterables.tryFind(list, predicate).orNull();
 	}
 
 	private static void processMaps(final String query, final Document document,
 			final List<Map<String, Object>> maps) {
 		for (Map<String, Object> map : maps) {
-			if (map.get("@id").toString().contains(query)) {
-				document.matchedField = map.get("@id").toString();
+			if (map.get(ID_KEY).toString().contains(query)) {
+				document.matchedField = map.get(ID_KEY).toString();
 				break;
 			}
 		}

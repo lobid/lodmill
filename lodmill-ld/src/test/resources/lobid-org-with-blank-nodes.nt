@@ -1,0 +1,30 @@
+<http://lobid.org/organisation/ACRPP> <http://purl.org/dc/terms/identifier> invalid .
+<http://lobid.org/organisation/ACRPP> <http://purl.org/dc/terms/identifier> "ACRPP" .
+<http://lobid.org/organisation/ACRPP> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Organization> .
+_:node16vicghfdx1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> .
+_:node16vicghfdx1 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> "48.8681710" .
+_:node16vicghfdx1 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "2.3377220" .
+<http://lobid.org/organisation/ACRPP> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:b0 .
+<http://lobid.org/organisation/ACRPP> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:node16vicghfdx1 .
+<http://lobid.org/organisation/AAAAA> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:node16vicghfdx1 .
+<http://lobid.org/organisation/ACRPP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Association pour la conservation et la r\u00E9production photographique de la presse" .
+_:node16vicghfdx2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2006/vcard/ns#Work> .
+_:node16vicghfdx2 <http://www.w3.org/2006/vcard/ns#country-name> "France" .
+_:node16vicghfdx2 <http://www.w3.org/2006/vcard/ns#locality> "Paris" .
+_:node16vicghfdx2 <http://www.w3.org/2006/vcard/ns#postal-code> "75002" .
+_:node16vicghfdx2 <http://www.w3.org/2006/vcard/ns#street-address> "Rue de Louvois 4" .
+<http://lobid.org/organisation/ACRPP> <http://www.w3.org/2006/vcard/ns#adr> _:node16vicghfdx2 .
+<http://lobid.org/organisation/ACRPP> <http://xmlns.com/foaf/0.1/name> "Association pour la conservation et la r\u00E9production photographique de la presse" .
+<http://lobid.org/organisation/ACRPP> <http://lobid.org/vocab/lobid#contactqr> <http://lobid.org/media/ACRPP_contactqr.png> .
+<http://lobid.org/organisation/ACRPP> <http://purl.org/lobid/lv#fundertype> <http://purl.org/lobid/fundertype#n08> .
+<http://purl.org/lobid/fundertype#n08> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://purl.org/lobid/fundertype#n08> <http://www.w3.org/2004/02/skos/core#inScheme> <http://purl.org/lobid/fundertype#scheme> .
+<http://purl.org/lobid/fundertype#n08> <http://www.w3.org/2004/02/skos/core#notation> "08"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://purl.org/lobid/fundertype#n08> <http://www.w3.org/2004/02/skos/core#prefLabel> "Corporate Body or Foundation under Private Law"@en .
+<http://purl.org/lobid/fundertype#n08> <http://www.w3.org/2004/02/skos/core#prefLabel> "K\u00F6rperschaft oder Stiftung des privaten Rechts"@de .
+<http://lobid.org/organisation/ACRPP> <http://purl.org/lobid/lv#stocksize> <http://purl.org/lobid/stocksize#n06> .
+<http://purl.org/lobid/stocksize#n06> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<http://purl.org/lobid/stocksize#n06> <http://www.w3.org/2004/02/skos/core#inScheme> <http://purl.org/lobid/stocksize#scheme> .
+<http://purl.org/lobid/stocksize#n06> <http://www.w3.org/2004/02/skos/core#notation> "06"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://purl.org/lobid/stocksize#n06> <http://www.w3.org/2004/02/skos/core#prefLabel> "10,001 - 30,000"@en .
+<http://purl.org/lobid/stocksize#n06> <http://www.w3.org/2004/02/skos/core#prefLabel> "10.001 - 30.000"@de .

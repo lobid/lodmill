@@ -39,6 +39,10 @@ h6. Download Play and run the tests
 
 Replace 'test' with other Play commands, e.g. 'run' or 'eclipse' (to generate Eclipse project config files).
 
+h1. Clusters
+
+The instructions above will set up a local API and frontend instance. For information on how we have set up our Hadoop and Elasticsearch backend clusters see @README.textile@ in @lodmill-ld@.
+
 h1. License
 
 Eclipse Public License: "http://www.eclipse.org/legal/epl-v10.html":http://www.eclipse.org/legal/epl-v10.html

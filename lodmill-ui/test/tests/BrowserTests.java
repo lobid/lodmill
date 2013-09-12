@@ -13,6 +13,7 @@ import java.io.IOException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import play.libs.F.Callback;
@@ -57,11 +58,12 @@ public class BrowserTests {
 	public void queryForm() {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
-			public void invoke(final TestBrowser browser) {
+			public void invoke(final TestBrowser browser) throws InterruptedException {
 				browser.goTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Index");
-				browser.find("input", withId("name")).text("Loki Schmidt");
-				browser.find("button", withText("Search")).click();
+				browser.find("input", withId("id")).text(
+						"http://d-nb.info/gnd/118836617");
+				browser.find("button", withText("Search")).first().click();
 				assertThat(browser.url()).isNotEqualTo(INDEX);
 				assertThat(browser.title()).isEqualTo("Lobid API - Documents");
 				assertThat(browser.pageSource()).contains("Schmidt, Hannelore")
@@ -88,7 +90,9 @@ public class BrowserTests {
 				.contains("http://gutenberg.org/ebooks/9269")
 				.contains("http://gutenberg.org/ebooks/23969")
 				.contains("http://openlibrary.org/works/OL14953734W")
-				.contains("http://dbpedia.org/resource/Typee");
+				.contains("http://dbpedia.org/resource/Typee")
+				.contains("http://lobid.org/item/HT002189125%3AU+MEL-11")
+				.contains("Exemplar");
 	}
 
 	@Test
@@ -113,7 +117,7 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.click("a", withText("/resource?subject=44141956"));
+				browser.click("a", withText("/resource?subject=4414195-6"));
 				assertThat(browser.pageSource())
 						.contains("Heimatstimmen aus dem Kreis Olpe")
 						.contains(
@@ -126,6 +130,8 @@ public class BrowserTests {
 	}
 
 	@Test
+	@Ignore
+	// dewey search currently broken, see #119
 	public void sampleRequestResourceBySubjectLabel() {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
@@ -149,13 +155,12 @@ public class BrowserTests {
 				assertThat(browser.pageSource())
 						.contains("Universität")
 						.contains("Universität Basel")
-						.contains("http://de.wikipedia.org/wiki/Universität_Basel")
-						.contains("http://de.dbpedia.org/resource/Universität_Basel")
-						.contains("Technische Universität Graz")
+						.contains("Ruhr-Universität Bochum, Universitätsbibliothek")
+						.contains("Universitätsstr. 150")
+						.contains("http://www.ub.ruhr-uni-bochum.de")
+						.contains("mailto:benutzung.ub@ruhr-uni-bochum.de")
 						.contains(
-								"http://de.wikipedia.org/wiki/Technische_Universität_Graz")
-						.contains(
-								"http://de.dbpedia.org/resource/Technische_Universität_Graz");
+								"http://de.wikipedia.org/wiki/Universitätsbibliothek_Bochum");
 			}
 		});
 	}

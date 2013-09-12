@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
-    <groupId>org.lobid</groupId>
+
+	<groupId>org.lobid</groupId>
 	<artifactId>lodmill-ld</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 
@@ -23,11 +23,6 @@
 			</snapshots>
 		</repository>
 		<repository>
-			<id>jfresnel-repository</id>
-			<name>JFresnel Repository</name>
-			<url>http://jfresnel.gforge.inria.fr/maven</url>
-		</repository>
-		<repository>
 			<id>acm-sl</id>
 			<url>http://maven.acm-sl.org/artifactory/list/libs-releases/</url>
 			<snapshots>
@@ -36,12 +31,12 @@
 		</repository>
 	</repositories>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>lobid-snapshots</id>
-            <url>file:///${basedir}/../../lobid.github.com/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>lobid-snapshots</id>
+			<url>file:///${basedir}/../../lobid.github.com/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<testResources>
@@ -56,7 +51,7 @@
 			</testResource>
 		</testResources>
 		<plugins>
-               <plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>2.5</version>
@@ -75,7 +70,7 @@
 					</execution>
 				</executions>
 			</plugin>
-               <plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
 				<version>2.3.2</version>
@@ -104,20 +99,20 @@
 			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-		        <version>2.3</version>
-		        <configuration>
-		          <descriptorRefs>
-		            <descriptorRef>jar-with-dependencies</descriptorRef>
-		          </descriptorRefs>
-		        </configuration>
+				<version>2.3</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
 			</plugin>
 			<plugin>
-		        <groupId>org.apache.maven.plugins</groupId>
-		        <artifactId>maven-surefire-plugin</artifactId>
-		        <version>2.12.4</version>
-		        <configuration>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.12.4</version>
+				<configuration>
 					<test>org.lobid.lodmill.AllTests</test>
-		        </configuration>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -152,12 +147,6 @@
 			<version>1.0.3</version>
 			<type>jar</type>
 			<scope>compile</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.codehaus.jackson</groupId>
-					<artifactId>jackson-mapper-asl</artifactId>
-		        </exclusion>
-			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -175,89 +164,89 @@
 			<classifier>hadoop1</classifier>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>dfki.km.json</groupId>
-		    <artifactId>jsonld-java</artifactId>
-		    <version>1.0.0-SNAPSHOT</version>
+			<groupId>com.github.jsonld-java</groupId>
+			<artifactId>jsonld-java</artifactId>
+			<version>0.2</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>com.googlecode.json-simple</groupId>
-		    <artifactId>json-simple</artifactId>
-		    <version>1.1.1</version>
+			<groupId>com.github.jsonld-java</groupId>
+			<artifactId>jsonld-java-jena</artifactId>
+			<version>0.2</version>
 		</dependency>
-		
+
 		<dependency>
-		    <groupId>org.apache.jena</groupId>
-		    <artifactId>jena-arq</artifactId>
-		    <version>2.9.3</version>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
 		</dependency>
-		
+
 		<dependency>
-			<groupId>fr.inria.jfresnel.fsl</groupId>
-			<artifactId>fsl-core</artifactId>
-			<version>0.7.1</version>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>2.9.3</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>fr.inria.jfresnel</groupId>
-			<artifactId>jfresnel-core</artifactId>
-			<version>0.3.2</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>fr.inria.jfresnel.jena</groupId>
-			<artifactId>jfresnel-jena</artifactId>
-			<version>0.3.2</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>fr.inria.jfresnel.fsl.jena</groupId>
-			<artifactId>fsl-jena</artifactId>
-			<version>0.7.1</version>
-		</dependency>
-		
+
 		<dependency>
 			<groupId>org.elasticsearch</groupId>
 			<artifactId>elasticsearch</artifactId>
 			<version>0.19.11</version>
 		</dependency>
 
-          <dependency>
-		    <groupId>com.google.guava</groupId>
-		    <artifactId>guava</artifactId>
-		    <version>13.0</version>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>13.0</version>
 		</dependency>
 
 		<dependency>
-		  <groupId>org.apache.httpcomponents</groupId>
-		  <artifactId>httpclient</artifactId>
-		  <version>4.2.1</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.2.1</version>
 		</dependency>
 
-          <dependency>
-		  <groupId>org.apache.httpcomponents</groupId>
-		  <artifactId>httpcore</artifactId>
-		  <version>4.2.1</version>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.2.1</version>
 		</dependency>
 
-        <!-- 'provided' deps for globel exlusion (are pulled in by jfresnel), see
-		http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+
+		<!-- 'provided' deps for globel exlusion (are pulled in by jfresnel and 
+			jsonld-java), see http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
 		<dependency>
 			<groupId>com.hp.hpl.jena</groupId>
 			<artifactId>jena</artifactId>
 			<version>2.5.6</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.hp.hpl.jena</groupId>
 			<artifactId>arq</artifactId>
 			<version>2.4</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- end global exclusion -->
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.skyscreamer</groupId>
+			<artifactId>jsonassert</artifactId>
+			<version>1.2.0</version>
+		</dependency>
 
 	</dependencies>
 </project>

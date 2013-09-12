@@ -5,17 +5,68 @@
 
 @withPage(link:String) = {@link&format=page}
 
+@formats(ref:String) = {<td>
+				<code><a href="@ref=short">short</a></code>,
+				<code><a href="@ref=ids">ids</a></code>,
+				<code><a href="@ref=page">page</a></code>,
+				<code><a href="@ref=full">full</a></code> (default)
+		</td>}
+
+@sampleUsageCode(resourceType: String, resultType: String) = {
+    $('input.search-@resourceType').each(function() {
+        var $input = $(this);
+        $input.autocomplete({
+            source : function(request, response) {
+                $.ajax({
+                    url : "/@resourceType",
+                    dataType : "jsonp",
+                    data : {
+                        name : request.term,
+                        format : "@resultType"
+                    },
+                    success : function(data) {
+                        response(data);
+                    }
+                });
+            }
+        });
+    });
+}
+
+@sampleUsage(resourceType: String, queryType: String, resultType: String) = {
+    <h4>For /@resourceType</h4>
+    <div class="row-fluid">
+        <div class="span6">
+            <p>Type a @resourceType's name to get suggestions. Upon selecting a suggestion, the corresponding value will be inserted (here: @if(resultType=="short") {the completed term} else {the ID}). Search will return details on the selected @resourceType.</p>
+            <form method="GET" class="form-inline" action="/@resourceType"> <!-- use full URL in your code, i.e. http://api.lobid.org/@resourceType -->
+                <input type="text" class="search-@resourceType" name="@queryType" id="id" style="width:300px"/>
+                <input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
+                <button type="submit" class="btn">Search</button>
+            </form>
+            <p>This calls the <code>/@resourceType</code> endpoint with the <code>format=@resultType</code> parameter to get the suggestions. The actual search uses the <code>@queryType</code> parameter with the inserted value. See the implementation using JavaScript and jQuery UI on the right and the source of this page.</p>
+            <p>The sample on the right gets the autocomplete data from a remote URL (i.e. a different server from the one that serves the HTML) by using JSONP (use full URL in your code, i.e. <code>http://api.lobid.org/@resourceType</code> for the <code>url</code> attribute).</p>
+            <script>
+                @sampleUsageCode(resourceType, resultType)
+            </script>
+        </div>
+        <div class="span6">
+            <pre>
+                @sampleUsageCode(resourceType, resultType)
+            </pre>
+        </div>
+    </div>
+}
+
 @main("Lobid API - Index") {
-    <h2>API endpoints and parameters</h2>
-    <p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below):</p>
-    <table class="table table-striped">
+		<h2>API endpoints and parameters</h2>
+		<p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below).</p>
+		<p>All endpoints support queries using the <code>id</code>, <code>name</code>, and <code>format</code> parameters:</p>
+		<table class="table table-striped">
 		<tr>
 			<th style="width: 10%">Parameters &rarr; <br/>&darr; Endpoint</th>
 			<th><code>id</code></th>
 			<th><code>name</code></th>
-			<th><code>author</code></th>
-			<th><code>subject</code></th>
-			<th style="width: 10%"><code>format</code></th>
+			<th><code>format</code></th>
 			<th style="width: 10%">Info</th>
 		</tr>
 		<tr>
@@ -28,26 +79,18 @@
 					<a href="@refs._4?format=page">@refs._4</a>
 				</td>}
 			@defining("/resource?name=Faust"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
-			@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs =>
-				<td><a href="@withPage(refs._1)">@refs._1</a> <br/> <a href="@withPage(refs._2)">@refs._2</a></td>}
-			@defining(("/resource?subject=44141956","/resource?subject=Chemistry")){ref =>
-				<td>
-					<a href="@withPage(ref._1)">@ref._1</a><br/>
-					<a href="@withPage(ref._2)">@ref._2</a><br/>(currently supported:<br/>GND by ID, Dewey by english label)</td>}
-			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			@formats("/resource?name=Typee&format")
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
 		<tr>
 			<td><code>/organisation</td>
-			@defining(("/organisation?id=SzBaU","/organisation/SzBaU")){refs =>
+			@defining(("/organisation?id=DE-605","/organisation/DE-605")){refs =>
 				<td>
 					<a href="@withPage(refs._1)">@refs._1</a> <br/>
 					<a href="@refs._2?format=page">@refs._2</a>
 				</td> }
 			@defining("/organisation?name=Universität"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
-			<td>&mdash;</td>
-			<td>&mdash;</td>
-			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			@formats("/organisation?name=Universität&format")
 			<td>Authority data <br/> (lobid-organisations)</td>
 		</tr>
 		<tr>
@@ -58,57 +101,53 @@
 					<a href="@refs._2?format=page">@refs._2</a>
 				</td>}
 			@defining("/person?name=Johann+Sebastian+Bach"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
-			<td>&mdash;</td>
-			<td>&mdash;</td>
-			<td><code>short</code>, <code>page</code>, <code>full</code> (default)</td>
+			@formats("/person?name=Johann+Sebastian+Bach&format")
 			<td>Authority data <br/> (GND)</td>
 		</tr>
 		<tr>
 			<td><code>/search</td>
 			@defining("/search?id=HT002189125"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/search?name=Basel"){ref => <td><a href="@ref">@ref</a></td>}
-			<td>&mdash;</td>
-			<td>&mdash;</td>
-			<td><code>short</code>, <code>full</code> (default)</td>
+			@defining("/search?name=Basel&format"){ ref => <td>
+				<code><a href="@ref=short">short</a></code>,
+				<code><a href="@ref=ids">ids</a></code>,
+				<code><a href="@ref=full">full</a></code> (default)
+			</td>}
 			<td>Search all <br/> (nested JSON result)
 		</tr>
 	</table>
-	<p>In addition to the missing API above (see TODO) we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints.</p>
+	<p>The <code>/resource</code> endpoint supports a few additional parameters (please note that currently these parameters can't be combined):</p>
 
-	<h2>API sample usage: auto-suggest</h2>
-	<p>Type a person's name to get suggestions. Search will return details on the selected person.</p>
-	<div>
-	<form method="GET" class="form-inline" action="/person"> <!-- use full URL in your code, i.e. http://api.lobid.org/person -->
-		<input type="text" class="search" name="name" id="name" style="width:300px"/>
-		<input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
-		<button type="submit" class="btn">Search</button>
-	</form>
-	<p>This calls the <code>/person</code> endpoint with the <code>format=short</code> parameter to get the suggestions. See source of this page for the implementation using JavaScript and jQuery UI.</p>
-	<script>
-		$('input.search').each(function() {
-			var $input = $(this);
-			$input.autocomplete({
-				source : function(request, response) {
-					$.ajax({
-						// Get the autocomplete data from a remote URL (i.e. a different server from the one that
-						// serves this HTML) by using JSONP (use full URL in your code, i.e. http://api.lobid.org/person):
-						url : "/person",
-						dataType : "jsonp",
-						data : {
-							name : request.term,
-							format : "short"
-						},
-						success : function(data) {
-							response(data);
-						}
-					});
-				}
-			});
-		});
-	</script>
+	<table class="table table-striped">
+		<tr>
+			<th style="width: 10%">Parameters &rarr; <br/>&darr; Endpoint</th>
+			<th><code>author</code></th>
+			<th><code>subject</code></th>
+			<th><code>set</code></th>
+			<th style="width: 10%">Info</th>
+		</tr>
+		<tr>
+			<td><code>/resource</td>
+			<td>@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs => <a href="@withPage(refs._1)">@refs._1</a><br/><a href="@withPage(refs._2)">@refs._2</a>}</td>
+			<td>@defining("/resource?subject=4414195-6"){ref => <a href="@withPage(ref)">@ref</a>}</td>
+			<td>@defining("/resource?set=NWBib"){ref => <a href="@withPage(ref)">@ref</a>}</td>
+			<td>Title data <br/> (lobid-resources)</td>
+		</tr>
+	</table>
+
+	<h2>Pagination and Limits</h2>
+	<p>All endpoints support pagination via <code>from</code> and <code>size</code> parameters specifying the index to start the result set from (default is 0, must be >= 0), and the size of the result set (default is 50, must be <= 100). Sample request: <a href="/organisation?name=Universität&from=10&size=5&format=ids">/organisation?name=Universität&from=10&size=5&format=ids</a>.</p>
 
 	<h2>Content Negotiation</h2>
 	<p>To return different RDF serializations as the result format (default is JSON-LD), you can specify an accept header, e.g. for N-Triples:</p>
 	<pre>curl --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
 	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
+
+  <h2>Sample usage: auto suggest</h2>
+	@sampleUsage("person", "id", "ids")
+	@sampleUsage("resource", "name", "short")
+	@sampleUsage("organisation", "id", "ids")
+
+	<h2>Outlook and Planning</h2>
+	<p>In addition to the API above we plan to offer <code>concept</code>, <code>location</code>, and <code>event</code> authority data endpoints. See our <a href="https://github.com/lobid/lodmill/issues?state=open">open issues</a> and <a href="https://github.com/lobid/lodmill/issues/milestones">milestones</a> on GitHub.</p>
 }

@@ -3,6 +3,8 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import models.Document;
@@ -11,6 +13,7 @@ import models.Parameter;
 import models.Search;
 
 import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.node.ObjectNode;
 
 import play.Logger;
 import play.api.http.MediaRange;
@@ -23,6 +26,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
@@ -51,13 +55,16 @@ public final class Application extends Controller {
 	 * @param parameter The search parameter type (see {@link Parameter}).
 	 * @param queryParameter The search query
 	 * @param formatParameter The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
 	 * @return The results, in the format specified
 	 */
 	static Result search(final Index index, final Parameter parameter,
-			final String queryParameter, final String formatParameter) {
+			final String queryParameter, final String formatParameter,
+			final int from, final int size) {
 		List<Document> docs = new ArrayList<>();
 		try {
-			docs = Search.documents(queryParameter, index, parameter);
+			docs = Search.documents(queryParameter, index, parameter, from, size);
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());
@@ -89,6 +96,17 @@ public final class Application extends Controller {
 				}
 			};
 
+	private static Function<Document, JsonNode> jsonLabelValue =
+			new Function<Document, JsonNode>() {
+				@Override
+				public JsonNode apply(final Document doc) {
+					final ObjectNode object = Json.newObject();
+					object.put("label", doc.getMatchedField());
+					object.put("value", doc.getId());
+					return object;
+				}
+			};
+
 	private static ImmutableMap<ResultFormat, Result> results(final String query,
 			final List<Document> documents, final Index selectedIndex) {
 		/* JSONP callback support for remote server calls with JavaScript: */
@@ -96,7 +114,9 @@ public final class Application extends Controller {
 				request() == null || request().queryString() == null ? null : request()
 						.queryString().get("callback");
 		final JsonNode shortJson =
-				Json.toJson(ImmutableSet.copyOf(Lists.transform(documents, jsonShort)));
+				Json.toJson(sortStrings(Lists.transform(documents, jsonShort)));
+		final JsonNode labelAndValue =
+				Json.toJson(sortNodes(Lists.transform(documents, jsonLabelValue)));
 		final ImmutableMap<ResultFormat, Result> results =
 				new ImmutableMap.Builder<ResultFormat, Result>()
 						.put(ResultFormat.PAGE,
@@ -106,8 +126,27 @@ public final class Application extends Controller {
 						.put(
 								ResultFormat.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],
-										shortJson)) : ok(shortJson)).build();
+										shortJson)) : ok(shortJson))
+						.put(
+								ResultFormat.IDS,
+								callback != null ? ok(String.format("%s(%s)", callback[0],
+										labelAndValue)) : ok(labelAndValue)).build();
 		return results;
+	}
+
+	private static ImmutableSortedSet<String> sortStrings(List<String> nodes) {
+		return ImmutableSortedSet.copyOf(nodes);
+	}
+
+	private static List<JsonNode> sortNodes(List<JsonNode> nodes) {
+		final List<JsonNode> sorted = new ArrayList<>(nodes);
+		Collections.sort(sorted, new Comparator<JsonNode>() {
+			@Override
+			public int compare(JsonNode o1, JsonNode o2) {
+				return o1.get("label").asText().compareTo(o2.get("label").asText());
+			}
+		});
+		return sorted;
 	}
 
 	private static Result negotiateContent(List<Document> documents,

@@ -21,7 +21,7 @@ import org.lobid.lodmill.JsonLdConverter.Format;
  * @author Fabian Steeg (fsteeg)
  */
 @RunWith(value = Parameterized.class)
-public final class JsonLdConverterTests {
+public final class UnitTestJsonLdConverter {
 
 	private final Format format;
 
@@ -40,14 +40,14 @@ public final class JsonLdConverterTests {
 	/**
 	 * @param format The Format to use for this test (passed from {@link #data()})
 	 */
-	public JsonLdConverterTests(final Format format) {
+	public UnitTestJsonLdConverter(final Format format) {
 		this.format = format;
 		System.out.println("Testing conversion with: " + format);
 	}
 
 	/* TODO: when Jena serializes, it rightfully complains about these: */
 	final String jsonLdSample = JSONValue.toJSONString(
-			LobidNTriplesToJsonLdTests.jsonMap()).replace(
+			UnitTestLobidNTriplesToJsonLd.jsonMap()).replace(
 			"https:\\/\\/dewey.info\\/class\\/[892.1, 22]\\/",
 			"https:\\/\\/dewey.info\\/class\\/892.1\\/");
 

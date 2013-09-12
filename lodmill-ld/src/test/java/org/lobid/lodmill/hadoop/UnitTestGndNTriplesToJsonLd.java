@@ -2,11 +2,9 @@
 
 package org.lobid.lodmill.hadoop; // NOPMD
 
-import static org.lobid.lodmill.hadoop.LobidNTriplesToJsonLdTests.indexMap;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_CREATOR_ID;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_TRIPLE_1;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_TRIPLE_2;
-import static org.lobid.lodmill.hadoop.ResolveObjectUrisInLobidNTriplesTests.GND_TRIPLE_3;
+import static org.lobid.lodmill.hadoop.UnitTestCollectSubjects.GND_CREATOR_ID;
+import static org.lobid.lodmill.hadoop.UnitTestCollectSubjects.gnd;
+import static org.lobid.lodmill.hadoop.UnitTestLobidNTriplesToJsonLd.indexMap;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -31,11 +29,15 @@ import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public final class GndNTriplesToJsonLdTests {
+public final class UnitTestGndNTriplesToJsonLd {
 
 	private static final String TRIPLE_ID = "http://d-nb.info/gnd/"
 			+ GND_CREATOR_ID;
 	private static final String TRIPLE_URI = "<" + TRIPLE_ID + ">";
+	static final String GND_TRIPLE_1 = gnd("preferredNameForThePerson",
+			"Adamucci, Antonio");
+	static final String GND_TRIPLE_2 = gnd("dateOfBirth", "1828");
+	static final String GND_TRIPLE_3 = gnd("dateOfDeath", "1885");
 	private static final String INDEX = "gnd-index";
 	private static final String TYPE = "json-ld-gnd";
 	private MapDriver<LongWritable, Text, Text, Text> mapDriver;
@@ -60,8 +62,7 @@ public final class GndNTriplesToJsonLdTests {
 	}
 
 	@Test
-	public void testMapper() throws IOException { // NOPMD (MRUnit, no explicit
-		// assertion)
+	public void testMapper() throws IOException { // NOPMD (MRUnit)
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_1));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_2));
 		mapDriver.addInput(new LongWritable(), new Text(GND_TRIPLE_3));
@@ -72,8 +73,7 @@ public final class GndNTriplesToJsonLdTests {
 	}
 
 	@Test
-	public void testReducer() throws IOException { // NOPMD (MRUnit, no explicit
-		// assertion)
+	public void testReducer() throws IOException { // NOPMD (MRUnit)
 		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
 				GND_TRIPLE_1), new Text(GND_TRIPLE_2), new Text(GND_TRIPLE_3)));
 		reduceDriver.withOutput(
@@ -87,17 +87,14 @@ public final class GndNTriplesToJsonLdTests {
 	static Map<String, ?> jsonMap() {
 		final String idKey = "@id";// @formatter:off
 		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
-			put("@context", new HashMap<String, String>() {{//NOPMD
-					put("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-					put("xsd", "http://www.w3.org/2001/XMLSchema#");
-					put("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-			}});
-			put(idKey, TRIPLE_ID);
-			put("http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-					"Adamucci, Antonio");
-			put("http://d-nb.info/standards/elementset/gnd#dateOfDeath", "1885");
-			put("http://d-nb.info/standards/elementset/gnd#dateOfBirth", "1828");
-		}};// @formatter:on
+			put("@graph", Arrays.asList(new HashMap<String, Object>() {{//NOPMD
+				put(idKey, TRIPLE_ID);
+				put("http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+						"Adamucci, Antonio");
+				put("http://d-nb.info/standards/elementset/gnd#dateOfDeath", "1885");
+				put("http://d-nb.info/standards/elementset/gnd#dateOfBirth", "1828");
+			}}));
+			}};// @formatter:on
 		return json;
 	}
 }
