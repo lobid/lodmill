@@ -166,14 +166,24 @@ public class NTriplesToJsonLd implements Tool {
 			final String subject =
 					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
 							val.indexOf(" ")).trim() : triple.getSubject().toString();
-			if (triple.getSubject().isURI()
-					&& triple.getSubject().toString()
-							.startsWith(prefix == null ? "" : prefix)) {
+			if (subjectIsUriToBeCollected(triple)
+					&& !objectIsUnresolvedBlankNode(triple))
 				context.write(new Text(wrapped(subject.trim())), value);
-			}
 			if (predicates.contains(triple.getPredicate().toString())
 					&& reader != null)
 				writeAdditionalSubjects(subject, value, context);
+		}
+
+		private boolean subjectIsUriToBeCollected(final Triple triple) {
+			return triple.getSubject().isURI()
+					&& triple.getSubject().toString()
+							.startsWith(prefix == null ? "" : prefix);
+		}
+
+		private static boolean objectIsUnresolvedBlankNode(final Triple triple) {
+			return triple.getObject().isBlank()
+					&& !CollectSubjects.TO_RESOLVE.contains(triple.getPredicate()
+							.toString());
 		}
 
 		private void writeAdditionalSubjects(final String subject,
