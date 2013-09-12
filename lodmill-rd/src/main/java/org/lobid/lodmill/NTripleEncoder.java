@@ -35,6 +35,11 @@ public class NTripleEncoder extends AbstractGraphPipeEncoder {
 	Stack<Resource> resources;
 	final AtomicInteger ATOMIC_INT = new AtomicInteger();
 
+	/**
+	 * Allows to define the subject from outside, e.g. from a flux file.
+	 * 
+	 * @param subject set the subject for each triple
+	 */
 	public void setSubject(final String subject) {
 		super.subject = subject;
 
