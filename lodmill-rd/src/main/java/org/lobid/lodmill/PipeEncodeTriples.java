@@ -48,6 +48,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void literal(final String name, final String value) {
+		if (value == null)
+			return;
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 			this.subject = value;
 			resources.push(model.createResource(subject));

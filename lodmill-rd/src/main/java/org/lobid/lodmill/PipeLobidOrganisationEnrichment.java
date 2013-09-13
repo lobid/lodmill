@@ -129,7 +129,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static final String RDF_SYNTAX_NS_VALUE =
 			"http://www.w3.org/1999/02/22-rdf-syntax-ns#value";
 	private static final String NS_GEONAMES = "http://sws.geonames.org/";
-	private static final String GEONAMES_DE_FILENAME_SYSTEM_PROPERTY =
+	static final String GEONAMES_DE_FILENAME_SYSTEM_PROPERTY =
 			"geonames_de_filename";
 	private static final String NS_LOBID = "http://lobid.org/";
 	private static final String RDF_SYNTAX_NS_TYPE =
