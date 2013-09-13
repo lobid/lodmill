@@ -123,10 +123,10 @@ public class IndexFromHdfsInElasticSearch {
 		}
 	}
 
-	/** 
-	 @param scanner The scanner for reading the data to index
-	 @param c The elasticsearch client to use for indexing
-	 @return A list responses for requests that errored
+	/**
+	 * @param scanner The scanner for reading the data to index
+	 * @param c The elasticsearch client to use for indexing
+	 * @return A list responses for requests that errored
 	 */
 	public static List<BulkItemResponse> runBulkRequests(final Scanner scanner,
 			Client c) {
@@ -164,7 +164,9 @@ public class IndexFromHdfsInElasticSearch {
 					createRequestBuilder(meta, map, c);
 			bulkRequest.add(requestBuilder);
 		} catch (ParseException e) {
-			LOG.error(e.getMessage(), e);
+			LOG.error(String.format(
+					"ParseException with meta '%s' and line '%s': '%s'", meta, line,
+					e.getMessage()), e);
 		}
 	}
 
@@ -180,10 +182,12 @@ public class IndexFromHdfsInElasticSearch {
 
 	private static void collectFailedResponses(
 			final List<BulkItemResponse> result, final BulkResponse bulkResponse) {
-		for (BulkItemResponse bulkItemResponse : bulkResponse) {
-			if (bulkItemResponse.failed()) {
-				LOG.error(bulkItemResponse.failureMessage());
-				result.add(bulkItemResponse);
+		for (BulkItemResponse response : bulkResponse) {
+			if (response.failed()) {
+				LOG.error(String.format(
+						"Bulk item response failed for index '%s', ID '%s', message: %s",
+						response.index(), response.id(), response.failureMessage()));
+				result.add(response);
 			}
 		}
 	}
