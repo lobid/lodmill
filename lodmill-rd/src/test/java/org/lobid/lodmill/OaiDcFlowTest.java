@@ -59,14 +59,14 @@ public class OaiDcFlowTest {
 		opener.setReceiver(reader);
 		reader.setReceiver(decoder);
 		decoder.setReceiver(tee);
-		opener.process("http://www.lobid.org/resource/HT015696519/about");
+		opener.process("http://api.lobid.org/resource?id=HT015381412");
 		opener.closeStream();
 	}
 
 	@Test
 	public void testFlux() throws IOException, URISyntaxException,
 			RecognitionException {
-		String lobidUrl = "http://www.lobid.org/resource/HT015696519/about";
+		String lobidUrl = "http://api.lobid.org/resource?id=HT015381412";
 		File outfile = File.createTempFile("oaidc", "xml");
 		outfile.deleteOnExit();
 		File fluxFile =

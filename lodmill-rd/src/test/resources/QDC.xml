@@ -1,0 +1,47 @@
+<oai:metadata xmlns:oai="http://www.openarchives.org/OAI/2.0/oai_dc/">
+	<ns:title xmlns:ns="http://purl.org/dc/elements/1.1/" lang="ger">Reichskammergericht
+		und Adel</ns:title>
+	<ter:abstract xmlns:ter="http://purl.org/dc/terms/" lang="ger">
+	</ter:abstract>
+	<ns:subject xmlns:ns="http://purl.org/dc/elements/1.1/">
+		<ns:ddc>900</ns:ddc>
+	</ns:subject>
+	<ns:subject xmlns:ns="http://purl.org/dc/elements/1.1/">
+		<ns:unclassified>Adel</ns:unclassified>
+	</ns:subject>
+	<ns:subject xmlns:ns="http://purl.org/dc/elements/1.1/">
+		<ns:unclassified>Reichskammergericht</ns:unclassified>
+	</ns:subject>
+	<ns:type xmlns:ns="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:type="oai:doc-type">text</ns:type>
+	<ns:type xmlns:ns="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:type="oai:pub-type">article</ns:type>
+	<ter:bibliographicCitation xmlns:ter="http://purl.org/dc/terms/">
+		<ter:journalTitle>zeitenblicke</ter:journalTitle>
+		<ter:journalVolume>3 (2004)</ter:journalVolume>
+		<ter:journalIssueNumber>3</ter:journalIssueNumber>
+		<ter:journalIssueDate>2004-12-13</ter:journalIssueDate>
+	</ter:bibliographicCitation>
+	<ns:creator xmlns:ns="http://purl.org/dc/elements/1.1/"
+		type="person">
+		<ns:firstName>Christian</ns:firstName>
+		<ns:lastName>Wieland</ns:lastName>
+		<ns:academicTitle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:nil="true" />
+		<ns:organization xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:nil="true" />
+		<ns:email xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:nil="true" />
+		<ns:postal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:nil="true" />
+		<ns:pndIdentifier xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:nil="true" />
+	</ns:creator>
+	<ns:language xmlns:ns="http://purl.org/dc/elements/1.1/">ger</ns:language>
+	<ns:identifier xmlns:ns="http://purl.org/dc/elements/1.1/"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="oai:URN">urn:nbn:de:0009-9-10024
+	</ns:identifier>
+	<ns:identifier xmlns:ns="http://purl.org/dc/elements/1.1/"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="oai:URL">http://www.zeitenblicke.de/2004/03/wieland/index.html
+	</ns:identifier>
+</oai:metadata>
