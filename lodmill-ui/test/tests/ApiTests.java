@@ -57,6 +57,8 @@ public class ApiTests {
 				"http://lobid.org/resource/HT002189125" },
 				{ "resource?set=NWBib",/* -> */
 				"Wann en Kölle de Chress-Stäne blöhe" },
+				{ "resource?id=TT002234003",/*->*/
+						"Aufgabenbereich und Aufbau der Verwaltung" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
@@ -70,7 +72,7 @@ public class ApiTests {
 				"http://lobid.org/organisation/SzBaU" },
 				{ "organisation?name=hbz",/* -> */"Hochschulbibliothekszentrum" },
 				{ "organisation?name=hbz&format=short",/* -> */
-						"Hochschulbibliothekszentrum" },
+				"Hochschulbibliothekszentrum" },
 				{ "organisation?name=Hochschulbibliotheksz",/* -> */
 				"Hochschulbibliothekszentrum" },
 				{ "organisation?id=DE-605",/* -> */"Hochschulbibliothekszentrum" },
