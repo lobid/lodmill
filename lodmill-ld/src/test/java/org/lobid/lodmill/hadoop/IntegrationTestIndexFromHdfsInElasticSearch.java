@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("javadoc")
 public class IntegrationTestIndexFromHdfsInElasticSearch extends
 		ClusterMapReduceTestCase {
-	private static final int DOC_COUNT = 19;
+	private static final int DOC_COUNT = 20;
 	private static final String TEST_FILE =
 			"src/test/resources/json-ld-sample-output.json";
 	private static final String DATA_1 = "json-es-test/part-r-00000";
