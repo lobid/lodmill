@@ -46,7 +46,12 @@ public final class NTripleDecoder extends
 			Property predicate = stm.getPredicate();
 			RDFNode object = stm.getObject();
 			getReceiver().startEntity(subject.toString());
-			getReceiver().literal(predicate.toString(), object.toString());
+			if (object.isLiteral()) {
+				getReceiver().literal(predicate.toString(),
+						object.asLiteral().getString());
+			} else {
+				getReceiver().literal(predicate.toString(), object.toString());
+			}
 			getReceiver().endEntity();
 		}
 		getReceiver().endRecord();

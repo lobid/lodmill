@@ -2,18 +2,57 @@
 <metamorph xmlns="http://www.culturegraph.org/metamorph"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
 	<rules>
-		<!-- General attributes for each record: -->
 
-		<data source="*.http://iflastandards.info/ns/isbd/elements/P1004"
-			name="dc:title">
-			<regexp match="((.*))" format="${1}" />
-		</data>
-
+		<!-- DC to DC -->
 		<data source="*.http://purl.org/dc/elements/1.1/contributor"
-			name="dc:contributer">
+			name="dc:contributor">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/coverage" name="dc:coverage">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/creator" name="dc:creator">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/date" name="dc:date">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/description"
+			name="dc:description">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/format" name="dc:format">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/identifier" name="dc:identifier">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/language" name="dc:language">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/publisher" name="dc:publisher">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/relation" name="dc:relation">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/rights" name="dc:rights">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/source" name="dc:source">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/subject" name="dc:subject">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/title" name="dc:title">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/elements/1.1/type" name="dc:type">
 			<regexp match="((.*))" format="${1}" />
 		</data>
 
+		<!-- dcterms to dc -->
 		<data source="*.http://purl.org/dc/terms/issued" name="dc:date">
 			<regexp match="((.*))" format="${1}" />
 		</data>
@@ -21,39 +60,41 @@
 		<data source="*.http://purl.org/dc/terms/language" name="dc:language">
 			<regexp match="((.*))" format="${1}" />
 		</data>
+		<data source="*.http://purl.org/dc/terms/isPartOf" name="dc:relation">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://purl.org/dc/terms/subject" name="dc:subject">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<!-- ifla to dc -->
+		<data source="*.http://iflastandards.info/ns/isbd/elements/P1004"
+			name="dc:title">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://iflastandards.info/ns/isbd/elements/P1016"
+			name="dc:coverage">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<data source="*.http://iflastandards.info/ns/isbd/elements/P1006"
+			name="dc:description">
+			<regexp match="((.*))" format="${1}" />
+		</data>
+		<!-- foaf to dc -->
 
 		<data source="*.http://xmlns.com/foaf/0.1/isPrimaryTopicOf" name="dc:relation">
 			<regexp match="((.*))" format="${1}" />
 		</data>
 
-		<data source="*.http://purl.org/dc/terms/isPartOf" name="dc:relation">
-			<regexp match="((.*))" format="${1}" />
-		</data>
-
+		<!-- rdf to dc -->
 		<data source="*.http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
 			name="dc:type">
 			<regexp match="((.*))" format="${1}" />
 		</data>
 
-		<data source="*.http://iflastandards.info/ns/isbd/elements/P1016"
-			name="dc:coverage">
-			<regexp match="((.*))" format="${1}" />
-		</data>
-
-		<data source="*.http://iflastandards.info/ns/isbd/elements/P1006"
-			name="decription">
-			<regexp match="((.*))" format="${1}" />
-		</data>
-
+		<!-- lobid to dc -->
 		<data source="*.http://lobid.org/vocab/lobid#fulltextOnline"
 			name="dc:relation">
 			<regexp match="((.*))" format="${1}" />
 		</data>
-
-		<data source="*.http://purl.org/dc/terms/subject" name="dc:subject">
-			<regexp match="((.*))" format="${1}" />
-		</data>
-
 	</rules>
-	
 </metamorph>
