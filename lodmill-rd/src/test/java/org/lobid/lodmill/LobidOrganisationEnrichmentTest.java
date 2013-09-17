@@ -21,14 +21,15 @@ public final class LobidOrganisationEnrichmentTest extends AbstractIngestTests {
 		super("src/test/resources/Bibdat1303pp_sample1.xml",
 				"morph_zdb-isil-file-pica2ld.xml", "default_morph-stats.xml",
 				new PicaXmlReader());
-		System.setProperty("geonames_de_filename", "geonames_DE.csv");
-		System.setProperty("doApiLookup", "true");
 	}
 
 	@Test
 	public void testTriples() { // NOPMD asserts are done in the superclass
-		super.triples("zdb-isil-file_test.ttl", "zdb-isil-file.ttl",
-				new PipeLobidOrganisationEnrichment());
+		PipeLobidOrganisationEnrichment enrich =
+				new PipeLobidOrganisationEnrichment();
+		enrich.setGeonameFilename("geonames_DE_sample.csv");
+		enrich.setDoApiLookup(true);
+		super.triples("zdb-isil-file_test.ttl", "zdb-isil-file.ttl", enrich);
 	}
 
 	@Test

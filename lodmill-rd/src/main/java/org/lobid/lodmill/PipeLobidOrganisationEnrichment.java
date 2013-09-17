@@ -129,8 +129,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static final String RDF_SYNTAX_NS_VALUE =
 			"http://www.w3.org/1999/02/22-rdf-syntax-ns#value";
 	private static final String NS_GEONAMES = "http://sws.geonames.org/";
-	static final String GEONAMES_DE_FILENAME_SYSTEM_PROPERTY =
-			"geonames_de_filename";
+	private String GEONAMES_DE_FILENAME;
 	private static final String NS_LOBID = "http://lobid.org/";
 	private static final String RDF_SYNTAX_NS_TYPE =
 			"http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
@@ -138,6 +137,24 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			"http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing";
 
 	boolean doApiLookup = false;
+
+	/**
+	 * Set the file name of the geonames csv file
+	 * 
+	 * @param filename The name of the file
+	 */
+	public void setGeonameFilename(final String filename) {
+		this.GEONAMES_DE_FILENAME = filename;
+	}
+
+	/**
+	 * Set if an online lookup should be made. Default is no.
+	 * 
+	 * @param lookup If true, make an online lookup at OSM API.
+	 */
+	public void setDoApiLookup(boolean lookup) {
+		this.doApiLookup = lookup;
+	}
 
 	@Override
 	public void literal(final String name, final String value) {
@@ -173,9 +190,6 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		File file = new File(QR_FILE_PATH);
 		if (!file.exists()) {
 			file.mkdir();
-		}
-		if (System.getProperty("doApiLookup").equals("true")) {
-			this.doApiLookup = true;
 		}
 	}
 
@@ -274,13 +288,10 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		return ret;
 	}
 
-	private static void iniGeonamesDump() {
+	private void iniGeonamesDump() {
 		final Scanner geonamesDump =
-				new Scanner(Thread
-						.currentThread()
-						.getContextClassLoader()
-						.getResourceAsStream(
-								System.getProperty(GEONAMES_DE_FILENAME_SYSTEM_PROPERTY)));
+				new Scanner(Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream(this.GEONAMES_DE_FILENAME));
 		try {
 			while (geonamesDump.hasNextLine()) {
 				String[] geonameDumpLines = geonamesDump.nextLine().split("\t");

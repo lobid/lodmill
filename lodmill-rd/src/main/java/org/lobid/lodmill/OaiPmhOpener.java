@@ -45,22 +45,6 @@ public final class OaiPmhOpener extends
 	private String metadataPrefix;
 
 	/**
-	 * Configuring the OAI-PMH .
-	 * 
-	 * @param dateFrom beginning of the to be updated data
-	 * @param dateUntil end of the updated data
-	 * @param metadataPrefix prefix of the metadata
-	 * @param setSpec choose your set
-	 */
-	public OaiPmhOpener(String dateFrom, String dateUntil, String metadataPrefix,
-			String setSpec) {
-		this.dateFrom = dateFrom;
-		this.dateUntil = dateUntil;
-		this.metadataPrefix = metadataPrefix;
-		this.setSpec = setSpec;
-	}
-
-	/**
 	 * Default constructor
 	 */
 	public OaiPmhOpener() {
