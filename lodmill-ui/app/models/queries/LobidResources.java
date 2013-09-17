@@ -32,11 +32,8 @@ public class LobidResources {
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return matchQuery(
-					fields().get(0),
-					queryString.startsWith("http://") ? queryString
-							: "http://lobid.org/resource/" + queryString).operator(
-					Operator.AND);
+			return matchQuery(fields().get(0), lobidResourceQueryString(queryString))
+					.operator(Operator.AND);
 		}
 
 	}
@@ -114,10 +111,13 @@ public class LobidResources {
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			final String fixedQuery = queryString.matches("ht[\\d]{9}") ?
-			/* HT number -> URL (temp. until we have an HBZ-ID field) */
-			"http://lobid.org/resource/" + queryString : queryString;
-			return multiMatchQuery(fixedQuery, fields().toArray(new String[] {}));
+			return multiMatchQuery(lobidResourceQueryString(queryString), fields()
+					.toArray(new String[] {}));
 		}
+	}
+
+	private static String lobidResourceQueryString(final String queryString) {
+		return queryString.startsWith("http://") ? queryString
+				: "http://lobid.org/resource/" + queryString;
 	}
 }

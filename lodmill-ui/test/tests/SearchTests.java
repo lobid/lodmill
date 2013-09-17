@@ -93,7 +93,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(36);
+				.isEqualTo(37);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -134,6 +134,17 @@ public class SearchTests {
 		final List<Document> docs =
 				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.ID, FROM,
 						SIZE);
+		assertThat(docs.size()).isEqualTo(1);
+	}
+
+	/*@formatter:off*/
+	@Test public void searchResById1() { searchResById("TT002234003"); }
+	@Test public void searchResById2() { searchResById("HT002189125"); }
+	/*@formatter:on*/
+
+	private static void searchResById(final String term) {
+		final List<Document> docs =
+				Search.documents(term, Index.LOBID_RESOURCES, Parameter.ID, FROM, SIZE);
 		assertThat(docs.size()).isEqualTo(1);
 	}
 
