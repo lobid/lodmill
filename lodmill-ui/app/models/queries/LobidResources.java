@@ -117,7 +117,7 @@ public class LobidResources {
 	}
 
 	private static String lobidResourceQueryString(final String queryString) {
-		return queryString.startsWith("http://") ? queryString
-				: "http://lobid.org/resource/" + queryString;
+		return queryString.matches("\\p{L}+\\d+") ? "http://lobid.org/resource/"
+				+ queryString : queryString;
 	}
 }
