@@ -77,7 +77,7 @@ public class SearchTests {
 				System.out.println(bulkItemResponse.toString());
 			}
 		}
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		Search.clientSet(client);
 	}
 
@@ -138,8 +138,11 @@ public class SearchTests {
 	}
 
 	/*@formatter:off*/
-	@Test public void searchResById1() { searchResById("TT002234003"); }
-	@Test public void searchResById2() { searchResById("HT002189125"); }
+	@Test public void searchResByIdTT() { searchResById("TT002234003"); }
+	@Test public void searchResByIdHT() { searchResById("HT002189125"); }
+	@Test public void searchResByIdTTUrl() { searchResById("http://lobid.org/resource/TT002234003"); }
+	@Test public void searchResByIdHTUrl() { searchResById("http://lobid.org/resource/HT002189125"); }
+	@Test public void searchResByIdISBN() { searchResById("0940450003"); }
 	/*@formatter:on*/
 
 	private static void searchResById(final String term) {
