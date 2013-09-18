@@ -12,7 +12,7 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("javadoc")
-public class ZdbOrganisationUpdateOnlineTest {
+public class OaipmhZdbOrganisationTest {
 
 	@Test
 	public void testFlow() {
@@ -38,5 +38,4 @@ public class ZdbOrganisationUpdateOnlineTest {
 		opener.process("http://services.d-nb.de/oai/repository");
 		opener.closeStream();
 	}
-
 }
