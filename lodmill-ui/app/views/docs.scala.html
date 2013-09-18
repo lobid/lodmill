@@ -25,6 +25,7 @@
 				case Index.LOBID_RESOURCES => {@resource(Json.parse(doc.getSource))}
 				case Index.GND => {@gnd(Json.parse(doc.getSource))}
 				case Index.LOBID_ORGANISATIONS => {@organisation(Json.parse(doc.getSource))}
+				case Index.LOBID_ITEMS => {@*TODO*@}
 			}
 		  </div>
 		  <div class="tab-pane" id="@id-jld"><pre>@doc.getSource</pre></div>
