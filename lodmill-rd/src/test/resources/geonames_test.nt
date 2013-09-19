@@ -9,3 +9,18 @@
 <http://sws.geonames.org/2760454> < http://www.geonames.org/ontology#name> "Zugspitze" .
 <http://sws.geonames.org/2760454> <http://xmlns.com/foaf/0.1/name> "Zugspitze" .
 
+<http://sws.geonames.org/6558290> < http://www.geonames.org/ontology#name> "Tirschenreuth, Stadt" .
+<http://sws.geonames.org/6558290> <http://xmlns.com/foaf/0.1/name> "Tirschenreuth, Stadt" .
+
+<http://sws.geonames.org/6557938> < http://www.geonames.org/ontology#name> "Renningen, Stadt" .
+<http://sws.geonames.org/6557938> <http://xmlns.com/foaf/0.1/name> "Renningen, Stadt" .
+
+<http://sws.geonames.org/6547539> < http://www.geonames.org/ontology#name> "Berlin, Stadt" .
+<http://sws.geonames.org/6547539> <http://xmlns.com/foaf/0.1/name> "Berlin, Stadt" .
+
+<http://sws.geonames.org/6557373> < http://www.geonames.org/ontology#name> "G\u00F6ttingen, Stadt" .
+<http://sws.geonames.org/6557373> <http://xmlns.com/foaf/0.1/name> "G\u00F6ttingen, Stadt" .
+
+<http://sws.geonames.org/6553132> < http://www.geonames.org/ontology#name> "Bochum, Stadt" .
+<http://sws.geonames.org/6553132> <http://xmlns.com/foaf/0.1/name> "Bochum, Stadt" .
+

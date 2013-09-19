@@ -61,7 +61,7 @@ public abstract class AbstractIngestTests {
 	/**
 	 * Tests if the generated triples equals the triples in the test file
 	 * 
-	 * @param testFileName The test file name, resideing in the resource folder
+	 * @param testFileName The test file name, residing in the resource folder
 	 * @param generatedFileName The to be generated file name .
 	 * @param dsp A DefaultStreampipe
 	 */
