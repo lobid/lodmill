@@ -27,6 +27,7 @@ import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.util.URIUtil;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFLanguages;
 import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
@@ -62,7 +63,9 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
  * 
  * @author Pascal Christoph
  */
-@Description("Lookup geo location data in OSM")
+@Description("Lookup geo location data in OSM. Decodes triples as string. Predefined values for output are"
+		+ " 'RDF/XML', 'N-TRIPLE', 'TURTLE' (or 'TTL') and 'N3'. null represents the "
+		+ "default language, 'RDF/XML'. 'RDF/XML-ABBREV' is a synonym for 'RDF/XML'.")
 @In(StreamReceiver.class)
 @Out(String.class)
 public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
@@ -85,6 +88,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			this.uri = uri;
 		}
 	}
+
+	private Lang serialization;
 
 	private static final String FOAF_NAME = "http://xmlns.com/foaf/0.1/name";
 	private static final String GEO_WGS84_POS =
@@ -129,8 +134,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static final String RDF_SYNTAX_NS_VALUE =
 			"http://www.w3.org/1999/02/22-rdf-syntax-ns#value";
 	private static final String NS_GEONAMES = "http://sws.geonames.org/";
-	private static final String GEONAMES_DE_FILENAME_SYSTEM_PROPERTY =
-			"geonames_de_filename";
+	private String GEONAMES_DE_FILENAME;
 	private static final String NS_LOBID = "http://lobid.org/";
 	private static final String RDF_SYNTAX_NS_TYPE =
 			"http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
@@ -138,6 +142,37 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			"http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing";
 
 	boolean doApiLookup = false;
+
+	/**
+	 * Sets the serialization format of the outgoing String .
+	 * 
+	 * @param serialization one of 'RDF/XML', 'N-TRIPLE', 'TURTLE' (or 'TTL') and
+	 *          'N3'. Any other value defaults to 'RDF/XML'. 'RDF/XML-ABBREV' is a
+	 *          synonym for 'RDF/XML'.")
+	 */
+	public void setSerialization(final String serialization) {
+		this.serialization = RDFLanguages.nameToLang(serialization);
+		if (this.serialization == null)
+			this.serialization = RDFLanguages.nameToLang("RDFXML");
+	}
+
+	/**
+	 * Set the file name of the geonames csv file
+	 * 
+	 * @param filename The name of the file
+	 */
+	public void setGeonameFilename(final String filename) {
+		this.GEONAMES_DE_FILENAME = filename;
+	}
+
+	/**
+	 * Set if an online lookup should be made. Default is no.
+	 * 
+	 * @param lookup If true, make an online lookup at OSM API.
+	 */
+	public void setDoApiLookup(boolean lookup) {
+		this.doApiLookup = lookup;
+	}
 
 	@Override
 	public void literal(final String name, final String value) {
@@ -157,7 +192,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			ResourceUtils.renameResource(
 					model.getResource(PipeEncodeTriples.DUMMY_SUBJECT), super.subject);
 			final StringWriter tripleWriter = new StringWriter();
-			RDFDataMgr.write(tripleWriter, model, Lang.TURTLE);
+			RDFDataMgr.write(tripleWriter, model, this.serialization);
 			getReceiver().process(tripleWriter.toString());
 		} else {
 			LOG.info("Missing ISIL, thus ignoring that record.");
@@ -173,9 +208,6 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		File file = new File(QR_FILE_PATH);
 		if (!file.exists()) {
 			file.mkdir();
-		}
-		if (System.getProperty("doApiLookup").equals("true")) {
-			this.doApiLookup = true;
 		}
 	}
 
@@ -274,13 +306,10 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		return ret;
 	}
 
-	private static void iniGeonamesDump() {
+	private void iniGeonamesDump() {
 		final Scanner geonamesDump =
-				new Scanner(Thread
-						.currentThread()
-						.getContextClassLoader()
-						.getResourceAsStream(
-								System.getProperty(GEONAMES_DE_FILENAME_SYSTEM_PROPERTY)));
+				new Scanner(Thread.currentThread().getContextClassLoader()
+						.getResourceAsStream(this.GEONAMES_DE_FILENAME));
 		try {
 			while (geonamesDump.hasNextLine()) {
 				String[] geonameDumpLines = geonamesDump.nextLine().split("\t");
