@@ -83,6 +83,17 @@
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
 		<tr>
+			<td><code>/item</td>
+			@defining(("/item?id=BT000000079%3AGA+644","/item/BT000000079%3AGA+644")){refs =>
+				<td>
+					<a href="@withPage(refs._1)">@refs._1</a> <br/>
+					<a href="@refs._2?format=page">@refs._2</a>
+				</td>}
+			@defining("/item?name=GA+644"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
+			@formats("/item?name=GA+644&format")
+			<td>Inventory data <br/> (lobid-resources)</td>
+		</tr>
+		<tr>
 			<td><code>/organisation</td>
 			@defining(("/organisation?id=DE-605","/organisation/DE-605")){refs =>
 				<td>

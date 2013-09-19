@@ -10,7 +10,7 @@
 @main("Lobid API - Documents") {
     <h2>@docs.size @if(docs.size == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h2>
     @for(doc <- docs) {
-		@defining(doc.getId.split("/").last) { id =>
+		@defining(doc.getId.split("/").last.hashCode) { id =>
 		<h2><a href="@doc.getId">@doc.getId</a></h2>
 		<ul class="nav nav-tabs" id="@id-serializations">
 		  <li><a href="#@id-rdfa" data-toggle="tab">RDFa</a></li>
@@ -25,7 +25,7 @@
 				case Index.LOBID_RESOURCES => {@resource(Json.parse(doc.getSource))}
 				case Index.GND => {@gnd(Json.parse(doc.getSource))}
 				case Index.LOBID_ORGANISATIONS => {@organisation(Json.parse(doc.getSource))}
-				case Index.LOBID_ITEMS => {@*TODO*@}
+				case Index.LOBID_ITEMS => {@item(Json.parse(doc.getSource))}
 			}
 		  </div>
 		  <div class="tab-pane" id="@id-jld"><pre>@doc.getSource</pre></div>
