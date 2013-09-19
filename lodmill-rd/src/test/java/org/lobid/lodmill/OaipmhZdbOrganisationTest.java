@@ -2,12 +2,18 @@
  * Licensed under the Eclipse Public License 1.0 */
 package org.lobid.lodmill;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
+import org.antlr.runtime.RecognitionException;
+import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.sink.ObjectWriter;
 import org.junit.Test;
 
 /**
- * @author Jan Schnasse
+ * @author Fabian Steeg
  * @author Pascal Christoph
  * 
  */
@@ -39,4 +45,14 @@ public class OaipmhZdbOrganisationTest {
 		opener.process("http://services.d-nb.de/oai/repository");
 		opener.closeStream();
 	}
+
+	@Test
+	public void testFluxOaipmh() throws IOException, URISyntaxException,
+			RecognitionException {
+		File fluxFile =
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("oaipmh-zdbIsil2ld.flux").toURI());
+		Flux.main(new String[] { fluxFile.getAbsolutePath() });
+	}
+
 }

@@ -5,5 +5,5 @@ open-oaipmh(dateFrom="2013-08-11",dateUntil="2013-08-12",metadataPrefix="PicaPlu
 decode-xml |
 handle-picaxml |
 morph(files+"morph_zdb-isil-file-pica2ld.xml") |
-encode-triples-enrich-lobid-organisation |
-write-rdfmodel-singlefiles(target=files+"tmp", property="http://purl.org/dc/terms/identifier",startIndex="0",endIndex= "2");
+encode-triples-enrich-lobid-organisation(serialization="TURTLE",geonameFilename="geonames_DE_sample.csv") |
+write("update_zdb-isil-file2lobid-organisations1.ttl");
