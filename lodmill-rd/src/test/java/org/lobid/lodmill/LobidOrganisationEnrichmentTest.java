@@ -29,6 +29,7 @@ public final class LobidOrganisationEnrichmentTest extends AbstractIngestTests {
 				new PipeLobidOrganisationEnrichment();
 		enrich.setGeonameFilename("geonames_DE_sample.csv");
 		enrich.setDoApiLookup(true);
+		enrich.setSerialization("TURTLE");
 		super.triples("zdb-isil-file_test.ttl", "zdb-isil-file.ttl", enrich);
 	}
 

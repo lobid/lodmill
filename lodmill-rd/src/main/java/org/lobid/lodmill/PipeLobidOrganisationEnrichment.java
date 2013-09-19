@@ -27,6 +27,7 @@ import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.util.URIUtil;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFLanguages;
 import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
@@ -62,7 +63,9 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
  * 
  * @author Pascal Christoph
  */
-@Description("Lookup geo location data in OSM")
+@Description("Lookup geo location data in OSM. Decodes triples as string. Predefined values for output are"
+		+ " 'RDF/XML', 'N-TRIPLE', 'TURTLE' (or 'TTL') and 'N3'. null represents the "
+		+ "default language, 'RDF/XML'. 'RDF/XML-ABBREV' is a synonym for 'RDF/XML'.")
 @In(StreamReceiver.class)
 @Out(String.class)
 public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
@@ -85,6 +88,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			this.uri = uri;
 		}
 	}
+
+	private Lang serialization;
 
 	private static final String FOAF_NAME = "http://xmlns.com/foaf/0.1/name";
 	private static final String GEO_WGS84_POS =
@@ -139,6 +144,19 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	boolean doApiLookup = false;
 
 	/**
+	 * Sets the serialization format of the outgoing String .
+	 * 
+	 * @param serialization one of 'RDF/XML', 'N-TRIPLE', 'TURTLE' (or 'TTL') and
+	 *          'N3'. Any other value defaults to 'RDF/XML'. 'RDF/XML-ABBREV' is a
+	 *          synonym for 'RDF/XML'.")
+	 */
+	public void setSerialization(final String serialization) {
+		this.serialization = RDFLanguages.nameToLang(serialization);
+		if (this.serialization == null)
+			this.serialization = RDFLanguages.nameToLang("RDFXML");
+	}
+
+	/**
 	 * Set the file name of the geonames csv file
 	 * 
 	 * @param filename The name of the file
@@ -174,7 +192,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			ResourceUtils.renameResource(
 					model.getResource(PipeEncodeTriples.DUMMY_SUBJECT), super.subject);
 			final StringWriter tripleWriter = new StringWriter();
-			RDFDataMgr.write(tripleWriter, model, Lang.TURTLE);
+			RDFDataMgr.write(tripleWriter, model, this.serialization);
 			getReceiver().process(tripleWriter.toString());
 		} else {
 			LOG.info("Missing ISIL, thus ignoring that record.");

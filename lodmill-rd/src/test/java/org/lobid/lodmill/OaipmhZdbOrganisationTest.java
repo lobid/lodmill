@@ -28,6 +28,7 @@ public class OaipmhZdbOrganisationTest {
 				new PipeLobidOrganisationEnrichment();
 		enrich.setGeonameFilename("geonames_DE_sample.csv");
 		enrich.doApiLookup = false;
+		enrich.setSerialization("TURTLE");
 		final ObjectWriter<String> writer =
 				new ObjectWriter<String>(
 						"update_zdb-isil-file2lobid-organisations1.ttl");
