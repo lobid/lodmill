@@ -40,7 +40,7 @@ public class LobidItems {
 				 * take care of that, too:
 				 */
 				final String encodedShortId =
-						encode(shortId.toUpperCase(), "utf-8").replace("%2B", "+");
+						encode(shortId, "utf-8").replace("%2B", "+");
 				return QueryBuilders.idsQuery("json-ld-lobid-item").ids(
 						itemPrefix + encodedShortId);
 			} catch (UnsupportedEncodingException e) {

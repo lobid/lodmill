@@ -65,20 +65,19 @@ public class Search {
 	public static List<Document> documents(final String term, final Index index,
 			final Parameter parameter, final int from, final int size) {
 		validate(index, parameter, from, size);
-		final String query = term.toLowerCase();
 		AbstractIndexQuery indexQuery = index.queries().get(parameter);
-		final QueryBuilder queryBuilder = indexQuery.build(query);
+		final QueryBuilder queryBuilder = indexQuery.build(term);
 		if (queryBuilder == null) {
 			throw new IllegalStateException(String.format(
 					"Could not construct query for term '%s', index '%s', param '%s'",
-					query, index, parameter));
+					term, index, parameter));
 		}
 		Logger.debug("Using query: " + queryBuilder);
 		final SearchResponse response = search(index, queryBuilder, from, size);
 		Logger.trace("Got response: " + response);
 		final SearchHits hits = response.getHits();
 		final List<Document> documents =
-				asDocuments(query, hits, indexQuery.fields());
+				asDocuments(term, hits, indexQuery.fields());
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
 				hits.hits().length, documents.size()));
 		return documents;
