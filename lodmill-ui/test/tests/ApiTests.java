@@ -58,7 +58,7 @@ public class ApiTests {
 				{ "resource?set=NWBib",/* -> */
 				"Wann en Kölle de Chress-Stäne blöhe" },
 				{ "resource?id=TT002234003",/*->*/
-						"Aufgabenbereich und Aufbau der Verwaltung" },
+				"Aufgabenbereich und Aufbau der Verwaltung" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
@@ -90,6 +90,13 @@ public class ApiTests {
 				"Bach, Johann Sebastian (1685-1750)" },
 				{ "person?name=Bach&format=ids", /* -> */
 				"http://d-nb.info/gnd/11850553X" },
+				/*-------------*/
+				/* GET /item */
+				/*-------------*/
+				{ "item?id=BT000000079%3AGA+644",/* -> */"GA 644" },
+				{ "item/BT000000079%3AGA+644",/* -> */"GA 644" },
+				{ "item?name=GA+644&format=ids",/* -> */
+				"http://lobid.org/item/BT000000079%3AGA+644" },
 				/*-------------*/
 				/* GET /search */
 				/*-------------*/

@@ -93,7 +93,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(37);
+				.isEqualTo(38);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -344,6 +344,24 @@ public class SearchTests {
 				assertThat(jsonObject.size()).isEqualTo(results);
 				assertThat(jsonObject.get(0).toString()).contains(
 						"http://d-nb.info/gnd/" + gndId);
+			}
+		});
+	}
+
+	/* @formatter:off */
+	@Test public void itemByIdParam(){findItem("item?id=BT000000079%3AGA+644");}
+	@Test public void itemByIdRoute(){findItem("item/BT000000079%3AGA+644");}
+	@Test public void itemByIdUri(){findItem("item?id=http://lobid.org/item/BT000000079%3AGA+644");}
+	@Test public void itemByName(){findItem("item?name=GA+644");}
+	/* @formatter:on */
+
+	public void findItem(final String call) {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject = Json.parse(call(call));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(1);
 			}
 		});
 	}

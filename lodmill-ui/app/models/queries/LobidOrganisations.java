@@ -2,7 +2,6 @@
 
 package models.queries;
 
-import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
 
 import java.util.Arrays;
@@ -10,6 +9,7 @@ import java.util.List;
 
 import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
 import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 
 /**
  * Queries on the lobid-organisations index.
@@ -24,14 +24,14 @@ public class LobidOrganisations {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList(// "http://purl.org/dc/terms/identifier",
-					"@graph.http://purl.org/dc/terms/identifier");
+			return Arrays.asList("@graph.http://purl.org/dc/terms/identifier");
 		}
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return matchQuery(fields().get(0),
-					queryString.replace("http://lobid.org/organisation/", ""));
+			final String itemPrefix = "http://lobid.org/organisation/";
+			return QueryBuilders.idsQuery("json-ld-lobid-orgs").ids(
+					itemPrefix + queryString.replace(itemPrefix, ""));
 		}
 
 	}
