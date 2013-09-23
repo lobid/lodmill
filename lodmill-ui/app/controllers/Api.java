@@ -67,6 +67,20 @@ public final class Api extends Controller {
 	}
 
 	/**
+	 * @param id The item ID
+	 * @param name The item name
+	 * @param format The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
+	 * @return Matching items
+	 */
+	public static Result item(final String id, final String name, // NOPMD
+			final String format, final int from, final int size) {
+		Logger.debug(String.format("GET /item; id: '%s', name: '%s'", id, name));
+		return search(id, name, format, from, size, Index.LOBID_ITEMS);
+	}
+
+	/**
 	 * @param id The organisation ID
 	 * @param name The organisation name
 	 * @param format The result format
@@ -78,15 +92,7 @@ public final class Api extends Controller {
 			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /organisation; id: '%s', name: '%s'", id,
 				name));
-		final Index index = Index.LOBID_ORGANISATIONS;
-		Result result = null;
-		if (defined(id)) {
-			result = Application.search(index, Parameter.ID, id, format, from, size);
-		} else if (defined(name)) {
-			result =
-					Application.search(index, Parameter.NAME, name, format, from, size);
-		}
-		return result;
+		return search(id, name, format, from, size, Index.LOBID_ORGANISATIONS);
 	}
 
 	/**
@@ -100,7 +106,11 @@ public final class Api extends Controller {
 	public static Result person(final String id, final String name, // NOPMD
 			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /person; id: '%s', name: '%s'", id, name));
-		final Index index = Index.GND;
+		return search(id, name, format, from, size, Index.GND);
+	}
+
+	private static Result search(final String id, final String name,
+			final String format, final int from, final int size, final Index index) {
 		Result result = null;
 		if (defined(id)) {
 			result = Application.search(index, Parameter.ID, id, format, from, size);

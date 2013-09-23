@@ -6,6 +6,7 @@ import java.util.Map;
 
 import models.queries.AbstractIndexQuery;
 import models.queries.Gnd;
+import models.queries.LobidItems;
 import models.queries.LobidOrganisations;
 import models.queries.LobidResources;
 
@@ -33,7 +34,11 @@ public enum Index {
 	/***/
 	GND("gnd", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.NAME, new Gnd.NameQuery())
-					.put(Parameter.ID, new Gnd.IdQuery()).build());/* @formatter:on */
+					.put(Parameter.ID, new Gnd.IdQuery()).build()),
+	/***/
+	LOBID_ITEMS("lobid-items", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+			.put(Parameter.NAME, new LobidItems.NameQuery())
+			.put(Parameter.ID, new LobidItems.IdQuery()).build());/* @formatter:on */
 
 	private String id; // NOPMD
 	private Map<Parameter, AbstractIndexQuery> queries;
