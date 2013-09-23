@@ -2,6 +2,8 @@
 
 package controllers;
 
+import static com.google.common.collect.ImmutableSet.copyOf;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -23,11 +25,9 @@ import play.mvc.Result;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
-import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
 /**
@@ -119,10 +119,12 @@ public final class Application extends Controller {
 				Json.toJson(sortNodes(Lists.transform(documents, jsonLabelValue)));
 		final ImmutableMap<ResultFormat, Result> results =
 				new ImmutableMap.Builder<ResultFormat, Result>()
-						.put(ResultFormat.PAGE,
-								ok(views.html.docs.render(documents, selectedIndex, query)))
-						.put(ResultFormat.FULL,
+						.put(ResultFormat.NEGOTIATE,
 								negotiateContent(documents, selectedIndex, query))
+						.put(
+								ResultFormat.FULL,
+								ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
+										jsonFull)))))
 						.put(
 								ResultFormat.SHORT,
 								callback != null ? ok(String.format("%s(%s)", callback[0],
@@ -151,36 +153,35 @@ public final class Application extends Controller {
 
 	private static Result negotiateContent(List<Document> documents,
 			Index selectedIndex, String query) {
-		if (accepted(Serialization.JSON_LD)) {
-			return ok(Json.toJson(ImmutableSet.copyOf(Lists.transform(documents,
-					jsonFull))));
-		} else if (accepted(Serialization.RDF_A)) {
-			return ok(views.html.docs.render(documents, selectedIndex, query));
-		}
-		for (final Serialization serialization : Serialization.values()) {
-			if (accepted(serialization)) {
-				return ok(Joiner.on("\n").join(transform(documents, serialization)));
-			}
-		}
-		return status(406, "Not acceptable: unsupported content type requested\n");
+		final Status notAcceptable =
+				status(406, "Not acceptable: unsupported content type requested\n");
+		if (invalidAcceptHeader())
+			return notAcceptable;
+		for (MediaRange mediaRange : request().acceptedTypes())
+			for (Serialization serialization : Serialization.values())
+				for (String mimeType : serialization.getTypes())
+					if (mediaRange.accepts(mimeType))
+						return serialization(documents, selectedIndex, query, serialization);
+		return notAcceptable;
 	}
 
-	private static boolean accepted(Serialization serialization) {
-		return request() != null
-		/* Any of the types associated with the serialization... */
-		&& Iterables.any(serialization.types, new Predicate<String>() {
-			@Override
-			public boolean apply(final String mediaType) {
-				/* ...is accepted by any of the accepted types of the request: */
-				return Iterables.any(request().acceptedTypes(),
-						new Predicate<MediaRange>() {
-							@Override
-							public boolean apply(MediaRange media) {
-								return media.accepts(mediaType);
-							}
-						});
-			}
-		});
+	private static Result serialization(List<Document> documents,
+			Index selectedIndex, String query, Serialization serialization) {
+		switch (serialization) {
+		case JSON_LD:
+			return ok(Json.toJson(copyOf(Lists.transform(documents, jsonFull))));
+		case RDF_A:
+			return ok(views.html.docs.render(documents, selectedIndex, query));
+		default:
+			return ok(Joiner.on("\n").join(transform(documents, serialization)));
+		}
+	}
+
+	private static boolean invalidAcceptHeader() {
+		if (request() == null)
+			return true;
+		final String acceptHeader = request().getHeader("Accept");
+		return (acceptHeader == null || acceptHeader.trim().isEmpty());
 	}
 
 	private static List<String> transform(List<Document> documents,

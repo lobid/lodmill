@@ -65,9 +65,9 @@ public class BrowserTests {
 						"http://d-nb.info/gnd/118836617");
 				browser.find("button", withText("Search")).first().click();
 				assertThat(browser.url()).isNotEqualTo(INDEX);
-				assertThat(browser.title()).isEqualTo("Lobid API - Documents");
-				assertThat(browser.pageSource()).contains("Schmidt, Hannelore")
-						.contains("Glaser, Hannelore").contains("Schmidt, Loki");
+				assertThat(browser.pageSource()).contains("118836617")
+						.contains("Schmidt, Hannelore").contains("Glaser, Hannelore")
+						.contains("Schmidt, Loki");
 			}
 		});
 	}
@@ -92,7 +92,7 @@ public class BrowserTests {
 				.contains("http://openlibrary.org/works/OL14953734W")
 				.contains("http://dbpedia.org/resource/Typee")
 				.contains("http://lobid.org/item/HT002189125%3AU+MEL-11")
-				.contains("Exemplar");
+				.contains("exemplar");
 	}
 
 	@Test

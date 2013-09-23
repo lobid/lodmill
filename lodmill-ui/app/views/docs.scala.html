@@ -28,7 +28,7 @@
 				case Index.LOBID_ITEMS => {@item(Json.parse(doc.getSource))}
 			}
 		  </div>
-		  <div class="tab-pane" id="@id-jld"><pre>@doc.getSource</pre></div>
+		  <div class="tab-pane" id="@id-jld"><pre>@Json.prettyPrint(Json.parse(doc.getSource))</pre></div>
 		  <div class="tab-pane" id="@id-nt"><pre>@doc.as(Format.N_TRIPLE)</pre></div>
 		  <div class="tab-pane" id="@id-ttl"><pre>@doc.as(Format.TURTLE)</pre></div>
 		</div>
