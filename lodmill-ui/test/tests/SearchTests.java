@@ -212,11 +212,11 @@ public class SearchTests {
 	}
 
 	@Test
-	public void searchViaApiPage() {
+	public void searchViaApiHtml() {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(call("resource?author=abraham&format=page")).contains(
+				assertThat(call("resource?author=abraham", "text/html")).contains(
 						"<html>");
 			}
 		});
@@ -366,21 +366,98 @@ public class SearchTests {
 		});
 	}
 
+	private final static String ENDPOINT = "resource?author=abraham";
+
 	@Test
-	public void searchViaApiWithContentNegotiation() {
+	public void searchViaApiWithContentNegotiationNTriples() {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				String endpoint = "resource?author=abraham";
-				final String nTriples = call(endpoint, "text/plain");
-				final String turtle = call(endpoint, "text/turtle");
-				final String rdfa = call(endpoint, "text/html");
-				final String n3 = call(endpoint, "text/n3"); // NOPMD
-				assertThat(nTriples).isNotEmpty().isNotEqualTo(turtle);
-				assertThat(rdfa).isNotEmpty().contains("<html>");
+				assertThat(call(ENDPOINT, "text/plain")).isNotEmpty().startsWith(
+						"<http");
+			}
+		});
+	}
+
+	@Test
+	public void searchViaApiWithContentNegotiationTurtle() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(call(ENDPOINT, "text/turtle")).isNotEmpty().contains(
+						"      a       ");
+			}
+		});
+	}
+
+	@Test
+	public void searchViaApiWithContentNegotiationRdfa() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(call(ENDPOINT, "text/html")).isNotEmpty().contains(
+						"<!DOCTYPE html>");
+			}
+		});
+	}
+
+	@Test
+	public void searchViaApiWithContentNegotiationN3() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final String turtle = call(ENDPOINT, "text/turtle");
+				final String n3 = call(ENDPOINT, "text/n3"); // NOPMD
 				/* turtle is a subset of n3 for RDF */
-				assertThat(turtle).isNotEmpty().isEqualTo(n3);
 				assertThat(n3).isNotEmpty();
+				assertThat(n3).isNotEmpty().isEqualTo(turtle);
+			}
+		});
+	}
+
+	@Test
+	public void searchViaApiWithContentNegotiationJson() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertJsonResponse(call(ENDPOINT, "application/json"));
+			}
+		});
+	}
+
+	@Test
+	public void searchViaApiWithContentNegotiationDefault() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertJsonResponse(call(ENDPOINT, "*/*"));
+			}
+		});
+	}
+
+	@Test
+	public void searchViaApiWithContentNegotiationOverrideWithParam() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertJsonResponse(call(ENDPOINT + "&format=full", "text/html"));
+			}
+		});
+	}
+
+	private static void assertJsonResponse(final String response) {
+		assertThat(response).isNotEmpty().startsWith("[{\"@graph\":");
+	}
+
+	@Test
+	public void searchViaApiWithContentNegotiationBrowser() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(
+						call(ENDPOINT,
+								"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"))
+						.isNotEmpty().contains("<html>");
 			}
 		});
 	}
