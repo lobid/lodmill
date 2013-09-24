@@ -149,7 +149,7 @@
 
 	<h2>Content Negotiation</h2>
 	<p>To return different RDF serializations as the result format (default is JSON-LD), you can specify an accept header, e.g. for N-Triples:</p>
-	<pre>curl --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
+	<pre>curl -L --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
 	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
 
   <h2>Sample usage: auto suggest</h2>
