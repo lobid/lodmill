@@ -41,9 +41,11 @@ public final class Api extends Controller {
 			final String name, // NOPMD
 			final String author, final String subject, final String set,
 			final String format, final int from, final int size) {
-		Logger.debug(String.format(
-				"GET /resource; id: '%s', name: '%s', author: '%s', subject: '%s'", id,
-				name, author, subject));
+		Logger
+				.debug(String
+						.format(
+								"GET /resource; id: '%s', name: '%s', author: '%s', subject: '%s', format: '%s'",
+								id, name, author, subject, format));
 		final Index index = Index.LOBID_RESOURCES;
 		Result result = null;
 		if (defined(id)) {

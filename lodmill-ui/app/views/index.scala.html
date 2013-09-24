@@ -3,13 +3,11 @@
 @import controllers.Serialization
 @import models.Index
 
-@withPage(link:String) = {@link&format=page}
-
 @formats(ref:String) = {<td>
 				<code><a href="@ref=short">short</a></code>,
 				<code><a href="@ref=ids">ids</a></code>,
-				<code><a href="@ref=page">page</a></code>,
-				<code><a href="@ref=full">full</a></code> (default)
+				<code><a href="@ref=full">full</a></code>,
+				<code><a href="@ref=negotiate">negotiate</a></code> (default)
 		</td>}
 
 @sampleUsageCode(resourceType: String, resultType: String) = {
@@ -40,7 +38,6 @@
             <p>Type a @resourceType's name to get suggestions. Upon selecting a suggestion, the corresponding value will be inserted (here: @if(resultType=="short") {the completed term} else {the ID}). Search will return details on the selected @resourceType.</p>
             <form method="GET" class="form-inline" action="/@resourceType"> <!-- use full URL in your code, i.e. http://api.lobid.org/@resourceType -->
                 <input type="text" class="search-@resourceType" name="@queryType" id="id" style="width:300px"/>
-                <input type="hidden" name="format" value="page"/> <!-- to get JSON, omit the 'format' param -->
                 <button type="submit" class="btn">Search</button>
             </form>
             <p>This calls the <code>/@resourceType</code> endpoint with the <code>format=@resultType</code> parameter to get the suggestions. The actual search uses the <code>@queryType</code> parameter with the inserted value. See the implementation using JavaScript and jQuery UI on the right and the source of this page.</p>
@@ -59,8 +56,9 @@
 
 @main("Lobid API - Index") {
 		<h2>API endpoints and parameters</h2>
-		<p>Available endpoints and sample requests (all use GET; omit the <code>format=page</code> parameter for JSON-LD output; send an accept header for different RDF formats, see details below).</p>
-		<p>All endpoints support queries using the <code>id</code>, <code>name</code>, and <code>format</code> parameters:</p>
+		<p>Available endpoints and sample requests (all use GET).</p>
+		<p>All endpoints support queries using the <code>id</code>, <code>name</code>, and <code>format</code> parameters.</p>
+    <p>Result formats <code>short</code>, <code>ids</code>, and <code>full</code> return JSON; use <code>format=negotiate</code> (or none), and set an accept header for different RDF formats, see details below.</p>
 		<table class="table table-striped">
 		<tr>
 			<th style="width: 10%">Parameters &rarr; <br/>&darr; Endpoint</th>
@@ -73,12 +71,12 @@
 			<td><code>/resource</td>
 			@defining(("/resource?id=HT002189125", "/resource?id=0940450003", "/resource/HT002189125", "/resource/0940450003")){refs =>
 				<td>
-					<a href="@withPage(refs._1)">@refs._1</a> <br/>
-					<a href="@withPage(refs._2)">@refs._2</a> <br/>
-					<a href="@refs._3?format=page">@refs._3</a><br/>
-					<a href="@refs._4?format=page">@refs._4</a>
+					<a href="@refs._1">@refs._1</a> <br/>
+					<a href="@refs._2">@refs._2</a> <br/>
+					<a href="@refs._3">@refs._3</a><br/>
+					<a href="@refs._4">@refs._4</a>
 				</td>}
-			@defining("/resource?name=Faust"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
+			@defining("/resource?name=Faust"){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/resource?name=Typee&format")
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
@@ -86,10 +84,10 @@
 			<td><code>/item</td>
 			@defining(("/item?id=BT000000079%3AGA+644","/item/BT000000079%3AGA+644")){refs =>
 				<td>
-					<a href="@withPage(refs._1)">@refs._1</a> <br/>
-					<a href="@refs._2?format=page">@refs._2</a>
+					<a href="@refs._1">@refs._1</a> <br/>
+					<a href="@refs._2">@refs._2</a>
 				</td>}
-			@defining("/item?name=GA+644"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
+			@defining("/item?name=GA+644"){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/item?name=GA+644&format")
 			<td>Inventory data <br/> (lobid-resources)</td>
 		</tr>
@@ -97,10 +95,10 @@
 			<td><code>/organisation</td>
 			@defining(("/organisation?id=DE-605","/organisation/DE-605")){refs =>
 				<td>
-					<a href="@withPage(refs._1)">@refs._1</a> <br/>
-					<a href="@refs._2?format=page">@refs._2</a>
+					<a href="@refs._1">@refs._1</a> <br/>
+					<a href="@refs._2">@refs._2</a>
 				</td> }
-			@defining("/organisation?name=Universität"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
+			@defining("/organisation?name=Universität"){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/organisation?name=Universität&format")
 			<td>Authority data <br/> (lobid-organisations)</td>
 		</tr>
@@ -108,17 +106,17 @@
 			<td><code>/person</td>
 			@defining(("/person?id=118580604","/person/118580604")){refs =>
 				<td>
-					<a href="@withPage(refs._1)">@refs._1</a> <br/>
-					<a href="@refs._2?format=page">@refs._2</a>
+					<a href="@refs._1">@refs._1</a> <br/>
+					<a href="@refs._2">@refs._2</a>
 				</td>}
-			@defining("/person?name=Johann+Sebastian+Bach"){ref => <td><a href="@withPage(ref)">@ref</a></td>}
+			@defining("/person?name=Johann+Sebastian+Bach"){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/person?name=Johann+Sebastian+Bach&format")
 			<td>Authority data <br/> (GND)</td>
 		</tr>
 		<tr>
 			<td><code>/search</td>
-			@defining("/search?id=HT002189125"){ref => <td><a href="@ref">@ref</a></td>}
-			@defining("/search?name=Basel"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/search?id=HT002189125&format=full"){ref => <td><a href="@ref">@ref</a></td>}
+			@defining("/search?name=Basel&format=full"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/search?name=Basel&format"){ ref => <td>
 				<code><a href="@ref=short">short</a></code>,
 				<code><a href="@ref=ids">ids</a></code>,
@@ -139,9 +137,9 @@
 		</tr>
 		<tr>
 			<td><code>/resource</td>
-			<td>@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs => <a href="@withPage(refs._1)">@refs._1</a><br/><a href="@withPage(refs._2)">@refs._2</a>}</td>
-			<td>@defining("/resource?subject=4414195-6"){ref => <a href="@withPage(ref)">@ref</a>}</td>
-			<td>@defining("/resource?set=NWBib"){ref => <a href="@withPage(ref)">@ref</a>}</td>
+			<td>@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs => <a href="@refs._1">@refs._1</a><br/><a href="@refs._2">@refs._2</a>}</td>
+			<td>@defining("/resource?subject=4414195-6"){ref => <a href="@ref">@ref</a>}</td>
+			<td>@defining("/resource?set=NWBib"){ref => <a href="@ref">@ref</a>}</td>
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
 	</table>
