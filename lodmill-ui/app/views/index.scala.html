@@ -71,10 +71,8 @@
 			<td><code>/resource</td>
 			@defining(("/resource?id=HT002189125", "/resource?id=0940450003", "/resource?id=urn:nbn:de:101:1-201210094953", "/resource/HT002189125", "/resource/0940450003", "/resource/urn%3Anbn%3Ade%3A101%3A1-201210094953")){refs =>
 				<td>
-					as parameter, by <br/>
-					<a href="@refs._1">resource ID</a>, <a href="@refs._2">ISBN</a>, <a href="@refs._3">URN</a> <br/>
-					as path element, by <br/>
-					<a href="@refs._4">resource ID</a>, <a href="@refs._5">ISBN</a>, <a href="@refs._6">URN</a>
+					<a href="@refs._1">hbz ID</a>, <a href="@refs._2">ISBN</a>, or <a href="@refs._3">URN</a> as parameter<br/>
+					<a href="@refs._4">hbz ID</a> as path segment
 				</td>}
 			@defining("/resource?name=Faust"){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/resource?name=Typee&format")
