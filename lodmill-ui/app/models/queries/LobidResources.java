@@ -106,13 +106,14 @@ public class LobidResources {
 			return Arrays.asList(/* @formatter:off*/
 					"@graph.@id",
 					"@graph.http://purl.org/ontology/bibo/isbn13",
-					"@graph.http://purl.org/ontology/bibo/isbn10"); /* @formatter:on */
+					"@graph.http://purl.org/ontology/bibo/isbn10",
+					"@graph.http://geni-orca.renci.org/owl/topology.owl#hasURN"); /* @formatter:on */
 		}
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return multiMatchQuery(lobidResourceQueryString(queryString), fields()
-					.toArray(new String[] {}));
+			return multiMatchQuery(lobidResourceQueryString(queryString),
+					fields().toArray(new String[] {})).operator(Operator.AND);
 		}
 	}
 
