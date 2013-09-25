@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gnd="http://d-nb.info/standards/elementset/gnd#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:isbd="http://iflastandards.info/ns/isbd/elements/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:dcterms="http://purl.org/dc/terms/">
+
+<rdf:Description rdf:about="http://d-nb.info/gnd/4000196-9">
+<gnd:gndIdentifier>4000196-9</gnd:gndIdentifier>
+<gnd:oldAuthorityNumber>(DE-588c)4000196-9</gnd:oldAuthorityNumber>
+<gnd:variantNameForTheWork>Abrogans deutsch</gnd:variantNameForTheWork>
+<gnd:variantNameForTheWork>Deutsches Abrogans</gnd:variantNameForTheWork>
+<gnd:variantNameForTheWork>Keronisches Glossar</gnd:variantNameForTheWork>
+<gnd:preferredNameForTheWork>Abrogans</gnd:preferredNameForTheWork>
+<gnd:broaderTermInstantial rdf:resource="http://d-nb.info/gnd/4157654-8" />
+<gnd:gndSubjectCategory rdf:resource="http://d-nb.info/vocab/gnd-sc#11.3d" />
+<gnd:geographicAreaCode rdf:resource="http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE" />
+<gnd:languageCode rdf:resource="http://id.loc.gov/vocabulary/iso639-2/goh" />
+<gnd:definition xml:lang="de">Lateinisch-althochdeutsches Glossar, um 765 entstanden</gnd:definition>
+<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#Work" />
+</rdf:Description>
+
+<rdf:Description rdf:about="http://d-nb.info/gnd/4001191-4">
+<gnd:gndIdentifier>4001191-4</gnd:gndIdentifier>
+<gnd:oldAuthorityNumber>(DE-588c)4001191-4</gnd:oldAuthorityNumber>
+<gnd:variantNameForTheWork>Chanson d&apos;Aliscans</gnd:variantNameForTheWork>
+<gnd:variantNameForTheWork>La @bataille d&apos;Aliscans</gnd:variantNameForTheWork>
+<gnd:preferredNameForTheWork>Aliscans</gnd:preferredNameForTheWork>
+<gnd:broaderTermPartitive rdf:resource="http://d-nb.info/gnd/4189913-1" />
+<gnd:gndSubjectCategory rdf:resource="http://d-nb.info/vocab/gnd-sc#12.2b" />
+<gnd:geographicAreaCode rdf:resource="http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR" />
+<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#Work" />
+</rdf:Description>
+
+</rdf:RDF>
