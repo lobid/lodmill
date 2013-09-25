@@ -78,7 +78,7 @@ public class BrowserTests {
 			@Override
 			public void invoke(final TestBrowser browser) {
 				browser.goTo(INDEX);
-				browser.find("a", withText("resource ID")).first().click();
+				browser.find("a", withText("hbz ID")).first().click();
 				assertTypee(browser);
 			}
 		});
