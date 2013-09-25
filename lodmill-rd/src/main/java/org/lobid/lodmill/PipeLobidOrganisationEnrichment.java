@@ -152,8 +152,6 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	 */
 	public void setSerialization(final String serialization) {
 		this.serialization = RDFLanguages.nameToLang(serialization);
-		if (this.serialization == null)
-			this.serialization = RDFLanguages.nameToLang("RDFXML");
 	}
 
 	/**
@@ -202,6 +200,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 
 	@Override
 	protected void onSetReceiver() {
+		if (this.serialization == null)
+			this.serialization = RDFLanguages.nameToLang("RDFXML");
 		super.onSetReceiver();
 		iniOsmApiLookup();
 		iniGeonamesDump();
