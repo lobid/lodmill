@@ -27,18 +27,10 @@ public class LobidOrganisationsUpdateTest {
 		final PicaXmlHandler handler = new PicaXmlHandler();
 		final Metamorph metamorph =
 				new Metamorph("morph_zdb-isil-file-pica2ld.xml");
-		final PipeLobidOrganisationEnrichment enrich =
-				new PipeLobidOrganisationEnrichment();
-		enrich.setSerialization("TURTLE");
-		enrich.setGeonameFilename("geonames_DE_sample.csv");
+		final PipeLobidOrganisationEnrichment enrich = createEnricher();
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setSerialization("TURTLE");
-		final RdfModelFileWriter writer = new RdfModelFileWriter();
-		writer.setProperty("http://purl.org/dc/terms/identifier");
-		writer.setEndIndex(2);
-		writer.setStartIndex(0);
-		writer.setFileSuffix("nt");
-		writer.setTarget(PATH);
+		final RdfModelFileWriter writer = createWriter(PATH);
 		opener.setReceiver(xmldecoder).setReceiver(handler).setReceiver(metamorph)
 				.setReceiver(enrich).setReceiver(triple2model).setReceiver(writer);
 		File infile =
@@ -47,5 +39,23 @@ public class LobidOrganisationsUpdateTest {
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
 		FileUtils.deleteDirectory(new File(PATH));
+	}
+
+	private static PipeLobidOrganisationEnrichment createEnricher() {
+		final PipeLobidOrganisationEnrichment enrich =
+				new PipeLobidOrganisationEnrichment();
+		enrich.setSerialization("TURTLE");
+		enrich.setGeonameFilename("geonames_DE_sample.csv");
+		return enrich;
+	}
+
+	private static RdfModelFileWriter createWriter(final String PATH) {
+		final RdfModelFileWriter writer = new RdfModelFileWriter();
+		writer.setProperty("http://purl.org/dc/terms/identifier");
+		writer.setEndIndex(2);
+		writer.setStartIndex(0);
+		writer.setFileSuffix("nt");
+		writer.setTarget(PATH);
+		return writer;
 	}
 }
