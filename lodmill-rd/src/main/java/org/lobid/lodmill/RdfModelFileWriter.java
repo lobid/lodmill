@@ -27,6 +27,7 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.RDFLanguages;
 import org.culturegraph.mf.exceptions.MetafactureException;
 import org.culturegraph.mf.framework.DefaultObjectReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
@@ -44,7 +45,7 @@ import com.hp.hpl.jena.rdf.model.Model;
  * 
  * @author Pascal Christoph
  */
-@Description("Writes the object value of an RDF model into a file. The filename is "
+@Description("Writes the object value of an RDF model into a file. Default serialization is 'NTRIPLES'. The filename is "
 		+ "constructed from the literal of an given property (recommended properties are identifier)."
 		+ " Variable are "
 		+ "- 'target' (determining the output directory)"
@@ -64,6 +65,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 	private String fileSuffix = "nt";
 	private int startIndex = 0;
 	private int endIndex = 0;
+	private Lang serialization = Lang.NTRIPLES;
 
 	/**
 	 * Default constructor
@@ -141,6 +143,15 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 		this.endIndex = endIndex;
 	}
 
+	/**
+	 * Sets the serialization format. Default is NTriples.
+	 * 
+	 * @param serialization
+	 */
+	public void setSerialization(final String serialization) {
+		this.serialization = RDFLanguages.nameToLang(serialization);
+	}
+
 	@Override
 	public void process(final Model model) {
 		String identifier = null;
@@ -172,7 +183,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 			final Writer writer =
 					new OutputStreamWriter(new FileOutputStream(file), encoding);
 			final StringWriter tripleWriter = new StringWriter();
-			RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
+			RDFDataMgr.write(tripleWriter, model, this.serialization);
 			tripleWriter.toString();
 			IOUtils.write(tripleWriter.toString(), writer);
 			writer.close();
