@@ -1,18 +1,5 @@
-/*
- *  Copyright 2013 Deutsche Nationalbibliothek
- *
- *  Licensed under the Apache License, Version 2.0 the "License";
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
+/* Copyright 2013 Pascal Christoph, hbz. Licensed under the Eclipse Public License 1.0 */
+
 package org.lobid.lodmill;
 
 import java.io.File;
@@ -115,8 +102,6 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 	/**
 	 * Sets the file's suffix.
 	 * 
-	 * @TODO could be used to set the serialization type of the rdf. For now there
-	 *       is ntriples hardcoded.
 	 * @param fileSuffix the suffix used for the to be generated files
 	 */
 	public void setFileSuffix(final String fileSuffix) {
@@ -144,9 +129,8 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 	}
 
 	/**
-	 * Sets the serialization format. Default is NTriples.
 	 * 
-	 * @param serialization
+	 * @param serialization Sets the serialization format. Default is NTriples.
 	 */
 	public void setSerialization(final String serialization) {
 		this.serialization = RDFLanguages.nameToLang(serialization);
@@ -161,12 +145,13 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 							.next().asLiteral().toString();
 			LOG.debug("Going to store identifier=" + identifier);
 		} catch (NoSuchElementException e) {
-			LOG.warn("No identifier => cannot derive a filename for "
-					+ model.toString());
+			LOG.warn(
+					"No identifier => cannot derive a filename for " + model.toString(),
+					e);
 			return;
 		} catch (LiteralRequiredException e) {
 			LOG.warn("Identifier is a URI. Derive filename from that URI ... "
-					+ model.toString());
+					+ model.toString(), e);
 			identifier =
 					model.listObjectsOfProperty(model.createProperty(this.property))
 							.next().toString();
