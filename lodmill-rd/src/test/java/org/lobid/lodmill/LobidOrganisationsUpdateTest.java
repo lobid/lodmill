@@ -3,8 +3,10 @@
 package org.lobid.lodmill;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 
+import org.apache.commons.io.FileUtils;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.source.FileOpener;
@@ -18,7 +20,8 @@ import org.junit.Test;
 public class LobidOrganisationsUpdateTest {
 
 	@Test
-	public void testFlow() throws URISyntaxException {
+	public void testFlow() throws URISyntaxException, IOException {
+		final String PATH = "tmp";
 		final FileOpener opener = new FileOpener();
 		final XmlDecoder xmldecoder = new XmlDecoder();
 		final PicaXmlHandler handler = new PicaXmlHandler();
@@ -35,7 +38,7 @@ public class LobidOrganisationsUpdateTest {
 		writer.setEndIndex(2);
 		writer.setStartIndex(0);
 		writer.setFileSuffix("nt");
-		writer.setTarget("orgas");
+		writer.setTarget(PATH);
 		opener.setReceiver(xmldecoder).setReceiver(handler).setReceiver(metamorph)
 				.setReceiver(enrich).setReceiver(triple2model).setReceiver(writer);
 		File infile =
@@ -43,5 +46,6 @@ public class LobidOrganisationsUpdateTest {
 						.getResource("Bibdat1303pp_sample1.xml").toURI());
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
+		FileUtils.deleteDirectory(new File(PATH));
 	}
 }
