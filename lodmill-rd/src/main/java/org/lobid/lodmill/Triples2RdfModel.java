@@ -21,14 +21,15 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  */
 @Description("Encodes triples into an RDF Model. Predefined values for input are"
 		+ " 'RDF/XML', 'N-TRIPLE', 'TURTLE' (or 'TTL') and 'N3'. null represents the "
-		+ "default language, 'RDF/XML'. 'RDF/XML-ABBREV' is a synonym for 'RDF/XML'.")
+		+ "default language, 'RDF/XML'. 'RDF/XML-ABBREV' is a synonym for 'RDF/XML'."
+		+ "Default is 'TURTLE'.")
 @In(String.class)
 @Out(Model.class)
 public class Triples2RdfModel extends
 		DefaultObjectPipe<String, ObjectReceiver<Model>> {
 	Model model;
 	private int count = 0;
-	private String serialization;
+	private String serialization = "TURTLE";
 
 	/**
 	 * Sets the serialization format of the incoming triples .
@@ -37,7 +38,7 @@ public class Triples2RdfModel extends
 	 *          'N3'. null represents the default language, 'RDF/XML'.
 	 *          'RDF/XML-ABBREV' is a synonym for 'RDF/XML'.")
 	 */
-	void setSerialization(final String serialization) {
+	public void setSerialization(final String serialization) {
 		this.serialization = serialization;
 	}
 
