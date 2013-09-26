@@ -14,7 +14,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({ TransformationZVDDTests.class,
 		LobidOrganisationEnrichmentTest.class, ZvddMarcIngestTest.class,
 		GeonamesCsvTest.class, OaiDcFlowTest.class, DippQdcToLobidTest.class,
-		XmlEntitySplitterTest.class })
+		XmlEntitySplitterTest.class, LobidOrganisationsUpdateTest.class })
 public final class UnitTests {
 	/* Suite class, groups tests via annotation above */
 }

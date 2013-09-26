@@ -65,7 +65,8 @@ import com.hp.hpl.jena.util.iterator.ExtendedIterator;
  */
 @Description("Lookup geo location data in OSM. Decodes triples as string. Predefined values for output are"
 		+ " 'RDF/XML', 'N-TRIPLE', 'TURTLE' (or 'TTL') and 'N3'. null represents the "
-		+ "default language, 'RDF/XML'. 'RDF/XML-ABBREV' is a synonym for 'RDF/XML'.")
+		+ "default language, 'RDF/XML'. 'RDF/XML-ABBREV' is a synonym for 'RDF/XML'."
+		+ "Default output is NTriples.")
 @In(StreamReceiver.class)
 @Out(String.class)
 public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
@@ -89,7 +90,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		}
 	}
 
-	private Lang serialization;
+	private Lang serialization = Lang.NTRIPLES;
 
 	private static final String FOAF_NAME = "http://xmlns.com/foaf/0.1/name";
 	private static final String GEO_WGS84_POS =
@@ -152,8 +153,6 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	 */
 	public void setSerialization(final String serialization) {
 		this.serialization = RDFLanguages.nameToLang(serialization);
-		if (this.serialization == null)
-			this.serialization = RDFLanguages.nameToLang("RDFXML");
 	}
 
 	/**
