@@ -1,6 +1,6 @@
 language: java
 env:
-  - PLAY_VERSION=2.1.1
+  - PLAY_VERSION=2.2.0
 jdk: oraclejdk7
 before_install:
   - cd lodmill-rd; sh install-dependencies.sh; cd ..
@@ -13,4 +13,6 @@ script:
   - umask 0022
   - mvn test -e -q --settings settings.xml
   - cd lodmill-ui
+  - cat ~/.m2/settings.xml
+  - rm -rf ~/.m2/repository/junit/ ; rm -rf ~/.m2/repository/org/hamcrest/ ; rm -rf ~/.m2/repository/org/elasticsearch/
   - ../play-${PLAY_VERSION}/play test
