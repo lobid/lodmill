@@ -10,6 +10,8 @@
                 <http://purl.org/lobid/stocksize#n01> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6558290> ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-Tir1> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
                 [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
                   <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
@@ -59,6 +61,8 @@
                 <http://purl.org/lobid/stocksize#n01> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6557938> ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-100-301> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
                 [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
                   <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
@@ -112,6 +116,8 @@
                 <http://opac.fu-berlin.de> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6547539> ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-188-867> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
                 [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
                   <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
@@ -163,6 +169,8 @@
                 <http://purl.org/lobid/stocksize#n06> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6557373> ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-7-133> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
                 [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
                   <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
@@ -225,6 +233,8 @@
                 <http://de.wikipedia.org/wiki/Staatsbibliothek_zu_Berlin> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6547539> ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-1a> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
                 [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
                   <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
@@ -270,6 +280,8 @@
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://purl.org/dc/terms/identifier>
                 "DE-11-39" ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-11-39> ;
         <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
                 <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-11-39> ;
         <http://xmlns.com/foaf/0.1/name>
@@ -298,6 +310,8 @@
                 <http://de.wikipedia.org/wiki/Universitätsbibliothek_Bochum> ;
         <http://www.geonames.org/ontology#locatedIn>
                 <http://sws.geonames.org/6553132> ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-294> ;
         <http://www.w3.org/2003/01/geo/wgs84_pos#location>
                 [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
                   <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
