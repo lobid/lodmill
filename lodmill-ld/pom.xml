@@ -14,23 +14,6 @@
 		<mdep.outputFile>classpath</mdep.outputFile>
 	</properties>
 
-	<repositories>
-		<repository>
-			<id>lobid-snapshots</id>
-			<url>http://lobid.github.com/snapshots/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>acm-sl</id>
-			<url>http://maven.acm-sl.org/artifactory/list/libs-releases/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
 	<distributionManagement>
 		<snapshotRepository>
 			<id>lobid-snapshots</id>
@@ -144,7 +127,7 @@
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-core</artifactId>
-			<version>1.0.3</version>
+			<version>1.2.1</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
@@ -152,7 +135,7 @@
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-test</artifactId>
-			<version>1.0.3</version>
+			<version>1.2.1</version>
 			<type>jar</type>
 			<scope>test</scope>
 		</dependency>
