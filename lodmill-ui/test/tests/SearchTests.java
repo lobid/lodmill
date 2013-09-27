@@ -29,7 +29,7 @@ import models.Index;
 import models.Parameter;
 import models.Search;
 
-import org.codehaus.jackson.JsonNode;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.elasticsearch.action.bulk.BulkItemResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.node.Node;
@@ -232,7 +232,7 @@ public class SearchTests {
 						Json.parse(call("resource?author=abraham&format=full"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
-				assertThat(jsonObject.getElements().next().isContainerNode()).isTrue();
+				assertThat(jsonObject.elements().next().isContainerNode()).isTrue();
 			}
 		});
 	}
@@ -247,7 +247,7 @@ public class SearchTests {
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(sorted(list(jsonObject))).isEqualTo(list(jsonObject));
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
-				assertThat(jsonObject.getElements().next().isContainerNode()).isFalse();
+				assertThat(jsonObject.elements().next().isContainerNode()).isFalse();
 			}
 
 			private List<String> sorted(List<String> list) {
@@ -260,7 +260,7 @@ public class SearchTests {
 
 	private static List<String> list(JsonNode jsonObject) {
 		List<String> list = new ArrayList<>();
-		Iterator<JsonNode> elements = jsonObject.getElements();
+		Iterator<JsonNode> elements = jsonObject.elements();
 		while (elements.hasNext()) {
 			list.add(elements.next().asText());
 		}
