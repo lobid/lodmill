@@ -32,10 +32,10 @@ h6. Clone lodmill and run the Maven build for lodmill-ld and lodmill-rd
 
 h6. Download Play and run the tests
 
-@wget http://downloads.typesafe.com/play/2.1.1/play-2.1.1.zip@
-@unzip play-2.1.1.zip@
+@wget http://downloads.typesafe.com/play/2.2.0/play-2.2.0.zip@
+@unzip play-2.2.0.zip@
 @cd lodmill-ui@
-@../play-2.1.1/play test@
+@../play-2.2.0/play test@
 
 Replace 'test' with other Play commands, e.g. 'run' or 'eclipse' (to generate Eclipse project config files).
 

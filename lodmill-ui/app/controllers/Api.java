@@ -4,16 +4,15 @@ package controllers;
 
 import models.Index;
 import models.Parameter;
-
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.node.ObjectNode;
-
 import play.Logger;
-import play.api.mvc.PlainResult;
 import play.core.j.JavaResultExtractor;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.mvc.SimpleResult;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * API controller.
@@ -151,13 +150,14 @@ public final class Api extends Controller {
 	private static void putIfOk(final ObjectNode json, final String key,
 			final Result result) {
 		/* TODO: there's got to be a better way, without casting */
-		if (((PlainResult) result.getWrappedResult()).header().status() == OK) {
+		if (((SimpleResult) result).getWrappedSimpleResult().header().status() == OK) {
 			json.put(key, json(result));
 		}
 	}
 
 	private static JsonNode json(final Result resources) {
-		return Json.parse(new String(JavaResultExtractor.getBody(resources)));
+		return Json.parse(new String(JavaResultExtractor
+				.getBody((SimpleResult) resources)));
 	}
 
 	private static boolean defined(final String param) {

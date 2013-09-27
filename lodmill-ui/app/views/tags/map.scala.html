@@ -8,10 +8,11 @@
     <tr>
       <td><a href="@property">@label</a></td>
       <td>
-        <div class="map" id="map-@((doc \ "@id").hashCode())"></div>
+        @defining((doc \ "@id").hashCode()) { id =>
+        <div class="map" id="map-@(id)"></div>
         <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
         <script>
-            map = new OpenLayers.Map("map-@((doc \ "@id").hashCode())");
+            map = new OpenLayers.Map("map-@(id)");
             map.addLayer(new OpenLayers.Layer.OSM());
             var lonLat = new OpenLayers.LonLat(@string((doc \\ lon).head), @string((doc \\ lat).head))
                   .transform(
@@ -26,6 +27,7 @@
             markers.addMarker(new OpenLayers.Marker(lonLat, icon));
             map.setCenter(lonLat, 14);
         </script>
+        }
       </td>
     </tr>
 }
