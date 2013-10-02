@@ -38,7 +38,7 @@ public class Triples2RdfModel extends
 	 *          'N3'. null represents the default language, 'RDF/XML'.
 	 *          'RDF/XML-ABBREV' is a synonym for 'RDF/XML'.")
 	 */
-	public void setSerialization(final String serialization) {
+	public void setInput(final String serialization) {
 		this.serialization = serialization;
 	}
 

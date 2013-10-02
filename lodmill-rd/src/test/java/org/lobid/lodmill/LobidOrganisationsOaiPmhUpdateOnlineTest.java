@@ -30,7 +30,7 @@ public class LobidOrganisationsOaiPmhUpdateOnlineTest {
 				new Metamorph("morph_zdb-isil-file-pica2ld.xml");
 		final PipeLobidOrganisationEnrichment enrich = createEnricher();
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
-		triple2model.setSerialization("TURTLE");
+		triple2model.setInput("TURTLE");
 		final RdfModelFileWriter writer = createWriter(PATH);
 		opener.setReceiver(xmldecoder).setReceiver(handler).setReceiver(metamorph)
 				.setReceiver(enrich).setReceiver(triple2model).setReceiver(writer);
