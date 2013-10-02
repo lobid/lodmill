@@ -9,6 +9,9 @@ tmp
 .history
 dist
 lodmill-ui/.classpath
+lodmill-ui/.project
+lodmill-ui/.settings/org.scala-ide.play2.prefs
+lodmill-ui/.settings/org.scala-ide.sdt.core.prefs
 test.*
 *.dot*
 !lodmill-rd/doc/samples/*.dot

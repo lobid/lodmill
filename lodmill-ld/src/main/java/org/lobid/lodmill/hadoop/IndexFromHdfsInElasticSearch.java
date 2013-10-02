@@ -183,10 +183,10 @@ public class IndexFromHdfsInElasticSearch {
 	private static void collectFailedResponses(
 			final List<BulkItemResponse> result, final BulkResponse bulkResponse) {
 		for (BulkItemResponse response : bulkResponse) {
-			if (response.failed()) {
+			if (response.isFailed()) {
 				LOG.error(String.format(
 						"Bulk item response failed for index '%s', ID '%s', message: %s",
-						response.index(), response.id(), response.failureMessage()));
+						response.getIndex(), response.getId(), response.getFailureMessage()));
 				result.add(response);
 			}
 		}
@@ -200,7 +200,7 @@ public class IndexFromHdfsInElasticSearch {
 		final String type = (String) object.get("_type");
 		final String id = (String) object.get("_id"); // NOPMD
 		final IndicesAdminClient admin = c.admin().indices();
-		if (!admin.prepareExists(index).execute().actionGet().exists()) {
+		if (!admin.prepareExists(index).execute().actionGet().isExists()) {
 			admin.prepareCreate(index).setSource(config()).execute().actionGet();
 		}
 		return c.prepareIndex(index, type, id).setSource(map);

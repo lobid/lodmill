@@ -45,7 +45,7 @@ public class LobidResources {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList("@graph.http://purl.org/dc/terms/title");
+			return Arrays.asList("@graph.http://purl.org/dc/terms/title.@value");
 		}
 
 		@Override
@@ -63,9 +63,9 @@ public class LobidResources {
 		public List<String> fields() {
 			return Arrays
 					.asList(
-							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath",
+							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth.@value",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath.@value",
 							"@graph.http://purl.org/dc/elements/1.1/creator");
 		}
 
@@ -82,7 +82,7 @@ public class LobidResources {
 		@Override
 		public List<String> fields() {
 			return Arrays.asList(/* @formatter:off*/
-					"@graph.http://www.w3.org/2004/02/skos/core#prefLabel",
+					"@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value",
 					"@graph.http://purl.org/dc/terms/subject");/* @formatter:on */
 		}
 
@@ -105,9 +105,9 @@ public class LobidResources {
 		public List<String> fields() {
 			return Arrays.asList(/* @formatter:off*/
 					"@graph.@id",
-					"@graph.http://purl.org/ontology/bibo/isbn13",
-					"@graph.http://purl.org/ontology/bibo/isbn10",
-					"@graph.http://geni-orca.renci.org/owl/topology.owl#hasURN"); /* @formatter:on */
+					"@graph.http://purl.org/ontology/bibo/isbn13.@value",
+					"@graph.http://purl.org/ontology/bibo/isbn10.@value",
+					"@graph.http://geni-orca.renci.org/owl/topology.owl#hasURN.@value"); /* @formatter:on */
 		}
 
 		@Override

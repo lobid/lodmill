@@ -6,11 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import org.elasticsearch.search.SearchHit;
 
 import play.Logger;
 import play.libs.Json;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * Process different kinds of result hits.
@@ -40,24 +41,26 @@ public enum Hit {
 		Document process(final String query, final Document document) {
 			if (fields.get(0).contains("preferredNameForThePerson")) {
 				final JsonNode json = Json.toJson(hit.getSource());
-				final JsonNode birth = json.findValue(stripGraphPrefix(fields.get(1)));
-				final JsonNode death = json.findValue(stripGraphPrefix(fields.get(2)));
-				if (birth == null) {
+				final JsonNode birth = findNestedValue(json, fields.get(1));
+				final JsonNode death = findNestedValue(json, fields.get(2));
+				if (birth == null)
 					document.matchedField = field.toString();
-				} else {
+				else {
 					final String format =
 							String.format("%s (%s-%s)", field.toString(), birth.asText(),
 									death == null ? "" : death.asText());
 					document.matchedField = format;
 				}
-			} else {
+			} else
 				document.matchedField = field.toString();
-			}
 			return document;
 		}
 
-		private String stripGraphPrefix(final String fieldString) {
-			return fieldString.replace(GRAPH_KEY + ".", "");
+		private JsonNode findNestedValue(final JsonNode json, final String fieldName) {
+			final String stripped =
+					fieldName.replace(GRAPH_KEY + ".", "").replace("." + VALUE_KEY, "");
+			final JsonNode element = json.findValue(stripped);
+			return element == null ? null : element.findValue("@value");
 		}
 	},
 	/***/
@@ -76,6 +79,7 @@ public enum Hit {
 	private static SearchHit hit;
 	private final Class<?> fieldType; // NOPMD
 	private static final String GRAPH_KEY = "@graph";
+	private static final String VALUE_KEY = "@value";
 	private static final String ID_KEY = "@id";
 
 	static Hit of(final SearchHit searchHit, final List<String> searchFields) { // NOPMD
@@ -92,13 +96,17 @@ public enum Hit {
 
 	private static Object firstExisting() {
 		for (String currentField : fields) {
-			final String searchField =
-					(currentField.contains(GRAPH_KEY) ? currentField.replace(GRAPH_KEY
-							+ ".", "") : currentField).replace("." + ID_KEY, "");
+			final String searchField = currentField /*@formatter:off*/
+					.replace(GRAPH_KEY + ".", "")
+					.replace("." + ID_KEY, "")
+					.replace("." + VALUE_KEY, ""); /*@formatter:on*/
 			final JsonNode value =
 					Json.toJson(hit.getSource()).findValue(searchField);
 			if (value != null) {
-				final JsonNode nestedValue = value.findValue(ID_KEY);
+				final JsonNode nestedId = value.findValue(ID_KEY);
+				if (nestedId != null)
+					return nestedId.asText();
+				final JsonNode nestedValue = value.findValue(VALUE_KEY);
 				if (nestedValue != null)
 					return nestedValue.asText();
 				if (!value.asText().trim().isEmpty())

@@ -25,7 +25,7 @@ public class Gnd {
 		@Override
 		public List<String> fields() {
 			return Arrays
-					.asList("@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier");
+					.asList("@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier.@value");
 		}
 
 		@Override
@@ -43,10 +43,10 @@ public class Gnd {
 		public List<String> fields() {
 			return Arrays
 					.asList(
-							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth",
-							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath",
-							"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson");
+							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth.@value",
+							"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath.@value",
+							"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson.@value");
 		}
 
 		@Override

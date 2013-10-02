@@ -31,7 +31,8 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("javadoc")
 public class IntegrationTestIndexFromHdfsInElasticSearch extends
 		ClusterMapReduceTestCase {
-	private static final int DOC_COUNT = 20;
+	private static final int INDEX_SLEEP = 2000;
+	private static final int DOC_COUNT = 22;
 	private static final String TEST_FILE =
 			"src/test/resources/json-ld-sample-output.json";
 	private static final String DATA_1 = "json-es-test/part-r-00000";
@@ -62,7 +63,7 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 		for (BulkItemResponse error : errors) {
 			System.err.println("Index error: " + error.getFailureMessage());
 		}
-		Thread.sleep(1000);
+		Thread.sleep(INDEX_SLEEP);
 		assertEquals("All documents should be indexed", DOC_COUNT, client
 				.prepareSearch().execute().actionGet().getHits().totalHits());
 		assertEquals("Indexing one should yield no errors", 0, errors.size());
@@ -74,7 +75,7 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 		for (BulkItemResponse error : errors) {
 			System.err.println("Index error: " + error.getFailureMessage());
 		}
-		Thread.sleep(1000);
+		Thread.sleep(INDEX_SLEEP);
 		assertEquals("All documents should be indexed", DOC_COUNT, client
 				.prepareSearch().execute().actionGet().getHits().totalHits());
 		assertEquals("Indexing all should yield no errors", 0, errors.size());
@@ -83,11 +84,11 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 	@Test
 	public void testNGram() throws IOException, InterruptedException {
 		indexer.indexAll("json-es-test/");
-		Thread.sleep(1000);
+		Thread.sleep(INDEX_SLEEP);
 		final SearchResponse response =
 				search(
 						"lobid-resources",
-						"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+						"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value",
 						"loft");
 		assertTrue(
 				"Substring of actual index term should yield results due to ngram config",

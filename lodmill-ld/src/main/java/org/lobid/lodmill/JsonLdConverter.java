@@ -4,8 +4,10 @@ package org.lobid.lodmill;
 
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.util.HashMap;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,6 +19,7 @@ import com.github.jsonldjava.core.Options;
 import com.github.jsonldjava.impl.JenaRDFParser;
 import com.github.jsonldjava.impl.JenaTripleCallback;
 import com.github.jsonldjava.utils.JSONUtils;
+import com.google.common.collect.ImmutableMap;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -94,17 +97,14 @@ public class JsonLdConverter {
 		final JenaRDFParser parser = new JenaRDFParser();
 		try {
 			Object json = JSONLD.fromRDF(model, new Options(), parser);
-			json = JSONLD.compact(json, new HashMap<String, Object>());
-			/* available options: */
-			// json = JSONLD.normalize(json);
-			// json = JSONLD.simplify(json);
-			// json = JSONLD.flatten(json);
-			// json = JSONLD.frame(json, new HashMap<String, Object>());
-			return JSONUtils.toPrettyString(json);
+			/* We use the 'expanded' JSON-LD serialization for consistent field types: */
+			json = JSONLD.expand(json);
+			/* But we wrap it into a "@graph" for elasticsearch (still valid JSON-LD): */
+			return JSONObject.toJSONString(ImmutableMap.of("@graph",
+					(JSONArray) JSONValue.parse(JSONUtils.toString(json))));
 		} catch (JSONLDProcessingError e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-
 }

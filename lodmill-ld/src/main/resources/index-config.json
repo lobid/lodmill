@@ -37,16 +37,16 @@
           "type":"string",
           "index":"not_analyzed"
         },
-        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "@graph.http://purl.org/ontology/bibo/isbn13":{
+        "@graph.http://purl.org/ontology/bibo/isbn13.@value":{
           "type":"string",
           "index":"not_analyzed"
         },
-        "@graph.http://purl.org/ontology/bibo/isbn10":{
+        "@graph.http://purl.org/ontology/bibo/isbn10.@value":{
           "type":"string",
           "index":"not_analyzed"
         },
@@ -60,12 +60,12 @@
     "json-ld-gnd":{
       "date_detection":false,
       "properties":{
-        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson":{
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson":{
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson.@value":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
@@ -75,17 +75,17 @@
     "json-ld-lobid-orgs":{
       "date_detection":false,
       "properties":{
-        "@graph.http://www.w3.org/2004/02/skos/core#prefLabel":{
+        "@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "@graph.http://xmlns.com/foaf/0.1/name":{
+        "@graph.http://xmlns.com/foaf/0.1/name.@value":{
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
-        "@graph.http://purl.org/dc/terms/identifier":{
+        "@graph.http://purl.org/dc/terms/identifier.@value":{
           "type":"string",
           "index_analyzer":"id_analyzer",
           "search_analyzer":"id_analyzer"

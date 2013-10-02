@@ -29,7 +29,6 @@ import models.Index;
 import models.Parameter;
 import models.Search;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import org.elasticsearch.action.bulk.BulkItemResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.node.Node;
@@ -42,6 +41,7 @@ import play.libs.Json;
 import play.mvc.Result;
 import play.test.TestServer;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.base.Charsets;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
@@ -102,7 +102,7 @@ public class SearchTests {
 		assertThat(json.isObject()).isTrue();
 		assertThat(
 				json.findValue("http://d-nb.info/standards/elementset/gnd#dateOfBirth")
-						.toString()).isEqualTo("\"1906\"");
+						.findValue("@value").toString()).isEqualTo("\"1906\"");
 	}
 
 	@Test
@@ -286,7 +286,7 @@ public class SearchTests {
 	@Test public void searchAltNameSecond(){ searchName("Hannelore Glaser", 1); }
 	@Test public void searchAltNameShort() { searchName("Loki", 1); }
 	@Test public void searchAltNameNgram() { searchName("Lok", 1); }
-	@Test public void searchPrefNameNgram(){ searchName("Hanne", 3); }
+	@Test public void searchPrefNameNgram(){ searchName("Hanne", 2); }
 	@Test public void searchAltNameDates() { searchName("Loki Schmidt (1919-2010)", 1); }
 	@Test public void searchAltNameBirth() { searchName("Loki Schmidt (1919-)", 1); }
 	@Test public void searchAltNameNone()  { searchName("Loki Müller", 0); }
