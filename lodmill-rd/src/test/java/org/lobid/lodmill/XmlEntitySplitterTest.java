@@ -3,10 +3,8 @@
 package org.lobid.lodmill;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
 
-import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.sink.EventList;
 import org.culturegraph.mf.stream.sink.StreamValidator;
@@ -47,14 +45,5 @@ public class XmlEntitySplitterTest {
 						.getResource("xmlEntities.xml").toURI());
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
-	}
-
-	@Test
-	public void testFlux() throws IOException, URISyntaxException,
-			org.antlr.runtime.RecognitionException {
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("xmlEntitySplitter.flux").toURI());
-		Flux.main(new String[] { fluxFile.getAbsolutePath() });
 	}
 }
