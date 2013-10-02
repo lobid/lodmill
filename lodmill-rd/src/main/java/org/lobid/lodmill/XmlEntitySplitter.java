@@ -81,14 +81,14 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 		if (inEntity) {
 			builder.append("</" + qName + ">");
 			if (ENTITY.equals(localName)) {
-				StringBuilder sb = new StringBuilder("<root ");
+				StringBuilder sb = new StringBuilder("<rdf:RDF");
 				if (namespaces != null) {
 					for (String ns : namespaces) {
 						sb.append(ns);
 					}
 					sb.append(">");
 				}
-				builder.insert(0, sb.toString()).append("</root>");
+				builder.insert(0, sb.toString()).append("</rdf:RDF>");
 				getReceiver().literal("entity", builder.toString());
 				getReceiver().endRecord();
 				inEntity = false;
