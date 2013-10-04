@@ -6,6 +6,7 @@ package org.lobid.lodmill;
 
 import java.util.HashSet;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.culturegraph.mf.framework.DefaultXmlPipe;
 import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.XmlReceiver;
@@ -69,7 +70,7 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 		if (attributes.getLength() > 0) {
 			for (int i = 0; i < attributes.getLength(); i++) {
 				builder.append(" " + attributes.getQName(i) + "=\""
-						+ attributes.getValue(i) + "\"");
+						+ StringEscapeUtils.escapeXml(attributes.getValue(i)) + "\"");
 			}
 		}
 		builder.append(">");
@@ -100,7 +101,8 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	@Override
 	public void characters(final char[] chars, final int start, final int length)
 			throws SAXException {
-		// remove tag indicators from values
-		builder.append(new String(chars, start, length).replaceAll("<|>|&", " "));
+		// xml escaping
+		builder.append(StringEscapeUtils
+				.escapeXml(new String(chars, start, length)));
 	}
 }
