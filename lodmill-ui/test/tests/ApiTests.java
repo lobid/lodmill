@@ -48,11 +48,9 @@ public class ApiTests {
 				"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
-				/* search by dewey broken, see #119 */
-				// { "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften"
-				// },
-				// { "resource?subject=Chemistry&format=short",/* -> */
-				// "Chemistry & allied sciences" },
+				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
+				{ "resource?subject=Chemistry&format=short",/* -> */
+				"Chemistry & allied sciences" },
 				{ "resource?name=Typee&format=ids",/* -> */
 				"http://lobid.org/resource/HT002189125" },
 				{ "resource?set=NWBib",/* -> */
