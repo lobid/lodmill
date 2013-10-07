@@ -118,11 +118,13 @@ public class SearchTests {
 
 	@Test
 	public void searchViaModelOrgName() {
-		final String term = "hbz Land";
-		final List<Document> docs =
-				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME, FROM,
-						SIZE);
-		assertThat(docs.size()).isEqualTo(1);
+		assertThat(searchOrgByName("hbz Land")).isEqualTo(2);
+		assertThat(searchOrgByName("hbz Schmeckermeck")).isEqualTo(1);
+	}
+
+	private static int searchOrgByName(final String term) {
+		return Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME,
+				FROM, SIZE).size();
 	}
 
 	/*@formatter:off*/

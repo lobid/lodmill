@@ -50,7 +50,7 @@ public class LobidOrganisations {
 		@Override
 		public QueryBuilder build(final String queryString) {
 			return multiMatchQuery(queryString, fields().toArray(new String[] {}))
-					.operator(Operator.AND);
+					.operator(Operator.OR);
 		}
 
 	}
