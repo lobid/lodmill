@@ -24,7 +24,7 @@ public class LobidOrganisations {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList("@graph.http://purl.org/dc/terms/identifier");
+			return Arrays.asList("@graph.http://purl.org/dc/terms/identifier.@value");
 		}
 
 		@Override
@@ -43,9 +43,8 @@ public class LobidOrganisations {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList(
-					"@graph.http://www.w3.org/2004/02/skos/core#prefLabel",
-					"@graph.http://xmlns.com/foaf/0.1/name");
+			return Arrays.asList("@graph.http://xmlns.com/foaf/0.1/name.@value",
+					"@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value");
 		}
 
 		@Override
