@@ -12,11 +12,15 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.TestDriver;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.junit.Before;
 import org.junit.Test;
 import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdMapper;
 import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
+
+import com.google.common.collect.ImmutableMap;
 
 /**
  * Test the {@link NTriplesToJsonLd} class.
@@ -82,7 +86,7 @@ public final class UnitTestLobidNTriplesToJsonLd {
 				TRIPLE_1), new Text(TRIPLE_2), new Text(TRIPLE_3), new Text(TRIPLE_4)));
 		reduceDriver.withOutput(
 				new Text(JSONValue.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
-				new Text(JSONValue.toJSONString(jsonMap())));
+				new Text(JSONValue.toJSONString(correctJson())));
 		reduceDriver.runTest();
 	}
 
@@ -97,26 +101,20 @@ public final class UnitTestLobidNTriplesToJsonLd {
 		return index;
 	}
 
-	@SuppressWarnings("serial")
-	/* using static init for better readability of nested result structure */
-	static Map<String, ?> jsonMap() {
-		final String idKey = "@id";// @formatter:off
-		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
-			put("@graph", Arrays.asList(new HashMap<String, Object>() {{//NOPMD
-				put(idKey, TRIPLE_ID);
-				put("http://purl.org/dc/elements/1.1/creator", Arrays.asList(
-						"Adamucci, Antonio", // resolved literal
-						new HashMap<String, String>() {{//NOPMD
-								put(idKey, "http://d-nb.info/gnd/118643606");
-						}}));
-				put("http://purl.org/dc/terms/subject",
-						new HashMap<String, String>() {{//NOPMD
-								put(idKey, "https://dewey.info/class/[892.1, 22]/");
-						}});
-				put("http://purl.org/dc/terms/subject#prefLabel",
-						"International migration & colonization@en");
-			}}));
-		}};// @formatter:on
-		return json;
+	@SuppressWarnings({ "unchecked" })
+	static JSONObject correctJson() {
+		JSONArray array = new JSONArray();
+		JSONObject obj = new JSONObject();
+		obj.put("@id", TRIPLE_ID);
+		obj.put("http://purl.org/dc/terms/subject#prefLabel", Arrays
+				.asList(ImmutableMap.of("@value",
+						"International migration & colonization@en")));
+		obj.put("http://purl.org/dc/terms/subject", Arrays.asList(ImmutableMap.of(
+				"@id", "https://dewey.info/class/[892.1, 22]/")));
+		obj.put("http://purl.org/dc/elements/1.1/creator", Arrays.asList(
+				ImmutableMap.of("@value", "Adamucci, Antonio"),
+				ImmutableMap.of("@id", "http://d-nb.info/gnd/118643606")));
+		array.add(obj);
+		return new JSONObject(ImmutableMap.of("@graph", array));
 	}
 }

@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -31,7 +30,6 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
@@ -218,21 +216,7 @@ public class NTriplesToJsonLd implements Tool {
 			context.write(
 					// write both with JSONValue for consistent escaping:
 					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
-					new Text(JSONValue.toJSONString(toJsonObject(jsonLd))));
-		}
-
-		private static Object toJsonObject(final String jsonLdString) {
-			final Object jsonLdObject = JSONValue.parse(jsonLdString);
-			final String graphKey = "@graph";
-			if (jsonLdObject instanceof Map
-					&& !((Map<?, ?>) jsonLdObject).containsKey(graphKey)) {
-				final JSONObject jsonGraphObject = new JSONObject();
-				@SuppressWarnings({ "unchecked", "unused" })
-				final Object put =
-						jsonGraphObject.put(graphKey, Arrays.asList(jsonLdObject));
-				return jsonGraphObject;
-			}
-			return jsonLdObject;
+					new Text(JSONValue.toJSONString(JSONValue.parse(jsonLd))));
 		}
 
 		private static String concatTriples(final Iterable<Text> values) {

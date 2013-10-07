@@ -58,7 +58,7 @@ public class LobidItems {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList("@graph.http://purl.org/ontology/daia/label");
+			return Arrays.asList("@graph.http://purl.org/ontology/daia/label.@value");
 		}
 
 		@Override

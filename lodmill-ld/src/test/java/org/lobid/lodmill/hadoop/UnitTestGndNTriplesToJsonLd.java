@@ -8,8 +8,6 @@ import static org.lobid.lodmill.hadoop.UnitTestLobidNTriplesToJsonLd.indexMap;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.LongWritable;
@@ -17,11 +15,15 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.TestDriver;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.junit.Before;
 import org.junit.Test;
 import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdMapper;
 import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
+
+import com.google.common.collect.ImmutableMap;
 
 /**
  * Test the {@link NTriplesToJsonLd} class.
@@ -78,23 +80,23 @@ public final class UnitTestGndNTriplesToJsonLd {
 				GND_TRIPLE_1), new Text(GND_TRIPLE_2), new Text(GND_TRIPLE_3)));
 		reduceDriver.withOutput(
 				new Text(JSONValue.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
-				new Text(JSONValue.toJSONString(jsonMap())));
+				new Text(JSONValue.toJSONString(correctJson())));
 		reduceDriver.runTest();
 	}
 
-	@SuppressWarnings("serial")
-	/* using static init for better readability of nested result structure */
-	static Map<String, ?> jsonMap() {
-		final String idKey = "@id";// @formatter:off
-		final Map<String, Object> json = new HashMap<String, Object>() {{//NOPMD
-			put("@graph", Arrays.asList(new HashMap<String, Object>() {{//NOPMD
-				put(idKey, TRIPLE_ID);
-				put("http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
-						"Adamucci, Antonio");
-				put("http://d-nb.info/standards/elementset/gnd#dateOfDeath", "1885");
-				put("http://d-nb.info/standards/elementset/gnd#dateOfBirth", "1828");
-			}}));
-			}};// @formatter:on
-		return json;
+	@SuppressWarnings({ "unchecked" })
+	static JSONObject correctJson() {
+		JSONArray array = new JSONArray();
+		JSONObject obj = new JSONObject();
+		obj.put("@id", "http://d-nb.info/gnd/118643606");
+		obj.put(
+				"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson",
+				Arrays.asList(ImmutableMap.of("@value", "Adamucci, Antonio")));
+		obj.put("http://d-nb.info/standards/elementset/gnd#dateOfDeath",
+				Arrays.asList(ImmutableMap.of("@value", "1885")));
+		obj.put("http://d-nb.info/standards/elementset/gnd#dateOfBirth",
+				Arrays.asList(ImmutableMap.of("@value", "1828")));
+		array.add(obj);
+		return new JSONObject(ImmutableMap.of("@graph", array));
 	}
 }

@@ -62,19 +62,20 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		final String result = readResults().toString();
 		System.err.println("JSON-LD output:\n" + result);
 		assertEquals("Expect two lines", 2, result.trim().split("\n").length);
-		assertTrue("Expect a graph", result.contains("@graph"));
 		assertTrue("Expect correct long",
-				result.contains("pos#long\":\"2.3377220\""));
+				result.contains("pos#long") && result.contains("2.3377220"));
 		assertTrue("Expect correct lat",
-				result.contains("pos#lat\":\"48.8681710\""));
+				result.contains("pos#lat") && result.contains("48.8681710"));
 		assertTrue("Expect correct country name",
-				result.contains("ns#country-name\":\"France\""));
-		assertTrue("Expect correct locality",
-				result.contains("ns#locality\":\"Paris\""));
-		assertTrue("Expect correct postal code",
-				result.contains("ns#postal-code\":\"75002\""));
-		assertTrue("Expect correct street-address",
-				result.contains("ns#street-address\":\"Rue de Louvois 4\""));
+				result.contains("ns#country-name") && result.contains("France"));
+		assertTrue("Expect correct locality", result.contains("ns#locality")
+				&& result.contains("Paris"));
+		assertTrue("Expect correct postal code", result.contains("ns#postal-code")
+				&& result.contains("75002"));
+		assertTrue(
+				"Expect correct street-address",
+				result.contains("ns#street-address")
+						&& result.contains("Rue de Louvois 4"));
 		assertTrue("Expect resolved funder type",
 				result.contains("Corporate Body or Foundation under Private Law"));
 		assertTrue("Expect resolved stock size", result.contains("10,001 - 30,000"));
