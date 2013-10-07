@@ -13,7 +13,6 @@ import java.io.IOException;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import play.libs.F.Callback;
@@ -130,8 +129,6 @@ public class BrowserTests {
 	}
 
 	@Test
-	@Ignore
-	// dewey search currently broken, see #119
 	public void sampleRequestResourceBySubjectLabel() {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
