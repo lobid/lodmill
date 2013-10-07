@@ -123,7 +123,8 @@ public final class UnitTestCollectSubjects {
 	@Test
 	public void testMapperBlanksGeo() throws IOException {
 		final List<Pair<Text, Text>> result = runGeoMapDriver();
-		assertEquals(new Text("_:node16vicghfdx21"), result.get(0).getFirst());
+		assertEquals(new Text("_:node16vicghfdx21:somefile"), result.get(0)
+				.getFirst());
 		assertEquals(new Text("http://lobid.org/organisation/AF-KaIS"),
 				result.get(0).getSecond());
 	}
@@ -138,7 +139,7 @@ public final class UnitTestCollectSubjects {
 	@Test
 	public void testReducerBlanksGeo() throws IOException {// NOPMD (MRUnit)
 		setUpReduceInput(runGeoMapDriver());
-		reduceDriver.addOutput(new Text("_:node16vicghfdx21"), new Text(
+		reduceDriver.addOutput(new Text("_:node16vicghfdx21:somefile"), new Text(
 				"http://lobid.org/organisation/AF-KaIS,"
 						+ "http://lobid.org/organisation/AE-ShAU"));
 		reduceDriver.runTest(false);
@@ -163,7 +164,8 @@ public final class UnitTestCollectSubjects {
 	@Test
 	public void testMapperBlanksAddress() throws IOException {
 		final List<Pair<Text, Text>> result = runAddressMapDriver();
-		assertEquals(new Text("_:node16vicghfdx20"), result.get(0).getFirst());
+		assertEquals(new Text("_:node16vicghfdx20:somefile"), result.get(0)
+				.getFirst());
 		assertEquals(new Text("http://lobid.org/organisation/AE-ShAU"),
 				result.get(0).getSecond());
 	}
@@ -178,7 +180,7 @@ public final class UnitTestCollectSubjects {
 	@Test
 	public void testReducerBlanksAddress() throws IOException { // NOPMD (MRUnit)
 		setUpReduceInput(runAddressMapDriver());
-		reduceDriver.addOutput(new Text("_:node16vicghfdx20"), new Text(
+		reduceDriver.addOutput(new Text("_:node16vicghfdx20:somefile"), new Text(
 				"http://lobid.org/organisation/AE-ShAU,"
 						+ "http://lobid.org/organisation/AF-KaIS"));
 		reduceDriver.runTest(false);

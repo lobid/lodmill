@@ -32,11 +32,16 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("javadoc")
 public class IntegrationTestLobidNTriplesToJsonLd extends
 		ClusterMapReduceTestCase {
-	private static final String TEST_FILE_TRIPLES =
-			"src/test/resources/lobid-org-with-blank-nodes.nt";
+	private static final String TEST_FILE_TRIPLES_1 =
+			"src/test/resources/lobid-org-with-blank-nodes-1.nt";
+	private static final String TEST_FILE_TRIPLES_2 =
+			"src/test/resources/lobid-org-with-blank-nodes-2.nt";
 	private static final String TEST_FILE_SUBJECTS =
 			"src/test/resources/lobid-org-required-subjects.out";
-	private static final String HDFS_IN_TRIPLES = "blank-nodes-test/sample.nt";
+	private static final String HDFS_IN_TRIPLES_1 =
+			"blank-nodes-test/sample-1.nt";
+	private static final String HDFS_IN_TRIPLES_2 =
+			"blank-nodes-test/sample-2.nt";
 	private static final String HDFS_IN_SUBJECTS = "blank-nodes-test/subjects";
 	private static final String HDFS_OUT = "out/sample";
 	private static final String HDFS_OUT_ZIP = "out/zip";
@@ -48,8 +53,10 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		System.setProperty("hadoop.log.dir", "/tmp/logs");
 		super.setUp();
 		hdfs = getFileSystem();
-		hdfs.copyFromLocalFile(new Path(TEST_FILE_TRIPLES), new Path(
-				HDFS_IN_TRIPLES));
+		hdfs.copyFromLocalFile(new Path(TEST_FILE_TRIPLES_1), new Path(
+				HDFS_IN_TRIPLES_1));
+		hdfs.copyFromLocalFile(new Path(TEST_FILE_TRIPLES_2), new Path(
+				HDFS_IN_TRIPLES_2));
 		hdfs.copyFromLocalFile(new Path(TEST_FILE_SUBJECTS), new Path(
 				HDFS_IN_SUBJECTS));
 	}
@@ -93,7 +100,8 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		DistributedCache.addCacheFile(zippedMapFile, conf);
 		final Job job = new Job(conf);
 		job.setJobName("IntegrationTestLobidNTriplesToJsonLd");
-		FileInputFormat.addInputPaths(job, HDFS_IN_TRIPLES);
+		FileInputFormat.addInputPaths(job, HDFS_IN_TRIPLES_1 + ","
+				+ HDFS_IN_TRIPLES_2);
 		FileOutputFormat.setOutputPath(job, new Path(HDFS_OUT));
 		job.setMapperClass(NTriplesToJsonLdMapper.class);
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
