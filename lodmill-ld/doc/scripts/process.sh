@@ -14,7 +14,7 @@ sh convert.sh hbzlod/lobid-organisations/ $ORGANISATIONS http://lobid.org/organi
 sh index.sh $ORGANISATIONS $ES_SERVER $ES_CLUSTER
 
 GND=output/json-ld-gnd
-sh convert.sh extlod/GND.nt $GND http://d-nb.info/gnd gnd
+sh convert.sh extlod/gnd/ $GND http://d-nb.info/gnd gnd
 sh index.sh $GND $ES_SERVER $ES_CLUSTER
 
 RESOURCES=output/json-ld-lobid-resources
