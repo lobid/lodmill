@@ -12,6 +12,7 @@
   @rdfa("Erscheinungsjahr", "http://purl.org/dc/terms/issued", doc, TableRow.VALUES)
   @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES, 
   	node = if((doc \\ "@type").isEmpty) None else Option((doc \\ "@type").head))
+  @rdfa("Sprache", "http://purl.org/dc/terms/language", doc, TableRow.LINKS)
   @rdfa("Volltext", "http://lobid.org/vocab/lobid#fulltextOnline", doc, TableRow.LINKS)
   @rdfa("Ausgabe", "http://purl.org/ontology/bibo/edition", doc, TableRow.VALUES)
   @rdfa("Exemplar", "http://purl.org/vocab/frbr/core#exemplar", doc, TableRow.LINKS)
