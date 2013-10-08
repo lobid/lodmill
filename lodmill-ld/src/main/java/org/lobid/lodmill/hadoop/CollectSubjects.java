@@ -26,10 +26,12 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapred.Utils;
+import org.apache.hadoop.mapreduce.InputSplit;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.input.FileSplit;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
@@ -196,8 +198,9 @@ public class CollectSubjects implements Tool {
 				return;
 			final Triple triple = asTriple(val);
 			if (shouldProcess(triple)) {
-				final String subject = getSubject(val, triple);
-				final String object = preprocess(getObject(val, triple));
+				final String subject = getSubject(val, triple, context.getInputSplit());
+				final String object =
+						preprocess(getObject(val, triple, context.getInputSplit()));
 				LOG.info(String.format(
 						"Collectiong ID found in object position (%s) of subject (%s)",
 						object, subject));
@@ -214,15 +217,16 @@ public class CollectSubjects implements Tool {
 					&& (triple.getObject().isBlank() || triple.getObject().isURI());
 		}
 
-		private static String getSubject(final String val, final Triple triple) {
-			return triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
-					val.indexOf(" ")).trim() : triple.getSubject().toString();
+		private static String getSubject(final String val, final Triple triple,
+				final InputSplit inputSplit) {
+			return triple.getSubject().isBlank() ? blankSubjectLabel(val, inputSplit)
+					: triple.getSubject().toString();
 		}
 
-		private static String getObject(final String val, final Triple triple) {
-			return triple.getObject().isBlank() ? val.substring(
-					val.lastIndexOf("_:"), val.lastIndexOf(".")).trim() : triple
-					.getObject().toString();
+		private static String getObject(final String val, final Triple triple,
+				final InputSplit inputSplit) {
+			return triple.getObject().isBlank() ? blankObjectLabel(val, inputSplit)
+					: triple.getObject().toString();
 		}
 
 		private static String preprocess(final String object) {
@@ -265,5 +269,21 @@ public class CollectSubjects implements Tool {
 	@Override
 	public void setConf(Configuration conf) {
 		this.conf = conf;
+	}
+
+	static String blankSubjectLabel(final String val, final InputSplit inputSplit) {
+		return val.substring(val.indexOf("_:"), val.indexOf(" ")).trim()
+				+ createBlankNodeSuffix(inputSplit);
+	}
+
+	static String blankObjectLabel(final String val, final InputSplit inputSplit) {
+		return val.substring(val.lastIndexOf("_:"), val.lastIndexOf(".")).trim()
+				+ createBlankNodeSuffix(inputSplit);
+	}
+
+	private static String createBlankNodeSuffix(final InputSplit inputSplit) {
+		return ":"
+				+ ((FileSplit) inputSplit).getPath().toUri().getPath()
+						.replaceAll("/user/[^/]+/", "");
 	}
 }

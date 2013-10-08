@@ -30,9 +30,12 @@ import org.slf4j.LoggerFactory;
  */
 @SuppressWarnings("javadoc")
 public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
-	private static final String TEST_FILE =
-			"src/test/resources/lobid-org-with-blank-nodes.nt";
-	private static final String HDFS_IN = "blank-nodes-test/sample.nt";
+	private static final String TEST_FILE_1 =
+			"src/test/resources/lobid-org-with-blank-nodes-1.nt";
+	private static final String TEST_FILE_2 =
+			"src/test/resources/lobid-org-with-blank-nodes-2.nt";
+	private static final String HDFS_IN_1 = "blank-nodes-test/sample-1.nt";
+	private static final String HDFS_IN_2 = "blank-nodes-test/sample-2.nt";
 	private static final String HDFS_OUT = "out/sample";
 	private FileSystem hdfs = null;
 
@@ -42,7 +45,8 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		System.setProperty("hadoop.log.dir", "/tmp/logs");
 		super.setUp();
 		hdfs = getFileSystem();
-		hdfs.copyFromLocalFile(new Path(TEST_FILE), new Path(HDFS_IN));
+		hdfs.copyFromLocalFile(new Path(TEST_FILE_1), new Path(HDFS_IN_1));
+		hdfs.copyFromLocalFile(new Path(TEST_FILE_2), new Path(HDFS_IN_2));
 	}
 
 	@Test
@@ -53,11 +57,11 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		final String string = readResults().toString();
 		System.err.println("Collection output:\n" + string);
 		assertEquals(
-				"_:node16vicghfdx1 http://lobid.org/organisation/ACRPP,http://lobid.org/organisation/AAAAA\n"
-						+ "_:node16vicghfdx2 http://lobid.org/organisation/ACRPP\n"
+				" http://lobid.org/organisation/ACRPP,http://lobid.org/organisation/AAAAA\n"
+						+ " http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/fundertype#n08 http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/stocksize#n06 http://lobid.org/organisation/ACRPP\n",
-				string);
+				string.replaceAll("_:[^\\s]+", ""));
 		writeZippedMapFile();
 	}
 
@@ -79,7 +83,7 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
 		final Job job = new Job(conf);
 		job.setJobName("CollectSubjects");
-		FileInputFormat.addInputPaths(job, HDFS_IN);
+		FileInputFormat.addInputPaths(job, HDFS_IN_1 + "," + HDFS_IN_2);
 		FileOutputFormat.setOutputPath(job, new Path(HDFS_OUT));
 		job.setMapperClass(CollectSubjectsMapper.class);
 		job.setReducerClass(CollectSubjectsReducer.class);

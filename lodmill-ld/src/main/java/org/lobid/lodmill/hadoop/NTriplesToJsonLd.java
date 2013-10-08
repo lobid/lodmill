@@ -162,8 +162,8 @@ public class NTriplesToJsonLd implements Tool {
 				final Context context, final String val, final Triple triple)
 				throws IOException, InterruptedException {
 			final String subject =
-					triple.getSubject().isBlank() ? val.substring(val.indexOf("_:"),
-							val.indexOf(" ")).trim() : triple.getSubject().toString();
+					triple.getSubject().isBlank() ? CollectSubjects.blankSubjectLabel(
+							val, context.getInputSplit()) : triple.getSubject().toString();
 			if (subjectIsUriToBeCollected(triple)
 					&& !objectIsUnresolvedBlankNode(triple))
 				context.write(new Text(wrapped(subject.trim())), value);
