@@ -13,5 +13,5 @@ sh convert.sh hbzlod/lobid-resources/,hbzlod/owlSameAs/,hbzlod/orcaHasUrn/,extlo
 sh index.sh $RESOURCES 193.30.112.170 quaoar
 
 ITEMS=output/json-ld-lobid-items
-sh convert.sh hbzlod/lobid-resources/,enrich/ $ITEMS http://lobid.org/item lobid-items
+sh convert.sh hbzlod/lobid-resources/,enrich/ $ITEMS http://lobid.org/item lobid-item
 sh index.sh $ITEMS 193.30.112.170 quaoar
