@@ -32,6 +32,7 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	private HashSet<String> namespaces = new HashSet<String>();
 	private boolean inEntity = false;
 	private int recordCnt = 0;
+	private String ROOT;
 
 	/**
 	 * Sets the name of the entity. All these entities in the XML stream will be
@@ -59,7 +60,8 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 				getReceiver().startRecord(String.valueOf(this.recordCnt++));
 				inEntity = true;
 				appendValuesToEntity(qName, attributes);
-			}
+			} else if (this.ROOT == null)
+				this.ROOT = qName;
 		} else
 			appendValuesToEntity(qName, attributes);
 	}
@@ -82,14 +84,14 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 		if (inEntity) {
 			builder.append("</" + qName + ">");
 			if (ENTITY.equals(localName)) {
-				StringBuilder sb = new StringBuilder("<rdf:RDF");
+				StringBuilder sb = new StringBuilder("<" + this.ROOT);
 				if (namespaces != null) {
 					for (String ns : namespaces) {
 						sb.append(ns);
 					}
 					sb.append(">");
 				}
-				builder.insert(0, sb.toString()).append("</rdf:RDF>");
+				builder.insert(0, sb.toString()).append("</" + this.ROOT + ">");
 				getReceiver().literal("entity", builder.toString());
 				getReceiver().endRecord();
 				inEntity = false;
@@ -101,7 +103,6 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	@Override
 	public void characters(final char[] chars, final int start, final int length)
 			throws SAXException {
-		// xml escaping
 		builder.append(StringEscapeUtils
 				.escapeXml(new String(chars, start, length)));
 	}
