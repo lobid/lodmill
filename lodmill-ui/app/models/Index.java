@@ -21,6 +21,7 @@ public enum Index {
 	/***/
 	LOBID_RESOURCES("lobid-resources",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+					.put(Parameter.Q, new AbstractIndexQuery.AllFieldsQuery())
 					.put(Parameter.AUTHOR, new LobidResources.AuthorQuery())
 					.put(Parameter.ID, new LobidResources.IdQuery())
 					.put(Parameter.SUBJECT, new LobidResources.SubjectQuery())
@@ -29,14 +30,17 @@ public enum Index {
 	/***/
 	LOBID_ORGANISATIONS("lobid-organisations",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()/* @formatter:off */
+					.put(Parameter.Q, new AbstractIndexQuery.AllFieldsQuery())
 					.put(Parameter.NAME, new LobidOrganisations.NameQuery())
 					.put(Parameter.ID, new LobidOrganisations.IdQuery()).build()),
 	/***/
 	GND("gnd", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+					.put(Parameter.Q, new AbstractIndexQuery.AllFieldsQuery())
 					.put(Parameter.NAME, new Gnd.NameQuery())
 					.put(Parameter.ID, new Gnd.IdQuery()).build()),
 	/***/
 	LOBID_ITEMS("lobid-items", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+			.put(Parameter.Q, new AbstractIndexQuery.AllFieldsQuery())
 			.put(Parameter.NAME, new LobidItems.NameQuery())
 			.put(Parameter.ID, new LobidItems.IdQuery()).build());/* @formatter:on */
 

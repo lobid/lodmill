@@ -85,7 +85,7 @@ public enum Hit {
 	static Hit of(final SearchHit searchHit, final List<String> searchFields) { // NOPMD
 		hit = searchHit;
 		fields = searchFields;
-		field = firstExisting();
+		field = searchFields.contains("_all") ? hit.getId() : firstExisting();
 		for (Hit hitElement : values()) {
 			if (hitElement.fieldType.isInstance(field)) {
 				return hitElement;
@@ -94,7 +94,7 @@ public enum Hit {
 		throw new IllegalArgumentException("No hit type for field: " + field);
 	}
 
-	private static Object firstExisting() {
+	private static String firstExisting() {
 		for (String currentField : fields) {
 			final String searchField = currentField /*@formatter:off*/
 					.replace(GRAPH_KEY + ".", "")

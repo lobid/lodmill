@@ -6,6 +6,7 @@ import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +15,7 @@ import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
 import org.elasticsearch.index.query.MultiMatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
 
 /**
  * Superclass for queries on different indexes.
@@ -31,6 +33,21 @@ public abstract class AbstractIndexQuery {
 	 * @return A query builder for this query type and the given query string
 	 */
 	public abstract QueryBuilder build(String queryString);
+
+	/**
+	 * Query against all fields.
+	 */
+	public static class AllFieldsQuery extends AbstractIndexQuery {
+		@Override
+		public List<String> fields() {
+			return Arrays.asList("_all");
+		}
+
+		@Override
+		public QueryBuilder build(final String queryString) {
+			return QueryBuilders.queryString(queryString).field(fields().get(0));
+		}
+	}
 
 	/* Some common author query stuff used both for gnd and lobid-resources: */
 
