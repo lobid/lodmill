@@ -3,6 +3,7 @@
 package org.lobid.lodmill;
 
 import org.culturegraph.mf.morph.Metamorph;
+import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.sink.ObjectWriter;
 import org.junit.Test;
 
@@ -21,7 +22,8 @@ public class OaipmhZdbOrganisationTest {
 		opener.setDateUntil("2013-08-12");
 		opener.setMetadataPrefix("PicaPlus-xml");
 		opener.setSetSpec("bib");
-		final PicaXmlReader reader = new PicaXmlReader();
+		final XmlDecoder xmldecoder = new XmlDecoder();
+		final PicaXmlHandler handler = new PicaXmlHandler();
 		final Metamorph metamorph =
 				new Metamorph("morph_zdb-isil-file-pica2ld.xml");
 		final PipeLobidOrganisationEnrichment enrich =
@@ -32,8 +34,9 @@ public class OaipmhZdbOrganisationTest {
 		final ObjectWriter<String> writer =
 				new ObjectWriter<String>(
 						"update_zdb-isil-file2lobid-organisations1.ttl");
-		opener.setReceiver(reader);
-		reader.setReceiver(metamorph);
+		opener.setReceiver(xmldecoder);
+		xmldecoder.setReceiver(handler);
+		handler.setReceiver(metamorph);
 		metamorph.setReceiver(enrich);
 		enrich.setReceiver(writer);
 		opener.process("http://services.d-nb.de/oai/repository");
