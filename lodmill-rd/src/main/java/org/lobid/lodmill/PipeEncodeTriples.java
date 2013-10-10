@@ -24,7 +24,7 @@ import com.hp.hpl.jena.util.ResourceUtils;
 
 /**
  * Treats Literals, URIs and Blank Nodes. The latter will be invoked by using
- * the <entity> element in the morph file.
+ * the <entity> element in the morph file. Output are N-Triples.
  * 
  * @author Fabian Steeg, Pascal Christoph
  */
@@ -38,12 +38,27 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	// dummy subject to store data even if the subject is unknown at first
 	final static String DUMMY_SUBJECT = "dummy_subject";
 
+	/**
+	 * Sets the default temporary subject.
+	 */
+	public PipeEncodeTriples() {
+		super.subject = DUMMY_SUBJECT;
+	}
+
+	/**
+	 * Allows to define the subject from outside, e.g. from a flux file.
+	 * 
+	 * @param subject set the subject for each triple
+	 */
+	public void setSubject(final String subject) {
+		super.subject = subject;
+	}
+
 	@Override
 	public void startRecord(final String identifier) {
 		model = ModelFactory.createDefaultModel();
-		super.subject = DUMMY_SUBJECT;
 		resources = new Stack<Resource>();
-		resources.push(model.createResource(DUMMY_SUBJECT));
+		resources.push(model.createResource(subject));
 	}
 
 	@Override
@@ -93,6 +108,5 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		final StringWriter tripleWriter = new StringWriter();
 		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
 		getReceiver().process(tripleWriter.toString());
-
 	}
 }
