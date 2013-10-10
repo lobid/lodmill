@@ -53,6 +53,7 @@ public class ApiTests {
 				"Chemistry & allied sciences" },
 				{ "resource?name=Typee&format=ids",/* -> */
 				"http://lobid.org/resource/HT002189125" },
+				{ "resource?q=Typee&format=ids",/* -> */"Typee" },
 				{ "resource?set=NWBib",/* -> */
 				"Wann en Kölle de Chress-Stäne blöhe" },
 				{ "resource?id=TT002234003",/*->*/
@@ -78,6 +79,14 @@ public class ApiTests {
 				{ "organisation?id=DE-605",/* -> */"Land" },
 				{ "organisation?name=hbz&format=ids",/* -> */
 				"http://lobid.org/organisation/DE-605" },
+				{ "organisation?q=Einrichtung+ohne+Bestand&format=full",/* -> */
+				"Hochschulbibliothekszentrum" },
+				{ "organisation?q=Einrichtung+ohne+Bestand&format=ids",/* -> */
+				"Hochschulbibliothekszentrum" },
+				{ "organisation?q=Einrichtung+ohne+Bestand&format=short",/* -> */
+				"Hochschulbibliothekszentrum" },
+				{ "organisation?q=Einrichtung+ohne+Bestand&format=negotiate",/* -> */
+				"Hochschulbibliothekszentrum" },
 				/*-------------*/
 				/* GET /person */
 				/*-------------*/
@@ -86,6 +95,9 @@ public class ApiTests {
 				{ "person?name=Bach",/* -> */"Bach, Johann Sebastian" },
 				{ "person?name=Bach&format=short",/* -> */
 				"Bach, Johann Sebastian (1685-1750)" },
+				{ "person?q=Bach&format=short", "Bach, Johann Sebastian (1685-1750)" },
+				{ "person?q=Bruder+von&format=full",
+						"Marie Salome Bach, spätere Wiegand" },
 				{ "person?name=Bach&format=ids", /* -> */
 				"http://d-nb.info/gnd/11850553X" },
 				/*-------------*/
@@ -94,6 +106,8 @@ public class ApiTests {
 				{ "item?id=BT000000079%3AGA+644",/* -> */"GA 644" },
 				{ "item/BT000000079%3AGA+644",/* -> */"GA 644" },
 				{ "item?name=GA+644&format=ids",/* -> */
+				"http://lobid.org/item/BT000000079%3AGA+644" },
+				{ "item?q=GA+644&format=ids",/* -> */
 				"http://lobid.org/item/BT000000079%3AGA+644" },
 				/*-------------*/
 				/* GET /search */

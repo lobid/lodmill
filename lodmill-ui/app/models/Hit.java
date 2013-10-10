@@ -85,7 +85,7 @@ public enum Hit {
 	static Hit of(final SearchHit searchHit, final List<String> searchFields) { // NOPMD
 		hit = searchHit;
 		fields = searchFields;
-		field = searchFields.contains("_all") ? hit.getId() : firstExisting();
+		field = firstExisting();
 		for (Hit hitElement : values()) {
 			if (hitElement.fieldType.isInstance(field)) {
 				return hitElement;

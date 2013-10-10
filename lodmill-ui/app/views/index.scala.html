@@ -19,7 +19,7 @@
                     url : "/@resourceType",
                     dataType : "jsonp",
                     data : {
-                        name : request.term,
+                        q : request.term,
                         format : "@resultType"
                     },
                     success : function(data) {
@@ -35,7 +35,7 @@
     <h4>For /@resourceType</h4>
     <div class="row-fluid">
         <div class="span6">
-            <p>Type a @resourceType's name to get suggestions. Upon selecting a suggestion, the corresponding value will be inserted (here: @if(resultType=="short") {the completed term} else {the ID}). Search will return details on the selected @resourceType.</p>
+            <p>Type any @resourceType data to get suggestions (uses the <code>q</code> query parameter). Upon selecting a suggestion, the corresponding value will be inserted (here: @if(resultType=="short") {the name} else {the ID}). Search will return details on the selected @resourceType.</p>
             <form method="GET" class="form-inline" action="/@resourceType"> <!-- use full URL in your code, i.e. http://api.lobid.org/@resourceType -->
                 <input type="text" class="search-@resourceType" name="@queryType" id="id" style="width:300px"/>
                 <button type="submit" class="btn">Search</button>

@@ -68,7 +68,7 @@ public final class Application extends Controller {
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<ResultFormat, Result> results =
-				results(queryParameter, docs, index);
+				results(parameter, queryParameter, docs, index);
 		try {
 			return results.get(ResultFormat.valueOf(formatParameter.toUpperCase()));
 		} catch (IllegalArgumentException e) {
@@ -105,16 +105,15 @@ public final class Application extends Controller {
 				}
 			};
 
-	private static ImmutableMap<ResultFormat, Result> results(final String query,
+	private static ImmutableMap<ResultFormat, Result> results(
+			final Parameter parameter, final String query,
 			final List<Document> documents, final Index selectedIndex) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
 						.queryString().get("callback");
-		final JsonNode shortJson =
-				Json.toJson(sortStrings(Lists.transform(documents, jsonShort)));
-		final JsonNode labelAndValue =
-				Json.toJson(sortNodes(Lists.transform(documents, jsonLabelValue)));
+		final JsonNode shortJson = createShortResult(parameter, documents);
+		final JsonNode labelAndValue = createIdsResult(parameter, documents);
 		final ImmutableMap<ResultFormat, Result> results =
 				new ImmutableMap.Builder<ResultFormat, Result>()
 						.put(ResultFormat.NEGOTIATE,
@@ -134,8 +133,23 @@ public final class Application extends Controller {
 		return results;
 	}
 
+	private static JsonNode createShortResult(final Parameter parameter,
+			final List<Document> documents) {
+		final List<String> shortStrings = Lists.transform(documents, jsonShort);
+		return Json.toJson(parameter == Parameter.Q ? shortStrings
+				: sortStrings(shortStrings));
+	}
+
 	private static ImmutableSortedSet<String> sortStrings(List<String> nodes) {
 		return ImmutableSortedSet.copyOf(nodes);
+	}
+
+	private static JsonNode createIdsResult(final Parameter parameter,
+			final List<Document> documents) {
+		final List<JsonNode> labelAndValueList =
+				Lists.transform(documents, jsonLabelValue);
+		return Json.toJson(parameter == Parameter.Q ? labelAndValueList
+				: sortNodes(labelAndValueList));
 	}
 
 	private static List<JsonNode> sortNodes(List<JsonNode> nodes) {
