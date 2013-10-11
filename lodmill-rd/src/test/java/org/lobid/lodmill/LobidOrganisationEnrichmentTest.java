@@ -4,6 +4,7 @@ package org.lobid.lodmill;
 
 import java.io.IOException;
 
+import org.culturegraph.mf.stream.reader.XmlReaderBase;
 import org.junit.Test;
 
 /**
@@ -41,5 +42,14 @@ public final class LobidOrganisationEnrichmentTest extends AbstractIngestTests {
 	@Test
 	public void testDot() { // NOPMD
 		super.dot("zdb-isil-file_test.dot");
+	}
+
+	private static class PicaXmlReader extends XmlReaderBase {
+		/**
+		 * Create a reader for pica XML.
+		 */
+		public PicaXmlReader() {
+			super(new PicaXmlHandler());
+		}
 	}
 }

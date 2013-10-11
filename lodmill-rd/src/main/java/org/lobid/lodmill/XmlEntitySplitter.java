@@ -27,11 +27,12 @@ import org.xml.sax.SAXException;
 @Out(StreamReceiver.class)
 public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 
-	private String ENTITY;
+	private String entity;
 	private StringBuilder builder = new StringBuilder();
 	private HashSet<String> namespaces = new HashSet<String>();
 	private boolean inEntity = false;
 	private int recordCnt = 0;
+	private String root;
 
 	/**
 	 * Sets the name of the entity. All these entities in the XML stream will be
@@ -40,7 +41,7 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	 * @param name Identifies the entities
 	 */
 	public void setEntityName(final String name) {
-		this.ENTITY = name;
+		this.entity = name;
 	}
 
 	@Override
@@ -54,12 +55,13 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	public void startElement(final String uri, final String localName,
 			final String qName, final Attributes attributes) throws SAXException {
 		if (!inEntity) {
-			if (ENTITY.equals(localName)) {
+			if (entity.equals(localName)) {
 				builder = new StringBuilder();
 				getReceiver().startRecord(String.valueOf(this.recordCnt++));
 				inEntity = true;
 				appendValuesToEntity(qName, attributes);
-			}
+			} else if (this.root == null)
+				this.root = qName;
 		} else
 			appendValuesToEntity(qName, attributes);
 	}
@@ -81,15 +83,15 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 			final String qName) throws SAXException {
 		if (inEntity) {
 			builder.append("</" + qName + ">");
-			if (ENTITY.equals(localName)) {
-				StringBuilder sb = new StringBuilder("<rdf:RDF");
+			if (entity.equals(localName)) {
+				StringBuilder sb = new StringBuilder("<" + this.root);
 				if (namespaces != null) {
 					for (String ns : namespaces) {
 						sb.append(ns);
 					}
 					sb.append(">");
 				}
-				builder.insert(0, sb.toString()).append("</rdf:RDF>");
+				builder.insert(0, sb.toString()).append("</" + this.root + ">");
 				getReceiver().literal("entity", builder.toString());
 				getReceiver().endRecord();
 				inEntity = false;
@@ -101,7 +103,6 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	@Override
 	public void characters(final char[] chars, final int start, final int length)
 			throws SAXException {
-		// xml escaping
 		builder.append(StringEscapeUtils
 				.escapeXml(new String(chars, start, length)));
 	}
