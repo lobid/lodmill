@@ -24,7 +24,7 @@ import com.hp.hpl.jena.util.ResourceUtils;
 
 /**
  * Treats Literals, URIs and Blank Nodes. The latter will be invoked by using
- * the <entity> element in the morph file.
+ * the <entity> element in the morph file. Output are N-Triples.
  * 
  * @author Fabian Steeg, Pascal Christoph
  */
@@ -34,16 +34,36 @@ import com.hp.hpl.jena.util.ResourceUtils;
 public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	Model model;
 	Stack<Resource> resources;
-	final AtomicInteger ATOMIC_INT = new AtomicInteger();
+	private final AtomicInteger ATOMIC_INT = new AtomicInteger();
 	// dummy subject to store data even if the subject is unknown at first
 	final static String DUMMY_SUBJECT = "dummy_subject";
+	private boolean fixSubject = false;
+
+	/**
+	 * Sets the default temporary subject.
+	 */
+	public PipeEncodeTriples() {
+		subject = DUMMY_SUBJECT;
+	}
+
+	/**
+	 * Allows to define the subject from outside, e.g. from a flux file.
+	 * 
+	 * @param subject set the subject for each triple
+	 */
+	public void setSubject(final String subject) {
+		this.subject = subject;
+		fixSubject = true;
+	}
 
 	@Override
 	public void startRecord(final String identifier) {
 		model = ModelFactory.createDefaultModel();
-		super.subject = DUMMY_SUBJECT;
 		resources = new Stack<Resource>();
-		resources.push(model.createResource(DUMMY_SUBJECT));
+		if (!fixSubject) {
+			subject = DUMMY_SUBJECT;
+		}
+		resources.push(model.createResource(subject));
 	}
 
 	@Override
@@ -51,7 +71,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		if (value == null)
 			return;
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
-			this.subject = value;
+			subject = value;
 			resources.push(model.createResource(subject));
 		} else {
 			final Property prop = model.createProperty(name);
@@ -93,6 +113,5 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		final StringWriter tripleWriter = new StringWriter();
 		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
 		getReceiver().process(tripleWriter.toString());
-
 	}
 }
