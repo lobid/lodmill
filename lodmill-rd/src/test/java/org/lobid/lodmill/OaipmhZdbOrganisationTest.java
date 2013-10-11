@@ -22,7 +22,7 @@ public class OaipmhZdbOrganisationTest {
 		opener.setDateUntil("2013-08-12");
 		opener.setMetadataPrefix("PicaPlus-xml");
 		opener.setSetSpec("bib");
-		final XmlDecoder xmldecoder = new XmlDecoder();
+		final XmlDecoder xmlDecoder = new XmlDecoder();
 		final PicaXmlHandler handler = new PicaXmlHandler();
 		final Metamorph metamorph =
 				new Metamorph("morph_zdb-isil-file-pica2ld.xml");
@@ -34,8 +34,8 @@ public class OaipmhZdbOrganisationTest {
 		final ObjectWriter<String> writer =
 				new ObjectWriter<String>(
 						"update_zdb-isil-file2lobid-organisations1.ttl");
-		opener.setReceiver(xmldecoder);
-		xmldecoder.setReceiver(handler);
+		opener.setReceiver(xmlDecoder);
+		xmlDecoder.setReceiver(handler);
 		handler.setReceiver(metamorph);
 		metamorph.setReceiver(enrich);
 		enrich.setReceiver(writer);
