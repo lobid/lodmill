@@ -9,20 +9,20 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # Individual, specialized API routes for different resource types
-GET     /resource                   controllers.Api.resource(id: String ?= "", name: String ?= "", author: String ?= "", subject: String ?= "", set: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /item                       controllers.Api.item(id: String ?= "", name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /organisation               controllers.Api.organisation(id: String ?= "", name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /person                     controllers.Api.person(id: String ?= "", name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /resource                   controllers.Api.resource(id ?= "", q ?= "", name ?= "", author ?= "", subject ?= "", set ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /item                       controllers.Api.item(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /organisation               controllers.Api.organisation(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /person                     controllers.Api.person(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
 
 # Path-style routes and `about` redirects
-GET     /resource/:id               controllers.Path.resource(id: String, name: String ?= "", author: String ?= "", subject: String ?= "", set: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /resource/:id/about         controllers.Path.resourceAbout(id: String, name: String ?= "", author: String ?= "", subject: String ?= "", set: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /item/:id                   controllers.Path.item(id: String, name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /item/:id/about             controllers.Path.itemAbout(id: String, name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /organisation/:id           controllers.Path.organisation(id: String, name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /organisation/:id/about     controllers.Path.organisationAbout(id: String, name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /person/:id                 controllers.Path.person(id: String, name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /person/:id/about           controllers.Path.personAbout(id: String, name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /resource/:id               controllers.Path.resource(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /resource/:id/about         controllers.Path.resourceAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /item/:id                   controllers.Path.item(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /item/:id/about             controllers.Path.itemAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /organisation/:id           controllers.Path.organisation(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /organisation/:id/about     controllers.Path.organisationAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /person/:id                 controllers.Path.person(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /person/:id/about           controllers.Path.personAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
 
 # General search endpoint for searching over all resource types
-GET     /search                     controllers.Api.search(id: String ?= "", name: String ?= "", format: String ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /search                     controllers.Api.search(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
