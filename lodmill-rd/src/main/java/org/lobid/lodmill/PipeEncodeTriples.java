@@ -34,15 +34,16 @@ import com.hp.hpl.jena.util.ResourceUtils;
 public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	Model model;
 	Stack<Resource> resources;
-	final AtomicInteger ATOMIC_INT = new AtomicInteger();
+	private final AtomicInteger ATOMIC_INT = new AtomicInteger();
 	// dummy subject to store data even if the subject is unknown at first
 	final static String DUMMY_SUBJECT = "dummy_subject";
+	private boolean fixSubject = false;
 
 	/**
 	 * Sets the default temporary subject.
 	 */
 	public PipeEncodeTriples() {
-		super.subject = DUMMY_SUBJECT;
+		subject = DUMMY_SUBJECT;
 	}
 
 	/**
@@ -51,13 +52,17 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	 * @param subject set the subject for each triple
 	 */
 	public void setSubject(final String subject) {
-		super.subject = subject;
+		this.subject = subject;
+		fixSubject = true;
 	}
 
 	@Override
 	public void startRecord(final String identifier) {
 		model = ModelFactory.createDefaultModel();
 		resources = new Stack<Resource>();
+		if (!fixSubject) {
+			subject = DUMMY_SUBJECT;
+		}
 		resources.push(model.createResource(subject));
 	}
 
@@ -66,7 +71,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		if (value == null)
 			return;
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
-			this.subject = value;
+			subject = value;
 			resources.push(model.createResource(subject));
 		} else {
 			final Property prop = model.createProperty(name);
