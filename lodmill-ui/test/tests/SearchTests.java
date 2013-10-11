@@ -93,7 +93,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(40);
+				.isEqualTo(41);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -153,8 +153,10 @@ public class SearchTests {
 	/*@formatter:off*/
 	@Test public void searchResByIdTT() { searchResById("TT002234003"); }
 	@Test public void searchResByIdHT() { searchResById("HT002189125"); }
+	@Test public void searchResByIdZDB() { searchResById("ZDB2615620-9"); }
 	@Test public void searchResByIdTTUrl() { searchResById("http://lobid.org/resource/TT002234003"); }
 	@Test public void searchResByIdHTUrl() { searchResById("http://lobid.org/resource/HT002189125"); }
+	@Test public void searchResByIdZDBUrl() { searchResById("http://lobid.org/resource/ZDB2615620-9"); }
 	@Test public void searchResByIdISBN() { searchResById("0940450003"); }
 	@Test public void searchResByIdUrn() { searchResById("urn:nbn:de:101:1-201210094953"); }
 	/*@formatter:on*/
