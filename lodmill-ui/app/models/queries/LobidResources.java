@@ -124,7 +124,7 @@ public class LobidResources {
 		@Override
 		public List<String> fields() {
 			return Arrays.asList(/* @formatter:off*/
-					"@graph.@id",
+					"@graph.@id", // hbz ID
 					"@graph.http://purl.org/ontology/bibo/isbn13.@value",
 					"@graph.http://purl.org/ontology/bibo/isbn10.@value",
 					"@graph.http://geni-orca.renci.org/owl/topology.owl#hasURN.@value"); /* @formatter:on */
@@ -138,7 +138,8 @@ public class LobidResources {
 	}
 
 	private static String lobidResourceQueryString(final String queryString) {
-		return queryString.matches("\\p{L}+\\d+") ? "http://lobid.org/resource/"
+		final String hbzId = "\\p{L}+[\\d\\-]+";
+		return queryString.matches(hbzId) ? "http://lobid.org/resource/"
 				+ queryString : queryString;
 	}
 }
