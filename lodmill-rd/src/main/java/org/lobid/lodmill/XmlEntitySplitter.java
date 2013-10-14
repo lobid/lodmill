@@ -44,6 +44,15 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 		this.entity = name;
 	}
 
+	/**
+	 * Sets the top-level XML document element.
+	 * 
+	 * @param name the element
+	 */
+	public void setTopLevelElement(final String name) {
+		this.root = name;
+	}
+
 	@Override
 	public void startPrefixMapping(String prefix, String uri) throws SAXException {
 		super.startPrefixMapping(prefix, uri);
