@@ -156,11 +156,15 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 					model.listObjectsOfProperty(model.createProperty(this.property))
 							.next().toString();
 		}
+		if (identifier.length() >= endIndex) {
+			identifier = identifier.substring(startIndex, endIndex);
+		}
 		final String file =
 				FilenameUtils.concat(
 						target,
-						FilenameUtils.concat(identifier.substring(startIndex, endIndex)
-								+ File.separator, identifier + "." + this.fileSuffix));
+						FilenameUtils.concat(identifier + File.separator, identifier + "."
+								+ this.fileSuffix));
+
 		LOG.info("Write to " + file);
 		ensurePathExists(file);
 
