@@ -22,10 +22,10 @@
 		<div class="tab-content">
 		  <div class="tab-pane active" id="@id-rdfa">
 			@index match {
-				case Index.LOBID_RESOURCES => {@resource(Json.parse(doc.getSource))}
-				case Index.GND => {@gnd(Json.parse(doc.getSource))}
-				case Index.LOBID_ORGANISATIONS => {@organisation(Json.parse(doc.getSource))}
-				case Index.LOBID_ITEMS => {@item(Json.parse(doc.getSource))}
+				case Index.LOBID_RESOURCES => {@resource(Json.parse(doc.getSourceWithFullProperties))}
+				case Index.GND => {@gnd(Json.parse(doc.getSourceWithFullProperties))}
+				case Index.LOBID_ORGANISATIONS => {@organisation(Json.parse(doc.getSourceWithFullProperties))}
+				case Index.LOBID_ITEMS => {@item(Json.parse(doc.getSourceWithFullProperties))}
 			}
 		  </div>
 		  <div class="tab-pane" id="@id-jld"><pre>@Json.prettyPrint(Json.parse(doc.getSource))</pre></div>

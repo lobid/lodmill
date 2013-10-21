@@ -77,7 +77,7 @@ public class Search {
 		Logger.trace("Got response: " + response);
 		final SearchHits hits = response.getHits();
 		final List<Document> documents =
-				asDocuments(term, hits, indexQuery.fields());
+				asDocuments(term, hits, indexQuery.fields(), index);
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
 				hits.hits().length, documents.size()));
 		return documents;
@@ -115,13 +115,13 @@ public class Search {
 	}
 
 	private static List<Document> asDocuments(final String query,
-			final SearchHits hits, List<String> searchFields) {
+			final SearchHits hits, final List<String> searchFields, final Index index) {
 		final List<Document> res = new ArrayList<>();
 		for (SearchHit hit : hits) {
 			try {
 				Hit hitEnum = Hit.of(hit, searchFields);
 				final Document document =
-						new Document(hit.getId(), new String(hit.source()));
+						new Document(hit.getId(), new String(hit.source()), index);
 				res.add(hitEnum.process(query, document));
 			} catch (IllegalArgumentException e) {
 				Logger.error(e.getMessage(), e);
