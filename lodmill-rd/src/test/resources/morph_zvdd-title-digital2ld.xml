@@ -3,7 +3,7 @@
 		version="1">
 		<rules>
 				<!-- General attributes for each record: -->
-				<data source="001." name="subject">
+				<data source="001." name="~rdf:subject">
 						<regexp match=".*" format="resource:D${0}"/>
 				</data>
 				<data source="001." name="http://purl.org/dc/terms/isFormatOf">

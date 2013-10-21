@@ -72,7 +72,7 @@
 				<regexp match="cooperation" format=""/>
 			</data>
 		</combine>
-		<data source="992  .a" name="subject">
+		<data source="992  .a" name="~rdf:subject">
 			<regexp match="(.*:.*\..*)" format="${1}"/><!-- some sanitizing -->
 		</data>
 		<data source="992  .a" name="http://purl.org/dc/elements/1.1/subject">

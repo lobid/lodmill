@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
 	<rules>
 		<!-- General attributes for each record: -->
-		<data source="008H.e" name="subject">
+		<data source="008H.e" name="~rdf:subject">
 			<regexp match="(.*)" format="http://lobid.org/organisation/${1}"/>
 		</data>
 		<data source="008H.e" name="http://purl.org/dc/terms/identifier">

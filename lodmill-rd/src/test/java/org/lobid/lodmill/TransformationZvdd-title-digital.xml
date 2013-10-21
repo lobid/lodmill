@@ -46,7 +46,7 @@
 			<cgxml:cgxml version="1.0">
 				<cgxml:records>
 					<cgxml:record id="1">
-						<cgxml:literal name="subject" value="resource:D184000" />
+						<cgxml:literal name="~rdf:subject" value="resource:D184000" />
 						<cgxml:literal name="http://purl.org/dc/terms/isFormatOf"
 							value="resource:P184000" />
 						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
