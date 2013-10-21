@@ -28,6 +28,9 @@ public class GndXmlSplitterRdfWriterTest {
 		final XmlDecoder xmldecoder = new XmlDecoder();
 		final XmlEntitySplitter splitxml = new XmlEntitySplitter();
 		splitxml.setEntityName("Description");
+		// top level element, to be valid according to rapper and riot,see
+		// http://www.w3.org/TR/rdf-syntax-grammar/#section-Syntax-complete-document
+		splitxml.setTopLevelElement("rdf:RDF");
 		final LiteralExtractor extractliteral = new LiteralExtractor();
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("RDF/XML");
@@ -37,7 +40,7 @@ public class GndXmlSplitterRdfWriterTest {
 				.setReceiver(writer);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("gndRdf.xml").toURI());
+						.getResource("gndRdfOai.xml").toURI());
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
 		FileUtils.deleteDirectory(new File(PATH));
