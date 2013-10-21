@@ -2,7 +2,7 @@
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1">
 	<rules>
-		<data source="0" name="subject">
+		<data source="0" name="~rdf:subject">
 			<regexp match=".*" format="http://sws.geonames.org/${0}"/>
 		</data>
 		<data source="1" name="http://xmlns.com/foaf/0.1/name"/>
