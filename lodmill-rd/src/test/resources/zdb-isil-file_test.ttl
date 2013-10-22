@@ -208,6 +208,19 @@
         <http://xmlns.com/foaf/0.1/name>
                 "Zentrum für Sportwissenschaften, Institut fürSportwissenschaften, Bibliothek" .
 
+<http://lobid.org/organisation/DE-11-39>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://purl.org/dc/terms/identifier>
+                "DE-11-39" ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-11-39> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ] ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-11-39> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "früher: Humboldt-Universität zu Berlin,Universitätsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek imInstitut für Gartenbauwissenschaften, Fachgebiet Obstbau" .
+
 <http://lobid.org/organisation/DE-1a>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://www.w3.org/2000/01/rdf-schema#seeAlso>
@@ -256,14 +269,14 @@
         <http://www.w3.org/2006/vcard/ns#email>
                 <mailto:benutzung.h2@sbb.spk-berlin.de> , <mailto:info@sbb.spk-berlin.de> ;
         <http://www.w3.org/2006/vcard/ns#tel>
-                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
-                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
-                          "(030) 2 66-333501"
-                ] ;
-        <http://www.w3.org/2006/vcard/ns#tel>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
                           "(030) 2 66-433888 (Auskunft)"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 2 66-333501"
                 ] ;
         <http://www.w3.org/2006/vcard/ns#url>
                 <http://www.staatsbibliothek-berlin.de> ;
@@ -275,17 +288,6 @@
                 <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-1a> ;
         <http://xmlns.com/foaf/0.1/name>
                 "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz,Haus Potsdamer Straße" .
-
-<http://lobid.org/organisation/DE-11-39>
-        a       <http://xmlns.com/foaf/0.1/Organization> ;
-        <http://purl.org/dc/terms/identifier>
-                "DE-11-39" ;
-        <http://www.w3.org/2002/07/owl#sameAs>
-                <http://ld.zdb-services.de/resource/organisations/DE-11-39> ;
-        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
-                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-11-39> ;
-        <http://xmlns.com/foaf/0.1/name>
-                "früher: Humboldt-Universität zu Berlin,Universitätsbibliothek, Zweigbibliothek Agrarwissenschaften, Bibliothek imInstitut für Gartenbauwissenschaften, Fachgebiet Obstbau" .
 
 <http://lobid.org/organisation/DE-294>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
@@ -333,14 +335,14 @@
         <http://www.w3.org/2006/vcard/ns#email>
                 <mailto:benutzung.ub@ruhr-uni-bochum.de> ;
         <http://www.w3.org/2006/vcard/ns#tel>
-                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
-                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
-                          "(0234) 32-14737"
-                ] ;
-        <http://www.w3.org/2006/vcard/ns#tel>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
                           "(0234) 32-26270"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0234) 32-14737"
                 ] ;
         <http://www.w3.org/2006/vcard/ns#url>
                 <http://www.ub.ruhr-uni-bochum.de> ;
