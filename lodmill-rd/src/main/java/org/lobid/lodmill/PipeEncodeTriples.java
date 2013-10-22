@@ -37,6 +37,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	private final AtomicInteger ATOMIC_INT = new AtomicInteger();
 	// dummy subject to store data even if the subject is unknown at first
 	final static String DUMMY_SUBJECT = "dummy_subject";
+	final static String HTTP = "http://";
 	private boolean fixSubject = false;
 
 	/**
@@ -72,8 +73,17 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 			return;
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 			subject = value;
-			resources.push(model.createResource(subject));
-		} else {
+			try {
+				if (resources.peek().hasURI((DUMMY_SUBJECT))) {
+					ResourceUtils.renameResource(model.getResource(DUMMY_SUBJECT),
+							subject);
+				}
+				resources.push(model.createResource(subject));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		} else if (name.startsWith(HTTP)) {
 			final Property prop = model.createProperty(name);
 			if (isUriWithScheme(value)) {
 				resources.peek().addProperty(prop,
@@ -82,6 +92,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 				resources.peek().addProperty(prop, value);
 			}
 		}
+
 	}
 
 	Resource makeBnode(final String value) {
@@ -98,6 +109,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void startEntity(final String name) {
+		// if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 		enterBnode(makeBnode(name));
 	}
 
@@ -109,7 +121,6 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	@Override
 	public void endRecord() {
 		// insert subject now if it was not at the beginning of the record
-		ResourceUtils.renameResource(model.getResource(DUMMY_SUBJECT), subject);
 		final StringWriter tripleWriter = new StringWriter();
 		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
 		getReceiver().process(tripleWriter.toString());
