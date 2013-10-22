@@ -418,6 +418,17 @@ public class SearchTests {
 	}
 
 	@Test
+	public void searchViaApiWithContentNegotiationRdfXml() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				assertThat(call(ENDPOINT, "application/rdf+xml")).isNotEmpty()
+						.contains("<rdf:RDF");
+			}
+		});
+	}
+
+	@Test
 	public void searchViaApiWithContentNegotiationN3() {
 		running(TEST_SERVER, new Runnable() {
 			@Override

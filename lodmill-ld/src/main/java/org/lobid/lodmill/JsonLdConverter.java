@@ -2,6 +2,7 @@
 
 package org.lobid.lodmill;
 
+import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
 
@@ -11,8 +12,6 @@ import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.github.jsonldjava.core.JSONLD;
 import com.github.jsonldjava.core.JSONLDProcessingError;
 import com.github.jsonldjava.core.Options;
@@ -73,7 +72,7 @@ public class JsonLdConverter {
 			final StringWriter writer = new StringWriter();
 			model.write(writer, format.getName());
 			return writer.toString();
-		} catch (JsonParseException | JsonMappingException | JSONLDProcessingError e) {
+		} catch (JSONLDProcessingError | IOException e) {
 			LOG.error(e.getMessage(), e);
 		}
 		return null;
