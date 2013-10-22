@@ -9,7 +9,7 @@
 			<regexp match="(.*)" format="${1}"/>
 		</data>
 		<data source="001-1.a" name="~rdf:subject">
-			<regexp match="(.*)" format="http://lobid.org/resource/${1}"/>
+		<regexp match="(.*)" format="http://lobid.org/resource/${1}"/>
 		</data>
 		<data source="001-1.a" name="http://lobid.org/vocab/lobid#hbzID">
 		</data>

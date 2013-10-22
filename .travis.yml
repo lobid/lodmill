@@ -4,6 +4,7 @@ env:
 jdk: oraclejdk7
 before_install:
   - cd lodmill-rd; sh install-dependencies.sh; cd ..
+  - cd lodmill-ld; sh install-dependencies.sh; cd ..
 install:
   - mvn clean install -e -q -DskipTests=true --settings settings.xml
 before_script:
