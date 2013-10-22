@@ -6,8 +6,8 @@
 			<regexp match=".*" format="http://sws.geonames.org/${0}"/>
 		</data>
 		<data source="1" name="http://xmlns.com/foaf/0.1/name"/>
-		<data source="1" name=" http://www.geonames.org/ontology#name"/>
-		<data source="3" name=" http://www.geonames.org/ontology#alternateName">
+		<data source="1" name="http://www.geonames.org/ontology#name"/>
+		<data source="3" name="http://www.geonames.org/ontology#alternateName">
 		<!-- there column musn't be empty -->
 			<regexp match=".+" format="${0}" />
 		</data>
