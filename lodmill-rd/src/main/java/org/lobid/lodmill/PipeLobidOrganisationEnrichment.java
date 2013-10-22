@@ -361,15 +361,18 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			osmUrl[i] = null;
 			urlOsmLookupSearchParameters[1] = null;
 		}
-
-		if ((this.locality = getFirstLiteralOfProperty(VcardNs.LOCALITY.uri)) != null) {
+		final String firstLiteralOfProperty =
+				getFirstLiteralOfProperty(VcardNs.LOCALITY.uri);
+		if (firstLiteralOfProperty != null) {
 			// OSM Api doesn't like e.g /Marburg%2FLahn/ but accepts /Marburg/.
 			// Having also the postcode we will not encounter ambigous cities
 			try {
 				this.locality =
-						URIUtil.encodeQuery((URIUtil.decode(this.locality, "UTF-8")
-								.replaceAll("(.*)\\p{Punct}.*", "$1")), "UTF-8");
+						URIUtil.encodeQuery((URIUtil
+								.decode(firstLiteralOfProperty, "UTF-8").replaceAll(
+								"(.*)\\p{Punct}.*", "$1")), "UTF-8");
 			} catch (URIException e1) {
+				this.locality = firstLiteralOfProperty;
 				e1.printStackTrace();
 			}
 		}
