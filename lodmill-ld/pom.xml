@@ -4,7 +4,7 @@
 
 	<groupId>org.lobid</groupId>
 	<artifactId>lodmill-ld</artifactId>
-	<version>0.2.0-SNAPSHOT</version>
+	<version>0.2.1-SNAPSHOT</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -151,13 +151,13 @@
 		<dependency>
 			<groupId>com.github.jsonld-java</groupId>
 			<artifactId>jsonld-java</artifactId>
-			<version>0.2</version>
+			<version>0.3-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.github.jsonld-java</groupId>
 			<artifactId>jsonld-java-jena</artifactId>
-			<version>0.2</version>
+			<version>0.3-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>

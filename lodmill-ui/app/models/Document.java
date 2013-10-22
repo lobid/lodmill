@@ -2,6 +2,7 @@
 
 package models;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.json.simple.JSONValue;
@@ -10,8 +11,6 @@ import org.lobid.lodmill.JsonLdConverter.Format;
 
 import play.Logger;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.github.jsonldjava.core.JSONLD;
 import com.github.jsonldjava.core.JSONLDProcessingError;
 import com.github.jsonldjava.utils.JSONUtils;
@@ -40,7 +39,7 @@ public class Document {
 					JSONLD.compact(JSONUtils.fromString(source),
 							new HashMap<String, Object>());
 			return JSONUtils.toString(compactJsonLd);
-		} catch (JsonParseException | JsonMappingException | JSONLDProcessingError e) {
+		} catch (JSONLDProcessingError | IOException e) {
 			e.printStackTrace();
 			return null;
 		}
