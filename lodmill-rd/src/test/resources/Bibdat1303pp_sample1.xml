@@ -348,9 +348,11 @@
 			</ppxml:tag>
 			<ppxml:tag id="050D" occ="">
 				<ppxml:subf id="a">Umbuchungen 2012/1: Komplettlo&#x308;schung, BIK war
-					130039-8, ILN 0019</ppxml:subf>
-			</ppxml:tag>
-		</ppxml:global>
+        130039-8, ILN 0019</ppxml:subf>
+    </ppxml:tag>
+  </ppxml:global>
+  </ppxml:record>
+  <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00900004" occ=""/>
 			<ppxml:tag id="001A" occ="">

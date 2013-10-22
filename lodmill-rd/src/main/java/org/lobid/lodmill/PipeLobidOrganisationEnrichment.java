@@ -174,6 +174,13 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	}
 
 	@Override
+	public void startRecord(final String identifier) {
+		this.lat = null;
+		this.lon = null;
+		super.startRecord(identifier);
+	}
+
+	@Override
 	public void literal(final String name, final String value) {
 		if (value == null) {
 			LOG.warn("Value should not be null, ID " + "'" + super.subject + "'");
@@ -354,27 +361,30 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			osmUrl[i] = null;
 			urlOsmLookupSearchParameters[1] = null;
 		}
+
+		if ((this.locality = getFirstLiteralOfProperty(VcardNs.LOCALITY.uri)) != null) {
+			// OSM Api doesn't like e.g /Marburg%2FLahn/ but accepts /Marburg/.
+			// Having also the postcode we will not encounter ambigous cities
+			try {
+				this.locality =
+						URIUtil.encodeQuery((URIUtil.decode(this.locality, "UTF-8")
+								.replaceAll("(.*)\\p{Punct}.*", "$1")), "UTF-8");
+			} catch (URIException e1) {
+				e1.printStackTrace();
+			}
+		}
+		this.postalcode = getFirstLiteralOfProperty(VcardNs.POSTAL_CODE.uri);
+		this.street = getFirstLiteralOfProperty(VcardNs.STREET_ADDRESS.uri);
 		if (!doubles()) {
 			this.countryName = getFirstLiteralOfProperty(VcardNs.COUNTRY_NAME.uri);
-			if ((this.locality = getFirstLiteralOfProperty(VcardNs.LOCALITY.uri)) != null) {
-				// OSM Api doesn't like e.g /Marburg%2FLahn/ but accepts /Marburg/.
-				// Having also the postcode we will not encounter ambigous cities
-				try {
-					this.locality =
-							URIUtil.encodeQuery((URIUtil.decode(this.locality, "UTF-8")
-									.replaceAll("(.*)\\p{Punct}.*", "$1")), "UTF-8");
-				} catch (URIException e1) {
-					e1.printStackTrace();
-				}
-			}
-			this.postalcode = getFirstLiteralOfProperty(VcardNs.POSTAL_CODE.uri);
-			this.street = getFirstLiteralOfProperty(VcardNs.STREET_ADDRESS.uri);
 			if (makeOsmApiSearchParameters()) {
 				lookupLocation(); // TODO check whats happening if geo data already in
 													// source file
 			}
 		}
 		if (this.lat != null && this.lon != null) {
+			super.literal(GEO_WGS84_POS_LAT, String.valueOf(this.lat));
+			super.literal(GEO_WGS84_POS_LONG, String.valueOf(this.lon));
 			super.literal(RDF_SYNTAX_NS_TYPE, WGS84_POS_SPATIALTHING);
 		}
 	}
@@ -469,8 +479,6 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	 * @param regex
 	 */
 	private void lookupLocation() {
-		this.lat = null;
-		this.lon = null;
 		// TODO don't use exceptions as control structures
 		if (!makeUrlAndLookupIfCached() && this.doApiLookup) {
 			try {
@@ -505,10 +513,6 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 					}
 				}
 			}
-		}
-		if (this.lat != null && this.lon != null) {
-			super.literal(GEO_WGS84_POS_LAT, String.valueOf(this.lat));
-			super.literal(GEO_WGS84_POS_LONG, String.valueOf(this.lon));
 		}
 	}
 
