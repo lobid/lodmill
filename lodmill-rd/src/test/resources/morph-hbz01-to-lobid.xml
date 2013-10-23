@@ -64,6 +64,7 @@
 			<data source="@id" name="id"/>
 			<data source="@itemId"/>
 		</combine>
+		<!-- set subject of resource anew -->
 		<combine name="~rdf:subject" value="http://lobid.org/resource/${subject}">
 			<data source="@id" name="subject"/>
 			<data source="@itemId"/>
