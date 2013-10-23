@@ -177,6 +177,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 			IOUtils.write(tripleWriter.toString(), writer);
 			writer.close();
 		} catch (IOException e) {
+			e.printStackTrace();
 			throw new MetafactureException(e);
 		}
 	}
