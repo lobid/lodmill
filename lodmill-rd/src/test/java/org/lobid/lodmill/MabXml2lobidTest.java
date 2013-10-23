@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
+import org.culturegraph.mf.stream.pipe.ObjectTee;
 import org.culturegraph.mf.stream.reader.XmlReaderBase;
 import org.culturegraph.mf.stream.sink.ObjectStdoutWriter;
 import org.culturegraph.mf.stream.source.FileOpener;
@@ -41,14 +42,31 @@ public final class MabXml2lobidTest extends AbstractIngestTests {
 		PipeEncodeTriples encoder = new PipeEncodeTriples();
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
+		final ObjectTee<String> tee = new ObjectTee<String>();
+		final Triples2RdfModel triples2rdfmodel = new Triples2RdfModel();
+		triples2rdfmodel.setInput("N-TRIPLE");
+		RdfModelFileWriter modelWriter = new RdfModelFileWriter();
+		modelWriter.setProperty("http://lobid.org/vocab/lobid#hbzID");
+		modelWriter.setSerialization("N-TRIPLES");
+		modelWriter.setStartIndex(2);
+		modelWriter.setEndIndex(5);
+		String targetDirectory = "tmp";
+		modelWriter.setTarget(targetDirectory);
+		triple2model.setReceiver(modelWriter);
 		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<String>();
+		tee.addReceiver(writer);
+		tee.addReceiver(triple2model);
 		opener.setReceiver(xmlDecoder).setReceiver(handler).setReceiver(morph)
-				.setReceiver(encoder).setReceiver(writer);
+				.setReceiver(encoder).setReceiver(tee);// )setReceiver(writer);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("mab2example.xml.bz2").toURI());
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
+		AbstractIngestTests.compareFiles(
+				new File(targetDirectory + "/002/002.nt"),
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("hbz01-to-lobid-output_test.nt").toURI()));
 	}
 
 	private static class MabXmlReader extends XmlReaderBase {
