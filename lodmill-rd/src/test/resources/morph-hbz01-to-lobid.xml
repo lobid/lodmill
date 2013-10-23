@@ -2,11 +2,91 @@
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1">
 	<rules>
-		<!-- General attributes for each record: -->
-		<data source="001-1.a" name="subject">
-			<regexp match="(.*)" format="http://lobid.org/resource/${1}"/>
+		<!-- ####################### -->
+		<!-- ####### General attributes for each record ####### -->
+		<!-- ####################### -->
+		<data source="001-1.a" name="@id">
+			<regexp match="(.*)" format="${1}"/>
+		</data>
+		<data source="001-1.a" name="~rdf:subject">
+		<regexp match="(.*)" format="http://lobid.org/resource/${1}"/>
 		</data>
 		<data source="001-1.a" name="http://lobid.org/vocab/lobid#hbzID">
 		</data>
+		<data source="001-1.a" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
+		</data>
+		<data source="001-1.a" name="http://www.w3.org/2007/05/powder-s#describedby">
+			<regexp match="(.*)" format="http://lobid.org/resource/${1}/about"/>
+		</data>
+		<data source="001-1.a" name="http://xmlns.com/foaf/0.1/isPrimaryTopicOf">
+			<regexp match="(.*)" format="http://193.30.112.134/F/?func=find-c&amp;ccl_term=IDN%3D${1}"/>
+		</data>
+		<!-- ####################### -->
+		<!-- #######subjects ####### -->
+		<!-- ####################### -->
+		<!-- gnd subjects: links -->
+		<data source="9[01234][27]-[12].9" name="http://purl.org/dc/terms/subject"/>
+		<!-- gnd subjects: literals -->
+		<data source="9[01234][27]-1.[sh]" name="http://purl.org/dc/elements/subject"/>
+		<!-- hbz subjects, always literals,may be missing in 902-1 -->
+		<data source="9[56789][27]-1.?" name="http://purl.org/dc/elements/subject"/>
+		<!-- ####################### -->
+		<!-- ################ items ########## -->
+		<!-- ####################### -->
+		<!-- reset Item subject for we will coin a new one -->
+		<data source="088 ?.a" name="~rdf:subject">
+			<regexp match="(.*)" format="dummy_subject"/>
+		</data>
+		<data source="088 ?.a" name="http://purl.org/ontology/daia/label"/>
+		<data source="088 ?.a" name="@sigel2isilMap">
+			<lookup in="sigel2isilMap"/>
+		</data>
+		<data source="@sigel2isilMap" name="http://purl.org/vocab/frbr/core#owner"/>
+		<combine name="@itemId" value="http://lobid.org/item/${id}:${signature}"
+			sameEntity="false">
+			<data source="088 ?.c" name="signature">
+				<urlencode></urlencode>
+			</data>
+			<data source="@id" name="id"></data>
+		</combine>
+		<!-- new coined subject of the Item -->
+		<combine name="~rdf:subject" value="${subject}">
+			<data source="@itemId" name="subject"/>
+		</combine>
+		<data source="@itemId" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/vocab/frbr/core#Item"/>
+		</data>
+		<combine name="http://www.w3.org/2007/05/powder-s#describedby" value="${itemId}/about">
+			<data source="@itemId" name="itemId"/>
+		</combine>
+		<combine name="http://purl.org/vocab/frbr/core#exemplarOf" value="http://lobid.org/resource/${id}">
+			<data source="@id" name="id"/>
+			<data source="@itemId"/>
+		</combine>
+		<!-- set subject of resource anew -->
+		<combine name="~rdf:subject" value="http://lobid.org/resource/${subject}">
+			<data source="@id" name="subject"/>
+			<data source="@itemId"/>
+		</combine>
+		<combine name="http://purl.org/vocab/frbr/core#exemplar" value="${itemId}">
+			<data source="@itemId" name="itemId"/>
+		</combine>
+		<!-- ####################### -->
+		<!-- ########## publisher ########## -->
+		<!-- ####################### -->
+		<data source="41[278][-abcu][-12].[ag]|61[36][-abcu][-12].a" name="http://iflastandards.info/ns/isbd/elements/P1017"/>
+		<data source="41[058][-abcu][-12].a|594[-abc][-12].a|61[14][-abcu][-12].a|674[-abc][-12].a"
+			name="http://iflastandards.info/ns/isbd/elements/P1016"/>
+		<!-- ####################### -->
+		<!-- ############### statistics ######### -->
+		<!-- ####################### -->
+		<data source="_else"/>
 	</rules>
+	<!-- ####################### -->
+	<!-- ########### maps ######## -->
+	<!-- ####################### -->
+	<maps>
+		<filemap name="sigel2isilMap" files="sigel2isilMap.csv"/>
+	</maps>
 </metamorph>

@@ -5,6 +5,7 @@ package org.lobid.lodmill;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -69,29 +70,48 @@ public abstract class AbstractIngestTests {
 			final String generatedFileName,
 			final DefaultStreamPipe<ObjectReceiver<String>> dsp) {
 		setUpErrorHandler(metamorph);
-		final File file = new File(generatedFileName);
-		process(dsp, file);
-		Scanner actual = null;
-		final Scanner expected =
-				new Scanner(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream(testFileName));
+		final File actualFile = new File(generatedFileName);
+		process(dsp, actualFile);
+		File testFile;
 		try {
-			actual = new Scanner(file);
+			testFile =
+					new File(Thread.currentThread().getContextClassLoader()
+							.getResource(testFileName).toURI());
+			compareFiles(actualFile, testFile);
+		} catch (URISyntaxException e) {
+			LOG.error(e.getMessage(), e);
+		}
+
+	}
+
+	/**
+	 * Tests if two files are of equal content.
+	 * 
+	 * @param actualFile the actually generated file
+	 * @param testFile the file which defines how the actualFile should look like
+	 */
+	public static void compareFiles(final File actualFile, final File testFile) {
+		Scanner actual = null;
+		Scanner expected = null;
+		try {
+			expected = new Scanner(testFile);
+			actual = new Scanner(actualFile);
 			// Set necessary because the order of triples in the files may differ
 			final SortedSet<String> expectedSet = asSet(expected);
 			final SortedSet<String> actualSet = asSet(actual);
 			assertSetSize(expectedSet, actualSet);
 			assertSetElements(expectedSet, actualSet);
-			Assert.assertEquals(expectedSet, actualSet);
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		} finally {
 			if (actual != null) {
 				actual.close();
 			}
-			expected.close();
+			if (expected != null) {
+				expected.close();
+			}
 		}
-		file.deleteOnExit();
+		actualFile.deleteOnExit();
 	}
 
 	private static void assertSetSize(final SortedSet<String> expectedSet,
@@ -120,8 +140,13 @@ public abstract class AbstractIngestTests {
 		final Iterator<String> expectedIterator = expectedSet.iterator();
 		final Iterator<String> actualIterator = actualSet.iterator();
 		for (int i = 0; i < expectedSet.size(); i++) {
-			Assert.assertEquals(expectedIterator.next(), actualIterator.next());
+			String expected = expectedIterator.next();
+			String actual = actualIterator.next();
+			if (!expected.equals(actual)) {
+				LOG.error("Expected: " + expected + "\n but was:" + actual);
+			}
 		}
+		Assert.assertEquals(expectedSet, actualSet);
 	}
 
 	public void dot(final String fname) {

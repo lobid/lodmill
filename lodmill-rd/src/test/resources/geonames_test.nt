@@ -1,26 +1,26 @@
-<http://sws.geonames.org/1529666> < http://www.geonames.org/ontology#name> "Bahnhof Grenzau" .
+<http://sws.geonames.org/1529666> <http://www.geonames.org/ontology#name> "Bahnhof Grenzau" .
 <http://sws.geonames.org/1529666> <http://xmlns.com/foaf/0.1/name> "Bahnhof Grenzau" .
 
-<http://sws.geonames.org/2038682> < http://www.geonames.org/ontology#alternateName> "Bahnhof Annaburg,Bahnhof Annaburg West" .
-<http://sws.geonames.org/2038682> < http://www.geonames.org/ontology#name> "Bahnhof Annaburg" .
+<http://sws.geonames.org/2038682> <http://www.geonames.org/ontology#alternateName> "Bahnhof Annaburg,Bahnhof Annaburg West" .
+<http://sws.geonames.org/2038682> <http://www.geonames.org/ontology#name> "Bahnhof Annaburg" .
 <http://sws.geonames.org/2038682> <http://xmlns.com/foaf/0.1/name> "Bahnhof Annaburg" .
 
-<http://sws.geonames.org/2760454> < http://www.geonames.org/ontology#alternateName> "Cugshpitce,Weisskogel,Zugspitze,tsukushupittsu~e shan,\u0426\u0443\u0433\u0448\u043F\u0438\u0442\u0446\u0435,\u30C4\u30FC\u30AF\u30B7\u30E5\u30D4\u30C3\u30C4\u30A7\u5C71" .
-<http://sws.geonames.org/2760454> < http://www.geonames.org/ontology#name> "Zugspitze" .
+<http://sws.geonames.org/2760454> <http://www.geonames.org/ontology#alternateName> "Cugshpitce,Weisskogel,Zugspitze,tsukushupittsu~e shan,\u0426\u0443\u0433\u0448\u043F\u0438\u0442\u0446\u0435,\u30C4\u30FC\u30AF\u30B7\u30E5\u30D4\u30C3\u30C4\u30A7\u5C71" .
+<http://sws.geonames.org/2760454> <http://www.geonames.org/ontology#name> "Zugspitze" .
 <http://sws.geonames.org/2760454> <http://xmlns.com/foaf/0.1/name> "Zugspitze" .
 
-<http://sws.geonames.org/6558290> < http://www.geonames.org/ontology#name> "Tirschenreuth, Stadt" .
+<http://sws.geonames.org/6558290> <http://www.geonames.org/ontology#name> "Tirschenreuth, Stadt" .
 <http://sws.geonames.org/6558290> <http://xmlns.com/foaf/0.1/name> "Tirschenreuth, Stadt" .
 
-<http://sws.geonames.org/6557938> < http://www.geonames.org/ontology#name> "Renningen, Stadt" .
+<http://sws.geonames.org/6557938> <http://www.geonames.org/ontology#name> "Renningen, Stadt" .
 <http://sws.geonames.org/6557938> <http://xmlns.com/foaf/0.1/name> "Renningen, Stadt" .
 
-<http://sws.geonames.org/6547539> < http://www.geonames.org/ontology#name> "Berlin, Stadt" .
+<http://sws.geonames.org/6547539> <http://www.geonames.org/ontology#name> "Berlin, Stadt" .
 <http://sws.geonames.org/6547539> <http://xmlns.com/foaf/0.1/name> "Berlin, Stadt" .
 
-<http://sws.geonames.org/6557373> < http://www.geonames.org/ontology#name> "G\u00F6ttingen, Stadt" .
+<http://sws.geonames.org/6557373> <http://www.geonames.org/ontology#name> "G\u00F6ttingen, Stadt" .
 <http://sws.geonames.org/6557373> <http://xmlns.com/foaf/0.1/name> "G\u00F6ttingen, Stadt" .
 
-<http://sws.geonames.org/6553132> < http://www.geonames.org/ontology#name> "Bochum, Stadt" .
+<http://sws.geonames.org/6553132> <http://www.geonames.org/ontology#name> "Bochum, Stadt" .
 <http://sws.geonames.org/6553132> <http://xmlns.com/foaf/0.1/name> "Bochum, Stadt" .
 
