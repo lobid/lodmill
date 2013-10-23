@@ -57,7 +57,7 @@ public final class MabXml2lobidTest extends AbstractIngestTests {
 		tee.addReceiver(writer);
 		tee.addReceiver(triple2model);
 		opener.setReceiver(xmlDecoder).setReceiver(handler).setReceiver(morph)
-				.setReceiver(encoder).setReceiver(tee);// )setReceiver(writer);
+				.setReceiver(encoder).setReceiver(tee);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("mab2example.xml.bz2").toURI());

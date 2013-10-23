@@ -109,7 +109,6 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void startEntity(final String name) {
-		// if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 		enterBnode(makeBnode(name));
 	}
 
