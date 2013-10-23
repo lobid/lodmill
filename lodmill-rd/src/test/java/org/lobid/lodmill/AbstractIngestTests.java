@@ -101,7 +101,6 @@ public abstract class AbstractIngestTests {
 			final SortedSet<String> actualSet = asSet(actual);
 			assertSetSize(expectedSet, actualSet);
 			assertSetElements(expectedSet, actualSet);
-			Assert.assertEquals(expectedSet, actualSet);
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
 		} finally {
@@ -143,12 +142,11 @@ public abstract class AbstractIngestTests {
 		for (int i = 0; i < expectedSet.size(); i++) {
 			String expected = expectedIterator.next();
 			String actual = actualIterator.next();
-			try {
-				Assert.assertEquals(expected, actual);
-			} catch (AssertionError e) {
+			if (!expected.equals(actual)) {
 				LOG.error("Expected: " + expected + "\n but was:" + actual);
 			}
 		}
+		Assert.assertEquals(expectedSet, actualSet);
 	}
 
 	public void dot(final String fname) {
