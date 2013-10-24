@@ -1,0 +1,14 @@
+digraph {
+	rankdir=LR
+	node[shape=box style=filled fillcolor=gray95]
+	client[label="API-\nClient"]
+	subgraph cluster_impl {
+		style=invis
+		api[height=1.4 width=".1" label="API"]
+		stack[shape=record label="{{Play|Elasticsearch|Hadoop|Metafacture}}"]
+		data[width=1 label="Data"]
+	}
+	client -> api [dir=both label="GET...\nJSON"]
+	api -> stack[dir=both headport=nw]
+	stack->data[dir=back tailport=se]
+}

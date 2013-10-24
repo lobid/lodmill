@@ -1,0 +1,15 @@
+digraph {
+	rankdir=LR
+	node[shape=box style=filled fillcolor=gray95 width=2.2]
+
+	raw_data[label="Raw Data Files\n(PICA, MAB, ...)"]
+	n_triples[label="Linked Data Triples\n(RDF as N-Triples)"]
+	jsonld_expanded[label="Linked Data Records\n(JSON-LD, expanded)"]
+	index[label="Linked Data Index\n(JSON-LD, expanded)"]
+	jsonld_compact[label="Linked Data HTTP API\n(JSON-LD, compact)"]
+
+	raw_data -> n_triples[label="Metafacture"]
+	n_triples -> jsonld_expanded[label="Hadoop"]
+	jsonld_expanded -> index[label="Elasticsearch"]
+	index -> jsonld_compact[label="Play"]
+}

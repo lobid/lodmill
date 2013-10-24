@@ -2,7 +2,7 @@ h1. Lodmill
 
 Blend, grind, and enjoy LOD - fresh from the mill!
 
-The @lodmill-ld@ folder contains code for processing RDF with Hadoop and for indexing it in Elasticsearch. The @lodmill-ui@ folder contains a web app based on the Play framework that interacts with the resulting Elasticsearch index. It provides an HTTP API to the index and a UI for documentation and basic sample usage. The @lodmill-rd@ folder contains experimental work for working with raw data and its transformation to LOD, based on the Culturegraph Metafacture toolkit.
+This software implements "http://api.lobid.org":http://api.lobid.org, the LOD based web API offered by "hbz":http://www.hbz-nrw.de.
 
 h1. Build
 
@@ -10,23 +10,29 @@ h1. Build
 
 See the @.travis.yml@ file for details on the CI config used by Travis.
 
+h1. Technology Stack
+
+Raw data is transformed with "Metafacture":https://github.com/culturegraph/metafacture-core/wiki and "Hadoop":http://hadoop.apache.org/, indexed in "Elasticsearch":http://www.elasticsearch.org/, and exposed via an HTTP API implemented with the "Play framework":http://www.playframework.com/:
+
+!{height: 125px;}https://raw.github.com/lobid/lodmill/master/lodmill-ui/doc/overview.png!
+
+The @lodmill-rd@ folder contains code for working with raw data and its transformation to LOD, based on the Culturegraph Metafacture toolkit. The @lodmill-ld@ folder contains code for processing RDF with Hadoop and for indexing it in Elasticsearch. The @lodmill-ui@ folder contains a web app based on the Play framework that interacts with the resulting Elasticsearch index. It provides an HTTP API to the index and a UI for documentation and basic sample usage. See below for details on the data workflow.
+
 h1. Setup
 
 Prerequisites: Java 7 and Maven 3 (check @mvn -version@ to make sure Maven is using Java 7)
 
 To set up a local build of the lodmill components follow these steps:
 
-h6. Clone and build metafacture-core from its master branch
-
-@git clone https://github.com/culturegraph/metafacture-core.git@
-@cd metafacture-core@
-@mvn clean install@
-@cd ..@
-
-h6. Clone lodmill and run the Maven build for lodmill-ld and lodmill-rd
+h6. Clone lodmill and build SNAPSHOT dependencies
 
 @git clone https://github.com/lobid/lodmill.git@
 @cd lodmill@
+@cd lodmill-rd ; sh install-dependencies.sh ; cd ..@
+@cd lodmill-ld ; sh install-dependencies.sh ; cd ..@
+
+h6. Run the Maven build for lodmill-ld and lodmill-rd
+
 @umask 0022@ (required for MRUnit tests)
 @mvn clean install --settings settings.xml@ (or copy 'settings.xml' to '~/.m2')
 
@@ -39,9 +45,62 @@ h6. Download Play and run the tests
 
 Replace 'test' with other Play commands, e.g. 'run' or 'eclipse' (to generate Eclipse project config files).
 
+h6. Build Hadoop Jar
+
+@cd .. ; cd lodmill-ld@
+@mvn clean assembly:assembly --settings ../settings.xml@
+
+See the @convert.sh@ and @index.sh@ scripts in @lodmill-ld/doc/scripts@ on how to use the resulting Jar with your Hadoop and Elasticsearch clusters.
+
 h1. Clusters
 
 The instructions above will set up a local API and frontend instance. For information on how we have set up our Hadoop and Elasticsearch backend clusters see @README.textile@ in @lodmill-ld@.
+
+h1. Data Workflow
+
+The complete data workflow transforms the original raw data to Linked Data served via an HTTP API:
+
+!{height: 40px;}https://raw.github.com/lobid/lodmill/master/lodmill-ui/doc/workflow.png!
+
+h2. Raw Data to Linked Data Triples
+
+The raw data is transformed to linked data triples in the N-Triples RDF serialization. Being a line based format, N-Triples are well suited for batch processing with Hadoop. Every triple, both those generated from the raw data, and the enrichment data from external sources (like GND and Dewey), are stored in the Hadoop distributed file system (HDFS) and made available to the two Hadoop jobs that process and convert the data.
+
+h2. Linked Data Triples to Records
+
+The first Hadoop job (implemented in @CollectSubjects.java@) selects triples that need to be resolved to build meaningful records to be indexed later. One example would be the @creator@ triples for lobid-resources, e.g.
+
+@<http://lobid.org/resource/HT002189125> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/118580604> .@
+
+The resource creator is identified via its GND ID. To allow searching by the actual name of the creator, we want to resolve the name literals, so we declare that the @creator@ property needs to be resolved in the @resolve.properties@ file:
+
+@resolve = \ http://purl.org/dc/elements/1.1/creator; \ [...]@
+
+Having the property declared to need resolution, when the first Hadoop job encounters the triple above, it will map the GND ID to the resource ID:
+
+@<http://d-nb.info/gnd/118580604> : <http://lobid.org/resource/HT002189125>@
+
+This information is written to a zipped Hadoop map file (a persistent lookup mechanism) after the first job is complete.
+
+The second Hadoop job (implemented in @NTriplesToJsonLd.java@) collects all triples with the same subject (i.e. all statements about a resource), and converts them to a JSON-LD record. In addition to the selected triples, we also need details about the entities defined as needing resolution in the first job. For instance, we want the @preferredNameForThePerson@ of @creator@ in our records, so we declare it as a resolution property in @resolve.properties@:
+
+@predicates = \ http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson; \ [...]@
+
+This will cause the second Hadoop job to perform a lookup on the subject of a triple containing that property, e.g.:
+
+@<http://d-nb.info/gnd/118580604> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Melville, Herman" .@
+
+Since the subject is mapped to the @<http://lobid.org/resource/HT002189125>@ resource ID, we add that triple to the triples of that resource, which yields a record for @<http://lobid.org/resource/HT002189125>@ that contains not only the triples with that subject, but also the enrichment triples defined in the @resolve.properties@ file. That way, we effectively define our records to be subgraphs of the complete triple set.
+
+The same mechanism is used to resolve information modeled using blank nodes. See our current @resolve.properties@ file in @lodmill-ld/src/main/resources@ for details.
+
+h2. Linked Data Records to Index
+
+The second Hadoop job writes the records as expanded JSON-LD in the "Elasticsearch bulk import format":http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/docs-bulk.html, which is then indexed in Elasticsearch using the Elasticsearch bulk Java API. We use "expanded JSON-LD":http://www.w3.org/TR/json-ld-api/#expansion-algorithms in the index to have consistent types for each field. In compact JSON-LD, if a field has just a single value, the type of that field will simply be the type of the value. If the same field has multiple values, the type will be an array, etc. Elasticsearch learns the index schema from the data, so we need to use consistent types for a given field. The expanded JSON-LD serialization does exactly this. For instance, it always uses arrays, even if there is only a single value.
+
+h2. Linked Data Index to HTTP API
+
+Finally our Play frontend accesses the Elasticsearch index and serves the records as JSON-LD. There are multiple options for queries and different supported results formats, see documentation at "http://api.lobid.org":http://api.lobid.org (implemented in the @app/views/index.scala.html@ template). Since the expanded JSON-LD described above is cumbersome, the API serves "compact JSON-LD":http://www.w3.org/TR/json-ld-api/#compaction-algorithms. It also uses an external JSON-LD context document to allow shorter keys instead of full URI properties, and to encapsulate the actual properties used in the expanded form. That way, we can change the properties, without requiring API clients to change how they process the JSON responses.
 
 h1. License
 
