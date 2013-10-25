@@ -15,6 +15,7 @@ lodmill-ui/.settings/org.scala-ide.sdt.core.prefs
 test.*
 *.dot*
 !lodmill-rd/doc/samples/*.dot
+!lodmill-ui/doc/*.dot
 plugin.xml_gen
 *-gen
 .antlr-generator-*.jar
@@ -25,6 +26,7 @@ lodmill*.jar
 !lodmill-ld/src/test/resources/*.nt
 *.png
 !lodmill-ui/public/images/*.png
+!lodmill-ui/doc/*.png
 *.xsd
 .cache
 lodmill-ui/data/
