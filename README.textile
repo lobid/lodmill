@@ -72,7 +72,7 @@ The first Hadoop job (implemented in @CollectSubjects.java@) selects triples tha
 
 @<http://lobid.org/resource/HT002189125> <http://purl.org/dc/elements/1.1/creator> <http://d-nb.info/gnd/118580604> .@
 
-The resource creator is identified via its GND ID. To allow searching by the actual name of the creator, we want to resolve the name literals, so we declare that the @creator@ property needs to be resolved in the @resolve.properties@ file:
+The creator of the resource is identified via its GND ID. To allow searching by the actual name of the creator, we want to resolve the name literals, so we declare that the @creator@ property needs to be resolved in the @resolve.properties@ file:
 
 @resolve = \ http://purl.org/dc/elements/1.1/creator; \ [...]@
 
@@ -92,7 +92,7 @@ This will cause the second Hadoop job to perform a lookup on the subject of a tr
 
 Since the subject is mapped to the @<http://lobid.org/resource/HT002189125>@ resource ID, we add that triple to the triples of that resource, which yields a record for @<http://lobid.org/resource/HT002189125>@ that contains not only the triples with that subject, but also the enrichment triples defined in the @resolve.properties@ file. That way, we effectively define our records to be subgraphs of the complete triple set.
 
-The same mechanism is used to resolve information modeled using blank nodes. See our current @resolve.properties@ file in @lodmill-ld/src/main/resources@ for details.
+The same mechanism is used to resolve information modeled using blank nodes. See our current "resolve.properties file":https://github.com/lobid/lodmill/blob/master/lodmill-ld/src/main/resources/resolve.properties for details.
 
 h2. Linked Data Records to Index
 
