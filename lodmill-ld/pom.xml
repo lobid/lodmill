@@ -14,6 +14,17 @@
 		<mdep.outputFile>classpath</mdep.outputFile>
 	</properties>
 
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>lobid-snapshots</id>
+			<name>Lobid Snapshots</name>
+			<url>http://lobid.github.io/snapshots</url>
+		</repository>
+	</repositories>
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>lobid-snapshots</id>

@@ -9,6 +9,16 @@
 		<target.jdk>1.6</target.jdk>
 		<junit.version>4.8.2</junit.version>
 	</properties>
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>lobid-snapshots</id>
+			<name>Lobid Snapshots</name>
+			<url>http://lobid.github.io/snapshots</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 		    <groupId>org.culturegraph</groupId>
