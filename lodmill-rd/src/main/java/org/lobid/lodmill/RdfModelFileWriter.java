@@ -156,14 +156,16 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 					model.listObjectsOfProperty(model.createProperty(this.property))
 							.next().toString();
 		}
-		if (identifier.length() >= endIndex) {
-			identifier = identifier.substring(startIndex, endIndex);
+
+		String directory = identifier;
+		if (directory.length() >= endIndex) {
+			directory = directory.substring(startIndex, endIndex);
 		}
 		final String file =
 				FilenameUtils.concat(
 						target,
-						FilenameUtils.concat(identifier + File.separator, identifier + "."
-								+ this.fileSuffix));
+						FilenameUtils.concat(directory + File.separator, identifier + "."
+								+ fileSuffix));
 
 		LOG.info("Write to " + file);
 		ensurePathExists(file);
@@ -177,6 +179,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 			IOUtils.write(tripleWriter.toString(), writer);
 			writer.close();
 		} catch (IOException e) {
+			e.printStackTrace();
 			throw new MetafactureException(e);
 		}
 	}
