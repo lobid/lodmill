@@ -24,15 +24,10 @@ Prerequisites: Java 7 and Maven 3 (check @mvn -version@ to make sure Maven is us
 
 To set up a local build of the lodmill components follow these steps:
 
-h6. Clone lodmill and build SNAPSHOT dependencies
+h6. Clone lodmill and run the Maven build
 
 @git clone https://github.com/lobid/lodmill.git@
 @cd lodmill@
-@cd lodmill-rd ; sh install-dependencies.sh ; cd ..@
-@cd lodmill-ld ; sh install-dependencies.sh ; cd ..@
-
-h6. Run the Maven build for lodmill-ld and lodmill-rd
-
 @umask 0022@ (required for MRUnit tests)
 @mvn clean install --settings settings.xml@ (or copy 'settings.xml' to '~/.m2')
 
