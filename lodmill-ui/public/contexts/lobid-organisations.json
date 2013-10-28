@@ -18,7 +18,7 @@
          "@id": "http://www.geonames.org/ontology#locatedIn",
          "@type": "@id"
       },
-      "adress":
+      "address":
       {
          "@id": "http://www.w3.org/2006/vcard/ns#adr",
          "@type": "@id"
