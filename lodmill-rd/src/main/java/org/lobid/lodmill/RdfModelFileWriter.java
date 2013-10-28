@@ -39,93 +39,60 @@ import com.hp.hpl.jena.rdf.model.Model;
 		+ "- 'property' (the property in the RDF model. The object of this property"
 		+ " will be the main part of the file's name.) "
 		+ "- 'startIndex' ( a subfolder will be extracted out of the filename. This marks the index' beginning )"
-		+ "- 'stopIndex' ( a subfolder will be extracted out of the filename. This marks the index' end )")
+		+ "- 'stopIndex' ( a subfolder will be extracted out of the filename. This marks the index' end )"
+		+ "- 'serialization (e.g. one of 'NTRIPLES', 'TURTLE', 'RDFXML','RDFJSON'")
 @In(Model.class)
 @Out(Void.class)
-public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
+public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
+		implements ExtractFilenameInterface {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(RdfModelFileWriter.class);
-	private String target = "tmp";
 
-	private String encoding = "UTF-8";
-	private String property = "http://purl.org/dc/terms/identifier";
-	private String fileSuffix = "nt";
-	private int startIndex = 0;
-	private int endIndex = 0;
-	private Lang serialization = Lang.NTRIPLES;
+	private ExtractFilename extractFilename = new ExtractFilename();
+	private Lang serialization;
 
 	/**
 	 * Default constructor
 	 */
 	public RdfModelFileWriter() {
+		setProperty("http://purl.org/dc/terms/identifier");
+		setFileSuffix("nt");
+		setSerialization("NTRIPLES");
 	}
 
-	/**
-	 * Returns the encoding used to open the resource.
-	 * 
-	 * @return current default setting
-	 */
+	@Override
 	public String getEncoding() {
-		return encoding;
+		return extractFilename.encoding;
 	}
 
-	/**
-	 * Sets the encoding used to open the resource.
-	 * 
-	 * @param encoding new encoding
-	 */
+	@Override
 	public void setEncoding(final String encoding) {
-		this.encoding = encoding;
+		extractFilename.encoding = encoding;
 	}
 
-	/**
-	 * Sets the target path.
-	 * 
-	 * @param target the basis directory in which the files are stored
-	 */
+	@Override
 	public void setTarget(final String target) {
-		this.target = target;
+		extractFilename.target = target;
 	}
 
-	/**
-	 * Sets the property in the RDF model which will be used to create the file
-	 * names main part. This should be a unique value because if the generated
-	 * filename is already existing the file would be overwritten."
-	 * 
-	 * @param property the property in the RDF model. The object of this property
-	 *          will be the main part of the file's name.
-	 */
+	@Override
 	public void setProperty(final String property) {
-		this.property = property;
+		extractFilename.property = property;
 	}
 
-	/**
-	 * Sets the file's suffix.
-	 * 
-	 * @param fileSuffix the suffix used for the to be generated files
-	 */
+	@Override
 	public void setFileSuffix(final String fileSuffix) {
-		this.fileSuffix = fileSuffix;
+		extractFilename.fileSuffix = fileSuffix;
 	}
 
-	/**
-	 * Sets the beginning of the index in the filename to extract the name of the
-	 * subfolder.
-	 * 
-	 * @param startIndex This marks the index'beginning.
-	 */
+	@Override
 	public void setStartIndex(final int startIndex) {
-		this.startIndex = startIndex;
+		extractFilename.startIndex = startIndex;
 	}
 
-	/**
-	 * Sets the end of the index in the filename to extract the name of the
-	 * subfolder.
-	 * 
-	 * @param endIndex This marks the index' end.
-	 */
+	@Override
 	public void setEndIndex(final int endIndex) {
-		this.endIndex = endIndex;
+		extractFilename.endIndex = endIndex;
 	}
 
 	/**
@@ -141,8 +108,10 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 		String identifier = null;
 		try {
 			identifier =
-					model.listObjectsOfProperty(model.createProperty(this.property))
-							.next().asLiteral().toString();
+					model
+							.listObjectsOfProperty(
+									model.createProperty(extractFilename.property)).next()
+							.asLiteral().toString();
 			LOG.debug("Going to store identifier=" + identifier);
 		} catch (NoSuchElementException e) {
 			LOG.warn(
@@ -153,26 +122,31 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model> {
 			LOG.warn("Identifier is a URI. Derive filename from that URI ... "
 					+ model.toString(), e);
 			identifier =
-					model.listObjectsOfProperty(model.createProperty(this.property))
-							.next().toString();
+					model
+							.listObjectsOfProperty(
+									model.createProperty(extractFilename.property)).next()
+							.toString();
 		}
 
 		String directory = identifier;
-		if (directory.length() >= endIndex) {
-			directory = directory.substring(startIndex, endIndex);
+		if (directory.length() >= extractFilename.endIndex) {
+			directory =
+					directory.substring(extractFilename.startIndex,
+							extractFilename.endIndex);
 		}
 		final String file =
 				FilenameUtils.concat(
-						target,
+						extractFilename.target,
 						FilenameUtils.concat(directory + File.separator, identifier + "."
-								+ fileSuffix));
+								+ extractFilename.fileSuffix));
 
 		LOG.info("Write to " + file);
 		ensurePathExists(file);
 
 		try {
 			final Writer writer =
-					new OutputStreamWriter(new FileOutputStream(file), encoding);
+					new OutputStreamWriter(new FileOutputStream(file),
+							extractFilename.encoding);
 			final StringWriter tripleWriter = new StringWriter();
 			RDFDataMgr.write(tripleWriter, model, this.serialization);
 			tripleWriter.toString();
