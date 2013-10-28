@@ -1,6 +1,8 @@
-/* Copyright 2013  Pascal Christoph.
+/* Copyright 2013  hbz, Pascal Christoph.
  * Licensed under the Eclipse Public License 1.0 */
 package org.lobid.lodmill;
+
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,17 +15,30 @@ import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Test;
 
 /**
- * @author Pascal Christoph
+ * Extracts records from xml file and writes single xml files as well as
+ * transformated ntriples into filesystem.
+ * 
+ * @author Pascal Christoph (dr0i)
  * 
  */
 @SuppressWarnings("javadoc")
 public class LobidOrganisationsUpdateTest {
 
 	@Test
-	public void testFlow() throws URISyntaxException, IOException {
-		final String PATH = "tmp";
+	public void testPicaXmlSplits() throws URISyntaxException, IOException {
+		String PATH = "tmp";
+
 		final FileOpener opener = new FileOpener();
-		final XmlDecoder xmldecoder = new XmlDecoder();
+		final XmlDecoder xmlDecoder = new XmlDecoder();
+		XmlTee tee = new XmlTee();
+		xmlDecoder.setReceiver(tee);
+
+		final XmlEntitySplitter xmlSplitter = new XmlEntitySplitter();
+		xmlSplitter.setEntityName("record");
+		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter(PATH);
+		xmlSplitter.setReceiver(xmlFilenameWriter);
+		tee.addReceiver(xmlSplitter);
+
 		final PicaXmlHandler handler = new PicaXmlHandler();
 		final Metamorph metamorph =
 				new Metamorph("morph_zdb-isil-file-pica2ld.xml");
@@ -31,14 +46,30 @@ public class LobidOrganisationsUpdateTest {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("TURTLE");
 		final RdfModelFileWriter writer = createWriter(PATH);
-		opener.setReceiver(xmldecoder).setReceiver(handler).setReceiver(metamorph)
-				.setReceiver(enrich).setReceiver(triple2model).setReceiver(writer);
+		handler.setReceiver(metamorph).setReceiver(enrich)
+				.setReceiver(triple2model).setReceiver(writer);
+		tee.addReceiver(handler);
+
+		opener.setReceiver(xmlDecoder).setReceiver(tee);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("Bibdat1303pp_sample1.xml").toURI());
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
+		assertEquals(
+				FileUtils.checksumCRC32(new File(PATH + File.separator + "DE"
+						+ File.separator + "DE-Tir1.xml")), 820368629);
 		FileUtils.deleteDirectory(new File(PATH));
+	}
+
+	private static XmlFilenameWriter createXmlFilenameWriter(String PATH) {
+		XmlFilenameWriter xmlFilenameWriter = new XmlFilenameWriter();
+		xmlFilenameWriter.setStartIndex(0);
+		xmlFilenameWriter.setEndIndex(2);
+		xmlFilenameWriter.setTarget(PATH);
+		xmlFilenameWriter
+				.setProperty("/collection/*[local-name() = 'record']/*[local-name() = 'global']/*[local-name() = 'tag'][@id='008H']/*[local-name() = 'subf'][@id='e']");
+		return xmlFilenameWriter;
 	}
 
 	private static PipeLobidOrganisationEnrichment createEnricher() {
@@ -54,6 +85,7 @@ public class LobidOrganisationsUpdateTest {
 		writer.setProperty("http://purl.org/dc/terms/identifier");
 		writer.setEndIndex(2);
 		writer.setStartIndex(0);
+		writer.setSerialization("NTRIPLES");
 		writer.setFileSuffix("nt");
 		writer.setTarget(PATH);
 		return writer;
