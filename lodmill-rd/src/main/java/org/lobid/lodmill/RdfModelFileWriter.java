@@ -1,4 +1,5 @@
-/* Copyright 2013 Pascal Christoph, hbz. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2013 Pascal Christoph, hbz.
+ * Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill;
 
@@ -44,11 +45,11 @@ import com.hp.hpl.jena.rdf.model.Model;
 @In(Model.class)
 @Out(Void.class)
 public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
-		implements ExtractFilenameInterface {
+		implements FilenameExtractor {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(RdfModelFileWriter.class);
 
-	private ExtractFilename extractFilename = new ExtractFilename();
+	private FilenameUtil filenameUtil = new FilenameUtil();
 	private Lang serialization;
 
 	/**
@@ -62,37 +63,37 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 
 	@Override
 	public String getEncoding() {
-		return extractFilename.encoding;
+		return filenameUtil.encoding;
 	}
 
 	@Override
 	public void setEncoding(final String encoding) {
-		extractFilename.encoding = encoding;
+		filenameUtil.encoding = encoding;
 	}
 
 	@Override
 	public void setTarget(final String target) {
-		extractFilename.target = target;
+		filenameUtil.target = target;
 	}
 
 	@Override
 	public void setProperty(final String property) {
-		extractFilename.property = property;
+		filenameUtil.property = property;
 	}
 
 	@Override
 	public void setFileSuffix(final String fileSuffix) {
-		extractFilename.fileSuffix = fileSuffix;
+		filenameUtil.fileSuffix = fileSuffix;
 	}
 
 	@Override
 	public void setStartIndex(final int startIndex) {
-		extractFilename.startIndex = startIndex;
+		filenameUtil.startIndex = startIndex;
 	}
 
 	@Override
 	public void setEndIndex(final int endIndex) {
-		extractFilename.endIndex = endIndex;
+		filenameUtil.endIndex = endIndex;
 	}
 
 	/**
@@ -110,7 +111,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 			identifier =
 					model
 							.listObjectsOfProperty(
-									model.createProperty(extractFilename.property)).next()
+									model.createProperty(filenameUtil.property)).next()
 							.asLiteral().toString();
 			LOG.debug("Going to store identifier=" + identifier);
 		} catch (NoSuchElementException e) {
@@ -124,21 +125,20 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 			identifier =
 					model
 							.listObjectsOfProperty(
-									model.createProperty(extractFilename.property)).next()
+									model.createProperty(filenameUtil.property)).next()
 							.toString();
 		}
 
 		String directory = identifier;
-		if (directory.length() >= extractFilename.endIndex) {
+		if (directory.length() >= filenameUtil.endIndex) {
 			directory =
-					directory.substring(extractFilename.startIndex,
-							extractFilename.endIndex);
+					directory.substring(filenameUtil.startIndex, filenameUtil.endIndex);
 		}
 		final String file =
 				FilenameUtils.concat(
-						extractFilename.target,
+						filenameUtil.target,
 						FilenameUtils.concat(directory + File.separator, identifier + "."
-								+ extractFilename.fileSuffix));
+								+ filenameUtil.fileSuffix));
 
 		LOG.info("Write to " + file);
 		ensurePathExists(file);
@@ -146,7 +146,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 		try {
 			final Writer writer =
 					new OutputStreamWriter(new FileOutputStream(file),
-							extractFilename.encoding);
+							filenameUtil.encoding);
 			final StringWriter tripleWriter = new StringWriter();
 			RDFDataMgr.write(tripleWriter, model, this.serialization);
 			tripleWriter.toString();

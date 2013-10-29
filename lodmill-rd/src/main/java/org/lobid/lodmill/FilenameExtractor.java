@@ -10,7 +10,7 @@ import java.io.File;
  * @author Pascal Christoph (dr0i)
  * 
  */
-public interface ExtractFilenameInterface {
+public interface FilenameExtractor {
 
 	/**
 	 * Returns the encoding used to open the resource.
@@ -70,7 +70,7 @@ public interface ExtractFilenameInterface {
 	 * @author Pascal Christoph (dr0i)
 	 * 
 	 */
-	public class ExtractFilename {
+	public class FilenameUtil {
 		String target = "tmp";
 		String encoding = "UTF-8";
 		String property = null;

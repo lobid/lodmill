@@ -43,12 +43,12 @@ import org.xml.sax.InputSource;
 @Out(Void.class)
 public final class XmlFilenameWriter extends
 		DefaultStreamPipe<ObjectReceiver<String>> implements
-		ExtractFilenameInterface {
+		FilenameExtractor {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(XmlFilenameWriter.class);
 	private static final XPath xPath = XPathFactory.newInstance().newXPath();
 
-	private ExtractFilename extractFilename = new ExtractFilename();
+	private FilenameUtil filenameUtil = new FilenameUtil();
 
 	/**
 	 * Default constructor
@@ -62,33 +62,33 @@ public final class XmlFilenameWriter extends
 		String identifier = null;
 		try {
 			identifier =
-					xPath.evaluate(extractFilename.property, new InputSource(
+					xPath.evaluate(filenameUtil.property, new InputSource(
 							new StringReader(xml)));
 		} catch (XPathExpressionException e2) {
 			e2.printStackTrace();
 		}
-		if (identifier == null || identifier.length() < extractFilename.endIndex) {
+		if (identifier == null || identifier.length() < filenameUtil.endIndex) {
 			LOG.info("No identifier found, skip writing");
 			LOG.debug("the xml:" + xml);
 			return;
 		}
 		String directory = identifier;
-		if (directory.length() >= extractFilename.endIndex) {
+		if (directory.length() >= filenameUtil.endIndex) {
 			directory =
-					directory.substring(extractFilename.startIndex,
-							extractFilename.endIndex);
+					directory.substring(filenameUtil.startIndex,
+							filenameUtil.endIndex);
 		}
 		final String file =
 				FilenameUtils.concat(
-						extractFilename.target,
+						filenameUtil.target,
 						FilenameUtils.concat(directory + File.separator, identifier + "."
-								+ extractFilename.fileSuffix));
+								+ filenameUtil.fileSuffix));
 		LOG.info("Write to " + file);
-		extractFilename.ensurePathExists(file);
+		filenameUtil.ensurePathExists(file);
 		try {
 			final Writer writer =
 					new OutputStreamWriter(new FileOutputStream(file),
-							extractFilename.encoding);
+							filenameUtil.encoding);
 			IOUtils.write(xml, writer);
 			writer.close();
 		} catch (IOException e) {
@@ -99,39 +99,39 @@ public final class XmlFilenameWriter extends
 
 	@Override
 	public String getEncoding() {
-		return extractFilename.encoding;
+		return filenameUtil.encoding;
 	}
 
 	@Override
 	public void setEncoding(String encoding) {
-		extractFilename.encoding = encoding;
+		filenameUtil.encoding = encoding;
 
 	}
 
 	@Override
 	public void setTarget(String target) {
-		extractFilename.target = target;
+		filenameUtil.target = target;
 	}
 
 	@Override
 	public void setProperty(String property) {
-		extractFilename.property = property;
+		filenameUtil.property = property;
 	}
 
 	@Override
 	public void setFileSuffix(String fileSuffix) {
-		extractFilename.fileSuffix = fileSuffix;
+		filenameUtil.fileSuffix = fileSuffix;
 
 	}
 
 	@Override
 	public void setStartIndex(int startIndex) {
-		extractFilename.startIndex = startIndex;
+		filenameUtil.startIndex = startIndex;
 
 	}
 
 	@Override
 	public void setEndIndex(int endIndex) {
-		extractFilename.endIndex = endIndex;
+		filenameUtil.endIndex = endIndex;
 	}
 }
