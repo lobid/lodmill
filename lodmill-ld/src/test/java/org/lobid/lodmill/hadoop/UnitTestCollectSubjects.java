@@ -61,7 +61,7 @@ public final class UnitTestCollectSubjects {
 	public void testProperties() {
 		assertEquals("number of entries to resolve", 6,
 				CollectSubjects.TO_RESOLVE.size());
-		assertEquals("number of predicates", 10, CollectSubjects.PREDICATES.size());
+		assertEquals("number of predicates", 11, CollectSubjects.PREDICATES.size());
 	}
 
 	@Test
