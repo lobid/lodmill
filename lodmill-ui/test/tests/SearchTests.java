@@ -473,7 +473,7 @@ public class SearchTests {
 	}
 
 	private static void assertJsonResponse(final String response) {
-		assertThat(response).isNotEmpty().startsWith("[{\"@graph\":");
+		assertThat(response).isNotEmpty().startsWith("[{\"@context\":");
 	}
 
 	@Test
