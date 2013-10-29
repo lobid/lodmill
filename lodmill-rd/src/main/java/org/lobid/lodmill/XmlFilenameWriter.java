@@ -19,6 +19,7 @@ import org.apache.commons.io.IOUtils;
 import org.culturegraph.mf.exceptions.MetafactureException;
 import org.culturegraph.mf.framework.DefaultStreamPipe;
 import org.culturegraph.mf.framework.ObjectReceiver;
+import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
@@ -38,7 +39,7 @@ import org.xml.sax.InputSource;
 		+ "- 'property' (the element in the XML entity. Constitutes the main part of the file's name.) "
 		+ "- 'startIndex' ( a subfolder will be extracted out of the filename. This marks the index' beginning )"
 		+ "- 'stopIndex' ( a subfolder will be extracted out of the filename. This marks the index' end )")
-@In(String.class)
+@In(StreamReceiver.class)
 @Out(Void.class)
 public final class XmlFilenameWriter extends
 		DefaultStreamPipe<ObjectReceiver<String>> implements
