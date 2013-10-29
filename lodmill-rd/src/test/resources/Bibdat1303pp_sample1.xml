@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
-<collection>
+<harvest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
+  <metadata>
   <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
     <ppxml:global opacflag="" status="">
       <ppxml:tag id="98063402" occ=""/>
@@ -70,6 +71,8 @@
       </ppxml:tag>
     </ppxml:global>
   </ppxml:record>
+  </metadata>
+  <metadata>
 	<ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00901858" occ=""/>
@@ -143,6 +146,8 @@
 			</ppxml:tag>
 		</ppxml:global>
 	</ppxml:record>
+  </metadata>
+  <metadata>
 	<ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00900191" occ=""/>
@@ -233,6 +238,8 @@
 			</ppxml:tag>
 		</ppxml:global>
 	</ppxml:record>
+  </metadata>
+  <metadata>
 	<ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00900489" occ=""/>
@@ -305,6 +312,8 @@
 			</ppxml:tag>
 		</ppxml:global>
 	</ppxml:record>
+  </metadata>
+  <metadata>
 	<ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00900015" occ=""/>
@@ -352,6 +361,8 @@
     </ppxml:tag>
   </ppxml:global>
   </ppxml:record>
+  </metadata>
+  <metadata>
   <ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00900004" occ=""/>
@@ -497,6 +508,8 @@
 			</ppxml:tag>
 		</ppxml:global>
 	</ppxml:record>
+  </metadata>
+  <metadata>
 	<ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00900021" occ=""/>
@@ -541,6 +554,8 @@
 			</ppxml:tag>
 		</ppxml:global>
 	</ppxml:record>
+  </metadata>
+  <metadata>
 	<ppxml:record xmlns:ppxml="http://www.oclcpica.org/xmlns/ppxml-1.0">
 		<ppxml:global opacflag="" status="">
 			<ppxml:tag id="00900791" occ=""/>
@@ -646,4 +661,5 @@
 			</ppxml:tag>
 		</ppxml:global>
 	</ppxml:record>
-</collection>
+  </metadata>
+</harvest>

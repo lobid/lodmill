@@ -8,7 +8,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import org.antlr.runtime.RecognitionException;
 import org.apache.commons.io.FileUtils;
+import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.source.FileOpener;
@@ -23,10 +25,11 @@ import org.junit.Test;
  */
 @SuppressWarnings("javadoc")
 public class LobidOrganisationsUpdateTest {
+	String PATH = "tmp";
+	String PATH_QR = "media";
 
 	@Test
 	public void testPicaXmlSplits() throws URISyntaxException, IOException {
-		String PATH = "tmp";
 
 		final FileOpener opener = new FileOpener();
 		final XmlDecoder xmlDecoder = new XmlDecoder();
@@ -34,7 +37,7 @@ public class LobidOrganisationsUpdateTest {
 		xmlDecoder.setReceiver(tee);
 
 		final XmlEntitySplitter xmlSplitter = new XmlEntitySplitter();
-		xmlSplitter.setEntityName("record");
+		xmlSplitter.setEntityName("metadata");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter(PATH);
 		xmlSplitter.setReceiver(xmlFilenameWriter);
 		tee.addReceiver(xmlSplitter);
@@ -57,9 +60,10 @@ public class LobidOrganisationsUpdateTest {
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
 		assertEquals(
+				Long.parseLong("2748079330"),
 				FileUtils.checksumCRC32(new File(PATH + File.separator + "DE"
-						+ File.separator + "DE-Tir1.xml")), 820368629);
-		FileUtils.deleteDirectory(new File(PATH));
+						+ File.separator + "DE-Tir1.xml")));
+		deleteTestFiles();
 	}
 
 	private static XmlFilenameWriter createXmlFilenameWriter(String PATH) {
@@ -68,7 +72,7 @@ public class LobidOrganisationsUpdateTest {
 		xmlFilenameWriter.setEndIndex(2);
 		xmlFilenameWriter.setTarget(PATH);
 		xmlFilenameWriter
-				.setProperty("/collection/*[local-name() = 'record']/*[local-name() = 'global']/*[local-name() = 'tag'][@id='008H']/*[local-name() = 'subf'][@id='e']");
+				.setProperty("/harvest/metadata/*[local-name() = 'record']/*[local-name() = 'global']/*[local-name() = 'tag'][@id='008H']/*[local-name() = 'subf'][@id='e']");
 		return xmlFilenameWriter;
 	}
 
@@ -89,5 +93,20 @@ public class LobidOrganisationsUpdateTest {
 		writer.setFileSuffix("nt");
 		writer.setTarget(PATH);
 		return writer;
+	}
+
+	@Test
+	public void testFlux() throws URISyntaxException, IOException,
+			RecognitionException {
+		File fluxFile =
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("zdb2lobidOrganisations.flux").toURI());
+		Flux.main(new String[] { fluxFile.getAbsolutePath() });
+		deleteTestFiles();
+	}
+
+	private void deleteTestFiles() throws IOException {
+		FileUtils.deleteDirectory(new File(PATH));
+		FileUtils.deleteDirectory(new File(PATH_QR));
 	}
 }
