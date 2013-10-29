@@ -88,6 +88,8 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		assertTrue("Expect resolved stock size", result.contains("10,001 - 30,000"));
 		assertTrue("Expect resolved type triple for location",
 				result.contains("wgs84_pos#SpatialThing"));
+		assertTrue("Expect resolved contributor name",
+				result.contains("Zayer, Eric"));
 		assertFalse("Unresolved blank node should be filtered",
 				result.contains("preferredNameEntityForThePerson"));
 	}

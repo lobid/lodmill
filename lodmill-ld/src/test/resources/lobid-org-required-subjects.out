@@ -1,4 +1,5 @@
 _:b1:blank-nodes-test/sample-1.nt http://lobid.org/organisation/ACRPP,http://lobid.org/organisation/AAAAA
 _:b1:blank-nodes-test/sample-2.nt http://lobid.org/organisation/ACRPP
+http://d-nb.info/gnd/129262110 http://lobid.org/organisation/ACRPP
 http://purl.org/lobid/fundertype#n08 http://lobid.org/organisation/ACRPP
 http://purl.org/lobid/stocksize#n06 http://lobid.org/organisation/ACRPP
