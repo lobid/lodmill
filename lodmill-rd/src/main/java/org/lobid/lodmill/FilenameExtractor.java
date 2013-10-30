@@ -67,6 +67,9 @@ public interface FilenameExtractor {
 	public void setEndIndex(final int endIndex);
 
 	/**
+	 * Provides functions and fields which all the {@FilenameExtractor
+	 * } interface implementing classes may found useful.
+	 * 
 	 * @author Pascal Christoph (dr0i)
 	 * 
 	 */
