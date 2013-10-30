@@ -60,10 +60,12 @@ public class Search {
 	 * @param parameter The search parameter (see {@link Index#queries()} )
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
+	 * @param field The field to return as the result
 	 * @return The documents matching the given parameters
 	 */
 	public static List<Document> documents(final String term, final Index index,
-			final Parameter parameter, final int from, final int size) {
+			final Parameter parameter, final int from, final int size,
+			final String field) {
 		validate(index, parameter, from, size);
 		AbstractIndexQuery indexQuery = index.queries().get(parameter);
 		final QueryBuilder queryBuilder = indexQuery.build(term);
@@ -77,7 +79,7 @@ public class Search {
 		Logger.trace("Got response: " + response);
 		final SearchHits hits = response.getHits();
 		final List<Document> documents =
-				asDocuments(term, hits, indexQuery.fields(), index);
+				asDocuments(term, hits, indexQuery.fields(), index, field);
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
 				hits.hits().length, documents.size()));
 		return documents;
@@ -115,13 +117,14 @@ public class Search {
 	}
 
 	private static List<Document> asDocuments(final String query,
-			final SearchHits hits, final List<String> searchFields, final Index index) {
+			final SearchHits hits, final List<String> searchFields,
+			final Index index, final String field) {
 		final List<Document> res = new ArrayList<>();
 		for (SearchHit hit : hits) {
 			try {
 				Hit hitEnum = Hit.of(hit, searchFields);
 				final Document document =
-						new Document(hit.getId(), new String(hit.source()), index);
+						new Document(hit.getId(), new String(hit.source()), index, field);
 				res.add(hitEnum.process(query, document));
 			} catch (IllegalArgumentException e) {
 				Logger.error(e.getMessage(), e);

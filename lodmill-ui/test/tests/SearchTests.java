@@ -4,6 +4,7 @@ package tests;
 
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 import static org.fest.assertions.Assertions.assertThat;
+import static play.mvc.Http.Status.BAD_REQUEST;
 import static play.mvc.Http.Status.OK;
 import static play.test.Helpers.GET;
 import static play.test.Helpers.fakeApplication;
@@ -109,7 +110,7 @@ public class SearchTests {
 	public void searchViaModel() {
 		final List<Document> docs =
 				Search.documents(TERM, Index.LOBID_RESOURCES, Parameter.AUTHOR, FROM,
-						SIZE);
+						SIZE, "");
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
 			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
@@ -124,7 +125,7 @@ public class SearchTests {
 
 	private static int searchOrgByName(final String term) {
 		return Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.NAME,
-				FROM, SIZE).size();
+				FROM, SIZE, "").size();
 	}
 
 	@Test
@@ -135,7 +136,7 @@ public class SearchTests {
 
 	private static int searchOrgQuery(final String term) {
 		return Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.Q, FROM,
-				SIZE).size();
+				SIZE, "").size();
 	}
 
 	/*@formatter:off*/
@@ -146,7 +147,7 @@ public class SearchTests {
 	private static void searchOrgById(final String term) {
 		final List<Document> docs =
 				Search.documents(term, Index.LOBID_ORGANISATIONS, Parameter.ID, FROM,
-						SIZE);
+						SIZE, "");
 		assertThat(docs.size()).isEqualTo(1);
 	}
 
@@ -163,8 +164,97 @@ public class SearchTests {
 
 	private static void searchResById(final String term) {
 		final List<Document> docs =
-				Search.documents(term, Index.LOBID_RESOURCES, Parameter.ID, FROM, SIZE);
+				Search.documents(term, Index.LOBID_RESOURCES, Parameter.ID, FROM, SIZE,
+						"");
 		assertThat(docs.size()).isEqualTo(1);
+	}
+
+	@Test
+	public void searchResByIdWithReturnFieldViaModel() {
+		running(fakeApplication(), new Runnable() {
+			@Override
+			public void run() {
+				final List<Document> docs =
+						Search.documents("TT050326640", Index.LOBID_RESOURCES,
+								Parameter.ID, FROM, SIZE, "fulltextOnline");
+				assertThat(docs.size()).isEqualTo(1);
+				assertThat(docs.get(0).getSource()).isEqualTo(
+						"[\"http://dx.doi.org/10.1007/978-1-4020-8389-1\"]");
+			}
+		});
+	}
+
+	/*@formatter:off*/
+	@Test public void returnFieldParam() { returnFieldHit("resource?id=TT050326640&"); }
+	@Test public void returnFieldPath() { returnFieldHit("resource/TT050326640?"); }
+	/*@formatter:on*/
+
+	public void returnFieldHit(final String query) {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final String response = call(query + "format=short.fulltextOnline");
+				assertThat(response).isNotNull();
+				final JsonNode jsonObject = Json.parse(response);
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(1);
+				assertThat(jsonObject.elements().next().asText()).isEqualTo(
+						"http://dx.doi.org/10.1007/978-1-4020-8389-1");
+			}
+		});
+	}
+
+	/*@formatter:off*/
+	@Test public void returnFieldParamNoHit() { returnFieldNoHit("resource?id=HT000000716&"); }
+	@Test public void returnFieldPathNoHit() { returnFieldNoHit("resource/HT000000716?"); }
+	/*@formatter:on*/
+
+	public void returnFieldNoHit(final String query) {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final String response = call(query + "format=short.fulltextOnline");
+				assertThat(response).isNotNull();
+				final JsonNode jsonObject = Json.parse(response);
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(0);
+			}
+		});
+	}
+
+	@Test
+	public void returnFieldSorting() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final String response =
+						call("resource?author=abraham&format=short.issued");
+				assertThat(response).isNotNull();
+				final JsonNode jsonObject = Json.parse(response);
+				assertThat(jsonObject.isArray()).isTrue();
+				final Iterator<JsonNode> elements = jsonObject.elements();
+				assertThat(elements.next().asText()).isEqualTo("1719");
+				assertThat(elements.next().asText()).isEqualTo("1906");
+				assertThat(elements.next().asText()).isEqualTo("1973");
+				assertThat(elements.next().asText()).isEqualTo("1976");
+				assertThat(elements.next().asText()).isEqualTo("1977");
+				assertThat(elements.next().asText()).isEqualTo("1979");
+				assertThat(elements.next().asText()).isEqualTo("1981");
+			}
+		});
+	}
+
+	@Test
+	public void returnFieldBadRequest() {
+		running(fakeApplication(), new Runnable() {
+			@Override
+			public void run() {
+				assertThat(
+						status(route(fakeRequest(GET,
+								"/resource?author=Böll&format=ids.issued")))).isEqualTo(
+						BAD_REQUEST);
+			}
+		});
 	}
 
 	/*@formatter:off*/
@@ -183,14 +273,14 @@ public class SearchTests {
 	private static void findOneBy(String name) {
 		assertThat(
 				Search.documents(name, Index.LOBID_RESOURCES, Parameter.AUTHOR, FROM,
-						SIZE).size()).isEqualTo(1);
+						SIZE, "").size()).isEqualTo(1);
 	}
 
 	@Test
 	public void searchViaModelMultiResult() {
 		List<Document> documents =
 				Search.documents("Neil Eric Schore (1948-)", Index.LOBID_RESOURCES,
-						Parameter.AUTHOR, FROM, SIZE);
+						Parameter.AUTHOR, FROM, SIZE, "");
 		assertThat(documents.size()).isEqualTo(1);
 		assertThat(documents.get(0).getMatchedField()).isEqualTo(
 				"Vollhardt, Kurt Peter C. (1946-)");
@@ -200,7 +290,7 @@ public class SearchTests {
 	public void searchViaModelSetNwBib() {
 		List<Document> documents =
 				Search.documents("NwBib", Index.LOBID_RESOURCES, Parameter.SET, FROM,
-						SIZE);
+						SIZE, "");
 		assertThat(documents.size()).isEqualTo(3);
 		assertThat(documents.get(0).getMatchedField()).isEqualTo(
 				"http://lobid.org/resource/NWBib");
@@ -493,20 +583,20 @@ public class SearchTests {
 	public void searchWithLimit() {
 		final Index index = Index.LOBID_RESOURCES;
 		final Parameter parameter = Parameter.AUTHOR;
-		assertThat(Search.documents("ha", index, parameter, 0, 3).size())
+		assertThat(Search.documents("ha", index, parameter, 0, 3, "").size())
 				.isEqualTo(3);
-		assertThat(Search.documents("ha", index, parameter, 3, 6).size())
+		assertThat(Search.documents("ha", index, parameter, 3, 6, "").size())
 				.isEqualTo(6);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void searchWithLimitInvalidFrom() {
-		Search.documents("ha", Index.LOBID_RESOURCES, Parameter.AUTHOR, -1, 3);
+		Search.documents("ha", Index.LOBID_RESOURCES, Parameter.AUTHOR, -1, 3, "");
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void searchWithLimitInvalidSize() {
-		Search.documents("ha", Index.LOBID_RESOURCES, Parameter.AUTHOR, 0, 101);
+		Search.documents("ha", Index.LOBID_RESOURCES, Parameter.AUTHOR, 0, 101, "");
 	}
 
 	@Test

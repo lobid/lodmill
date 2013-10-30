@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
@@ -17,7 +18,9 @@ import org.lobid.lodmill.JsonLdConverter.Format;
 
 import play.Logger;
 import play.Play;
+import play.libs.Json;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.github.jsonldjava.core.JSONLD;
 import com.github.jsonldjava.core.JSONLDProcessingError;
 import com.github.jsonldjava.utils.JSONUtils;
@@ -34,6 +37,7 @@ public class Document {
 	private final String source;
 	private transient String id; // NOPMD
 	private Index index;
+	private String field;
 
 	/** @return The document ID. */
 	public String getId() {
@@ -54,11 +58,20 @@ public class Document {
 					(Map<String, Object>) JSONLD.compact(JSONUtils.fromString(source),
 							contextObject);
 			compactJsonLd.put("@context", localAndPublicContextUrls.getRight());
-			return JSONUtils.toString(compactJsonLd);
+			final String result = JSONUtils.toString(compactJsonLd);
+			return this.field.isEmpty() ? result : findField(result);
 		} catch (JSONLDProcessingError | IOException e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	private String findField(final String result) {
+		final List<JsonNode> fieldValues = Json.parse(result).findValues(field);
+		final JsonNode node =
+				fieldValues.size() == 1 && fieldValues.get(0).isArray() ? /**/
+				Json.toJson(fieldValues.get(0)) : Json.toJson(fieldValues);
+		return Json.stringify(node);
 	}
 
 	/**
@@ -86,11 +99,15 @@ public class Document {
 	 * @param id The document ID
 	 * @param source The document JSON source
 	 * @param index The index that this document is part of
+	 * @param field The field to consider as this document's data (if empty, the
+	 *          complete source will be the document's content)
 	 */
-	public Document(final String id, final String source, final Index index) { // NOPMD
+	public Document(final String id, final String source, final Index index,
+			final String field) { // NOPMD
 		this.id = id;
 		this.source = source;
 		this.index = index;
+		this.field = field;
 	}
 
 	/**

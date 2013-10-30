@@ -50,7 +50,9 @@ public final class Path extends Controller {
 		return Api.item(id, "", "", format, from, size);
 	}
 
-	/** Redirect to {@link #organisationAbout(String, String, String, int, int)} */
+	/**
+	 * Redirect to {@link #organisationAbout(String, String, String, int, int)}
+	 */
 	@SuppressWarnings("javadoc")
 	public static Result organisation(final String id, final String format,
 			final int from, final int size) {
