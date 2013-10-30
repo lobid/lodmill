@@ -11,6 +11,10 @@ import models.Document;
 import models.Index;
 import models.Parameter;
 import models.Search;
+
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+
 import play.Logger;
 import play.api.http.MediaRange;
 import play.libs.Json;
@@ -63,26 +67,39 @@ public final class Application extends Controller {
 			final String queryParameter, final String formatParameter,
 			final int from, final int size) {
 		List<Document> docs = new ArrayList<>();
-		final String field =
-				formatParameter.contains(".") ? formatParameter.split("\\.")[1] : "";
-		final String format =
-				formatParameter.contains(".") ? "full" : formatParameter;
+		Pair<String, String> fieldAndFormat;
 		try {
+			fieldAndFormat = getFieldAndFormat(formatParameter);
 			docs =
-					Search.documents(queryParameter, index, parameter, from, size, field);
+					Search.documents(queryParameter, index, parameter, from, size,
+							fieldAndFormat.getLeft());
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<ResultFormat, Result> results =
-				results(parameter, queryParameter, docs, index, field);
+				results(parameter, queryParameter, docs, index,
+						fieldAndFormat.getLeft());
 		try {
-			return results.get(ResultFormat.valueOf(format.toUpperCase()));
+			return results.get(ResultFormat.valueOf(fieldAndFormat.getRight()
+					.toUpperCase()));
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest("Invalid 'format' parameter, use one of: "
 					+ Joiner.on(", ").join(results.keySet()).toLowerCase());
 		}
+	}
+
+	private static Pair<String, String> getFieldAndFormat(final String format) {
+		if (format.contains(".")) {
+			final String[] strings = format.split("\\.");
+			if (strings.length != 2 || !strings[0].equals("short"))
+				throw new IllegalArgumentException(
+						"Parameter modifier only supported on `short` format, "
+								+ "e.g. `format=short.fulltextOnline`.");
+			return new ImmutablePair<>(strings[1], "full");
+		}
+		return new ImmutablePair<>("", format);
 	}
 
 	private static Function<Document, JsonNode> jsonFull =

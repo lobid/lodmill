@@ -4,6 +4,7 @@ package tests;
 
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 import static org.fest.assertions.Assertions.assertThat;
+import static play.mvc.Http.Status.BAD_REQUEST;
 import static play.mvc.Http.Status.OK;
 import static play.test.Helpers.GET;
 import static play.test.Helpers.fakeApplication;
@@ -239,6 +240,19 @@ public class SearchTests {
 				assertThat(elements.next().asText()).isEqualTo("1977");
 				assertThat(elements.next().asText()).isEqualTo("1979");
 				assertThat(elements.next().asText()).isEqualTo("1981");
+			}
+		});
+	}
+
+	@Test
+	public void returnFieldBadRequest() {
+		running(fakeApplication(), new Runnable() {
+			@Override
+			public void run() {
+				assertThat(
+						status(route(fakeRequest(GET,
+								"/resource?author=Böll&format=ids.issued")))).isEqualTo(
+						BAD_REQUEST);
 			}
 		});
 	}
