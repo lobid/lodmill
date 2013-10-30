@@ -59,6 +59,7 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		assertEquals(
 				" http://lobid.org/organisation/ACRPP,http://lobid.org/organisation/AAAAA\n"
 						+ " http://lobid.org/organisation/ACRPP\n"
+						+ "http://d-nb.info/gnd/129262110 http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/fundertype#n08 http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/stocksize#n06 http://lobid.org/organisation/ACRPP\n",
 				string.replaceAll("_:[^\\s]+", ""));
