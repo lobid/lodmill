@@ -192,7 +192,7 @@ public class SearchTests {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				final String response = call(query + "field=fulltextOnline");
+				final String response = call(query + "format=short.fulltextOnline");
 				assertThat(response).isNotNull();
 				final JsonNode jsonObject = Json.parse(response);
 				assertThat(jsonObject.isArray()).isTrue();
@@ -212,7 +212,7 @@ public class SearchTests {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				final String response = call(query + "field=fulltextOnline");
+				final String response = call(query + "format=short.fulltextOnline");
 				assertThat(response).isNotNull();
 				final JsonNode jsonObject = Json.parse(response);
 				assertThat(jsonObject.isArray()).isTrue();

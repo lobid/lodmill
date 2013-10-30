@@ -56,13 +56,17 @@ public final class Application extends Controller {
 	 * @param formatParameter The result format
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
-	 * @param field The field to return as the result
+	 * @param format The result format requested
 	 * @return The results, in the format specified
 	 */
 	static Result search(final Index index, final Parameter parameter,
 			final String queryParameter, final String formatParameter,
-			final int from, final int size, final String field) {
+			final int from, final int size) {
 		List<Document> docs = new ArrayList<>();
+		final String field =
+				formatParameter.contains(".") ? formatParameter.split("\\.")[1] : "";
+		final String format =
+				formatParameter.contains(".") ? "full" : formatParameter;
 		try {
 			docs =
 					Search.documents(queryParameter, index, parameter, from, size, field);
@@ -73,7 +77,7 @@ public final class Application extends Controller {
 		final ImmutableMap<ResultFormat, Result> results =
 				results(parameter, queryParameter, docs, index, field);
 		try {
-			return results.get(ResultFormat.valueOf(formatParameter.toUpperCase()));
+			return results.get(ResultFormat.valueOf(format.toUpperCase()));
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest("Invalid 'format' parameter, use one of: "

@@ -12,20 +12,20 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /context/:file              controllers.Assets.at(path="/public/contexts", file)
 
 # Individual, specialized API routes for different resource types
-GET     /resource                   controllers.Api.resource(id ?= "", q ?= "", name ?= "", author ?= "", subject ?= "", set ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /item                       controllers.Api.item(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /organisation               controllers.Api.organisation(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /person                     controllers.Api.person(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
+GET     /resource                   controllers.Api.resource(id ?= "", q ?= "", name ?= "", author ?= "", subject ?= "", set ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /item                       controllers.Api.item(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /organisation               controllers.Api.organisation(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /person                     controllers.Api.person(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
 
 # Path-style routes and `about` redirects
-GET     /resource/:id               controllers.Path.resource(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /resource/:id/about         controllers.Path.resourceAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /item/:id                   controllers.Path.item(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /item/:id/about             controllers.Path.itemAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /organisation/:id           controllers.Path.organisation(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /organisation/:id/about     controllers.Path.organisationAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /person/:id                 controllers.Path.person(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
-GET     /person/:id/about           controllers.Path.personAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, field ?= "")
+GET     /resource/:id               controllers.Path.resource(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /resource/:id/about         controllers.Path.resourceAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /item/:id                   controllers.Path.item(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /item/:id/about             controllers.Path.itemAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /organisation/:id           controllers.Path.organisation(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /organisation/:id/about     controllers.Path.organisationAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /person/:id                 controllers.Path.person(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /person/:id/about           controllers.Path.personAbout(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
 
 # General search endpoint for searching over all resource types
 GET     /search                     controllers.Api.search(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)

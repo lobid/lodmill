@@ -38,14 +38,13 @@ public final class Api extends Controller {
 	 * @param format The result format
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
-	 * @param field The field to return as the result
 	 * @return Matching resources
 	 */
 	public static Result resource(final String id,
 			final String q,
 			final String name, // NOPMD
 			final String author, final String subject, final String set,
-			final String format, final int from, final int size, final String field) {
+			final String format, final int from, final int size) {
 		Logger
 				.debug(String
 						.format(
@@ -61,7 +60,7 @@ public final class Api extends Controller {
 						.put(Parameter.SUBJECT, subject)
 						.put(Parameter.SET, set).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size, field);
+				format, from, size);
 	}
 
 	/**
@@ -71,14 +70,13 @@ public final class Api extends Controller {
 	 * @param format The result format
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
-	 * @param field The field to return as the result
 	 * @return Matching items
 	 */
 	public static Result item(final String id, final String q, final String name, // NOPMD
-			final String format, final int from, final int size, final String field) {
+			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /item; id: '%s', q: '%s', name: '%s'", id,
 				q, name));
-		return search(id, q, name, format, from, size, Index.LOBID_ITEMS, field);
+		return search(id, q, name, format, from, size, Index.LOBID_ITEMS);
 	}
 
 	/**
@@ -88,16 +86,14 @@ public final class Api extends Controller {
 	 * @param format The result format
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
-	 * @param field The field to return as the result
 	 * @return Matching organisations
 	 */
 	public static Result organisation(final String id, final String q,
 			final String name, // NOPMD
-			final String format, final int from, final int size, final String field) {
+			final String format, final int from, final int size) {
 		Logger.debug(String.format(
 				"GET /organisation; id: '%s', name: '%s', q: '%s'", id, name, q));
-		return search(id, q, name, format, from, size, Index.LOBID_ORGANISATIONS,
-				field);
+		return search(id, q, name, format, from, size, Index.LOBID_ORGANISATIONS);
 	}
 
 	/**
@@ -107,27 +103,26 @@ public final class Api extends Controller {
 	 * @param format The result format
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
-	 * @param field The field to return as the result
 	 * @return Matching persons
 	 */
 	public static Result person(final String id, final String q,
 			final String name, // NOPMD
-			final String format, final int from, final int size, final String field) {
+			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /person; id: '%s', q: '%s', name: '%s'",
 				id, q, name));
-		return search(id, q, name, format, from, size, Index.GND, field);
+		return search(id, q, name, format, from, size, Index.GND);
 	}
 
 	private static Result search(final String id, final String q,
 			final String name, final String format, final int from, final int size,
-			final Index index, final String field) {
+			final Index index) {
 		final Map.Entry<Parameter, String> parameter =/*@formatter:off*/
 				Parameter.select(new ImmutableMap.Builder<Parameter, String>()
 						.put(Parameter.ID, id)
 						.put(Parameter.Q, q)
 						.put(Parameter.NAME, name).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size, field);
+				format, from, size);
 	}
 
 	/**
@@ -151,10 +146,9 @@ public final class Api extends Controller {
 		}
 		final ObjectNode json = Json.newObject();
 		putIfOk(json, "resource",
-				resource(id, q, name, "", "", "", format, from, size, ""));
-		putIfOk(json, "organisation",
-				organisation(id, q, name, format, from, size, ""));
-		putIfOk(json, "person", person(id, q, name, format, from, size, ""));
+				resource(id, q, name, "", "", "", format, from, size));
+		putIfOk(json, "organisation", organisation(id, q, name, format, from, size));
+		putIfOk(json, "person", person(id, q, name, format, from, size));
 		Logger.trace("JSON response: " + json);
 		return ok(json);
 	}
