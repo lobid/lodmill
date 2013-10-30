@@ -6,7 +6,7 @@
 		<data source="008H.e" name="~rdf:subject">
 			<regexp match="(.*)" format="http://lobid.org/organisation/${1}"/>
 		</data>
-		<data source="008H.e" name="http://purl.org/dc/terms/identifier">
+		<data source="008H.e" name="http://purl.org/lobid/lv#isil">
 		</data>
 		<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://xmlns.com/foaf/0.1/Organization"/>
@@ -156,7 +156,7 @@
 		<data source="035E.h" name="http://purl.org/lobid/lv#stocksize">
 			<regexp match="(.*)" format="http://purl.org/lobid/stocksize#n${1}"/>
 		</data>
-		<data source="035G.a" name="http://purl.org/dc/terms/subject">
+		<data source="035G.a" name="http://purl.org/dc/elements/1.1/subject">
 		</data>
 		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
 			<regexp match="(?i).*gbv" format="http://lobid.org/organisation/DE-601"/>
