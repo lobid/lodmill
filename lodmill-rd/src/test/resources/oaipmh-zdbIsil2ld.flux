@@ -7,4 +7,4 @@ handle-picaxml |
 morph(files+"morph_zdb-isil-file-pica2ld.xml") |
 encode-triples-enrich-lobid-organisation(serialization="TURTLE",geonameFilename="geonames_DE_sample.csv") |
 triples-to-rdfmodel(input="TURTLE")|
-write-rdfmodel(property="http://purl.org/dc/terms/identifier",endIndex="2",startIndex="0", fileSuffix="nt",serialization="N-TRIPLE",target=files+"tmp");
+write-rdfmodel(property="http://purl.org/lobid/lv#isil",endIndex="2",startIndex="0", fileSuffix="nt",serialization="N-TRIPLE",target=files+"tmp");

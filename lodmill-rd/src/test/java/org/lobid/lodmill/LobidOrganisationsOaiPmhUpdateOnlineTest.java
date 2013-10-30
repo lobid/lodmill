@@ -58,7 +58,7 @@ public class LobidOrganisationsOaiPmhUpdateOnlineTest {
 
 	private static RdfModelFileWriter createWriter(final String PATH) {
 		final RdfModelFileWriter writer = new RdfModelFileWriter();
-		writer.setProperty("http://purl.org/dc/terms/identifier");
+		writer.setProperty("http://purl.org/lobid/lv#isil");
 		writer.setEndIndex(2);
 		writer.setStartIndex(0);
 		writer.setFileSuffix("nt");

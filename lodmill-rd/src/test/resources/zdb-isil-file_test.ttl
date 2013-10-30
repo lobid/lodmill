@@ -1,11 +1,11 @@
 <http://lobid.org/organisation/DE-Tir1>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
-        <http://purl.org/dc/terms/identifier>
-                "DE-Tir1" ;
         <http://purl.org/lobid/lv#contactqr>
                 <http://lobid.org/media/DE-Tir1_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n04> ;
+        <http://purl.org/lobid/lv#isil>
+                "DE-Tir1" ;
         <http://purl.org/lobid/lv#stocksize>
                 <http://purl.org/lobid/stocksize#n01> ;
         <http://www.geonames.org/ontology#locatedIn>
@@ -51,12 +51,12 @@
 
 <http://lobid.org/organisation/DE-100-301>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
-        <http://purl.org/dc/terms/identifier>
-                "DE-100-301" ;
         <http://purl.org/lobid/lv#contactqr>
                 <http://lobid.org/media/DE-100-301_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n07> ;
+        <http://purl.org/lobid/lv#isil>
+                "DE-100-301" ;
         <http://purl.org/lobid/lv#stocksize>
                 <http://purl.org/lobid/stocksize#n01> ;
         <http://www.geonames.org/ontology#locatedIn>
@@ -97,10 +97,8 @@
 
 <http://lobid.org/organisation/DE-188-867>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
-        <http://purl.org/dc/terms/identifier>
-                "DE-188-867" ;
-        <http://purl.org/dc/terms/subject>
-                "Scholastik" , "Patristik" , "Katholische Theologie" ;
+        <http://purl.org/dc/elements/1.1/subject>
+                "Scholastik" , "Katholische Theologie" , "Patristik" ;
         <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
                 [ a       <http://purl.org/goodrelations/v1#OpeningHoursSpecification> ;
                   <http://purl.org/dc/terms/description>
@@ -110,6 +108,8 @@
                 <http://lobid.org/media/DE-188-867_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n02> ;
+        <http://purl.org/lobid/lv#isil>
+                "DE-188-867" ;
         <http://purl.org/lobid/lv#stocksize>
                 <http://purl.org/lobid/stocksize#n06> ;
         <http://purl.org/ontology/daia/provides>
@@ -159,12 +159,12 @@
 
 <http://lobid.org/organisation/DE-7-133>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
-        <http://purl.org/dc/terms/identifier>
-                "DE-7-133" ;
         <http://purl.org/lobid/lv#contactqr>
                 <http://lobid.org/media/DE-7-133_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n02> ;
+        <http://purl.org/lobid/lv#isil>
+                "DE-7-133" ;
         <http://purl.org/lobid/lv#stocksize>
                 <http://purl.org/lobid/stocksize#n06> ;
         <http://www.geonames.org/ontology#locatedIn>
@@ -210,7 +210,7 @@
 
 <http://lobid.org/organisation/DE-11-39>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
-        <http://purl.org/dc/terms/identifier>
+        <http://purl.org/lobid/lv#isil>
                 "DE-11-39" ;
         <http://www.w3.org/2002/07/owl#sameAs>
                 <http://ld.zdb-services.de/resource/organisations/DE-11-39> ;
@@ -225,10 +225,8 @@
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://www.w3.org/2000/01/rdf-schema#seeAlso>
                 <http://dbpedia.org/resource/Staatsbibliothek_zu_Berlin> ;
-        <http://purl.org/dc/terms/identifier>
-                "DE-1a" ;
-        <http://purl.org/dc/terms/subject>
-                "Amtsdruckschriften" , "Ostasien" , "Geistes- und Sozialwissenschaften" , "Handschriften" , "Afrika" , "Recht" , "Karten" , "Osteuropa" , "Orientalistik" ;
+        <http://purl.org/dc/elements/1.1/subject>
+                "Recht" , "Karten" , "Amtsdruckschriften" , "Geistes- und Sozialwissenschaften" , "Osteuropa" , "Orientalistik" , "Afrika" , "Ostasien" , "Handschriften" ;
         <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
                 [ a       <http://purl.org/goodrelations/v1#OpeningHoursSpecification> ;
                   <http://purl.org/dc/terms/description>
@@ -238,6 +236,8 @@
                 <http://lobid.org/media/DE-1a_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n07> ;
+        <http://purl.org/lobid/lv#isil>
+                "DE-1a" ;
         <http://purl.org/lobid/lv#stocksize>
                 <http://purl.org/lobid/stocksize#n10> ;
         <http://purl.org/ontology/daia/provides>
@@ -293,8 +293,6 @@
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://www.w3.org/2000/01/rdf-schema#seeAlso>
                 <http://dbpedia.org/resource/Universitätsbibliothek_Bochum> ;
-        <http://purl.org/dc/terms/identifier>
-                "DE-294" ;
         <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
                 [ a       <http://purl.org/goodrelations/v1#OpeningHoursSpecification> ;
                   <http://purl.org/dc/terms/description>
@@ -304,6 +302,8 @@
                 <http://lobid.org/media/DE-294_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
                 <http://purl.org/lobid/fundertype#n07> ;
+        <http://purl.org/lobid/lv#isil>
+                "DE-294" ;
         <http://purl.org/lobid/lv#stocksize>
                 <http://purl.org/lobid/stocksize#n10> ;
         <http://purl.org/ontology/daia/provides>
