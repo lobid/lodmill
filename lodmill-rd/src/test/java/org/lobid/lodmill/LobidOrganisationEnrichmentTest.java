@@ -1,5 +1,5 @@
-/* Copyright 2013 hbz. Licensed under the Eclipse Public License 1.0 */
-
+/* Copyright 2013 hbz, Pascal Christoph.
+ * Licensed under the Eclipse Public License 1.0 */
 package org.lobid.lodmill;
 
 import java.io.IOException;

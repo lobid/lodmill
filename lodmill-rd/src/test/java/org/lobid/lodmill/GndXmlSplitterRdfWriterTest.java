@@ -25,18 +25,18 @@ public class GndXmlSplitterRdfWriterTest {
 	@Test
 	public void testFlow() throws IOException, URISyntaxException {
 		final FileOpener opener = new FileOpener();
-		final XmlDecoder xmldecoder = new XmlDecoder();
-		final XmlEntitySplitter splitxml = new XmlEntitySplitter();
-		splitxml.setEntityName("Description");
+		final XmlDecoder xmlDecoder = new XmlDecoder();
+		final XmlEntitySplitter splitXml = new XmlEntitySplitter();
+		splitXml.setEntityName("Description");
 		// top level element, to be valid according to rapper and riot,see
 		// http://www.w3.org/TR/rdf-syntax-grammar/#section-Syntax-complete-document
-		splitxml.setTopLevelElement("rdf:RDF");
-		final LiteralExtractor extractliteral = new LiteralExtractor();
+		splitXml.setTopLevelElement("rdf:RDF");
+		final LiteralExtractor extractLiteral = new LiteralExtractor();
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("RDF/XML");
 		final RdfModelFileWriter writer = createWriter(PATH);
-		opener.setReceiver(xmldecoder).setReceiver(splitxml)
-				.setReceiver(extractliteral).setReceiver(triple2model)
+		opener.setReceiver(xmlDecoder).setReceiver(splitXml)
+				.setReceiver(extractLiteral).setReceiver(triple2model)
 				.setReceiver(writer);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()

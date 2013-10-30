@@ -1,7 +1,6 @@
-/** Copyright 2013 hbz
+/** Copyright 2013 hbz, Pascal Christoph.
  * Licensed under the Eclipse Public License 1.0 
  **/
-
 package org.lobid.lodmill;
 
 import java.util.HashSet;
