@@ -129,7 +129,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(PipeLobidOrganisationEnrichment.class);
 	private static final QREncoder QRENCODER = new QREncoder();
-	private static final String QR_FILE_PATH = "media/";
+	private String qrFilePath = "media/";
 	private static final String LV_CONTACTQR =
 			"http://purl.org/lobid/lv#contactqr";
 	private static final String RDF_SYNTAX_NS_VALUE =
@@ -173,6 +173,16 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		this.doApiLookup = lookup;
 	}
 
+	/**
+	 * Sets the file path to which the QR codes will be written. Default is
+	 * "media/" .
+	 * 
+	 * @param path the path to where the QR codes will be written
+	 */
+	public void setQrFilePath(String path) {
+		qrFilePath = path;
+	}
+
 	@Override
 	public void startRecord(final String identifier) {
 		this.lat = null;
@@ -211,7 +221,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		super.onSetReceiver();
 		iniOsmApiLookup();
 		iniGeonamesDump();
-		File file = new File(QR_FILE_PATH);
+		File file = new File(qrFilePath);
 		if (!file.exists()) {
 			file.mkdir();
 		}
@@ -264,12 +274,12 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		String qrCodeText = createQrCodeText();
 		try {
 			String isil = (new URI(super.subject)).getPath().replaceAll("/.*/", "");
-			QRENCODER.createQRImage(QR_FILE_PATH + isil, qrCodeText,
+			QRENCODER.createQRImage(qrFilePath + isil, qrCodeText,
 					(int) (java.lang.Math.sqrt(qrCodeText.length() * 10) + 20) * 2);
 			this.model.add(
 					this.model.createResource(super.subject),
 					this.model.createProperty(LV_CONTACTQR),
-					this.model.asRDFNode(NodeFactory.createURI(NS_LOBID + QR_FILE_PATH
+					this.model.asRDFNode(NodeFactory.createURI(NS_LOBID + qrFilePath
 							+ isil + QREncoder.FILE_SUFFIX + "." + QREncoder.FILE_TYPE)));
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
