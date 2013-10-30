@@ -155,13 +155,24 @@ public final class Application extends Controller {
 				}
 			};
 
+	private static final Comparator<JsonNode> nodeAsTextComparator =
+			new Comparator<JsonNode>() {
+				@Override
+				public int compare(JsonNode o1, JsonNode o2) {
+					return o1.asText().compareTo(o2.asText());
+				}
+			};
+
 	private static Status fullJsonResponse(final List<Document> documents,
 			final String field) {
 		Iterable<JsonNode> nonEmptyNodes =
 				Iterables.filter(Lists.transform(documents, jsonFull), nonEmptyNode);
-		if (!field.isEmpty())
+		if (!field.isEmpty()) {
 			nonEmptyNodes =
-					FluentIterable.from(nonEmptyNodes).transformAndConcat(nodeToArray);
+					ImmutableSortedSet.copyOf(nodeAsTextComparator,
+							FluentIterable.from(nonEmptyNodes)
+									.transformAndConcat(nodeToArray));
+		}
 		return ok(Json.toJson(ImmutableSet.copyOf(nonEmptyNodes)));
 	}
 

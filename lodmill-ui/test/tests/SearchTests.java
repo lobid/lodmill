@@ -221,6 +221,28 @@ public class SearchTests {
 		});
 	}
 
+	@Test
+	public void returnFieldSorting() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final String response =
+						call("resource?author=abraham&format=short.issued");
+				assertThat(response).isNotNull();
+				final JsonNode jsonObject = Json.parse(response);
+				assertThat(jsonObject.isArray()).isTrue();
+				final Iterator<JsonNode> elements = jsonObject.elements();
+				assertThat(elements.next().asText()).isEqualTo("1719");
+				assertThat(elements.next().asText()).isEqualTo("1906");
+				assertThat(elements.next().asText()).isEqualTo("1973");
+				assertThat(elements.next().asText()).isEqualTo("1976");
+				assertThat(elements.next().asText()).isEqualTo("1977");
+				assertThat(elements.next().asText()).isEqualTo("1979");
+				assertThat(elements.next().asText()).isEqualTo("1981");
+			}
+		});
+	}
+
 	/*@formatter:off*/
 	@Test public void searchViaModelBirth0() { findOneBy("Theo Hundt"); }
 	@Test public void searchViaModelBirth1() { findOneBy("Hundt, Theo (1906-)"); }
