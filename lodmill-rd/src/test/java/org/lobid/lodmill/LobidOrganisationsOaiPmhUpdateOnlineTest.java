@@ -43,7 +43,7 @@ public class LobidOrganisationsOaiPmhUpdateOnlineTest {
 		final PipeLobidOrganisationEnrichment enrich =
 				new PipeLobidOrganisationEnrichment();
 		enrich.setSerialization("TURTLE");
-		enrich.setGeonameFilename("geonames_DE_sample.csv");
+		enrich.setGeonameFilename("geonames_DE.csv");
 		return enrich;
 	}
 

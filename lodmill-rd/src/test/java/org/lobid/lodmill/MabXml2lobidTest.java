@@ -1,4 +1,4 @@
-/* Copyright 2013  Pascal Christoph.
+/* Copyright 2013  hbz, Pascal Christoph.
  * Licensed under the Eclipse Public License 1.0 */
 package org.lobid.lodmill;
 
@@ -10,7 +10,6 @@ import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.ObjectTee;
 import org.culturegraph.mf.stream.pipe.StreamTee;
-import org.culturegraph.mf.stream.reader.XmlReaderBase;
 import org.culturegraph.mf.stream.sink.ObjectStdoutWriter;
 import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Test;
@@ -65,13 +64,6 @@ public final class MabXml2lobidTest {
 				+ "/002/HT002948556.nt"), new File(Thread.currentThread()
 				.getContextClassLoader().getResource("hbz01-to-lobid-output_test.nt")
 				.toURI()));
-	}
-
-	private static class MabXmlReader extends XmlReaderBase {
-		// Create a reader for mab XML.
-		public MabXmlReader() {
-			super(new MabXmlHandler());
-		}
 	}
 
 }
