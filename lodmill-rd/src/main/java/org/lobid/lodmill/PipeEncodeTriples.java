@@ -77,8 +77,10 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 				if (resources.peek().hasURI((DUMMY_SUBJECT))) {
 					ResourceUtils.renameResource(model.getResource(DUMMY_SUBJECT),
 							subject);
+					resources.push(model.createResource(subject));
+				} else {
+					resources.push(model.createResource(subject));
 				}
-				resources.push(model.createResource(subject));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
