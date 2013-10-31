@@ -9,6 +9,7 @@ import java.net.URISyntaxException;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.ObjectTee;
+import org.culturegraph.mf.stream.pipe.StreamTee;
 import org.culturegraph.mf.stream.reader.XmlReaderBase;
 import org.culturegraph.mf.stream.sink.ObjectStdoutWriter;
 import org.culturegraph.mf.stream.source.FileOpener;
@@ -19,27 +20,16 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("javadoc")
-public final class MabXml2lobidTest extends AbstractIngestTests {
-
-	public MabXml2lobidTest() {
-		super("src/test/resources/mab2example.xml.bz2", "morph-hbz01-to-lobid.xml",
-				"default_morph-stats.xml", new MabXmlReader());
-	}
-
-	@Test
-	public void testStatistics() throws IOException { // NOPMD
-		super.stats("mapping.textile");
-	}
+public final class MabXml2lobidTest {
 
 	@SuppressWarnings("static-method")
 	@Test
-	public void testFlux() throws URISyntaxException {
+	public void testFlow() throws URISyntaxException, IOException {
 		final FileOpener opener = new FileOpener();
 		opener.setCompression("BZIP2");
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		final MabXmlHandler handler = new MabXmlHandler();
 		final Metamorph morph = new Metamorph("morph-hbz01-to-lobid.xml");
-		PipeEncodeTriples encoder = new PipeEncodeTriples();
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		final ObjectTee<String> tee = new ObjectTee<String>();
@@ -56,17 +46,25 @@ public final class MabXml2lobidTest extends AbstractIngestTests {
 		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<String>();
 		tee.addReceiver(writer);
 		tee.addReceiver(triple2model);
+		StreamTee streamTee = new StreamTee();
+		final Stats stats = new Stats();
+		streamTee.addReceiver(stats);
+		PipeEncodeTriples encoder = new PipeEncodeTriples();
+		streamTee.addReceiver(encoder);
+		encoder.setReceiver(tee);
 		opener.setReceiver(xmlDecoder).setReceiver(handler).setReceiver(morph)
-				.setReceiver(encoder).setReceiver(tee);
+				.setReceiver(streamTee);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("mab2example.xml.bz2").toURI());
 		opener.process(infile.getAbsolutePath());
+		Stats.writeTextileMappingTable(stats.sortedByValuesDescending(), new File(
+				"/dev/null"));
 		opener.closeStream();
-		AbstractIngestTests.compareFiles(
-				new File(targetDirectory + "/002/002.nt"),
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("hbz01-to-lobid-output_test.nt").toURI()));
+		AbstractIngestTests.compareFiles(new File(targetDirectory
+				+ "/002/HT002948556.nt"), new File(Thread.currentThread()
+				.getContextClassLoader().getResource("hbz01-to-lobid-output_test.nt")
+				.toURI()));
 	}
 
 	private static class MabXmlReader extends XmlReaderBase {

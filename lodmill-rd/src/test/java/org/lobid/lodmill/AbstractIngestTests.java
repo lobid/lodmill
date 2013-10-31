@@ -3,23 +3,16 @@
 package org.lobid.lodmill;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import org.culturegraph.mf.framework.DefaultStreamPipe;
-import org.culturegraph.mf.framework.DefaultStreamReceiver;
 import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.morph.MorphErrorHandler;
@@ -168,8 +161,8 @@ public abstract class AbstractIngestTests {
 		processFile();
 		reader.closeStream();
 		final List<Entry<String, Integer>> entries =
-				sortedByValuesDescending(stats);
-		writeTextileMappingTable(entries, file);
+				stats.sortedByValuesDescending();
+		Stats.writeTextileMappingTable(entries, file);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
 		Assert.assertTrue("Values should have descending frequency", entries.get(0)
 				.getValue() >= entries.get(entries.size() - 1).getValue());
@@ -201,16 +194,6 @@ public abstract class AbstractIngestTests {
 		return tee;
 	}
 
-	private static class Stats extends DefaultStreamReceiver {
-
-		private final Map<String, Integer> map = new HashMap<String, Integer>();
-
-		@Override
-		public void literal(final String name, final String value) {
-			map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
-		}
-	}
-
 	protected static void setUpErrorHandler(final Metamorph metamorph) {
 		metamorph.setErrorHandler(new MorphErrorHandler() {
 			@Override
@@ -218,42 +201,5 @@ public abstract class AbstractIngestTests {
 				LOG.error(exception.getMessage(), exception);
 			}
 		});
-	}
-
-	private static List<Entry<String, Integer>> sortedByValuesDescending(
-			final Stats stats) {
-		final List<Entry<String, Integer>> entries =
-				new ArrayList<Entry<String, Integer>>(stats.map.entrySet());
-		Collections.sort(entries, new Comparator<Entry<String, Integer>>() {
-			@Override
-			public int compare(final Entry<String, Integer> entry1,
-					final Entry<String, Integer> entry2) {
-				// compare second to first for descending order:
-				return entry2.getValue().compareTo(entry1.getValue());
-			}
-		});
-		return entries;
-	}
-
-	private static void writeTextileMappingTable(
-			final List<Entry<String, Integer>> entries, final File textileMappingFile)
-			throws IOException {
-		final StringBuilder textileBuilder =
-				new StringBuilder(
-						"|*field*|*frequency*|*content*|*mapping*|*status*|\n");
-		LOG.info("Field\tFreq.");
-		LOG.info("----------------");
-		for (Entry<String, Integer> e : entries) {
-			LOG.info(e.getKey() + "\t" + e.getValue());
-			textileBuilder.append(String.format("|%s|%s| | | |\n", e.getKey(),
-					e.getValue()));
-		}
-		final FileWriter textileWriter = new FileWriter(textileMappingFile);
-		try {
-			textileWriter.write(textileBuilder.toString());
-			textileWriter.flush();
-		} finally {
-			textileWriter.close();
-		}
 	}
 }
