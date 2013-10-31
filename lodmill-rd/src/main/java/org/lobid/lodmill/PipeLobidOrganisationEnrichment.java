@@ -329,7 +329,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		try {
 			while (geonamesDump.hasNextLine()) {
 				String[] geonameDumpLines = geonamesDump.nextLine().split("\t");
-				if (geonameDumpLines[13].matches("\\d+")) {
+				if (geonameDumpLines[13].matches("\\d+")
+						&& geonameDumpLines[7].equals("ADM4")) {
 					String gnRegionalId = geonameDumpLines[13];
 					int gnId = Integer.parseInt(geonameDumpLines[0]);
 					GEONAMES_REGION_ID.put(gnRegionalId, gnId);
