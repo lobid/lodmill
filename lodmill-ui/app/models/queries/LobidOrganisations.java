@@ -44,7 +44,7 @@ public class LobidOrganisations {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList("@graph.http://purl.org/dc/terms/identifier.@value");
+			return Arrays.asList("@graph.http://purl.org/lobid/lv#isil.@value");
 		}
 
 		@Override

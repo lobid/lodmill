@@ -3,7 +3,7 @@
    {
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "name": "http://xmlns.com/foaf/0.1/name",
-      "isil": "http://purl.org/dc/terms/identifier",
+      "isil": "http://purl.org/lobid/lv#isil",
       "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
       "alternateLabel": "http://www.w3.org/2004/02/skos/core#alternateLabel",
       "location":
@@ -57,7 +57,7 @@
          "@id": "http://purl.org/lobid/lv#stocksize",
          "@type": "@id"
       },
-      "subject": "http://purl.org/dc/terms/subject",
+      "subject": "http://purl.org/dc/elements/1.1/subject",
       "linkedTo":
       {
          "@id": "http://www.w3.org/ns/org#linkedTo",
