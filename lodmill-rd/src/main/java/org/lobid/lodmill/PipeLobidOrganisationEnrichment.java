@@ -129,14 +129,14 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(PipeLobidOrganisationEnrichment.class);
 	private static final QREncoder QRENCODER = new QREncoder();
-	private String qrFilePath = "media/";
+	private String qrFilePath = "tmp/";
 	private static final String LV_CONTACTQR =
 			"http://purl.org/lobid/lv#contactqr";
 	private static final String RDF_SYNTAX_NS_VALUE =
 			"http://www.w3.org/1999/02/22-rdf-syntax-ns#value";
 	private static final String NS_GEONAMES = "http://sws.geonames.org/";
 	private String GEONAMES_DE_FILENAME;
-	private static final String NS_LOBID = "http://lobid.org/";
+	private static final String QR_URI_PATH = "http://lobid.org/media/";
 	private static final String RDF_SYNTAX_NS_TYPE =
 			"http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
 	private static final String WGS84_POS_SPATIALTHING =
@@ -279,8 +279,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			this.model.add(
 					this.model.createResource(super.subject),
 					this.model.createProperty(LV_CONTACTQR),
-					this.model.asRDFNode(NodeFactory.createURI(NS_LOBID + qrFilePath
-							+ isil + QREncoder.FILE_SUFFIX + "." + QREncoder.FILE_TYPE)));
+					this.model.asRDFNode(NodeFactory.createURI(QR_URI_PATH + isil
+							+ QREncoder.FILE_SUFFIX + "." + QREncoder.FILE_TYPE)));
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 		} catch (WriterException e) {
