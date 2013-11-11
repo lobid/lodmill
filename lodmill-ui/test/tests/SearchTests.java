@@ -94,7 +94,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(41);
+				.isEqualTo(43);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -450,6 +450,29 @@ public class SearchTests {
 				assertThat(jsonObject.size()).isEqualTo(results);
 				assertThat(jsonObject.get(0).toString()).contains(
 						"http://d-nb.info/gnd/" + gndId);
+			}
+		});
+	}
+
+	/* @formatter:off */
+	@Test public void personByGndIdNumeric(){gndPerson("1019737174", 1);}
+	@Test public void personByGndIdAlphaNumeric(){gndPerson("11850553X", 1);}
+	@Test public void personByGndIdAlphaNumericPlusDash(){gndPerson("10115480-X", 1);}
+	@Test public void personByGndIdNumericFull(){gndPerson("http://d-nb.info/gnd/1019737174", 1);}
+	@Test public void personByGndIdAlphaNumericFull(){gndPerson("http://d-nb.info/gnd/11850553X", 1);}
+	@Test public void personByGndIdAlphaNumericPlusDashFull(){gndPerson("http://d-nb.info/gnd/10115480-X", 1);}
+	/* @formatter:on */
+
+	public void gndPerson(final String gndId, final int results) {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject = Json.parse(call("person?id=" + gndId));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(results);
+				final String gndPrefix = "http://d-nb.info/gnd/";
+				assertThat(jsonObject.get(0).toString()).contains(
+						gndPrefix + gndId.replace(gndPrefix, ""));
 			}
 		});
 	}
