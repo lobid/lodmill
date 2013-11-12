@@ -52,7 +52,8 @@ public class Gnd {
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return matchQuery(fields().get(0), queryString);
+			return matchQuery(fields().get(0),
+					queryString.replace("http://d-nb.info/gnd/", ""));
 		}
 	}
 

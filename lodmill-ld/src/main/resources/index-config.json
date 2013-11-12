@@ -69,6 +69,11 @@
           "type":"string",
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier.@value":{
+          "type":"string",
+          "index_analyzer":"id_analyzer",
+          "search_analyzer":"id_analyzer"
         }
       }
     },
