@@ -56,8 +56,7 @@
 
 @main("Lobid API - Index") {
 		<h2>API endpoints and parameters</h2>
-		<p>Available endpoints and sample requests (all use GET).</p>
-		<p>All endpoints support queries using the <code>id</code>, <code>name</code>, <code>q</code> (query all fields, supports <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">elasticsearch query string syntax</a>), and <code>format</code> parameters.</p>
+		<p>All endpoints use GET and support queries using the <code>id</code>, <code>name</code>, <code>q</code> (query all fields, supports <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">elasticsearch query string syntax</a>), and <code>format</code> parameters.</p>
     <p>Result formats <code>short</code>, <code>ids</code>, and <code>full</code> return JSON; use <code>format=negotiate</code> (or none), and set an accept header for different RDF formats, see details below.</p>
     <p>The <code>short</code> result format supports an optional modifier to specify the field to use for collecting the values. The syntax is <code>short.field</code>, see this <a href="/resource?id=HT002189125&format=short.fulltextOnline">sample request</a>.</p>
 		<table class="table table-striped">

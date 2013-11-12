@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.lobid</groupId>
 	<artifactId>lodmill-rd</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<target.jdk>1.6</target.jdk>
@@ -19,6 +19,16 @@
 			<url>http://lobid.github.io/snapshots</url>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>lobid-snapshots</id>
+			<url>file:///${basedir}/../../lobid.github.com/snapshots/</url>
+		</snapshotRepository>
+		<repository>
+			<id>lobid-releases</id>
+			<url>file:///${basedir}/../../lobid.github.com/releases/</url>
+		</repository>
+	</distributionManagement>
 	<dependencies>
 		<dependency>
 		    <groupId>org.culturegraph</groupId>

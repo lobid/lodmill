@@ -5,12 +5,12 @@ import play.Project._
 object ApplicationBuild extends Build {
 
     val appName         = "lodmill-ui"
-    val appVersion      = "0.1.0-SNAPSHOT"
+    val appVersion      = com.typesafe.config.ConfigFactory.parseFile(new File("conf/application.conf")).resolve().getString("application.version")
     
     val appDependencies = Seq(
       javaCore,
       "org.elasticsearch" % "elasticsearch" % "0.90.5" withSources(),
-      "org.lobid" % "lodmill-ld" % "0.2.2-SNAPSHOT",
+      "org.lobid" % "lodmill-ld" % "1.0.0",
       "org.scalatest" %% "scalatest" % "1.9.1" % "test"
     )
 
