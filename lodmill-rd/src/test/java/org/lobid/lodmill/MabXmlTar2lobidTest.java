@@ -19,27 +19,27 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("javadoc")
-public final class MabXml2lobidTest {
+public final class MabXmlTar2lobidTest {
 
 	@SuppressWarnings("static-method")
 	@Test
-	public void testFlow() throws URISyntaxException, IOException {
+	public void testFlow() throws IOException, URISyntaxException {
+		final String targetPath = "tmp";
 		final FileOpener opener = new FileOpener();
 		opener.setCompression("BZIP2");
+		TarReader tarReader = new TarReader();
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		final MabXmlHandler handler = new MabXmlHandler();
 		final Metamorph morph = new Metamorph("morph-hbz01-to-lobid.xml");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		final ObjectTee<String> tee = new ObjectTee<String>();
-		final Triples2RdfModel triples2rdfmodel = new Triples2RdfModel();
-		triples2rdfmodel.setInput("N-TRIPLE");
 		RdfModelFileWriter modelWriter = new RdfModelFileWriter();
 		modelWriter.setProperty("http://lobid.org/vocab/lobid#hbzID");
 		modelWriter.setSerialization("N-TRIPLES");
 		modelWriter.setStartIndex(2);
-		modelWriter.setEndIndex(5);
-		String targetDirectory = "tmp";
+		modelWriter.setEndIndex(7);
+		String targetDirectory = "tmp/nt";
 		modelWriter.setTarget(targetDirectory);
 		triple2model.setReceiver(modelWriter);
 		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<String>();
@@ -51,19 +51,26 @@ public final class MabXml2lobidTest {
 		PipeEncodeTriples encoder = new PipeEncodeTriples();
 		streamTee.addReceiver(encoder);
 		encoder.setReceiver(tee);
-		opener.setReceiver(xmlDecoder).setReceiver(handler).setReceiver(morph)
-				.setReceiver(streamTee);
-		File infile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("mab2example.xml.bz2").toURI());
+		XmlTee xmlTee = new XmlTee();
+		XmlEntitySplitter xmlEntitySplitter = new XmlEntitySplitter();
+		xmlEntitySplitter.setEntityName("ListRecords");
+		XmlFilenameWriter xmlFilenameWriter = new XmlFilenameWriter();
+		xmlFilenameWriter.setStartIndex(2);
+		xmlFilenameWriter.setEndIndex(7);
+		xmlFilenameWriter.setTarget("tmp/xml");
+		xmlFilenameWriter
+				.setProperty("/OAI-PMH/ListRecords/record/metadata/record/datafield[@tag='001']/subfield[@code='a']");
+		xmlFilenameWriter.setCompression("bz2");
+		xmlFilenameWriter.setFileSuffix("");
+		xmlFilenameWriter.setEncoding("utf8");
+		xmlTee.setReceiver(handler).setReceiver(morph).setReceiver(streamTee);
+		xmlTee.addReceiver(xmlEntitySplitter);
+		xmlEntitySplitter.setReceiver(xmlFilenameWriter);
+		opener.setReceiver(tarReader).setReceiver(xmlDecoder).setReceiver(xmlTee);
+		File infile = new File("src/test/resources/hbz01XmlClobs.tar.bz2");// "/home/data/demeter/alephxml/clobs/update/20131101_20131102.tar.bz2");
 		opener.process(infile.getAbsolutePath());
 		Stats.writeTextileMappingTable(stats.sortedByValuesDescending(), new File(
 				"/dev/null"));
 		opener.closeStream();
-		AbstractIngestTests.compareFiles(new File(targetDirectory
-				+ "/002/HT002948556.nt"), new File(Thread.currentThread()
-				.getContextClassLoader().getResource("hbz01-to-lobid-output_test.nt")
-				.toURI()));
 	}
-
 }
