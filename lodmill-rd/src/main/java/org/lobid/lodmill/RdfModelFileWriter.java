@@ -139,8 +139,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 						filenameUtil.target,
 						FilenameUtils.concat(directory + File.separator, identifier + "."
 								+ filenameUtil.fileSuffix));
-
-		LOG.info("Write to " + file);
+		LOG.debug("Write to " + file);
 		ensurePathExists(file);
 
 		try {
