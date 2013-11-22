@@ -32,6 +32,8 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	private boolean inEntity = false;
 	private int recordCnt = 0;
 	private String root;
+	private final static String XML_DECLARATION =
+			"<?xml version = \"1.0\" encoding = \"UTF-8\"?>";
 
 	/**
 	 * Sets the name of the entity. All these entities in the XML stream will be
@@ -55,8 +57,9 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	@Override
 	public void startPrefixMapping(String prefix, String uri) throws SAXException {
 		super.startPrefixMapping(prefix, uri);
-		if (!prefix.isEmpty() && uri != null)
+		if (!prefix.isEmpty() && uri != null) {
 			namespaces.add(" xmlns:" + prefix + "=\"" + uri + "\"");
+		}
 	}
 
 	@Override
@@ -92,7 +95,8 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 		if (inEntity) {
 			builder.append("</" + qName + ">");
 			if (entity.equals(localName)) {
-				StringBuilder sb = new StringBuilder("<" + this.root);
+				StringBuilder sb =
+						new StringBuilder(XML_DECLARATION + "<" + this.root);
 				if (namespaces != null) {
 					for (String ns : namespaces) {
 						sb.append(ns);
@@ -113,5 +117,15 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 			throws SAXException {
 		builder.append(StringEscapeUtils
 				.escapeXml(new String(chars, start, length)));
+	}
+
+	/**
+	 * Returns the XML declaration which is hard coded. @TODO change that hard
+	 * wired.
+	 * 
+	 * @return the XML decalration
+	 */
+	public static String getXmlDeclaration() {
+		return XML_DECLARATION;
 	}
 }
