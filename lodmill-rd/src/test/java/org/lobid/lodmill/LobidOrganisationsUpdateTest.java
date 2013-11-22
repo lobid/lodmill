@@ -34,7 +34,6 @@ public class LobidOrganisationsUpdateTest {
 		final FileOpener opener = new FileOpener();
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		XmlTee tee = new XmlTee();
-		xmlDecoder.setReceiver(tee);
 
 		final XmlEntitySplitter xmlSplitter = new XmlEntitySplitter();
 		xmlSplitter.setEntityName("metadata");
@@ -60,7 +59,7 @@ public class LobidOrganisationsUpdateTest {
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
 		assertEquals(
-				Long.parseLong("2748079330"),
+				Long.parseLong("1843551003"),
 				FileUtils.checksumCRC32(new File(PATH + File.separator + "DE"
 						+ File.separator + "DE-Tir1.xml")));
 		deleteTestFiles();
