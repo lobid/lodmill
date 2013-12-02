@@ -137,22 +137,24 @@ public final class Application extends Controller {
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
 						.queryString().get("callback");
-		final JsonNode shortJson = createShortResult(parameter, documents);
-		final JsonNode labelAndValue = createIdsResult(parameter, documents);
 		final ImmutableMap<ResultFormat, Result> results =
 				new ImmutableMap.Builder<ResultFormat, Result>()
 						.put(ResultFormat.NEGOTIATE,
 								negotiateContent(documents, selectedIndex, query, field))
-						.put(ResultFormat.FULL, fullJsonResponse(documents, field))
-						.put(
-								ResultFormat.SHORT,
-								callback != null ? ok(String.format("%s(%s)", callback[0],
-										shortJson)) : ok(shortJson))
-						.put(
-								ResultFormat.IDS,
-								callback != null ? ok(String.format("%s(%s)", callback[0],
-										labelAndValue)) : ok(labelAndValue)).build();
+						.put(ResultFormat.FULL,
+								withCallback(callback, fullJsonResponse(documents, field)))
+						.put(ResultFormat.SHORT,
+								withCallback(callback, createShortResult(parameter, documents)))
+						.put(ResultFormat.IDS,
+								withCallback(callback, createIdsResult(parameter, documents)))
+						.build();
 		return results;
+	}
+
+	private static Status withCallback(final String[] callback,
+			final JsonNode shortJson) {
+		return callback != null ? ok(String
+				.format("%s(%s)", callback[0], shortJson)) : ok(shortJson);
 	}
 
 	private static final Predicate<JsonNode> nonEmptyNode =
@@ -180,7 +182,7 @@ public final class Application extends Controller {
 				}
 			};
 
-	private static Status fullJsonResponse(final List<Document> documents,
+	private static JsonNode fullJsonResponse(final List<Document> documents,
 			final String field) {
 		Iterable<JsonNode> nonEmptyNodes =
 				Iterables.filter(Lists.transform(documents, jsonFull), nonEmptyNode);
@@ -190,7 +192,7 @@ public final class Application extends Controller {
 							FluentIterable.from(nonEmptyNodes)
 									.transformAndConcat(nodeToArray));
 		}
-		return ok(Json.toJson(ImmutableSet.copyOf(nonEmptyNodes)));
+		return Json.toJson(ImmutableSet.copyOf(nonEmptyNodes));
 	}
 
 	private static JsonNode createShortResult(final Parameter parameter,
@@ -243,7 +245,7 @@ public final class Application extends Controller {
 			String field) {
 		switch (serialization) {
 		case JSON_LD:
-			return fullJsonResponse(documents, field);
+			return ok(fullJsonResponse(documents, field));
 		case RDF_A:
 			return ok(views.html.docs.render(documents, selectedIndex, query));
 		default:

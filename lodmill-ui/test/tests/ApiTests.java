@@ -58,6 +58,12 @@ public class ApiTests {
 				"Wann en Kölle de Chress-Stäne blöhe" },
 				{ "resource?id=TT002234003",/*->*/
 				"Aufgabenbereich und Aufbau der Verwaltung" },
+				{ "resource?id=TT002234003&format=ids&callback=response",/*->*/
+				"response(" },
+				{ "resource?id=TT002234003&format=short&callback=response",/*->*/
+				"response(" },
+				{ "resource?id=TT002234003&format=full&callback=response",/*->*/
+				"response(" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/

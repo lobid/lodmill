@@ -70,10 +70,9 @@
 		</tr>
 		<tr>
 			<td><code>/resource</td>
-			@defining(("/resource?id=HT002189125", "/resource?id=0940450003", "/resource?id=urn:nbn:de:101:1-201210094953", "/resource/HT002189125", "/resource/0940450003", "/resource/urn%3Anbn%3Ade%3A101%3A1-201210094953")){refs =>
+			@defining(("/resource?id=HT002189125", "/resource?id=0940450003", "/resource?id=urn:nbn:de:101:1-201210094953")){refs =>
 				<td>
-					<a href="@refs._1">hbz ID</a>, <a href="@refs._2">ISBN</a>, <a href="@refs._3">URN</a> as parameter<br/>
-					<a href="@refs._4">hbz ID</a> as path segment
+					<a href="@refs._1">hbz ID</a>, <a href="@refs._2">ISBN</a>, <a href="@refs._3">URN</a>
 				</td>}
 			@defining("/resource?name=Faust"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/resource?q=Suhrkamp"){ref => <td><a href="@ref">@ref</a></td>}
@@ -82,11 +81,7 @@
 		</tr>
 		<tr>
 			<td><code>/item</td>
-			@defining(("/item?id=BT000000079%3AGA+644","/item/BT000000079%3AGA+644")){refs =>
-				<td>
-					<a href="@refs._1">@refs._1</a> <br/>
-					<a href="@refs._2">@refs._2</a>
-				</td>}
+			@defining("item?id=BT000000079%3AGA+644"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/item?name=GA+644"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/item?q=\"DE-5-4\""){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/item?name=GA+644&format")
@@ -94,11 +89,7 @@
 		</tr>
 		<tr>
 			<td><code>/organisation</td>
-			@defining(("/organisation?id=DE-605","/organisation/DE-605")){refs =>
-				<td>
-					<a href="@refs._1">@refs._1</a> <br/>
-					<a href="@refs._2">@refs._2</a>
-				</td> }
+			@defining("/organisation?id=DE-605"){ref => <td><a href="@ref">@ref</a></td> }
 			@defining("/organisation?name=Universität"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/organisation?q=Einrichtung+ohne+Bestand"){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/organisation?name=Universität&format")
@@ -106,11 +97,7 @@
 		</tr>
 		<tr>
 			<td><code>/person</td>
-			@defining(("/person?id=118580604","/person/118580604")){refs =>
-				<td>
-					<a href="@refs._1">@refs._1</a> <br/>
-					<a href="@refs._2">@refs._2</a>
-				</td>}
+			@defining("/person?id=118580604"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/person?name=Johann+Sebastian+Bach"){ref => <td><a href="@ref">@ref</a></td>}
 			@defining("/person?q=\"Bruder+von\""){ref => <td><a href="@ref">@ref</a></td>}
 			@formats("/person?name=Johann+Sebastian+Bach&format")
@@ -153,7 +140,7 @@
 
 	<h2>Content Negotiation</h2>
 	<p>To return different RDF serializations as the result format (default is JSON-LD), you can specify an accept header, e.g. for N-Triples:</p>
-	<pre>curl -L --header "Accept: text/plain" http://api.lobid.org/resource/HT002189125</pre>
+	<pre>curl -L --header "Accept: text/plain" http://api.lobid.org/resource?id=HT002189125</pre>
 	<p>Currently supported: @Serialization.values().map((s:Serialization) => s.name + " " + s.getTypes).mkString(", ")</p>
 
   <h2>Sample usage: auto suggest</h2>
