@@ -138,7 +138,7 @@ public class LobidResources {
 	}
 
 	private static String lobidResourceQueryString(final String queryString) {
-		final String hbzId = "\\p{L}+[\\d\\-]+";
+		final String hbzId = "\\p{L}+\\d+(-.+)?";
 		return queryString.matches(hbzId) ? "http://lobid.org/resource/"
 				+ queryString : queryString;
 	}
