@@ -95,7 +95,6 @@ public final class XmlFilenameWriter extends
 						filenameUtil.target,
 						FilenameUtils.concat(directory + File.separator, identifier
 								+ filenameUtil.fileSuffix));
-		LOG.info("Write to " + file);
 		filenameUtil.ensurePathExists(file);
 		try {
 			if (this.compression == null) {
