@@ -3,6 +3,7 @@
 package models.queries;
 
 import static java.net.URLEncoder.encode;
+import static org.elasticsearch.index.query.QueryBuilders.hasChildQuery;
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 
 import java.io.UnsupportedEncodingException;
@@ -84,6 +85,26 @@ public class LobidItems {
 		@Override
 		public QueryBuilder build(final String queryString) {
 			return matchQuery(fields().get(0), queryString).operator(Operator.AND);
+		}
+
+	}
+
+	/**
+	 * Query lobid items by owner, return their parents (which are resources).
+	 */
+	public static class OwnerQuery extends AbstractIndexQuery {
+
+		@Override
+		public List<String> fields() {
+			return Arrays.asList("@graph.http://purl.org/vocab/frbr/core#owner.@id");
+		}
+
+		@Override
+		public QueryBuilder build(final String owner) {
+			final String prefix = "http://lobid.org/organisation/";
+			final String ownerId = prefix + owner.replace(prefix, "");
+			final QueryBuilder itemQuery = matchQuery(fields().get(0), ownerId);
+			return hasChildQuery("json-ld-lobid-item", itemQuery);
 		}
 
 	}

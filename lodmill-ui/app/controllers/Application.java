@@ -61,18 +61,19 @@ public final class Application extends Controller {
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
 	 * @param format The result format requested
+	 * @param owner The ID of an owner holding items of the requested resources
 	 * @return The results, in the format specified
 	 */
 	static Result search(final Index index, final Parameter parameter,
 			final String queryParameter, final String formatParameter,
-			final int from, final int size) {
+			final int from, final int size, final String owner) {
 		List<Document> docs = new ArrayList<>();
 		Pair<String, String> fieldAndFormat;
 		try {
 			fieldAndFormat = getFieldAndFormat(formatParameter);
 			docs =
 					Search.documents(queryParameter, index, parameter, from, size,
-							fieldAndFormat.getLeft());
+							fieldAndFormat.getLeft(), owner);
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());

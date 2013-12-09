@@ -64,6 +64,14 @@ public class ApiTests {
 				"response(" },
 				{ "resource?id=TT002234003&format=full&callback=response",/*->*/
 				"response(" },
+				{ "resource?author=Hu&owner=DE-Sol1",/*->*/
+				"Heimatstimmen aus dem Kreis Olpe" },
+				{ "resource?author=Hu&owner=http://lobid.org/organisation/DE-Sol1",/*->*/
+				"Heimatstimmen aus dem Kreis Olpe" },
+				{ "resource?id=BT000001260&owner=DE-Sol1",/*->*/
+				"Heimatstimmen aus dem Kreis Olpe" },
+				{ "resource?set=NWBib&owner=DE-Sol1",/*->*/
+				"Heimatstimmen aus dem Kreis Olpe" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/

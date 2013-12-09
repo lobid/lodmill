@@ -38,18 +38,19 @@ public final class Api extends Controller {
 	 * @param format The result format
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
+	 * @param owner The ID of an owner holding items of the requested resources
 	 * @return Matching resources
 	 */
 	public static Result resource(final String id,
 			final String q,
 			final String name, // NOPMD
 			final String author, final String subject, final String set,
-			final String format, final int from, final int size) {
+			final String format, final int from, final int size, final String owner) {
 		Logger
 				.debug(String
 						.format(
-								"GET /resource; id: '%s', q: '%s', name: '%s', author: '%s', subject: '%s', format: '%s'",
-								id, q, name, author, subject, format));
+								"GET /resource; id: '%s', q: '%s', name: '%s', author: '%s', subject: '%s', set: '%s', format: '%s', owner: '%s'",
+								id, q, name, author, subject, set, format, owner));
 		final Index index = Index.LOBID_RESOURCES;
 		final Map.Entry<Parameter, String> parameter =
 				Parameter.select(new ImmutableMap.Builder<Parameter, String>() /*@formatter:off*/
@@ -60,7 +61,7 @@ public final class Api extends Controller {
 						.put(Parameter.SUBJECT, subject)
 						.put(Parameter.SET, set).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size);
+				format, from, size, owner);
 	}
 
 	/**
@@ -122,7 +123,7 @@ public final class Api extends Controller {
 						.put(Parameter.Q, q)
 						.put(Parameter.NAME, name).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size);
+				format, from, size, "");
 	}
 
 	/**
@@ -146,7 +147,7 @@ public final class Api extends Controller {
 		}
 		final ObjectNode json = Json.newObject();
 		putIfOk(json, "resource",
-				resource(id, q, name, "", "", "", format, from, size));
+				resource(id, q, name, "", "", "", format, from, size, ""));
 		putIfOk(json, "organisation", organisation(id, q, name, format, from, size));
 		putIfOk(json, "person", person(id, q, name, format, from, size));
 		Logger.trace("JSON response: " + json);

@@ -2,10 +2,13 @@
 
 package models;
 
+import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import models.queries.AbstractIndexQuery;
+import models.queries.LobidItems;
 
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
@@ -61,19 +64,15 @@ public class Search {
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
 	 * @param field The field to return as the result
+	 * @param owner The ID of an owner holding items of the requested resources
 	 * @return The documents matching the given parameters
 	 */
 	public static List<Document> documents(final String term, final Index index,
 			final Parameter parameter, final int from, final int size,
-			final String field) {
+			final String field, final String owner) {
 		validate(index, parameter, from, size);
-		AbstractIndexQuery indexQuery = index.queries().get(parameter);
-		final QueryBuilder queryBuilder = indexQuery.build(term);
-		if (queryBuilder == null) {
-			throw new IllegalStateException(String.format(
-					"Could not construct query for term '%s', index '%s', param '%s'",
-					term, index, parameter));
-		}
+		final AbstractIndexQuery indexQuery = index.queries().get(parameter);
+		final QueryBuilder queryBuilder = createQuery(term, owner, indexQuery);
 		Logger.debug("Using query: " + queryBuilder);
 		final SearchResponse response = search(index, queryBuilder, from, size);
 		Logger.trace("Got response: " + response);
@@ -83,6 +82,19 @@ public class Search {
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
 				hits.hits().length, documents.size()));
 		return documents;
+	}
+
+	private static QueryBuilder createQuery(final String term,
+			final String owner, final AbstractIndexQuery indexQuery) {
+		QueryBuilder queryBuilder = indexQuery.build(term);
+		if (!owner.isEmpty()) {
+			final QueryBuilder itemQuery = new LobidItems.OwnerQuery().build(owner);
+			queryBuilder = boolQuery().must(queryBuilder).must(itemQuery);
+		}
+		if (queryBuilder == null)
+			throw new IllegalStateException(String.format(
+					"Could not construct query for term '%s', owner '%s'", term, owner));
+		return queryBuilder;
 	}
 
 	private static void validate(final Index index, final Parameter parameter,
