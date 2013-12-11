@@ -17,9 +17,7 @@ SUBJ=$3
 INDEX=$4
 TYPE=$5
 
-TIME=`date '+%Y%m%d-%H%M%S'`
-
 $HADOOP/bin/hadoop fs -rmr $TMP
 $HADOOP/bin/hadoop fs -rmr $OUT
 $HADOOP/bin/hadoop org.lobid.lodmill.hadoop.CollectSubjects $IN $TMP $SUBJ
-$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $TMP $OUT $INDEX-$TIME $TYPE $SUBJ
+$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $TMP $OUT $INDEX $TYPE $SUBJ
