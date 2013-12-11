@@ -3,14 +3,18 @@
 package org.lobid.lodmill;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Scanner;
 
+import org.antlr.runtime.RecognitionException;
+import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.ObjectTee;
 import org.culturegraph.mf.stream.pipe.StreamTee;
-import org.culturegraph.mf.stream.sink.ObjectStdoutWriter;
 import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Test;
 
@@ -21,6 +25,8 @@ import org.junit.Test;
 @SuppressWarnings("javadoc")
 public final class MabXmlTar2lobidTest {
 	private static final String targetPath = "tmp";
+	private static final String targetFilename = "hbz01.nt";
+	private static final String pathSerialization = "/nt/";
 
 	@SuppressWarnings("static-method")
 	@Test
@@ -31,14 +37,13 @@ public final class MabXmlTar2lobidTest {
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		XmlTee xmlTee = new XmlTee();
 		final MabXmlHandler handler = new MabXmlHandler();
-		final Metamorph morph = new Metamorph("morph-hbz01-to-lobid.xml");
+		final Metamorph morph =
+				new Metamorph("src/test/resources/morph-hbz01-to-lobid.xml");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		final ObjectTee<String> tee = new ObjectTee<String>();
 		RdfModelFileWriter modelWriter = createModelWriter();
 		triple2model.setReceiver(modelWriter);
-		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<String>();
-		tee.addReceiver(writer);
 		tee.addReceiver(triple2model);
 		StreamTee streamTee = new StreamTee();
 		final Stats stats = new Stats();
@@ -56,9 +61,40 @@ public final class MabXmlTar2lobidTest {
 		opener.setReceiver(tarReader).setReceiver(xmlDecoder).setReceiver(xmlTee);
 		opener.process(new File("src/test/resources/hbz01XmlClobs.tar.bz2")
 				.getAbsolutePath());
-		Stats.writeTextileMappingTable(stats.sortedByValuesDescending(), new File(
-				"/dev/null"));
 		opener.closeStream();
+
+		File parentPathGenerated = new File(targetPath + pathSerialization);
+		StringBuilder triples = new StringBuilder();
+		for (String directory : parentPathGenerated.list()) {
+			for (String filename : new File(parentPathGenerated + "/" + directory)
+					.list()) {
+				triples.append(getFileContent(new File(parentPathGenerated + "/"
+						+ directory + "/" + filename)));
+			}
+		}
+		File testFile = new File(targetPath + "/" + targetFilename);
+		FileOutputStream fos = new FileOutputStream(testFile);
+		fos.write(triples.toString().getBytes());
+		fos.close();
+		AbstractIngestTests.compareFiles(testFile, new File(Thread.currentThread()
+				.getContextClassLoader().getResource(targetFilename).toURI()));
+	}
+
+	private static String getFileContent(File file) {
+		StringBuilder ntriples = new StringBuilder();
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(file);
+			while (scanner.hasNextLine()) {
+				final String actual = scanner.nextLine();
+				if (!actual.isEmpty()) {
+					ntriples.append(actual + "\n");
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return ntriples.toString();
 	}
 
 	private static XmlFilenameWriter createXmlFilenameWriter() {
@@ -80,7 +116,17 @@ public final class MabXmlTar2lobidTest {
 		modelWriter.setSerialization("N-TRIPLES");
 		modelWriter.setStartIndex(2);
 		modelWriter.setEndIndex(7);
-		modelWriter.setTarget(targetPath + "/nt");
+		modelWriter.setTarget(targetPath + pathSerialization);
 		return modelWriter;
+	}
+
+	@SuppressWarnings("static-method")
+	@Test
+	public void testFlux() throws IOException, URISyntaxException,
+			RecognitionException {
+		File fluxFile =
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("hbz01-to-lobid.flux").toURI());
+		Flux.main(new String[] { fluxFile.getAbsolutePath() });
 	}
 }
