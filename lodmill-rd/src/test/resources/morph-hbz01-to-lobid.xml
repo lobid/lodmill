@@ -16,6 +16,15 @@
 			<regexp match="(.*)" format="ZDB${1}"/>
 		</data>
 		<!-- ####################### -->
+		<!-- ####### hbz ID sameAs ZDB ID -->
+		<!-- ####################### -->
+		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="${idzdb}">
+			<data source="@id"/>
+			<data source="@idzdb" name="idzdb">
+				<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
+			</data>
+		</combine>
+		<!-- ####################### -->
 		<!-- ####### Secondary form, link to primary form and vice verso -->
 		<!-- ####################### -->
 		<data source="021[-b]1.a" name="http://purl.org/dc/terms/source">
@@ -60,21 +69,76 @@
 		<!-- ####################### -->
 		<!-- ####### provenance -->
 		<!-- ####################### -->
-		<data source="@id|@idzdb" name="~rdf:subject">
+		<data source="@idzdb" name="@idzdbProvenance">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/>
 		</data>
-		<data source="@id|@idzdb" name="http://www.w3.org/2000/01/rdf-schema#inDataset">
-			<regexp match=".*" format="http://lobid.org/dataset/resource"/>
-		</data>
-		<data source="@id|@idzdb" name="http://xmlns.com/foaf/0.1/primaryTopic">
+		<data source="@idzdbProvenance" name="~rdf:subject"/>
+		<data source="@idzdb" name="http://xmlns.com/foaf/0.1/primaryTopic">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}/about">
+			<if>
+				<none>
+					<data source="@idzdbProvenance"/>
+				</none>
+			</if>
+			<data source="@id" name="id">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}/about">
+			<data source="@idzdb"/>
+			<data source="@id" name="id">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
+		<data source="@idzdbProvenance" name="http://www.w3.org/2000/01/rdf-schema#inDataset">
+			<regexp match=".*" format="http://lobid.org/dataset/resource"/>
+		</data>
+		<combine name="http://www.w3.org/2000/01/rdf-schema#inDataset" value="http://lobid.org/dataset/resource">
+			<if>
+				<none>
+					<data source="@idzdbProvenance"/>
+				</none>
+			</if>
+			<data source="@id"/>
+		</combine>
+		<combine name="http://www.w3.org/2000/01/rdf-schema#inDataset" value="http://lobid.org/dataset/resource">
+			<data source="@idzdb"/>
+			<data source="@id"/>
+		</combine>
+		<combine name="http://xmlns.com/foaf/0.1/primaryTopic" value="$[ns-lobid-resource]${id}">
+			<if>
+				<none>
+					<data source="@idzdbProvenance"/>
+				</none>
+			</if>
+			<data source="@id" name="id">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
+		<combine name="http://xmlns.com/foaf/0.1/primaryTopic" value="$[ns-lobid-resource]${id}">
+			<data source="@idzdb"/>
+			<data source="@id" name="id">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
 		<!-- ####################### -->
 		<!-- ####### Set main subject uri -->
 		<!-- ####################### -->
-		<data source="@id|@idzdb" name="~rdf:subject">
+		<data source="@idzdb" name="~rdf:subject">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}">
+			<if>
+				<none>
+					<data source="@idzdb"/>
+				</none>
+			</if>
+			<data source="@id" name="id">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
 		<!-- ####################### -->
 		<!-- ####### Set owl:sameAs -->
 		<!-- ####################### -->
@@ -82,24 +146,52 @@
 		<data source="@idzdb" name="http://www.w3.org/2002/07/owl#sameAs">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
-		<data source="@id" name="http://www.w3.org/2002/07/owl#sameAs">
-			<regexp match="(.*)" format="http://hub.culturegraph.org/resource/HBZ-${1}"/>
-		</data>
-		<data source="025z[-1].a" name="http://www.w3.org/2002/07/owl#sameAs">
+		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="http://hub.culturegraph.org/resource/HBZ-${id}">
+			<if>
+				<none>
+					<data source="@idzdb"/>
+				</none>
+			</if>
+			<data source="@id" name="id">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
+		<data source="@idzdb" name="http://www.w3.org/2002/07/owl#sameAs">
 			<regexp match="(.*)" format="http://hub.culturegraph.org/resource/ZDB-${1}"/>
 		</data>
 		<!-- ####################### -->
 		<!-- ####### General attributes for each record -->
 		<!-- ####################### -->
+		<combine name="http://xmlns.com/foaf/0.1/isPrimaryTopicOf" value="${primaryTopic}">
+			<if>
+				<none>
+					<data source="@idzdb"/>
+				</none>
+			</if>
+			<data source="@id" name="primaryTopic">
+				<regexp match="(.*)" format="http://193.30.112.134/F/?func=find-c&amp;ccl_term=IDN%3D${1}"/>
+			</data>
+		</combine>
+		<combine name="http://xmlns.com/foaf/0.1/isPrimaryTopicOf" value="${primaryTopic}">
+			<data source="@idzdb"/>
+			<data source="@id" name="primaryTopic">
+				<regexp match="(.*)" format="http://193.30.112.134/F/?func=find-c&amp;ccl_term=IDN%3D${1}"/>
+			</data>
+		</combine>
 		<data source="@id" name="http://lobid.org/vocab/lobid#hbzID"/>
-		<data source="@id|@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
 		</data>
-		<data source="@id|@idzdb" name="http://www.w3.org/2007/05/powder-s#describedby">
+		<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type" value="http://purl.org/dc/terms/BibliographicResource">
+			<if>
+				<none>
+					<data source="@idzdb"/>
+				</none>
+			</if>
+			<data source="@id"/>
+		</combine>
+		<data source="@idzdb|@id" name="http://www.w3.org/2007/05/powder-s#describedby">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/>
-		</data>
-		<data source="@id" name="http://xmlns.com/foaf/0.1/isPrimaryTopicOf">
-			<regexp match="(.*)" format="http://193.30.112.134/F/?func=find-c&amp;ccl_term=IDN%3D${1}"/>
 		</data>
 		<data source="025z[-1].a" name="http://www.w3.org/2002/07/owl#sameAs">
 			<regexp match="(.*)" format="http://ld.zdb-services.de/resource/${1}"/>
@@ -115,6 +207,16 @@
 			<regexp match="(.*)" format="http://worldcat.org/oclc/${1}"/>
 		</data>
 		<data source="@oclcnum" name="http://purl.org/ontology/bibo/oclcnum"/>
+		<combine name="http://purl.org/ontology/bibo/oclcnum" value="${num}">
+			<if>
+				<none>
+					<data source="@idzdb"/>
+				</none>
+			</if>
+			<data source="@oclcnum" name="num">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
 		<!-- ####################### -->
 		<!-- ################ language -->
 		<!-- ####################### -->
@@ -176,15 +278,12 @@
 		</data>
 		<!--audio -->
 		<data source="050." name="@typeAudio">
-			<regexp match="^.....a.*" format="http://purl.org/ontology/bibo/AudioDocument"/>
+			<regexp match="^.....a" format="http://purl.org/ontology/bibo/AudioDocument"/>
 		</data>
 		<data source="@typeAudio" name="@rdftypeAndManifestation"/>
 		<!--video -->
 		<data source="050." name="@matVideo">
 			<regexp match="^.....[bc]"/>
-		</data>
-		<data source="050." name="@matVideo">
-			<regexp match="^......a"/>
 		</data>
 		<data source="@matVideo" name="@rdftypeAndManifestation">
 			<regexp match=".*" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
@@ -402,7 +501,7 @@
 		<data source="552a[-1].a" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://dx.doi.org/${1}"/>
 		</data>
-		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi",-->
+		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
 		<data source="552b[-1].a" name="http://lobid.org/vocab/lobid#urn"/>
 		<data source="552b[-1].a" name="http://umbel.org/umbel#isLike">
@@ -467,6 +566,9 @@
 		<!-- set subject uri of resource anew -->
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id|@idzdb" name="subject"/>
+		</combine>
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
+			<data source="@id|@idzdb" name="subject"/>
 			<data source="@itemId"/>
 		</combine>
 		<data source="@itemId" name="http://purl.org/vocab/frbr/core#exemplar"/>
@@ -483,9 +585,6 @@
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
-		<data source="1[0123456789][0123456789][bcp]1.9" name="http://purl.org/dc/terms/contributor">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
 		<!-- corporation links -->
 		<data source="2[0123456789][012345678]?[12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
@@ -503,196 +602,172 @@
 				name="creatorLiteral"/>
 		</combine>
 		<!-- ####################### -->
-		<!-- #######contributor -->
-		<!-- ####################### -->
-		<!-- person links -->
-		<data source="1[0123456789][02468]b[-1234].9" name="http://purl.org/dc/terms/contributor">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
-		<!-- ####################### -->
 		<!-- ################ contributor with roles @TODO many roles needs tests -->
 		<!-- ####################### -->
-		<data source="1[012][02468]b[1234].b" name="@marcrelName"/>
-		<data source="1[012][02468]b[1234].9" name="@contributorId">
-			<regexp match="\(DE-588\)(.*)" format="${1}"/>
+		<data source="1[0123456789][0123456789]b[1234].b" name="@marcrelName"/>
+		<!-- person links -->
+		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
+			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+<!-- 		<combine name="http://purl.org/dc/terms/contributor" value="${contributorId}">
+			<none>
+				<data source="@marcrelName"/>
+			</none>
+			<data source="@contributorId" name="contributorId">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine> -->
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[dD]ars" format="http://id.loc.gov/vocabulary/relators/act"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[hH]rsg" format="http://purl.org/ontology/bibo/editor"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[rR]egi" format="http://id.loc.gov/vocabulary/relators/drt"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="bers" format="http://purl.org/ontology/bibo/translator"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[iI]ll" format="http://id.loc.gov/vocabulary/relators/ill"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[zZ]eichn" format="http://id.loc.gov/vocabulary/relators/ill"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="^[mM]itarb" format="http://id.loc.gov/vocabulary/relators/clb"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match=".*[oO]togr.*" format="http://id.loc.gov/vocabulary/relators/pht"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match=".*[dD]ir" format="http://id.loc.gov/vocabulary/relators/cnd"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[kK]om" format="http://id.loc.gov/vocabulary/relators/cmp"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[vV]or" format="http://id.loc.gov/vocabulary/relators/aui"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[dD]rehb" format="http://id.loc.gov/vocabulary/relators/aus"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[sS]ammler" format="http://id.loc.gov/vocabulary/relators/col"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[bB]eitr" format="http://id.loc.gov/vocabulary/relators/ctb"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[iI]nterpr" format="http://id.loc.gov/vocabulary/relators/prf"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[kK]amera" format="http://id.loc.gov/vocabulary/relators/cng"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[vV]orl" format="http://id.loc.gov/vocabulary/relators/ant"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[gG]esang" format="http://id.loc.gov/vocabulary/relators/sng"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[iI]nterviewer" format="http://id.loc.gov/vocabulary/relators/ivr"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[iI]nterviewter" format="http://id.loc.gov/vocabulary/relators/ive"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[kK]artogra" format="http://id.loc.gov/vocabulary/relators/ctg"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[mM]usi" format="http://id.loc.gov/vocabulary/relators/mus"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[nN]ach" format="http://id.loc.gov/vocabulary/relators/aft"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[pP]rod" format="http://id.loc.gov/vocabulary/relators/pro"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[sS]techer" format="http://id.loc.gov/vocabulary/relators/egr"/>
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
-		<combine name="${marcrel}" value="http://d-nb.info/gnd/${contributorId}"
-			sameEntity="true">
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[wW]idmun" format="http://id.loc.gov/vocabulary/relators/dte"/>
 			</data>
@@ -703,18 +778,20 @@
 		</data>
 		<!-- default: if none of the above matches and @marcrelName and @contributorId exists => 
 			dc:contributor -->
-		<combine name="http://purl.org/dc/terms/contributor" value="http://d-nb.info/gnd/${contributorId}">
+		<combine name="http://purl.org/dc/terms/contributor" value="${contributorId}">
 			<if>
 				<none>
 					<data source="@marcrelName">
 						<regexp
-							match="[dD]ars|[hH]rsg|[rR]egi|bers|[iI]ll|[zZ]eichn|^[mM]itarb|.*[oO]togr.*|.*[dD]ir|[kK]om|[vV]or|[dD]rehb|[sS]ammler|[bB]eitr|[iI]nterpr|[kK]amera|[vV]orl|[gG]esang|[iI]nterviewer|[iI]nterviewter|[kK]artogra|[mM]usi|[nN]ach|[pP]rod|[sS]techer|[wW]idmun"/>
+							match="[dD]ars|[hH]rsg|[rR]egi|bers|[iI]ll|[zZ]eichn|[mM]itarb|[oO]togr|[dD]ir|[kK]om|[vV]or|[dD]rehb|[sS]ammler|[bB]eitr|[iI]nterpr|[kK]amera|[vV]orl|[gG]esang|[iI]nterviewer|[iI]nterviewter|[kK]artogra|[mM]usi|[nN]ach|[pP]rod|[sS]techer|[wW]idmun"/>
 					</data>
 				</none>
 			</if>
-			<data source="@marcrelName"/>
-			<data source="@contributorId" name="contributorId"/>
+			<data source="@contributorId" name="contributorId">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
 		</combine>
+		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
