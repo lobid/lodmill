@@ -259,7 +259,9 @@ public class NTriplesToJsonLd implements Tool {
 			map.put("_index", context.getConfiguration().get(INDEX_NAME));
 			map.put("_type", context.getConfiguration().get(INDEX_TYPE));
 			map.put("_id", key.toString().substring(1, key.getLength() - 1));
-			map.put("_parent", parent != null ? parent : "none");
+			if (context.getConfiguration().get(INDEX_TYPE)
+					.equals("json-ld-lobid-item"))
+				map.put("_parent", parent != null ? parent : "none");
 			final Map<String, Map<?, ?>> index = new HashMap<>();
 			index.put("index", map);
 			return index;

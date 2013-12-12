@@ -9,7 +9,7 @@ object ApplicationBuild extends Build {
     
     val appDependencies = Seq(
       javaCore,
-      "org.elasticsearch" % "elasticsearch" % "0.90.5" withSources(),
+      "org.elasticsearch" % "elasticsearch" % "0.90.7" withSources(),
       "org.lobid" % "lodmill-ld" % "1.0.2",
       "org.scalatest" %% "scalatest" % "1.9.1" % "test"
     )

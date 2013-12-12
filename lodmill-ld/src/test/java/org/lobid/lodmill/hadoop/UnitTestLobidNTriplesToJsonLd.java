@@ -96,7 +96,6 @@ public final class UnitTestLobidNTriplesToJsonLd {
 		map.put("_index", indexName);
 		map.put("_type", indexType);
 		map.put("_id", resourceId);
-		map.put("_parent", "none");
 		final Map<String, Map<?, ?>> index = new HashMap<>();
 		index.put("index", map);
 		return index;
