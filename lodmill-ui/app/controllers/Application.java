@@ -72,8 +72,8 @@ public final class Application extends Controller {
 		try {
 			fieldAndFormat = getFieldAndFormat(formatParameter);
 			docs =
-					Search.documents(queryParameter, index, parameter, from, size,
-							fieldAndFormat.getLeft(), owner);
+					new Search(queryParameter, index, parameter).page(from, size)
+							.field(fieldAndFormat.getLeft()).owner(owner).documents();
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());

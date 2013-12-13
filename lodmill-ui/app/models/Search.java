@@ -45,7 +45,29 @@ public class Search {
 					.build()).addTransportAddress(ES_SERVER);
 	private static Client client = productionClient;
 
+	/** Required: */
+	private String term;
+	private Index index;
+	private Parameter parameter;
+
+	/** Optional: */
+	private String field = "";
+	private String owner = "";
+	private int size = 50;
+	private int from = 0;
+
 	/* TODO find a better way to inject the client for testing */
+
+	/**
+	 * @param term The search term
+	 * @param index The index to search (see {@link Index})
+	 * @param parameter The search parameter (see {@link Index#queries()} )
+	 */
+	public Search(final String term, final Index index, final Parameter parameter) {
+		this.term = term;
+		this.index = index;
+		this.parameter = parameter;
+	}
 
 	/** @param newClient The new elasticsearch client to use. */
 	public static void clientSet(Client newClient) {
@@ -58,34 +80,60 @@ public class Search {
 	}
 
 	/**
-	 * @param term The search term
-	 * @param index The index to search (see {@link Index})
-	 * @param parameter The search parameter (see {@link Index#queries()} )
-	 * @param from The start index of the result set
-	 * @param size The size of the result set
-	 * @param field The field to return as the result
-	 * @param owner The ID of an owner holding items of the requested resources
-	 * @return The documents matching the given parameters
+	 * Execute the search and return its results.
+	 * 
+	 * @return The documents matching this search
 	 */
-	public static List<Document> documents(final String term, final Index index,
-			final Parameter parameter, final int from, final int size,
-			final String field, final String owner) {
-		validate(index, parameter, from, size);
+	public List<Document> documents() {
+		validateSearchParameters();
 		final AbstractIndexQuery indexQuery = index.queries().get(parameter);
-		final QueryBuilder queryBuilder = createQuery(term, owner, indexQuery);
+		final QueryBuilder queryBuilder = createQuery(indexQuery);
 		Logger.debug("Using query: " + queryBuilder);
-		final SearchResponse response = search(index, queryBuilder, from, size);
+		final SearchResponse response = search(queryBuilder);
 		Logger.trace("Got response: " + response);
 		final SearchHits hits = response.getHits();
-		final List<Document> documents =
-				asDocuments(term, hits, indexQuery.fields(), index, field);
+		final List<Document> documents = asDocuments(hits, indexQuery.fields());
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
 				hits.hits().length, documents.size()));
 		return documents;
 	}
 
-	private static QueryBuilder createQuery(final String term,
-			final String owner, final AbstractIndexQuery indexQuery) {
+	/**
+	 * Optional: specify a field to pick from the full result
+	 * 
+	 * @param resultField The field to return as the result
+	 * @return this search object (for chaining)
+	 */
+	public Search field(final String resultField) {
+		this.field = resultField;
+		return this;
+	}
+
+	/**
+	 * Optional: specify a resource owner
+	 * 
+	 * @param resourceOwner An ID for the owner of requested resources
+	 * @return this search object (for chaining)
+	 */
+	public Search owner(final String resourceOwner) {
+		this.owner = resourceOwner;
+		return this;
+	}
+
+	/**
+	 * Optional: specify the page size
+	 * 
+	 * @param pageFrom The start index of the result set
+	 * @param pageSize The size of the result set
+	 * @return this search object (for chaining)
+	 */
+	public Search page(final int pageFrom, final int pageSize) {
+		this.from = pageFrom;
+		this.size = pageSize;
+		return this;
+	}
+
+	private QueryBuilder createQuery(final AbstractIndexQuery indexQuery) {
 		QueryBuilder queryBuilder = indexQuery.build(term);
 		if (!owner.isEmpty()) {
 			final QueryBuilder itemQuery = new LobidItems.OwnerQuery().build(owner);
@@ -97,8 +145,7 @@ public class Search {
 		return queryBuilder;
 	}
 
-	private static void validate(final Index index, final Parameter parameter,
-			final int from, final int size) {
+	private void validateSearchParameters() {
 		if (index == null) {
 			throw new IllegalArgumentException(String.format(
 					"Invalid index ('%s') - valid indexes: %s", index, Index.values()));
@@ -116,8 +163,7 @@ public class Search {
 		}
 	}
 
-	private static SearchResponse search(final Index index,
-			QueryBuilder queryBuilder, final int from, final int size) {
+	private SearchResponse search(final QueryBuilder queryBuilder) {
 		final SearchRequestBuilder requestBuilder =
 				client.prepareSearch(index.id())
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
@@ -128,16 +174,15 @@ public class Search {
 		return response;
 	}
 
-	private static List<Document> asDocuments(final String query,
-			final SearchHits hits, final List<String> searchFields,
-			final Index index, final String field) {
+	private List<Document> asDocuments(final SearchHits hits,
+			final List<String> searchFields) {
 		final List<Document> res = new ArrayList<>();
 		for (SearchHit hit : hits) {
 			try {
 				Hit hitEnum = Hit.of(hit, searchFields);
 				final Document document =
 						new Document(hit.getId(), new String(hit.source()), index, field);
-				res.add(hitEnum.process(query, document));
+				res.add(hitEnum.process(term, document));
 			} catch (IllegalArgumentException e) {
 				Logger.error(e.getMessage(), e);
 			}
