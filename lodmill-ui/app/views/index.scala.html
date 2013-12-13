@@ -116,7 +116,7 @@
 			<td>Search all <br/> (nested JSON result)
 		</tr>
 	</table>
-	<p>The <code>/resource</code> endpoint supports a few additional parameters (please note that currently these parameters can't be combined):</p>
+	<p>The <code>/resource</code> endpoint supports a few additional parameters (please note that except for <code>owner</code>, these parameters currently can't be combined):</p>
 
 	<table class="table table-striped">
 		<tr>
@@ -124,6 +124,7 @@
 			<th><code>author</code></th>
 			<th><code>subject</code></th>
 			<th><code>set</code></th>
+			<th><code>owner</code></th>
 			<th style="width: 10%">Info</th>
 		</tr>
 		<tr>
@@ -131,6 +132,7 @@
 			<td>@defining(("/resource?author=118580604","/resource?author=Abramson")){ refs => <a href="@refs._1">@refs._1</a><br/><a href="@refs._2">@refs._2</a>}</td>
 			<td>@defining(("/resource?subject=4414195-6","/resource?subject=Chemistry")){ref => <a href="@ref._1">@ref._1</a> (GND ID) <br/><a href="@ref._2">@ref._2</a> (Dewey label)}</td>
 			<td>@defining("/resource?set=NWBib"){ref => <a href="@ref">@ref</a>}</td>
+			<td>@defining("/resource?author=118580604&owner=DE-6"){ref => <a href="@ref">@ref</a>}</td>
 			<td>Title data <br/> (lobid-resources)</td>
 		</tr>
 	</table>
