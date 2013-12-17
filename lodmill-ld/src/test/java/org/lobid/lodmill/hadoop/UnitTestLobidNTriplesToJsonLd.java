@@ -34,7 +34,7 @@ public final class UnitTestLobidNTriplesToJsonLd {
 			"http://lobid.org/resource/HT000000716";
 	private static final String TRIPLE_URI = "<" + TRIPLE_ID + ">";
 	private static final String TRIPLE_1 = TRIPLE_URI
-			+ "<http://purl.org/dc/elements/1.1/creator>"
+			+ "<http://purl.org/dc/terms/creator>"
 			+ "<http://d-nb.info/gnd/118643606>.";
 	private static final String TRIPLE_2 = TRIPLE_URI
 			+ "<http://purl.org/dc/elements/1.1/creator>" + "\"Adamucci, Antonio\".";
@@ -111,9 +111,10 @@ public final class UnitTestLobidNTriplesToJsonLd {
 						"International migration & colonization@en")));
 		obj.put("http://purl.org/dc/terms/subject", Arrays.asList(ImmutableMap.of(
 				"@id", "https://dewey.info/class/[892.1, 22]/")));
-		obj.put("http://purl.org/dc/elements/1.1/creator", Arrays.asList(
-				ImmutableMap.of("@value", "Adamucci, Antonio"),
-				ImmutableMap.of("@id", "http://d-nb.info/gnd/118643606")));
+		obj.put("http://purl.org/dc/elements/1.1/creator",
+				Arrays.asList(ImmutableMap.of("@value", "Adamucci, Antonio")));
+		obj.put("http://purl.org/dc/terms/creator",
+				Arrays.asList(ImmutableMap.of("@id", "http://d-nb.info/gnd/118643606")));
 		array.add(obj);
 		return new JSONObject(ImmutableMap.of("@graph", array));
 	}
