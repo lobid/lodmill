@@ -8,5 +8,5 @@ _:b1 <http://www.w3.org/2003/01/geo/wgs84_pos#long> "2.3377220" .
 <http://lobid.org/organisation/ACRPP> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:b1 .
 <http://lobid.org/organisation/AAAAA> <http://www.w3.org/2003/01/geo/wgs84_pos#location> _:b1 .
 <http://lobid.org/organisation/ACRPP> <http://www.w3.org/2004/02/skos/core#prefLabel> "Association pour la conservation et la r\u00E9production photographique de la presse" .
-<http://lobid.org/organisation/ACRPP> <http://purl.org/dc/elements/1.1/contributor> <http://d-nb.info/gnd/129262110> .
+<http://lobid.org/organisation/ACRPP> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/129262110> .
 <http://d-nb.info/gnd/129262110> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Zayer, Eric"^^<http://www.w3.org/2001/XMLSchema#string> .
