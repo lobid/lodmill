@@ -47,6 +47,7 @@ public final class MabXmlTar2lobidTest {
 		tee.addReceiver(triple2model);
 		StreamTee streamTee = new StreamTee();
 		final Stats stats = new Stats();
+		stats.setFilename("tmp.stats.csv");
 		streamTee.addReceiver(stats);
 		PipeEncodeTriples encoder = new PipeEncodeTriples();
 		streamTee.addReceiver(encoder);
