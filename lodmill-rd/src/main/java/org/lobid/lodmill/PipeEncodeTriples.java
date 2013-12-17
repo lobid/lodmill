@@ -37,7 +37,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	private final AtomicInteger ATOMIC_INT = new AtomicInteger();
 	// dummy subject to store data even if the subject is unknown at first
 	final static String DUMMY_SUBJECT = "dummy_subject";
-	final static String HTTP = "http://";
+	final static String HTTP = "http";
 	private boolean fixSubject = false;
 
 	/**
@@ -87,7 +87,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 		} else if (name.startsWith(HTTP)) {
 			final Property prop = model.createProperty(name);
-			if (isUriWithScheme(value)) {
+			if (isUriWithScheme(value)
+					&& (value.startsWith(HTTP) || value.startsWith("mailto"))) {
 				resources.peek().addProperty(prop,
 						model.asRDFNode(NodeFactory.createURI(value)));
 			} else {
