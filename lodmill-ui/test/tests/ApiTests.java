@@ -133,6 +133,8 @@ public class ApiTests {
 				/*-------------*/
 				/* GET /subject */
 				/*-------------*/
+				{ "subject?id=http://d-nb.info/gnd/7765116-9", "Kirchhundem" },
+				{ "subject?id=7765116-9", "Kirchhundem" },
 				{ "subject?id=http://d-nb.info/gnd/1706733-9",
 						"Herbstadt-Ottelmannshausen" },
 				{ "subject?id=1706733-9", "Herbstadt-Ottelmannshausen" },

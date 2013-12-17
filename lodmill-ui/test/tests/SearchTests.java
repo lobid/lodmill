@@ -497,7 +497,9 @@ public class SearchTests {
 
 	/* @formatter:off */
 	@Test public void subjectByGndId1Preferred(){gndSubject("Herbstadt-Ottelmannshausen", 1);}
+	@Test public void subjectByGndId1PreferredNGram(){gndSubject("Ottel", 1);}
 	@Test public void subjectByGndId1Variant(){gndSubject("Ottelmannshausen  Herbstadt ", 1);}
+	@Test public void subjectByGndId1VariantNGram(){gndSubject("usen  Her", 1);}
 	@Test public void subjectByGndId2Preferred(){gndSubject("Kirchhundem-Heinsberg", 1);}
 	@Test public void subjectByGndId2Variant(){gndSubject("Heinsberg  Kirchhundem ", 1);}
 	/* @formatter:on */

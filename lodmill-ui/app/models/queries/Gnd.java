@@ -104,8 +104,6 @@ public class Gnd {
 							"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheCorporateBody.@value",
 							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily.@value",
 							"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheFamily.@value",
-							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value",
-							"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson.@value",
 							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName.@value",
 							"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName.@value",
 							"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading.@value",

@@ -85,6 +85,66 @@
           "index_analyzer":"ngram_analyzer",
           "search_analyzer":"standard"
         },
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheConferenceOrEvent.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheCorporateBody.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheFamily.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheSubjectHeading.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheWork.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
         "@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier.@value":{
           "type":"string",
           "index_analyzer":"id_analyzer",
