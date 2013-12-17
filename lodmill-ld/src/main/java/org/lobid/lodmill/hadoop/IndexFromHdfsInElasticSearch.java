@@ -199,11 +199,14 @@ public class IndexFromHdfsInElasticSearch {
 		final String index = (String) object.get("_index");
 		final String type = (String) object.get("_type");
 		final String id = (String) object.get("_id"); // NOPMD
+		final String parent = (String) object.get("_parent");
 		final IndicesAdminClient admin = c.admin().indices();
 		if (!admin.prepareExists(index).execute().actionGet().isExists()) {
 			admin.prepareCreate(index).setSource(config()).execute().actionGet();
 		}
-		return c.prepareIndex(index, type, id).setSource(map);
+		final IndexRequestBuilder request =
+				c.prepareIndex(index, type, id).setSource(map);
+		return parent == null ? request : request.setParent(parent);
 	}
 
 	private static String config() {
