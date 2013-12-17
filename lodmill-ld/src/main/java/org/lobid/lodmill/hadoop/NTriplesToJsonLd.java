@@ -37,6 +37,8 @@ import org.lobid.lodmill.hadoop.CollectSubjects.CollectSubjectsMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -213,9 +215,14 @@ public class NTriplesToJsonLd implements Tool {
 			final String triples = concatTriples(values);
 			final String jsonLd =
 					new JsonLdConverter(Format.N_TRIPLE).toJsonLd(triples);
+			final JsonNode node =
+					new ObjectMapper().readValue(jsonLd, JsonNode.class);
+			final JsonNode parent =
+					node.findValue(CollectSubjects.PARENTS.iterator().next());
 			context.write(
 					// write both with JSONValue for consistent escaping:
-					new Text(JSONValue.toJSONString(createIndexMap(key, context))),
+					new Text(JSONValue.toJSONString(createIndexMap(key, context,
+							parent != null ? parent.findValue("@id").asText() : null))),
 					new Text(JSONValue.toJSONString(JSONValue.parse(jsonLd))));
 		}
 
@@ -247,11 +254,14 @@ public class NTriplesToJsonLd implements Tool {
 		}
 
 		private static Map<String, Map<?, ?>> createIndexMap(final Text key,
-				final Context context) {
+				final Context context, final String parent) {
 			final Map<String, String> map = new HashMap<>();
 			map.put("_index", context.getConfiguration().get(INDEX_NAME));
 			map.put("_type", context.getConfiguration().get(INDEX_TYPE));
 			map.put("_id", key.toString().substring(1, key.getLength() - 1));
+			if (context.getConfiguration().get(INDEX_TYPE)
+					.equals("json-ld-lobid-item"))
+				map.put("_parent", parent != null ? parent : "none");
 			final Map<String, Map<?, ?>> index = new HashMap<>();
 			index.put("index", map);
 			return index;

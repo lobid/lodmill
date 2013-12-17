@@ -98,6 +98,8 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		final JobConf conf = createJobConf();
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
+		conf.set(NTriplesToJsonLd.INDEX_NAME, "lobid-resources");
+		conf.set(NTriplesToJsonLd.INDEX_TYPE, "json-ld-lobid");
 		final URI zippedMapFile =
 				CollectSubjects.asZippedMapFile(hdfs, new Path(HDFS_IN_SUBJECTS),
 						new Path(HDFS_OUT_ZIP + "/" + CollectSubjects.MAP_FILE_ZIP));

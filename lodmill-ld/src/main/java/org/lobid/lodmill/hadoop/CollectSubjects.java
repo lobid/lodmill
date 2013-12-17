@@ -66,6 +66,7 @@ public class CollectSubjects implements Tool {
 	private static final Properties PROPERTIES = load();
 	static final Set<String> TO_RESOLVE = props("resolve");
 	static final Set<String> PREDICATES = props("predicates");
+	static final Set<String> PARENTS = props("parents");
 
 	private static Properties load() {
 		final Properties props = new Properties();

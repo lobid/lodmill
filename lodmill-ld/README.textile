@@ -1,6 +1,6 @@
 h1. Overview
 
-This file contains documentation and the configuration setup we used to set up our small Hadoop (5 nodes) and Elasticsearch (3 nodes) clusters. All machines are running Ubuntu 12.04.2 LTS server edition ('precise') and Java 7. We're using Elasticsearch 0.90.5, Hadoop 1.2.1, and Puppet 2.7.22 to set up the Hadoop nodes.
+This file contains documentation and the configuration setup we used to set up our small Hadoop (5 nodes) and Elasticsearch (3 nodes) clusters. All machines are running Ubuntu 12.04.2 LTS server edition ('precise') and Java 7. We're using Elasticsearch 0.90.7, Hadoop 1.2.1, and Puppet 2.7.22 to set up the Hadoop nodes.
 
 h1. Hadoop and Puppet
 
@@ -54,10 +54,10 @@ h1. Elasticsearch
 h2. Install Elasticsearch
 
 * @sudo apt-get install java7-jdk@
-* @wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.5.deb@
-* @sudo dpkg -i elasticsearch-0.90.5.deb@
+* @wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.7.deb@
+* @sudo dpkg -i elasticsearch-0.90.7.deb@
 * set @cluster.name : quaoar@ in @/etc/elasticsearch/elasticsearch.yml@
-* tweak memory settings in @/etc/init.d/elasticsearch@ (we use @ES_HEAP_SIZE=8g@)
+* tweak memory settings in @/etc/init.d/elasticsearch@ (we use @ES_HEAP_SIZE=14g@)
 * @sudo service elasticsearch restart@
 * @curl http://localhost:9200@
 

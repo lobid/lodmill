@@ -62,6 +62,7 @@ public final class UnitTestCollectSubjects {
 		assertEquals("number of entries to resolve", 7,
 				CollectSubjects.TO_RESOLVE.size());
 		assertEquals("number of predicates", 11, CollectSubjects.PREDICATES.size());
+		assertEquals("number of parents", 1, CollectSubjects.PARENTS.size());
 	}
 
 	@Test
