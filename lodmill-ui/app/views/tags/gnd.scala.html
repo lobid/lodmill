@@ -8,6 +8,12 @@
   @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES,
     node = if((doc \\ "@type").isEmpty) None else Option((doc \\ "@type").head))
   @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson", doc, TableRow.VALUES)
+  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForTheConferenceOrEvent", doc, TableRow.VALUES)
+  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody", doc, TableRow.VALUES)
+  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily", doc, TableRow.VALUES)
+  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName", doc, TableRow.VALUES)
+  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading", doc, TableRow.VALUES)
+  @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork", doc, TableRow.VALUES)
   @rdfa("Kurzinfo", "http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation", doc, TableRow.VALUES)
   @rdfa("Geschlecht", "http://d-nb.info/standards/elementset/gnd#gender", doc, TableRow.LINKS)
   @rdfa("Sprache", "http://d-nb.info/standards/elementset/gnd#languageCode", doc, TableRow.LINKS)

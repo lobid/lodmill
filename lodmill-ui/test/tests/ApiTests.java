@@ -129,7 +129,16 @@ public class ApiTests {
 				{ "search?name=Bas",/* -> */"Bach, Johann Sebastian" },
 				{ "search?name=Bas",/* -> */"Universität Basel" },
 				{ "search?name=Bas&format=ids",/* -> */
-				"http://lobid.org/organisation/SzBaU" }
+				"http://lobid.org/organisation/SzBaU" },
+				/*-------------*/
+				/* GET /subject */
+				/*-------------*/
+				{ "subject?id=http://d-nb.info/gnd/1706733-9",
+						"Herbstadt-Ottelmannshausen" },
+				{ "subject?id=1706733-9", "Herbstadt-Ottelmannshausen" },
+				{ "subject?name=Ottelmannshausen", "Herbstadt-Ottelmannshausen" },
+				{ "subject?name=Kirchhundem", "Kirchhundem-Heinsberg" },
+				{ "search?name=Ottelmannshausen", "Herbstadt-Ottelmannshausen" }
 		/**/
 		});
 	}
