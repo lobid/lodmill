@@ -156,7 +156,7 @@
       "oclcnum": "http://purl.org/ontology/bibo/oclcnum",
       "isbn10": "http://purl.org/ontology/bibo/isbn10",
       "isbn13": "http://purl.org/ontology/bibo/isbn13",
-      "urn": "http://geni-orca.renci.org/owl/topology.owl#hasURN",
+      "urn": "http://lobid.org/vocab/lobid#urn",
       "fulltextOnline":
       {
          "@id": "http://lobid.org/vocab/lobid#fulltextOnline",
