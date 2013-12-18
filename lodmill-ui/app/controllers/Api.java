@@ -114,6 +114,29 @@ public final class Api extends Controller {
 		return search(id, q, name, format, from, size, Index.GND);
 	}
 
+	/**
+	 * @param id The subject ID
+	 * @param q A general query string
+	 * @param name The subject name
+	 * @param format The result format
+	 * @param from The start index of the result set
+	 * @param size The size of the result set
+	 * @return Matching subjects
+	 */
+	public static Result subject(final String id, final String q,
+			final String name, // NOPMD
+			final String format, final int from, final int size) {
+		Logger.debug(String.format("GET /subject; id: '%s', q: '%s', name: '%s'",
+				id, q, name));
+		final Map.Entry<Parameter, String> parameter =/*@formatter:off*/
+				Parameter.select(new ImmutableMap.Builder<Parameter, String>()
+						.put(Parameter.ID, id)
+						.put(Parameter.Q, q)
+						.put(Parameter.SUBJECT, name).build());/*@formatter:on*/
+		return Application.search(Index.GND, parameter.getKey(),
+				parameter.getValue(), format, from, size, "");
+	}
+
 	private static Result search(final String id, final String q,
 			final String name, final String format, final int from, final int size,
 			final Index index) {
@@ -150,6 +173,7 @@ public final class Api extends Controller {
 				resource(id, q, name, "", "", "", format, from, size, ""));
 		putIfOk(json, "organisation", organisation(id, q, name, format, from, size));
 		putIfOk(json, "person", person(id, q, name, format, from, size));
+		putIfOk(json, "subject", subject(id, q, name, format, from, size));
 		Logger.trace("JSON response: " + json);
 		return ok(json);
 	}

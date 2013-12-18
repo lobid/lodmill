@@ -92,7 +92,7 @@ public class SearchTests {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(45);
+				.isEqualTo(47);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -453,12 +453,12 @@ public class SearchTests {
 	}
 
 	/* @formatter:off */
-	@Test public void resourceByGndSubjectMulti(){gndSubject("44141956", 2);}
-	@Test public void resourceByGndSubjectDashed(){gndSubject("4414195-6", 1);}
-	@Test public void resourceByGndSubjectSingle(){gndSubject("189452846", 1);}
+	@Test public void resourceByGndSubjectMulti(){resByGndSubject("44141956", 2);}
+	@Test public void resourceByGndSubjectDashed(){resByGndSubject("4414195-6", 1);}
+	@Test public void resourceByGndSubjectSingle(){resByGndSubject("189452846", 1);}
 	/* @formatter:on */
 
-	public void gndSubject(final String gndId, final int results) {
+	public void resByGndSubject(final String gndId, final int results) {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
@@ -491,6 +491,28 @@ public class SearchTests {
 				final String gndPrefix = "http://d-nb.info/gnd/";
 				assertThat(jsonObject.get(0).toString()).contains(
 						gndPrefix + gndId.replace(gndPrefix, ""));
+			}
+		});
+	}
+
+	/* @formatter:off */
+	@Test public void subjectByGndId1Preferred(){gndSubject("Herbstadt-Ottelmannshausen", 1);}
+	@Test public void subjectByGndId1PreferredNGram(){gndSubject("Ottel", 1);}
+	@Test public void subjectByGndId1Variant(){gndSubject("Ottelmannshausen  Herbstadt ", 1);}
+	@Test public void subjectByGndId1VariantNGram(){gndSubject("usen  Her", 1);}
+	@Test public void subjectByGndId2Preferred(){gndSubject("Kirchhundem-Heinsberg", 1);}
+	@Test public void subjectByGndId2Variant(){gndSubject("Heinsberg  Kirchhundem ", 1);}
+	/* @formatter:on */
+
+	public void gndSubject(final String subjectName, final int results) {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject =
+						Json.parse(call("subject?name=" + subjectName));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(results);
+				assertThat(jsonObject.get(0).toString()).contains(subjectName);
 			}
 		});
 	}
@@ -669,7 +691,7 @@ public class SearchTests {
 	}
 
 	static String call(final String request) {
-		return call(request, "application/json");
+		return call(request.replace(' ', '+'), "application/json");
 	}
 
 	private static String call(final String request, final String contentType) {
