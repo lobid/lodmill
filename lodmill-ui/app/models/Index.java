@@ -36,7 +36,8 @@ public enum Index {
 	/***/
 	GND("gnd", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.Q, new Gnd.AllFieldsQuery())
-					.put(Parameter.NAME, new Gnd.NameQuery())
+					.put(Parameter.NAME, new Gnd.PersonNameQuery())
+					.put(Parameter.SUBJECT, new Gnd.SubjectNameQuery())
 					.put(Parameter.ID, new Gnd.IdQuery()).build()),
 	/***/
 	LOBID_ITEMS("lobid-resources", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
