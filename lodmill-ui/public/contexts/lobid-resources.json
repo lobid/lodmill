@@ -2,22 +2,21 @@
   "@context":
    {
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "title": "http://iflastandards.info/ns/isbd/elements/P1004",
-      "otherTitleInformation":  "http://iflastandards.info/ns/isbd/elements/P1006",
+      "title": "http://purl.org/dc/terms/title",
+      "alternativeTitle": "http://purl.org/dc/terms/alternative",
+      "otherTitleInformation":  "http://rdvocab.info/Elements/otherTitleInformation",
       "fullTitle": "http://purl.org/dc/terms/title",
+      "shortTitle": "http://purl.org/ontology/bibo/shortTitle",
       "creator":
       {
-         "@id": "http://purl.org/dc/elements/1.1/creator",
+         "@id": "http://purl.org/dc/terms/creator",
          "@type": "@id"
       },
+      "creatorName": "http://purl.org/dc/elements/1.1/creator",
+      "statementOfResponsibility": "http://rdvocab.info/Elements/statementOfResponsibility",
       "contributor":
       {
          "@id": "http://purl.org/dc/terms/contributor",
-         "@type": "@id"
-      },
-      "contributorName":
-      {
-         "@id": "http://purl.org/dc/elements/1.1/contributor",
          "@type": "@id"
       },
       "actor":
@@ -127,18 +126,18 @@
       },
       "singer":
       {
-         "@id": "http://id.loc.gov/vocabulary/relators/voc",
+         "@id": "http://id.loc.gov/vocabulary/relators/sng",
          "@type": "@id"
       },
-      "relatedPerson":
+      "honoree":
       {
-         "@id": "http://purl.org/dc/terms/relation",
+         "@id": "http://id.loc.gov/vocabulary/relators/hnr",
          "@type": "@id"
       },
       "publicationStatement": "http://rdvocab.info/Elements/publicationStatement",
       "source": "http://purl.org/dc/terms/source",
-      "placeOfPublication": "http://iflastandards.info/ns/isbd/elements/P1016",
-      "publisher": "http://iflastandards.info/ns/isbd/elements/P1017",
+      "placeOfPublication": "http://rdvocab.info/Elements/placeOfPublication",
+      "publisher": "http://purl.org/dc/elements/1.1/publisher",
       "issued": "http://purl.org/dc/terms/issued",
       "sameAs":
       {
@@ -154,9 +153,15 @@
       "eissn": "http://purl.org/ontology/bibo/eissn",
       "lccn": "http://purl.org/ontology/bibo/lccn",
       "oclcnum": "http://purl.org/ontology/bibo/oclcnum",
-      "isbn10": "http://purl.org/ontology/bibo/isbn10",
+      "isbn10": "http://purl.org/ontology/bibo/isbn",
       "isbn13": "http://purl.org/ontology/bibo/isbn13",
+      "ism": "http://purl.org/ontology/mo/ismn",
       "urn": "http://lobid.org/vocab/lobid#urn",
+      "doi":
+      {
+         "@id": "http://purl.org/ontology/bibo/doi",
+         "@type": "@id"
+      }, 
       "fulltextOnline":
       {
          "@id": "http://lobid.org/vocab/lobid#fulltextOnline",
@@ -187,6 +192,12 @@
          "@id": "http://purl.org/dc/terms/isPartOf",
          "@type": "@id"
       },
+      "isDataset":
+      {
+         "@id": "http://www.w3.org/2000/01/rdf-schema#inDataset",
+         "@type": "@id"
+      },
+      "isPartOfName": "http://purl.org/dc/elements/1.1/isPartOf",
       "hasVersion":
       {
          "@id": "http://purl.org/dc/terms/hasVersion",
@@ -197,18 +208,24 @@
          "@id": "http://purl.org/dc/terms/isFormatOf",
          "@type": "@id"
       },
-      "precededBy":
+      "hasFormat":
       {
-         "@id": "http://rdvocab.info/RDARelationshipsWEMI/precededBy",
+         "@id": "http://purl.org/dc/terms/hasFormat",
          "@type": "@id"
       },
-      "succeededBy":
+      "seeAlso":
       {
-         "@id": "http://rdvocab.info/RDARelationshipsWEMI/succeededBy",
+         "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
          "@type": "@id"
       },
+      "tableOfContent":
+      {
+         "@id": "http://purl.org/dc/terms/tableOfContents",
+         "@type": "@id"
+      },
+      "hbzId": "http://lobid.org/vocab/lobid#hbzID",
       "language":
-      {
+      { 
          "@id": "http://purl.org/dc/terms/language",
          "@type": "@id"
       },
@@ -222,11 +239,6 @@
          "@type": "@id"
       },
       "subjectLabel": "http://purl.org/dc/elements/1.1/subject",
-      "doi":
-      {
-         "@id": "http://purl.org/ontology/bibo/doi",
-         "@type": "@id"
-      },
       "editor":
       {
          "@id": "http://purl.org/ontology/bibo/editor",
@@ -257,6 +269,11 @@
       "isPrimaryTopicOf":
       {
          "@id": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf",
+         "@type": "@id"
+      },
+      "primaryTopic":
+      {
+         "@id": "http://xmlns.com/foaf/0.1/primaryTopic",
          "@type": "@id"
       },
       "describedBy":
