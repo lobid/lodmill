@@ -92,10 +92,10 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<data source="@idzdbProvenance" name="http://www.w3.org/2000/01/rdf-schema#inDataset">
+		<data source="@idzdbProvenance" name="http://vocab.deri.ie/void#inDataset">
 			<regexp match=".*" format="http://lobid.org/dataset/resource"/>
 		</data>
-		<combine name="http://www.w3.org/2000/01/rdf-schema#inDataset" value="http://lobid.org/dataset/resource">
+		<combine name="http://vocab.deri.ie/void#inDataset" value="http://lobid.org/dataset/resource">
 			<if>
 				<none>
 					<data source="@idzdbProvenance"/>
@@ -103,7 +103,7 @@
 			</if>
 			<data source="@id"/>
 		</combine>
-		<combine name="http://www.w3.org/2000/01/rdf-schema#inDataset" value="http://lobid.org/dataset/resource">
+		<combine name="http://vocab.deri.ie/void#inDataset" value="http://lobid.org/dataset/resource">
 			<data source="@idzdb"/>
 			<data source="@id"/>
 		</combine>
@@ -501,7 +501,7 @@
 		<data source="552a[-1].a" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://dx.doi.org/${1}"/>
 		</data>
-	<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
+		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
 		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
 		<data source="552b[-1].a" name="http://lobid.org/vocab/lobid#urn"/>
@@ -556,7 +556,7 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<data source="@itemId" name="http://www.w3.org/2000/01/rdf-schema#inDataset">
+		<data source="@itemId" name="http://vocab.deri.ie/void#inDataset">
 			<regexp match=".*" format="http://lobid.org/dataset/resource"/>
 		</data>
 		<combine name="http://xmlns.com/foaf/0.1/primaryTopic" value="${itemId}">
@@ -610,14 +610,6 @@
 		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
-<!-- 		<combine name="http://purl.org/dc/terms/contributor" value="${contributorId}">
-			<none>
-				<data source="@marcrelName"/>
-			</none>
-			<data source="@contributorId" name="contributorId">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine> -->
 		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[dD]ars" format="http://id.loc.gov/vocabulary/relators/act"/>
@@ -874,7 +866,9 @@
 		<concat delimiter="; " name="http://purl.org/dc/terms/bibliographicCitation">
 			<data source="5[29][01235678][-abcd][-1].a"/>
 		</concat>
-		<data source="599[-abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf"/>
+		<data source="599[-abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf">
+			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
+		</data>
 		<combine name="http://purl.org/dc/terms/bibliographicCitation" value="${biblioConcat}"
 			sameEntity="true">
 			<concat delimiter="; " name="biblioConcat">
