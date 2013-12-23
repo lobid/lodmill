@@ -115,9 +115,8 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 							.asLiteral().toString();
 			LOG.debug("Going to store identifier=" + identifier);
 		} catch (NoSuchElementException e) {
-			LOG.warn(
-					"No identifier => cannot derive a filename for " + model.toString(),
-					e);
+			LOG.warn("No identifier => cannot derive a filename for "
+					+ model.toString());
 			return;
 		} catch (LiteralRequiredException e) {
 			LOG.warn("Identifier is a URI. Derive filename from that URI ... "
@@ -148,7 +147,6 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 							filenameUtil.encoding);
 			final StringWriter tripleWriter = new StringWriter();
 			RDFDataMgr.write(tripleWriter, model, this.serialization);
-			tripleWriter.toString();
 			IOUtils.write(tripleWriter.toString(), writer);
 			writer.close();
 		} catch (IOException e) {
