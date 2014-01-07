@@ -1,4 +1,6 @@
 {
+  "@context":
+  {
     "academicDegree": {
         "@id": "http://d-nb.info/standards/elementset/gnd#academicDegree",
         "@type": "@id"
@@ -707,4 +709,5 @@
         "@id": "http://d-nb.info/standards/elementset/gnd#writerOfAddedCommentary",
         "@type": "@id"
     }
+  }
 }
