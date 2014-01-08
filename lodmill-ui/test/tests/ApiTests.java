@@ -126,9 +126,9 @@ public class ApiTests {
 				/*-------------*/
 				/* GET /search */
 				/*-------------*/
-				{ "search?name=Bas",/* -> */"Bach, Johann Sebastian" },
-				{ "search?name=Bas",/* -> */"Universität Basel" },
-				{ "search?name=Bas&format=ids",/* -> */
+				{ "search?name=Ba",/* -> */"Bach, Johann Sebastian" },
+				{ "search?name=Ba",/* -> */"Universität Basel" },
+				{ "search?name=Ba&format=ids",/* -> */
 				"http://lobid.org/organisation/SzBaU" },
 				/*-------------*/
 				/* GET /subject */

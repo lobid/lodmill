@@ -5,7 +5,6 @@ package tests;
 import static org.fest.assertions.Assertions.assertThat;
 import static play.test.Helpers.running;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import play.libs.Json;
@@ -18,7 +17,6 @@ import com.fasterxml.jackson.databind.JsonNode;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-@Ignore
 public class AutocompleteRankingTests extends SearchTestsHarness {
 
 	/*@formatter:off*/
@@ -34,9 +32,8 @@ public class AutocompleteRankingTests extends SearchTestsHarness {
 			public void run() {
 				final JsonNode jsonObject =
 						Json.parse(call("person?name=" + query + "&format=short"));
-				System.out.println(jsonObject);
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(3);
+				assertThat(jsonObject.size()).isEqualTo(1);
 				assertThat(jsonObject.get(0).asText()).isEqualTo(
 						"Mann, Thomas (1875-1955)");
 			}

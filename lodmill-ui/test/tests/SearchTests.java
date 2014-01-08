@@ -13,7 +13,6 @@ import static play.test.Helpers.running;
 import static play.test.Helpers.status;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -319,15 +318,8 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject =
 						Json.parse(call("resource?author=abraham&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(sorted(list(jsonObject))).isEqualTo(list(jsonObject));
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.elements().next().isContainerNode()).isFalse();
-			}
-
-			private List<String> sorted(List<String> list) {
-				List<String> sorted = new ArrayList<>(list);
-				Collections.sort(sorted);
-				return sorted;
 			}
 		});
 	}
@@ -349,7 +341,8 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject =
 						Json.parse(call("person?name=bach&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(5); /* differentiated only */
+				/* differentiated & *starting* with 'bach' only */
+				assertThat(jsonObject.size()).isEqualTo(3);
 			}
 		});
 	}
@@ -360,7 +353,7 @@ public class SearchTests extends SearchTestsHarness {
 	@Test public void searchAltNameSecond(){ searchName("Hannelore Glaser", 1); }
 	@Test public void searchAltNameShort() { searchName("Loki", 1); }
 	@Test public void searchAltNameNgram() { searchName("Lok", 1); }
-	@Test public void searchPrefNameNgram(){ searchName("Hanne", 2); }
+	@Test public void searchPrefNameNgram(){ searchName("Hanne", 1); }
 	@Test public void searchAltNameDates() { searchName("Loki Schmidt (1919-2010)", 1); }
 	@Test public void searchAltNameBirth() { searchName("Loki Schmidt (1919-)", 1); }
 	@Test public void searchAltNameNone()  { searchName("Loki Müller", 0); }
@@ -450,7 +443,7 @@ public class SearchTests extends SearchTestsHarness {
 	@Test public void subjectByGndId1Preferred(){gndSubject("Herbstadt-Ottelmannshausen", 1);}
 	@Test public void subjectByGndId1PreferredNGram(){gndSubject("Ottel", 1);}
 	@Test public void subjectByGndId1Variant(){gndSubject("Ottelmannshausen  Herbstadt ", 1);}
-	@Test public void subjectByGndId1VariantNGram(){gndSubject("usen  Her", 1);}
+	@Test public void subjectByGndId1VariantNGram(){gndSubject("  Her", 1);}
 	@Test public void subjectByGndId2Preferred(){gndSubject("Kirchhundem-Heinsberg", 1);}
 	@Test public void subjectByGndId2Variant(){gndSubject("Heinsberg  Kirchhundem ", 1);}
 	/* @formatter:on */
@@ -599,9 +592,11 @@ public class SearchTests extends SearchTestsHarness {
 	public void searchWithLimit() {
 		final Index index = Index.LOBID_RESOURCES;
 		final Parameter parameter = Parameter.AUTHOR;
-		assertThat(new Search("ha", index, parameter).page(0, 3).documents().size())
+		assertThat(
+				new Search("Abr", index, parameter).page(0, 3).documents().size())
 				.isEqualTo(3);
-		assertThat(new Search("ha", index, parameter).page(3, 6).documents().size())
+		assertThat(
+				new Search("Abr", index, parameter).page(3, 6).documents().size())
 				.isEqualTo(6);
 	}
 

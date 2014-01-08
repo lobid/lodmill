@@ -22,7 +22,7 @@
         },
         "filter":{
           "ngram":{
-            "type":"nGram",
+            "type":"edgeNGram",
             "min_gram":1,
             "max_gram":40
           }

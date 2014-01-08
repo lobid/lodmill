@@ -173,8 +173,8 @@ public class BrowserTests {
 				assertThat(browser.pageSource()).contains("Bach, Johann Sebastian")
 						.contains("Lithograph, tätig in Leipzig um 1835-1837")
 						.contains("Bruder von Marie Salome Bach, spätere Wiegand")
-						.contains("Ebner von Eschenbach, Johann Sebastian Wilhelm")
-						.contains("Mutzenbach, Johannes Sebastian").contains("Dt. Maler");
+						.contains("Bach, Johann Samuel").contains("Bach, Jean-Sébastien")
+						.contains("Bach, Joh. Sebst.").contains("Dt. Maler");
 			}
 		});
 	}
