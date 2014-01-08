@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -157,14 +157,14 @@ public class ApiTests {
 				endpoint, content));
 	}
 
-	@BeforeClass
-	public static void setup() throws IOException, InterruptedException {// NOPMD
-		SearchTests.setup();
+	@Before
+	public void setup() throws IOException {// NOPMD
+		SearchTestsHarness.setup();
 	}
 
-	@AfterClass
-	public static void down() {
-		SearchTests.down();
+	@After
+	public void down() {
+		SearchTestsHarness.down();
 	}
 
 	@Test
@@ -172,11 +172,13 @@ public class ApiTests {
 		running(testServer(5000), new Runnable() {
 			@Override
 			public void run() {
-				final String response = SearchTests.call(endpoint);
+				final String response = SearchTestsHarness.call(endpoint);
 				assertNotNull("Expecting non-null when calling: " + endpoint, response);
-				assertTrue(String.format(
-						"Response to calling endpoint '%s' should contain content '%s'",
-						endpoint, content), response.contains(content));
+				assertTrue(
+						String
+								.format(
+										"Response to calling endpoint '%s' should contain content '%s', but was '%s'",
+										endpoint, content, response), response.contains(content));
 			}
 		});
 	}

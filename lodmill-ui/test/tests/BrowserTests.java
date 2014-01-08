@@ -7,7 +7,7 @@ import static org.fluentlenium.core.filter.FilterConstructor.withId;
 import static org.fluentlenium.core.filter.FilterConstructor.withText;
 import static play.test.Helpers.HTMLUNIT;
 import static play.test.Helpers.running;
-import static tests.SearchTests.call;
+import static tests.SearchTestsHarness.call;
 
 import java.io.IOException;
 
@@ -30,17 +30,17 @@ import play.test.TestServer;
 public class BrowserTests {
 
 	private static final String INDEX = "http://localhost:"
-			+ SearchTests.TEST_SERVER_PORT;
-	private static final TestServer TEST_SERVER = SearchTests.TEST_SERVER;
+			+ SearchTestsHarness.TEST_SERVER_PORT;
+	private static final TestServer TEST_SERVER = SearchTestsHarness.TEST_SERVER;
 
 	@BeforeClass
-	public static void setup() throws IOException, InterruptedException { // NOPMD
-		SearchTests.setup();
+	public static void setup() throws IOException { // NOPMD
+		SearchTestsHarness.setup();
 	}
 
 	@AfterClass
 	public static void down() {
-		SearchTests.down();
+		SearchTestsHarness.down();
 	}
 
 	@Test
