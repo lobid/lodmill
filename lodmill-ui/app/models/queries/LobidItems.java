@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.MatchQueryBuilder.Operator;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
@@ -100,13 +101,16 @@ public class LobidItems {
 		}
 
 		@Override
-		public QueryBuilder build(final String owner) {
+		public QueryBuilder build(final String queryString) {
+			final String[] owners = queryString.split(",");
 			final String prefix = "http://lobid.org/organisation/";
-			final String ownerId = prefix + owner.replace(prefix, "");
-			final QueryBuilder itemQuery = matchQuery(fields().get(0), ownerId);
+			BoolQueryBuilder itemQuery = QueryBuilders.boolQuery();
+			for (String owner : owners) {
+				final String ownerId = prefix + owner.replace(prefix, "");
+				itemQuery = itemQuery.should(matchQuery(fields().get(0), ownerId));
+			}
 			return hasChildQuery("json-ld-lobid-item", itemQuery);
 		}
-
 	}
 
 }

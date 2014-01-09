@@ -72,6 +72,10 @@ public class ApiTests {
 				"Heimatstimmen aus dem Kreis Olpe" },
 				{ "resource?set=NWBib&owner=DE-Sol1",/*->*/
 				"Heimatstimmen aus dem Kreis Olpe" },
+				{ "resource?author=Hu&owner=DE-Sol1,DE-Sol2",/*->*/
+				"Heimatstimmen aus dem Kreis Olpe" },
+				{ "resource?author=Go&owner=DE-Sol1,DE-Sol2",/*->*/
+				"Kirchengeschichte des Rheinlandes" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
