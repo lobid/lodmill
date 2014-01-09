@@ -1,8 +1,7 @@
-/* Copyright 2012-2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package tests;
 
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 import static org.fest.assertions.Assertions.assertThat;
 import static play.mvc.Http.Status.BAD_REQUEST;
 import static play.mvc.Http.Status.OK;
@@ -12,41 +11,24 @@ import static play.test.Helpers.fakeRequest;
 import static play.test.Helpers.route;
 import static play.test.Helpers.running;
 import static play.test.Helpers.status;
-import static play.test.Helpers.testServer;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 import models.Document;
 import models.Index;
 import models.Parameter;
 import models.Search;
 
-import org.elasticsearch.action.bulk.BulkItemResponse;
-import org.elasticsearch.client.Client;
-import org.elasticsearch.node.Node;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.lobid.lodmill.hadoop.IndexFromHdfsInElasticSearch;
 
 import play.libs.Json;
 import play.mvc.Result;
-import play.test.TestServer;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.google.common.base.Charsets;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
-import com.google.common.io.CharStreams;
 
 /**
  * Tests for the search functionality.
@@ -54,45 +36,13 @@ import com.google.common.io.CharStreams;
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public class SearchTests {
-
-	private static final Index TEST_INDEX = Index.LOBID_RESOURCES;
-	static final String TERM = "theo";
-	static final int TEST_SERVER_PORT = 5000;
-	static final TestServer TEST_SERVER = testServer(TEST_SERVER_PORT);
-	private static Node node;
-	private static Client client;
-
-	@BeforeClass
-	public static void setup() throws IOException, InterruptedException {
-		node = nodeBuilder().local(true).node();
-		client = node.client();
-		client.admin().indices().prepareDelete().execute().actionGet();
-		File sampleData = new File("test/tests/json-ld-index-data.json");
-		try (Scanner scanner = new Scanner(sampleData)) {
-			List<BulkItemResponse> runBulkRequests =
-					IndexFromHdfsInElasticSearch.runBulkRequests(scanner, client);
-			for (BulkItemResponse bulkItemResponse : runBulkRequests) {
-				System.out.println(bulkItemResponse.toString());
-			}
-		}
-		Thread.sleep(2000);
-		Search.clientSet(client);
-	}
-
-	@AfterClass
-	public static void down() {
-		client.admin().indices().prepareDelete(TEST_INDEX.id()).execute()
-				.actionGet();
-		node.close();
-		Search.clientReset();
-	}
+public class SearchTests extends SearchTestsHarness {
 
 	@Test
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(47);
+				.isEqualTo(50);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -107,10 +57,10 @@ public class SearchTests {
 	@Test
 	public void searchViaModel() {
 		final List<Document> docs =
-				new Search(TERM, Index.LOBID_RESOURCES, Parameter.AUTHOR).documents();
+				new Search("theo", Index.LOBID_RESOURCES, Parameter.AUTHOR).documents();
 		assertThat(docs.size()).isPositive();
 		for (Document document : docs) {
-			assertThat(document.getMatchedField().toLowerCase()).contains(TERM);
+			assertThat(document.getMatchedField().toLowerCase()).contains("theo");
 		}
 	}
 
@@ -368,15 +318,8 @@ public class SearchTests {
 				final JsonNode jsonObject =
 						Json.parse(call("resource?author=abraham&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(sorted(list(jsonObject))).isEqualTo(list(jsonObject));
 				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
 				assertThat(jsonObject.elements().next().isContainerNode()).isFalse();
-			}
-
-			private List<String> sorted(List<String> list) {
-				List<String> sorted = new ArrayList<>(list);
-				Collections.sort(sorted);
-				return sorted;
 			}
 		});
 	}
@@ -398,7 +341,8 @@ public class SearchTests {
 				final JsonNode jsonObject =
 						Json.parse(call("person?name=bach&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(5); /* differentiated only */
+				/* differentiated & *starting* with 'bach' only */
+				assertThat(jsonObject.size()).isEqualTo(3);
 			}
 		});
 	}
@@ -409,7 +353,7 @@ public class SearchTests {
 	@Test public void searchAltNameSecond(){ searchName("Hannelore Glaser", 1); }
 	@Test public void searchAltNameShort() { searchName("Loki", 1); }
 	@Test public void searchAltNameNgram() { searchName("Lok", 1); }
-	@Test public void searchPrefNameNgram(){ searchName("Hanne", 2); }
+	@Test public void searchPrefNameNgram(){ searchName("Hanne", 1); }
 	@Test public void searchAltNameDates() { searchName("Loki Schmidt (1919-2010)", 1); }
 	@Test public void searchAltNameBirth() { searchName("Loki Schmidt (1919-)", 1); }
 	@Test public void searchAltNameNone()  { searchName("Loki Müller", 0); }
@@ -499,7 +443,7 @@ public class SearchTests {
 	@Test public void subjectByGndId1Preferred(){gndSubject("Herbstadt-Ottelmannshausen", 1);}
 	@Test public void subjectByGndId1PreferredNGram(){gndSubject("Ottel", 1);}
 	@Test public void subjectByGndId1Variant(){gndSubject("Ottelmannshausen  Herbstadt ", 1);}
-	@Test public void subjectByGndId1VariantNGram(){gndSubject("usen  Her", 1);}
+	@Test public void subjectByGndId1VariantNGram(){gndSubject("  Her", 1);}
 	@Test public void subjectByGndId2Preferred(){gndSubject("Kirchhundem-Heinsberg", 1);}
 	@Test public void subjectByGndId2Variant(){gndSubject("Heinsberg  Kirchhundem ", 1);}
 	/* @formatter:on */
@@ -648,9 +592,11 @@ public class SearchTests {
 	public void searchWithLimit() {
 		final Index index = Index.LOBID_RESOURCES;
 		final Parameter parameter = Parameter.AUTHOR;
-		assertThat(new Search("ha", index, parameter).page(0, 3).documents().size())
+		assertThat(
+				new Search("Abr", index, parameter).page(0, 3).documents().size())
 				.isEqualTo(3);
-		assertThat(new Search("ha", index, parameter).page(3, 6).documents().size())
+		assertThat(
+				new Search("Abr", index, parameter).page(3, 6).documents().size())
 				.isEqualTo(6);
 	}
 
@@ -688,23 +634,5 @@ public class SearchTests {
 						call("resource?author=ha&from=10")); /* default 'size' is 50 */
 			}
 		});
-	}
-
-	static String call(final String request) {
-		return call(request.replace(' ', '+'), "application/json");
-	}
-
-	private static String call(final String request, final String contentType) {
-		try {
-			final URLConnection url =
-					new URL("http://localhost:" + TEST_SERVER_PORT + "/" + request)
-							.openConnection();
-			url.setRequestProperty("Accept", contentType);
-			return CharStreams.toString(new InputStreamReader(url.getInputStream(),
-					Charsets.UTF_8));
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-		}
 	}
 }
