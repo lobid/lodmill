@@ -117,28 +117,6 @@ public class SearchTests extends SearchTestsHarness {
 	}
 
 	@Test
-	public void searchResByOwnerId() {
-		searchResByAuthorWithOwnerId("Hu", /* in: */"DE-Sol1", /*->*/
-				"http://lobid.org/resource/BT000001260");
-	}
-
-	@Test
-	public void searchResByOwnerUri() {
-		searchResByAuthorWithOwnerId("Hu", /* in: */
-				"http://lobid.org/organisation/DE-Sol1", /*->*/
-				"http://lobid.org/resource/BT000001260");
-	}
-
-	private static void searchResByAuthorWithOwnerId(String author,
-			String holder, String resultId) {
-		final List<Document> docs =
-				new Search(author, Index.LOBID_RESOURCES, Parameter.AUTHOR).owner(
-						holder).documents();
-		assertThat(docs.size()).isEqualTo(1);
-		assertThat(docs.get(0).getId()).isEqualTo(resultId);
-	}
-
-	@Test
 	public void searchResByIdWithReturnFieldViaModel() {
 		running(fakeApplication(), new Runnable() {
 			@Override
