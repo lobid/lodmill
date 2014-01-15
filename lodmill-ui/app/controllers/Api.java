@@ -61,7 +61,7 @@ public final class Api extends Controller {
 						.put(Parameter.SUBJECT, subject)
 						.put(Parameter.SET, set).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size, owner);
+				format, from, size, owner, set);
 	}
 
 	/**
@@ -134,7 +134,7 @@ public final class Api extends Controller {
 						.put(Parameter.Q, q)
 						.put(Parameter.SUBJECT, name).build());/*@formatter:on*/
 		return Application.search(Index.GND, parameter.getKey(),
-				parameter.getValue(), format, from, size, "");
+				parameter.getValue(), format, from, size, "", "");
 	}
 
 	private static Result search(final String id, final String q,
@@ -146,7 +146,7 @@ public final class Api extends Controller {
 						.put(Parameter.Q, q)
 						.put(Parameter.NAME, name).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size, "");
+				format, from, size, "", "");
 	}
 
 	/**
