@@ -4,6 +4,7 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 import models.Document;
@@ -143,8 +144,8 @@ public final class Application extends Controller {
 								withCallback(callback, fullJsonResponse(documents, field)))
 						.put(
 								ResultFormat.SHORT,
-								withCallback(callback,
-										Json.toJson(Lists.transform(documents, jsonShort))))
+								withCallback(callback, Json.toJson(new HashSet<>(Lists
+										.transform(documents, jsonShort)))))
 						.put(
 								ResultFormat.IDS,
 								withCallback(callback,
