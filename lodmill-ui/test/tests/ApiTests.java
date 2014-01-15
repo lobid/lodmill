@@ -48,6 +48,8 @@ public class ApiTests {
 				"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
+				{ "resource?subject=4414195-6&set=NWBib",/* -> */
+						"http://lobid.org/resource/NWBib" },
 				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
 				{ "resource?subject=Chemistry&format=short",/* -> */
 				"Chemistry & allied sciences" },
