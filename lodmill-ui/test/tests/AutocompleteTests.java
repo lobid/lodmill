@@ -12,12 +12,12 @@ import play.libs.Json;
 import com.fasterxml.jackson.databind.JsonNode;
 
 /**
- * Tests for ranking autocomplete suggestions.
+ * Tests for autocomplete suggestions.
  * 
  * @author Fabian Steeg (fsteeg)
  */
 @SuppressWarnings("javadoc")
-public class AutocompleteRankingTests extends SearchTestsHarness {
+public class AutocompleteTests extends SearchTestsHarness {
 
 	/*@formatter:off*/
 	@Test public void personFirstLastFull() { searchGndOrdering("thomas mann"); }
@@ -36,6 +36,23 @@ public class AutocompleteRankingTests extends SearchTestsHarness {
 				assertThat(jsonObject.size()).isEqualTo(1);
 				assertThat(jsonObject.get(0).asText()).isEqualTo(
 						"Mann, Thomas (1875-1955)");
+			}
+		});
+	}
+
+	@Test
+	public void shortResultsNoDuplicates() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObjectIds =
+						Json.parse(call("person?name=Bach&format=ids"));
+				assertThat(jsonObjectIds.isArray()).isTrue();
+				assertThat(jsonObjectIds.size()).isEqualTo(3); // with id: no dupe
+				final JsonNode jsonObjectShort =
+						Json.parse(call("person?name=Bach&format=short"));
+				assertThat(jsonObjectShort.isArray()).isTrue();
+				assertThat(jsonObjectShort.size()).isEqualTo(2); // just label: dupe
 			}
 		});
 	}

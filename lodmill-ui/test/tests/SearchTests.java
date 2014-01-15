@@ -319,8 +319,8 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject =
 						Json.parse(call("person?name=bach&format=short"));
 				assertThat(jsonObject.isArray()).isTrue();
-				/* differentiated & *starting* with 'bach' only */
-				assertThat(jsonObject.size()).isEqualTo(3);
+				/* differentiated & *starting* with 'bach' only & no dupes */
+				assertThat(jsonObject.size()).isEqualTo(2);
 			}
 		});
 	}
