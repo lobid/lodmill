@@ -12,7 +12,6 @@ import java.util.Map;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
-import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
 
@@ -24,6 +23,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.github.jsonldjava.core.JSONLD;
 import com.github.jsonldjava.core.JSONLDProcessingError;
 import com.github.jsonldjava.utils.JSONUtils;
+import com.google.common.collect.ImmutableMap;
 import com.hp.hpl.jena.shared.BadURIException;
 
 /**
@@ -58,6 +58,8 @@ public class Document {
 					(Map<String, Object>) JSONLD.compact(JSONUtils.fromString(source),
 							contextObject);
 			compactJsonLd.put("@context", localAndPublicContextUrls.getRight());
+			compactJsonLd.put("@id", id + "/about");
+			compactJsonLd.put("primaryTopic", id);
 			final String result = JSONUtils.toString(compactJsonLd);
 			return this.field.isEmpty() ? result : findField(result);
 		} catch (JSONLDProcessingError | IOException e) {
@@ -80,10 +82,13 @@ public class Document {
 	 */
 	public String getSourceWithFullProperties() {
 		try {
-			final Object compactJsonLd =
-					JSONLD.compact(JSONUtils.fromString(source),
-							new HashMap<String, Object>());
-			return JSONUtils.toString(compactJsonLd);
+			final Map<String, Object> jsonLd =
+					(Map<String, Object>) JSONUtils.fromString(source);
+			jsonLd.put("@id", id + "/about");
+			jsonLd.put("http://xmlns.com/foaf/0.1/primaryTopic",
+					ImmutableMap.of("@id", id));
+			return JSONUtils.toString(JSONLD.compact(jsonLd,
+					new HashMap<String, Object>()));
 		} catch (JSONLDProcessingError | IOException e) {
 			e.printStackTrace();
 			return null;
@@ -116,7 +121,7 @@ public class Document {
 	 */
 	public String as(final Format format) { // NOPMD
 		final JsonLdConverter converter = new JsonLdConverter(format);
-		final String json = JSONValue.toJSONString(JSONValue.parse(source));
+		final String json = getSourceWithFullProperties();
 		String result = "";
 		try {
 			result = converter.toRdf(json);

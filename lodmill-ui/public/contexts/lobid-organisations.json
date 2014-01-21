@@ -87,6 +87,10 @@
       {
          "@id": "http://xmlns.com/foaf/0.1/isPrimaryTopicOf",
          "@type": "@id"
+      },
+      "primaryTopic": {
+         "@id": "http://xmlns.com/foaf/0.1/primaryTopic",
+         "@type": "@id"
       }
    }
 }
