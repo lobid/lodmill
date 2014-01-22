@@ -192,7 +192,7 @@
          "@id": "http://purl.org/dc/terms/isPartOf",
          "@type": "@id"
       },
-      "isDataset":
+      "inDataset":
       {
          "@id": "http://www.w3.org/2000/01/rdf-schema#inDataset",
          "@type": "@id"
