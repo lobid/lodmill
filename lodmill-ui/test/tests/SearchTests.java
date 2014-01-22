@@ -619,7 +619,7 @@ public class SearchTests extends SearchTestsHarness {
 	}
 
 	@Test
-	public void testIdAndPrimaryTopic() {
+	public void testIdAndPrimaryTopicForResource() {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
@@ -629,6 +629,20 @@ public class SearchTests extends SearchTestsHarness {
 						"http://lobid.org/resource/BT000001260/about");
 				assertThat(jsonObject.get(0).get("primaryTopic").asText()).isEqualTo(
 						"http://lobid.org/resource/BT000001260");
+			}
+		});
+	}
+
+	@Test
+	public void testIdAndPrimaryTopicForPerson() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject = Json.parse(call("person?id=1019737174"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
+						"http://d-nb.info/gnd/1019737174");
+				assertThat(jsonObject.get(0).get("primaryTopic")).isNull();
 			}
 		});
 	}

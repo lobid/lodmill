@@ -17,12 +17,10 @@ object TagHelper {
     Some(res.mkString(","))
   }
   def getPrimaryTopicType(node: JsValue): Option[JsValue] = {
-    val primaryTopic = (node \ "http://xmlns.com/foaf/0.1/primaryTopic")
-      .as[Map[String, String]].get("@id")
-    val res = for (
-      graphObject <- (node \ "@graph").as[List[JsValue]];
-      if ((graphObject \ "@id").asOpt[String].getOrElse("") == primaryTopic.getOrElse(""))
-    ) yield graphObject \ "@type"
-    Some(res(0))
+    ((node \ "http://xmlns.com/foaf/0.1/primaryTopic").asOpt[JsValue] match {
+      case None => Some(node)
+      case Some(id) =>
+        (node \ "@graph").as[List[JsValue]].find((v: JsValue) => (v \ "@id") == id \ "@id")
+    }).map(_ \ "@type")
   }
 }

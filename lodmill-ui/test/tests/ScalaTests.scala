@@ -68,7 +68,7 @@ class ScalaTests extends AssertionsForJUnit {
       === Some("Institution without a collection"))
   }
 
-  @Test def accessSpecificType() {
+  @Test def accessSpecificTypeInGraph() {
     import views.tags.TagHelper._
     val json: JsValue = toJson(
       Map[String, JsValue](
@@ -83,6 +83,23 @@ class ScalaTests extends AssertionsForJUnit {
               "http://purl.org/vocab/frbr/core#Manifestation",
               "http://purl.org/dc/terms/BibliographicResource",
               "http://purl.org/ontology/bibo/Book")))))))
+
+    assert(getPrimaryTopicType(json)
+      === Some(toJson(List(
+        "http://purl.org/vocab/frbr/core#Manifestation",
+        "http://purl.org/dc/terms/BibliographicResource",
+        "http://purl.org/ontology/bibo/Book"))))
+  }
+
+  @Test def accessSpecificTypeNoGraph() {
+    import views.tags.TagHelper._
+    val json: JsValue = toJson(
+      Map[String, JsValue](
+        "@id" -> toJson("http://lobid.org/resource/HT002189125"),
+        "@type" -> toJson(List(
+          "http://purl.org/vocab/frbr/core#Manifestation",
+          "http://purl.org/dc/terms/BibliographicResource",
+          "http://purl.org/ontology/bibo/Book"))))
 
     assert(getPrimaryTopicType(json)
       === Some(toJson(List(

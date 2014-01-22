@@ -51,15 +51,10 @@ public class Document {
 	public String getSource() {
 		try {
 			final Pair<URL, String> localAndPublicContextUrls = getContextUrls();
-			final Map<String, Object> contextObject =
-					(Map<String, Object>) JSONUtils.fromURL(localAndPublicContextUrls
-							.getLeft());
 			final Map<String, Object> compactJsonLd =
-					(Map<String, Object>) JSONLD.compact(JSONUtils.fromString(source),
-							contextObject);
+					sourceAsCompactJsonLd((Map<String, Object>) JSONUtils
+							.fromURL(localAndPublicContextUrls.getLeft()));
 			compactJsonLd.put("@context", localAndPublicContextUrls.getRight());
-			compactJsonLd.put("@id", id + "/about");
-			compactJsonLd.put("primaryTopic", id);
 			final String result = JSONUtils.toString(compactJsonLd);
 			return this.field.isEmpty() ? result : findField(result);
 		} catch (JSONLDProcessingError | IOException e) {
@@ -82,17 +77,29 @@ public class Document {
 	 */
 	public String getSourceWithFullProperties() {
 		try {
-			final Map<String, Object> jsonLd =
-					(Map<String, Object>) JSONUtils.fromString(source);
-			jsonLd.put("@id", id + "/about");
-			jsonLd.put("http://xmlns.com/foaf/0.1/primaryTopic",
-					ImmutableMap.of("@id", id));
-			return JSONUtils.toString(JSONLD.compact(jsonLd,
-					new HashMap<String, Object>()));
+			return JSONUtils
+					.toString(sourceAsCompactJsonLd(new HashMap<String, Object>()));
 		} catch (JSONLDProcessingError | IOException e) {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	private Map<String, Object> sourceAsCompactJsonLd(
+			final Map<String, Object> contextObject) throws IOException,
+			JSONLDProcessingError {
+		final Map<String, Object> jsonLd =
+				(Map<String, Object>) JSONUtils.fromString(source);
+		final Object graph = jsonLd.get("@graph");
+		if (graph instanceof List && ((List<?>) graph).size() > 1)
+			addPrimaryTopicMetadata(jsonLd);
+		return (Map<String, Object>) JSONLD.compact(jsonLd, contextObject);
+	}
+
+	private void addPrimaryTopicMetadata(final Map<String, Object> jsonLd) {
+		jsonLd.put("@id", id + "/about");
+		jsonLd.put("http://xmlns.com/foaf/0.1/primaryTopic",
+				ImmutableMap.of("@id", id));
 	}
 
 	/** @return The field that matched the query. */
