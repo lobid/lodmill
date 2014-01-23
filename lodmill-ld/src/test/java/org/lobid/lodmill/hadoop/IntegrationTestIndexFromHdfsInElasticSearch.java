@@ -87,7 +87,7 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 		Thread.sleep(INDEX_SLEEP);
 		final SearchResponse response =
 				search(
-						"lobid-resources",
+						"lobid-index",
 						"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value",
 						"loft");
 		assertTrue(
