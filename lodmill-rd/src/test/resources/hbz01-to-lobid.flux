@@ -1,6 +1,7 @@
 default files = FLUX_DIR;
 
 files+"hbz01XmlClobs.tar.bz2"|
+read-dir(recursive="true")|
 open-file(compression="BZIP2") |
 open-tar|
 decode-xml |
@@ -15,6 +16,6 @@ xml-tee| {
         }{
                 encode-ntriples |
                 triples-to-rdfmodel(input="N-TRIPLE")|
-                write-rdfmodel(property="http://lobid.org/vocab/lobid#hbzID",  serialization="N-TRIPLES",startindex="2", endindex="7",target="/tmp/nt/") 
+                write-rdfmodel(property="http://purl.org/lobid/lv#hbzID",  serialization="N-TRIPLES",startindex="2", endindex="7",target="/tmp/nt/") 
         }
 };

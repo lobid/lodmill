@@ -178,7 +178,7 @@
 				<regexp match="(.*)" format="http://193.30.112.134/F/?func=find-c&amp;ccl_term=IDN%3D${1}"/>
 			</data>
 		</combine>
-		<data source="@id" name="http://lobid.org/vocab/lobid#hbzID"/>
+		<data source="@id" name="http://purl.org/lobid/lv#hbzID"/>
 		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
 		</data>
@@ -263,15 +263,18 @@
 					<data source="052.">
 						<regexp match="^[{alpha}|]"/>
 					</data>
+					<data source="@matVideo">
+						<regexp match=".*"/>
+					</data>
+					<data source="@typeAudio">
+						<regexp match=".*"/>
+					</data>
 				</none>
 			</if>
 			<data source="050.">
 				<regexp match="^a"/>
 			</data>
 		</combine>
-		<data source="050." name="@rdftypeAndManifestation">
-			<regexp match="^.a" format="http://purl.org/ontology/bibo/Manuscript"/>
-		</data>
 		<!-- electronic -->
 		<data source="050." name="@typeOnly">
 			<regexp match="^........[abcdefgz].*" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1002"/>
@@ -328,6 +331,9 @@
 		</data>
 		<data source="050." name="http://purl.org/dc/terms/medium">
 			<regexp match="^...[abc]" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1003"/>
+		</data>
+		<data source="050." name="@rdftypeAndManifestation">
+			<regexp match="^.a" format="http://purl.org/ontology/bibo/Manuscript"/>
 		</data>
 		<data source="@rdftypeAndManifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- TODO and not Journal/Series (andnot @typeOnly) -->
@@ -504,7 +510,7 @@
 		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
 		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
-		<data source="552b[-1].a" name="http://lobid.org/vocab/lobid#urn"/>
+		<data source="552b[-1].a" name=" http://purl.org/lobid/lv#urn"/>
 		<data source="552b[-1].a" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://nbn-resolving.de/${1}"/>
 		</data>
@@ -835,7 +841,7 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<data source="@fulltextOnline" name="http://lobid.org/vocab/lobid#fulltextOnline"/>
+		<data source="@fulltextOnline" name=" http://purl.org/lobid/lv#fulltextOnline"/>
 		<data source="@fulltextOnline" name="http://purl.org/dc/terms/hasVersion"/>
 		<!-- rdf:seeAlso if 655 AND_NOT fulltextOnline -->
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
@@ -853,8 +859,8 @@
 		<!-- link to table of content (toc) -->
 		<combine name="http://purl.org/dc/terms/tableOfContents" value="${uri}"
 			sameEntity="true">
-			<data source="655[-e][ -1].x">
-				<regexp match="^[Ii][Nn][Hh]"/>
+			<data source="655[-eu][ -1].[x3]">
+				<regexp match="^[Ii][Nn][Hh][aA][lL][tT][sS][vV]"/>
 			</data>
 			<data source="@linkUri" name="uri">
 				<regexp match="^([a-zA-Z].*)" format="${1}"/>

@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 
-import org.antlr.runtime.RecognitionException;
 import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
@@ -43,6 +42,7 @@ public final class MabXmlTar2lobidTest {
 		triple2model.setInput("N-TRIPLE");
 		final ObjectTee<String> tee = new ObjectTee<String>();
 		RdfModelFileWriter modelWriter = createModelWriter();
+		modelWriter.setProperty("http://purl.org/lobid/lv#hbzID");
 		triple2model.setReceiver(modelWriter);
 		tee.addReceiver(triple2model);
 		StreamTee streamTee = new StreamTee();
@@ -123,11 +123,14 @@ public final class MabXmlTar2lobidTest {
 
 	@SuppressWarnings("static-method")
 	@Test
-	public void testFlux() throws IOException, URISyntaxException,
-			RecognitionException {
+	public void testFlux() throws URISyntaxException {
 		File fluxFile =
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("hbz01-to-lobid.flux").toURI());
-		Flux.main(new String[] { fluxFile.getAbsolutePath() });
+		try {
+			Flux.main(new String[] { fluxFile.getAbsolutePath() });
+		} catch (Exception e) {
+			System.err.println(e);
+		}
 	}
 }
