@@ -40,7 +40,6 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.io.CharStreams;
@@ -62,16 +61,18 @@ public class IndexFromHdfsInElasticSearch {
 	 * @param args Pass 4 params: hdfs-server hdfs-input-path es-host
 	 *          es-cluster-name to index files in hdfs-input-path from HDFS on
 	 *          hdfs-server into es-cluster-name on es-host. Optional 5. argument:
-	 *          a suffix to append to the index aliases created (e.g. `-staging`)
+	 *          a suffix to append to the index aliases created (e.g. `-staging`).
+	 *          If the 5. argument is 'NOALIAS', alias creation is skipped"
 	 */
 	public static void main(final String[] args) {
-		if (args.length < 4) {
+		if (args.length < 4 || args.length > 5) {
 			System.err
 					.println("Pass 4 params: <hdfs-server> <hdfs-input-path>"
 							+ " <es-host> <es-cluster-name> to index files in"
 							+ " <hdfs-input-path> from HDFS on <hdfs-server> into"
 							+ " <es-cluster-name> on <es-host>. Optional 5. argument:"
-							+ "a suffix to append to the index aliases created (e.g. `-staging`)");
+							+ "a suffix to append to the index aliases created (e.g. `-staging`)."
+							+ " If the 5. argument is 'NOALIAS', alias creation is skipped");
 			System.exit(-1);
 		}
 		try (FileSystem hdfs =
@@ -120,7 +121,8 @@ public class IndexFromHdfsInElasticSearch {
 				result.addAll(indexOne(dir + fileStatus.getPath().getName()));
 			}
 		}
-		updateAliases(aliasSuffix);
+		if (!aliasSuffix.equals("NOALIAS"))
+			updateAliases(aliasSuffix);
 		return result;
 	}
 
@@ -173,19 +175,11 @@ public class IndexFromHdfsInElasticSearch {
 	}
 
 	private void updateAliases(final String aliasSuffix) {
-		final ImmutableMap<String, String> mapPrefixesToAliases = ImmutableMap.of(
-				/*@formatter:off@*/
-				"gnd-index", "gnd",
-				"lobid-index", "lobid-resources",
-				"lobid-orgs-index", "lobid-organisations"
-				); /*@formatter:on@*/
 		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
 		for (String prefix : indices.keySet()) {
 			final SortedSet<String> indicesForPrefix = indices.get(prefix);
 			final String newIndex = indicesForPrefix.last();
-			final String newAlias =
-					(mapPrefixesToAliases.containsKey(prefix) ? mapPrefixesToAliases
-							.get(prefix) : prefix) + aliasSuffix;
+			final String newAlias = prefix + aliasSuffix;
 			LOG.info(format("Prefix '%s', newest index: %s", prefix, newIndex));
 			removeOldAliases(indicesForPrefix, newAlias);
 			createNewAlias(newIndex, newAlias);
