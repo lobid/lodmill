@@ -510,7 +510,7 @@
 		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
 		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
-		<data source="552b[-1].a" name=" http://purl.org/lobid/lv#urn"/>
+		<data source="552b[-1].a" name="http://purl.org/lobid/lv#urn"/>
 		<data source="552b[-1].a" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://nbn-resolving.de/${1}"/>
 		</data>
@@ -841,7 +841,7 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<data source="@fulltextOnline" name=" http://purl.org/lobid/lv#fulltextOnline"/>
+		<data source="@fulltextOnline" name="http://purl.org/lobid/lv#fulltextOnline"/>
 		<data source="@fulltextOnline" name="http://purl.org/dc/terms/hasVersion"/>
 		<!-- rdf:seeAlso if 655 AND_NOT fulltextOnline -->
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
