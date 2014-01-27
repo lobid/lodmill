@@ -45,7 +45,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 @In(Model.class)
 @Out(Void.class)
 public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
-		implements FilenameExtractor {
+		implements FilenameExtractor, RDFSink {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(RdfModelFileWriter.class);
 
@@ -96,10 +96,7 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 		filenameUtil.endIndex = endIndex;
 	}
 
-	/**
-	 * 
-	 * @param serialization Sets the serialization format. Default is NTriples.
-	 */
+	@Override
 	public void setSerialization(final String serialization) {
 		this.serialization = RDFLanguages.nameToLang(serialization);
 	}

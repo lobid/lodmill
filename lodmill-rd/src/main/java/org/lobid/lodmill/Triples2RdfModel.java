@@ -27,7 +27,6 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 @Out(Model.class)
 public class Triples2RdfModel extends
 		DefaultObjectPipe<String, ObjectReceiver<Model>> {
-	Model model;
 	private int count = 0;
 	private String serialization = "TURTLE";
 
@@ -44,9 +43,8 @@ public class Triples2RdfModel extends
 
 	@Override
 	public void process(final String str) {
-		model = ModelFactory.createDefaultModel();
-		model.read(new StringReader(str), "test:uri:" + count, serialization);
+		Model model = ModelFactory.createDefaultModel();
+		model.read(new StringReader(str), "test:uri:" + count++, serialization);
 		getReceiver().process(model);
 	}
-
 }
