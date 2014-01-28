@@ -59,8 +59,6 @@ public class CollectSubjects implements Tool {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(CollectSubjects.class);
 	static final Configuration MAP_FILE_CONFIG = new Configuration();
-	static final String MAP_FILE_NAME = "subjects.map";
-	static final String MAP_FILE_ZIP = "map.subjects.zip";
 	static final String PREFIX_KEY = "target.subject.prefix";
 
 	private static final Properties PROPERTIES = load();
@@ -100,14 +98,16 @@ public class CollectSubjects implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 3) {
+		if (args.length != 4) {
 			System.err
-					.println("Usage: CollectSubjects <input path> <output path> <target subjects prefix>");
+					.println("Usage: CollectSubjects <input path> <output path> <target subjects prefix> <index name>");
 			System.exit(-1);
 		}
+		final String mapFileName = mapFileName(args[3]);
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings("mapred.reduce.child.java.opts", "-Xmx4g");
 		conf.setStrings("target.subject.prefix", args[2]);
+		conf.setStrings("map.file.name", mapFileName);
 		final Job job = new Job(conf);
 		job.setNumReduceTasks(REDUCERS);
 		job.setJarByClass(CollectSubjects.class);
@@ -119,25 +119,25 @@ public class CollectSubjects implements Tool {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
 		boolean success = job.waitForCompletion(true);
-		asZippedMapFile(getFileSystem(), new Path(args[1] + "/part-r-00000"),
-				new Path(args[1] + "/" + MAP_FILE_ZIP));
+		asZippedMapFile(getFileSystem(conf), new Path(args[1] + "/part-r-00000"),
+				new Path(args[1] + "/" + mapFileName + ".zip"), conf);
 		System.exit(success ? 0 : 1);
 		return 0;
 	}
 
 	static URI asZippedMapFile(final FileSystem fs,
-			final Path subjectMappingsPath, final Path zipOutputLocation)
-			throws IOException {
-		writeToMapFile(subjectMappingsPath, fs);
-		final Path zippedMapFilePath = zipMapFile(fs, zipOutputLocation);
+			final Path subjectMappingsPath, final Path zipOutputLocation,
+			final Configuration conf) throws IOException {
+		writeToMapFile(subjectMappingsPath, fs, conf);
+		final Path zippedMapFilePath = zipMapFile(fs, zipOutputLocation, conf);
 		return zippedMapFilePath.toUri();
 	}
 
 	private static void writeToMapFile(final Path subjectMappingsPath,
-			final FileSystem fs) throws IOException {
+			final FileSystem fs, final Configuration conf) throws IOException {
 		try (final MapFile.Writer writer =
-				new MapFile.Writer(MAP_FILE_CONFIG, fs, MAP_FILE_NAME, Text.class,
-						Text.class);
+				new MapFile.Writer(MAP_FILE_CONFIG, fs, conf.get("map.file.name"),
+						Text.class, Text.class);
 				final InputStream inputStream = fs.open(subjectMappingsPath);
 				final Scanner scanner = new Scanner(inputStream)) {
 			while (scanner.hasNextLine()) {
@@ -149,9 +149,10 @@ public class CollectSubjects implements Tool {
 	}
 
 	private static Path zipMapFile(final FileSystem fs,
-			final Path zipOutputLocation) throws IOException, FileNotFoundException {
+			final Path zipOutputLocation, final Configuration conf)
+			throws IOException, FileNotFoundException {
 		final Path[] outputFiles =
-				FileUtil.stat2Paths(fs.listStatus(new Path(MAP_FILE_NAME),
+				FileUtil.stat2Paths(fs.listStatus(new Path(conf.get("map.file.name")),
 						new Utils.OutputFileUtils.OutputFilesFilter()));
 		try (final FSDataOutputStream fos = fs.create(zipOutputLocation);
 				final ZipOutputStream zos = new ZipOutputStream(fos)) {
@@ -168,8 +169,9 @@ public class CollectSubjects implements Tool {
 		zos.closeEntry();
 	}
 
-	static FileSystem getFileSystem() throws IOException {
-		return FileSystem.get(URI.create(MAP_FILE_NAME), MAP_FILE_CONFIG);
+	static FileSystem getFileSystem(final Configuration conf) throws IOException {
+		return FileSystem.get(URI.create(conf.get("map.file.name")),
+				MAP_FILE_CONFIG);
 	}
 
 	/**
@@ -286,5 +288,13 @@ public class CollectSubjects implements Tool {
 		return ":"
 				+ ((FileSplit) inputSplit).getPath().toUri().getPath()
 						.replaceAll("/user/[^/]+/", "");
+	}
+
+	/**
+	 * @param prefix The prefix to use for making the map file name unique
+	 * @return A file name for the map file, with the given prefix
+	 */
+	public static String mapFileName(String prefix) {
+		return prefix + "subjects.map";
 	}
 }

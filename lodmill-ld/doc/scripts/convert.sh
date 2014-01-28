@@ -19,5 +19,5 @@ TYPE=$5
 
 $HADOOP/bin/hadoop fs -rmr $TMP
 $HADOOP/bin/hadoop fs -rmr $OUT
-$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.CollectSubjects $IN $TMP $SUBJ
+$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.CollectSubjects $IN $TMP $SUBJ $INDEX
 $HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $TMP $OUT $INDEX $TYPE $SUBJ

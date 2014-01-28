@@ -5,6 +5,7 @@ package org.lobid.lodmill.hadoop;
 import java.io.IOException;
 import java.util.Scanner;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FileUtil;
@@ -63,17 +64,18 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 						+ "http://purl.org/lobid/fundertype#n08 http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/stocksize#n06 http://lobid.org/organisation/ACRPP\n",
 				string.replaceAll("_:[^\\s]+", ""));
-		writeZippedMapFile();
+		writeZippedMapFile(job.getConfiguration());
 	}
 
-	private void writeZippedMapFile() throws IOException {
+	private void writeZippedMapFile(final Configuration conf) throws IOException {
 		long time = System.currentTimeMillis();
 		final Path[] outputFiles =
 				FileUtil.stat2Paths(getFileSystem().listStatus(new Path(HDFS_OUT),
 						new Utils.OutputFileUtils.OutputFilesFilter()));
 		final Path zipOutputLocation =
-				new Path(HDFS_OUT + "/" + CollectSubjects.MAP_FILE_ZIP);
-		CollectSubjects.asZippedMapFile(hdfs, outputFiles[0], zipOutputLocation);
+				new Path(HDFS_OUT + "/" + conf.get("map.file.name") + ".zip");
+		CollectSubjects.asZippedMapFile(hdfs, outputFiles[0], zipOutputLocation,
+				conf);
 		final FileStatus fileStatus = hdfs.getFileStatus(zipOutputLocation);
 		assertTrue(fileStatus.getModificationTime() >= time);
 	}
@@ -82,6 +84,7 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		final JobConf conf = createJobConf();
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
+		conf.setStrings("map.file.name", CollectSubjects.mapFileName("testing"));
 		final Job job = new Job(conf);
 		job.setJobName("CollectSubjects");
 		FileInputFormat.addInputPaths(job, HDFS_IN_1 + "," + HDFS_IN_2);

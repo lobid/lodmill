@@ -96,13 +96,15 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 
 	private Job createJob() throws IOException {
 		final JobConf conf = createJobConf();
+		final String mapFileName = CollectSubjects.mapFileName("testing");
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
 		conf.set(NTriplesToJsonLd.INDEX_NAME, "lobid-resources");
 		conf.set(NTriplesToJsonLd.INDEX_TYPE, "json-ld-lobid");
+		conf.setStrings("map.file.name", mapFileName);
 		final URI zippedMapFile =
 				CollectSubjects.asZippedMapFile(hdfs, new Path(HDFS_IN_SUBJECTS),
-						new Path(HDFS_OUT_ZIP + "/" + CollectSubjects.MAP_FILE_ZIP));
+						new Path(HDFS_OUT_ZIP + "/" + mapFileName + ".zip"), conf);
 		DistributedCache.addCacheFile(zippedMapFile, conf);
 		final Job job = new Job(conf);
 		job.setJobName("IntegrationTestLobidNTriplesToJsonLd");

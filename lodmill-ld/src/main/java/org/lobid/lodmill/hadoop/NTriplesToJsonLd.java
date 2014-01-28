@@ -96,12 +96,15 @@ public class NTriplesToJsonLd implements Tool {
 
 	private void createJobConfig(String[] args) {
 		conf = getConf();
+		final String indexName = args[3];
+		final String mapFileName = CollectSubjects.mapFileName(indexName);
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
 		conf.setStrings("target.subject.prefix", args[5]);
-		conf.set(INDEX_NAME, args[3]);
+		conf.setStrings("map.file.name", mapFileName);
+		conf.set(INDEX_NAME, indexName);
 		conf.set(INDEX_TYPE, args[4]);
-		DistributedCache.addCacheFile(new Path(args[1] + "/"
-				+ CollectSubjects.MAP_FILE_ZIP).toUri(), conf);
+		DistributedCache.addCacheFile(
+				new Path(args[1] + "/" + mapFileName + ".zip").toUri(), conf);
 	}
 
 	/**
@@ -124,17 +127,18 @@ public class NTriplesToJsonLd implements Tool {
 			final Path[] localCacheFiles =
 					DistributedCache.getLocalCacheFiles(context.getConfiguration());
 			if (localCacheFiles != null && localCacheFiles.length == 1)
-				initMapFileReader(localCacheFiles[0]);
+				initMapFileReader(localCacheFiles[0], context);
 			else
 				LOG.warn("No subjects cache files found!");
 		}
 
-		private void initMapFileReader(final Path zipFile) throws IOException,
-				FileNotFoundException {
-			unzip(zipFile.toString(), CollectSubjects.MAP_FILE_NAME);
+		private void initMapFileReader(final Path zipFile, final Context context)
+				throws IOException, FileNotFoundException {
+			unzip(zipFile.toString(), context.getConfiguration().get("map.file.name"));
 			reader =
-					new MapFile.Reader(CollectSubjects.getFileSystem(),
-							CollectSubjects.MAP_FILE_NAME, CollectSubjects.MAP_FILE_CONFIG);
+					new MapFile.Reader(CollectSubjects.getFileSystem(context
+							.getConfiguration()), context.getConfiguration().get(
+							"map.file.name"), CollectSubjects.MAP_FILE_CONFIG);
 		}
 
 		private static void unzip(final String zipFile, final String outputFolder)
