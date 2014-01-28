@@ -135,11 +135,28 @@ public class IndexFromHdfsInElasticSearch {
 	 */
 	public List<BulkItemResponse> indexOne(final String data) throws IOException {
 		checkPathInHdfs(data);
-		final FSDataInputStream inputStream = hdfs.open(new Path(data));
-		try (Scanner scanner = new Scanner(inputStream, "UTF-8")) {
-			final List<BulkItemResponse> result = runBulkRequests(scanner, client);
-			return result;
+		List<BulkItemResponse> result = null;
+		int retries = 40;
+		while (retries > 0) {
+			try (FSDataInputStream inputStream = hdfs.open(new Path(data));
+					Scanner scanner = new Scanner(inputStream, "UTF-8")) {
+				result = runBulkRequests(scanner, client);
+				break; // stop retry-while
+			} catch (NoNodeAvailableException e) {
+				// Retry on NoNodeAvailableException, see
+				// https://github.com/elasticsearch/elasticsearch/issues/1868
+				retries--;
+				try {
+					Thread.sleep(10000);
+				} catch (InterruptedException x) {
+					LOG.error(x.getMessage(), x);
+				}
+				LOG.error(String.format(
+						"Retry indexing data at %s after exception: %s (%s more retries)",
+						data, e.getMessage(), retries));
+			}
 		}
+		return result;
 	}
 
 	/**
@@ -255,7 +272,7 @@ public class IndexFromHdfsInElasticSearch {
 
 	private static void runBulkRequest(final BulkRequestBuilder bulkRequest,
 			final List<BulkItemResponse> result) {
-		final BulkResponse bulkResponse = executeBulkRequest(bulkRequest);
+		final BulkResponse bulkResponse = bulkRequest.execute().actionGet();
 		if (bulkResponse == null) {
 			LOG.error("Bulk request failed: " + bulkRequest);
 		} else {
@@ -305,30 +322,6 @@ public class IndexFromHdfsInElasticSearch {
 			LOG.error(e.getMessage(), e);
 		}
 		return res;
-	}
-
-	private static BulkResponse executeBulkRequest(final BulkRequestBuilder bulk) {
-		BulkResponse bulkResponse = null;
-		int retries = 40;
-		while (retries > 0) {
-			try {
-				bulkResponse = bulk.execute().actionGet();
-				break;
-			} catch (NoNodeAvailableException e) {
-				// Retry on NoNodeAvailableException, see
-				// https://github.com/elasticsearch/elasticsearch/issues/1868
-				retries--;
-				try {
-					Thread.sleep(10000);
-				} catch (InterruptedException x) {
-					LOG.error(x.getMessage(), x);
-				}
-				LOG.error(String.format(
-						"Retry bulk index request after exception: %s (%s more retries)",
-						e.getMessage(), retries));
-			}
-		}
-		return bulkResponse;
 	}
 
 	private void checkPathInHdfs(final String data) throws IOException {
