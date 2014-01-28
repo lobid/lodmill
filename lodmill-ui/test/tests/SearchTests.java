@@ -466,8 +466,10 @@ public class SearchTests extends SearchTestsHarness {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(call(ENDPOINT, "text/plain")).isNotEmpty().startsWith(
-						"<http");
+				final String response = call(ENDPOINT, "text/plain");
+				assertThat(response).isNotEmpty().startsWith("<http");
+				assertThat(response).contains(
+						"<http://xmlns.com/foaf/0.1/primaryTopic>");
 			}
 		});
 	}
@@ -477,8 +479,10 @@ public class SearchTests extends SearchTestsHarness {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(call(ENDPOINT, "text/turtle")).isNotEmpty().contains(
-						"      a       ");
+				final String response = call(ENDPOINT, "text/turtle");
+				assertThat(response).isNotEmpty().contains("      a       ");
+				assertThat(response).contains(
+						"<http://xmlns.com/foaf/0.1/primaryTopic>");
 			}
 		});
 	}
@@ -610,6 +614,35 @@ public class SearchTests extends SearchTestsHarness {
 						call("resource?author=ha&size=3")); /* default 'from' is 0 */
 				assertThat(call("resource?author=ha&from=10&size=50")).isEqualTo(
 						call("resource?author=ha&from=10")); /* default 'size' is 50 */
+			}
+		});
+	}
+
+	@Test
+	public void testIdAndPrimaryTopicForResource() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject = Json.parse(call("resource?id=BT000001260"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
+						"http://lobid.org/resource/BT000001260/about");
+				assertThat(jsonObject.get(0).get("primaryTopic").asText()).isEqualTo(
+						"http://lobid.org/resource/BT000001260");
+			}
+		});
+	}
+
+	@Test
+	public void testIdAndPrimaryTopicForPerson() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject = Json.parse(call("person?id=1019737174"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
+						"http://d-nb.info/gnd/1019737174");
+				assertThat(jsonObject.get(0).get("primaryTopic")).isNull();
 			}
 		});
 	}

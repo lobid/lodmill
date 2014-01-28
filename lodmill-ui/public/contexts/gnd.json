@@ -708,6 +708,10 @@
     "writerOfAddedCommentary": {
         "@id": "http://d-nb.info/standards/elementset/gnd#writerOfAddedCommentary",
         "@type": "@id"
+    },
+    "primaryTopic": {
+        "@id": "http://xmlns.com/foaf/0.1/primaryTopic",
+        "@type": "@id"
     }
   }
 }

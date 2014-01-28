@@ -67,4 +67,44 @@ class ScalaTests extends AssertionsForJUnit {
     assert(getLabelValue("http://purl.org/lobid/lv#stocksize", "en", json)
       === Some("Institution without a collection"))
   }
+
+  @Test def accessSpecificTypeInGraph() {
+    import views.tags.TagHelper._
+    val json: JsValue = toJson(
+      Map[String, JsValue](
+        "http://xmlns.com/foaf/0.1/primaryTopic" -> toJson(Map("@id" -> "http://lobid.org/resource/HT002189125")),
+        "@graph" -> toJson(List[Map[String, JsValue]](
+          Map(
+            "@id" -> toJson("http://d-nb.info/gnd/118580604"),
+            "@type" -> toJson("http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson")),
+          Map(
+            "@id" -> toJson("http://lobid.org/resource/HT002189125"),
+            "@type" -> toJson(List(
+              "http://purl.org/vocab/frbr/core#Manifestation",
+              "http://purl.org/dc/terms/BibliographicResource",
+              "http://purl.org/ontology/bibo/Book")))))))
+
+    assert(getPrimaryTopicType(json)
+      === Some(toJson(List(
+        "http://purl.org/vocab/frbr/core#Manifestation",
+        "http://purl.org/dc/terms/BibliographicResource",
+        "http://purl.org/ontology/bibo/Book"))))
+  }
+
+  @Test def accessSpecificTypeNoGraph() {
+    import views.tags.TagHelper._
+    val json: JsValue = toJson(
+      Map[String, JsValue](
+        "@id" -> toJson("http://lobid.org/resource/HT002189125"),
+        "@type" -> toJson(List(
+          "http://purl.org/vocab/frbr/core#Manifestation",
+          "http://purl.org/dc/terms/BibliographicResource",
+          "http://purl.org/ontology/bibo/Book"))))
+
+    assert(getPrimaryTopicType(json)
+      === Some(toJson(List(
+        "http://purl.org/vocab/frbr/core#Manifestation",
+        "http://purl.org/dc/terms/BibliographicResource",
+        "http://purl.org/ontology/bibo/Book"))))
+  }
 }

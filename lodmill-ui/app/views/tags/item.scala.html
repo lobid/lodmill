@@ -1,11 +1,11 @@
-@* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
+@* Copyright 2013, 2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
 @(doc: play.api.libs.json.JsValue)
 @import play.api.libs.json.JsValue
 @import views.TableRow
+@import views.tags.TagHelper
 @import tags._
 <table class="table table-striped">
-  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES,
-    node = if((doc \\ "@type").isEmpty) None else Option((doc \\ "@type").head))
+  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES, TagHelper.getPrimaryTopicType(doc))
   @rdfa("Zugehöriger Titel", "http://purl.org/vocab/frbr/core#exemplarOf", doc, TableRow.LINKS)
   @rdfa("Besitzer", "http://purl.org/vocab/frbr/core#owner", doc, TableRow.LINKS)
   @rdfa("Signatur", "http://purl.org/ontology/daia/label", doc, TableRow.VALUES)
