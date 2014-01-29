@@ -3,8 +3,8 @@
 package controllers;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 import models.Document;
@@ -62,25 +62,26 @@ public final class Application extends Controller {
 	 * @param size The size of the result set
 	 * @param format The result format requested
 	 * @param owner The ID of an owner holding items of the requested resources
+	 * @param set The ID of a set the requested resources should be part of
 	 * @return The results, in the format specified
 	 */
 	static Result search(final Index index, final Parameter parameter,
 			final String queryParameter, final String formatParameter,
-			final int from, final int size, final String owner) {
+			final int from, final int size, final String owner, final String set) {
 		List<Document> docs = new ArrayList<>();
 		Pair<String, String> fieldAndFormat;
 		try {
 			fieldAndFormat = getFieldAndFormat(formatParameter);
 			docs =
 					new Search(queryParameter, index, parameter).page(from, size)
-							.field(fieldAndFormat.getLeft()).owner(owner).documents();
+							.field(fieldAndFormat.getLeft()).owner(owner).set(set)
+							.documents();
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequest(e.getMessage());
 		}
 		final ImmutableMap<ResultFormat, Result> results =
-				results(parameter, queryParameter, docs, index,
-						fieldAndFormat.getLeft());
+				results(queryParameter, docs, index, fieldAndFormat.getLeft());
 		try {
 			return results.get(ResultFormat.valueOf(fieldAndFormat.getRight()
 					.toUpperCase()));
@@ -130,8 +131,7 @@ public final class Application extends Controller {
 				}
 			};
 
-	private static ImmutableMap<ResultFormat, Result> results(
-			final Parameter parameter, final String query,
+	private static ImmutableMap<ResultFormat, Result> results(final String query,
 			final List<Document> documents, final Index selectedIndex,
 			final String field) {
 		/* JSONP callback support for remote server calls with JavaScript: */
@@ -144,10 +144,14 @@ public final class Application extends Controller {
 								negotiateContent(documents, selectedIndex, query, field))
 						.put(ResultFormat.FULL,
 								withCallback(callback, fullJsonResponse(documents, field)))
-						.put(ResultFormat.SHORT,
-								withCallback(callback, createShortResult(parameter, documents)))
-						.put(ResultFormat.IDS,
-								withCallback(callback, createIdsResult(parameter, documents)))
+						.put(
+								ResultFormat.SHORT,
+								withCallback(callback, Json.toJson(new HashSet<>(Lists
+										.transform(documents, jsonShort)))))
+						.put(
+								ResultFormat.IDS,
+								withCallback(callback,
+										Json.toJson(Lists.transform(documents, jsonLabelValue))))
 						.build();
 		return results;
 	}
@@ -194,36 +198,6 @@ public final class Application extends Controller {
 									.transformAndConcat(nodeToArray));
 		}
 		return Json.toJson(ImmutableSet.copyOf(nonEmptyNodes));
-	}
-
-	private static JsonNode createShortResult(final Parameter parameter,
-			final List<Document> documents) {
-		final List<String> shortStrings = Lists.transform(documents, jsonShort);
-		return Json.toJson(parameter == Parameter.Q ? shortStrings
-				: sortStrings(shortStrings));
-	}
-
-	private static ImmutableSortedSet<String> sortStrings(List<String> nodes) {
-		return ImmutableSortedSet.copyOf(nodes);
-	}
-
-	private static JsonNode createIdsResult(final Parameter parameter,
-			final List<Document> documents) {
-		final List<JsonNode> labelAndValueList =
-				Lists.transform(documents, jsonLabelValue);
-		return Json.toJson(parameter == Parameter.Q ? labelAndValueList
-				: sortNodes(labelAndValueList));
-	}
-
-	private static List<JsonNode> sortNodes(List<JsonNode> nodes) {
-		final List<JsonNode> sorted = new ArrayList<>(nodes);
-		Collections.sort(sorted, new Comparator<JsonNode>() {
-			@Override
-			public int compare(JsonNode o1, JsonNode o2) {
-				return o1.get("label").asText().compareTo(o2.get("label").asText());
-			}
-		});
-		return sorted;
 	}
 
 	private static Result negotiateContent(List<Document> documents,

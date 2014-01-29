@@ -1,7 +1,8 @@
-@* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
+@* Copyright 2013, 2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
 @(doc: play.api.libs.json.JsValue)
 @import play.api.libs.json.JsValue
 @import views.TableRow
+@import views.tags.TagHelper
 @import tags._
 <table class="table table-striped">
   @rdfa("ID", "http://lobid.org/resource", doc, TableRow.LINKS, node = Option(doc))
@@ -10,8 +11,7 @@
   @rdfa("Autor", "http://purl.org/dc/terms/creator", doc, TableRow.LINKS)
   @rdfa("Name", "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson", doc, TableRow.VALUES)
   @rdfa("Erscheinungsjahr", "http://purl.org/dc/terms/issued", doc, TableRow.VALUES)
-  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES, 
-  	node = if((doc \\ "@type").isEmpty) None else Option((doc \\ "@type").head))
+  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES, TagHelper.getPrimaryTopicType(doc))
   @rdfa("Sprache", "http://purl.org/dc/terms/language", doc, TableRow.LINKS)
   @rdfa("Volltext", "http://lobid.org/vocab/lobid#fulltextOnline", doc, TableRow.LINKS)
   @rdfa("Ausgabe", "http://purl.org/ontology/bibo/edition", doc, TableRow.VALUES)

@@ -71,7 +71,7 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 
 	@Test
 	public void testIndexAll() throws IOException, InterruptedException {
-		final List<BulkItemResponse> errors = indexer.indexAll("json-es-test/");
+		final List<BulkItemResponse> errors = indexer.indexAll("json-es-test/", "");
 		for (BulkItemResponse error : errors) {
 			System.err.println("Index error: " + error.getFailureMessage());
 		}
@@ -83,11 +83,11 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 
 	@Test
 	public void testNGram() throws IOException, InterruptedException {
-		indexer.indexAll("json-es-test/");
+		indexer.indexAll("json-es-test/", "");
 		Thread.sleep(INDEX_SLEEP);
 		final SearchResponse response =
 				search(
-						"lobid-resources",
+						"lobid-index",
 						"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value",
 						"loft");
 		assertTrue(

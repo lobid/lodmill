@@ -9,6 +9,7 @@ import java.util.List;
 
 import models.queries.AbstractIndexQuery;
 import models.queries.LobidItems;
+import models.queries.LobidResources;
 
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
@@ -53,6 +54,7 @@ public class Search {
 	/** Optional: */
 	private String field = "";
 	private String owner = "";
+	private String set = "";
 	private int size = 50;
 	private int from = 0;
 
@@ -121,6 +123,17 @@ public class Search {
 	}
 
 	/**
+	 * Optional: specify a resource set
+	 * 
+	 * @param resourceSet An ID for the set the requested resources should be in
+	 * @return this search object (for chaining)
+	 */
+	public Search set(final String resourceSet) {
+		this.set = resourceSet;
+		return this;
+	}
+
+	/**
 	 * Optional: specify the page size
 	 * 
 	 * @param pageFrom The start index of the result set
@@ -138,6 +151,10 @@ public class Search {
 		if (!owner.isEmpty()) {
 			final QueryBuilder itemQuery = new LobidItems.OwnerQuery().build(owner);
 			queryBuilder = boolQuery().must(queryBuilder).must(itemQuery);
+		}
+		if (!set.isEmpty()) {
+			final QueryBuilder setQuery = new LobidResources.SetQuery().build(set);
+			queryBuilder = boolQuery().must(queryBuilder).must(setQuery);
 		}
 		if (queryBuilder == null)
 			throw new IllegalStateException(String.format(

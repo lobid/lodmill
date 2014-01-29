@@ -2,6 +2,8 @@
 
 package org.lobid.lodmill.hadoop;
 
+import static java.lang.String.format;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.hadoop.conf.Configuration;
@@ -17,12 +21,15 @@ import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.elasticsearch.action.admin.cluster.state.ClusterStateRequest;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.bulk.BulkItemResponse;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.IndicesAdminClient;
+import org.elasticsearch.client.Requests;
 import org.elasticsearch.client.transport.NoNodeAvailableException;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
@@ -33,6 +40,8 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.collect.SortedSetMultimap;
+import com.google.common.collect.TreeMultimap;
 import com.google.common.io.CharStreams;
 
 /**
@@ -51,14 +60,19 @@ public class IndexFromHdfsInElasticSearch {
 	/**
 	 * @param args Pass 4 params: hdfs-server hdfs-input-path es-host
 	 *          es-cluster-name to index files in hdfs-input-path from HDFS on
-	 *          hdfs-server into es-cluster-name on es-host.
+	 *          hdfs-server into es-cluster-name on es-host. Optional 5. argument:
+	 *          a suffix to append to the index aliases created (e.g. `-staging`).
+	 *          If the 5. argument is 'NOALIAS', alias creation is skipped"
 	 */
 	public static void main(final String[] args) {
-		if (args.length != 4) {
-			System.err.println("Pass 4 params: <hdfs-server> <hdfs-input-path>"
-					+ " <es-host> <es-cluster-name> to index files in"
-					+ " <hdfs-input-path> from HDFS on <hdfs-server> into"
-					+ " <es-cluster-name> on <es-host>.");
+		if (args.length < 4 || args.length > 5) {
+			System.err
+					.println("Pass 4 params: <hdfs-server> <hdfs-input-path>"
+							+ " <es-host> <es-cluster-name> to index files in"
+							+ " <hdfs-input-path> from HDFS on <hdfs-server> into"
+							+ " <es-cluster-name> on <es-host>. Optional 5. argument:"
+							+ "a suffix to append to the index aliases created (e.g. `-staging`)."
+							+ " If the 5. argument is 'NOALIAS', alias creation is skipped");
 			System.exit(-1);
 		}
 		try (FileSystem hdfs =
@@ -72,7 +86,8 @@ public class IndexFromHdfsInElasticSearch {
 							args[2], 9300));
 			final IndexFromHdfsInElasticSearch indexer =
 					new IndexFromHdfsInElasticSearch(hdfs, client);
-			indexer.indexAll(args[1].endsWith("/") ? args[1] : args[1] + "/");
+			indexer.indexAll(args[1].endsWith("/") ? args[1] : args[1] + "/",
+					args.length == 5 ? args[4] : "");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -91,10 +106,12 @@ public class IndexFromHdfsInElasticSearch {
 	 * Index all data in the given directory
 	 * 
 	 * @param dir The directory to index
+	 * @param aliasSuffix A suffix to append to the index aliases created
 	 * @return A list of responses for requests that failed
 	 * @throws IOException When HDFS operations fail
 	 */
-	public List<BulkItemResponse> indexAll(final String dir) throws IOException {
+	public List<BulkItemResponse> indexAll(final String dir,
+			final String aliasSuffix) throws IOException {
 		checkPathInHdfs(dir);
 		final List<BulkItemResponse> result = new ArrayList<>();
 		final FileStatus[] listStatus = hdfs.listStatus(new Path(dir));
@@ -104,6 +121,8 @@ public class IndexFromHdfsInElasticSearch {
 				result.addAll(indexOne(dir + fileStatus.getPath().getName()));
 			}
 		}
+		if (!aliasSuffix.equals("NOALIAS"))
+			updateAliases(aliasSuffix);
 		return result;
 	}
 
@@ -153,6 +172,70 @@ public class IndexFromHdfsInElasticSearch {
 			runBulkRequest(bulkRequest, result);
 		}
 		return result;
+	}
+
+	private void updateAliases(final String aliasSuffix) {
+		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
+		for (String prefix : indices.keySet()) {
+			final SortedSet<String> indicesForPrefix = indices.get(prefix);
+			final String newIndex = indicesForPrefix.last();
+			final String newAlias = prefix + aliasSuffix;
+			LOG.info(format("Prefix '%s', newest index: %s", prefix, newIndex));
+			removeOldAliases(indicesForPrefix, newAlias);
+			createNewAlias(newIndex, newAlias);
+			deleteOldIndices(indicesForPrefix);
+		}
+	}
+
+	private SortedSetMultimap<String, String> groupByIndexCollection() {
+		final SortedSetMultimap<String, String> indices = TreeMultimap.create();
+		for (String index : client.admin().indices().prepareStatus().execute()
+				.actionGet().getIndices().keySet()) {
+			final String[] nameAndTimestamp = index.split("-(?=\\d)");
+			indices.put(nameAndTimestamp[0], index);
+		}
+		return indices;
+	}
+
+	private void removeOldAliases(final SortedSet<String> indicesForPrefix,
+			final String newAlias) {
+		for (String indexName : indicesForPrefix) {
+			final Set<String> aliases = aliases(indexName);
+			for (String alias : aliases) {
+				if (alias.equals(newAlias)) {
+					LOG.info(format("Delete alias index,alias: %s,%s", indexName, alias));
+					client.admin().indices().prepareAliases()
+							.removeAlias(indexName, alias).execute().actionGet();
+				}
+			}
+		}
+	}
+
+	private void createNewAlias(final String newIndex, final String newAlias) {
+		LOG.info(format("Create alias index,alias: %s,%s", newIndex, newAlias));
+		client.admin().indices().prepareAliases().addAlias(newIndex, newAlias)
+				.execute().actionGet();
+	}
+
+	private void deleteOldIndices(final SortedSet<String> allIndices) {
+		if (allIndices.size() >= 3) {
+			final List<String> list = new ArrayList<>(allIndices);
+			for (String indexToDelete : list.subList(0, list.size() - 2)) {
+				if (aliases(indexToDelete).isEmpty()) {
+					LOG.info(format("Deleting index: " + indexToDelete));
+					client.admin().indices()
+							.delete(new DeleteIndexRequest(indexToDelete)).actionGet();
+				}
+			}
+		}
+	}
+
+	private Set<String> aliases(final String indexName) {
+		final ClusterStateRequest clusterStateRequest =
+				Requests.clusterStateRequest().filterRoutingTable(true)
+						.filterNodes(true).filteredIndices(indexName);
+		return client.admin().cluster().state(clusterStateRequest).actionGet()
+				.getState().getMetaData().aliases().keySet();
 	}
 
 	private static void addIndexRequest(final String meta,

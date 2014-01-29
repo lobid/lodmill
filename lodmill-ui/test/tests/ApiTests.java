@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -48,6 +48,8 @@ public class ApiTests {
 				"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
+				{ "resource?subject=4414195-6&set=NWBib",/* -> */
+						"http://lobid.org/resource/NWBib" },
 				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
 				{ "resource?subject=Chemistry&format=short",/* -> */
 				"Chemistry & allied sciences" },
@@ -72,6 +74,10 @@ public class ApiTests {
 				"Heimatstimmen aus dem Kreis Olpe" },
 				{ "resource?set=NWBib&owner=DE-Sol1",/*->*/
 				"Heimatstimmen aus dem Kreis Olpe" },
+				{ "resource?author=Hu&owner=DE-Sol1,DE-Sol2",/*->*/
+				"Heimatstimmen aus dem Kreis Olpe" },
+				{ "resource?author=Go&owner=DE-Sol1,DE-Sol2",/*->*/
+				"Kirchengeschichte des Rheinlandes" },
 				/*-------------------*/
 				/* GET /organisation */
 				/*-------------------*/
@@ -126,9 +132,9 @@ public class ApiTests {
 				/*-------------*/
 				/* GET /search */
 				/*-------------*/
-				{ "search?name=Bas",/* -> */"Bach, Johann Sebastian" },
-				{ "search?name=Bas",/* -> */"Universität Basel" },
-				{ "search?name=Bas&format=ids",/* -> */
+				{ "search?name=Ba",/* -> */"Bach, Johann Sebastian" },
+				{ "search?name=Ba",/* -> */"Universität Basel" },
+				{ "search?name=Ba&format=ids",/* -> */
 				"http://lobid.org/organisation/SzBaU" },
 				/*-------------*/
 				/* GET /subject */
@@ -157,14 +163,14 @@ public class ApiTests {
 				endpoint, content));
 	}
 
-	@BeforeClass
-	public static void setup() throws IOException, InterruptedException {// NOPMD
-		SearchTests.setup();
+	@Before
+	public void setup() throws IOException {// NOPMD
+		SearchTestsHarness.setup();
 	}
 
-	@AfterClass
-	public static void down() {
-		SearchTests.down();
+	@After
+	public void down() {
+		SearchTestsHarness.down();
 	}
 
 	@Test
@@ -172,11 +178,13 @@ public class ApiTests {
 		running(testServer(5000), new Runnable() {
 			@Override
 			public void run() {
-				final String response = SearchTests.call(endpoint);
+				final String response = SearchTestsHarness.call(endpoint);
 				assertNotNull("Expecting non-null when calling: " + endpoint, response);
-				assertTrue(String.format(
-						"Response to calling endpoint '%s' should contain content '%s'",
-						endpoint, content), response.contains(content));
+				assertTrue(
+						String
+								.format(
+										"Response to calling endpoint '%s' should contain content '%s', but was '%s'",
+										endpoint, content, response), response.contains(content));
 			}
 		});
 	}
