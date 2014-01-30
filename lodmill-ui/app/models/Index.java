@@ -2,6 +2,9 @@
 
 package models;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Map;
 
 import models.queries.AbstractIndexQuery;
@@ -10,7 +13,14 @@ import models.queries.LobidItems;
 import models.queries.LobidOrganisations;
 import models.queries.LobidResources;
 
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
+
+import play.Play;
+
 import com.google.common.collect.ImmutableMap;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 
 /**
  * The different indices to use.
@@ -45,6 +55,8 @@ public enum Index {
 			.put(Parameter.NAME, new LobidItems.NameQuery())
 			.put(Parameter.ID, new LobidItems.IdQuery()).build());/* @formatter:on */
 
+	static final Config CONFIG = ConfigFactory.parseFile(
+			new File("conf/application.conf")).resolve();
 	private String id; // NOPMD
 	private Map<Parameter, AbstractIndexQuery> queries;
 
@@ -55,7 +67,24 @@ public enum Index {
 
 	/** @return The Elasticsearch index name. */
 	public String id() { // NOPMD
-		return id;
+		return id + CONFIG.getString("application.index.suffix");
+	}
+
+	/**
+	 * @return The locations of the local and public JSON-LD contexts.
+	 * @throws MalformedURLException If the constructed URL is malformed.
+	 */
+	public Pair<URL, String> context() throws MalformedURLException {
+		final String path = "public/contexts";
+		final String file = id + ".json";
+		URL localContextResourceUrl =
+				Play.application().resource("/" + path + "/" + file);
+		if (localContextResourceUrl == null) // no app running, use plain local file
+			localContextResourceUrl = new File(path, file).toURI().toURL();
+		final String publicContextUrl =
+				CONFIG.getString("application.url")
+						+ controllers.routes.Assets.at("/" + path, file).url();
+		return new ImmutablePair<>(localContextResourceUrl, publicContextUrl);
 	}
 
 	/**

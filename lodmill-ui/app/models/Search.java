@@ -37,9 +37,12 @@ public class Search {
 
 	/** The ElasticSearch server to use. */
 	public static final InetSocketTransportAddress ES_SERVER =
-			new InetSocketTransportAddress("193.30.112.170", 9300); // NOPMD
+			new InetSocketTransportAddress(
+					Index.CONFIG.getString("application.es.server"),
+					Index.CONFIG.getInt("application.es.port"));
 	/** The ElasticSearch cluster to use. */
-	public static final String ES_CLUSTER_NAME = "quaoar";
+	public static final String ES_CLUSTER_NAME = Index.CONFIG
+			.getString("application.es.cluster");
 
 	private static Client productionClient = new TransportClient(
 			ImmutableSettings.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME)
