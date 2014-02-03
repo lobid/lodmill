@@ -625,10 +625,8 @@ public class SearchTests extends SearchTestsHarness {
 			public void run() {
 				final JsonNode jsonObject = Json.parse(call("resource?id=BT000001260"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
-						"http://lobid.org/resource/BT000001260/about");
-				assertThat(jsonObject.get(0).get("primaryTopic").asText()).isEqualTo(
-						"http://lobid.org/resource/BT000001260");
+				assertThat(jsonObject.get(0).get("@id")).isNull();
+				assertThat(jsonObject.get(0).get("primaryTopic")).isNull();
 			}
 		});
 	}
