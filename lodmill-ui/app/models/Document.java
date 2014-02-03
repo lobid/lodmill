@@ -73,8 +73,12 @@ public class Document {
 	 */
 	public String getSourceWithFullProperties() {
 		try {
-			return JSONUtils
-					.toString(sourceAsCompactJsonLd(new HashMap<String, Object>()));
+			final Map<String, Object> jsonLd =
+					sourceAsCompactJsonLd(new HashMap<String, Object>());
+			final Object graph = jsonLd.get("@graph");
+			if (graph instanceof List && ((List<?>) graph).size() > 1)
+				addPrimaryTopicMetadata(jsonLd);
+			return JSONUtils.toString(jsonLd);
 		} catch (JSONLDProcessingError | IOException e) {
 			e.printStackTrace();
 			return null;
@@ -86,9 +90,6 @@ public class Document {
 			JSONLDProcessingError {
 		final Map<String, Object> jsonLd =
 				(Map<String, Object>) JSONUtils.fromString(source);
-		final Object graph = jsonLd.get("@graph");
-		if (graph instanceof List && ((List<?>) graph).size() > 1)
-			addPrimaryTopicMetadata(jsonLd);
 		return (Map<String, Object>) JSONLD.compact(jsonLd, contextObject);
 	}
 

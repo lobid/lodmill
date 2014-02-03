@@ -58,7 +58,7 @@ public class LobidItems {
 			try {
 				/*
 				 * The Lobid item IDs contain escaped entities, so we need to URL encode
-				 * the ID. In particular, spaces are encode with '+', not '%2B', so we
+				 * the ID. In particular, spaces are encoded with '+', not '%2B', so we
 				 * take care of that, too:
 				 */
 				final String encodedShortId =
