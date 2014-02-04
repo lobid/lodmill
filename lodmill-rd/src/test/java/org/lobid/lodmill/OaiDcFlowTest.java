@@ -14,6 +14,7 @@ import org.culturegraph.mf.stream.pipe.StreamTee;
 import org.culturegraph.mf.stream.sink.EventList;
 import org.culturegraph.mf.stream.sink.ObjectStdoutWriter;
 import org.culturegraph.mf.stream.sink.StreamValidator;
+import org.culturegraph.mf.stream.source.HttpOpener;
 import org.junit.Test;
 
 /**
@@ -44,7 +45,7 @@ public class OaiDcFlowTest {
 
 	@Test
 	public void testFlow() {
-		final HttpOpenerWithAcceptHeader opener = new HttpOpenerWithAcceptHeader();
+		final HttpOpener opener = new HttpOpener();
 		opener.setAccept("text/plain");
 		final StreamToStringReader reader = new StreamToStringReader();
 		final NTripleDecoder decoder = new NTripleDecoder();
@@ -67,12 +68,10 @@ public class OaiDcFlowTest {
 	public void testFlux() throws IOException, URISyntaxException,
 			RecognitionException {
 		String lobidUrl = "http://api.lobid.org/resource?id=HT015381412";
-		File outfile = File.createTempFile("oaidc", "xml");
-		outfile.deleteOnExit();
 		File fluxFile =
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("morph-lobid-to-oaidc.flux").toURI());
 		Flux.main(new String[] { fluxFile.getAbsolutePath(), "url=" + lobidUrl,
-				"out=" + outfile.getAbsolutePath() });
+				"out=" + "stdout" });
 	}
 }

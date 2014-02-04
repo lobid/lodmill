@@ -2,21 +2,17 @@
 
 package models;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
 
 import play.Logger;
-import play.Play;
 import play.libs.Json;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -50,7 +46,7 @@ public class Document {
 	 */
 	public String getSource() {
 		try {
-			final Pair<URL, String> localAndPublicContextUrls = getContextUrls();
+			final Pair<URL, String> localAndPublicContextUrls = index.context();
 			final Map<String, Object> compactJsonLd =
 					sourceAsCompactJsonLd((Map<String, Object>) JSONUtils
 							.fromURL(localAndPublicContextUrls.getLeft()));
@@ -77,8 +73,12 @@ public class Document {
 	 */
 	public String getSourceWithFullProperties() {
 		try {
-			return JSONUtils
-					.toString(sourceAsCompactJsonLd(new HashMap<String, Object>()));
+			final Map<String, Object> jsonLd =
+					sourceAsCompactJsonLd(new HashMap<String, Object>());
+			final Object graph = jsonLd.get("@graph");
+			if (graph instanceof List && ((List<?>) graph).size() > 1)
+				addPrimaryTopicMetadata(jsonLd);
+			return JSONUtils.toString(jsonLd);
 		} catch (JSONLDProcessingError | IOException e) {
 			e.printStackTrace();
 			return null;
@@ -90,9 +90,6 @@ public class Document {
 			JSONLDProcessingError {
 		final Map<String, Object> jsonLd =
 				(Map<String, Object>) JSONUtils.fromString(source);
-		final Object graph = jsonLd.get("@graph");
-		if (graph instanceof List && ((List<?>) graph).size() > 1)
-			addPrimaryTopicMetadata(jsonLd);
 		return (Map<String, Object>) JSONLD.compact(jsonLd, contextObject);
 	}
 
@@ -136,19 +133,6 @@ public class Document {
 			Logger.error(x.getMessage(), x);
 		}
 		return result;
-	}
-
-	private Pair<URL, String> getContextUrls() throws MalformedURLException {
-		final String path = "public/contexts";
-		final String file = index.id() + ".json";
-		URL localContextResourceUrl =
-				Play.application().resource("/" + path + "/" + file);
-		if (localContextResourceUrl == null) // no app running, use plain local file
-			localContextResourceUrl = new File(path, file).toURI().toURL();
-		final String publicContextUrl =
-				"http://api.lobid.org"
-						+ controllers.routes.Assets.at("/" + path, file).url();
-		return new ImmutablePair<>(localContextResourceUrl, publicContextUrl);
 	}
 
 }

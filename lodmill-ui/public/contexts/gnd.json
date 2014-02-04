@@ -25,7 +25,6 @@
         "@id": "http://d-nb.info/standards/elementset/gnd#acquaintanceshipOrFriendship",
         "@type": "@id"
     },
-    "addition": "http://d-nb.info/standards/elementset/gnd#addition",
     "addressee": {
         "@id": "http://d-nb.info/standards/elementset/gnd#addressee",
         "@type": "@id"
@@ -246,7 +245,6 @@
         "@id": "http://d-nb.info/standards/elementset/gnd#engraver",
         "@type": "@id"
     },
-    "epithetGenericNameTitleOrTerritory": "http://d-nb.info/standards/elementset/gnd#epithetGenericNameTitleOrTerritory",
     "etcher": {
         "@id": "http://d-nb.info/standards/elementset/gnd#etcher",
         "@type": "@id"
@@ -395,6 +393,7 @@
         "@id": "http://d-nb.info/standards/elementset/gnd#musician",
         "@type": "@id"
     },
+    "nameAddition": "http://d-nb.info/standards/elementset/gnd#nameAddition",
     "narrator": {
         "@id": "http://d-nb.info/standards/elementset/gnd#narrator",
         "@type": "@id"
@@ -622,6 +621,10 @@
     },
     "sponsorOrPatron": {
         "@id": "http://d-nb.info/standards/elementset/gnd#sponsorOrPatron",
+        "@type": "@id"
+    },
+    "startingOrFinalPointOfADistance": {
+        "@id": "http://d-nb.info/standards/elementset/gnd#startingOrFinalPointOfADistance",
         "@type": "@id"
     },
     "subeditor": {
