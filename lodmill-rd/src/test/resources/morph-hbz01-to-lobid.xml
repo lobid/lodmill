@@ -609,8 +609,9 @@
 				name="creatorLiteral"/>
 		</combine>
 		<!-- ####################### -->
-		<!-- ################ contributor with roles @TODO many roles needs tests -->
+		<!-- ################ contributor --> 
 		<!-- ####################### -->
+		<!-- contributors with roles @TODO many roles needs tests -->
 		<data source="1[0123456789][0123456789]b[1234].b" name="@marcrelName"/>
 		<!-- person links -->
 		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
@@ -791,6 +792,16 @@
 			</data>
 		</combine>
 		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
+		<!-- if there are only literals for contributor: -->
+		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
+			<if>
+				<none>
+					<data source="@contributorId">
+					</data>
+				</none>
+			</if>
+			<data source="1[0123456789][0123456789]b1.a" name="contributorLiteral"/>
+		</combine>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -816,8 +827,6 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<!-- subject literals: alternative -->
-		<data source="9[56789][27]-[12].s" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!--subject literals: corporation -->
 		<data source="9[0123456789][27]-[12].[-ck]" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!--subject literals: person -->
