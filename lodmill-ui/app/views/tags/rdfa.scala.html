@@ -1,28 +1,33 @@
 @* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
-@(label: String, property: String, doc: play.api.libs.json.JsValue, row: views.TableRow, node: Option[play.api.libs.json.JsValue] = None)
+@(label: String, property: String, doc: play.api.libs.json.JsValue, row: views.TableRow, node: Option[play.api.libs.json.JsValue] = None, link: Option[String] = None)
 
 @import play.api.libs.json.JsValue
 
 @string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
-@jsonVal = @{ node match {
+@jsonVal(p: String) = @{ node match {
   case Some(node) => node
-  case None => if ((doc \\ property).isEmpty) (doc \ property) else (doc \\ property).head
+  case None => if ((doc \\ p).isEmpty) (doc \ p) else (doc \\ p).head
 }}
 @multiSingleOrEmptySeq(value: JsValue) = @{
-	jsonVal.asOpt[Seq[JsValue]].getOrElse(if(value.asOpt[String].isDefined) Seq(jsonVal) else Seq())
+	jsonVal(property).asOpt[Seq[JsValue]].getOrElse(if(value.asOpt[String].isDefined) Seq(jsonVal(property)) else Seq())
 }
 
 @row match {
   case views.TableRow.VALUES => {
-    @for(elem <- multiSingleOrEmptySeq(jsonVal)) {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal(property))) {
       <tr>
         <td><a href="@property">@label</a></td>
-        <td property="@property">@string(elem)</td>
+        <td property="@property">
+            @link match {
+                          case None => {@string(elem)}
+                          case Some(p) => {<a href="@{(jsonVal(p)\"@id").as[String]}">@string(elem)</a>}
+                       }
+        </td>
       </tr>
     }
   }
   case views.TableRow.LINKS => {
-    @for(elem <- multiSingleOrEmptySeq(jsonVal \ "@id")) {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal(property) \ "@id")) {
       <tr>
         <td><a href="@property">@label</a></td>
         <td>
@@ -32,7 +37,7 @@
     }
   }
   case views.TableRow.IMAGE => {
-    @defining((jsonVal \ "@id").asOpt[String]) { qr =>
+    @defining((jsonVal(property) \ "@id").asOpt[String]) { qr =>
         @if(qr.isDefined){
             <tr>
               <td><a href="@property">@label</a></td>
