@@ -525,12 +525,12 @@
 		<data source="088 ?.a" name="@sigel2isilMap">
 			<lookup in="sigel2isilMap"/>
 		</data>
-		<combine name="@itemId" value="http://lobid.org/item/${id}:${isil}${signature}"
+		<combine name="@itemId" value="http://lobid.org/item/${id}%3A${isil}${signature}"
 			flushWith="088??" reset="false">
 			<data source="@id|@idzdb" name="id"/>
 			<data source="088 ?.c" name="signature">
 				<urlencode></urlencode>
-				<regexp match="(.*)" format=":${1}"/>
+				<regexp match="(.*)" format="%3A${1}"/>
 			</data>
 			<data source="@sigel2isilMap" name="isil"/>
 		</combine>
