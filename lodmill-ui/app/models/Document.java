@@ -4,6 +4,7 @@ package models;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -51,6 +52,7 @@ public class Document {
 					sourceAsCompactJsonLd((Map<String, Object>) JSONUtils
 							.fromURL(localAndPublicContextUrls.getLeft()));
 			compactJsonLd.put("@context", localAndPublicContextUrls.getRight());
+			compactJsonLd.put("primaryTopic", id);
 			final String result = JSONUtils.toString(compactJsonLd);
 			return this.field.isEmpty() ? result : findField(result);
 		} catch (JSONLDProcessingError | IOException e) {
@@ -75,9 +77,8 @@ public class Document {
 		try {
 			final Map<String, Object> jsonLd =
 					sourceAsCompactJsonLd(new HashMap<String, Object>());
-			final Object graph = jsonLd.get("@graph");
-			if (graph instanceof List && ((List<?>) graph).size() > 1)
-				addPrimaryTopicMetadata(jsonLd);
+			jsonLd.put("http://xmlns.com/foaf/0.1/primaryTopic",
+					ImmutableMap.of("@id", id));
 			return JSONUtils.toString(jsonLd);
 		} catch (JSONLDProcessingError | IOException e) {
 			e.printStackTrace();
@@ -89,14 +90,26 @@ public class Document {
 			final Map<String, Object> contextObject) throws IOException,
 			JSONLDProcessingError {
 		final Map<String, Object> jsonLd =
-				(Map<String, Object>) JSONUtils.fromString(source);
-		return (Map<String, Object>) JSONLD.compact(jsonLd, contextObject);
+				wrappedIntoGraphIfMissing((Map<String, Object>) JSONLD.compact(
+						JSONUtils.fromString(source), contextObject));
+		jsonLd.put("@id", id + "/about");
+		return jsonLd;
 	}
 
-	private void addPrimaryTopicMetadata(final Map<String, Object> jsonLd) {
-		jsonLd.put("@id", id + "/about");
-		jsonLd.put("http://xmlns.com/foaf/0.1/primaryTopic",
-				ImmutableMap.of("@id", id));
+	private static Map<String, Object> wrappedIntoGraphIfMissing(
+			final Map<String, Object> jsonLd) {
+		final String graphKey = "@graph";
+		final String contextKey = "@context";
+		if (!jsonLd.containsKey(graphKey)) {
+			final Map<String, Object> newJsonLd = new HashMap<>();
+			final Map<String, Object> graph = new HashMap<>();
+			newJsonLd.put(contextKey, jsonLd.get(contextKey));
+			jsonLd.remove(contextKey);
+			graph.putAll(jsonLd);
+			newJsonLd.put(graphKey, Arrays.asList(graph));
+			return newJsonLd;
+		}
+		return jsonLd;
 	}
 
 	/** @return The field that matched the query. */
