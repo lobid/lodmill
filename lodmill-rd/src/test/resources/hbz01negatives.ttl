@@ -1,0 +1,25 @@
+<http://lobid.org/resource/HT015082724> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+# okay, should not be a book. But it is cataloged "050 a" and other data is sparse. We decided already to type this as bibo:Book which is in 99% of the cases correct <http://lobid.org/resource/HT015082724> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT004944075> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT015894164> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
+<http://lobid.org/resource/TT000075751> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioVisualDocument> .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/medium> <http://iflastandards.info/ns/isbd/terms/mediatype/T1007> .
+<http://lobid.org/resource/TT001230001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+# <http://lobid.org/resource/TT001230001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
+<http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT004944075> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+#<http://lobid.org/resource/HT009719670> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
+# These subject labels (preferred and alternate) shouldn't be included in the RDF as the links to GND are enough and a tag like "Heiliges Römisches Reich" is simply wrong on a book like this.
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Allemagne", "BRD", "Bundesrepublik Deutschland", "Deutsche Länder", "Deutscher Bund", "Deutsches Reich", "Deutschland", "Deyizhi-Lianbang-Gongheguo", "Elektrischer Strom", "Elektrizität", "FRG", "Federal Republic of Germany", "Federativnaja Respublika Germanija", "Germanija", "Germany", "Heiliges Römisches Reich", "Niemcy", "Norddeutscher Bund", "Repubblica Federale di Germania", "Republic of Germany", "Rheinbund", "République Fédérale d'Allemagne", "Stromwirtschaft", "Ǧumhūrīyat Almāniyā al-Ittiḥādīya" .
+<http://lobid.org/resource/HT012926727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Map> .
+# Bei <http://lobid.org/resource/HT013911008> handelt es sich um eine CD-ROM mit Bildern - leider ist das aber als Audio Cassette katalogisiert !
+<http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
+<http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT015183529> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection>, <http://purl.org/ontology/bibo/MultiVolumeBook> .
+# while this is strange, it is very rare and thus ignored for now: <http://lobid.org/resource/HT016608165> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/HT016608165> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioVisualDocument> .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/medium> <http://iflastandards.info/ns/isbd/terms/mediatype/T1007> .
+<http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+
+

@@ -512,7 +512,6 @@
 <http://lobid.org/resource/HT014525099/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT014525099> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118867539> .
 <http://lobid.org/resource/HT014525099> <http://iflastandards.info/ns/isbd/elements/P1053> "2 Schallpl. : 33 UpM, stereo ; 30 cm" .
-<http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Record> .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT014525099> <http://rdvocab.info/Elements/placeOfPublication> "Berlin" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/title> "Kantaten Ostern, Pfingsten" .
@@ -528,6 +527,7 @@
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118610724> .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioDocument> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/129389641> .
+<http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Vinyl> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014525099%3ADE-1156%3AAR+ba+71> .
 <http://lobid.org/resource/HT014525099> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014525099> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -670,7 +670,6 @@
 <http://lobid.org/item/HT016382441%3ADE-1044%3A11+%3D+TWR5408%2B1> <http://purl.org/ontology/daia/label> "11 = TWR5408+1" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/RPB> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-A96%3A61+TWR+1197> .
-<http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/isPartOf> "... f\u00FCr Dummies" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-929%3A2011%2F591> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-6%3A033+4370%233> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-Dm13%3ATWR+1053> .
@@ -953,25 +952,23 @@
 <http://lobid.org/resource/HT015183529> <http://iflastandards.info/ns/isbd/elements/P1053> "LV, 225 S. : Kt." .
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015183529/about> .
 <http://lobid.org/resource/HT015183529> <http://rdvocab.info/Elements/statementOfResponsibility> "F. Scott Fitzgerald. Ed. by Matthew J. Bruccoli" .
-<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/isPartOf> "<<The>> Cambridge edition of the works of F. Scott Fitzgerald" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/issued> "2006" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/title> "The great Gatsby" .
 <http://lobid.org/resource/HT015183529> <http://rdvocab.info/Elements/publicationStatement> "Cambridge [u.a.]; Cambridge Univ. Press; 2006" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT004984061> .
-<http://lobid.org/resource/HT015183529> <http://purl.org/lobid/lv#hbzID> "HT015183529" .
 <http://lobid.org/resource/HT015183529> <http://rdvocab.info/Elements/placeOfPublication> "Cambridge [u.a.]" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/lobid/lv#hbzID> "HT015183529" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/edition> "12. print." .
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118533592> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/publisher> "Cambridge Univ. Press" .
-<http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn> "9780521402309" .
 <http://lobid.org/resource/HT015183529> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015183529> .
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015183529> .
-<http://lobid.org/resource/HT015183529> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
-<http://lobid.org/resource/HT015183529> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
-<http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
+<http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn> "9780521402309" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/119468476> .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
+<http://lobid.org/resource/HT015183529> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015183529%3ADE-5%3A2007%2F4575> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn> "0521402301" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn13> "9780521402309" .
@@ -995,7 +992,6 @@
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118677942> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/publisher> "Mondadori Video" .
 <http://lobid.org/resource/HT006266886> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141649429> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/isPartOf> "Il grande cinema" .
 <http://lobid.org/resource/HT006266886> <http://rdvocab.info/Elements/otherTitleInformation> "Finzi Contini" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/medium> <http://iflastandards.info/ns/isbd/terms/mediatype/T1007> .
 <http://lobid.org/resource/HT006266886> <http://rdvocab.info/Elements/statementOfResponsibility> "Regia: Vittorio DeSica. Interpreti: Dominique Sanda ; Lino Capolicchio ; Fabio Testi ; Helmut Berger" .
@@ -1075,7 +1071,6 @@
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2095440-2> .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/placeOfPublication> "Hennef" .
-<http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/title> "Brave M\u00E4dchen - B\u00F6se M\u00E4dchen" .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014046679/about> .
@@ -1100,9 +1095,9 @@
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
 <http://lobid.org/resource/HT015414894> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnster [u.a.]" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013384949> .
-<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "Medien und Terrorismus; Christian Schicha ... (Hg.); 2002; S. 80 - 93; Ik\u00F6-Publikationen ; 4" .
 <http://lobid.org/resource/HT015414894> <http://rdvocab.info/Elements/publicationStatement> "2002; M\u00FCnster [u.a.]" .
 <http://lobid.org/resource/HT015414894> <http://rdvocab.info/Elements/statementOfResponsibility> "Sascha Werthes ; Richard Kim ; Christoph Conrad" .
+<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "Medien und Terrorismus; Christian Schicha ... (Hg.); 2002; S. 80 - 93" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11075851X> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/issued> "2002" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015414894%3ADE-6> .
@@ -1257,7 +1252,6 @@
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015865114/about> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/publisher> "Buchner" .
-<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/isPartOf> "Buchners Kollege Themen Geschichte" .
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015865114%3ADE-6-290> .
@@ -1348,12 +1342,12 @@
 <http://lobid.org/item/HT015894164%3ADE-1383> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-1383> .
 <http://lobid.org/item/HT015894164%3ADE-361/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/item/HT015894164%3ADE-361/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT015894164%3ADE-361> .
-<http://lobid.org/resource/HT015894164> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/isbn13> "9789264273085" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/dc/terms/title> "Examens en mati\u00E8re de coop\u00E9ration pour le d\u00E9veloppement : Danemark 1999" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/doi> "10.1787/9789264273085-fr" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-5> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-82> .
+<http://lobid.org/resource/HT015894164> <http://purl.org/dc/elements/1.1/isPartOf> "Examens en mati\u00E8re de coop\u00E9ration pour le d\u00E9veloppement" .
 <http://lobid.org/resource/HT015894164> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-832> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/lobid/lv#hbzID> "HT015894164" .
@@ -1366,16 +1360,15 @@
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-468> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/dc/terms/issued> "1999" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-Hag4> .
+<http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/volume> "no.33" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-Tr5> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-361> .
-<http://lobid.org/resource/HT015894164> <http://purl.org/dc/terms/bibliographicCitation> "Development Co-operation Reviews: Denmark 1999" .
 <http://lobid.org/resource/HT015894164> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://iflastandards.info/ns/isbd/terms/mediatype/T1002> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-1393-BOT> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/isbn> "9789264273085" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-466> .
 <http://lobid.org/resource/HT015894164> <http://umbel.org/umbel#isLike> <http://dx.doi.org/10.1787/9789264273085-fr> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-708> .
-<http://lobid.org/resource/HT015894164> <http://purl.org/dc/elements/1.1/isPartOf> "Examens en mati\u00E8re de coop\u00E9ration pour le d\u00E9veloppement ; no.33" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-385> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-836> .
 <http://lobid.org/resource/HT015894164> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015894164/about> .
@@ -1387,8 +1380,6 @@
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-290> .
 <http://lobid.org/resource/HT015894164> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015894164> .
 <http://lobid.org/resource/HT015894164> <http://rdvocab.info/Elements/publicationStatement> "Paris; OECD Publishing; 1999" .
-<http://lobid.org/resource/HT015894164> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
-<http://lobid.org/resource/HT015894164> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164%3ADE-Bm40> .
 <http://lobid.org/resource/HT015894164> <http://rdvocab.info/Elements/placeOfPublication> "Paris" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/dc/elements/1.1/publisher> "OECD Publishing" .
@@ -1917,7 +1908,6 @@
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#hbzID> "BT000003404" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/title> "Deutschland 1:300000" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/publisher> "Reise- u. Verkehrsverl." .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/isPartOf> "Euro cart : Euro-Regionalkarte" .
 <http://lobid.org/resource/BT000003404> <http://iflastandards.info/ns/isbd/elements/P1053> "Kt." .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/volume> "2" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Norte-Westfalia" .
@@ -2304,26 +2294,25 @@
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4050698-8> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg ob der Tauber" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn> "3936547041" .
-<http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Image> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013911008/about> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg, Tauber" .
 <http://lobid.org/resource/HT013911008> <http://rdvocab.info/Elements/placeOfPublication> "Velbert" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/isPartOf> "Eutropia-CD ; 5" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg o.d.T." .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "CD-ROM" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/publisher> "Eutropia" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/issued> "2003" .
+<http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/library/CassetteTape> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioDocument> .
+<http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/issued> "2003" .
+<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/publisher> "Eutropia" .
 <http://lobid.org/resource/HT013911008> <http://iflastandards.info/ns/isbd/elements/P1053> "1 CD-ROM ; 12 cm + 1 Beih. [6] S." .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT013911008> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/title> "1000 Fotos aus Rothenburg ob der Tauber" .
-<http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#hbzID> "HT013911008" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Stadtmagistrat" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn13> "9783936547047" .
+<http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/volume> "5" .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT013911051> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT013911008> .
 <http://lobid.org/resource/HT013911051> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
@@ -2332,8 +2321,8 @@
 <http://lobid.org/resource/HT017290519> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/source> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141927135> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/isPartOf> "Mit gn\u00E4digster Erlaubnis ... wird aufgef\u00FChrt ; 1805,04,16" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119055716> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16" .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/publicationStatement> "[D\u00FCsseldorf]; B\u00F6gemann; 1805; D\u00FCsseldorf; Universit\u00E4ts- und Landesbibliothek" .
 <http://lobid.org/resource/CT003012479> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "2012" .
@@ -2392,17 +2381,16 @@
 <http://lobid.org/resource/TT001230001/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/TT001230001> .
 <http://lobid.org/item/TT001230001%3ADE-107%3AMF+275%2FF2001%2FF2003/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/item/TT001230001%3ADE-107%3AMF+275%2FF2001%2FF2003/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/TT001230001%3ADE-107%3AMF+275%2FF2001%2FF2003> .
-<http://lobid.org/resource/TT001230001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118535765> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118637649> .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/publicationStatement> "Avgvstae Vindelicorvm; Praetorius; 1596" .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "De falconibus, asturibus et accipitribus" .
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
+<http://lobid.org/resource/TT001230001> <http://purl.org/ontology/bibo/volume> "F2001/F2003]" .
 <http://lobid.org/resource/TT001230001> <http://iflastandards.info/ns/isbd/elements/P1053> "[8] Bl., 414, [1] S. : Ill." .
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001230001> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/TT001197763> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/publisher> "Praetorius" .
-<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/isPartOf> "[Bibliotheca Palatina ; F2001/F2003]" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1020> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/title> "Reliqua librorum Friderici II. ... de arte venandi cum avibus" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118577018> .
@@ -2531,7 +2519,6 @@
 <http://lobid.org/resource/HT009719670> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT009719670> .
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#hbzID> "HT009719670" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/title> "Le cin\u00E9ma de la vie" .
-<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/isPartOf> "Les films du losange" .
 <http://lobid.org/resource/HT009719670> <http://rdvocab.info/Elements/statementOfResponsibility> "s\u00E9lectionn\u00E9s par Janine Courtillon et Genevi\u00E8ve-Dominique de Salins" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/publisher> "Hatier/Didier" .
 <http://lobid.org/resource/HT009719670> <http://rdvocab.info/Elements/placeOfPublication> "Paris" .

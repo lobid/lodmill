@@ -50,9 +50,7 @@
 		<!-- ####### Child, link to parent and vice versa, e.g. HT000009600 -->
 		<!-- ####################### -->
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
-		<data source="010-1.a|529z1.9|@idTitleSeries" name="http://purl.org/dc/terms/isPartOf">
-			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
-		</data>
+		<data source="010-1.a|529z1.9|@idTitleSeries" name="@isPartOfHbzId"/>
 		<!-- temporarily set new subject uri -->
 		<data name="~rdf:subject" source="010-1.a|529z1.9|@idTitleSeries">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
@@ -291,6 +289,10 @@
 		<data source="050." name="@matVideo">
 			<regexp match="^.....[bc]"/>
 		</data>
+		<!-- picture -->
+		<data source="050." name="@rdftypeAndManifestation">
+			<regexp match="^.....d" format="http://purl.org/ontology/bibo/Image"/>
+		</data>
 		<data source="@matVideo" name="@rdftypeAndManifestation">
 			<regexp match=".*" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
 		</data>
@@ -318,17 +320,17 @@
 		</data>
 		<!-- vinyl -->
 		<data source="050." name="@rdftypeAndManifestation">
-			<regexp match="^......j" format="http://purl.org/ontology/mo/Record"/>
+			<regexp match="^.....aj" format="http://purl.org/ontology/mo/Vinyl"/>
 		</data>
-		<!-- picture -->
+		<!-- audio cassette -->
 		<data source="050." name="@rdftypeAndManifestation">
-			<regexp match="^......d" format="http://purl.org/ontology/bibo/Image"/>
+			<regexp match="^.....ad" format="http://purl.org/library/CassetteTape"/>
 		</data>
 		<!-- braille -->
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^....a" format="http://purl.org/library/BrailleBook"/>
 		</data>
-		<!-- braille -->
+		<!-- game -->
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.........a" format="http://purl.org/library/Game"/>
 		</data>
@@ -354,7 +356,7 @@
 			<regexp match="^a|^.t|^..t|^...t|^.....t" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^[nst]" format="http://purl.org/ontology/bibo/MultiVolumeBook"/>
+			<regexp match="^[nt]" format="http://purl.org/ontology/bibo/MultiVolumeBook"/>
 		</data>
 		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
 			<if>
@@ -364,6 +366,9 @@
 					</data>
 					<data source="@typeAudio">
 						<regexp match=".*"/>
+					</data>
+					<data source="050.">
+						<regexp match="^.........a"/>
 					</data>
 				</none>
 			</if>
@@ -879,9 +884,10 @@
 		<!-- ########## source , isPartOf -->
 		<!-- ####################### -->
 		<concat delimiter="; " name="http://purl.org/dc/terms/bibliographicCitation">
-			<data source="5[29][01235678][-abcd][-1].a"/>
+			<data source="5[29][0123568][-abcd][-1].a"/>
 		</concat>
-		<data source="599-[-1].a" name="http://purl.org/dc/terms/isPartOf">
+		<data source="599-[-1].a" name="@isPartOfHbzId"/>
+		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<!--s. #333 <data source="599[abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf" /> -->
@@ -902,7 +908,22 @@
 				<data source="596[-abc][-12].a"/>
 			</concat>
 		</combine>
-		<data source="451[-ab][12].a" name="http://purl.org/dc/elements/1.1/isPartOf"/>
+		<combine name="http://purl.org/dc/elements/1.1/isPartOf" value="${isPartOfLiteral}">
+			<if>
+				<none>
+					<data source="@isPartOfHbzId">
+						<regexp match=".*"/>
+					</data>
+				</none>
+			</if>
+			<data source="451[-ab][12].a" name="isPartOfLiteral">
+				<regexp match="(.*) +;.*" format="${1}"/>
+			</data>
+		</combine>
+		<data source="451[-ab][12].a" name="http://purl.org/ontology/bibo/volume">
+			<regexp match=".*;(.*)" format="${1}"/>
+			<trim></trim>
+		</data>
 		<!-- ####################### -->
 		<!-- ########## classification -->
 		<!-- ####################### -->

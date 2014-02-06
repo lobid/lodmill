@@ -63,48 +63,77 @@ public abstract class AbstractIngestTests {
 			final String generatedFileName,
 			final DefaultStreamPipe<ObjectReceiver<String>> dsp) {
 		setUpErrorHandler(metamorph);
-		final File actualFile = new File(generatedFileName);
-		process(dsp, actualFile);
+		final File generatedFile = new File(generatedFileName);
+		process(dsp, generatedFile);
 		File testFile;
 		try {
 			testFile =
 					new File(Thread.currentThread().getContextClassLoader()
 							.getResource(testFileName).toURI());
-			compareFiles(actualFile, testFile);
+			compareFiles(generatedFile, testFile);
 		} catch (URISyntaxException e) {
 			LOG.error(e.getMessage(), e);
 		}
+		generatedFile.deleteOnExit();
+	}
 
+	private static SortedSet<String> linesInFileToSet(final File file) {
+		Scanner scanner = null;
+		SortedSet<String> set = null;
+		try {
+			scanner = new Scanner(file);
+			set = asSet(scanner);
+		} catch (IOException e) {
+			LOG.error(e.getMessage(), e);
+		} finally {
+			if (scanner != null) {
+				scanner.close();
+			}
+		}
+		return set;
 	}
 
 	/**
 	 * Tests if two files are of equal content.
 	 * 
-	 * @param actualFile the actually generated file
-	 * @param testFile the file which defines how the actualFile should look like
+	 * @param generatedFile the actually generated file
+	 * @param testFile the file which defines how the generatedFile should look
+	 *          like
 	 */
-	public static void compareFiles(final File actualFile, final File testFile) {
-		Scanner actual = null;
-		Scanner expected = null;
-		try {
-			expected = new Scanner(testFile);
-			actual = new Scanner(actualFile);
-			// Set necessary because the order of triples in the files may differ
-			final SortedSet<String> expectedSet = asSet(expected);
-			final SortedSet<String> actualSet = asSet(actual);
-			assertSetSize(expectedSet, actualSet);
-			assertSetElements(expectedSet, actualSet);
-		} catch (IOException e) {
-			LOG.error(e.getMessage(), e);
-		} finally {
-			if (actual != null) {
-				actual.close();
-			}
-			if (expected != null) {
-				expected.close();
+	public static void compareFiles(final File generatedFile, final File testFile) {
+		assertSetSize(linesInFileToSet(testFile), linesInFileToSet(generatedFile));
+		assertSetElements(linesInFileToSet(generatedFile),
+				linesInFileToSet(testFile));
+		generatedFile.deleteOnExit();
+	}
+
+	/**
+	 * Tests if content of one file is not part of the second file.
+	 * 
+	 * @param generatedFile the actually generated file
+	 * @param testFile the file which musn't have any lines also part of the
+	 *          generatedFile
+	 */
+	public static void checkIfNoIntersection(final File generatedFile,
+			final File testFile) {
+		assertSetNoIntersection(linesInFileToSet(testFile),
+				linesInFileToSet(generatedFile));
+	}
+
+	private static void assertSetNoIntersection(
+			final SortedSet<String> notExpectedSet, final SortedSet<String> actualSet) {
+		final Iterator<String> notExpectedIterator = notExpectedSet.iterator();
+		boolean assertionError = false;
+		for (int i = 0; i < notExpectedSet.size(); i++) {
+			String notExpected = notExpectedIterator.next();
+			if (actualSet.contains(notExpected)) {
+				LOG.error("Not expected: " + notExpected + " to be part of the data");
+				assertionError = true;
 			}
 		}
-		actualFile.deleteOnExit();
+		if (assertionError) {
+			throw new AssertionError();
+		}
 	}
 
 	private static void assertSetSize(final SortedSet<String> expectedSet,

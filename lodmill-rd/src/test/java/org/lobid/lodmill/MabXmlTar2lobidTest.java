@@ -23,9 +23,9 @@ import org.junit.Test;
  */
 @SuppressWarnings("javadoc")
 public final class MabXmlTar2lobidTest {
-	private static final String targetPath = "tmp";
-	private static final String targetFilename = "hbz01.nt";
-	private static final String pathSerialization = "/nt/";
+	private static final String TARGET_PATH = "tmp";
+	private static final String TEST_FILENAME = "hbz01.nt";
+	private static final String TARGET_SUBPATH = "/nt/";
 
 	@SuppressWarnings("static-method")
 	@Test
@@ -64,21 +64,33 @@ public final class MabXmlTar2lobidTest {
 				.getAbsolutePath());
 		opener.closeStream();
 
-		File parentPathGenerated = new File(targetPath + pathSerialization);
-		StringBuilder triples = new StringBuilder();
-		for (String directory : parentPathGenerated.list()) {
-			for (String filename : new File(parentPathGenerated + "/" + directory)
-					.list()) {
-				triples.append(getFileContent(new File(parentPathGenerated + "/"
-						+ directory + "/" + filename)));
+		final File testFile = concatenateGeneratedFilesIntoOneFile();
+		// positive test
+		AbstractIngestTests.compareFiles(testFile, new File(Thread.currentThread()
+				.getContextClassLoader().getResource(TEST_FILENAME).toURI()));
+		// negative test
+		AbstractIngestTests.checkIfNoIntersection(
+				testFile,
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("hbz01negatives.ttl").toURI()));
+		testFile.deleteOnExit();
+	}
+
+	private static File concatenateGeneratedFilesIntoOneFile()
+			throws FileNotFoundException, IOException {
+		File parentPath = new File(TARGET_PATH + TARGET_SUBPATH);
+		final StringBuilder triples = new StringBuilder();
+		for (String directory : parentPath.list()) {
+			for (String filename : new File(parentPath + "/" + directory).list()) {
+				triples.append(getFileContent(new File(parentPath + "/" + directory
+						+ "/" + filename)));
 			}
 		}
-		File testFile = new File(targetPath + "/" + targetFilename);
-		FileOutputStream fos = new FileOutputStream(testFile);
+		final File testFile = new File(TARGET_PATH + "/" + TEST_FILENAME);
+		final FileOutputStream fos = new FileOutputStream(testFile);
 		fos.write(triples.toString().getBytes());
 		fos.close();
-		AbstractIngestTests.compareFiles(testFile, new File(Thread.currentThread()
-				.getContextClassLoader().getResource(targetFilename).toURI()));
+		return testFile;
 	}
 
 	private static String getFileContent(File file) {
@@ -102,7 +114,7 @@ public final class MabXmlTar2lobidTest {
 		XmlFilenameWriter xmlFilenameWriter = new XmlFilenameWriter();
 		xmlFilenameWriter.setStartIndex(2);
 		xmlFilenameWriter.setEndIndex(7);
-		xmlFilenameWriter.setTarget(targetPath + "/xml");
+		xmlFilenameWriter.setTarget(TARGET_PATH + "/xml");
 		xmlFilenameWriter
 				.setProperty("/OAI-PMH/ListRecords/record/metadata/record/datafield[@tag='001']/subfield[@code='a']");
 		xmlFilenameWriter.setCompression("bz2");
@@ -117,7 +129,7 @@ public final class MabXmlTar2lobidTest {
 		modelWriter.setSerialization("N-TRIPLES");
 		modelWriter.setStartIndex(2);
 		modelWriter.setEndIndex(7);
-		modelWriter.setTarget(targetPath + pathSerialization);
+		modelWriter.setTarget(TARGET_PATH + TARGET_SUBPATH);
 		return modelWriter;
 	}
 
