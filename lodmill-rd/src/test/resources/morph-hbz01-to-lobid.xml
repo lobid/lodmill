@@ -61,6 +61,9 @@
 			<data source="010-1.a|529z1.9|@idTitleSeries" name=""/>
 			<data source="@id" name="subjectid"/>
 		</combine>
+		<data source="010-1.a|529z1.9|@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
+		</data>
 		<!-- set subject uri of resource anew -->
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id|@idzdb" name="subject"/>
@@ -399,7 +402,7 @@
 		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://purl.org/ontology/bibo/Periodical"/>
 		</data>
-		<data source="010-1.a|529z1.9|@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
 		</data>
 		<!-- ####################### -->
@@ -493,9 +496,6 @@
 		<!-- ########## description extent -->
 		<!-- ####################### -->
 		<data source="43[3457][-abc][-1].[aq]" name="http://iflastandards.info/ns/isbd/elements/P1053"/>
-		<data source="43[3457][-abc][-1].[aq]" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match="1 Kt." format="http://purl.org/ontology/bibo/Map"/>
-		</data>
 		<!-- ####################### -->
 		<!-- ################ edition -->
 		<!-- ####################### -->
@@ -609,7 +609,7 @@
 				name="creatorLiteral"/>
 		</combine>
 		<!-- ####################### -->
-		<!-- ################ contributor --> 
+		<!-- ################ contributor -->
 		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
 		<data source="1[0123456789][0123456789]b[1234].b" name="@marcrelName"/>
@@ -881,8 +881,12 @@
 		<concat delimiter="; " name="http://purl.org/dc/terms/bibliographicCitation">
 			<data source="5[29][01235678][-abcd][-1].a"/>
 		</concat>
-		<data source="599[-abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf">
+		<data source="599-[-1].a" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
+		</data>
+		<!--s. #333 <data source="599[abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf" /> -->
+		<data source="599s[-1].a" name="http://purl.org/dc/terms/isPartOf">
+			<regexp match="(.*)" format="http://ld.zdb-services.de/resource/${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/bibliographicCitation" value="${biblioConcat}"
 			sameEntity="true">
