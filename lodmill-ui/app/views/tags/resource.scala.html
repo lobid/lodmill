@@ -18,8 +18,9 @@
   @rdfa("Exemplar", "http://purl.org/vocab/frbr/core#exemplar", doc, TableRow.LINKS)
   @rdfa("Erscheinungsort", "http://iflastandards.info/ns/isbd/elements/P1016", doc, TableRow.VALUES)
   @rdfa("Verlag", "http://iflastandards.info/ns/isbd/elements/P1017", doc, TableRow.VALUES)
-  @rdfa("Schlagwort", "http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading", doc, TableRow.VALUES,
-    link = Option("http://purl.org/dc/terms/subject"))
+  @rdfa("Schlagwort", "http://purl.org/dc/terms/subject", doc, TableRow.VALUES, valueLabel = Option(Seq(
+    "http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading",
+    "http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName")))
   @rdfa("ISBN-10", "http://purl.org/ontology/bibo/isbn10", doc, TableRow.VALUES)
   @rdfa("ISBN-13", "http://purl.org/ontology/bibo/isbn13", doc, TableRow.VALUES)
   @rdfa("URN", "http://geni-orca.renci.org/owl/topology.owl#hasURN", doc, TableRow.VALUES)

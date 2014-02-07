@@ -2,6 +2,8 @@
 package views.tags
 
 import play.api.libs.json.JsValue
+import play.api.libs.json.JsObject
+import play.api.libs.json.JsArray
 
 object TagHelper {
   def getLabelValue(objectId: String, language: String, node: JsValue): Option[String] = {
@@ -22,5 +24,13 @@ object TagHelper {
       case Some(id) =>
         (node \ "@graph").as[List[JsValue]].find((v: JsValue) => (v \ "@id") == id \ "@id")
     }).map(_ \ "@type")
+  }
+  def valueFor(doc: JsValue, id: String, keys: Seq[String]): String = {
+    for (elem <- (doc \ "@graph").as[Seq[JsValue]]; key <- keys) {
+      if ((elem \ "@id").as[String] == id
+        && elem.as[Map[String, JsValue]].contains(key))
+        return (elem \ key).as[String]
+    }
+    id
   }
 }
