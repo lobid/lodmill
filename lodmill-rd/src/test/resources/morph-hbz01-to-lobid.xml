@@ -515,8 +515,9 @@
 		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
 		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
-		<data source="552b[-1].a" name="http://purl.org/lobid/lv#urn"/>
-		<data source="552b[-1].a" name="http://umbel.org/umbel#isLike">
+			<data source="552b[-1].a" name="@urn"/>
+		<data source="@urn" name="http://purl.org/lobid/lv#urn"/>
+		<data source="@urn" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://nbn-resolving.de/${1}"/>
 		</data>
 		<!-- fulltext online , if 655 AND 334 exists with "[eE][lL]"ektro.. -->
