@@ -422,7 +422,7 @@
 		<!-- has other title information. If no title exists yet, use this as title. -->
 		<combine name="@otherTitle" value="${titleRemainder}" sameEntity="true">
 			<data source="@title"/>
-			<data source="33[13][-ab][-12].a" name="titleRemainder">
+			<data source="33[13][-ab][-1].a" name="titleRemainder">
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
@@ -432,7 +432,7 @@
 					<data source="@title"/>
 				</none>
 			</if>
-			<data source="33[13][-ab][-12].a" name="title">
+			<data source="33[13][-ab][-1].a" name="title">
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>

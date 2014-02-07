@@ -152,7 +152,6 @@
 <http://lobid.org/item/HT001898812%3ADE-466%3AGYB1007-2> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-466> .
 <http://lobid.org/item/HT001898812%3ADE-466%3AGYB1007-2> <http://purl.org/ontology/daia/label> "GYB1007-2" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#hbzID> "HT001898812" .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/title> "Gro\u00DFw\u00F6rterbuch Polnisch-Deutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/pol> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812%3ADE-61-28%3Ahisa320.p777%282%29> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/publisher> "Verl. Enzyklop\u00E4die [u.a.]" .
@@ -184,6 +183,7 @@
 <http://lobid.org/resource/HT001898812> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=3362189&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001381485> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812%3ADE-465%3AAAEP35-2> .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/title> "O - \u017B" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812%3ADE-5%3A71%2F6301+%282%29> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812%3ADE-98%3AV%2C+18809+%282%29> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812%3ADE-466%3AGYB1007-2> .
@@ -821,7 +821,6 @@
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/rus> .
 <http://lobid.org/resource/HT004944075> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT004944075> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/elements/1.1/publisher> "UN" .
-<http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/title> "Annual bulletin of transport statistics for Europe and North America" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43. 1993" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/050/> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43" .
@@ -895,7 +894,6 @@
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/publicationStatement> "Assen; Van Gorcum; Amersfoort; Amersfoort; Noordhoff; Groningen; Groningen; Wolters-Noordhoff; 2006" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/placeOfPublication> "Assen" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Niederlande" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/title> "Tijdschrift voor geschiedenis" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/placeOfPublication> "Groningen" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/placeOfPublication> "Amersfoort" .
@@ -1159,9 +1157,8 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747%3ADE-929%3AK+91%2F30%3A3%2C5%2C1> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "3402061740" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "Themenbereich 3, Bev\u00F6lkerung" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Provinz Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://iflastandards.info/ns/isbd/elements/P1053> "[2] Bl. : graph. Darst., Kt." .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/title> "Geographisch-landeskundlicher Atlas von Westfalen" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Provinz Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Atlas" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4065781-4> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Map> .
@@ -1190,6 +1187,7 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/issued> "1990" .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/title> "Bev\u00F6lkerungsdichte der Gemeinden 1871 - 1987 und Ver\u00E4nderung 1818 - 1987" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn13> "9783402061749" .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001671747/about> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/publisher> "Aschendorff" .
