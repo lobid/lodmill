@@ -1,28 +1,39 @@
-@* Copyright 2013 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
-@(label: String, property: String, doc: play.api.libs.json.JsValue, row: views.TableRow, node: Option[play.api.libs.json.JsValue] = None)
+@* Copyright 2013, 2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
+@(label: String, property: String, doc: play.api.libs.json.JsValue, row: views.TableRow, node: Option[play.api.libs.json.JsValue] = None, valueLabel: Option[Seq[String]] = None)
 
-@import play.api.libs.json.JsValue
+@import play.api.libs.json._
+@import views.tags.TagHelper
 
 @string(value: JsValue) = { @value.asOpt[String].getOrElse("--") }
-@jsonVal = @{ node match {
+@jsonVal(p: String) = @{ node match {
   case Some(node) => node
-  case None => if ((doc \\ property).isEmpty) (doc \ property) else (doc \\ property).head
-}}
-@multiSingleOrEmptySeq(value: JsValue) = @{
-	jsonVal.asOpt[Seq[JsValue]].getOrElse(if(value.asOpt[String].isDefined) Seq(jsonVal) else Seq())
+  case None => if ((doc \\ p).isEmpty) (doc \ p) else (doc \\ p).head
+	}
 }
-
+@multiSingleOrEmptySeq(value: JsValue) = @{
+	val jsVal = jsonVal(property)
+	value match {
+		case o:JsObject => Seq(o \ "@id")
+		case a:JsArray => a.as[Seq[JsValue]].map(_ match {case o:JsObject => o \ "@id"; case o@_ => o})
+		case _ => if(value.asOpt[String].isDefined) Seq(jsonVal(property)) else Seq()
+	}
+}
 @row match {
   case views.TableRow.VALUES => {
-    @for(elem <- multiSingleOrEmptySeq(jsonVal)) {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal(property))) {
       <tr>
         <td><a href="@property">@label</a></td>
-        <td property="@property">@string(elem)</td>
+        <td property="@property">
+            @valueLabel match {
+                          case None => {@string(elem)}
+                          case Some(seq) => {<a href="@string(elem)">@TagHelper.valueFor(doc, elem.as[String], seq)</a>}
+                       }
+        </td>
       </tr>
     }
   }
   case views.TableRow.LINKS => {
-    @for(elem <- multiSingleOrEmptySeq(jsonVal \ "@id")) {
+    @for(elem <- multiSingleOrEmptySeq(jsonVal(property) \ "@id")) {
       <tr>
         <td><a href="@property">@label</a></td>
         <td>
@@ -32,7 +43,7 @@
     }
   }
   case views.TableRow.IMAGE => {
-    @defining((jsonVal \ "@id").asOpt[String]) { qr =>
+    @defining((jsonVal(property) \ "@id").asOpt[String]) { qr =>
         @if(qr.isDefined){
             <tr>
               <td><a href="@property">@label</a></td>
