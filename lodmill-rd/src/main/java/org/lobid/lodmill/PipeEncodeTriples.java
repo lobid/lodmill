@@ -13,6 +13,8 @@ import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.hp.hpl.jena.graph.NodeFactory;
 import com.hp.hpl.jena.rdf.model.AnonId;
@@ -39,6 +41,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	final static String DUMMY_SUBJECT = "dummy_subject";
 	final static String HTTP = "http";
 	private boolean fixSubject = false;
+	private static final Logger LOG = LoggerFactory
+			.getLogger(PipeEncodeTriples.class);
 
 	/**
 	 * Sets the default temporary subject.
@@ -82,17 +86,20 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 					resources.push(model.createResource(subject));
 				}
 			} catch (Exception e) {
-				e.printStackTrace();
+				LOG.warn("Problem with name=" + name + " value=" + value, e);
 			}
-
 		} else if (name.startsWith(HTTP)) {
-			final Property prop = model.createProperty(name);
-			if (isUriWithScheme(value)
-					&& (value.startsWith(HTTP) || value.startsWith("mailto"))) {
-				resources.peek().addProperty(prop,
-						model.asRDFNode(NodeFactory.createURI(value)));
-			} else {
-				resources.peek().addProperty(prop, value);
+			try {
+				final Property prop = model.createProperty(name);
+				if (isUriWithScheme(value)
+						&& (value.startsWith(HTTP) || value.startsWith("mailto"))) {
+					resources.peek().addProperty(prop,
+							model.asRDFNode(NodeFactory.createURI(value)));
+				} else {
+					resources.peek().addProperty(prop, value);
+				}
+			} catch (Exception e) {
+				LOG.warn("Problem with name=" + name + " value=" + value, e);
 			}
 		}
 
