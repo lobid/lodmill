@@ -1,5 +1,21 @@
+html {
+	overflow-y: scroll;
+}
+
 body {
 	padding-top: 50px;
+}
+
+.masthead #lobid {
+	width: 100%;
+	background-image: url('http://lobid.org/images/clouds.jpg');
+	background-repeat: repeat-x;
+}
+
+#lobid img {
+	display: block;
+	margin-left: auto;
+	padding: 5px;
 }
 
 .text {
