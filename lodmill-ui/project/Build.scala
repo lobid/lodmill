@@ -14,9 +14,11 @@ object ApplicationBuild extends Build {
       "org.scalatest" %% "scalatest" % "1.9.1" % "test"
     )
 
+    val nwbib = play.Project("nwbib", path = file("modules/nwbib"))
+
     val main = play.Project(appName, appVersion, appDependencies).settings(
       parallelExecution in Test := false,
       resolvers := Seq("codehaus" at "http://repository.codehaus.org/org/codehaus", "typesafe" at "http://repo.typesafe.com/typesafe/repo", Resolver.mavenLocal)
-    )
-	
+    ).dependsOn(nwbib).aggregate(nwbib)
+
 }
