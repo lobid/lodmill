@@ -1196,6 +1196,31 @@
 <http://lobid.org/resource/TT001671747/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/TT001671747> .
 <http://lobid.org/item/TT001671747%3ADE-6%3AGOA+7%2F62-3%2C5%2C1/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/item/TT001671747%3ADE-6%3AGOA+7%2F62-3%2C5%2C1/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/TT001671747%3ADE-6%3AGOA+7%2F62-3%2C5%2C1> .
+<http://lobid.org/item/HT010662586%3ADE-380/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/item/HT010662586%3ADE-380/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT010662586%3ADE-380> .
+<http://lobid.org/resource/HT010662586> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT010662586%3ADE-380> .
+<http://lobid.org/resource/HT010662586> <http://rdvocab.info/Elements/placeOfPublication> "[S.l.]" .
+<http://lobid.org/resource/HT010662586> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT010662586/about> .
+<http://lobid.org/resource/HT010662586> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT010662586> .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/title> "The Common man in the great Civil War" .
+<http://lobid.org/resource/HT010662586> <http://rdvocab.info/Elements/publicationStatement> "[S.l.]; Leicester Univ. Pr.; 1957" .
+<http://lobid.org/resource/HT010662586> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118839055> .
+<http://lobid.org/resource/HT010662586> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/publisher> "Leicester Univ. Pr." .
+<http://lobid.org/resource/HT010662586> <http://iflastandards.info/ns/isbd/elements/P1053> "23 p." .
+<http://lobid.org/resource/HT010662586> <http://rdvocab.info/Elements/statementOfResponsibility> "by C[icely] V[eronica] Wedgwood" .
+<http://lobid.org/resource/HT010662586> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
+<http://lobid.org/resource/HT010662586> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT010662586> .
+<http://lobid.org/resource/HT010662586> <http://purl.org/lobid/lv#hbzID> "HT010662586" .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/issued> "1957" .
+<http://lobid.org/resource/HT010662586> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/item/HT010662586%3ADE-380> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT010662586%3ADE-380> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT010662586%3ADE-380/about> .
+<http://lobid.org/item/HT010662586%3ADE-380> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT010662586> .
+<http://lobid.org/item/HT010662586%3ADE-380> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-380> .
+<http://lobid.org/resource/HT010662586/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/HT010662586/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT010662586> .
 <http://lobid.org/item/HT000290078%3ADE-467%3A11DCX1513%2B1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT000290078%3ADE-467%3A11DCX1513%2B1> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT000290078%3ADE-467%3A11DCX1513%2B1/about> .
 <http://lobid.org/item/HT000290078%3ADE-467%3A11DCX1513%2B1> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT000290078> .

@@ -1,4 +1,4 @@
-/** Copyright 2013 hbz
+/** Copyright 2013,2014 hbz
  * Licensed under the Eclipse Public License 1.0 
  **/
 
@@ -14,12 +14,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 
 /**
- * A mab xml reader.
+ * A MAB XML reader.
  * 
- * @author Pascal Christoph
+ * @author Pascal Christoph (dr0i)
  * 
  */
-@Description("A mab xml reader")
+@Description("A MAB XML reader")
 @In(XmlReceiver.class)
 @Out(StreamReceiver.class)
 public final class MabXmlHandler extends DefaultXmlPipe<StreamReceiver> {
@@ -27,9 +27,7 @@ public final class MabXmlHandler extends DefaultXmlPipe<StreamReceiver> {
 	private static final String SUBFIELD = "subfield";
 	private static final String DATAFIELD = "datafield";
 	private static final String CONTROLLFIELD = "controlfield";
-	private static final String RECORD = "record";
-	private static final String NAMESPACE =
-			"http://www.ddb.de/professionell/mabxml/mabxml-1.xsd";
+	private static final String RECORD = "ListRecords";
 	private static final String LEADER = "leader";
 	private static final String DATAFIELD_ATTRIBUTE = "tag";
 	private static final String SUBFIELD_ATTRIBUTE = "code";
@@ -53,7 +51,7 @@ public final class MabXmlHandler extends DefaultXmlPipe<StreamReceiver> {
 					attributes.getValue(DATAFIELD_ATTRIBUTE)
 							+ attributes.getValue(INDICATOR1)
 							+ attributes.getValue(INDICATOR2));
-		} else if (RECORD.equals(localName) && NAMESPACE.equals(uri)) {
+		} else if (RECORD.equals(localName)) {
 			getReceiver().startRecord("");
 		} else if (LEADER.equals(localName)) {
 			builder = new StringBuilder();
@@ -71,7 +69,7 @@ public final class MabXmlHandler extends DefaultXmlPipe<StreamReceiver> {
 			getReceiver().literal(currentTag, builder.toString().trim());
 		} else if (DATAFIELD.equals(localName)) {
 			getReceiver().endEntity();
-		} else if (RECORD.equals(localName) && NAMESPACE.equals(uri)) {
+		} else if (RECORD.equals(localName)) {
 			getReceiver().endRecord();
 		}
 	}
