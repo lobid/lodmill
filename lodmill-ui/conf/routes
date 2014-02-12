@@ -2,6 +2,10 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# NWBib
+
+-> / nwbib.Routes
+
 # Home page
 GET     /                           controllers.Application.index()
 
