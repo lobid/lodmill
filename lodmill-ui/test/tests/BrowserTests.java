@@ -29,8 +29,8 @@ import play.test.TestServer;
 @SuppressWarnings("javadoc")
 public class BrowserTests {
 
-	private static final String INDEX = "http://localhost:"
-			+ SearchTestsHarness.TEST_SERVER_PORT;
+	private static final String API_PAGE = "http://localhost:"
+			+ SearchTestsHarness.TEST_SERVER_PORT + "/api";
 	private static final TestServer TEST_SERVER = SearchTestsHarness.TEST_SERVER;
 
 	@BeforeClass
@@ -48,7 +48,7 @@ public class BrowserTests {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(call("assets/javascripts/jquery-1.7.1.min.js")).isNotNull();
+				assertThat(call("assets/javascripts/bootstrap.min.js")).isNotNull();
 			}
 		});
 	}
@@ -58,12 +58,12 @@ public class BrowserTests {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
 			public void invoke(final TestBrowser browser) throws InterruptedException {
-				browser.goTo(INDEX);
-				assertThat(browser.title()).isEqualTo("Lobid API - Index");
+				browser.goTo(API_PAGE);
+				assertThat(browser.title()).isEqualTo("lobid - api");
 				browser.find("input", withId("id")).text(
 						"http://d-nb.info/gnd/118836617");
 				browser.find("button", withText("Search")).first().click();
-				assertThat(browser.url()).isNotEqualTo(INDEX);
+				assertThat(browser.url()).isNotEqualTo(API_PAGE);
 				assertThat(browser.pageSource()).contains("118836617")
 						.contains("Schmidt, Hannelore").contains("Glaser, Hannelore")
 						.contains("Schmidt, Loki");
@@ -76,7 +76,7 @@ public class BrowserTests {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
 			public void invoke(final TestBrowser browser) {
-				browser.goTo(INDEX);
+				browser.goTo(API_PAGE);
 				browser.find("a", withText("hbz ID")).first().click();
 				assertTypee(browser);
 			}
@@ -99,7 +99,7 @@ public class BrowserTests {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
 			public void invoke(final TestBrowser browser) {
-				browser.goTo(INDEX);
+				browser.goTo(API_PAGE);
 				browser.click("a", withText("/resource?author=Abramson"));
 				assertThat(browser.pageSource()).contains("Abramson")
 						.contains("Error-correcting codes from linear sequential circuits")
@@ -115,7 +115,7 @@ public class BrowserTests {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
 			public void invoke(final TestBrowser browser) {
-				browser.goTo(INDEX);
+				browser.goTo(API_PAGE);
 				browser.click("a", withText("/resource?subject=4414195-6"));
 				assertThat(browser.pageSource())
 						.contains("Heimatstimmen aus dem Kreis Olpe")
@@ -133,7 +133,7 @@ public class BrowserTests {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
 			public void invoke(final TestBrowser browser) {
-				browser.goTo(INDEX);
+				browser.goTo(API_PAGE);
 				browser.click("a", withText("/resource?subject=Chemistry"));
 				assertThat(browser.pageSource()).contains("Gerlach, Rainer").contains(
 						"Synthese, Eigenschaften und Reaktivität von Mangan- und "
@@ -147,7 +147,7 @@ public class BrowserTests {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
 			public void invoke(final TestBrowser browser) {
-				browser.goTo(INDEX);
+				browser.goTo(API_PAGE);
 				browser.click("a", withText("/organisation?name=Universität"));
 				assertThat(browser.pageSource())
 						.contains("Universität")
@@ -167,7 +167,7 @@ public class BrowserTests {
 		running(TEST_SERVER, HTMLUNIT, new Callback<TestBrowser>() {
 			@Override
 			public void invoke(final TestBrowser browser) {
-				browser.goTo(INDEX);
+				browser.goTo(API_PAGE);
 				final String link = "/person?name=Johann+Sebastian+Bach";
 				browser.click("a", withText(link));
 				assertThat(browser.pageSource()).contains("Bach, Johann Sebastian")

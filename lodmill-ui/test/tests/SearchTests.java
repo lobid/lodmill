@@ -258,7 +258,7 @@ public class SearchTests extends SearchTestsHarness {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(call("")).contains("<html>");
+				assertThat(call("")).contains("<html");
 			}
 		});
 	}
@@ -269,7 +269,7 @@ public class SearchTests extends SearchTestsHarness {
 			@Override
 			public void run() {
 				assertThat(call("resource?author=abraham", "text/html")).contains(
-						"<html>");
+						"<html");
 			}
 		});
 	}
@@ -565,7 +565,7 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(
 						call(ENDPOINT,
 								"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"))
-						.isNotEmpty().contains("<html>");
+						.isNotEmpty().contains("<html");
 			}
 		});
 	}
