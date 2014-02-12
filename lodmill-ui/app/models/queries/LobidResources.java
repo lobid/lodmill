@@ -128,6 +128,7 @@ public class LobidResources {
 					"@graph.@id", // hbz ID
 					"@graph.http://purl.org/ontology/bibo/isbn13.@value",
 					"@graph.http://purl.org/ontology/bibo/isbn10.@value",
+					"@graph.http://purl.org/ontology/bibo/issn.@value",
 					"@graph.http://geni-orca.renci.org/owl/topology.owl#hasURN.@value"); /* @formatter:on */
 		}
 
