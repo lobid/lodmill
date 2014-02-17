@@ -20,11 +20,11 @@ GET     /images/*file               controllers.Assets.at(path="/public/images",
 GET     /context/:file              controllers.Assets.at(path="/public/contexts", file)
 
 # Individual, specialized API routes for different resource types
-GET     /resource                   controllers.Api.resource(id ?= "", q ?= "", name ?= "", author ?= "", subject ?= "", set ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, owner ?= "")
-GET     /item                       controllers.Api.item(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /organisation               controllers.Api.organisation(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /person                     controllers.Api.person(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
-GET     /subject                    controllers.Api.subject(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
+GET     /resource                   controllers.Api.resource(id ?= "", q ?= "", name ?= "", author ?= "", subject ?= "", set ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, owner ?= "", t ?= "")
+GET     /item                       controllers.Api.item(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, t ?= "")
+GET     /organisation               controllers.Api.organisation(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, t ?= "")
+GET     /person                     controllers.Api.person(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, t ?= "")
+GET     /subject                    controllers.Api.subject(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, t ?= "")
 
 # Path-style routes and `about` redirects
 GET     /resource/:id               controllers.Path.resource(id, format ?= "negotiate", from: Int ?= 0, size: Int ?= 50)
