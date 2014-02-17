@@ -194,7 +194,6 @@
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/tableOfContents> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=3362189&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT001898812> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT001898812> <http://rdvocab.info/Elements/placeOfPublication> "Leipzig" .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "W\u00F6rterbuch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4113292-0> .
 <http://lobid.org/item/HT001898812%3ADE-6%3A3G+26297A-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT001898812%3ADE-6%3A3G+26297A-2> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT001898812%3ADE-6%3A3G+26297A-2/about> .
@@ -877,15 +876,12 @@
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119. 2006" .
 <http://lobid.org/resource/HT015082724> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015082724> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Amersfoort" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Vereinigte Niederlande" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015082724%3ADE-361%3ACA000+T340%5B119> .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Staat Holland" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Groningen" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/ZDB208524-0> .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/issued> "2006" .
 <http://lobid.org/resource/HT015082724> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/issued> "2006" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/isPartOf> <http://ld.zdb-services.de/resource/208524-0> .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Zeitschrift" .
 <http://lobid.org/resource/HT015082724> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015082724/about> .
 <http://lobid.org/resource/HT015082724> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119" .
@@ -893,8 +889,6 @@
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Van Gorcum" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/publicationStatement> "Assen; Van Gorcum; Amersfoort; Amersfoort; Noordhoff; Groningen; Groningen; Wolters-Noordhoff; 2006" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/placeOfPublication> "Assen" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Niederlande" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/placeOfPublication> "Groningen" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/placeOfPublication> "Amersfoort" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042203-3> .
@@ -903,7 +897,6 @@
 <http://lobid.org/resource/HT015082724> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT015082724> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015082724> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#hbzID> "HT015082724" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Batavische Republik" .
 <http://lobid.org/resource/HT015082724> <http://rdvocab.info/Elements/otherTitleInformation> "van alle tijden" .
 <http://lobid.org/resource/HT015082724/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/resource/HT015082724/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT015082724> .
@@ -1158,8 +1151,6 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "3402061740" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "Themenbereich 3, Bev\u00F6lkerung" .
 <http://lobid.org/resource/TT001671747> <http://iflastandards.info/ns/isbd/elements/P1053> "[2] Bl. : graph. Darst., Kt." .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Provinz Westfalen" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Atlas" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4065781-4> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#hbzID> "TT001671747" .
@@ -1172,7 +1163,6 @@
 <http://lobid.org/resource/TT001671747> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001671747> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073972-7> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Herzogtum Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747%3ADE-6-139a%3AC+367%2CV> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001671747> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747%3ADE-290%3AGOA+7%2F62-3%2C5%2C1> .
@@ -1181,7 +1171,6 @@
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/TT001671747> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Aschendorff; 1990" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "Doppelbl. 1" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002808565> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747%3ADE-6%3AGOA+7%2F62-3%2C5%2C1> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/issued> "1990" .
@@ -1268,7 +1257,6 @@
 <http://lobid.org/item/HT015865114%3ADE-929/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT015865114%3ADE-929> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#hbzID> "HT015865114" .
 <http://lobid.org/resource/HT015865114> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015865114> .
-<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte 1945-2003" .
 <http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/placeOfPublication> "Bamberg" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/bibliographicCitation> "Sch\u00FCler- und Lehrerbd." .
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -1282,7 +1270,6 @@
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013370531> .
 <http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/publicationStatement> "Bamberg; Buchner" .
 <http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/otherTitleInformation> "die Welt nach 1945" .
-<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Schulbuch" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015865114%3ADE-929> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/title> "Von der Teilung zur Einheit" .
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
@@ -1917,15 +1904,13 @@
 <http://lobid.org/item/ZDB6211-x%3ADE-Bo102%3AZs+371> <http://purl.org/ontology/daia/label> "Zs 371" .
 <http://lobid.org/resource/BT000003404/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/resource/BT000003404/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/BT000003404> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/issued> "1993" .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/issued> "1993" .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000003404> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Nord-Westphalie" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4115393-5> .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000003404/about> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn13> "9783575112088" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Karte" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/edition> "10.[Aufl., Ausg.] 1993/94" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#hbzID> "BT000003404" .
@@ -1933,24 +1918,14 @@
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/publisher> "Reise- u. Verkehrsverl." .
 <http://lobid.org/resource/BT000003404> <http://iflastandards.info/ns/isbd/elements/P1053> "Kt." .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/volume> "2" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Norte-Westfalia" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "NW" .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Niedersachsen" .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "S\u00FCdliches Niedersachsen" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/BT000100437> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "3575112088" .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Noordrijn-Westfalen" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "North Rhine-Westphalia" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042570-8> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "S\u00FCdniedersachsen" .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "mit Ortsverzeichnis" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "S\u00FCd" .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/placeOfPublication> "Berlin [u.a.]" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "NRW" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Nordrhein-Westfalen" .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/publicationStatement> "Berlin [u.a.]; Berlin [u.a.]; Reise- u. Verkehrsverl.; Reise- u. Verkehrsverl.; 1993" .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/BT000100437> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/BT000003404> .
@@ -2192,15 +2167,12 @@
 <http://lobid.org/item/HT012926727%3ADE-51%3APUM+119%282%29> <http://purl.org/ontology/daia/label> "PUM 119(2)" .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Kt.-Beil." .
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1533597&custom_att_2=simple_viewer> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Norddeutscher Bund" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "3540676376" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1031919368> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783642631948" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/title> "Handbuch der Elektrizit\u00E4tswirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://rdvocab.info/Elements/statementOfResponsibility> "Leonhard M\u00FCller" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-61%3Awirq509.m946> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Republic of Germany" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "\u01E6umh\u016Br\u012Byat Alm\u0101niy\u0101 al-Itti\u1E25\u0101d\u012Bya" .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "XIV, 514 S. : graph. Darst., Kt." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Hag4%3AW-Wgm32+20%3A2> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-294%3AWQB20673%3A2> .
@@ -2210,62 +2182,46 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-1393%3A00%2FXYG3%282%29%2B2> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Hag4-4%3A81PUM5023%282%29%2B2> .
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT012926727/about> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Germanija" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Hag4-4%3A81PUM5023%282%29%2B1> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "BRD" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-6%3A3H+62052> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Hag4%3AE%2FZB-Wgm32+20%3A2A> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutscher Bund" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-465%3AZPH3644%282%29%2B1> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/edition> "2. Aufl." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Bi10%3AXYF+Muel> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Kob7%3AAR%2FG+2003+6306%282%29> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "9783642631948" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Repubblica Federale di Germania" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutschland" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-1393%3A00%2FXYG3%282%29> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-465%3AZPH3644%282%29> .
 <http://lobid.org/resource/HT012926727> <http://rdvocab.info/Elements/otherTitleInformation> "technische, wirtschaftliche und rechtliche Grundlagen" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/publisher> "Springer" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Federativnaja Respublika Germanija" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-1042%3Aetech+A+002+2.+Aufl.> .
 <http://lobid.org/resource/HT012926727> <http://rdvocab.info/Elements/publicationStatement> "Berlin [u.a.]; Springer; 2001" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-464%3AXYG1451%282%29_d> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-836%3APUM+16%282%29> .
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#hbzID> "HT012926727" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/issued> "2001" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#hbzID> "HT012926727" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-464%3AZPO41357%282%29> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Heiliges R\u00F6misches Reich" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Federal Republic of Germany" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-A96%3A21+ZPH+743%282%29> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-294%3AWQB20673%2B1%3A2> .
-<http://lobid.org/resource/HT012926727> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT012926727> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-1010%3A01PUM23%282%29> .
+<http://lobid.org/resource/HT012926727> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT012926727> .
+<http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-294%3AWQB20673%2B1%3A2> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Due62%3A16+ZPH+26+%282%29+%2B1> .
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-6-017%3AG+IV+a+132> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Bundesrepublik Deutschland" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4014228-0> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-51%3APUM+119%282%29> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-60%3AXYG1451%282%29%2B1_d> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-38%3A28A2398> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Allemagne" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deyizhi-Lianbang-Gongheguo" .
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783540676379" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutsches Reich" .
 <http://lobid.org/resource/HT012926727> <http://rdvocab.info/Elements/placeOfPublication> "Berlin [u.a.]" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutsche L\u00E4nder" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Germany" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Hag4-4%3A81PUM5023%282%29> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/tableOfContents> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1533597&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-1393%3A00%2FXYG3%282%29%2B4> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Rheinbund" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-61-81%3Ajurj354.m946> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-1393%3A00%2FXYG3%282%29%2B3> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "R\u00E9publique F\u00E9d\u00E9rale d'Allemagne" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-468%3AXYG1362%282%29> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-5-225%3AR+278+2001%2F11> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-829%3AXYG+M%C3%BCll> .
@@ -2273,8 +2229,6 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4011882-4> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-Hag4%3AE%2FZB-Wgm32+20%3A2B> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727%3ADE-464%3AXYG1451%282%29%2B1_d> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Niemcy" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "FRG" .
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT012926727> .
 <http://lobid.org/item/HT012926727%3ADE-468%3AXYG1362%282%29%2B1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT012926727%3ADE-468%3AXYG1362%282%29%2B1> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT012926727%3ADE-468%3AXYG1362%282%29%2B1/about> .
@@ -2310,19 +2264,15 @@
 <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT013911008> .
 <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-361> .
 <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798> <http://purl.org/ontology/daia/label> "CB088.87-4144798" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013911051> .
 <http://lobid.org/resource/HT013911008> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013911008> .
 <http://lobid.org/resource/HT013911008> <http://rdvocab.info/Elements/publicationStatement> "Velbert; Eutropia; 2003" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4050698-8> .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg ob der Tauber" .
+<http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn> "3936547041" .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013911008/about> .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg, Tauber" .
 <http://lobid.org/resource/HT013911008> <http://rdvocab.info/Elements/placeOfPublication> "Velbert" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg o.d.T." .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "CD-ROM" .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/library/CassetteTape> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioDocument> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/issued> "2003" .
@@ -2331,7 +2281,6 @@
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT013911008> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/title> "1000 Fotos aus Rothenburg ob der Tauber" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#hbzID> "HT013911008" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Stadtmagistrat" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn13> "9783936547047" .
@@ -2497,12 +2446,11 @@
 <http://lobid.org/resource/HT014015351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014015351%3ADE-361%3AOH058+S7L5> .
 <http://lobid.org/resource/HT014015351> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnchen; Fink; 2005" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4604932-0> .
-<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/publisher> "Fink" .
 <http://lobid.org/resource/HT014015351> <http://rdvocab.info/Elements/otherTitleInformation> "Praktiken des Symbolischen ; [Festschrift f\u00FCr Ludwig J\u00E4ger zum 60. Geburtstag]" .
 <http://lobid.org/resource/HT014015351> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT014015351> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnchen" .
+<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/publisher> "Fink" .
 <http://lobid.org/resource/HT014015351> <http://rdvocab.info/Elements/statementOfResponsibility> "hrsg. von Gisela Fehrmann ..." .
-<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/subject> "Aufsatzsammlung" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014015351%3ADE-5%3A2010%2F1208> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/129016713> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/title> "Spuren, Lekt\u00FCren" .

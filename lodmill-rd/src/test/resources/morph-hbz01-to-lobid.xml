@@ -833,18 +833,6 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<!--subject literals: corporation -->
-		<data source="9[0123456789][27]-[12].[-ck]" name="http://purl.org/dc/elements/1.1/subject"/>
-		<!--subject literals: person -->
-		<data source="9[0123456789][27]-[-12].p" name="http://purl.org/dc/elements/1.1/subject"/>
-		<!--subject literals: form -->
-		<data source="9[01234][27]-[-12].f" name="http://purl.org/dc/elements/1.1/subject"/>
-		<!--subject literals: spatial -->
-		<data source="9[0123456789][27]-[-12].g" name="http://purl.org/dc/elements/1.1/subject"/>
-		<!--subject literals: temporal -->
-		<data source="9[01234][27]-[-12].z" name="http://purl.org/dc/elements/1.1/subject"/>
-		<!--subject literals: title -->
-		<data source="9[01234][27]-[-12].t" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!-- ####################### -->
 		<!-- ##########fulltext , toc, seeAlso -->
 		<!-- ####################### -->
