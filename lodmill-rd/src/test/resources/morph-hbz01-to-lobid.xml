@@ -515,7 +515,7 @@
 		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
 		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
-			<data source="552b[-1].a" name="@urn"/>
+		<data source="552b[-1].a" name="@urn"/>
 		<data source="@urn" name="http://purl.org/lobid/lv#urn"/>
 		<data source="@urn" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://nbn-resolving.de/${1}"/>
@@ -920,8 +920,15 @@
 		<data source="078n[-1].a|700n[-1].[ab]" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match=".*" format="$[ns-lobid-resource]NWBib"/>
 		</data>
-		<data source="078r1.a" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match="edoweb" format="http://data.archiveshub.ac.uk/def/ArchivalResource"/>
+		<!--edoweb -->
+		<data source="078r1.a" name="@edoweb">
+			<regexp match="edoweb"/>
+		</data>
+		<data source="@edoweb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://data.archiveshub.ac.uk/def/ArchivalResource"/>
+		</data>
+		<data source="@edoweb" name="http://purl.org/dc/terms/isPartOf">
+			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
 		</data>
 		<!--rheinland pfalz -->
 		<data source="700l[-1].[ab]" name="http://purl.org/dc/terms/isPartOf">
