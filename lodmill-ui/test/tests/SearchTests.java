@@ -258,7 +258,7 @@ public class SearchTests extends SearchTestsHarness {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(call("")).contains("<html>");
+				assertThat(call("")).contains("<html");
 			}
 		});
 	}
@@ -269,7 +269,7 @@ public class SearchTests extends SearchTestsHarness {
 			@Override
 			public void run() {
 				assertThat(call("resource?author=abraham", "text/html")).contains(
-						"<html>");
+						"<html");
 			}
 		});
 	}
@@ -565,7 +565,7 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(
 						call(ENDPOINT,
 								"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"))
-						.isNotEmpty().contains("<html>");
+						.isNotEmpty().contains("<html");
 			}
 		});
 	}
@@ -625,8 +625,10 @@ public class SearchTests extends SearchTestsHarness {
 			public void run() {
 				final JsonNode jsonObject = Json.parse(call("resource?id=BT000001260"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.get(0).get("@id")).isNull();
-				assertThat(jsonObject.get(0).get("primaryTopic")).isNull();
+				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
+						"http://lobid.org/resource/BT000001260/about");
+				assertThat(jsonObject.get(0).get("primaryTopic").asText()).isEqualTo(
+						"http://lobid.org/resource/BT000001260");
 			}
 		});
 	}
@@ -639,8 +641,9 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject = Json.parse(call("person?id=1019737174"));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
+						"http://d-nb.info/gnd/1019737174/about");
+				assertThat(jsonObject.get(0).get("primaryTopic").asText()).isEqualTo(
 						"http://d-nb.info/gnd/1019737174");
-				assertThat(jsonObject.get(0).get("primaryTopic")).isNull();
 			}
 		});
 	}

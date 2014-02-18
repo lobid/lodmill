@@ -37,3 +37,4 @@ logging.properties
 media
 log
 .DS_Store
+lodmill-ui/modules

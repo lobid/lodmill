@@ -10,13 +10,15 @@ object ApplicationBuild extends Build {
     val appDependencies = Seq(
       javaCore,
       "org.elasticsearch" % "elasticsearch" % "0.90.7" withSources(),
-      "org.lobid" % "lodmill-ld" % "1.1.2",
+      "org.lobid" % "lodmill-ld" % "1.2.0",
       "org.scalatest" %% "scalatest" % "1.9.1" % "test"
     )
+
+    val nwbib = play.Project("nwbib", path = file("modules/nwbib"))
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
       parallelExecution in Test := false,
       resolvers := Seq("codehaus" at "http://repository.codehaus.org/org/codehaus", "typesafe" at "http://repo.typesafe.com/typesafe/repo", Resolver.mavenLocal)
-    )
-	
+    ).dependsOn(nwbib).aggregate(nwbib)
+
 }

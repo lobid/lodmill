@@ -2,11 +2,19 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# NWBib
+
+-> / nwbib.Routes
+
 # Home page
 GET     /                           controllers.Application.index()
+GET     /api                        controllers.Application.api()
+GET     /contact                    controllers.Application.contact()
+GET     /about                      controllers.Application.about()
 
-# Map static resources from the /public folder to the /assets URL path
+# Map static resources from the /public folder to the /assets and /images URL paths
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /images/*file               controllers.Assets.at(path="/public/images", file)
 
 # Map JSON-LD context documents from the /public/contexts folder to the /contect URL path
 GET     /context/:file              controllers.Assets.at(path="/public/contexts", file)

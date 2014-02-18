@@ -52,6 +52,27 @@ public final class Application extends Controller {
 	}
 
 	/**
+	 * @return The API page.
+	 */
+	public static Result api() {
+		return ok(views.html.api.render());
+	}
+
+	/**
+	 * @return The main page.
+	 */
+	public static Result contact() {
+		return ok(views.html.contact.render());
+	}
+
+	/**
+	 * @return The main page.
+	 */
+	public static Result about() {
+		return ok(views.html.about.render());
+	}
+
+	/**
 	 * Search enpoint for actual queries.
 	 * 
 	 * @param indexParameter The index to search (see {@link Index}).
