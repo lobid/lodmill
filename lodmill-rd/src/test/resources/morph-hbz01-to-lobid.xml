@@ -853,6 +853,9 @@
 					<data source="@fulltextOnline">
 						<regexp match=".*"/>
 					</data>
+					<data source="@toc">
+						<regexp match=".*"/>
+					</data>
 				</none>
 			</if>
 			<data source="@linkUri" name="seeAlsoUri">
@@ -860,8 +863,7 @@
 			</data>
 		</combine>
 		<!-- link to table of content (toc) -->
-		<combine name="http://purl.org/dc/terms/tableOfContents" value="${uri}"
-			sameEntity="true">
+		<combine name="@toc" value="${uri}" sameEntity="true">
 			<data source="655[-eu][ -1].[x3]">
 				<regexp match="^[Ii][Nn][Hh][aA][lL][tT][sS][vV]"/>
 			</data>
@@ -869,6 +871,7 @@
 				<regexp match="^([a-zA-Z].*)" format="${1}"/>
 			</data>
 		</combine>
+		<data source="@toc" name="http://purl.org/dc/terms/tableOfContents"/>
 		<!-- ####################### -->
 		<!-- ########## source , isPartOf -->
 		<!-- ####################### -->
@@ -956,6 +959,7 @@
 		<!-- ####################### -->
 		<data source="_else"/>
 	</rules>
+
 	<!-- ####################### -->
 	<!-- ########### maps -->
 	<!-- ####################### -->

@@ -180,7 +180,6 @@
 <http://lobid.org/resource/HT001898812> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT001898812> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/ontology/bibo/volume> "2" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/issued> "1974" .
-<http://lobid.org/resource/HT001898812> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=3362189&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001381485> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812%3ADE-465%3AAAEP35-2> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/title> "O - \u017B" .
@@ -678,7 +677,6 @@
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-1044%3A11+%3D+TWR5408%2B1> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-467%3A80TWRF4584-DVD> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4337730-0> .
-<http://lobid.org/resource/HT016382441> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=4027723&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/isbn13> "9783527706495" .
 <http://lobid.org/resource/HT016382441> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT016382441> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
@@ -2167,7 +2165,6 @@
 <http://lobid.org/item/HT012926727%3ADE-51%3APUM+119%282%29> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-51> .
 <http://lobid.org/item/HT012926727%3ADE-51%3APUM+119%282%29> <http://purl.org/ontology/daia/label> "PUM 119(2)" .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Kt.-Beil." .
-<http://lobid.org/resource/HT012926727> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1533597&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "3540676376" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1031919368> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783642631948" .
