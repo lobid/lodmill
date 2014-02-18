@@ -540,6 +540,36 @@
 <http://lobid.org/item/HT014525099%3ADE-1156%3AAR+ba+71> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT014525099> .
 <http://lobid.org/item/HT014525099%3ADE-1156%3AAR+ba+71> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-1156> .
 <http://lobid.org/item/HT014525099%3ADE-1156%3AAR+ba+71> <http://purl.org/ontology/daia/label> "AR ba 71" .
+<http://lobid.org/item/HT017468042%3ADE-6%3ARK+13> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017468042%3ADE-6%3ARK+13> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017468042%3ADE-6%3ARK+13/about> .
+<http://lobid.org/item/HT017468042%3ADE-6%3ARK+13> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017468042> .
+<http://lobid.org/item/HT017468042%3ADE-6%3ARK+13> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
+<http://lobid.org/item/HT017468042%3ADE-6%3ARK+13> <http://purl.org/ontology/daia/label> "RK 13" .
+<http://lobid.org/item/HT017468042%3ADE-6%3ARK+13/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/item/HT017468042%3ADE-6%3ARK+13/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT017468042%3ADE-6%3ARK+13> .
+<http://lobid.org/resource/HT017468042/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/HT017468042/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT017468042> .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
+<http://lobid.org/resource/HT017468042> <http://rdvocab.info/Elements/publicationStatement> "[N\u00FCrnberg]; Homannianos Heredes; 1757" .
+<http://lobid.org/resource/HT017468042> <http://iflastandards.info/ns/isbd/elements/P1053> "46 x 48 cm" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#hbzID> "HT017468042" .
+<http://lobid.org/resource/HT017468042> <http://rdvocab.info/Elements/longitudeAndLatitude> "E 006 26 -E 008 47 /N 053 11 -N 051 37" .
+<http://lobid.org/resource/HT017468042> <http://rdvocab.info/Elements/placeOfPublication> "[N\u00FCrnberg]" .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Map> .
+<http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/issued> "1757" .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT017468042> .
+<http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/lat> .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017468042/about> .
+<http://lobid.org/resource/HT017468042> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017468042%3ADE-6%3ARK+13> .
+<http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/5293676-4> .
+<http://lobid.org/resource/HT017468042> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT017468042> .
+<http://lobid.org/resource/HT017468042> <http://rdvocab.info/Elements/statementOfResponsibility> "Mappa publicata per Homannianos Heredes" .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT017468042> <http://purl.org/dc/elements/1.1/publisher> "Homannianos Heredes" .
+<http://lobid.org/resource/HT017468042> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Kt. : grenzkolor., fl\u00E4chenkolor., Kupferst." .
+<http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/title> "Territorium Seculare Episcopatus Monasterii Munster Germanis dicti. Ubi una cum Episcopatu Osnabr. simul integri Comitatus Bentheim, Steinfurt, Teklenburg, Lingen, Diepholz, Gemen conspiciuntur" .
 <http://lobid.org/item/HT016382441%3ADE-61%3Anc%2F18910/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/item/HT016382441%3ADE-61%3Anc%2F18910/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT016382441%3ADE-61%3Anc%2F18910> .
 <http://lobid.org/item/HT016382441%3ADE-929%3A2011%2F591/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
