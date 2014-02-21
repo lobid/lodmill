@@ -7,8 +7,8 @@
 @import play.api.libs.json.Json
 @import models.Index
 
-@main("Lobid API - Documents") {
-    <h2>@docs.size @if(docs.size == 1) { Document } else { Documents } @if(query!=""){ for '@query' }</h2>
+@main(index.id().toLowerCase(), "/docs") {
+    @if(docs.size > 1) {<h2>Showing @docs.size documents</h2>}
     @for(doc <- docs) {
 		@defining(doc.getId.split("/").last.hashCode) { id =>
 		<h2><a href="@doc.getId">@doc.getId</a></h2>
