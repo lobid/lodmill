@@ -61,7 +61,8 @@
     <a href="https://github.com/lobid/lodmill/issues/new">new issue</a> (requires GitHub login). See all our <a href="https://github.com/lobid/lodmill/issues?state=open">open issues</a> and <a href="https://github.com/lobid/lodmill/issues/milestones">milestones</a> on GitHub.</p>
 		<p>All endpoints use GET and support queries using the <code>id</code>, <code>name</code>, <code>q</code> (query all fields, supports <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">elasticsearch query string syntax</a>), and <code>format</code> parameters.
     Result formats <code>short</code>, <code>ids</code>, and <code>full</code> return JSON; use <code>format=negotiate</code> (or none), and set an accept header for different RDF formats, see details below.
-    The <code>short</code> result format supports an optional modifier to specify the field to use for collecting the values. The syntax is <code>short.field</code>, see this <a href="/resource?id=HT002189125&format=short.fulltextOnline">sample request</a>.</p>
+    The <code>short</code> result format supports an optional modifier to specify the field to use for collecting the values. The syntax is <code>short.field</code>, see this <a href="/resource?id=HT002189125&format=short.fulltextOnline">sample request</a>. All queries support can be filtered by type using the <code>type</code> parameter, see this 
+    <a href="/subject?name=Heinsberg&type=http://d-nb.info/standards/elementset/gnd%23BuildingOrMemorial">sample request</a>. Note that you have to encode the <code>#</code> as <code>%23</code> (the hash is interpreted as a local anchor by the browser, and not sent to the server).</p>
 		<table class="table table-striped">
 		<tr>
 			<th style="width: 10%">Parameters &rarr; <br/>&darr; Endpoint</th>

@@ -84,18 +84,20 @@ public final class Application extends Controller {
 	 * @param format The result format requested
 	 * @param owner The ID of an owner holding items of the requested resources
 	 * @param set The ID of a set the requested resources should be part of
+	 * @param type The type of the requestes resources
 	 * @return The results, in the format specified
 	 */
 	static Result search(final Index index, final Parameter parameter,
 			final String queryParameter, final String formatParameter,
-			final int from, final int size, final String owner, final String set) {
+			final int from, final int size, final String owner, final String set,
+			final String type) {
 		List<Document> docs = new ArrayList<>();
 		Pair<String, String> fieldAndFormat;
 		try {
 			fieldAndFormat = getFieldAndFormat(formatParameter);
 			docs =
 					new Search(queryParameter, index, parameter).page(from, size)
-							.field(fieldAndFormat.getLeft()).owner(owner).set(set)
+							.field(fieldAndFormat.getLeft()).owner(owner).set(set).type(type)
 							.documents();
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);

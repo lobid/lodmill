@@ -86,7 +86,8 @@ public class SearchTestsHarness {
 	}
 
 	static String call(final String request) {
-		return call(request.replace(' ', '+'), "application/json");
+		return call(request.replace(' ', '+').replace("#", "%23"),
+				"application/json");
 	}
 
 	static String call(final String request, final String contentType) {

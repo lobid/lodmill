@@ -43,13 +43,14 @@ public class ApiTests {
 				{ "resource/HT002189125",/* -> */"a peep at Polynesian life" }, // NOPMD
 				{ "resource?id=HT002189125",/* -> */"a peep at Polynesian life" },
 				{ "resource?name=Typee",/* -> */"a peep at Polynesian life" },
+				{ "resource?name=Typee&t=Book", "a peep at Polynesian life" },
 				{ "resource?author=Melville",/* -> */"a peep at Polynesian life" },
 				{ "resource?author=Melville&format=short",/* -> */
 				"Melville, Herman" },
 				{ "resource?author=118580604",/* -> */"a peep at Polynesian life" },
 				{ "resource?subject=4414195-6",/* -> */"aus dem Kreis Olpe" },
 				{ "resource?subject=4414195-6&set=NWBib",/* -> */
-						"http://lobid.org/resource/NWBib" },
+				"http://lobid.org/resource/NWBib" },
 				{ "resource?subject=Chemistry",/* -> */"Synthese, Eigenschaften" },
 				{ "resource?subject=Chemistry&format=short",/* -> */
 				"Chemistry & allied sciences" },
@@ -115,7 +116,8 @@ public class ApiTests {
 				{ "person?name=Bach",/* -> */"Bach, Johann Sebastian" },
 				{ "person?name=Bach&format=short",/* -> */
 				"Bach, Johann Sebastian (1685-1750)" },
-				{ "person?q=Bach&format=short", "Bach, Johann Sebastian (1685-1750)" },
+				{ "person?q=Bach&format=short&t=DifferentiatedPerson",
+						"Bach, Johann Sebastian (1685-1750)" },
 				{ "person?q=Bruder+von&format=full",
 						"Marie Salome Bach, spätere Wiegand" },
 				{ "person?name=Bach&format=ids", /* -> */

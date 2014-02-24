@@ -3,6 +3,7 @@
 package models;
 
 import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
+import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -60,6 +62,7 @@ public class Search {
 	private String set = "";
 	private int size = 50;
 	private int from = 0;
+	private String type = "";
 
 	/* TODO find a better way to inject the client for testing */
 
@@ -95,7 +98,7 @@ public class Search {
 		final QueryBuilder queryBuilder = createQuery(indexQuery);
 		Logger.debug("Using query: " + queryBuilder);
 		final SearchResponse response = search(queryBuilder);
-		Logger.trace("Got response: " + response);
+		Logger.debug("Got response: " + response);
 		final SearchHits hits = response.getHits();
 		final List<Document> documents = asDocuments(hits, indexQuery.fields());
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
@@ -149,6 +152,17 @@ public class Search {
 		return this;
 	}
 
+	/**
+	 * Optional: specify a type
+	 * 
+	 * @param resourceType The type of the requested resources
+	 * @return this search object (for chaining)
+	 */
+	public Search type(final String resourceType) {
+		this.type = resourceType;
+		return this;
+	}
+
 	private QueryBuilder createQuery(final AbstractIndexQuery indexQuery) {
 		QueryBuilder queryBuilder = indexQuery.build(term);
 		if (!owner.isEmpty()) {
@@ -158,6 +172,12 @@ public class Search {
 		if (!set.isEmpty()) {
 			final QueryBuilder setQuery = new LobidResources.SetQuery().build(set);
 			queryBuilder = boolQuery().must(queryBuilder).must(setQuery);
+		}
+		if (!type.isEmpty()) {
+			final QueryBuilder typeQuery =
+					matchQuery("@graph.@type", type).operator(
+							MatchQueryBuilder.Operator.AND);
+			queryBuilder = boolQuery().must(queryBuilder).must(typeQuery);
 		}
 		if (queryBuilder == null)
 			throw new IllegalStateException(String.format(

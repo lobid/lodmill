@@ -28,6 +28,7 @@ public class Gnd {
 		@Override
 		public List<String> fields() {
 			final List<String> suggestFields =
+			// TODO PersonNameQuery#fields make no sense for subjects
 					new ArrayList<>(new PersonNameQuery().fields());
 			final List<String> searchFields = Arrays.asList("_all");
 			suggestFields.addAll(searchFields);
@@ -36,8 +37,8 @@ public class Gnd {
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return PersonNameQuery.filterUndifferentiatedPersons(QueryBuilders
-					.queryString(queryString).field(fields().get(fields().size() - 1)));
+			return QueryBuilders.queryString(queryString).field(
+					fields().get(fields().size() - 1));
 		}
 	}
 
