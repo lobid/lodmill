@@ -15,10 +15,11 @@ object ApplicationBuild extends Build {
     )
 
     val nwbib = play.Project("nwbib", path = file("modules/nwbib"))
+    val oer = play.Project("oer-api", path = file("modules/oerworldmap/oer-api"))
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
       parallelExecution in Test := false,
       resolvers := Seq("codehaus" at "http://repository.codehaus.org/org/codehaus", "typesafe" at "http://repo.typesafe.com/typesafe/repo", Resolver.mavenLocal)
-    ).dependsOn(nwbib).aggregate(nwbib)
+    ).dependsOn(nwbib, oer).aggregate(nwbib, oer)
 
 }
