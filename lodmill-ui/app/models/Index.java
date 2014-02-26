@@ -29,7 +29,7 @@ import com.typesafe.config.ConfigFactory;
  */
 public enum Index {
 	/***/
-	LOBID_RESOURCES("lobid-resources",
+	LOBID_RESOURCES("lobid-resources", "json-ld-lobid",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.Q, new LobidResources.AllFieldsQuery())
 					.put(Parameter.AUTHOR, new LobidResources.AuthorQuery())
@@ -38,36 +38,46 @@ public enum Index {
 					.put(Parameter.NAME, new LobidResources.NameQuery())
 					.put(Parameter.SET, new LobidResources.SetQuery()).build()),
 	/***/
-	LOBID_ORGANISATIONS("lobid-organisations",
+	LOBID_ORGANISATIONS("lobid-organisations", "json-ld-lobid-orgs",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()/* @formatter:off */
 					.put(Parameter.Q, new LobidOrganisations.AllFieldsQuery())
 					.put(Parameter.NAME, new LobidOrganisations.NameQuery())
 					.put(Parameter.ID, new LobidOrganisations.IdQuery()).build()),
 	/***/
-	GND("gnd", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+	GND("gnd", "json-ld-gnd",
+			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.Q, new Gnd.AllFieldsQuery())
 					.put(Parameter.NAME, new Gnd.PersonNameQuery())
 					.put(Parameter.SUBJECT, new Gnd.SubjectNameQuery())
 					.put(Parameter.ID, new Gnd.IdQuery()).build()),
 	/***/
-	LOBID_ITEMS("lobid-resources", new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
-			.put(Parameter.Q, new LobidItems.AllFieldsQuery())
-			.put(Parameter.NAME, new LobidItems.NameQuery())
-			.put(Parameter.ID, new LobidItems.IdQuery()).build());/* @formatter:on */
+	LOBID_ITEMS("lobid-resources", "json-ld-lobid-item",
+			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
+					.put(Parameter.Q, new LobidItems.AllFieldsQuery())
+					.put(Parameter.NAME, new LobidItems.NameQuery())
+					.put(Parameter.ID, new LobidItems.IdQuery()).build());/* @formatter:on */
 
 	static final Config CONFIG = ConfigFactory.parseFile(
 			new File("conf/application.conf")).resolve();
 	private String id; // NOPMD
+	private String type;
 	private Map<Parameter, AbstractIndexQuery> queries;
 
-	Index(final String name, final Map<Parameter, AbstractIndexQuery> params) {
+	Index(final String name, final String type,
+			final Map<Parameter, AbstractIndexQuery> params) {
 		this.id = name;
+		this.type = type;
 		this.queries = params;
 	}
 
 	/** @return The Elasticsearch index name. */
 	public String id() { // NOPMD
 		return id + CONFIG.getString("application.index.suffix");
+	}
+
+	/** @return The Elasticsearch type name. */
+	public String type() {
+		return type;
 	}
 
 	/**
