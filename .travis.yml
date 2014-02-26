@@ -15,6 +15,7 @@ script:
   - cd lodmill-ui
   - mkdir modules; cd modules
   - git clone https://github.com/lobid/nwbib.git
+  - git clone https://github.com/hbz/oerworldmap.git
   - cd ..
   - cat ~/.m2/settings.xml
   - rm -rf ~/.m2/repository/junit/ ; rm -rf ~/.m2/repository/org/hamcrest/ ; rm -rf ~/.m2/repository/org/elasticsearch/ ; rm -rf ~/.m2/repository/org/codehaus/ ; rm -rf ~/.m2/repository/stax/

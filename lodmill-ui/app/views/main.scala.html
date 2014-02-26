@@ -1,6 +1,6 @@
 @* Copyright 2012-2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 *@
 
-@(title: String)(content: Html)
+@(title: String, active: String)(content: Html)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,14 +28,14 @@
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">lobid</a>
+          <p class="navbar-brand">lobid</p>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <!--li><a href="/">home</a></li-->
-            <li><a href="/api">api</a></li>
-            <li><a href="/contact">contact</a></li>
-            <li><a href="/about">about</a></li>
+            <li @if(active == "/index"){class="active"}><a href="/">home</a></li>
+            <li @if(active == "/api"){class="active"}><a href="/api">api</a></li>
+            <li @if(active == "/contact"){class="active"}><a href="/contact">contact</a></li>
+            <li @if(active == "/about"){class="active"}><a href="/about">about</a></li>
           </ul>
           <!--ul class="nav navbar-nav navbar-right">
             <li><a href="">en</a></li>
@@ -51,7 +51,7 @@
     <hr/>
     <div class="footer">
       <p>lobid | running on cluster @Search.ES_CLUSTER_NAME |
-        a service of <a href="http://www.hbz-nrw.de/angebote/linked_open_data/">hbz — Hochschulbibliothekszentrum des Landes NRW</a> | &copy; 2013, 2014 | <a href="http://www.hbz-nrw.de/impressum">imprint</a></p>
+        a service of <a href="/organisation/DE-605">hbz — Hochschulbibliothekszentrum des Landes NRW</a> | <a href="http://www.hbz-nrw.de/impressum">imprint</a></p>
     </div>
   </body>
 </html>
