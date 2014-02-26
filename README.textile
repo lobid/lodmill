@@ -6,7 +6,7 @@ This software implements "http://api.lobid.org":http://api.lobid.org, the LOD ba
 
 h1. Build
 
-"!https://secure.travis-ci.org/lobid/lodmill.png!":https://travis-ci.org/lobid/lodmill
+"!https://secure.travis-ci.org/lobid/lodmill.png?branch=master!":https://travis-ci.org/lobid/lodmill
 
 See the @.travis.yml@ file for details on the CI config used by Travis.
 
