@@ -46,7 +46,7 @@
           "type":"string",
           "index":"not_analyzed"
         },
-        "@graph.http://purl.org/ontology/bibo/isbn10.@value":{
+        "@graph.http://purl.org/ontology/bibo/isbn.@value":{
           "type":"string",
           "index":"not_analyzed"
         },
@@ -59,7 +59,7 @@
     },
     "json-ld-lobid-item":{
       "_parent":{
-        "type" : "json-ld-lobid"
+        "type":"json-ld-lobid"
       },
       "properties":{
         "@graph.http://purl.org/vocab/frbr/core#owner.@id":{

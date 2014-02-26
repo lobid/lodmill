@@ -19,6 +19,7 @@ import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.index.query.FilterBuilders;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
@@ -207,7 +208,8 @@ public class Search {
 		final SearchRequestBuilder requestBuilder =
 				client.prepareSearch(index.id())
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(queryBuilder);
+						.setQuery(queryBuilder)
+						.setFilter(FilterBuilders.typeFilter(index.type()));
 		final SearchResponse response =
 				requestBuilder.setFrom(from).setSize(size).setExplain(false).execute()
 						.actionGet();

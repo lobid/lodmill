@@ -10,7 +10,7 @@ import java.io.File;
  * @author Pascal Christoph (dr0i)
  * 
  */
-public interface FilenameExtractor {
+public interface FilenameExtractor extends RecordIdentifier {
 
 	/**
 	 * Returns the encoding used to open the resource.
@@ -32,16 +32,6 @@ public interface FilenameExtractor {
 	 * @param target the basis directory in which the files are stored
 	 */
 	public void setTarget(final String target);
-
-	/**
-	 * Sets the property in the RDF model which will be used to create the file
-	 * names main part. This should be a unique value because if the generated
-	 * filename is already existing the file would be overwritten."
-	 * 
-	 * @param property the property in the RDF model. The object of this property
-	 *          will be the main part of the file's name.
-	 */
-	public void setProperty(final String property);
 
 	/**
 	 * Sets the file's suffix.
@@ -67,8 +57,8 @@ public interface FilenameExtractor {
 	public void setEndIndex(final int endIndex);
 
 	/**
-	 * Provides functions and fields which all the {@FilenameExtractor
-	 * } interface implementing classes may found useful.
+	 * Provides functions and fields that all {@link FilenameExtractor}
+	 * implementing classes may found useful.
 	 * 
 	 * @author Pascal Christoph (dr0i)
 	 * 

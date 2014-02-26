@@ -26,17 +26,44 @@ import org.slf4j.LoggerFactory;
  * @author Fabian Steeg (fsteeg)
  * 
  */
-@Description("Simple sorted field statistics.")
+@Description("Simple sorted field statistics. The parametre 'filename' defines the place to store the stats on disk.")
 @In(StreamReceiver.class)
 @Out(Void.class)
 public final class Stats extends DefaultStreamReceiver {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(DefaultStreamReceiver.class);
 	final Map<String, Integer> map = new HashMap<String, Integer>();
+	private String filename;
+
+	/**
+	 * Default constructor
+	 */
+	public Stats() {
+		this.filename = "tmp.stats.csv";
+	}
+
+	/**
+	 * Sets the filename for writing the statistics.
+	 * 
+	 * @param filename the filename
+	 */
+	public void setFilename(final String filename) {
+		this.filename = filename;
+	}
 
 	@Override
 	public void literal(final String name, final String value) {
 		map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
+	}
+
+	@Override
+	public void closeStream() {
+		try {
+			writeTextileMappingTable(sortedByValuesDescending(), new File(
+					this.filename));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	static void writeTextileMappingTable(

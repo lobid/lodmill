@@ -66,7 +66,8 @@ public class LobidResources {
 
 		@Override
 		public List<String> fields() {
-			return Arrays.asList("@graph.http://purl.org/dc/terms/title.@value");
+			return Arrays.asList("@graph.http://purl.org/dc/terms/title.@value",
+					"http://purl.org/dc/terms/alternative");
 		}
 
 		@Override
@@ -127,9 +128,9 @@ public class LobidResources {
 			return Arrays.asList(/* @formatter:off*/
 					"@graph.@id", // hbz ID
 					"@graph.http://purl.org/ontology/bibo/isbn13.@value",
-					"@graph.http://purl.org/ontology/bibo/isbn10.@value",
+					"@graph.http://purl.org/ontology/bibo/isbn.@value",
 					"@graph.http://purl.org/ontology/bibo/issn.@value",
-					"@graph.http://geni-orca.renci.org/owl/topology.owl#hasURN.@value"); /* @formatter:on */
+					"@graph.http://lobid.org/vocab/lobid#urn.@value"); /* @formatter:on */
 		}
 
 		@Override

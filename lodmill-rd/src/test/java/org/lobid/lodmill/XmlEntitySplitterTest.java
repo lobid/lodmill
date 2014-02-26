@@ -29,13 +29,15 @@ public class XmlEntitySplitterTest {
 		expected
 				.literal(
 						"entity",
-						"<rdf:RDF xmlns:rdf=\"ns#\"><rdf:Description rdf:about=\"1\"> <a rdf:resource=\"r1\">1</a></rdf:Description></rdf:RDF>");
+						XmlEntitySplitter.getXmlDeclaration()
+								+ "<rdf:RDF xmlns:rdf=\"ns#\"><rdf:Description rdf:about=\"1\"> <a rdf:resource=\"r1\">1</a></rdf:Description></rdf:RDF>");
 		expected.endRecord();
 		expected.startRecord("1");
 		expected
 				.literal(
 						"entity",
-						"<rdf:RDF xmlns:rdf=\"ns#\"><rdf:Description rdf:about=\"2\"> <a rdf:resource=\"r2\">2</a></rdf:Description></rdf:RDF>");
+						XmlEntitySplitter.getXmlDeclaration()
+								+ "<rdf:RDF xmlns:rdf=\"ns#\"><rdf:Description rdf:about=\"2\"> <a rdf:resource=\"r2\">2</a></rdf:Description></rdf:RDF>");
 		expected.endRecord();
 		final StreamValidator validator = new StreamValidator(expected.getEvents());
 		opener.setReceiver(xmldecoder).setReceiver(xmlsplitter)

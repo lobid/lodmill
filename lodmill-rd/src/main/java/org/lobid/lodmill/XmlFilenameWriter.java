@@ -6,6 +6,7 @@ package org.lobid.lodmill;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringReader;
 import java.io.Writer;
@@ -14,6 +15,9 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import org.apache.commons.compress.compressors.CompressorException;
+import org.apache.commons.compress.compressors.CompressorOutputStream;
+import org.apache.commons.compress.compressors.CompressorStreamFactory;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.culturegraph.mf.exceptions.MetafactureException;
@@ -42,19 +46,28 @@ import org.xml.sax.InputSource;
 @In(StreamReceiver.class)
 @Out(Void.class)
 public final class XmlFilenameWriter extends
-		DefaultStreamPipe<ObjectReceiver<String>> implements
-		FilenameExtractor {
+		DefaultStreamPipe<ObjectReceiver<String>> implements FilenameExtractor {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(XmlFilenameWriter.class);
 	private static final XPath xPath = XPathFactory.newInstance().newXPath();
 
 	private FilenameUtil filenameUtil = new FilenameUtil();
+	private String compression;
 
 	/**
 	 * Default constructor
 	 */
 	public XmlFilenameWriter() {
-		setFileSuffix("xml");
+		setFileSuffix(".xml");
+	}
+
+	/**
+	 * Sets the compression, if any. Default is no compression.
+	 * 
+	 * @param compression The compression. At the moment only 'bz2' is possible.
+	 */
+	public void setCompression(String compression) {
+		this.compression = compression;
 	}
 
 	@Override
@@ -75,25 +88,37 @@ public final class XmlFilenameWriter extends
 		String directory = identifier;
 		if (directory.length() >= filenameUtil.endIndex) {
 			directory =
-					directory.substring(filenameUtil.startIndex,
-							filenameUtil.endIndex);
+					directory.substring(filenameUtil.startIndex, filenameUtil.endIndex);
 		}
 		final String file =
 				FilenameUtils.concat(
 						filenameUtil.target,
-						FilenameUtils.concat(directory + File.separator, identifier + "."
+						FilenameUtils.concat(directory + File.separator, identifier
 								+ filenameUtil.fileSuffix));
-		LOG.info("Write to " + file);
 		filenameUtil.ensurePathExists(file);
 		try {
-			final Writer writer =
-					new OutputStreamWriter(new FileOutputStream(file),
-							filenameUtil.encoding);
-			IOUtils.write(xml, writer);
-			writer.close();
+			if (this.compression == null) {
+				final Writer writer =
+						new OutputStreamWriter(new FileOutputStream(file),
+								filenameUtil.encoding);
+				IOUtils.write(xml, writer);
+				writer.close();
+			} else {
+				if (this.compression.equals("bz2")) {
+					final OutputStream out = new FileOutputStream(file + ".bz2");
+					CompressorOutputStream cos =
+							new CompressorStreamFactory().createCompressorOutputStream(
+									CompressorStreamFactory.BZIP2, out);
+					IOUtils.copy(new StringReader(xml), cos);
+					cos.close();
+					out.close();
+				}
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw new MetafactureException(e);
+		} catch (CompressorException e) {
+			e.printStackTrace();
 		}
 	}
 
