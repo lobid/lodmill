@@ -33,7 +33,7 @@
   "mappings":{
     "json-ld-lobid":{
       "properties":{
-        "@graph.http://purl.org/dc/elements/1.1/creator.@id":{
+        "@graph.http://purl.org/dc/terms/creator.@id":{
           "type":"string",
           "index":"not_analyzed"
         },
@@ -46,7 +46,7 @@
           "type":"string",
           "index":"not_analyzed"
         },
-        "@graph.http://purl.org/ontology/bibo/isbn10.@value":{
+        "@graph.http://purl.org/ontology/bibo/isbn.@value":{
           "type":"string",
           "index":"not_analyzed"
         },
