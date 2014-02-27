@@ -6,11 +6,11 @@
 @import tags._
 <table class="table table-striped">
   @rdfa("ID", "http://lobid.org/resource", doc, TableRow.LINKS, node = Option(doc))
-  @rdfa("Titel", "http://iflastandards.info/ns/isbd/elements/P1004", doc, TableRow.VALUES)
+  @rdfa("Titel", "http://purl.org/dc/terms/title", doc, TableRow.VALUES)
   @rdfa("Titelzusatz", "http://iflastandards.info/ns/isbd/elements/P1006", doc, TableRow.VALUES)
-  @rdfa("Autor", "http://purl.org/dc/elements/1.1/creator", doc, TableRow.VALUES, valueLabel = Option(Seq(
+  @rdfa("Autor", "http://purl.org/dc/terms/creator", doc, TableRow.VALUES, valueLabel = Option(Seq(
     "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson")))
-  @rdfa("Mitwirkender", "http://purl.org/dc/elements/1.1/contributor", doc, TableRow.VALUES, valueLabel = Option(Seq(
+  @rdfa("Mitwirkender", "http://purl.org/dc/terms/contributor", doc, TableRow.VALUES, valueLabel = Option(Seq(
     "http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson")))
   @rdfa("Erscheinungsjahr", "http://purl.org/dc/terms/issued", doc, TableRow.VALUES)
   @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.VALUES, TagHelper.getPrimaryTopicType(doc))
