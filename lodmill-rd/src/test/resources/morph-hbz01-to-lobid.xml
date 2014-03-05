@@ -521,7 +521,9 @@
 		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
 		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
-		<data source="552b[-1].a" name="@urn"/>
+		<data source="552b[-1].a" name="@urn">
+			<regexp match="(^.*:.*\d+)$" format="${1}" />
+		</data>
 		<data source="@urn" name="http://purl.org/lobid/lv#urn"/>
 		<data source="@urn" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://nbn-resolving.de/${1}"/>
