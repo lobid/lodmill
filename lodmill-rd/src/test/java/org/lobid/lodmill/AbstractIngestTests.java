@@ -3,6 +3,8 @@
 package org.lobid.lodmill;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Iterator;
@@ -70,14 +72,15 @@ public abstract class AbstractIngestTests {
 			testFile =
 					new File(Thread.currentThread().getContextClassLoader()
 							.getResource(testFileName).toURI());
-			compareFiles(generatedFile, testFile);
+			compareFilesDefaultingBNodes(generatedFile, testFile);
 		} catch (URISyntaxException e) {
 			LOG.error(e.getMessage(), e);
 		}
 		generatedFile.deleteOnExit();
 	}
 
-	private static SortedSet<String> linesInFileToSet(final File file) {
+	private static SortedSet<String> linesInFileToSetDefaultingBNodes(
+			final File file) {
 		Scanner scanner = null;
 		SortedSet<String> set = null;
 		try {
@@ -94,16 +97,20 @@ public abstract class AbstractIngestTests {
 	}
 
 	/**
-	 * Tests if two files are of equal content.
+	 * Tests if two files are of equal content. As BNodes are not fix they are not
+	 * comparable and thus they are defaulted to "_:bnodeDummy" to make the files
+	 * comparable anyhow.
 	 * 
 	 * @param generatedFile the actually generated file
 	 * @param testFile the file which defines how the generatedFile should look
 	 *          like
 	 */
-	public static void compareFiles(final File generatedFile, final File testFile) {
-		assertSetSize(linesInFileToSet(testFile), linesInFileToSet(generatedFile));
-		assertSetElements(linesInFileToSet(generatedFile),
-				linesInFileToSet(testFile));
+	public static void compareFilesDefaultingBNodes(final File generatedFile,
+			final File testFile) {
+		assertSetSize(linesInFileToSetDefaultingBNodes(testFile),
+				linesInFileToSetDefaultingBNodes(generatedFile));
+		assertSetElements(linesInFileToSetDefaultingBNodes(generatedFile),
+				linesInFileToSetDefaultingBNodes(testFile));
 		generatedFile.deleteOnExit();
 	}
 
@@ -116,8 +123,8 @@ public abstract class AbstractIngestTests {
 	 */
 	public static void checkIfNoIntersection(final File generatedFile,
 			final File testFile) {
-		assertSetNoIntersection(linesInFileToSet(testFile),
-				linesInFileToSet(generatedFile));
+		assertSetNoIntersection(linesInFileToSetDefaultingBNodes(testFile),
+				linesInFileToSetDefaultingBNodes(generatedFile));
 	}
 
 	private static void assertSetNoIntersection(
@@ -149,8 +156,9 @@ public abstract class AbstractIngestTests {
 	private static SortedSet<String> asSet(final Scanner scanner) {
 		final SortedSet<String> set = new TreeSet<String>();
 		while (scanner.hasNextLine()) {
-			final String actual = scanner.nextLine();
+			String actual = scanner.nextLine();
 			if (!actual.isEmpty()) {
+				actual = actual.replaceAll("(^_:.* )|( _:.*$)", "_:bnodeDummy ");
 				set.add(actual);
 			}
 		}
@@ -230,5 +238,40 @@ public abstract class AbstractIngestTests {
 				LOG.error(exception.getMessage(), exception);
 			}
 		});
+	}
+
+	public static File concatenateGeneratedFilesIntoOneFile(String targetPath,
+			String subPath, String testFilename) throws FileNotFoundException,
+			IOException {
+		File parentPath = new File(targetPath + subPath);
+		final StringBuilder triples = new StringBuilder();
+		for (String directory : parentPath.list()) {
+			for (String filename : new File(parentPath + "/" + directory).list()) {
+				triples.append(getFileContent(new File(parentPath + "/" + directory
+						+ "/" + filename)));
+			}
+		}
+		final File testFile = new File(targetPath + "/" + testFilename);
+		final FileOutputStream fos = new FileOutputStream(testFile);
+		fos.write(triples.toString().getBytes());
+		fos.close();
+		return testFile;
+	}
+
+	private static String getFileContent(File file) {
+		StringBuilder ntriples = new StringBuilder();
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(file);
+			while (scanner.hasNextLine()) {
+				final String actual = scanner.nextLine();
+				if (!actual.isEmpty()) {
+					ntriples.append(actual + "\n");
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return ntriples.toString();
 	}
 }

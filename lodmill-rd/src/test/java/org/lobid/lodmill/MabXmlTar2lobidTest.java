@@ -3,11 +3,8 @@
 package org.lobid.lodmill;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.Scanner;
 
 import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
@@ -64,50 +61,19 @@ public final class MabXmlTar2lobidTest {
 				.getAbsolutePath());
 		opener.closeStream();
 
-		final File testFile = concatenateGeneratedFilesIntoOneFile();
+		final File testFile =
+				AbstractIngestTests.concatenateGeneratedFilesIntoOneFile(TARGET_PATH,
+						TARGET_SUBPATH, TEST_FILENAME);
 		// positive test
-		AbstractIngestTests.compareFiles(testFile, new File(Thread.currentThread()
-				.getContextClassLoader().getResource(TEST_FILENAME).toURI()));
+		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
+				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
+				.toURI()));
 		// negative test
 		AbstractIngestTests.checkIfNoIntersection(
 				testFile,
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("hbz01negatives.ttl").toURI()));
 		testFile.deleteOnExit();
-	}
-
-	private static File concatenateGeneratedFilesIntoOneFile()
-			throws FileNotFoundException, IOException {
-		File parentPath = new File(TARGET_PATH + TARGET_SUBPATH);
-		final StringBuilder triples = new StringBuilder();
-		for (String directory : parentPath.list()) {
-			for (String filename : new File(parentPath + "/" + directory).list()) {
-				triples.append(getFileContent(new File(parentPath + "/" + directory
-						+ "/" + filename)));
-			}
-		}
-		final File testFile = new File(TARGET_PATH + "/" + TEST_FILENAME);
-		final FileOutputStream fos = new FileOutputStream(testFile);
-		fos.write(triples.toString().getBytes());
-		fos.close();
-		return testFile;
-	}
-
-	private static String getFileContent(File file) {
-		StringBuilder ntriples = new StringBuilder();
-		Scanner scanner = null;
-		try {
-			scanner = new Scanner(file);
-			while (scanner.hasNextLine()) {
-				final String actual = scanner.nextLine();
-				if (!actual.isEmpty()) {
-					ntriples.append(actual + "\n");
-				}
-			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		return ntriples.toString();
 	}
 
 	private static XmlFilenameWriter createXmlFilenameWriter() {
