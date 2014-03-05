@@ -159,9 +159,12 @@ public class NTriplesToJsonLd implements Tool {
 		@Override
 		public void map(final LongWritable key, final Text value,
 				final Context context) throws IOException, InterruptedException {
-			final Triple triple = CollectSubjectsMapper.asTriple(value.toString());
+			final String val = value.toString().trim();
+			if (val.isEmpty())
+				return;
+			final Triple triple = CollectSubjectsMapper.asTriple(val);
 			if (triple != null)
-				mapSubjectsToTheirTriples(value, context, value.toString(), triple);
+				mapSubjectsToTheirTriples(value, context, val, triple);
 		}
 
 		private void mapSubjectsToTheirTriples(final Text value,

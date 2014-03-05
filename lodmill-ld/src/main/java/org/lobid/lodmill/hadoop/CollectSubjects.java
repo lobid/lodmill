@@ -244,6 +244,9 @@ public class CollectSubjects implements Tool {
 			} catch (com.hp.hpl.jena.shared.SyntaxError e) {
 				LOG.warn(String.format("Could not parse triple '%s': %s, skipping",
 						val, e.getMessage()));
+			} catch (java.util.NoSuchElementException e1) {
+				LOG.warn(String.format("No triple '%s': %s, skipping", val,
+						e1.getMessage()));
 			}
 			return null;
 		}
