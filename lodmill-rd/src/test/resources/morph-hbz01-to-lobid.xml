@@ -947,7 +947,7 @@
 		</data>
 		<!--rheinland pfalz -->
 		<data source="700l[-1].a" name="http://purl.org/dc/terms/subject">
-			<regexp match="rpb(.*)" format="http://purl.org/lobid/rpb#${1}"/>
+			<regexp match="rpb(.*)" format="http://purl.org/lobid/rpb#n${1}"/>
 		</data>
 		<data source="700l[-1].[ab]" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match=".*" format="$[ns-lobid-resource]RPB"/>
