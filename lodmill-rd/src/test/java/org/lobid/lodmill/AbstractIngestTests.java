@@ -158,7 +158,8 @@ public abstract class AbstractIngestTests {
 		while (scanner.hasNextLine()) {
 			String actual = scanner.nextLine();
 			if (!actual.isEmpty()) {
-				actual = actual.replaceAll("(^_:.* )|( _:.*$)", "_:bnodeDummy ");
+				actual =
+						actual.replaceFirst("(^_:\\w* )|( _:\\w* ?.$)", "_:bnodeDummy ");
 				set.add(actual);
 			}
 		}
@@ -241,21 +242,40 @@ public abstract class AbstractIngestTests {
 	}
 
 	public static File concatenateGeneratedFilesIntoOneFile(String targetPath,
-			String subPath, String testFilename) throws FileNotFoundException,
-			IOException {
-		File parentPath = new File(targetPath + subPath);
-		final StringBuilder triples = new StringBuilder();
-		for (String directory : parentPath.list()) {
-			for (String filename : new File(parentPath + "/" + directory).list()) {
-				triples.append(getFileContent(new File(parentPath + "/" + directory
-						+ "/" + filename)));
-			}
+			String testFilename) throws FileNotFoundException, IOException {
+		StringBuilder triples = new StringBuilder();
+		concatenateGeneratedFilesIntoOneString(targetPath, triples);
+		File testFile = new File(testFilename);
+		if (triples.length() > 1) {
+			final FileOutputStream fos = new FileOutputStream(testFile);
+			fos.write(triples.toString().getBytes());
+			fos.close();
 		}
-		final File testFile = new File(targetPath + "/" + testFilename);
-		final FileOutputStream fos = new FileOutputStream(testFile);
-		fos.write(triples.toString().getBytes());
-		fos.close();
 		return testFile;
+	}
+
+	/**
+	 * 
+	 * @param targetPath the main path of the
+	 * @param subPath
+	 * @param testFilename
+	 * @return the File with the content of all teh other files
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	private static StringBuilder concatenateGeneratedFilesIntoOneString(
+			String targetPath, StringBuilder triples) throws FileNotFoundException,
+			IOException {
+		File parentPath = new File(targetPath + "/");
+		for (String filename : parentPath.list()) {
+			File newFile = new File(parentPath + "/" + filename);
+			if (newFile.isDirectory())
+				concatenateGeneratedFilesIntoOneString(parentPath.getPath() + "/"
+						+ filename, triples);
+			else
+				triples.append(getFileContent(newFile));
+		}
+		return triples;
 	}
 
 	private static String getFileContent(File file) {
