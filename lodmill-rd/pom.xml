@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.lobid</groupId>
 	<artifactId>lodmill-rd</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<target.jdk>1.6</target.jdk>
@@ -105,6 +105,18 @@
 					<test>org.lobid.lodmill.UnitTests</test>
 				</configuration>
 			</plugin>
+     <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-jar-plugin</artifactId>
+       <version>2.2</version>
+       <executions>
+         <execution>
+           <goals>
+             <goal>test-jar</goal>
+           </goals>
+         </execution>
+       </executions>
+     </plugin>
 		</plugins>
 		<!-- Make resources from both the source and resources folders available 
 			(metamorph test definitions need to be placed in the same location as the 
