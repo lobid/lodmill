@@ -931,6 +931,12 @@
 		<data source="078n[-1].a|700n[-1].[ab]" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match=".*" format="$[ns-lobid-resource]NWBib"/>
 		</data>
+		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
+			<regexp match="(\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
+		</data>
+		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
+			<regexp match="^(\d\d)[^.]" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
+		</data>
 		<!--edoweb -->
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
@@ -942,6 +948,9 @@
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
 		</data>
 		<!--rheinland pfalz -->
+		<data source="700l[-1].a" name="http://purl.org/dc/terms/subject">
+			<regexp match="rpb(.*)" format="http://purl.org/lobid/rpb#n${1}"/>
+		</data>
 		<data source="700l[-1].[ab]" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match=".*" format="$[ns-lobid-resource]RPB"/>
 		</data>

@@ -885,6 +885,7 @@
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2092393-4> .
 <http://lobid.org/resource/HT014997977> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014997977> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/rpb#n574040> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1750752&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT014997977> <http://iflastandards.info/ns/isbd/elements/P1053> "15, [14] S. : graph. Darst." .
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/publicationStatement> "[Mainz]; 2003" .
@@ -1949,7 +1950,9 @@
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/BT000100437> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "3575112088" .
+<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s12600> .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
+<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib-spatial#n12> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042570-8> .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "mit Ortsverzeichnis" .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/placeOfPublication> "Berlin [u.a.]" .
