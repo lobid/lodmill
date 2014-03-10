@@ -12,11 +12,11 @@ import org.json.simple.JSONValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.github.jsonldjava.core.JSONLD;
-import com.github.jsonldjava.core.JSONLDProcessingError;
-import com.github.jsonldjava.core.Options;
-import com.github.jsonldjava.impl.JenaRDFParser;
-import com.github.jsonldjava.impl.JenaTripleCallback;
+import com.github.jsonldjava.core.JsonLdError;
+import com.github.jsonldjava.core.JsonLdOptions;
+import com.github.jsonldjava.core.JsonLdProcessor;
+import com.github.jsonldjava.jena.JenaRDFParser;
+import com.github.jsonldjava.jena.JenaTripleCallback;
 import com.github.jsonldjava.utils.JSONUtils;
 import com.google.common.collect.ImmutableMap;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -68,11 +68,11 @@ public class JsonLdConverter {
 		try {
 			final Object jsonObject = JSONUtils.fromString(jsonLd);
 			final JenaTripleCallback callback = new JenaTripleCallback();
-			final Model model = (Model) JSONLD.toRDF(jsonObject, callback);
+			final Model model = (Model) JsonLdProcessor.toRDF(jsonObject, callback);
 			final StringWriter writer = new StringWriter();
 			model.write(writer, format.getName());
 			return writer.toString();
-		} catch (JSONLDProcessingError | IOException e) {
+		} catch (IOException | JsonLdError e) {
 			LOG.error(e.getMessage(), e);
 		}
 		return null;
@@ -95,13 +95,13 @@ public class JsonLdConverter {
 	public static String jenaModelToJsonLd(final Model model) {
 		final JenaRDFParser parser = new JenaRDFParser();
 		try {
-			Object json = JSONLD.fromRDF(model, new Options(), parser);
+			Object json = JsonLdProcessor.fromRDF(model, new JsonLdOptions(), parser);
 			/* We use the 'expanded' JSON-LD serialization for consistent field types: */
-			json = JSONLD.expand(json);
+			json = JsonLdProcessor.expand(json);
 			/* But we wrap it into a "@graph" for elasticsearch (still valid JSON-LD): */
 			return JSONObject.toJSONString(ImmutableMap.of("@graph",
 					(JSONArray) JSONValue.parse(JSONUtils.toString(json))));
-		} catch (JSONLDProcessingError e) {
+		} catch (JsonLdError e) {
 			e.printStackTrace();
 		}
 		return null;

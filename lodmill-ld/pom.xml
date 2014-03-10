@@ -166,13 +166,13 @@
 		<dependency>
 			<groupId>com.github.jsonld-java</groupId>
 			<artifactId>jsonld-java</artifactId>
-			<version>0.3-SNAPSHOT</version>
+			<version>0.3</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.github.jsonld-java</groupId>
 			<artifactId>jsonld-java-jena</artifactId>
-			<version>0.3-SNAPSHOT</version>
+			<version>0.3</version>
 		</dependency>
 
 		<dependency>
