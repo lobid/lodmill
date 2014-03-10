@@ -156,7 +156,7 @@
       "isbn10": "http://purl.org/ontology/bibo/isbn",
       "isbn13": "http://purl.org/ontology/bibo/isbn13",
       "ism": "http://purl.org/ontology/mo/ismn",
-      "urn": "http://lobid.org/vocab/lobid#urn",
+      "urn": "http://purl.org/lobid/lv#urn",
       "doi":
       {
          "@id": "http://purl.org/ontology/bibo/doi",
@@ -223,7 +223,7 @@
          "@id": "http://purl.org/dc/terms/tableOfContents",
          "@type": "@id"
       },
-      "hbzId": "http://lobid.org/vocab/lobid#hbzID",
+      "hbzId": "http://purl.org/lobid/lv#hbzID",
       "language":
       { 
          "@id": "http://purl.org/dc/terms/language",
