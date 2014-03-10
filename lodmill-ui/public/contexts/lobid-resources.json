@@ -290,6 +290,12 @@
          "@type": "@id"
       },
       "preferredNameForThePlaceOrGeographicName": "http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName",
-      "preferredNameForTheSubjectHeading": "http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading"
+      "preferredNameForTheSubjectHeading": "http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading",
+      "preferredNameForTheConferenceOrEvent": "http://d-nb.info/standards/elementset/gnd#preferredNameForTheConferenceOrEvent",
+      "preferredNameForTheCorporateBody": "http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody",
+      "preferredNameEntityForThePerson": "http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson",
+      "preferredNameForTheFamily": "http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily",
+      "preferredNameForTheWork": "http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork",
+      "preferredName": "http://d-nb.info/standards/elementset/gnd#preferredName"
    }
 }
