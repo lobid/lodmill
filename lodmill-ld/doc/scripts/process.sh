@@ -24,5 +24,5 @@ sh convert.sh hbzlod/lobid-resources/,hbzlod/owlSameAs/,hbzlod/orcaHasUrn/,extlo
 sh index.sh $RESOURCES $ES_SERVER $ES_CLUSTER NOALIAS # no alias, index not ready yet, needs items from below
 
 ITEMS=output/json-ld-lobid-items
-sh convert.sh hbzlod/lobid-resources/,enrich/ $ITEMS http://lobid.org/item lobid-resources-$TIME json-ld-lobid-item
+sh convert.sh hbzlod/lobid-resources/ $ITEMS http://lobid.org/item lobid-resources-$TIME json-ld-lobid-item
 sh index.sh $ITEMS $ES_SERVER $ES_CLUSTER ""
