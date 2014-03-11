@@ -62,8 +62,8 @@ public final class MabXmlTar2lobidTest {
 		opener.closeStream();
 
 		final File testFile =
-				AbstractIngestTests.concatenateGeneratedFilesIntoOneFile(TARGET_PATH,
-						TARGET_SUBPATH, TEST_FILENAME);
+				AbstractIngestTests.concatenateGeneratedFilesIntoOneFile(TARGET_PATH
+						+ "/" + TARGET_SUBPATH, TEST_FILENAME);
 		// positive test
 		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
 				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
