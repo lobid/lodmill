@@ -17,8 +17,9 @@ import play.Logger;
 import play.libs.Json;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.github.jsonldjava.core.JSONLD;
-import com.github.jsonldjava.core.JSONLDProcessingError;
+import com.github.jsonldjava.core.JsonLdProcessor;
+import com.github.jsonldjava.core.JsonLdError;
+import com.github.jsonldjava.core.JsonLdOptions;
 import com.github.jsonldjava.utils.JSONUtils;
 import com.google.common.collect.ImmutableMap;
 import com.hp.hpl.jena.shared.BadURIException;
@@ -55,7 +56,7 @@ public class Document {
 			compactJsonLd.put("primaryTopic", id);
 			final String result = JSONUtils.toString(compactJsonLd);
 			return this.field.isEmpty() ? result : findField(result);
-		} catch (JSONLDProcessingError | IOException e) {
+		} catch (JsonLdError | IOException e) {
 			e.printStackTrace();
 			return null;
 		}
@@ -80,7 +81,7 @@ public class Document {
 			jsonLd.put("http://xmlns.com/foaf/0.1/primaryTopic",
 					ImmutableMap.of("@id", id));
 			return JSONUtils.toString(jsonLd);
-		} catch (JSONLDProcessingError | IOException e) {
+		} catch (JsonLdError | IOException e) {
 			e.printStackTrace();
 			return null;
 		}
@@ -88,10 +89,10 @@ public class Document {
 
 	private Map<String, Object> sourceAsCompactJsonLd(
 			final Map<String, Object> contextObject) throws IOException,
-			JSONLDProcessingError {
+			JsonLdError {
 		final Map<String, Object> jsonLd =
-				wrappedIntoGraphIfMissing((Map<String, Object>) JSONLD.compact(
-						JSONUtils.fromString(source), contextObject));
+				wrappedIntoGraphIfMissing((Map<String, Object>) JsonLdProcessor.compact(
+						JSONUtils.fromString(source), contextObject, new JsonLdOptions()));
 		jsonLd.put("@id", id + "/about");
 		return jsonLd;
 	}

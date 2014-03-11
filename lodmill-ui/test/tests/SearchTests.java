@@ -554,7 +554,8 @@ public class SearchTests extends SearchTestsHarness {
 	}
 
 	private static void assertJsonResponse(final String response) {
-		assertThat(response).isNotEmpty().startsWith("[{\"@context\":");
+		assertThat(response).isNotEmpty().startsWith("[{\"@").contains("@context")
+				.contains("@graph").endsWith("}]");
 	}
 
 	@Test
