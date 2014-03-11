@@ -7,7 +7,7 @@ then
 fi
 
 export HADOOP=/opt/hadoop/hadoop
-export HADOOP_CLASSPATH=../../target/lodmill-ld-1.1.2-jar-with-dependencies.jar
+export HADOOP_CLASSPATH=../../target/lodmill-ld-1.5.0-jar-with-dependencies.jar
 
 TMP=output/json-ld-tmp
 
