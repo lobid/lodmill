@@ -19,7 +19,11 @@ object ApplicationBuild extends Build {
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
       parallelExecution in Test := false,
-      resolvers := Seq("codehaus" at "http://repository.codehaus.org/org/codehaus", "typesafe" at "http://repo.typesafe.com/typesafe/repo", Resolver.mavenLocal)
+      resolvers := Seq(
+          "codehaus" at "http://repository.codehaus.org/org/codehaus", 
+          "typesafe" at "http://repo.typesafe.com/typesafe/repo", 
+          "jena-dev" at "https://repository.apache.org/content/repositories/snapshots",
+          Resolver.mavenLocal)
     ).dependsOn(nwbib, oer).aggregate(nwbib, oer)
 
 }
