@@ -2,7 +2,6 @@
 
 package models.queries;
 
-import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
 import static org.elasticsearch.index.query.QueryBuilders.matchQuery;
 import static org.elasticsearch.index.query.QueryBuilders.multiMatchQuery;
 
@@ -76,16 +75,8 @@ public class Gnd {
 
 		@Override
 		public QueryBuilder build(final String queryString) {
-			return filterUndifferentiatedPersons(searchAuthor(queryString));
+			return searchAuthor(queryString);
 		}
-
-		static QueryBuilder filterUndifferentiatedPersons(final QueryBuilder query) {
-			return boolQuery().must(query).must(
-					matchQuery("@graph.@type",
-							"http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson")
-							.operator(Operator.AND));
-		}
-
 	}
 
 	/**
