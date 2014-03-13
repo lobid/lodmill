@@ -18,8 +18,7 @@
 		case _ => if(value.asOpt[String].isDefined) Seq(jsonVal(property)) else Seq()
 	}
 }
-@row match {
-  case views.TableRow.VALUES => {
+@tr(valueLabel: Option[Seq[String]]) = {
     @for(elem <- multiSingleOrEmptySeq(jsonVal(property))) {
       <tr>
         <td><a href="@property">@label</a></td>
@@ -31,7 +30,14 @@
         </td>
       </tr>
     }
-  }
+}
+@row match {
+  case views.TableRow.VALUES => {
+    @tr(valueLabel)
+ }
+  case views.TableRow.LINK_VALUES => {
+    @tr(Option(Seq(property)))
+ }
   case views.TableRow.LINKS => {
     @for(elem <- multiSingleOrEmptySeq(jsonVal(property) \ "@id")) {
       <tr>
