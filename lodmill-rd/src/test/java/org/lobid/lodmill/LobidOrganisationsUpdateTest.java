@@ -30,17 +30,14 @@ public class LobidOrganisationsUpdateTest {
 
 	@Test
 	public void testPicaXmlSplits() throws URISyntaxException, IOException {
-
 		final FileOpener opener = new FileOpener();
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		XmlTee tee = new XmlTee();
-
 		final XmlEntitySplitter xmlSplitter = new XmlEntitySplitter();
 		xmlSplitter.setEntityName("metadata");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter(PATH);
 		xmlSplitter.setReceiver(xmlFilenameWriter);
 		tee.addReceiver(xmlSplitter);
-
 		final PicaXmlHandler handler = new PicaXmlHandler();
 		final Metamorph metamorph =
 				new Metamorph("morph_zdb-isil-file-pica2ld.xml");
@@ -51,7 +48,6 @@ public class LobidOrganisationsUpdateTest {
 		handler.setReceiver(metamorph).setReceiver(enrich)
 				.setReceiver(triple2model).setReceiver(writer);
 		tee.addReceiver(handler);
-
 		opener.setReceiver(xmlDecoder).setReceiver(tee);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()

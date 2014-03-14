@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:geo="http://www.opengis.net/ont/geosparql#"
+	xmlns:rda="http://rdvocab.info/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:sf="http://www.opengis.net/ont/sf#"
+	xmlns:isbd="http://iflastandards.info/ns/isbd/elements/" xmlns:gndo="http://d-nb.info/standards/elementset/gnd#"
+	xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:marcRole="http://id.loc.gov/vocabulary/relators/" xmlns:lib="http://purl.org/library/"
+	xmlns:umbel="http://umbel.org/umbel#" xmlns:bibo="http://purl.org/ontology/bibo/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1048278603">
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson"/>
+		<gndo:gndIdentifier>1048278603</gndo:gndIdentifier>
+		<gndo:preferredNameForThePerson>Gribenski, Michel</gndo:preferredNameForThePerson>
+		<gndo:preferredNameEntityForThePerson
+			rdf:parseType="Resource">
+			<gndo:forename>Michel</gndo:forename>
+			<gndo:surname>Gribenski</gndo:surname>
+		</gndo:preferredNameEntityForThePerson>
+		<gndo:professionOrOccupation>
+			<rdf:Description rdf:about="http://d-nb.info/gnd/4167889-8">
+				<gndo:preferredNameForTheSubjectHeading>Literaturwissenschaftler_Gut
+				</gndo:preferredNameForTheSubjectHeading>
+			</rdf:Description>
+		</gndo:professionOrOccupation>
+		<gndo:professionOrOccupation>
+			<rdf:Description rdf:about="http://d-nb.info/gnd/4170836-2">
+				<gndo:preferredNameForTheSubjectHeading>Musikwissenschaftler
+				</gndo:preferredNameForTheSubjectHeading>
+			</rdf:Description>
+		</gndo:professionOrOccupation>
+		<gndo:geographicAreaCode
+			rdf:resource="http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR"/>
+		<gndo:biographicalOrHistoricalInformation
+			xml:lang="de">Literatur- und Musikwissenschaftler, mit besonderem Interesse f&#xFC;r die
+			Beziehungen zwischen Literatur, Musik und Film; Direktor des Institut fran&#xE7;ais
+			Dresden (2011-)</gndo:biographicalOrHistoricalInformation>
+		<gndo:gender rdf:resource="http://d-nb.info/standards/vocab/gnd/Gender#male"/>
+		<gndo:dateOfBirth rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear">1973</gndo:dateOfBirth>
+	</rdf:Description>
+</rdf:RDF>

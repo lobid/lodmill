@@ -1,0 +1,25 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<rdf:RDF xmlns:rda="http://rdvocab.info/" xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+	xmlns:gndo="http://d-nb.info/standards/elementset/gnd#" xmlns:marcRole="http://id.loc.gov/vocabulary/relators/"
+	xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:sf="http://www.opengis.net/ont/sf#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:geo="http://www.opengis.net/ont/geosparql#"
+	xmlns:lib="http://purl.org/library/" xmlns:isbd="http://iflastandards.info/ns/isbd/elements/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:umbel="http://umbel.org/umbel#"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bibo="http://purl.org/ontology/bibo/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1048278603">
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson"></rdf:type>
+		<gndo:gndIdentifier>1048278602</gndo:gndIdentifier>
+		<gndo:preferredNameForThePerson>Gribenski, Michel</gndo:preferredNameForThePerson>
+		<gndo:preferredNameEntityForThePerson
+			rdf:parseType="Resource">
+			<gndo:forename>Michel</gndo:forename>
+			<gndo:surname>Gribenski</gndo:surname>
+		</gndo:preferredNameEntityForThePerson>
+		<gndo:professionOrOccupation>
+			<rdf:Description rdf:about="http://d-nb.info/gnd/4167889-8">
+				<gndo:preferredNameForTheSubjectHeading>Literaturwissenschaftler
+				</gndo:preferredNameForTheSubjectHeading>
+			</rdf:Description>
+</rdf:RDF>
