@@ -317,7 +317,8 @@ public class SearchTests extends SearchTestsHarness {
 			@Override
 			public void run() {
 				final JsonNode jsonObject =
-						Json.parse(call("person?name=bach&format=short"));
+						Json.parse(call("person?name=bach&format=short&t="
+								+ "http://d-nb.info/standards/elementset/gnd%23DifferentiatedPerson"));
 				assertThat(jsonObject.isArray()).isTrue();
 				/* differentiated & *starting* with 'bach' only & no dupes */
 				assertThat(jsonObject.size()).isEqualTo(2);

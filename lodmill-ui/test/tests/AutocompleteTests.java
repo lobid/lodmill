@@ -46,11 +46,13 @@ public class AutocompleteTests extends SearchTestsHarness {
 			@Override
 			public void run() {
 				final JsonNode jsonObjectIds =
-						Json.parse(call("person?name=Bach&format=ids"));
+						Json.parse(call("person?name=Bach&format=ids&t="
+								+ "http://d-nb.info/standards/elementset/gnd%23DifferentiatedPerson"));
 				assertThat(jsonObjectIds.isArray()).isTrue();
 				assertThat(jsonObjectIds.size()).isEqualTo(3); // with id: no dupe
 				final JsonNode jsonObjectShort =
-						Json.parse(call("person?name=Bach&format=short"));
+						Json.parse(call("person?name=Bach&format=short&t="
+								+ "http://d-nb.info/standards/elementset/gnd%23DifferentiatedPerson"));
 				assertThat(jsonObjectShort.isArray()).isTrue();
 				assertThat(jsonObjectShort.size()).isEqualTo(2); // just label: dupe
 			}
