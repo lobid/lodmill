@@ -1,0 +1,54 @@
+<http://lobid.org/resource/HT016511663> <http://purl.org/dc/terms/hasFormat> <http://lobid.org/resource/CT003012479> .
+<http://lobid.org/resource/HT017290519> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/CT003012479> .
+<http://lobid.org/resource/HT017290519> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/source> <http://lobid.org/resource/HT016511663> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141927135> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119055716> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16" .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/publicationStatement> "[D\u00FCsseldorf]; B\u00F6gemann; 1805; D\u00FCsseldorf; Universit\u00E4ts- und Landesbibliothek" .
+<http://lobid.org/resource/CT003012479> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "2012" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14216075X> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Zum Beschlu\u00DF wird Mad. B\u00F6hm d.j. eine Dankrede halten, welche gedruckt an der Kassa zu kaufen ist" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017290519> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141834919> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Dankrede" .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141889810> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/16068028-1> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141891173> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/118512536> .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142027901> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118512536> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141889810> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/116620153> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "... wird heute Mittwoch den 17ten April die hier anwesende deutsche Schauspieler-Gesellschaft (Zum Letztenmale) die Ehre haben aufzuf\u00FChren ; eine ganz neue gro\u00DFe komische Oper in 2 Aufz\u00FCgen" .
+<http://lobid.org/resource/CT003012479> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-CT003012479> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/title> "Elise, Gr\u00E4finn von Hillburg" .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf" .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/statementOfResponsibility> "die Musik ist von dem ber\u00FChmten Kapellmeister Winter, Compositeur der Oper: Das unterbrochene Opferfest. [Textverf.: Alessandro Ercole Pepoli. \u00DCbers. und arrang. von Carl Ludwig von Giesecke]. Personen: Madam Bilau, Herr Fuchs, Madam B\u00F6hm d.j., Madam B\u00F6hm d.\u00E4., Herr Kellermann, Herr Dardenne, Herr Krug, Madam Annoni, Herr B\u00F6hm" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "Universit\u00E4ts- und Landesbibliothek" .
+<http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://iflastandards.info/ns/isbd/terms/mediatype/T1002> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> <urn:nbn:de:hbz:061:2-46125> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "B\u00F6gemann" .
+<http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/CT003012479> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DCT003012479> .
+<http://lobid.org/resource/CT003012479> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Plakat : sw ; 33 x 29 cm" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/alternative> "<<La>> Belisa Ossia La Fedelt\u00E1 Riconosciuta" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/123633206> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "1805" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/142061166> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/142027901> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "[D\u00FCsseldorf]" .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141834919> .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/cmp> <http://d-nb.info/gnd/119055716> .
+<http://lobid.org/resource/CT003012479> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/CT003012479/about> .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141891173> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#fulltextOnline> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142061166> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/hasVersion> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141927135> .
+<http://lobid.org/resource/CT003012479/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/CT003012479/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/CT003012479> .
