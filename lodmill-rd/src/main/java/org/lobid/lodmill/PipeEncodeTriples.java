@@ -40,9 +40,11 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	// dummy subject to store data even if the subject is unknown at first
 	final static String DUMMY_SUBJECT = "dummy_subject";
 	final static String HTTP = "http";
+	final static String URN = "urn";
 	private boolean fixSubject = false;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(PipeEncodeTriples.class);
+	private boolean storeUrnAsUri = false;
 
 	/**
 	 * Sets the default temporary subject.
@@ -59,6 +61,15 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	public void setSubject(final String subject) {
 		this.subject = subject;
 		fixSubject = true;
+	}
+
+	/**
+	 * Allows to store URN's as URI's- Default is to store them as literals.
+	 * 
+	 * @param storeUrnAsUri set if urn's should be stored as URIs
+	 */
+	public void setStoreUrnAsUri(final String storeUrnAsUri) {
+		this.storeUrnAsUri = Boolean.parseBoolean(storeUrnAsUri);
 	}
 
 	@Override
@@ -92,7 +103,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 			try {
 				final Property prop = model.createProperty(name);
 				if (isUriWithScheme(value)
-						&& (value.startsWith(HTTP) || value.startsWith("mailto"))) {
+						&& ((value.startsWith(URN) && storeUrnAsUri)
+								|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
 					resources.peek().addProperty(prop,
 							model.asRDFNode(NodeFactory.createURI(value)));
 				} else {
@@ -102,7 +114,6 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 				LOG.warn("Problem with name=" + name + " value=" + value, e);
 			}
 		}
-
 	}
 
 	Resource makeBnode(final String value) {
