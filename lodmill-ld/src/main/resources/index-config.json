@@ -32,6 +32,7 @@
   },
   "mappings":{
     "json-ld-lobid":{
+      "date_detection":false,
       "properties":{
         "@graph.http://purl.org/dc/terms/creator.@id":{
           "type":"string",
@@ -58,6 +59,7 @@
       }
     },
     "json-ld-lobid-item":{
+      "date_detection":false,
       "_parent":{
         "type":"json-ld-lobid"
       },
