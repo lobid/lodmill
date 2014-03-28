@@ -54,6 +54,10 @@
         "@id": "http://d-nb.info/standards/elementset/gnd#associatedPlace",
         "@type": "@id"
     },
+    "asWKT": {
+        "@id": "http://www.opengis.net/ont/geosparql#asWKT",
+        "@type": "http://www.opengis.net/ont/geosparql#wktLiteral"
+    },
     "author": {
         "@id": "http://d-nb.info/standards/elementset/gnd#author",
         "@type": "@id"
@@ -312,6 +316,10 @@
     },
     "gndSubjectCategory": {
         "@id": "http://d-nb.info/standards/elementset/gnd#gndSubjectCategory",
+        "@type": "@id"
+    },
+    "hasGeometry": {
+        "@id": "http://www.opengis.net/ont/geosparql#hasGeometry",
         "@type": "@id"
     },
     "hierarchicalSuperior": {
