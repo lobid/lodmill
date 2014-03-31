@@ -1,6 +1,8 @@
-/* Copyright 2013  Pascal Christoph.
+/* Copyright 2013,2014  Pascal Christoph.
  * Licensed under the Eclipse Public License 1.0 */
 package org.lobid.lodmill;
+
+import static org.junit.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +17,7 @@ import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Test;
 
 /**
- * @author Pascal Christoph
+ * @author Pascal Christoph (dr0i)
  * 
  */
 @SuppressWarnings("javadoc")
@@ -24,6 +26,7 @@ public class GndXmlSplitterRdfWriterTest {
 
 	@Test
 	public void testFlow() throws IOException, URISyntaxException {
+		final DirReader dirReader = new DirReader();
 		final FileOpener opener = new FileOpener();
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		final XmlEntitySplitter splitXml = new XmlEntitySplitter();
@@ -35,14 +38,15 @@ public class GndXmlSplitterRdfWriterTest {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("RDF/XML");
 		final RdfModelFileWriter writer = createWriter(PATH);
+		dirReader.setReceiver(opener);
 		opener.setReceiver(xmlDecoder).setReceiver(splitXml)
 				.setReceiver(extractLiteral).setReceiver(triple2model)
 				.setReceiver(writer);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("gndRdfOai.xml").toURI());
-		opener.process(infile.getAbsolutePath());
-		opener.closeStream();
+						.getResource("gnd/").toURI());
+		dirReader.process(infile.getAbsolutePath());
+		assertEquals(9, (new File(PATH + "/104/")).list().length);
 		FileUtils.deleteDirectory(new File(PATH));
 	}
 
@@ -58,7 +62,7 @@ public class GndXmlSplitterRdfWriterTest {
 		return writer;
 	}
 
-	@Test
+	// @Test
 	public void testFlux() throws IOException, URISyntaxException,
 			RecognitionException {
 		File fluxFile =

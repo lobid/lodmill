@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OAI-PMH
+  xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd"
+  xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <responseDate>2014-03-13T10:55:26Z</responseDate>
+  <request metadataPrefix="RDFxml" set="authorities" verb="ListRecords" from="2014-01-24"
+    until="2014-01-24">http://services.d-nb.de/oai/repository</request>
+  <ListRecords
+    xsi:schemaLocation="http://www.w3.org/1999/02/22-rdf-syntax-ns http://www.w3.org/2000/07/rdf.xsd">
+    <record>
+      <header>
+        <identifier>oai:dnb.de/authorities/1046771531</identifier>
+        <datestamp>2014-01-24T23:49:33Z</datestamp>
+        <setSpec>authorities</setSpec>
+      </header>
+      <metadata>
+        <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:geo="http://www.opengis.net/ont/geosparql#"
+          xmlns:rda="http://rdvocab.info/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:sf="http://www.opengis.net/ont/sf#"
+          xmlns:isbd="http://iflastandards.info/ns/isbd/elements/" xmlns:gndo="http://d-nb.info/standards/elementset/gnd#"
+          xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+          xmlns:marcRole="http://id.loc.gov/vocabulary/relators/" xmlns:lib="http://purl.org/library/"
+          xmlns:umbel="http://umbel.org/umbel#" xmlns:bibo="http://purl.org/ontology/bibo/"
+          xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+          xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+          <rdf:Description rdf:about="http://d-nb.info/gnd/1046771531">
+            <rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson"/>
+            <gndo:gndIdentifier>1046771531</gndo:gndIdentifier>
+            <gndo:variantNameForThePerson>Torrens-Frandji, Martine
+            </gndo:variantNameForThePerson>
+            <gndo:variantNameEntityForThePerson
+              rdf:parseType="Resource">
+              <gndo:forename>Martine</gndo:forename>
+              <gndo:surname>Torrens-Frandji</gndo:surname>
+            </gndo:variantNameEntityForThePerson>
+            <gndo:variantNameForThePerson>Frandji, Martine Torrens
+            </gndo:variantNameForThePerson>
+            <gndo:variantNameEntityForThePerson
+              rdf:parseType="Resource">
+              <gndo:forename>Martine Torrens</gndo:forename>
+              <gndo:surname>Frandji</gndo:surname>
+            </gndo:variantNameEntityForThePerson>
+            <gndo:preferredNameForThePerson>Torrens Frandji, Martine
+            </gndo:preferredNameForThePerson>
+            <gndo:preferredNameEntityForThePerson
+              rdf:parseType="Resource">
+              <gndo:forename>Martine</gndo:forename>
+              <gndo:surname>Torrens Frandji</gndo:surname>
+            </gndo:preferredNameEntityForThePerson>
+            <gndo:professionOrOccupation>
+              <rdf:Description rdf:about="http://d-nb.info/gnd/4423722-4">
+                <gndo:preferredNameForTheSubjectHeading>Literaturwissenschaftlerin
+                </gndo:preferredNameForTheSubjectHeading>
+              </rdf:Description>
+            </gndo:professionOrOccupation>
+            <gndo:geographicAreaCode
+              rdf:resource="http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR"/>
+            <gndo:publication>Michel Onfray, le principe d'incandescence. - 2013
+            </gndo:publication>
+            <gndo:biographicalOrHistoricalInformation
+              xml:lang="de">"Professeur de littérature française à l'Université de Salamanque (en
+              2013)"</gndo:biographicalOrHistoricalInformation>
+            <gndo:gender rdf:resource="http://d-nb.info/standards/vocab/gnd/Gender#female"/>
+          </rdf:Description>
+        </rdf:RDF>
+      </metadata>
+    </record>
+<resumptionToken cursor="50" completeListSize="3514">42864572_50</resumptionToken>
+  </ListRecords>
+</OAI-PMH>

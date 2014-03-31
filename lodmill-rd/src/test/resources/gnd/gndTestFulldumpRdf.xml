@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:geo="http://www.opengis.net/ont/geosparql#"
+	xmlns:rda="http://rdvocab.info/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:sf="http://www.opengis.net/ont/sf#"
+	xmlns:isbd="http://iflastandards.info/ns/isbd/elements/" xmlns:gndo="http://d-nb.info/standards/elementset/gnd#"
+	xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+	xmlns:marcRole="http://id.loc.gov/vocabulary/relators/" xmlns:lib="http://purl.org/library/"
+	xmlns:umbel="http://umbel.org/umbel#" xmlns:bibo="http://purl.org/ontology/bibo/"
+	xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1-2">
+		<gndo:gndIdentifier>1-2</gndo:gndIdentifier>
+		<gndo:oldAuthorityNumber>(DE-588b)1-2</gndo:oldAuthorityNumber>
+		<gndo:variantNameForTheConferenceOrEvent>Conferentie van Niet-Kernwapenstaten
+		</gndo:variantNameForTheConferenceOrEvent>
+		<gndo:variantNameForTheConferenceOrEvent>Conference on Non-Nuclear Weapon States
+		</gndo:variantNameForTheConferenceOrEvent>
+		<gndo:preferredNameForTheConferenceOrEvent>Conference of Non-Nuclear Weapon States
+		</gndo:preferredNameForTheConferenceOrEvent>
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#SeriesOfConferenceOrEvent"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1047480921">
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson"/>
+		<gndo:gndIdentifier>1047480921</gndo:gndIdentifier>
+		<gndo:preferredNameForThePerson>Hartung, Sepp</gndo:preferredNameForThePerson>
+		<gndo:preferredNameEntityForThePerson
+			rdf:parseType="Resource">
+			<gndo:forename>Sepp</gndo:forename>
+			<gndo:surname>Hartung</gndo:surname>
+		</gndo:preferredNameEntityForThePerson>
+		<gndo:affiliation rdf:resource="http://d-nb.info/gnd/10028862-5"/>
+		<gndo:professionOrOccupation rdf:resource="http://d-nb.info/gnd/4139395-8"/>
+		<gndo:geographicAreaCode
+			rdf:resource="http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE"/>
+		<gndo:periodOfActivity>2013-</gndo:periodOfActivity>
+		<gndo:placeOfBirth rdf:resource="http://d-nb.info/gnd/4028557-1"/>
+		<gndo:gender rdf:resource="http://d-nb.info/standards/vocab/gnd/Gender#notKnown"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1047480956">
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson"/>
+		<gndo:gndIdentifier>1047480956</gndo:gndIdentifier>
+		<gndo:preferredNameForThePerson>Liccardi, Antonio</gndo:preferredNameForThePerson>
+		<gndo:preferredNameEntityForThePerson
+			rdf:parseType="Resource">
+			<gndo:forename>Antonio</gndo:forename>
+			<gndo:surname>Liccardi</gndo:surname>
+		</gndo:preferredNameEntityForThePerson>
+		<gndo:professionOrOccupation rdf:resource="http://d-nb.info/gnd/7701096-6"/>
+		<gndo:geographicAreaCode
+			rdf:resource="http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT"/>
+		<gndo:gender rdf:resource="http://d-nb.info/standards/vocab/gnd/Gender#notKnown"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1047480964">
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#UndifferentiatedPerson"/>
+		<gndo:gndIdentifier>1047480964</gndo:gndIdentifier>
+		<gndo:preferredNameForThePerson>Wereley, Norman</gndo:preferredNameForThePerson>
+		<gndo:preferredNameEntityForThePerson
+			rdf:parseType="Resource">
+			<gndo:forename>Norman</gndo:forename>
+			<gndo:surname>Wereley</gndo:surname>
+		</gndo:preferredNameEntityForThePerson>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1047480972">
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson"/>
+		<gndo:gndIdentifier>1047480972</gndo:gndIdentifier>
+		<gndo:preferredNameForThePerson>Aponte, Michele</gndo:preferredNameForThePerson>
+		<gndo:preferredNameEntityForThePerson
+			rdf:parseType="Resource">
+			<gndo:forename>Michele</gndo:forename>
+			<gndo:surname>Aponte</gndo:surname>
+		</gndo:preferredNameEntityForThePerson>
+		<gndo:professionOrOccupation rdf:resource="http://d-nb.info/gnd/4061949-7"/>
+		<gndo:geographicAreaCode
+			rdf:resource="http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT"/>
+		<gndo:gender rdf:resource="http://d-nb.info/standards/vocab/gnd/Gender#notKnown"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1047480980">
+		<rdf:type rdf:resource="http://d-nb.info/standards/elementset/gnd#UndifferentiatedPerson"/>
+		<gndo:gndIdentifier>1047480980</gndo:gndIdentifier>
+		<gndo:preferredNameForThePerson>
+			Bux, Faizal
+		</gndo:preferredNameForThePers
+                
+			
+			<gndo:preferredNameEntityForThePerson
+				rdf:parseType="Resource">
+				<gndo:forename>Faizal</gndo:forename>
+				<gndo:surname>Bux</gndo:surname>
+			</gndo:preferredNameEntityForThePerson>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://d-nb.info/gnd/1047481006">
+		<rdf:type
+			rdf:resource="http://d-nb.info/standards/elementset/gnd#Undiffe
+                <gndo:gndIdentifier>1047481006</gndo:gndIdentifier>
+                <gndo:variantNameForThePerson>DeTomasi, Francesca</gndo:variantNameForThe
+                <gndo:variantNameEntityForThePerson rdf:parseType="
+			Resource ">
+			<gndo:forename>Francesca</gndo:forename>
+			<gndo:surname>DeTomasi</gndo:surname>
+		</gndo:variantNameEntityForThePerson>
+			<gndo:variantNameForThePerson>
+				Tomasi, Francesca de
+			</gndo:variantNameForTh
+                
+				
+				<gndo:variantNameEntityForThePerson rdf:parseType="Resource">
+					<gndo:forename>Francesca</gndo:forename>
+					<gndo:prefix>de</gndo:prefix>
+					<gndo:surname>Tomasi</gndo:surname>
+				</gndo:variantNameEntityForThePerson>
+				<gndo:preferredNameForThePerson>
+					De Tomasi, Francesca
+				</gndo:preferredNameF
+                
+					
+					<gndo:preferredNameEntityForThePerson
+						rdf:parseType="Resource">
+						<gndo:forename>Francesca</gndo:forename>
+						<gndo:surname>De Tomasi</gndo:surname>
+					</gndo:preferredNameEntityForThePerson>
+	</rdf:Description>
+</rdf:RDF>
