@@ -24,7 +24,6 @@ import org.culturegraph.mf.framework.annotations.Out;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.hp.hpl.jena.rdf.model.LiteralRequiredException;
 import com.hp.hpl.jena.rdf.model.Model;
 
 /**
@@ -109,20 +108,12 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 					model
 							.listObjectsOfProperty(
 									model.createProperty(filenameUtil.property)).next()
-							.asLiteral().toString();
+							.toString();
 			LOG.debug("Going to store identifier=" + identifier);
 		} catch (NoSuchElementException e) {
 			LOG.warn("No identifier => cannot derive a filename for "
 					+ model.toString());
 			return;
-		} catch (LiteralRequiredException e) {
-			LOG.warn("Identifier is a URI. Derive filename from that URI ... "
-					+ model.toString(), e);
-			identifier =
-					model
-							.listObjectsOfProperty(
-									model.createProperty(filenameUtil.property)).next()
-							.toString();
 		}
 
 		String directory = identifier;
