@@ -1,12 +1,10 @@
-/* Copyright 2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2013-2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
-import java.net.URI;
 import java.util.Scanner;
 
-import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
@@ -102,11 +100,12 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		conf.set(NTriplesToJsonLd.INDEX_NAME, "lobid-resources");
 		conf.set(NTriplesToJsonLd.INDEX_TYPE, "json-ld-lobid");
 		conf.setStrings("map.file.name", mapFileName);
-		final URI zippedMapFile =
-				CollectSubjects.asZippedMapFile(hdfs, new Path(HDFS_IN_SUBJECTS),
-						new Path(HDFS_OUT_ZIP + "/" + mapFileName + ".zip"), conf);
-		DistributedCache.addCacheFile(zippedMapFile, conf);
-		final Job job = new Job(conf);
+		final Path zipOutputLocation =
+				new Path(HDFS_OUT_ZIP + "/" + mapFileName + ".zip");
+		CollectSubjects.asZippedMapFile(hdfs, new Path(HDFS_IN_SUBJECTS), new Path(
+				conf.get("map.file.name")), zipOutputLocation);
+		final Job job = Job.getInstance(conf);
+		job.addCacheFile(zipOutputLocation.toUri());
 		job.setJobName("IntegrationTestLobidNTriplesToJsonLd");
 		FileInputFormat.addInputPaths(job, HDFS_IN_TRIPLES_1 + ","
 				+ HDFS_IN_TRIPLES_2);
