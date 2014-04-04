@@ -26,11 +26,10 @@ public class Gnd {
 	public static class AllFieldsQuery extends AbstractIndexQuery {
 		@Override
 		public List<String> fields() {
-			final List<String> suggestFields =
-			// TODO PersonNameQuery#fields make no sense for subjects
-					new ArrayList<>(new PersonNameQuery().fields());
-			final List<String> searchFields = Arrays.asList("_all");
-			suggestFields.addAll(searchFields);
+			final List<String> suggestFields = new ArrayList<>();
+			suggestFields.addAll(new PersonNameQuery().fields());
+			suggestFields.addAll(new SubjectNameQuery().fields());
+			suggestFields.addAll(Arrays.asList("_all"));
 			return suggestFields;
 		}
 

@@ -27,7 +27,7 @@ public class SearchEntitiesNarrowByTypeTests extends SearchTestsHarness {
 	@Test public void newspapers() { search("resource?q=*&t=Newspaper", 1); }
 	@Test public void differentiatedPersons() { search("person?q=*&t=DifferentiatedPerson", 9); }
 	@Test public void undifferentiatedPersons() { search("person?q=*&t=UndifferentiatedPerson", 4); }
-	@Test public void persons() { search("person?q=*", 9+4); }
+	@Test public void subjects() { search("subject?q=*", 17); }
 	@Test public void journalsUri() { search("resource?q=*&t=http://purl.org/ontology/bibo/Journal", 1); }
 	@Test public void newspapersUri() { search("resource?q=*&t=http://purl.org/ontology/bibo/Newspaper", 1); }
 	//@formatter:on

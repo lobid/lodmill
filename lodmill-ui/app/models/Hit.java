@@ -113,6 +113,8 @@ public enum Hit {
 					return value.asText();
 			}
 		}
+		if (fields.contains("_all"))
+			return hit.getId();
 		Logger.warn(String.format("Hit '%s' contains none of the fields: '%s'",
 				hit.getSource(), fields));
 		return null;
