@@ -1,5 +1,7 @@
 <http://lobid.org/organisation/DE-Tir1>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://dbpedia.org/property/shortName>
+                "Tirschenreuth Stadtarchiv" ;
         <http://purl.org/lobid/lv#contactqr>
                 <http://lobid.org/media/DE-Tir1_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
@@ -51,6 +53,8 @@
 
 <http://lobid.org/organisation/DE-100-301>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://dbpedia.org/property/shortName>
+                "Stuttgart-H. TeilSt PflBau" ;
         <http://purl.org/lobid/lv#contactqr>
                 <http://lobid.org/media/DE-100-301_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
@@ -97,6 +101,8 @@
 
 <http://lobid.org/organisation/DE-188-867>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://dbpedia.org/property/shortName>
+                "Berlin UBFU Sem Kath. Theol." ;
         <http://purl.org/dc/elements/1.1/subject>
                 "Scholastik" , "Katholische Theologie" , "Patristik" ;
         <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
@@ -159,6 +165,8 @@
 
 <http://lobid.org/organisation/DE-7-133>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://dbpedia.org/property/shortName>
+                "Göttingen Inst. Sportwiss." ;
         <http://purl.org/lobid/lv#contactqr>
                 <http://lobid.org/media/DE-7-133_contactqr.png> ;
         <http://purl.org/lobid/lv#fundertype>
@@ -225,6 +233,8 @@
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://www.w3.org/2000/01/rdf-schema#seeAlso>
                 <http://dbpedia.org/resource/Staatsbibliothek_zu_Berlin> ;
+        <http://dbpedia.org/property/shortName>
+                "SBB-PK, Potsdamer Straße" , "Berlin SBB Haus Potsdamer Str" ;
         <http://purl.org/dc/elements/1.1/subject>
                 "Recht" , "Karten" , "Amtsdruckschriften" , "Geistes- und Sozialwissenschaften" , "Osteuropa" , "Orientalistik" , "Afrika" , "Ostasien" , "Handschriften" ;
         <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
@@ -293,6 +303,8 @@
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://www.w3.org/2000/01/rdf-schema#seeAlso>
                 <http://dbpedia.org/resource/Universitätsbibliothek_Bochum> ;
+        <http://dbpedia.org/property/shortName>
+                "Bochum UB" ;
         <http://purl.org/goodrelations/v1#hasOpeningHoursSpecification>
                 [ a       <http://purl.org/goodrelations/v1#OpeningHoursSpecification> ;
                   <http://purl.org/dc/terms/description>
