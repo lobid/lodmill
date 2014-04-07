@@ -30,7 +30,7 @@ public final class UrnAsUriTest {
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		final MabXmlHandler handler = new MabXmlHandler();
 		final Metamorph morph =
-				new Metamorph("src/test/resources/morph-hbz01-to-lobid.xml");
+				new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		RdfModelFileWriter modelWriter = createModelWriter();
