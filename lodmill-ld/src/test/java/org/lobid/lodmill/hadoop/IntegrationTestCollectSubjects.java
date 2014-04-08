@@ -64,19 +64,17 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 						+ "http://purl.org/lobid/fundertype#n08 http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/stocksize#n06 http://lobid.org/organisation/ACRPP\n",
 				string.replaceAll("_:[^\\s]+", ""));
-		writeZippedMapFile(job.getConfiguration());
+		writeMapFile(job.getConfiguration());
 	}
 
-	private void writeZippedMapFile(final Configuration conf) throws IOException {
+	private void writeMapFile(final Configuration conf) throws IOException {
 		long time = System.currentTimeMillis();
 		final Path[] outputFiles =
 				FileUtil.stat2Paths(getFileSystem().listStatus(new Path(HDFS_OUT),
 						new Utils.OutputFileUtils.OutputFilesFilter()));
-		final Path zipOutputLocation =
-				new Path(HDFS_OUT + "/" + conf.get("map.file.name") + ".zip");
-		CollectSubjects.asZippedMapFile(hdfs, outputFiles[0],
-				new Path(conf.get("map.file.name")), zipOutputLocation);
-		final FileStatus fileStatus = hdfs.getFileStatus(zipOutputLocation);
+		final Path mapFilePath = new Path(conf.get("map.file.name"));
+		CollectSubjects.asMapFile(hdfs, outputFiles[0], mapFilePath);
+		final FileStatus fileStatus = hdfs.getFileStatus(mapFilePath);
 		assertTrue(fileStatus.getModificationTime() >= time);
 	}
 

@@ -4,19 +4,14 @@ package org.lobid.lodmill.hadoop;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.StringReader;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.MapFile.Reader;
@@ -87,7 +82,7 @@ public class NTriplesToJsonLd implements Tool {
 		conf.set(INDEX_NAME, indexName);
 		conf.set(INDEX_TYPE, args[4]);
 		final Job job = Job.getInstance(conf);
-		job.addCacheFile(new Path(args[1] + "/" + mapFileName + ".zip").toUri());
+		job.addCacheFile(new Path(mapFileName).toUri());
 		job.setNumReduceTasks(NODES * SLOTS);
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
@@ -119,15 +114,14 @@ public class NTriplesToJsonLd implements Tool {
 			prefix = context.getConfiguration().get(CollectSubjects.PREFIX_KEY);
 			predicates = CollectSubjects.PREDICATES;
 			final String rawMapFile = context.getConfiguration().get("map.file.name");
-			final URI zippedMapFile = findZip(context.getCacheFiles(), rawMapFile);
-			if (zippedMapFile != null)
-				initMapFileReader(new Path(zippedMapFile), new Path(rawMapFile),
-						context.getConfiguration());
+			final URI mapFile = findMapFile(context.getCacheFiles(), rawMapFile);
+			if (mapFile != null)
+				initMapFileReader(new Path(mapFile));
 			else
 				LOG.warn("No subjects cache files found!");
 		}
 
-		private static URI findZip(final URI[] localCacheFiles,
+		private static URI findMapFile(final URI[] localCacheFiles,
 				final String rawMapFileName) {
 			if (localCacheFiles == null || rawMapFileName == null)
 				return null;
@@ -137,28 +131,13 @@ public class NTriplesToJsonLd implements Tool {
 			return null;
 		}
 
-		private void initMapFileReader(final Path zipFile, final Path outputPath,
-				final Configuration config) throws IOException, FileNotFoundException {
-			LOG.info("Unzipping map file at %s to %s", zipFile, outputPath);
-			unzip(zipFile, outputPath, config);
-			reader = new MapFile.Reader(outputPath, CollectSubjects.MAP_FILE_CONFIG);
+		private void initMapFileReader(final Path mapFilePath) throws IOException,
+				FileNotFoundException {
+			LOG.info("Reading map file from: " + mapFilePath);
+			reader = new MapFile.Reader(mapFilePath, CollectSubjects.MAP_FILE_CONFIG);
 			if (reader == null)
 				throw new IllegalStateException(String.format(
-						"Could not load map file data from %s", outputPath));
-		}
-
-		private static void unzip(final Path zipFile, final Path output,
-				final Configuration config) throws FileNotFoundException, IOException {
-			try (final ZipInputStream zis =
-					new ZipInputStream(FileSystem.get(config).open(zipFile))) {
-				for (ZipEntry ze; (ze = zis.getNextEntry()) != null; zis.closeEntry()) {
-					try (final OutputStream fos =
-							FileSystem.get(CollectSubjects.MAP_FILE_CONFIG).create(
-									new Path(output + "/" + ze.getName()))) {
-						IOUtils.copyBytes(zis, fos, 1024);
-					}
-				}
-			}
+						"Could not load map file data from %s", mapFilePath));
 		}
 
 		@Override

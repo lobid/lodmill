@@ -42,7 +42,6 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 			"blank-nodes-test/sample-2.nt";
 	private static final String HDFS_IN_SUBJECTS = "blank-nodes-test/subjects";
 	private static final String HDFS_OUT = "out/sample";
-	private static final String HDFS_OUT_ZIP = "out/zip";
 	private FileSystem hdfs = null;
 
 	@Before
@@ -100,12 +99,11 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		conf.set(NTriplesToJsonLd.INDEX_NAME, "lobid-resources");
 		conf.set(NTriplesToJsonLd.INDEX_TYPE, "json-ld-lobid");
 		conf.setStrings("map.file.name", mapFileName);
-		final Path zipOutputLocation =
-				new Path(HDFS_OUT_ZIP + "/" + mapFileName + ".zip");
-		CollectSubjects.asZippedMapFile(hdfs, new Path(HDFS_IN_SUBJECTS), new Path(
-				conf.get("map.file.name")), zipOutputLocation);
+		final Path mapFileLocation = new Path(conf.get("map.file.name"));
+		CollectSubjects
+				.asMapFile(hdfs, new Path(HDFS_IN_SUBJECTS), mapFileLocation);
 		final Job job = Job.getInstance(conf);
-		job.addCacheFile(zipOutputLocation.toUri());
+		job.addCacheFile(mapFileLocation.toUri());
 		job.setJobName("IntegrationTestLobidNTriplesToJsonLd");
 		FileInputFormat.addInputPaths(job, HDFS_IN_TRIPLES_1 + ","
 				+ HDFS_IN_TRIPLES_2);

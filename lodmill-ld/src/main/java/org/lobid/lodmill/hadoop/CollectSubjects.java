@@ -2,7 +2,6 @@
 
 package org.lobid.lodmill.hadoop;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
@@ -12,20 +11,14 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.FileUtil;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.SequenceFile.CompressionType;
 import org.apache.hadoop.io.Text;
-import org.apache.hadoop.mapred.Utils;
 import org.apache.hadoop.mapreduce.InputSplit;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -105,7 +98,6 @@ public class CollectSubjects implements Tool {
 		}
 		final String mapFileName = mapFileName(args[3]);
 		conf.setStrings("mapred.textoutputformat.separator", " ");
-		conf.setStrings("mapred.reduce.child.java.opts", "-Xmx4g");
 		conf.setStrings("target.subject.prefix", args[2]);
 		conf.setStrings("map.file.name", mapFileName);
 		final Job job = Job.getInstance(conf);
@@ -119,24 +111,20 @@ public class CollectSubjects implements Tool {
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
 		boolean success = job.waitForCompletion(true);
-		asZippedMapFile(
+		asMapFile(
 				FileSystem.get(conf),//
 				new Path(args[1] + "/part-r-00000"),
-				new Path(conf.get("map.file.name")), //
-				new Path(args[1] + "/" + mapFileName + ".zip"));
+				new Path(conf.get("map.file.name")));
 		System.exit(success ? 0 : 1);
 		return 0;
 	}
 
-	static void asZippedMapFile(final FileSystem fs,
-			final Path subjectMappingsPath, final Path mapFilePath,
-			final Path zipOutputLocation) throws IOException {
+	static void asMapFile(final FileSystem fs, final Path subjectMappingsPath,
+			final Path mapFilePath) throws IOException {
 		final Path mapData = fs.makeQualified(subjectMappingsPath);
 		final Path mapFile = fs.makeQualified(mapFilePath);
-		final Path mapZip = fs.makeQualified(zipOutputLocation);
 		writeToMapFile(fs, mapData, mapFile);
-		zipMapFile(fs, mapFile, mapZip);
-		LOG.info("Wrote map data to zip file at %s", mapZip);
+		LOG.info("Wrote map data to: " + mapFile);
 	}
 
 	private static void writeToMapFile(final FileSystem fs,
@@ -156,25 +144,6 @@ public class CollectSubjects implements Tool {
 						new Text(subjectAndValues[1].trim()));
 			}
 		}
-	}
-
-	private static void zipMapFile(final FileSystem fs, final Path mapFilePath,
-			final Path zipOutputLocation) throws IOException, FileNotFoundException {
-		try (final FSDataOutputStream fos = fs.create(zipOutputLocation);
-				final ZipOutputStream zos = new ZipOutputStream(fos)) {
-			final Path[] outputFiles =
-					FileUtil.stat2Paths(fs.listStatus(mapFilePath,
-							new Utils.OutputFileUtils.OutputFilesFilter()));
-			add(zos, new ZipEntry("data"), fs.open(outputFiles[0]));
-			add(zos, new ZipEntry("index"), fs.open(outputFiles[1]));
-		}
-	}
-
-	private static void add(final ZipOutputStream zos, final ZipEntry data,
-			final InputStream in) throws IOException, FileNotFoundException {
-		zos.putNextEntry(data);
-		IOUtils.copyBytes(in, zos, 1024);
-		zos.closeEntry();
 	}
 
 	/**
