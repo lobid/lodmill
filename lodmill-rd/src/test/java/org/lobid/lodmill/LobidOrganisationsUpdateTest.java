@@ -91,11 +91,8 @@ public class LobidOrganisationsUpdateTest {
 	}
 
 	@Test
-	public void testFlux() throws URISyntaxException, IOException,
-			RecognitionException {
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("zdb2lobidOrganisations.flux").toURI());
+	public void testFlux() throws IOException, RecognitionException {
+		File fluxFile = new File("src/main/resources/zdb2lobidOrganisations.flux");
 		Flux.main(new String[] { fluxFile.getAbsolutePath() });
 		deleteTestFiles();
 	}
