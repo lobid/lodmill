@@ -59,7 +59,7 @@
 				<regexp match="B" format=""/>
 			</data>
 		</combine>
-		<data source="029@.a" name="http://dbpedia.org/property/shortName"/>
+		<data source="029@.a" name="http://www.w3.org/2004/02/skos/core#altLabel"/>
 		<data source="029A.a" name="http://xmlns.com/foaf/0.1/name">
 			<!-- sanitize entries like "Ruhr-Universita\u0308t Bochum,\n\t\t\t\t\tUniversita\u0308tsbibliothek" -->
 			<replace pattern="\t|\n|\(\s\)\s+" with=""/>
