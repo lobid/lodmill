@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="1">
+	<rules>
+		<!-- General attributes for each record: -->
+		<data source="008H.e" name="~rdf:subject">
+			<regexp match="(.*)" format="http://lobid.org/organisation/${1}"/>
+		</data>
+		<data source="008H.e" name="http://purl.org/lobid/lv#isil">
+		</data>
+		<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://xmlns.com/foaf/0.1/Organization"/>
+		</data>
+		<data source="008H.e" name="http://xmlns.com/foaf/0.1/isPrimaryTopicOf">
+			<regexp match="(.*)"
+				format="http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&amp;IKT=8529&amp;TRM=${1}"/>
+		</data>
+		<data source="008H.e" name="http://www.w3.org/2002/07/owl#sameAs">
+			<regexp match="(.*)" format="http://ld.zdb-services.de/resource/organisations/${1}"/>
+		</data>
+		<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://xmlns.com/foaf/0.1/Organization"/>
+		</data>
+		<data source="008H.e" name="@dbpediaMap">
+			<lookup in="isil2dbpedia_map"/>
+		</data>
+		<!-- geoLocation -->
+		<entity name="http://www.w3.org/2003/01/geo/wgs84_pos#location" flushWith="record">
+			<!--All entries already have a geo position or it will be computed -->
+			<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match=".*" format="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+			</data>
+			<data source="032P.k" name="http://www.w3.org/2003/01/geo/wgs84_pos#long"/>
+			<data source="032P.l" name="http://www.w3.org/2003/01/geo/wgs84_pos#lat"/>
+			<combine name="http://www.w3.org/2003/01/geo/wgs84_pos#lat" value="${lat}">
+				<data source="008H.e" name="lat">
+					<lookup in="geolocation-lat_map"/>
+				</data>
+			</combine>
+			<combine name="http://www.w3.org/2003/01/geo/wgs84_pos#long" value="${long}">
+				<data source="008H.e" name="long">
+					<lookup in="geolocation-long_map"/>
+				</data>
+			</combine>
+		</entity>
+		<!-- /geoLocation -->
+		<combine name="http://www.w3.org/2006/vcard/ns#url" value="${hp}" sameEntity="true">
+			<data source="009Q.u" name="hp">
+			</data>
+			<data source="009Q.z" name="">
+				<regexp match="A" format=""/>
+			</data>
+		</combine>
+		<combine name="http://purl.org/ontology/daia/provides" value="${url}"
+			sameEntity="true">
+			<data source="009Q.u" name="url">
+			</data>
+			<data source="009Q.z" name="">
+				<regexp match="B" format=""/>
+			</data>
+		</combine>
+		<data source="029@.a" name="http://dbpedia.org/property/shortName"/>
+		<data source="029A.a" name="http://xmlns.com/foaf/0.1/name">
+			<!-- sanitize entries like "Ruhr-Universita\u0308t Bochum,\n\t\t\t\t\tUniversita\u0308tsbibliothek" -->
+			<replace pattern="\t|\n|\(\s\)\s+" with=""/>
+		</data>
+		<combine name="http://purl.org/ontology/mo/wikipedia" value="http://de.wikipedia.org/wiki/${titleDbpedia}">
+			<data source="@dbpediaMap" name="titleDbpedia">
+			</data>
+		</combine>
+		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="http://dbpedia.org/resource/${titleDbpedia}">
+			<data source="@dbpediaMap" name="titleDbpedia">
+			</data>
+		</combine>
+		<!-- adress -->
+		<entity name="http://www.w3.org/2006/vcard/ns#adr" flushWith="record">
+			<!-- assuming that if 032P appears there are entries for a vcard:adr -->
+			<data source="032P.*" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match=".*" format="http://www.w3.org/2006/vcard/ns#Address"/>
+			</data>
+			<data source="032P.*" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match=".*" format="http://www.w3.org/2006/vcard/ns#Work"/>
+			</data>
+			<data source="032P.a" name="http://www.w3.org/2006/vcard/ns#street-address">
+			</data>
+			<data source="032P.b" name="http://www.w3.org/2006/vcard/ns#locality">
+			</data>
+			<!-- there are sometimes double 032P, one for the city and one for the adress -->
+			<combine name="http://www.w3.org/2006/vcard/ns#postal-code" value="${plz}"
+				sameEntity="true">
+				<data source="032P.e" name="plz"/>
+				<data source="032P.a" name=""/>
+			</combine>
+			<combine name="http://www.w3.org/2006/vcard/ns#country-name" value="${country}">
+				<data source="032P.d" name="country">
+					<lookup in="country-map"/>
+				</data>
+			</combine>
+		</entity>
+		<!-- /adress -->
+		<!-- opening hours -->
+		<entity name="http://purl.org/goodrelations/v1#hasOpeningHoursSpecification"
+			flushWith="record">
+			<data source="032P.i" name="http://purl.org/dc/terms/description">
+			</data>
+			<data source="032P.i" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match="(.*)" format="http://purl.org/goodrelations/v1#OpeningHoursSpecification"/>
+			</data>
+		</entity>
+		<data source="032P.n" name="http://www.geonames.org/ontology#locatedIn">
+		</data>
+		<!-- /opening hours -->
+		<!-- phone -->
+		<entity name="http://www.w3.org/2006/vcard/ns#tel">
+			<data source="035B.f" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match="(.*)" format="http://www.w3.org/2006/vcard/ns#Voice"/>
+			</data>
+			<data source="035B.f" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match="(.*)" format="http://www.w3.org/2006/vcard/ns#Work"/>
+			</data>
+			<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#value" value="(0${prefix}) ${phonenr}"
+				sameEntity="true">
+				<data source="035B.e" name="prefix">
+				</data>
+				<data source="035B.f" name="phonenr">
+				</data>
+			</combine>
+		</entity>
+		<!-- /phone -->
+		<!-- fax -->
+		<entity name="http://www.w3.org/2006/vcard/ns#tel">
+			<data source="035B.i" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match="(.*)" format="http://www.w3.org/2006/vcard/ns#Fax"/>
+			</data>
+			<data source="035B.i" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match="(.*)" format="http://www.w3.org/2006/vcard/ns#Work"/>
+			</data>
+			<combine name="http://www.w3.org/1999/02/22-rdf-syntax-ns#value" value="(0${prefix}) ${faxnr}"
+				sameEntity="true">
+				<data source="035B.h" name="prefix">
+				</data>
+				<data source="035B.i" name="faxnr">
+				</data>
+			</combine>
+		</entity>
+		<!-- /fax -->
+		<data source="035B.k" name="http://www.w3.org/2006/vcard/ns#email">
+			<regexp match="(.*)" format="mailto:${1}"/>
+		</data>
+		<data source="035E.f" name="http://www.w3.org/ns/org#classification">
+			<regexp match="(.*)" format="http://purl.org/lobid/libtype#n${1}"/>
+		</data>
+		<data source="035E.g" name="http://purl.org/lobid/lv#fundertype">
+			<regexp match="(.*)" format="http://purl.org/lobid/fundertype#n${1}"/>
+		</data>
+		<data source="035E.h" name="http://purl.org/lobid/lv#stocksize">
+			<regexp match="(.*)" format="http://purl.org/lobid/stocksize#n${1}"/>
+		</data>
+		<data source="035G.a" name="http://purl.org/dc/elements/1.1/subject">
+		</data>
+		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
+			<regexp match="(?i).*gbv" format="http://lobid.org/organisation/DE-601"/>
+		</data>
+		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
+			<regexp match="(?i).*bvb" format="http://lobid.org/organisation/DE-604"/>
+		</data>
+		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
+			<regexp match="(?i).*hebis" format="http://lobid.org/organisation/DE-603"/>
+		</data>
+		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
+			<regexp match="(?i).*hbz" format="http://lobid.org/organisation/DE-605"/>
+		</data>
+		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
+			<regexp match="(?i).*kobv" format="http://lobid.org/organisation/DE-602"/>
+		</data>
+		<data source="035I.c" name="http://www.w3.org/ns/org#linkedTo">
+			<regexp match="(?i).*swb" format="http://lobid.org/organisation/DE-576"/>
+		</data>
+	</rules>
+	<maps>
+		<filemap name="country-map" files="country-map.csv"/>
+		<filemap name="geolocation-long_map" files="geolocation-long_map.csv"/>
+		<filemap name="geolocation-lat_map" files="geolocation-lat_map.csv"/>
+		<filemap name="isil2dbpedia_map" files="isil2dbpedia_map.csv"/>
+	</maps>
+</metamorph>
