@@ -11,6 +11,14 @@ ES_CLUSTER=$2
 
 TIME=`date '+%Y%m%d-%H%M%S'`
 
+NWBIB=output/json-ld-nwbib
+sh convert.sh hbzlod/nwbib/nwbib.nt $NWBIB http://purl.org/lobid/nwbib# nwbib-$TIME json-ld-nwbib
+sh index.sh $NWBIB $ES_SERVER $ES_CLUSTER NOALIAS
+
+NWBIB_SPATIAL=output/json-ld-nwbib-spatial
+sh convert.sh hbzlod/nwbib/nwbib-spatial.nt $NWBIB_SPATIAL http://purl.org/lobid/nwbib-spatial nwbib-$TIME json-ld-nwbib-spatial
+sh index.sh $NWBIB_SPATIAL $ES_SERVER $ES_CLUSTER ""
+
 ORGANISATIONS=output/json-ld-lobid-organisations
 sh convert.sh hbzlod/lobid-organisations/ $ORGANISATIONS http://lobid.org/organisation lobid-organisations-$TIME json-ld-lobid-orgs
 sh index.sh $ORGANISATIONS $ES_SERVER $ES_CLUSTER ""
