@@ -24,6 +24,6 @@ object ApplicationBuild extends Build {
           "typesafe" at "http://repo.typesafe.com/typesafe/repo", 
           "jena-dev" at "https://repository.apache.org/content/repositories/snapshots",
           Resolver.mavenLocal)
-    ).dependsOn(nwbib, oer).aggregate(nwbib, oer)
+    )
 
 }

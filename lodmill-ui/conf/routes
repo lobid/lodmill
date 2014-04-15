@@ -2,14 +2,6 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# NWBib
-
--> / nwbib.Routes
-
-# OER
-
--> / oer.Routes
-
 # Home page
 GET     /                           controllers.Application.index()
 GET     /api                        controllers.Application.api()
