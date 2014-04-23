@@ -935,7 +935,7 @@
 			<regexp match=".*" format="$[ns-lobid-resource]NWBib"/>
 		</data>
 		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
-			<regexp match="(\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
+			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
 		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
 			<regexp match="^(\d\d)[^.]" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
