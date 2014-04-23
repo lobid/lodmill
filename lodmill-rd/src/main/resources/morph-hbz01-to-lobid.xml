@@ -937,9 +937,20 @@
 		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
-		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
-			<regexp match="^(\d\d)[^.]" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
-		</data>
+		<!-- ignore e.g. '700n|a 99|b Düsseldorf', s.: HT018131501 -->
+		<combine name="@nwbibB" value="${a}" flushWith="entity">
+			<data source="700n[-1].b" name="a"/>
+		</combine>
+		<combine name="http://purl.org/dc/terms/subject" value="${a}">
+			<if>
+				<none>
+					<data source="@nwbibB"/>
+				</none>
+			</if>
+			<data source="700n[-1].a" name="a">
+				<regexp match="^(\d\d)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
+			</data>
+		</combine>
 		<!--edoweb -->
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
