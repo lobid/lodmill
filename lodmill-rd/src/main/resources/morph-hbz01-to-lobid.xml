@@ -14,21 +14,19 @@
 		<!-- ####################### -->
 		<data source="001-[-1].a" name="@id"/>
 		<!-- prefer the ZDB id -->
-
-				<data source="025z[-1].a" name="@idzdbInternal">
+		<data source="025z[-1].a" name="@idzdbInternal">
 			<regexp match="(.*)" format="${1}"/>
 		</data>
-
 		<!-- ####################### -->
 		<!-- ####### hbz ID sameAs ZDB ID -->
 		<!-- ####################### -->
-						<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-zdb-services]${idzdb}">
+		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-zdb-services]${idzdb}">
 			<data source="@id"/>
 			<data source="@idzdbInternal" name="idzdb">
-			<regexp match="(.*)" format="${1}"/>
+				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-				<data source="@idzdbInternal" name="@idzdb">
+		<data source="@idzdbInternal" name="@idzdb">
 			<regexp match="(.*)" format="ZDB${1}"/>
 		</data>
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="${idzdb}">
