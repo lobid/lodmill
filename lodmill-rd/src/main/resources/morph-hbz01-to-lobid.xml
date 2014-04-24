@@ -855,8 +855,18 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<data source="@fulltextOnline" name="http://purl.org/lobid/lv#fulltextOnline"/>
-		<data source="@fulltextOnline" name="http://purl.org/dc/terms/hasVersion"/>
+		<!--first three chars of "Resolving System" or "Volltext" or "EZB" or "Archivierte Online 
+			Ressource "<=> @fulltextOnlineUri -->
+		<combine name="@fulltextOnlineUri" value="${uri}" sameEntity="true">
+			<data source="655[-eu][ -1].[x3]">
+				<regexp match="^[AERV][rZoe][cBls]"/>
+			</data>
+			<data source="@linkUri" name="uri">
+				<regexp match="^([a-zA-Z].*)" format="${1}"/>
+			</data>
+		</combine>
+		<data source="@fulltextOnlineUri" name="http://purl.org/lobid/lv#fulltextOnline"/>
+		<data source="@fulltextOnlineUri" name="http://purl.org/dc/terms/hasVersion"/>
 		<!-- rdf:seeAlso if 655 AND_NOT fulltextOnline -->
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
 			<if>

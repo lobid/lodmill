@@ -423,14 +423,12 @@
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-386> .
 <http://lobid.org/resource/ZDB1472746-8> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/ZDB-ZDB1472746-8> .
 <http://lobid.org/resource/ZDB1472746-8> <http://rdvocab.info/Elements/statementOfResponsibility> "publ. by the American Institute of Physics" .
-<http://lobid.org/resource/ZDB1472746-8> <http://purl.org/dc/terms/hasVersion> <http://search.ebscohost.com/> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-385> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-836> .
 <http://lobid.org/resource/ZDB1472746-8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://iflastandards.info/ns/isbd/terms/mediatype/T1002> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-468> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-832> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/dc/terms/title> "Physics of plasmas" .
-<http://lobid.org/resource/ZDB1472746-8> <http://purl.org/lobid/lv#fulltextOnline> <http://scitation.aip.org/content/aip/journal/pop> .
 <http://lobid.org/resource/ZDB1472746-8> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-464> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-Due62> .
@@ -465,10 +463,8 @@
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-5> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-361> .
 <http://lobid.org/resource/ZDB1472746-8> <http://rdvocab.info/Elements/otherTitleInformation> "devoted to original contributions to and reviews of the physics of plasmas, including magnetofluid mechanics, kinetic theory and statistical mechanics of fully and partially ionized gases" .
-<http://lobid.org/resource/ZDB1472746-8> <http://purl.org/lobid/lv#fulltextOnline> <http://search.ebscohost.com/> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-51> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-61> .
-<http://lobid.org/resource/ZDB1472746-8> <http://purl.org/dc/terms/hasVersion> <http://scitation.aip.org/content/aip/journal/pop> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-A96> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/dc/terms/hasVersion> <http://www.bibliothek.uni-regensburg.de/ezeit/?1472746> .
 <http://lobid.org/resource/ZDB1472746-8> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB1472746-8%3ADE-466> .
