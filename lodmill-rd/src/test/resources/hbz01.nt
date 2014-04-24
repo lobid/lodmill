@@ -702,6 +702,7 @@
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-1044%3A11+%3D+TWR5408%2B1> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441%3ADE-467%3A80TWRF4584-DVD> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4337730-0> .
+<http://lobid.org/resource/HT016382441> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=4027723&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/isbn13> "9783527706495" .
 <http://lobid.org/resource/HT016382441> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT016382441> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .

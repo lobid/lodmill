@@ -845,14 +845,14 @@
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- ####################### -->
-		<!-- ##########fulltext , toc, seeAlso -->
+		<!-- ##########fulltext, toc, seeAlso -->
 		<!-- ####################### -->
 		<combine name="@fulltextOnline" value="${link}">
 			<data source="334-[12].a">
 				<regexp match="^[eE][lL]"/>
 			</data>
 			<data source="@linkUri" name="link">
-				<regexp match="(.*)" format="${1}"/>
+				<regexp match="^([a-zA-Z].*)" format="${1}"/>
 			</data>
 		</combine>
 		<!--first three chars of "Resolving System" or "Volltext" or "EZB" or "Archivierte Online 
@@ -861,12 +861,17 @@
 			<data source="655[-eu][ -1].[x3]">
 				<regexp match="^[AERV][rZoe][cBls]"/>
 			</data>
-			<data source="@linkUri" name="uri">
-				<regexp match="^([a-zA-Z].*)" format="${1}"/>
-			</data>
+			<data source="@linkUri" name="uri"/>
 		</combine>
 		<data source="@fulltextOnlineUri" name="http://purl.org/lobid/lv#fulltextOnline"/>
 		<data source="@fulltextOnlineUri" name="http://purl.org/dc/terms/hasVersion"/>
+		<!-- rdf:seeAlso if 655 AND first three letter "Zusätzliche Angaben" -->
+		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
+			<data source="655[-eu][ -1].[x3]">
+				<regexp match="^[Z][u][s]"/>
+			</data>
+			<data source="@linkUri" name="seeAlsoUri"/>
+		</combine>
 		<!-- rdf:seeAlso if 655 AND_NOT fulltextOnline -->
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
 			<if>
@@ -879,18 +884,14 @@
 					</data>
 				</none>
 			</if>
-			<data source="@linkUri" name="seeAlsoUri">
-				<regexp match="^([a-zA-Z].*)" format="${1}"/>
-			</data>
+			<data source="@linkUri" name="seeAlsoUri"/>
 		</combine>
 		<!-- link to table of content (toc) -->
 		<combine name="@toc" value="${uri}" sameEntity="true">
 			<data source="655[-eu][ -1].[x3]">
 				<regexp match="^[Ii][Nn][Hh][aA][lL][tT][sS][vV]"/>
 			</data>
-			<data source="@linkUri" name="uri">
-				<regexp match="^([a-zA-Z].*)" format="${1}"/>
-			</data>
+			<data source="@linkUri" name="uri"/>
 		</combine>
 		<data source="@toc" name="http://purl.org/dc/terms/tableOfContents"/>
 		<!-- ####################### -->
