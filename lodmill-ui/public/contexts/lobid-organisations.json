@@ -5,7 +5,7 @@
       "name": "http://xmlns.com/foaf/0.1/name",
       "isil": "http://purl.org/lobid/lv#isil",
       "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
-      "alternateLabel": "http://www.w3.org/2004/02/skos/core#alternateLabel",
+      "altLabel": "http://www.w3.org/2004/02/skos/core#altLabel",
       "location":
       {
          "@id": "http://www.w3.org/2003/01/geo/wgs84_pos#location",
