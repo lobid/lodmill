@@ -40,6 +40,7 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.collect.Sets;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import com.google.common.io.CharStreams;
@@ -249,10 +250,9 @@ public class IndexFromHdfsInElasticSearch {
 
 	private Set<String> aliases(final String indexName) {
 		final ClusterStateRequest clusterStateRequest =
-				Requests.clusterStateRequest().filterRoutingTable(true)
-						.filterNodes(true).filteredIndices(indexName);
-		return client.admin().cluster().state(clusterStateRequest).actionGet()
-				.getState().getMetaData().aliases().keySet();
+				Requests.clusterStateRequest().nodes(true).indices(indexName);
+		return Sets.newHashSet(client.admin().cluster().state(clusterStateRequest)
+				.actionGet().getState().getMetaData().aliases().keysIt());
 	}
 
 	private static void addIndexRequest(final String meta,

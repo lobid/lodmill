@@ -1,4 +1,4 @@
-/* Copyright 2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2013-2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
@@ -58,25 +58,23 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		final String string = readResults().toString();
 		System.err.println("Collection output:\n" + string);
 		assertEquals(
-				" http://lobid.org/organisation/ACRPP,http://lobid.org/organisation/AAAAA\n"
+				" http://lobid.org/organisation/AAAAA,http://lobid.org/organisation/ACRPP\n"
 						+ " http://lobid.org/organisation/ACRPP\n"
 						+ "http://d-nb.info/gnd/129262110 http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/fundertype#n08 http://lobid.org/organisation/ACRPP\n"
 						+ "http://purl.org/lobid/stocksize#n06 http://lobid.org/organisation/ACRPP\n",
 				string.replaceAll("_:[^\\s]+", ""));
-		writeZippedMapFile(job.getConfiguration());
+		writeMapFile(job.getConfiguration());
 	}
 
-	private void writeZippedMapFile(final Configuration conf) throws IOException {
+	private void writeMapFile(final Configuration conf) throws IOException {
 		long time = System.currentTimeMillis();
 		final Path[] outputFiles =
 				FileUtil.stat2Paths(getFileSystem().listStatus(new Path(HDFS_OUT),
 						new Utils.OutputFileUtils.OutputFilesFilter()));
-		final Path zipOutputLocation =
-				new Path(HDFS_OUT + "/" + conf.get("map.file.name") + ".zip");
-		CollectSubjects.asZippedMapFile(hdfs, outputFiles[0], zipOutputLocation,
-				conf);
-		final FileStatus fileStatus = hdfs.getFileStatus(zipOutputLocation);
+		final Path mapFilePath = new Path(conf.get("map.file.name"));
+		CollectSubjects.asMapFile(hdfs, outputFiles[0], mapFilePath);
+		final FileStatus fileStatus = hdfs.getFileStatus(mapFilePath);
 		assertTrue(fileStatus.getModificationTime() >= time);
 	}
 
@@ -85,7 +83,7 @@ public class IntegrationTestCollectSubjects extends ClusterMapReduceTestCase {
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
 		conf.setStrings("map.file.name", CollectSubjects.mapFileName("testing"));
-		final Job job = new Job(conf);
+		final Job job = Job.getInstance(conf);
 		job.setJobName("CollectSubjects");
 		FileInputFormat.addInputPaths(job, HDFS_IN_1 + "," + HDFS_IN_2);
 		FileOutputFormat.setOutputPath(job, new Path(HDFS_OUT));

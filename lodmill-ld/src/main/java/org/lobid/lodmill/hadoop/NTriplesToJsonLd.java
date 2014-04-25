@@ -1,23 +1,17 @@
-/* Copyright 2012-2013 Fabian Steeg. Licensed under the Eclipse Public License 1.0 */
+/* Copyright 2012-2014 Fabian Steeg, hbz. Licensed under the Eclipse Public License 1.0 */
 
 package org.lobid.lodmill.hadoop;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.filecache.DistributedCache;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IOUtils;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapFile;
 import org.apache.hadoop.io.MapFile.Reader;
@@ -79,8 +73,16 @@ public class NTriplesToJsonLd implements Tool {
 							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix>");
 			System.exit(-1);
 		}
-		createJobConfig(args);
-		final Job job = new Job(conf);
+		conf = getConf();
+		final String indexName = args[3];
+		final String mapFileName = CollectSubjects.mapFileName(indexName);
+		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
+		conf.setStrings("target.subject.prefix", args[5]);
+		conf.setStrings("map.file.name", mapFileName);
+		conf.set(INDEX_NAME, indexName);
+		conf.set(INDEX_TYPE, args[4]);
+		final Job job = Job.getInstance(conf);
+		job.addCacheFile(new Path(mapFileName).toUri());
 		job.setNumReduceTasks(NODES * SLOTS);
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
@@ -92,19 +94,6 @@ public class NTriplesToJsonLd implements Tool {
 		job.setOutputValueClass(Text.class);
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 		return 0;
-	}
-
-	private void createJobConfig(String[] args) {
-		conf = getConf();
-		final String indexName = args[3];
-		final String mapFileName = CollectSubjects.mapFileName(indexName);
-		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
-		conf.setStrings("target.subject.prefix", args[5]);
-		conf.setStrings("map.file.name", mapFileName);
-		conf.set(INDEX_NAME, indexName);
-		conf.set(INDEX_TYPE, args[4]);
-		DistributedCache.addCacheFile(
-				new Path(args[1] + "/" + mapFileName + ".zip").toUri(), conf);
 	}
 
 	/**
@@ -124,36 +113,31 @@ public class NTriplesToJsonLd implements Tool {
 			super.setup(context);
 			prefix = context.getConfiguration().get(CollectSubjects.PREFIX_KEY);
 			predicates = CollectSubjects.PREDICATES;
-			final Path[] localCacheFiles =
-					DistributedCache.getLocalCacheFiles(context.getConfiguration());
-			if (localCacheFiles != null && localCacheFiles.length == 1)
-				initMapFileReader(localCacheFiles[0], context);
+			final String rawMapFile = context.getConfiguration().get("map.file.name");
+			final URI mapFile = findMapFile(context.getCacheFiles(), rawMapFile);
+			if (mapFile != null)
+				initMapFileReader(new Path(mapFile));
 			else
 				LOG.warn("No subjects cache files found!");
 		}
 
-		private void initMapFileReader(final Path zipFile, final Context context)
-				throws IOException, FileNotFoundException {
-			unzip(zipFile.toString(), context.getConfiguration().get("map.file.name"));
-			reader =
-					new MapFile.Reader(CollectSubjects.getFileSystem(context
-							.getConfiguration()), context.getConfiguration().get(
-							"map.file.name"), CollectSubjects.MAP_FILE_CONFIG);
+		private static URI findMapFile(final URI[] localCacheFiles,
+				final String rawMapFileName) {
+			if (localCacheFiles == null || rawMapFileName == null)
+				return null;
+			for (URI uri : localCacheFiles)
+				if (uri.toString().contains(rawMapFileName))
+					return uri;
+			return null;
 		}
 
-		private static void unzip(final String zipFile, final String outputFolder)
-				throws FileNotFoundException, IOException {
-			new File(outputFolder).mkdir();
-			try (final ZipInputStream zis =
-					new ZipInputStream(new FileInputStream(zipFile))) {
-				for (ZipEntry ze; (ze = zis.getNextEntry()) != null; zis.closeEntry()) {
-					final File newFile = new File(outputFolder, ze.getName());
-					LOG.info("Unzipping to: " + newFile.getAbsoluteFile());
-					try (final FileOutputStream fos = new FileOutputStream(newFile)) {
-						IOUtils.copyBytes(zis, fos, 1024);
-					}
-				}
-			}
+		private void initMapFileReader(final Path mapFilePath) throws IOException,
+				FileNotFoundException {
+			LOG.info("Reading map file from: " + mapFilePath);
+			reader = new MapFile.Reader(mapFilePath, CollectSubjects.MAP_FILE_CONFIG);
+			if (reader == null)
+				throw new IllegalStateException(String.format(
+						"Could not load map file data from %s", mapFilePath));
 		}
 
 		@Override
@@ -241,10 +225,8 @@ public class NTriplesToJsonLd implements Tool {
 					validate(triple);
 					builder.append(triple).append(NEWLINE);
 				} catch (Exception e) {
-					System.err.println(String.format(
-							"Could not read triple '%s': %s, skipping", triple,
-							e.getMessage()));
-					e.printStackTrace();
+					LOG.error(String.format("Could not read triple '%s': %s, skipping",
+							triple, e.getMessage()), e);
 				}
 			}
 			return builder.toString();
