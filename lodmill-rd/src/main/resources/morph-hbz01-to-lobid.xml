@@ -2,9 +2,11 @@
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1">
 	<!-- MAB2 to RDF - a mapping of the hbz01 catalog to lobid-resources -->
+	<!-- beware: the sequence of the rules are semantically important! Don't change the order. -->
 	<vars>
 		<var name="ns-lobid-resource" value="http://lobid.org/resource/"/>
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
+		<var name="ns-zdb-services" value="http://ld.zdb-services.de/resource/"/>
 	</vars>
 	<rules>
 		<!-- ####################### -->
@@ -12,12 +14,21 @@
 		<!-- ####################### -->
 		<data source="001-[-1].a" name="@id"/>
 		<!-- prefer the ZDB id -->
-		<data source="025z[-1].a" name="@idzdb">
-			<regexp match="(.*)" format="ZDB${1}"/>
+		<data source="025z[-1].a" name="@idzdbInternal">
+			<regexp match="(.*)" format="${1}"/>
 		</data>
 		<!-- ####################### -->
 		<!-- ####### hbz ID sameAs ZDB ID -->
 		<!-- ####################### -->
+		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-zdb-services]${idzdb}">
+			<data source="@id"/>
+			<data source="@idzdbInternal" name="idzdb">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
+		<data source="@idzdbInternal" name="@idzdb">
+			<regexp match="(.*)" format="ZDB${1}"/>
+		</data>
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="${idzdb}">
 			<data source="@id"/>
 			<data source="@idzdb" name="idzdb">
@@ -195,10 +206,10 @@
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/>
 		</data>
 		<data source="025z[-1].a" name="http://www.w3.org/2002/07/owl#sameAs">
-			<regexp match="(.*)" format="http://ld.zdb-services.de/resource/${1}"/>
+			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
 		<data source="025z[2].a" name="http://purl.org/dc/terms/isPartOf">
-			<regexp match="(.*)" format="http://ld.zdb-services.de/resource/${1}"/>
+			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
 		<data source="025z[2].a" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]ZDB${1}"/>
@@ -895,7 +906,7 @@
 		</data>
 		<!--s. #333 <data source="599[abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf" /> -->
 		<data source="599s[-1].a" name="http://purl.org/dc/terms/isPartOf">
-			<regexp match="(.*)" format="http://ld.zdb-services.de/resource/${1}"/>
+			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/bibliographicCitation" value="${biblioConcat}"
 			sameEntity="true">
