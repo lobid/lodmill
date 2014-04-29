@@ -15,6 +15,11 @@ GET     /images/*file               controllers.Assets.at(path="/public/images",
 # Map JSON-LD context documents from the /public/contexts folder to the /contect URL path
 GET     /context/:file              controllers.Assets.at(path="/public/contexts", file)
 
+# Datasets
+GET     /resource/RPB               controllers.Dataset.resource(id="http://lobid.org/resource/RPB", format ?= "negotiate")
+GET     /resource/RPB/about         controllers.Dataset.resourceAbout(id="http://lobid.org/resource/RPB", format ?= "negotiate")
+
+
 # Individual, specialized API routes for different resource types
 GET     /resource                   controllers.Api.resource(id ?= "", q ?= "", name ?= "", author ?= "", subject ?= "", set ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, owner ?= "", t ?= "")
 GET     /item                       controllers.Api.item(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, t ?= "")
