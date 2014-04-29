@@ -9,13 +9,11 @@ object ApplicationBuild extends Build {
     
     val appDependencies = Seq(
       javaCore,
+      cache,
       "org.elasticsearch" % "elasticsearch" % "1.1.0" withSources(),
       "org.lobid" % "lodmill-ld" % "1.7.0",
       "org.scalatest" %% "scalatest" % "1.9.1" % "test"
     )
-
-    val nwbib = play.Project("nwbib", path = file("modules/nwbib"))
-    val oer = play.Project("oer-api", path = file("modules/oerworldmap/oer-api"))
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
       parallelExecution in Test := false,
