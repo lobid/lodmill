@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<property>
+		<name>yarn.resourcemanager.hostname</name>
+		<value>weywot1.hbz-nrw.de</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.aux-services</name>
+		<value>mapreduce_shuffle</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.resource.memory-mb</name>
+		<value>6144</value>
+	</property>
+	<property>
+		<name>yarn.scheduler.maximum-allocation-mb</name>
+		<value>6144</value>
+	</property>
+	<property>
+		<name>yarn.scheduler.minimum-allocation-mb</name>
+		<value>3072</value>
+	</property>
+	<property>
+		<name>yarn.nodemanager.resource.cpu-vcores</name>
+		<value>8</value>
+	</property>
+	<property>
+		<name>yarn.app.mapreduce.am.resource.mb</name>
+		<value>6144</value>
+	</property>
+	<property>
+		<name>yarn.app.mapreduce.am.command-opts</name>
+		<value>-Xmx6g</value>
+	</property>
+</configuration>

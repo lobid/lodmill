@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metamorph xmlns="http://www.culturegraph.org/metamorph" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1">
+<metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="1">
 	<rules>
 		<!-- General attributes for each record: -->
 		<data source="008H.e" name="~rdf:subject">
@@ -15,9 +15,8 @@
 			<regexp match="(.*)"
 				format="http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&amp;IKT=8529&amp;TRM=${1}"/>
 		</data>
-				<data source="008H.e" name="http://www.w3.org/2002/07/owl#sameAs">
-			<regexp match="(.*)"
-				format="http://ld.zdb-services.de/resource/organisations/${1}"/>
+		<data source="008H.e" name="http://www.w3.org/2002/07/owl#sameAs">
+			<regexp match="(.*)" format="http://ld.zdb-services.de/resource/organisations/${1}"/>
 		</data>
 		<data source="008H.e" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://xmlns.com/foaf/0.1/Organization"/>
@@ -60,6 +59,7 @@
 				<regexp match="B" format=""/>
 			</data>
 		</combine>
+		<data source="029@.a" name="http://www.w3.org/2004/02/skos/core#altLabel"/>
 		<data source="029A.a" name="http://xmlns.com/foaf/0.1/name">
 			<!-- sanitize entries like "Ruhr-Universita\u0308t Bochum,\n\t\t\t\t\tUniversita\u0308tsbibliothek" -->
 			<replace pattern="\t|\n|\(\s\)\s+" with=""/>

@@ -6,7 +6,7 @@ property_var="/harvest/metadata/*[local-name() = 'record']/*[local-name() = 'glo
 //entityname_var="record";
 //property_var="/collection/*[local-name() = 'record']/*[local-name() = 'global']/*[local-name() = 'tag'][@id='008H']/*[local-name() = 'subf'][@id='e']";
 
-files+"Bibdat1303pp_sample1.xml" |
+files+"../../test/resources/Bibdat1303pp_sample1.xml" |
 open-file |
 decode-xml |
 xml-tee | {

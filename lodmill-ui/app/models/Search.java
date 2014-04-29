@@ -209,7 +209,7 @@ public class Search {
 				client.prepareSearch(index.id())
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 						.setQuery(queryBuilder)
-						.setFilter(FilterBuilders.typeFilter(index.type()));
+						.setPostFilter(FilterBuilders.typeFilter(index.type()));
 		final SearchResponse response =
 				requestBuilder.setFrom(from).setSize(size).setExplain(false).execute()
 						.actionGet();

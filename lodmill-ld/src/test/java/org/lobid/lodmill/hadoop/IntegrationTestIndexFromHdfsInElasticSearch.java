@@ -108,7 +108,7 @@ public class IntegrationTestIndexFromHdfsInElasticSearch extends
 	@Override
 	@After
 	public void tearDown() {
-		client.admin().indices().prepareDelete().execute().actionGet();
+		client.admin().indices().prepareDelete("_all").execute().actionGet();
 		node.close();
 		try {
 			hdfs.close();

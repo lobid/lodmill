@@ -173,6 +173,36 @@
           "search_analyzer":"id_analyzer"
         }
       }
+    },
+    "json-ld-nwbib":{
+      "date_detection":false,
+      "properties":{
+        "@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.@id":{
+          "type":"string",
+          "index_analyzer":"id_analyzer",
+          "search_analyzer":"id_analyzer"
+        }
+      }
+    },
+    "json-ld-nwbib-spatial":{
+      "date_detection":false,
+      "properties":{
+        "@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value":{
+          "type":"string",
+          "index_analyzer":"ngram_analyzer",
+          "search_analyzer":"standard"
+        },
+        "@graph.@id":{
+          "type":"string",
+          "index_analyzer":"id_analyzer",
+          "search_analyzer":"id_analyzer"
+        }
+      }
     }
   }
 }

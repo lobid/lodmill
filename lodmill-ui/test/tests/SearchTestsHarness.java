@@ -63,7 +63,7 @@ public class SearchTestsHarness {
 	public static void setup() throws IOException {
 		node = nodeBuilder().local(true).node();
 		client = node.client();
-		client.admin().indices().prepareDelete().execute().actionGet();
+		client.admin().indices().prepareDelete("_all").execute().actionGet();
 		client.admin().cluster().prepareHealth().setWaitForYellowStatus().execute()
 				.actionGet();
 		File sampleData = new File(TEST_DATA);

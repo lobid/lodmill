@@ -19,6 +19,8 @@
                   <http://www.w3.org/2003/01/geo/wgs84_pos#long>
                           "12.338694"
                 ] ;
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+                "Tirschenreuth Stadtarchiv" ;
         <http://www.w3.org/2006/vcard/ns#adr>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
                   <http://www.w3.org/2006/vcard/ns#country-name>
@@ -70,6 +72,8 @@
                   <http://www.w3.org/2003/01/geo/wgs84_pos#long>
                           "12.338694"
                 ] ;
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+                "Stuttgart-H. TeilSt PflBau" ;
         <http://www.w3.org/2006/vcard/ns#adr>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
                   <http://www.w3.org/2006/vcard/ns#country-name>
@@ -125,6 +129,8 @@
                   <http://www.w3.org/2003/01/geo/wgs84_pos#long>
                           "13.2883886"
                 ] ;
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+                "Berlin UBFU Sem Kath. Theol." ;
         <http://www.w3.org/2006/vcard/ns#adr>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
                   <http://www.w3.org/2006/vcard/ns#country-name>
@@ -178,6 +184,8 @@
                   <http://www.w3.org/2003/01/geo/wgs84_pos#long>
                           "9.9359323933643"
                 ] ;
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+                "Göttingen Inst. Sportwiss." ;
         <http://www.w3.org/2006/vcard/ns#adr>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
                   <http://www.w3.org/2006/vcard/ns#country-name>
@@ -255,6 +263,8 @@
                   <http://www.w3.org/2003/01/geo/wgs84_pos#long>
                           "13.37063"
                 ] ;
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+                "SBB-PK, Potsdamer Straße" , "Berlin SBB Haus Potsdamer Str" ;
         <http://www.w3.org/2006/vcard/ns#adr>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
                   <http://www.w3.org/2006/vcard/ns#country-name>
@@ -321,6 +331,8 @@
                   <http://www.w3.org/2003/01/geo/wgs84_pos#long>
                           "7.2605524"
                 ] ;
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+                "Bochum UB" ;
         <http://www.w3.org/2006/vcard/ns#adr>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
                   <http://www.w3.org/2006/vcard/ns#country-name>
