@@ -4,12 +4,7 @@ package controllers;
 
 import models.Search;
 
-import org.elasticsearch.action.search.SearchRequestBuilder;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.action.search.SearchType;
-import org.elasticsearch.index.query.MatchQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.action.get.GetResponse;
 
 import play.Logger;
 import play.libs.Json;
@@ -44,7 +39,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutRPB(final String id, final String format) {
-		return resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
+		return getId(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
 	/**
@@ -60,7 +55,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutNWBib(final String id, final String format) {
-		return resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
+		return getId(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
 	/**
@@ -76,7 +71,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutEdoweb(final String id, final String format) {
-		return resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
+		return getId(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
 	/**
@@ -86,30 +81,19 @@ public final class Dataset extends Controller {
 	 * @param indexType the type of the index to be used
 	 */
 	@SuppressWarnings("javadoc")
-	public static Result resourceAbout(final String id, final String format,
+	public static Result getId(final String id, final String format,
 			final String dataIndex, final String indexType) {
 		try {
-			MatchQueryBuilder query = QueryBuilders.matchQuery("_id", id);
-			SearchResponse response = search(dataIndex, query, indexType);
-			boolean found = response.getHits().getTotalHits() > 0;
-			return !found ? notFound() : ok(Json.parse("["
-					+ response.getHits().getAt(0).getSourceAsString() + "]"));
+			Logger.debug("Request:\n" + id);
+			GetResponse response =
+					Search.client.prepareGet(dataIndex, indexType, id).execute()
+							.actionGet();
+			Logger.debug("Response:\n" + response.getSourceAsString());
+			return !response.isExists() ? notFound() : ok(Json.parse(response
+					.getSourceAsString()));
 		} catch (Exception x) {
 			x.printStackTrace();
 			return internalServerError(x.getMessage());
 		}
-	}
-
-	private static SearchResponse search(String index, QueryBuilder queryBuilder,
-			String type) {
-		SearchRequestBuilder requestBuilder =
-				Search.client.prepareSearch(index)
-						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
-						.setQuery(queryBuilder).setTypes(type);
-		Logger.debug("Request:\n" + requestBuilder);
-		SearchResponse response =
-				requestBuilder.setExplain(false).execute().actionGet();
-		Logger.debug("Response:\n" + response);
-		return response;
 	}
 }

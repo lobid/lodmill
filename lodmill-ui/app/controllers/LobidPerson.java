@@ -33,7 +33,7 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result apAbout(final String id, final String format) {
-		return Dataset.resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
+		return Dataset.getId(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
 	/**
@@ -49,7 +49,7 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result fsAbout(final String id, final String format) {
-		return Dataset.resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
+		return Dataset.getId(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
 	/**
@@ -65,6 +65,6 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result pcAbout(final String id, final String format) {
-		return Dataset.resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
+		return Dataset.getId(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 }
