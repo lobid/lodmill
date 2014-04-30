@@ -50,7 +50,8 @@ public class Search {
 	private static Client productionClient = new TransportClient(
 			ImmutableSettings.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME)
 					.build()).addTransportAddress(ES_SERVER);
-	private static Client client = productionClient;
+	/** The ElasticSearch client to use. */
+	public static Client client = productionClient;
 
 	/** Required: */
 	private String term;
