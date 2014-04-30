@@ -16,8 +16,12 @@ GET     /images/*file               controllers.Assets.at(path="/public/images",
 GET     /context/:file              controllers.Assets.at(path="/public/contexts", file)
 
 # Datasets
-GET     /resource/RPB               controllers.Dataset.resource(id="http://lobid.org/resource/RPB", format ?= "negotiate")
-GET     /resource/RPB/about         controllers.Dataset.resourceAbout(id="http://lobid.org/resource/RPB", format ?= "negotiate")
+GET     /resource/RPB               controllers.Dataset.resourceRPB(format ?= "negotiate")
+GET     /resource/RPB/about         controllers.Dataset.resourceAboutRPB(id = "http://lobid.org/resource/RPB", format ?= "negotiate")
+GET     /resource/NWBib             controllers.Dataset.resourceNWBib(format ?= "negotiate")
+GET     /resource/NWBib/about       controllers.Dataset.resourceAboutNWBib(id = "http://lobid.org/resource/NWBib", format ?= "negotiate")
+GET     /resource/Edoweb            controllers.Dataset.resourceEdoweb(format ?= "negotiate")
+GET     /resource/Edoweb/about      controllers.Dataset.resourceAboutEdoweb(id ="http://lobid.org/resource/Edoweb", format ?= "negotiate")
 
 
 # Individual, specialized API routes for different resource types
