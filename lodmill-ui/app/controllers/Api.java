@@ -2,16 +2,18 @@
 
 package controllers;
 
+import java.util.List;
 import java.util.Map;
 
 import models.Index;
 import models.Parameter;
 import play.Logger;
-import play.core.j.JavaResultExtractor;
+import play.libs.F.Function;
+import play.libs.F.Promise;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import play.mvc.SimpleResult;
+import play.test.Helpers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -42,7 +44,7 @@ public final class Api extends Controller {
 	 * @param type The type of the requested resources
 	 * @return Matching resources
 	 */
-	public static Result resource(
+	public static Promise<Result> resource(
 			final String id,
 			final String q,
 			final String name, // NOPMD
@@ -77,7 +79,8 @@ public final class Api extends Controller {
 	 * @param type The type of the requested items
 	 * @return Matching items
 	 */
-	public static Result item(final String id, final String q, final String name, // NOPMD
+	public static Promise<Result> item(final String id, final String q,
+			final String name, // NOPMD
 			final String format, final int from, final int size, final String type) {
 		Logger.debug(String.format("GET /item; id: '%s', q: '%s', name: '%s'", id,
 				q, name));
@@ -94,7 +97,7 @@ public final class Api extends Controller {
 	 * @param type The type of the requested organisations
 	 * @return Matching organisations
 	 */
-	public static Result organisation(final String id, final String q,
+	public static Promise<Result> organisation(final String id, final String q,
 			final String name, // NOPMD
 			final String format, final int from, final int size, final String type) {
 		Logger.debug(String.format(
@@ -113,7 +116,7 @@ public final class Api extends Controller {
 	 * @param type The type of the requested persons
 	 * @return Matching persons
 	 */
-	public static Result person(final String id, final String q,
+	public static Promise<Result> person(final String id, final String q,
 			final String name, // NOPMD
 			final String format, final int from, final int size, final String type) {
 		Logger.debug(String.format("GET /person; id: '%s', q: '%s', name: '%s'",
@@ -131,7 +134,7 @@ public final class Api extends Controller {
 	 * @param type The type of the requested subjects
 	 * @return Matching subjects
 	 */
-	public static Result subject(final String id, final String q,
+	public static Promise<Result> subject(final String id, final String q,
 			final String name, // NOPMD
 			final String format, final int from, final int size, final String type) {
 		Logger.debug(String.format("GET /subject; id: '%s', q: '%s', name: '%s'",
@@ -145,7 +148,7 @@ public final class Api extends Controller {
 				parameter.getValue(), format, from, size, "", "", type);
 	}
 
-	private static Result search(final String id, final String q,
+	private static Promise<Result> search(final String id, final String q,
 			final String name, final String format, final int from, final int size,
 			final Index index, final String type) {
 		final Map.Entry<Parameter, String> parameter =/*@formatter:off*/
@@ -166,7 +169,8 @@ public final class Api extends Controller {
 	 * @param size The size of the result set
 	 * @return Matching entities, combined in a JSON map
 	 */
-	public static Result search(final String id, final String q,
+	@SuppressWarnings("unchecked")
+	public static Promise<Result> search(final String id, final String q,
 			final String name, // NOPMD
 			final String format, final int from, final int size) {
 		Logger.debug(String.format("GET /search; id: '%s', q: '%s', name: '%s'",
@@ -174,29 +178,39 @@ public final class Api extends Controller {
 		if (format.equals("page")) { // NOPMD
 			final String message = "Result format 'page' not supported for /entity";
 			Logger.error(message);
-			return badRequest(message);
+			return Application.badRequestPromise(message);
 		}
-		final ObjectNode json = Json.newObject();
-		putIfOk(json, "resource",
-				resource(id, q, name, "", "", "", format, from, size, "", ""));
-		putIfOk(json, "organisation",
-				organisation(id, q, name, format, from, size, ""));
-		putIfOk(json, "person", person(id, q, name, format, from, size, ""));
-		putIfOk(json, "subject", subject(id, q, name, format, from, size, ""));
-		Logger.trace("JSON response: " + json);
-		return ok(json);
+		Promise<List<Result>> results =
+				Promise.sequence(
+						resource(id, q, name, "", "", "", format, from, size, "", ""),
+						organisation(id, q, name, format, from, size, ""),
+						person(id, q, name, format, from, size, ""),
+						subject(id, q, name, format, from, size, ""));
+		return results.map(okJson());
+	}
+
+	private static Function<List<Result>, Result> okJson() {
+		return new Function<List<Result>, Result>() {
+			@Override
+			public Result apply(List<Result> results) {
+				final ObjectNode json = Json.newObject();
+				putIfOk(json, "resource", results.get(0));
+				putIfOk(json, "organisation", results.get(1));
+				putIfOk(json, "person", results.get(2));
+				putIfOk(json, "subject", results.get(3));
+				Logger.trace("JSON response: " + json);
+				return ok(json);
+			}
+		};
 	}
 
 	private static void putIfOk(final ObjectNode json, final String key,
 			final Result result) {
-		/* TODO: there's got to be a better way, without casting */
-		if (((SimpleResult) result).getWrappedSimpleResult().header().status() == OK) {
+		if (Helpers.status(result) == OK)
 			json.put(key, json(result));
-		}
 	}
 
-	private static JsonNode json(final Result resources) {
-		return Json.parse(new String(JavaResultExtractor
-				.getBody((SimpleResult) resources)));
+	private static JsonNode json(final Result result) {
+		return Json.parse(Helpers.contentAsString(result));
 	}
 }

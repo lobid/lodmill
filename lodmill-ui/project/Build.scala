@@ -10,6 +10,7 @@ object ApplicationBuild extends Build {
     val appDependencies = Seq(
       javaCore,
       cache,
+      "com.typesafe.play" % "play-test_2.10" % "2.2.1",
       "org.elasticsearch" % "elasticsearch" % "1.1.0" withSources(),
       "org.lobid" % "lodmill-ld" % "1.7.0",
       "org.scalatest" %% "scalatest" % "1.9.1" % "test"
