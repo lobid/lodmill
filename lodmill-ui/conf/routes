@@ -24,6 +24,15 @@ GET     /resource/Edoweb            controllers.Dataset.resourceEdoweb(format ?=
 GET     /resource/Edoweb/about      controllers.Dataset.resourceAboutEdoweb(id ="http://lobid.org/resource/Edoweb", format ?= "negotiate")
 
 
+# Lobid persons
+GET     /person/ap               controllers.LobidPerson.ap(format ?= "negotiate")
+GET     /person/ap/about         controllers.LobidPerson.apAbout(id = "http://lobid.org/person/ap", format ?= "negotiate")
+GET     /person/fs               controllers.LobidPerson.fs(format ?= "negotiate")
+GET     /person/fs/about         controllers.LobidPerson.fsAbout(id = "http://lobid.org/person/fs", format ?= "negotiate")
+GET     /person/pc               controllers.LobidPerson.pc(format ?= "negotiate")
+GET     /person/pc/about         controllers.LobidPerson.pcAbout(id = "http://lobid.org/person/pc", format ?= "negotiate")
+
+
 # Individual, specialized API routes for different resource types
 GET     /resource                   controllers.Api.resource(id ?= "", q ?= "", name ?= "", author ?= "", subject ?= "", set ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, owner ?= "", t ?= "")
 GET     /item                       controllers.Api.item(id ?= "", q ?= "", name ?= "", format ?= "negotiate", from: Int ?= 0, size: Int ?= 50, t ?= "")

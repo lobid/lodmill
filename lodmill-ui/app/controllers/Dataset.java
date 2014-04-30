@@ -25,7 +25,7 @@ public final class Dataset extends Controller {
 	// TODO don't hardwire index name to switch easily between staging and
 	// production
 	static final String DATA_INDEX = "lobid-provenance";
-	static final String DATA_TYPE = "json-ld-lobid-provenance";
+	static final String INDEX_TYPE = "json-ld-lobid-provenance";
 
 	private Dataset() {
 		/* No instantiation */
@@ -44,7 +44,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutRPB(final String id, final String format) {
-		return resourceAbout(id, format);
+		return resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
 	/**
@@ -60,7 +60,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutNWBib(final String id, final String format) {
-		return resourceAbout(id, format);
+		return resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
 	/**
@@ -76,15 +76,21 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutEdoweb(final String id, final String format) {
-		return resourceAbout(id, format);
+		return resourceAbout(id, format, DATA_INDEX, INDEX_TYPE);
 	}
 
-	// TODO : format, content negotiation
+	/**
+	 * @param id the id to look up
+	 * @param format TODO : format, content negotiation
+	 * @param dataIndex the index to be used
+	 * @param indexType the type of the index to be used
+	 */
 	@SuppressWarnings("javadoc")
-	private static Result resourceAbout(final String id, final String format) {
+	public static Result resourceAbout(final String id, final String format,
+			final String dataIndex, final String indexType) {
 		try {
 			MatchQueryBuilder query = QueryBuilders.matchQuery("_id", id);
-			SearchResponse response = search(DATA_INDEX, query, DATA_TYPE);
+			SearchResponse response = search(dataIndex, query, indexType);
 			boolean found = response.getHits().getTotalHits() > 0;
 			return !found ? notFound() : ok(Json.parse("["
 					+ response.getHits().getAt(0).getSourceAsString() + "]"));
