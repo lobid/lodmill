@@ -26,6 +26,8 @@ import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 
 import play.Logger;
+import play.Play;
+import play.cache.Cache;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
@@ -50,7 +52,8 @@ public class Search {
 	private static Client productionClient = new TransportClient(
 			ImmutableSettings.settingsBuilder().put("cluster.name", ES_CLUSTER_NAME)
 					.build()).addTransportAddress(ES_SERVER);
-	private static Client client = productionClient;
+	/** The ElasticSearch client to use. */
+	public static Client client = productionClient;
 
 	/** Required: */
 	private String term;
@@ -95,6 +98,15 @@ public class Search {
 	 */
 	public List<Document> documents() {
 		validateSearchParameters();
+		String cacheId = String.format("%s.%s.%s.%s.%s.%s.%s.%s.%s", //
+				term, index, parameter, field, owner, set, size, from, type);
+		if (play.api.Play.maybeApplication().isDefined() && !Play.isTest()) {
+			List<Document> cachedResult = (List<Document>) Cache.get(cacheId);
+			if (cachedResult != null)
+				return cachedResult;
+		}
+		Logger.debug(String.format("Not cached: %s, will cache for one hour",
+				cacheId));
 		final AbstractIndexQuery indexQuery = index.queries().get(parameter);
 		final QueryBuilder queryBuilder = createQuery(indexQuery);
 		Logger.debug("Using query: " + queryBuilder);
@@ -104,6 +116,9 @@ public class Search {
 		final List<Document> documents = asDocuments(hits, indexQuery.fields());
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
 				hits.hits().length, documents.size()));
+		if (play.api.Play.maybeApplication().isDefined() && !Play.isTest()) {
+			Cache.set(cacheId, documents, 60 * 60);
+		}
 		return documents;
 	}
 

@@ -2,6 +2,7 @@
 
 package controllers;
 
+import play.libs.F.Promise;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -31,8 +32,8 @@ public final class Path extends Controller {
 	 * {@link Api#resource(String, String, String, String, String, String, int, int)}
 	 */
 	@SuppressWarnings("javadoc")
-	public static Result resourceAbout(final String id, final String format,
-			final int from, final int size) {
+	public static Promise<Result> resourceAbout(final String id,
+			final String format, final int from, final int size) {
 		return Api.resource(id, "", "", "", "", "", format, from, size, "", "");
 	}
 
@@ -45,7 +46,7 @@ public final class Path extends Controller {
 
 	/** Return {@link Api#item(String, String, String, int, int)} */
 	@SuppressWarnings("javadoc")
-	public static Result itemAbout(final String id, final String format,
+	public static Promise<Result> itemAbout(final String id, final String format,
 			final int from, final int size) {
 		return Api.item(id, "", "", format, from, size, "");
 	}
@@ -61,8 +62,8 @@ public final class Path extends Controller {
 
 	/** Return {@link Api#organisation(String, String, String, int, int)} */
 	@SuppressWarnings("javadoc")
-	public static Result organisationAbout(final String id, final String format,
-			final int from, final int size) {
+	public static Promise<Result> organisationAbout(final String id,
+			final String format, final int from, final int size) {
 		return Api.organisation(id, "", "", format, from, size, "");
 	}
 
@@ -75,8 +76,8 @@ public final class Path extends Controller {
 
 	/** Return {@link Api#person(String, String, String, int, int)} */
 	@SuppressWarnings("javadoc")
-	public static Result personAbout(final String id, final String format,
-			final int from, final int size) {
+	public static Promise<Result> personAbout(final String id,
+			final String format, final int from, final int size) {
 		return Api.person(id, "", "", format, from, size, "");
 	}
 }
