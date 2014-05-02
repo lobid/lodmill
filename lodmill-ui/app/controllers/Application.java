@@ -17,6 +17,9 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import play.Logger;
 import play.api.http.MediaRange;
+import play.api.templates.Html;
+import play.libs.F;
+import play.libs.F.Promise;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -47,29 +50,29 @@ public final class Application extends Controller {
 	/**
 	 * @return The main page.
 	 */
-	public static Result index() {
-		return ok(views.html.index.render());
+	public static Promise<Result> index() {
+		return okPromise(views.html.index.render());
 	}
 
 	/**
 	 * @return The API page.
 	 */
-	public static Result api() {
-		return ok(views.html.api.render());
+	public static Promise<Result> api() {
+		return okPromise(views.html.api.render());
 	}
 
 	/**
 	 * @return The main page.
 	 */
-	public static Result contact() {
-		return ok(views.html.contact.render());
+	public static Promise<Result> contact() {
+		return okPromise(views.html.contact.render());
 	}
 
 	/**
 	 * @return The main page.
 	 */
-	public static Result about() {
-		return ok(views.html.about.render());
+	public static Promise<Result> about() {
+		return okPromise(views.html.about.render());
 	}
 
 	/**
@@ -87,32 +90,67 @@ public final class Application extends Controller {
 	 * @param type The type of the requestes resources
 	 * @return The results, in the format specified
 	 */
-	static Result search(final Index index, final Parameter parameter,
+	static Promise<Result> search(final Index index, final Parameter parameter,
 			final String queryParameter, final String formatParameter,
 			final int from, final int size, final String owner, final String set,
 			final String type) {
 		List<Document> docs = new ArrayList<>();
-		Pair<String, String> fieldAndFormat;
 		try {
-			fieldAndFormat = getFieldAndFormat(formatParameter);
 			docs =
 					new Search(queryParameter, index, parameter).page(from, size)
-							.field(fieldAndFormat.getLeft()).owner(owner).set(set).type(type)
-							.documents();
+							.field(getFieldAndFormat(formatParameter).getLeft()).owner(owner)
+							.set(set).type(type).documents();
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
-			return badRequest(e.getMessage());
+			return badRequestPromise(e.getMessage());
 		}
-		final ImmutableMap<ResultFormat, Result> results =
-				results(queryParameter, docs, index, fieldAndFormat.getLeft());
+		final Promise<ImmutableMap<ResultFormat, Result>> resultPromise =
+				resultsPromise(queryParameter, docs, index,
+						getFieldAndFormat(formatParameter).getLeft());
 		try {
-			return results.get(ResultFormat.valueOf(fieldAndFormat.getRight()
-					.toUpperCase()));
+			return resultPromise
+					.map(new F.Function<ImmutableMap<ResultFormat, Result>, Result>() {
+						@Override
+						public Result apply(ImmutableMap<ResultFormat, Result> results) {
+							return results.get(ResultFormat.valueOf(getFieldAndFormat(
+									formatParameter).getRight().toUpperCase()));
+						}
+					});
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
-			return badRequest("Invalid 'format' parameter, use one of: "
-					+ Joiner.on(", ").join(results.keySet()).toLowerCase());
+			return badRequestPromise("Invalid 'format' parameter, use one of: "
+					+ Joiner.on(", ").join(ResultFormat.values()).toLowerCase());
 		}
+	}
+
+	private static Promise<ImmutableMap<ResultFormat, Result>> resultsPromise(
+			final String queryParameter, final List<Document> docs,
+			final Index index, final String field) {
+		return Promise
+				.promise(new F.Function0<ImmutableMap<ResultFormat, Result>>() {
+					@Override
+					public ImmutableMap<ResultFormat, Result> apply() {
+						return results(queryParameter, docs, index, field);
+					}
+				});
+	}
+
+	static Promise<Result> badRequestPromise(final String message) {
+		return Promise.promise(new F.Function0<Result>() {
+			@Override
+			public Result apply() {
+				return badRequest(message);
+			}
+		});
+	}
+
+	static Promise<Result> okPromise(final Html html) {
+		return Promise.promise(new F.Function0<Result>() {
+			@Override
+			public Result apply() {
+				return ok(html);
+			}
+		});
 	}
 
 	private static Pair<String, String> getFieldAndFormat(final String format) {
