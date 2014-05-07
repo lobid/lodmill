@@ -17,6 +17,9 @@ import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Test;
 
 /**
+ * Test gnd rdf xml transformation using gnd ontology to enrich the RDF with
+ * simple RDFS by applying a reasoner to inference data.
+ * 
  * @author Pascal Christoph (dr0i)
  * 
  */
@@ -24,6 +27,13 @@ import org.junit.Test;
 public class GndXmlSplitterRdfWriterTest {
 	private final String PATH = "tmp";
 
+	/**
+	 * Deliberately throws some Exceptions due to a invalid XML. Tests if the
+	 * transformation of the other input is doen nonetheless.
+	 * 
+	 * @throws IOException
+	 * @throws URISyntaxException
+	 */
 	@Test
 	public void testFlow() throws IOException, URISyntaxException {
 		final DirReader dirReader = new DirReader();
@@ -37,6 +47,10 @@ public class GndXmlSplitterRdfWriterTest {
 		final LiteralExtractor extractLiteral = new LiteralExtractor();
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("RDF/XML");
+		triple2model.setInferenceModel(Thread.currentThread()
+				.getContextClassLoader().getResource("dnbOntology.ttl").getPath());
+		triple2model
+				.setPropertyIdentifyingTheNodeForInferencing("http://d-nb.info/standards/elementset/gnd#gndIdentifier");
 		final RdfModelFileWriter writer = createWriter(PATH);
 		dirReader.setReceiver(opener);
 		opener.setReceiver(xmlDecoder).setReceiver(splitXml)
@@ -44,9 +58,15 @@ public class GndXmlSplitterRdfWriterTest {
 				.setReceiver(writer);
 		File infile =
 				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("gnd/").toURI());
+						.getResource("gnd").toURI());
 		dirReader.process(infile.getAbsolutePath());
 		assertEquals(9, (new File(PATH + "/104/")).list().length);
+		final File testFile =
+				AbstractIngestTests.concatenateGeneratedFilesIntoOneFile(PATH,
+						"gndTestOutput.nt");
+		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
+				.currentThread().getContextClassLoader().getResource("gndTest.nt")
+				.toURI()));
 		FileUtils.deleteDirectory(new File(PATH));
 	}
 
@@ -62,7 +82,7 @@ public class GndXmlSplitterRdfWriterTest {
 		return writer;
 	}
 
-	// @Test
+	@Test
 	public void testFlux() throws IOException, URISyntaxException,
 			RecognitionException {
 		File fluxFile =
