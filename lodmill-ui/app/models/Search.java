@@ -181,7 +181,7 @@ public class Search {
 
 	private QueryBuilder createQuery(final AbstractIndexQuery indexQuery) {
 		QueryBuilder queryBuilder = indexQuery.build(term);
-		if (!owner.isEmpty()) {
+		if (!owner.isEmpty() && !owner.equals("*")) {
 			final QueryBuilder itemQuery = new LobidItems.OwnerQuery().build(owner);
 			queryBuilder = boolQuery().must(queryBuilder).must(itemQuery);
 		}
@@ -220,11 +220,15 @@ public class Search {
 	}
 
 	private SearchResponse search(final QueryBuilder queryBuilder) {
-		final SearchRequestBuilder requestBuilder =
+		SearchRequestBuilder requestBuilder =
 				client.prepareSearch(index.id())
 						.setSearchType(SearchType.DFS_QUERY_THEN_FETCH)
 						.setQuery(queryBuilder)
 						.setPostFilter(FilterBuilders.typeFilter(index.type()));
+		if (owner.equals("*"))
+			requestBuilder =
+					requestBuilder.setPostFilter(FilterBuilders.existsFilter(//
+							"@graph.http://purl.org/vocab/frbr/core#exemplar.@id"));
 		final SearchResponse response =
 				requestBuilder.setFrom(from).setSize(size).setExplain(false).execute()
 						.actionGet();
