@@ -48,7 +48,7 @@ public class GndXmlSplitterRdfWriterTest {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("RDF/XML");
 		triple2model.setInferenceModel(Thread.currentThread()
-				.getContextClassLoader().getResource("dnbOntology.ttl").getPath());
+				.getContextClassLoader().getResource("gndo.ttl").getPath());
 		triple2model
 				.setPropertyIdentifyingTheNodeForInferencing("http://d-nb.info/standards/elementset/gnd#gndIdentifier");
 		final RdfModelFileWriter writer = createWriter(PATH);
