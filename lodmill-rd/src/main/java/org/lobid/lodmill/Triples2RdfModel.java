@@ -13,7 +13,7 @@ import org.culturegraph.mf.framework.annotations.Out;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.hp.hpl.jena.graph.Node;
+import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
@@ -21,6 +21,7 @@ import com.hp.hpl.jena.rdf.model.ResourceFactory;
 import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.reasoner.rulesys.RDFSRuleReasonerFactory;
 import com.hp.hpl.jena.util.FileManager;
+import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import com.hp.hpl.jena.vocabulary.ReasonerVocabulary;
 
 /**
@@ -44,7 +45,6 @@ public class Triples2RdfModel extends
 			.getLogger(Triples2RdfModel.class);
 	Reasoner boundReasoner;
 	Property propertyIdentifyingTheNodeForInferencing;
-	SubjectBoundary subjectBoundary;
 	boolean inferencing;
 
 	/**
@@ -71,7 +71,6 @@ public class Triples2RdfModel extends
 				ReasonerVocabulary.RDFS_SIMPLE);
 		boundReasoner =
 				reasoner.bindSchema(FileManager.get().loadModel(ontologyFilename));
-		subjectBoundary = new SubjectBoundary();
 		this.inferencing = true;
 	}
 
@@ -90,17 +89,26 @@ public class Triples2RdfModel extends
 	@Override
 	public void process(final String str) {
 		Model model = ModelFactory.createDefaultModel();
+		Model model1 = ModelFactory.createDefaultModel();
 		try {
 			model.read(new StringReader(str), "test:uri:" + count++, serialization);
 			if (inferencing) {
-				Node subject =
-						model
-								.listSubjectsWithProperty(
-										propertyIdentifyingTheNodeForInferencing).next().asNode();
-				subjectBoundary.setSubjectAsBoundary(subject);
-				GraphExtract ge = new GraphExtract(subjectBoundary);
-				ge.extractInto(model.getGraph(), subject,
-						ModelFactory.createInfModel(boundReasoner, model).getGraph());
+				ExtendedIterator<Triple> it =
+						ModelFactory
+								.createInfModel(boundReasoner, model)
+								.getGraph()
+								.find(
+										model
+												.listSubjectsWithProperty(
+														propertyIdentifyingTheNodeForInferencing).next()
+												.asNode(), null, null);
+				while (it.hasNext()) {
+					Triple triple = it.next().asTriple();
+					if (!triple.getObject().isBlank()) {
+						model1.add(model.asStatement(triple));
+					}
+				}
+				model.add(model1);
 			}
 			getReceiver().process(model);
 		} catch (Exception e) {
