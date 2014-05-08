@@ -164,7 +164,7 @@
       }, 
       "fulltextOnline":
       {
-         "@id": "http://lobid.org/vocab/lobid#fulltextOnline",
+         "@id": "http://purl.org/lobid/lv#fulltextOnline",
          "@type": "@id"
       },
       "wikipedia":
