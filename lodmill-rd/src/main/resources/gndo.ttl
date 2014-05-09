@@ -114,14 +114,16 @@
     a owl:Class ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Conference or Event"@en, "Konferenz oder Veranstaltung"@de ;
-    rdfs:subClassOf :AuthorityResource, <http://rdvocab.info/uri/schema/FRBRentitiesRDA/CorporateBody> .
+    rdfs:subClassOf :AuthorityResource .
+# , <http://rdvocab.info/uri/schema/FRBRentitiesRDA/CorporateBody> .
 
 :CorporateBody
     :marc21equivalent "079 $b=b", "079 $v=kiz" ;
     a owl:Class ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Corporate Body"@en, "Körperschaft"@de ;
-    rdfs:subClassOf :AuthorityResource, <http://rdvocab.info/uri/schema/FRBRentitiesRDA/CorporateBody> ;
+    rdfs:subClassOf :AuthorityResource ;
+# , <http://rdvocab.info/uri/schema/FRBRentitiesRDA/CorporateBody> ;
     owl:equivalentClass foaf:Organization .
 
 :Country
@@ -165,7 +167,8 @@
     a owl:Class ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Familie"@de, "Family"@en ;
-    rdfs:subClassOf :AuthorityResource, <http://rdvocab.info/uri/schema/FRBRentitiesRDA/Family> .
+    rdfs:subClassOf :AuthorityResource .
+# , <http://rdvocab.info/uri/schema/FRBRentitiesRDA/Family> .
 
 :FictiveCorporateBody
     :marc21equivalent "079 $v=kxz" ;
@@ -276,8 +279,8 @@
 :NameOfThePerson
     a owl:Class ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
-    rdfs:label "Name of the person"@en, "Personenname"@de ;
-    rdfs:subClassOf owl:Thing .
+    rdfs:label "Name of the person"@en, "Personenname"@de .
+#    rdfs:subClassOf owl:Thing .
 
 :NaturalGeographicUnit
     :marc21equivalent "079 $v=gin" ;
@@ -470,8 +473,8 @@
     rdfs:domain :DifferentiatedPerson ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Academic degree"@en, "Akademischer Grad"@de ;
-    rdfs:range :SubjectHeading ;
-    rdfs:subPropertyOf foaf:title .
+    rdfs:range :SubjectHeading .
+#    rdfs:subPropertyOf foaf:title .
 
 :accordingWork
     :marc21equivalent "530 $0 $9=4:werk" ;
@@ -499,7 +502,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :artist, <http://rdvocab.info/roles/artist> .
+    rdfs:subPropertyOf :artist .
+# , <http://rdvocab.info/roles/artist> .
 
 :accreditedAuthor
     :marc21equivalent "500 $0 $9=4:autg", "510 $0 $9=4:autg" ;
@@ -514,7 +518,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :author, <http://rdvocab.info/roles/author> .
+    rdfs:subPropertyOf :author .
+# , <http://rdvocab.info/roles/author> .
 
 :accreditedComposer
     :marc21equivalent "500 $0 $9=4:komg", "510 $0 $9=4:komg" ;
@@ -529,7 +534,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :composer, <http://rdvocab.info/roles/composer> .
+    rdfs:subPropertyOf :composer .
+# , <http://rdvocab.info/roles/composer> .
 
 :acquaintanceshipOrFriendship
     :marc21equivalent "500 $0 $9=4:beza" ;
@@ -547,8 +553,8 @@
         owl:unionOf (:DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf foaf:knows .
+    ] .
+#    rdfs:subPropertyOf foaf:knows .
 
 :addition
     :marc21equivalent "100 $9", "400 $9" ;
@@ -580,8 +586,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/addressee> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/addressee> .
 
 :affiliation
     :marc21equivalent "510 $0 $9=4:affi", "511 $0 $9=4:affi", "551 $0 $9=4:affi" ;
@@ -600,8 +606,8 @@
             :CorporateBody
             :PlaceOrGeographicName
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/affiliation> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/affiliation> .
 
 :affiliationAsLiteral
     :marc21equivalent "510 $a $9=4:affi", "511 $a $9=4:affi", "551 $a $9=4:affi" ;
@@ -610,13 +616,13 @@
 		a URI"""@en ;
     rdfs:domain [
         a owl:Class ;
-        owl:unionOf (:DifferentiatedPerson
-            :Family
-        )
-    ] ;
-    rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
-    rdfs:label "Affiliation"@de, "Affiliation"@en ;
-    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/affiliation> .
+          owl:unionOf (:DifferentiatedPerson
+              :Family
+          )
+      ] ;
+      rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
+      rdfs:label "Affiliation"@de, "Affiliation"@en .
+#      rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/affiliation> .
 
 :alexanderHaffner
     a foaf:Person ;
@@ -634,8 +640,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/annotator> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/annotator> .
 
 :architect
     :marc21equivalent "500 $0 $9=4:arch", "510 $0 $9=4:arch" ;
@@ -648,8 +654,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/architect> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/architect> .
 
 :arranger
     :marc21equivalent "500 $0 $9=4:arra", "510 $0 $9=4:arra" ;
@@ -663,8 +669,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/arrangerOfMusic> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/arrangerOfMusic> .
 
 :artist
     :marc21equivalent "500 $0 $9=4:kuen", "510 $0 $9=4:kuen" ;
@@ -683,8 +689,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/artist> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/artist> .
 
 :associatedDate
     a owl:DatatypeProperty ;
@@ -708,8 +714,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/author> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/author> .
 
 :benefactor
     :marc21equivalent "500 $0 $9=4:stif", "510 $0 $9=4:stif" ;
@@ -760,8 +766,8 @@
     rdfs:domain :Work ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Bookbinder"@en, "Buchbinder"@de ;
-    rdfs:range :DifferentiatedPerson ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/binder> .
+    rdfs:range :DifferentiatedPerson .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/binder> .
 
 :bookdesigner
     :marc21equivalent "500 $0 $9=4:gest", "510 $0 $9=4:gest" ;
@@ -775,8 +781,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/bookDesigner> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/bookDesigner> .
 
 :broaderTerm
     a owl:ObjectProperty ;
@@ -909,8 +915,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/cartographer> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/cartographer> .
 
 :celebratedCorporateBody
     :marc21equivalent "510 $0 $9=4:feie" ;
@@ -993,8 +999,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/choreographer> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/choreographer> .
 
 :citedArtist
     :marc21equivalent "500 $0 $9=4:kuez", "510 $0 $9=4:kuez" ;
@@ -1014,7 +1020,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :artist, <http://rdvocab.info/roles/artist> .
+    rdfs:subPropertyOf :artist .
+# , <http://rdvocab.info/roles/artist> .
 
 :citedAuthor
     :marc21equivalent "500 $0 $9=4:autz", "510 $0 $9=4:autz" ;
@@ -1029,7 +1036,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :author, <http://rdvocab.info/roles/author> .
+    rdfs:subPropertyOf :author .
+# , <http://rdvocab.info/roles/author> .
 
 :citedComposer
     :marc21equivalent "500 $0 $9=4:komz", "510 $0 $9=4:komz" ;
@@ -1044,21 +1052,22 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :composer, <http://rdvocab.info/roles/composer> .
+      rdfs:subPropertyOf :composer .
+  # , <http://rdvocab.info/roles/composer> .
 
-:collector
-    :marc21equivalent "500 $0 $9=4:saml", "510 $0 $9=4:saml" ;
-    a owl:ObjectProperty ;
-    rdfs:domain [
-        a owl:Class ;
-        owl:unionOf (:CorporateBody
-            :Work
-        )
-    ] ;
-    rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
-    rdfs:label "Collector"@en, "Sammler"@de ;
-    rdfs:range :CorporateBody ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/collector> .
+  :collector
+      :marc21equivalent "500 $0 $9=4:saml", "510 $0 $9=4:saml" ;
+      a owl:ObjectProperty ;
+      rdfs:domain [
+          a owl:Class ;
+          owl:unionOf (:CorporateBody
+              :Work
+          )
+      ] ;
+      rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
+      rdfs:label "Collector"@en, "Sammler"@de ;
+      rdfs:range :CorporateBody .
+#      rdfs:subPropertyOf <http://rdvocab.info/roles/collector> .
 
 :compiler
     :marc21equivalent "500 $0 $9=4:comp" ;
@@ -1066,8 +1075,8 @@
     rdfs:domain :Work ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Compiler"@en, "Kompilator"@de ;
-    rdfs:range :DifferentiatedPerson ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/compiler> .
+    rdfs:range :DifferentiatedPerson .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/compiler> .
 
 :complexSeeReferenceSubject
     :marc21equivalent "260 $0" ;
@@ -1099,8 +1108,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/composer> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/composer> .
 
 :conferrer
     :marc21equivalent "500 $0 $9=4:leih", "510 $0 $9=4:leih" ;
@@ -1268,8 +1277,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/curator> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/curator> .
 
 :dateOfBirth
     :marc21equivalent "548 $a $9=4:datl", "548 $a $9=4:datx" ;
@@ -1448,7 +1457,8 @@
             xsd:dateTime
         )
     ] ;
-    rdfs:subPropertyOf :dateOfTermination, <http://rdvocab.info/ElementsGr2/dateOfTermination> .
+    rdfs:subPropertyOf :dateOfTermination .
+# , <http://rdvocab.info/ElementsGr2/dateOfTermination> .
 
 :dedicatee
     :marc21equivalent "500 $0 $9=4:widm", "510 $0 $9=4:widm" ;
@@ -1467,8 +1477,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/dedicatee> .
+    ] .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/dedicatee> .
 
 :definition
     :marc21equivalent "679 $a" ;
@@ -1501,8 +1511,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/designer> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/designer> .
 
 :director
     :marc21equivalent "500 $0 $9=4:regi", "510 $0 $9=4:regi" ;
@@ -1515,8 +1525,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/director> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/director> .
 
 :directorOfPhotography
     :marc21equivalent "500 $0 $9=4:kame", "510 $0 $9=4:kame" ;
@@ -1529,8 +1539,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/directorOfPhotography> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/directorOfPhotography> .
 
 :dnb
     a foaf:Organization ;
@@ -1560,7 +1570,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :artist, <http://rdvocab.info/roles/artist> .
+    rdfs:subPropertyOf :artist .
+# , <http://rdvocab.info/roles/artist> .
 
 :doubtfulAuthor
     :marc21equivalent "500 $0 $9=4:autw", "510 $0 $9=4:autw" ;
@@ -1575,7 +1586,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :author, <http://rdvocab.info/roles/author> .
+    rdfs:subPropertyOf :author .
+# , <http://rdvocab.info/roles/author> .
 
 :doubtfulComposer
     :marc21equivalent "500 $0 $9=4:komw", "510 $0 $9=4:komw" ;
@@ -1590,7 +1602,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :composer, <http://rdvocab.info/roles/composer> .
+    rdfs:subPropertyOf :composer .
+# , <http://rdvocab.info/roles/composer> .
 
 :easternmostLongitude
     :marc21equivalent "034 $e" ;
@@ -1626,8 +1639,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/engraver> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/engraver> .
 
 :epithetGenericNameTitleOrTerritory
     :marc21equivalent "100 $c", "400 $c" ;
@@ -1649,8 +1662,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/etcher> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/etcher> .
 
 :exhibitor
     :marc21equivalent "500 $0 $9=4:aust", "510 $0 $9=4:aust" ;
@@ -1697,7 +1710,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :author, <http://rdvocab.info/roles/author> .
+    rdfs:subPropertyOf :author .
+# , <http://rdvocab.info/roles/author> .
 
 :fieldOfActivity
     :marc21equivalent "550 $0 $9=4:akti" ;
@@ -1740,7 +1754,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :artist, <http://rdvocab.info/roles/artist> .
+    rdfs:subPropertyOf :artist .
+# , <http://rdvocab.info/roles/artist> .
 
 :firstAuthor
     :marc21equivalent "500 $0 $9=4:aut1", "510 $0 $9=4:aut1" ;
@@ -1755,7 +1770,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :author, <http://rdvocab.info/roles/author> .
+    rdfs:subPropertyOf :author .
+# , <http://rdvocab.info/roles/author> .
 
 :firstComposer
     :marc21equivalent "500 $0 $9=4:kom1", "510 $0 $9=4:kom1" ;
@@ -1770,7 +1786,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :composer, <http://rdvocab.info/roles/composer> .
+    rdfs:subPropertyOf :composer .
+# , <http://rdvocab.info/roles/composer> .
 
 :forename
     :marc21equivalent "100 $a", "400 $a" ;
@@ -1812,7 +1829,8 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf :owner, <http://rdvocab.info/roles/formerOwner> .
+    rdfs:subPropertyOf :owner .
+# , <http://rdvocab.info/roles/formerOwner> .
 
 :founder
     :marc21equivalent "500 $0 $9=4:grue", "510 $0 $9=4:grue" ;
@@ -1831,8 +1849,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/founder> .
+    ] .
+#    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/founder> .
 
 :functionOrRole
     :marc21equivalent "550 $0 $9=4:funk" ;
@@ -1854,8 +1872,8 @@
     rdfs:domain :DifferentiatedPerson ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Gender"@en, "Geschlecht"@de ;
-    rdfs:range <http://d-nb.info/standards/vocab/gnd/gender#GenderValue> ;
-    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/gender> .
+    rdfs:range <http://d-nb.info/standards/vocab/gnd/gender#GenderValue> .
+#    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/gender> .
 
 :geographicAreaCode
     :marc21equivalent "043 $c" ;
@@ -1925,7 +1943,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Administrative Überordnung des Geografikums"@de, "Hierarchical superior of place or geographic name"@en ;
     rdfs:range :PlaceOrGeographicName ;
-    rdfs:subPropertyOf :hierarchicalSuperior, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/hierarchicalSuperior> .
+    rdfs:subPropertyOf :hierarchicalSuperior .
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/hierarchicalSuperior> .
 
 :hierarchicalSuperiorOfTheConferenceOrEvent
     :marc21equivalent "510 $0 $9=4:adue", "511 $0 $9=4:adue" ;
@@ -1940,7 +1959,8 @@
             :CorporateBody
         )
     ] ;
-    rdfs:subPropertyOf :hierarchicalSuperior, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/hierarchicalSuperior> .
+    rdfs:subPropertyOf :hierarchicalSuperior .
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/hierarchicalSuperior> .
 
 :hierarchicalSuperiorOfTheCorporateBody
     :marc21equivalent "510 $0 $9=4:adue", "511 $0 $9=4:adue", "551 $0 $9=4:adue" ;
@@ -1955,11 +1975,12 @@
             :PlaceOrGeographicName
         )
     ] ;
-    rdfs:subPropertyOf :hierarchicalSuperior, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/hierarchicalSuperior> .
+    rdfs:subPropertyOf :hierarchicalSuperior .
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/hierarchicalSuperior> .
 
 :homepage
     :marc21equivalent "670 $u $a=Homepage" ;
-    :superPropertyOf foaf:homepage ;
+#    :superPropertyOf foaf:homepage ;
     a owl:DatatypeProperty ;
     rdfs:domain [
         a owl:Class ;
@@ -2034,8 +2055,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/inventor> .
+    ] .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/inventor> .
 
 :keyOfTheVersion
     :marc21equivalent "384 1# $a" ;
@@ -2091,8 +2112,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/librettist> .
+    ] .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/librettist> .
 
 :listMembers
     a foaf:Organization ;
@@ -2119,8 +2140,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/lithographer> .
+    ] .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/lithographer> .
 
 :manufacturer
     :marc21equivalent "500 $0 $9=4:hers", "510 $0 $9=4:hers" ;
@@ -2140,7 +2161,7 @@
             :Family
         )
     ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/manufacturer> ;
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/manufacturer> ;
     owl:inverseOf foaf:made .
 
 :marc21equivalent
@@ -2158,7 +2179,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Besetzung im Musikbereich"@de, "Medium of performance"@en ;
     rdfs:range :SubjectHeading ;
-    rdfs:subPropertyOf :instrument, <http://rdvocab.info/Elements/mediumOfPerformanceOfMusicalContent> .
+    rdfs:subPropertyOf :instrument .
+# , <http://rdvocab.info/Elements/mediumOfPerformanceOfMusicalContent> .
 
 :member
     a owl:ObjectProperty ;
@@ -2172,7 +2194,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Familienmitglied"@de, "Member of the family"@en ;
     rdfs:range :Family ;
-    rdfs:subPropertyOf :member, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/familyMember> .
+    rdfs:subPropertyOf :member .
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/familyMember> .
 
 :musician
     :marc21equivalent "500 $0 $9=4:musi" ;
@@ -2201,8 +2224,8 @@
     rdfs:domain :Work ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Narrator"@en, "Sprecher"@de ;
-    rdfs:range :DifferentiatedPerson ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/narrator> .
+    rdfs:range :DifferentiatedPerson .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/narrator> .
 
 :northernmostLatitude
     :marc21equivalent "034 $f" ;
@@ -2286,8 +2309,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/host> .
+    ] .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/host> .
 
 :otherPlace
     :marc21equivalent "551 $0 $9=4:ortm" ;
@@ -2320,8 +2343,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/owner> .
+    ] .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/owner> .
 
 :painter
     :marc21equivalent "500 $0 $9=4:malr", "510 $0 $9=4:malr" ;
@@ -2376,8 +2399,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/photographer> .
+    ] .
+#   rdfs:subPropertyOf <http://rdvocab.info/roles/photographer> .
 
 :place
     :marc21equivalent "551 $0 $9=4:orta" ;
@@ -2415,7 +2438,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Geburtsort"@de, "Place of Birth"@en ;
     rdfs:range :PlaceOrGeographicName ;
-    rdfs:subPropertyOf :associatedPlace, <http://rdvocab.info/ElementsGr2/placeOfBirth> .
+    rdfs:subPropertyOf :associatedPlace .
+# , <http://rdvocab.info/ElementsGr2/placeOfBirth> .
 
 :placeOfBirthAsLiteral
     :marc21equivalent "551 $a $9=4:ortg" ;
@@ -2426,7 +2450,8 @@
     rdfs:domain :DifferentiatedPerson ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Geburtsort"@de, "Place of Birth"@en ;
-    rdfs:subPropertyOf :associatedPlace, <http://rdvocab.info/ElementsGr2/placeOfBirth> .
+    rdfs:subPropertyOf :associatedPlace . 
+# , <http://rdvocab.info/ElementsGr2/placeOfBirth> .
 
 :placeOfBusiness
     :marc21equivalent "551 $0 $9=4:orta" ;
@@ -2435,7 +2460,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Place of business"@en, "Sitz"@de ;
     rdfs:range :PlaceOrGeographicName ;
-    rdfs:subPropertyOf :associatedPlace, <http://rdvocab.info/ElementsGr2/locationOfHeadquarters> .
+    rdfs:subPropertyOf :associatedPlace .
+# , <http://rdvocab.info/ElementsGr2/locationOfHeadquarters> .
 
 :placeOfConferenceOrEvent
     :marc21equivalent "551 $0 $9=4:ortv" ;
@@ -2444,7 +2470,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Place of conference or event"@en, "Veranstaltungsort"@de ;
     rdfs:range :PlaceOrGeographicName ;
-    rdfs:subPropertyOf :associatedPlace, <http://rdvocab.info/ElementsGr2/locationOfConferenceEtc> .
+    rdfs:subPropertyOf :associatedPlace .
+# , <http://rdvocab.info/ElementsGr2/locationOfConferenceEtc> .
 
 :placeOfCustody
     :marc21equivalent "551 $0 $9=4:ortb" ;
@@ -2462,7 +2489,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Place of death"@en, "Sterbeort"@de ;
     rdfs:range :PlaceOrGeographicName ;
-    rdfs:subPropertyOf :associatedPlace, <http://rdvocab.info/ElementsGr2/placeOfDeath> .
+    rdfs:subPropertyOf :associatedPlace .
+# , <http://rdvocab.info/ElementsGr2/placeOfDeath> .
 
 :placeOfDeathAsLiteral
     :marc21equivalent "551 $a $9=4:orts" ;
@@ -2473,7 +2501,8 @@
     rdfs:domain :DifferentiatedPerson ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Place of death"@en, "Sterbeort"@de ;
-    rdfs:subPropertyOf :associatedPlace, <http://rdvocab.info/ElementsGr2/placeOfDeath> .
+    rdfs:subPropertyOf :associatedPlace .
+# , <http://rdvocab.info/ElementsGr2/placeOfDeath> .
 
 :placeOfDiscovery
     :marc21equivalent "551 $0 $9=4:ortf" ;
@@ -2551,7 +2580,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Preceding conference or event"@en, "Vorherige Konferenz oder Veranstaltung"@de ;
     rdfs:range :ConferenceOrEvent ;
-    rdfs:subPropertyOf :predecessor, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/predecessor> .
+    rdfs:subPropertyOf :predecessor . 
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/predecessor> .
 
 :precedingCorporateBody
     :marc21equivalent "510 $0 $9=4:vorg" ;
@@ -2565,7 +2595,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Preceding corporate body"@en, "Vorherige Körperschaft"@de ;
     rdfs:range :CorporateBody ;
-    rdfs:subPropertyOf :predecessor, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/predecessor> .
+    rdfs:subPropertyOf :predecessor .
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/predecessor> .
 
 :precedingPlaceOrGeographicName
     :marc21equivalent "551 $0 $9=4:vorg" ;
@@ -2597,7 +2628,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Preceding work"@en, "Vorheriges Werk"@de ;
     rdfs:range :Work ;
-    rdfs:subPropertyOf :predecessor, <http://rdvocab.info/RDARelationshipsWEMI/precededBy> .
+    rdfs:subPropertyOf :predecessor .
+# , <http://rdvocab.info/RDARelationshipsWEMI/precededBy> .
 
 :predecessor
     a owl:ObjectProperty ;
@@ -2628,7 +2660,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Bevorzugter Name der Konferenz oder Veranstaltung"@de, "Preferred name for the conference or event"@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :preferredName, <http://rdvocab.info/ElementsGr2/preferredNameForTheCorporateBody> .
+    rdfs:subPropertyOf :preferredName .
+# , <http://rdvocab.info/ElementsGr2/preferredNameForTheCorporateBody> .
 
 :preferredNameForTheCorporateBody
     :marc21equivalent "110 $a $b $n $9" ;
@@ -2637,7 +2670,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Bevorzugter Name der Körperschaft"@de, "Preferred name for the corporate body"@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :preferredName, <http://rdvocab.info/ElementsGr2/preferredNameForTheCorporateBody>, foaf:name .
+    rdfs:subPropertyOf :preferredName .
+#  <http://rdvocab.info/ElementsGr2/preferredNameForTheCorporateBody>, foaf:name .
 
 :preferredNameForTheFamily
     :marc21equivalent "100 $a $b $c $9" ;
@@ -2646,7 +2680,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Bevorzugter Name der Familie"@de, "Preferred name for the family"@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :preferredName, <http://rdvocab.info/ElementsGr2/preferredNameForTheFamily> .
+    rdfs:subPropertyOf :preferredName .
+# <http://rdvocab.info/ElementsGr2/preferredNameForTheFamily> .
 
 :preferredNameForThePerson
     :marc21equivalent "100 $a $b $c $9" ;
@@ -2660,7 +2695,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Bevorzugter Name der Person"@de, "Preferred name for the person"@en ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :preferredName, <http://rdvocab.info/ElementsGr2/preferredNameForThePerson>, foaf:name .
+    rdfs:subPropertyOf :preferredName .
+# <http://rdvocab.info/ElementsGr2/preferredNameForThePerson>, foaf:name .
 
 :preferredNameForThePlaceOrGeographicName
     :marc21equivalent "151 $a $z $9" ;
@@ -2709,8 +2745,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/printer> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/printer> .
 
 :professionOrOccupation
     :marc21equivalent "550 $0 $9=4:berc", "550 $0 $9=4:beru" ;
@@ -2723,8 +2759,8 @@
     ] ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Beruf oder Beschäftigung"@de, "Profession or occupation"@en ;
-    rdfs:range :SubjectHeading ;
-    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/professionOrOccupation> .
+    rdfs:range :SubjectHeading .
+#    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/professionOrOccupation> .
 
 :professionOrOccupationAsLiteral
     :marc21equivalent "550 $a $9=4:berc", "550 $a $9=4:beru" ;
@@ -2739,8 +2775,8 @@
         )
     ] ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
-    rdfs:label "Beruf oder Beschäftigung"@de, "Profession or occupation"@en ;
-    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/professionOrOccupation> .
+    rdfs:label "Beruf oder Beschäftigung"@de, "Profession or occupation"@en .
+#    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/professionOrOccupation> .
 
 :professionalRelationship
     :marc21equivalent "500 $0 $9=4:bezb" ;
@@ -2766,8 +2802,8 @@
     rdfs:domain :DifferentiatedPerson ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Pseudonym"@de, "Pseudonym"@en ;
-    rdfs:range :DifferentiatedPerson ;
-    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/alternateIdentity> .
+    rdfs:range :DifferentiatedPerson .
+#    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/alternateIdentity> .
 
 :publication
     :marc21equivalent "692 $a" ;
@@ -2800,8 +2836,8 @@
     ] ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "In Beziehung stehende Konferenz oder Veranstaltung"@de, "Related conference or event"@en ;
-    rdfs:range :ConferenceOrEvent ;
-    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedCorporateBody> .
+    rdfs:range :ConferenceOrEvent .
+#    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedCorporateBody> .
 
 :relatedCorporateBody
     :marc21equivalent "510 $0 $9=4:rela" ;
@@ -2819,8 +2855,8 @@
     ] ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "In Beziehung stehende Körperschaft"@de, "Related Corporate Body"@en ;
-    rdfs:range :CorporateBody ;
-    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedCorporateBody> .
+    rdfs:range :CorporateBody .
+#    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedCorporateBody> .
 
 :relatedDdcWithDegreeOfDeterminacy1
     a owl:ObjectProperty ;
@@ -2915,8 +2951,8 @@
     ] ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "In Beziehung stehende Familie"@de, "Related family"@en ;
-    rdfs:range :Family ;
-    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedFamily> .
+    rdfs:range :Family .
+#    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedFamily> .
 
 :relatedPerson
     :marc21equivalent "500 $0 $9=4:rela" ;
@@ -2934,8 +2970,8 @@
     ] ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "In Beziehung stehende Person"@de, "Related person"@en ;
-    rdfs:range :DifferentiatedPerson ;
-    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedPerson> .
+    rdfs:range :DifferentiatedPerson .
+#    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/relatedPerson> .
 
 :relatedPlaceOrGeographicName
     :marc21equivalent "551 $0 $9=4:geoa", "551 $0 $9=4:rela" ;
@@ -3041,8 +3077,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/restorationist> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/restorationist> .
 
 :revisor
     :marc21equivalent "500 $0 $9=4:bear" ;
@@ -3063,8 +3099,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/screenwriter> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/screenwriter> .
 
 :scriptorium
     a owl:ObjectProperty ;
@@ -3090,8 +3126,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/sculptor> .
+    ] .
+ #   rdfs:subPropertyOf <http://rdvocab.info/roles/sculptor> .
 
 :serialNumericDesignationOfMusicalWork
     :marc21equivalent "383 $a" ;
@@ -3113,8 +3149,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/singer> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/singer> .
 
 :southernmostLatitude
     :marc21equivalent "034 $g" ;
@@ -3157,8 +3193,8 @@
             :DifferentiatedPerson
             :Family
         )
-    ] ;
-    rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/sponsor> .
+    ] .
+#  , rdfs:subPropertyOf <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/sponsor> .
 
 :startingOrFinalPointOfADistance
     :marc21equivalent "551 $0 $9=4:punk" ;
@@ -3188,7 +3224,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Nachfolgende Konferenz oder Veranstaltung"@de, "Succeeding conference or event"@en ;
     rdfs:range :ConferenceOrEvent ;
-    rdfs:subPropertyOf :successor, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/successor> .
+    rdfs:subPropertyOf :successor .
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/successor> .
 
 :succeedingCorporateBody
     :marc21equivalent "510 $0 $9=4:nach" ;
@@ -3202,7 +3239,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Nachfolgende Körperschaft"@de, "Succeeding corporate body"@en ;
     rdfs:range :CorporateBody ;
-    rdfs:subPropertyOf :successor, <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/successor> .
+    rdfs:subPropertyOf :successor .
+# , <http://metadataregistry.org/uri/schema/RDARelationshipsGR2/successor> .
 
 :succeedingPlaceOrGeographicName
     :marc21equivalent "551 $0 $9=4:nach" ;
@@ -3234,7 +3272,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Nachfolgendes Werk"@de, "Succeeding work"@en ;
     rdfs:range :Work ;
-    rdfs:subPropertyOf :successor, <http://rdvocab.info/RDARelationshipsWEMI/succeededBy> .
+    rdfs:subPropertyOf :successor .
+# , <http://rdvocab.info/RDARelationshipsWEMI/succeededBy> .
 
 :successor
     a owl:ObjectProperty ;
@@ -3315,8 +3354,8 @@
     rdfs:domain :DifferentiatedPerson ;
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Adelstitel"@de, "Title of nobility"@en ;
-    rdfs:range :SubjectHeading ;
-    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/hereditaryTitle>, <http://rdvocab.info/ElementsGr2/titleOfThePerson>, foaf:title .
+    rdfs:range :SubjectHeading .
+#    rdfs:subPropertyOf <http://rdvocab.info/ElementsGr2/hereditaryTitle>, <http://rdvocab.info/ElementsGr2/titleOfThePerson>, foaf:title .
 
 :topic
     :marc21equivalent "500 $0 $9=4:them", "510 $0 $9=4:them", "511 $0 $9=4:them", "530 $0 $9=4:them", "550 $0 $9=4:them", "551 $0 $9=4:them" ;
@@ -3358,8 +3397,8 @@
         owl:unionOf (:CorporateBody
             :DifferentiatedPerson
         )
-    ] ;
-    rdfs:subPropertyOf <http://rdvocab.info/roles/translator> .
+    ] .
+#    rdfs:subPropertyOf <http://rdvocab.info/roles/translator> .
 
 :typeOfCoordinates
     :marc21equivalent "034 $9" ;
@@ -3412,7 +3451,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Variant name for the conference or event"@en, "Varianter Name der Konferenz oder Veranstaltung"@de ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :variantName, <http://rdvocab.info/ElementsGr2/variantNameForTheCorporateBody> .
+    rdfs:subPropertyOf :variantName .
+# , <http://rdvocab.info/ElementsGr2/variantNameForTheCorporateBody> .
 
 :variantNameForTheCorporateBody
     :marc21equivalent "410 $a $b $n $9" ;
@@ -3421,7 +3461,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Variant name for the corporate body"@en, "Varianter Name der Körperschaft"@de ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :variantName, <http://rdvocab.info/ElementsGr2/variantNameForTheCorporateBody>, foaf:name .
+    rdfs:subPropertyOf :variantName .
+# , <http://rdvocab.info/ElementsGr2/variantNameForTheCorporateBody>, foaf:name .
 
 :variantNameForTheFamily
     :marc21equivalent "400 $a $b $c $9" ;
@@ -3430,7 +3471,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Variant name for the family"@en, "Varianter Name der Familie"@de ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :variantName, <http://rdvocab.info/ElementsGr2/variantNameForTheFamily> .
+    rdfs:subPropertyOf :variantName .
+# , <http://rdvocab.info/ElementsGr2/variantNameForTheFamily> .
 
 :variantNameForThePerson
     :marc21equivalent "400 $a $b $c $9" ;
@@ -3444,7 +3486,8 @@
     rdfs:isDefinedBy <http://d-nb.info/standards/elementset/gnd#> ;
     rdfs:label "Variant name for the person"@en, "Varianter Name der Person"@de ;
     rdfs:range rdfs:Literal ;
-    rdfs:subPropertyOf :variantName, <http://rdvocab.info/ElementsGr2/variantNameForThePerson>, foaf:name .
+    rdfs:subPropertyOf :variantName .
+# , <http://rdvocab.info/ElementsGr2/variantNameForThePerson>, foaf:name .
 
 :variantNameForThePlaceOrGeographicName
     :marc21equivalent "451 $a $z $9" ;

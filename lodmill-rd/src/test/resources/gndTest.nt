@@ -3,24 +3,18 @@ _:B323ceed9X3A145d69f3841X3AX2D7d12 <http://d-nb.info/standards/elementset/gnd#f
 <http://d-nb.info/gnd/1046771396> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
 <http://d-nb.info/gnd/1046771396> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
 <http://d-nb.info/gnd/1046771396> <http://d-nb.info/standards/elementset/gnd#preferredName> "Touma, Michael" .
-<http://d-nb.info/gnd/1046771396> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Touma, Michael" .
-<http://d-nb.info/gnd/1046771396> <http://xmlns.com/foaf/0.1/name> "Touma, Michael" .
 <http://d-nb.info/gnd/1046771396> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d12 .
 <http://d-nb.info/gnd/1046771396> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Touma, Michael" .
 <http://d-nb.info/gnd/1046771396> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1046771396" .
 <http://d-nb.info/gnd/1046771396> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#UndifferentiatedPerson> .
 _:B323ceed9X3A145d69f3841X3AX2D7d1f <http://d-nb.info/standards/elementset/gnd#surname> "Frandji" .
 _:B323ceed9X3A145d69f3841X3AX2D7d1f <http://d-nb.info/standards/elementset/gnd#forename> "Martine Torrens" .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Torrens Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Frandji, Martine Torrens\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/4423722-4> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1046771531" .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d20 .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredName> "Torrens Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/variantNameForThePerson> "Torrens-Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantName> "Torrens-Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/variantNameForThePerson> "Frandji, Martine Torrens\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantName> "Frandji, Martine Torrens\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d1f .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> "\"Professeur de litt\u00E9rature fran\u00E7aise \u00E0 l'Universit\u00E9 de Salamanque (en\n              2013)\""@de .
@@ -28,15 +22,11 @@ _:B323ceed9X3A145d69f3841X3AX2D7d1f <http://d-nb.info/standards/elementset/gnd#f
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Torrens-Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Torrens Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#female> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4423722-4> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Torrens Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Torrens-Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Frandji, Martine Torrens\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#publication> "Michel Onfray, le principe d'incandescence. - 2013\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/gender> <http://d-nb.info/standards/vocab/gnd/Gender#female> .
 <http://d-nb.info/gnd/4423722-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Literaturwissenschaftlerin\n                " .
 _:B323ceed9X3A145d69f3841X3AX2D7d1e <http://d-nb.info/standards/elementset/gnd#surname> "Torrens Frandji" .
 _:B323ceed9X3A145d69f3841X3AX2D7d1e <http://d-nb.info/standards/elementset/gnd#forename> "Martine" .
@@ -50,31 +40,21 @@ _:B323ceed9X3A145d69f3841X3AX2D7d19 <http://d-nb.info/standards/elementset/gnd#f
 <http://d-nb.info/gnd/1047480972> <http://d-nb.info/standards/elementset/gnd#preferredName> "Aponte, Michele" .
 <http://d-nb.info/gnd/1047480972> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
 <http://d-nb.info/gnd/1047480972> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1047480972" .
-<http://d-nb.info/gnd/1047480972> <http://rdvocab.info/ElementsGr2/gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
 <http://d-nb.info/gnd/1047480972> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4061949-7> .
 <http://d-nb.info/gnd/1047480972> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
-<http://d-nb.info/gnd/1047480972> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Aponte, Michele" .
 <http://d-nb.info/gnd/1047480972> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT> .
-<http://d-nb.info/gnd/1047480972> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/4061949-7> .
 <http://d-nb.info/gnd/1047480972> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
-<http://d-nb.info/gnd/1047480972> <http://xmlns.com/foaf/0.1/name> "Aponte, Michele" .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/variantNameForThePerson> "Frandji, Martine Torrens\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Frandji, Martine Torrens\n\t\t\t\t\t\t" .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/4423722-4> .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantName> "Torrens-Frandji, Martine\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredName> "Torrens Frandji, Martine\n\t\t\t\t\t\t" .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/variantNameForThePerson> "Torrens-Frandji, Martine\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d15 .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1046771531_oai2014" .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Torrens Frandji, Martine\n\t\t\t\t\t\t" .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Frandji, Martine Torrens\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantName> "Frandji, Martine Torrens\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Torrens-Frandji, Martine\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d14 .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d13 .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Torrens Frandji, Martine\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Torrens Frandji, Martine\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#female> .
@@ -82,8 +62,6 @@ _:B323ceed9X3A145d69f3841X3AX2D7d19 <http://d-nb.info/standards/elementset/gnd#f
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4423722-4> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#publication> "Michel Onfray, le principe d'incandescence. - 2013\n\t\t\t\t\t\t" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR> .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Torrens-Frandji, Martine\n\t\t\t\t\t\t" .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/gender> <http://d-nb.info/standards/vocab/gnd/Gender#female> .
 _:B323ceed9X3A145d69f3841X3AX2D7d15 <http://d-nb.info/standards/elementset/gnd#surname> "Torrens-Frandji" .
 _:B323ceed9X3A145d69f3841X3AX2D7d15 <http://d-nb.info/standards/elementset/gnd#forename> "Martine" .
 _:B323ceed9X3A145d69f3841X3AX2D7d13 <http://d-nb.info/standards/elementset/gnd#surname> "Torrens Frandji" .
@@ -94,31 +72,23 @@ _:B323ceed9X3A145d69f3841X3AX2D7d14 <http://d-nb.info/standards/elementset/gnd#f
 _:B323ceed9X3A145d69f3841X3AX2D7d17 <http://d-nb.info/standards/elementset/gnd#surname> "Frandji" .
 _:B323ceed9X3A145d69f3841X3AX2D7d17 <http://d-nb.info/standards/elementset/gnd#forename> "Martine Torrens" .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1046771531_cleaned" .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Torrens Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Frandji, Martine Torrens\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/4423722-4> .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d17 .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d16 .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredName> "Torrens Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/variantNameForThePerson> "Torrens-Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantName> "Torrens-Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/variantNameForThePerson> "Frandji, Martine Torrens\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantName> "Frandji, Martine Torrens\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> "\"Professeur de litt\u00E9rature fran\u00E7aise \u00E0 l'Universit\u00E9 de Salamanque (en\n              2013)\""@de .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameForThePerson> "Torrens-Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
 <http://d-nb.info/gnd/1046771531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Torrens Frandji, Martine\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#female> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4423722-4> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR> .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#variantNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d18 .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Torrens Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Torrens-Frandji, Martine\n            " .
-<http://d-nb.info/gnd/1046771531> <http://xmlns.com/foaf/0.1/name> "Frandji, Martine Torrens\n            " .
 <http://d-nb.info/gnd/1046771531> <http://d-nb.info/standards/elementset/gnd#publication> "Michel Onfray, le principe d'incandescence. - 2013\n            " .
-<http://d-nb.info/gnd/1046771531> <http://rdvocab.info/ElementsGr2/gender> <http://d-nb.info/standards/vocab/gnd/Gender#female> .
 _:B323ceed9X3A145d69f3841X3AX2D7d18 <http://d-nb.info/standards/elementset/gnd#surname> "Torrens-Frandji" .
 _:B323ceed9X3A145d69f3841X3AX2D7d18 <http://d-nb.info/standards/elementset/gnd#forename> "Martine" .
 <http://d-nb.info/gnd/4423722-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Literaturwissenschaftlerin\n                " .
@@ -129,30 +99,22 @@ _:B323ceed9X3A145d69f3841X3AX2D7d1a <http://d-nb.info/standards/elementset/gnd#f
 <http://d-nb.info/gnd/1047480964> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
 <http://d-nb.info/gnd/1047480964> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
 <http://d-nb.info/gnd/1047480964> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wereley, Norman" .
-<http://d-nb.info/gnd/1047480964> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Wereley, Norman" .
-<http://d-nb.info/gnd/1047480964> <http://xmlns.com/foaf/0.1/name> "Wereley, Norman" .
 <http://d-nb.info/gnd/1047480964> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d1a .
 <http://d-nb.info/gnd/1047480964> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Wereley, Norman" .
 <http://d-nb.info/gnd/1047480964> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1047480964" .
 <http://d-nb.info/gnd/1047480964> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#UndifferentiatedPerson> .
 <http://d-nb.info/gnd/1047480921> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
-<http://d-nb.info/gnd/1047480921> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/4139395-8> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
 <http://d-nb.info/gnd/1047480921> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#affiliation> <http://d-nb.info/gnd/10028862-5> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#associatedPlace> <http://d-nb.info/gnd/4028557-1> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hartung, Sepp" .
-<http://d-nb.info/gnd/1047480921> <http://xmlns.com/foaf/0.1/name> "Hartung, Sepp" .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hartung, Sepp" .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1047480921" .
-<http://d-nb.info/gnd/1047480921> <http://rdvocab.info/ElementsGr2/affiliation> <http://d-nb.info/gnd/10028862-5> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#placeOfBirth> <http://d-nb.info/gnd/4028557-1> .
-<http://d-nb.info/gnd/1047480921> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Hartung, Sepp" .
-<http://d-nb.info/gnd/1047480921> <http://rdvocab.info/ElementsGr2/placeOfBirth> <http://d-nb.info/gnd/4028557-1> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4139395-8> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#periodOfActivity> "2013-" .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#associatedDate> "2013-" .
-<http://d-nb.info/gnd/1047480921> <http://rdvocab.info/ElementsGr2/gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE> .
 <http://d-nb.info/gnd/1047480921> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d1c .
 <http://d-nb.info/gnd/1047480921> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
@@ -162,15 +124,11 @@ _:B323ceed9X3A145d69f3841X3AX2D7d1b <http://d-nb.info/standards/elementset/gnd#s
 _:B323ceed9X3A145d69f3841X3AX2D7d1b <http://d-nb.info/standards/elementset/gnd#forename> "Antonio" .
 <http://d-nb.info/gnd/1047480956> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
 <http://d-nb.info/gnd/1047480956> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1047480956" .
-<http://d-nb.info/gnd/1047480956> <http://xmlns.com/foaf/0.1/name> "Liccardi, Antonio" .
 <http://d-nb.info/gnd/1047480956> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
-<http://d-nb.info/gnd/1047480956> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/7701096-6> .
-<http://d-nb.info/gnd/1047480956> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Liccardi, Antonio" .
 <http://d-nb.info/gnd/1047480956> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Liccardi, Antonio" .
 <http://d-nb.info/gnd/1047480956> <http://d-nb.info/standards/elementset/gnd#geographicAreaCode> <http://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT> .
 <http://d-nb.info/gnd/1047480956> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
 <http://d-nb.info/gnd/1047480956> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
-<http://d-nb.info/gnd/1047480956> <http://rdvocab.info/ElementsGr2/gender> <http://d-nb.info/standards/vocab/gnd/Gender#notKnown> .
 <http://d-nb.info/gnd/1047480956> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/7701096-6> .
 <http://d-nb.info/gnd/1047480956> <http://d-nb.info/standards/elementset/gnd#preferredName> "Liccardi, Antonio" .
 <http://d-nb.info/gnd/1047480956> <http://d-nb.info/standards/elementset/gnd#preferredNameEntityForThePerson> _:B323ceed9X3A145d69f3841X3AX2D7d1b .
@@ -178,17 +136,12 @@ _:B323ceed9X3A145d69f3841X3AX2D7d1b <http://d-nb.info/standards/elementset/gnd#f
 _:B323ceed9X3A145d69f3841X3AX2D7d1d <http://d-nb.info/standards/elementset/gnd#surname> "Gribenski" .
 _:B323ceed9X3A145d69f3841X3AX2D7d1d <http://d-nb.info/standards/elementset/gnd#forename> "Michel" .
 <http://d-nb.info/gnd/1048278603> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#Person> .
-<http://d-nb.info/gnd/1048278603> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/4170836-2> .
 <http://d-nb.info/gnd/1048278603> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Gribenski, Michel" .
-<http://d-nb.info/gnd/1048278603> <http://xmlns.com/foaf/0.1/name> "Gribenski, Michel" .
 <http://d-nb.info/gnd/1048278603> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#DifferentiatedPerson> .
 <http://d-nb.info/gnd/1048278603> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4170836-2> .
-<http://d-nb.info/gnd/1048278603> <http://rdvocab.info/ElementsGr2/gender> <http://d-nb.info/standards/vocab/gnd/Gender#male> .
-<http://d-nb.info/gnd/1048278603> <http://rdvocab.info/ElementsGr2/preferredNameForThePerson> "Gribenski, Michel" .
 <http://d-nb.info/gnd/1048278603> <http://d-nb.info/standards/elementset/gnd#professionOrOccupation> <http://d-nb.info/gnd/4167889-8> .
 <http://d-nb.info/gnd/1048278603> <http://d-nb.info/standards/elementset/gnd#gender> <http://d-nb.info/standards/vocab/gnd/Gender#male> .
 <http://d-nb.info/gnd/1048278603> <http://d-nb.info/standards/elementset/gnd#biographicalOrHistoricalInformation> "Literatur- und Musikwissenschaftler, mit besonderem Interesse f\u00FCr die\n\t\t\tBeziehungen zwischen Literatur, Musik und Film; Direktor des Institut fran\u00E7ais\n\t\t\tDresden (2011-)"@de .
-<http://d-nb.info/gnd/1048278603> <http://rdvocab.info/ElementsGr2/professionOrOccupation> <http://d-nb.info/gnd/4167889-8> .
 <http://d-nb.info/gnd/1048278603> <http://d-nb.info/standards/elementset/gnd#associatedDate> "1973"^^<http://www.w3.org/2001/XMLSchema#gYear> .
 <http://d-nb.info/gnd/1048278603> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1048278603" .
 <http://d-nb.info/gnd/1048278603> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
@@ -200,13 +153,9 @@ _:B323ceed9X3A145d69f3841X3AX2D7d1d <http://d-nb.info/standards/elementset/gnd#f
 <http://d-nb.info/gnd/1-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#AuthorityResource> .
 <http://d-nb.info/gnd/1-2> <http://d-nb.info/standards/elementset/gnd#gndIdentifier> "1-2" .
 <http://d-nb.info/gnd/1-2> <http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent> "Conference on Non-Nuclear Weapon States\n\t\t" .
-<http://d-nb.info/gnd/1-2> <http://rdvocab.info/ElementsGr2/variantNameForTheCorporateBody> "Conference on Non-Nuclear Weapon States\n\t\t" .
 <http://d-nb.info/gnd/1-2> <http://d-nb.info/standards/elementset/gnd#variantName> "Conference on Non-Nuclear Weapon States\n\t\t" .
-<http://d-nb.info/gnd/1-2> <http://rdvocab.info/ElementsGr2/preferredNameForTheCorporateBody> "Conference of Non-Nuclear Weapon States\n\t\t" .
 <http://d-nb.info/gnd/1-2> <http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent> "Conferentie van Niet-Kernwapenstaten\n\t\t" .
 <http://d-nb.info/gnd/1-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://d-nb.info/standards/elementset/gnd#ConferenceOrEvent> .
-<http://d-nb.info/gnd/1-2> <http://rdvocab.info/ElementsGr2/variantNameForTheCorporateBody> "Conferentie van Niet-Kernwapenstaten\n\t\t" .
-<http://d-nb.info/gnd/1-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdvocab.info/uri/schema/FRBRentitiesRDA/CorporateBody> .
 <http://d-nb.info/gnd/1-2> <http://d-nb.info/standards/elementset/gnd#oldAuthorityNumber> "(DE-588b)1-2" .
 <http://d-nb.info/gnd/1-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheConferenceOrEvent> "Conference of Non-Nuclear Weapon States\n\t\t" .
 <http://d-nb.info/gnd/1-2> <http://d-nb.info/standards/elementset/gnd#variantName> "Conferentie van Niet-Kernwapenstaten\n\t\t" .
