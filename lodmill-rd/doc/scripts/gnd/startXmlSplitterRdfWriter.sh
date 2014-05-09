@@ -1,26 +1,53 @@
 #!/bin/bash
 # description: start with parameters "update" or "fulldump".
-# "update" will load data via OAI-PMH and spli records and store these
-# into filesystem and concatenate to bigger files and copy these
-# into hdfs.
+# "update" will load data via OAI-PMH and split records and store these
+# into filesystem and transform them into ntriples and store these also.
 # "fulldump" only necessary at the beginning, when filesystem is blank
 # and the fulldump as a base is to be splitted and stored as single files.
 
-# duration: 12 h alone for concat and copying
+# get the newest code and build it
+cd ../../.. ; git pull;  mvn assembly:assembly; cd -
 
-LODMILL_RD_JAR=../../target/lodmill-rd-1.1.0-SNAPSHOT-jar-with-dependencies.jar
+LODMILL_RD_JAR=../../../target/lodmill-rd-1.1.0-SNAPSHOT-jar-with-dependencies.jar
 # TODO:  copy lobid's flux-commands over metafacture's using maven
+cp ../../../src/main/resources/flux-commands.properties ./
 jar uf $LODMILL_RD_JAR flux-commands.properties
 
+function updateAndStartFlux() {
+	DATE_FROM=$1
+	DATE_UNTIL=$2
+	echo "$DATE_FROM zu $DATE_UNTIL"
+  # update the flux
+  FLUX_LINE="open-oaipmh(dateFrom=\"$DATE_FROM\",dateUntil=\"$DATE_UNTIL\",metadataPrefix=\"RDFxml\",setSpec=\"authorities\") |"
+  sed -i "s#.*dateUntil=\".*#$FLUX_LINE#" xmlSplitterRdfWriter.flux 
+	echo "####################"
+	echo "Flux:"
+	cat xmlSplitterRdfWriter.flux
+	echo "you have 15 seconds to cancel the script ...."
+	sleep 15
+  # updates:
+  java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux xmlSplitterRdfWriter.flux
+}
+
 function update() {
+	SEC_WEEK=604800
+	SEC_NOW=$(date +%s)
 	# the beginning is the former end
-	DATE_FROM=$(grep dateUntil  xmlSplitterRdfWriter.flux | cut -d '"' -f4 )
-	DATE_UNTIL=$(date +%Y-%m-%d)
-	# update the flux
-	FLUX_LINE="open-oaipmh(dateFrom=\"$DATE_FROM\",dateUntil=\"$DATE_UNTIL\",metadataPrefix=\"RDFxml\",setSpec=\"authorities\") |"
-	sed -i "s#.*dateUntil=\".*#$FLUX_LINE#" xmlSplitterRdfWriter.flux 
-	# updates:
-	java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux xmlSplitterRdfWriter.flux
+	dateFrom=$(grep dateUntil  xmlSplitterRdfWriter.flux | cut -d '"' -f4 )
+	SEC_DATE_FROM=$(date --date="$dateFrom" +%s)
+
+	while [ $(expr $SEC_DATE_FROM + $SEC_WEEK) -le $SEC_NOW ]; do
+		DATE_FROM=$(date --date="@$SEC_DATE_FROM" +%Y-%m-%d)
+		SEC_DATE_FROM=$(expr $SEC_DATE_FROM + $SEC_WEEK)
+		DATE_UNTIL=$(date --date="@$SEC_DATE_FROM" +%Y-%m-%d)
+		updateAndStartFlux $DATE_FROM $DATE_UNTIL
+	done
+
+	DATE_FROM=$(date --date="@$SEC_DATE_FROM" +%Y-%m-%d)
+	DATE_NOW=$(date +%Y-%m-%d)
+	if [ $(echo $DATE_UNTIL) != $(echo $DATE_NOW) ]; then
+		updateAndStartFlux $DATE_UNTIL $DATE_NOW
+	fi
 }
 
 function fulldump() {
@@ -32,26 +59,4 @@ case $1 in
 	fulldump) fulldump ;;
 esac 
 
-DIR="/files/open_data/closed/gnd/gnd_snapshot/"
-HDFS="hdfs://weywot1.hbz-nrw.de:8020/user/hduser/extlod/gnd/"
-function concat() {
-  FN=$1
-  echo $FN
-  echo "going to concat $FN"
-  # remove old file
-  rm $FN.nt
-  find $FN -name "*.nt" -type f | xargs -n10000 cat >> $FN.nt
-  ssh hduser@weywot5 ". .bash_profile  ; hadoop fs -rm $HDFS$(basename $FN).nt; hadoop fs -copyFromLocal $FN.nt $HDFS"
-}
-echo "going tp concat, please abort now if you like,  30 seconds left"
-sleep 30
-
-for i in $(find $DIR -maxdepth 1 -mindepth 1 -type d); do
-  concat $i &
-  sleep 2
-  # echo "waiting for load to be sanitized"
-  while [ "$(uptime |cut -d , -f 4|cut -d : -f 2 | cut -d . -f1 )" -ge 3 ]; do
-    printf "."
-    sleep 60
-  done
-done
+echo "DONE !"
