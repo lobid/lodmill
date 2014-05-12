@@ -21,7 +21,7 @@ public final class LobidPerson extends Controller {
 	}
 
 	/**
-	 * Redirects to {@link #resourceAboutRPB(String, String)}
+	 * Redirects to {@link #apAbout(String, String)}
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result ap(final String format) {
@@ -29,7 +29,7 @@ public final class LobidPerson extends Controller {
 	}
 
 	/**
-	 * Returns {@link #resourceAbout(String, String)}
+	 * Returns {@link #personAbout(String, String)}
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result apAbout(final String id, final String format) {
@@ -37,7 +37,7 @@ public final class LobidPerson extends Controller {
 	}
 
 	/**
-	 * Redirects to {@link #resourceAboutRPB(String, String)}
+	 * Redirects to {@link #fsAboutString, String)}
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result fs(final String format) {
@@ -45,7 +45,7 @@ public final class LobidPerson extends Controller {
 	}
 
 	/**
-	 * Returns {@link #resourceAbout(String, String)}
+	 * Returns {@link #personAbout(String, String)}
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result fsAbout(final String id, final String format) {
@@ -53,7 +53,7 @@ public final class LobidPerson extends Controller {
 	}
 
 	/**
-	 * Redirects to {@link #resourceAboutRPB(String, String)}
+	 * Redirects to {@link #pcAbout(String, String)}
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result pc(final String format) {
@@ -61,7 +61,7 @@ public final class LobidPerson extends Controller {
 	}
 
 	/**
-	 * Returns {@link #resourceAbout(String, String)}
+	 * Returns {@link #personAbout(String, String)}
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result pcAbout(final String id, final String format) {
