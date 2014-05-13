@@ -1,0 +1,16 @@
+@* Copyright 2014 Pascal Christoph, hbz. Licensed under the Eclipse Public License 1.0 *@
+@(doc: play.api.libs.json.JsValue)
+@import play.api.libs.json.JsValue
+@import views.TableRow
+@import views.tags.TagHelper
+@import tags._
+<table class="table table-striped">
+  @rdfa("ID", "http://lobid.org/resource", doc, TableRow.LINKS, node = Option(doc))
+  @rdfa("Name", "http://www.w3.org/2000/01/rdf-schema#label", doc, TableRow.VALUES_LANGUAGE_DE)
+  @rdfa("Alternativer Name", "http://www.w3.org/2000/01/rdf-schema#altLabel", doc, TableRow.VALUES)
+  @rdfa("Beschreibung", "http://purl.org/dc/terms/description", doc, TableRow.VALUES_LANGUAGE_DE)
+  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.LINK_VALUES , TagHelper.getPrimaryTopicType(doc))
+  @rdfa("Weitere Informationen", "http://www.w3.org/2000/01/rdf-schema#seeAlso", doc, TableRow.LINKS)
+  @rdfa("Autor", "http://purl.org/dc/terms/creator", doc, TableRow.VALUES, valueLabel = Option(Seq( "")))
+  @rdfa("Mitwirkender", "http://purl.org/dc/terms/contributor", doc, TableRow.LINKS)
+</table>
