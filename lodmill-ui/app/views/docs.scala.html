@@ -26,6 +26,7 @@
 				case Index.GND => {@gnd(Json.parse(doc.getSourceWithFullProperties))}
 				case Index.LOBID_ORGANISATIONS => {@organisation(Json.parse(doc.getSourceWithFullProperties))}
 				case Index.LOBID_ITEMS => {@item(Json.parse(doc.getSourceWithFullProperties))}
+				case Index.LOBID_TEAM => {@team(Json.parse(doc.getSourceWithFullProperties))}
 			}
 		  </div>
 		  <div class="tab-pane" id="@id-jld"><pre>@Json.prettyPrint(Json.parse(doc.getSource))</pre></div>
