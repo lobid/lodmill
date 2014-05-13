@@ -2,12 +2,16 @@
 
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import models.Document;
+import models.Index;
 import models.Search;
 
 import org.elasticsearch.action.get.GetResponse;
 
 import play.Logger;
-import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -17,10 +21,6 @@ import play.mvc.Result;
  * @author Pascal Christoph (dr0i)
  */
 public final class Dataset extends Controller {
-	// TODO don't hardwire index name to switch easily between staging and
-	// production
-	static final String DATA_INDEX = "lobid-provenance";
-	static final String INDEX_TYPE = "json-ld-lobid-provenance";
 
 	private Dataset() {
 		/* No instantiation */
@@ -39,7 +39,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutRPB(final String id, final String format) {
-		return getId(id, format, DATA_INDEX, INDEX_TYPE);
+		return getId(id, format, Index.LOBID_DATASET);
 	}
 
 	/**
@@ -55,7 +55,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutNWBib(final String id, final String format) {
-		return getId(id, format, DATA_INDEX, INDEX_TYPE);
+		return getId(id, format, Index.LOBID_DATASET);
 	}
 
 	/**
@@ -71,26 +71,29 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutEdoweb(final String id, final String format) {
-		return getId(id, format, DATA_INDEX, INDEX_TYPE);
+		return getId(id, format, Index.LOBID_DATASET);
 	}
 
 	/**
 	 * @param id the id to look up
-	 * @param format TODO : format, content negotiation
+	 * @param format the serialization format served via content negotiation
 	 * @param dataIndex the index to be used
 	 * @param indexType the type of the index to be used
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result getId(final String id, final String format,
-			final String dataIndex, final String indexType) {
+			final Index index) {
 		try {
 			Logger.debug("Request:\n" + id);
 			GetResponse response =
-					Search.client.prepareGet(dataIndex, indexType, id).execute()
+					Search.client.prepareGet(index.id(), index.type(), id).execute()
 							.actionGet();
+			Document doc = new Document(id, response.getSourceAsString(), index, "");
+			List<Document> docs = new ArrayList<>();
+			docs.add(doc);
 			Logger.debug("Response:\n" + response.getSourceAsString());
-			return !response.isExists() ? notFound() : ok(Json.parse(response
-					.getSourceAsString()));
+			return !response.isExists() ? notFound() : Application.negotiateContent(
+					docs, index, id, "");
 		} catch (Exception x) {
 			x.printStackTrace();
 			return internalServerError(x.getMessage());

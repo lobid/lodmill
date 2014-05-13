@@ -261,8 +261,8 @@ public final class Application extends Controller {
 		return Json.toJson(ImmutableSet.copyOf(nonEmptyNodes));
 	}
 
-	private static Result negotiateContent(List<Document> documents,
-			Index selectedIndex, String query, String field) {
+	static Result negotiateContent(List<Document> documents, Index selectedIndex,
+			String query, String field) {
 		final Status notAcceptable =
 				status(406, "Not acceptable: unsupported content type requested\n");
 		if (invalidAcceptHeader())
