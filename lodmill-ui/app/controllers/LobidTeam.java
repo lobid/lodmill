@@ -2,6 +2,7 @@
 
 package controllers;
 
+import models.Index;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -10,13 +11,9 @@ import play.mvc.Result;
  * 
  * @author Pascal Christoph (dr0i)
  */
-public final class LobidPerson extends Controller {
-	// TODO don't hardwire index name to switch easily between staging and
-	// production
-	static final String DATA_INDEX = "lobid-persons";
-	static final String INDEX_TYPE = "json-ld-lobid-person";
+public final class LobidTeam extends Controller {
 
-	private LobidPerson() {
+	private LobidTeam() {
 		/* No instantiation */
 	}
 
@@ -25,7 +22,7 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result ap(final String format) {
-		return redirect(routes.LobidPerson.apAbout(format));
+		return redirect(routes.LobidTeam.apAbout(format));
 	}
 
 	/**
@@ -33,7 +30,7 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result apAbout(final String id, final String format) {
-		return Dataset.getId(id, format, DATA_INDEX, INDEX_TYPE);
+		return Dataset.getId(id, format, Index.LOBID_TEAM);
 	}
 
 	/**
@@ -41,7 +38,7 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result fs(final String format) {
-		return redirect(routes.LobidPerson.fsAbout(format));
+		return redirect(routes.LobidTeam.fsAbout(format));
 	}
 
 	/**
@@ -49,7 +46,7 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result fsAbout(final String id, final String format) {
-		return Dataset.getId(id, format, DATA_INDEX, INDEX_TYPE);
+		return Dataset.getId(id, format, Index.LOBID_TEAM);
 	}
 
 	/**
@@ -57,7 +54,7 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result pc(final String format) {
-		return redirect(routes.LobidPerson.pcAbout(format));
+		return redirect(routes.LobidTeam.pcAbout(format));
 	}
 
 	/**
@@ -65,6 +62,6 @@ public final class LobidPerson extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result pcAbout(final String id, final String format) {
-		return Dataset.getId(id, format, DATA_INDEX, INDEX_TYPE);
+		return Dataset.getId(id, format, Index.LOBID_TEAM);
 	}
 }

@@ -25,12 +25,12 @@ GET     /resource/Edoweb/about      controllers.Dataset.resourceAboutEdoweb(id =
 
 
 # Lobid persons
-GET     /person/ap               controllers.LobidPerson.ap(format ?= "negotiate")
-GET     /person/ap/about         controllers.LobidPerson.apAbout(id = "http://lobid.org/person/ap", format ?= "negotiate")
-GET     /person/fs               controllers.LobidPerson.fs(format ?= "negotiate")
-GET     /person/fs/about         controllers.LobidPerson.fsAbout(id = "http://lobid.org/person/fs", format ?= "negotiate")
-GET     /person/pc               controllers.LobidPerson.pc(format ?= "negotiate")
-GET     /person/pc/about         controllers.LobidPerson.pcAbout(id = "http://lobid.org/person/pc", format ?= "negotiate")
+GET     /team/ap               controllers.LobidTeam.ap(format ?= "negotiate")
+GET     /team/ap/about         controllers.LobidTeam.apAbout(id = "http://lobid.org/team/ap", format ?= "negotiate")
+GET     /team/fs               controllers.LobidTeam.fs(format ?= "negotiate")
+GET     /team/fs/about         controllers.LobidTeam.fsAbout(id = "http://lobid.org/team/fs", format ?= "negotiate")
+GET     /team/pc               controllers.LobidTeam.pc(format ?= "negotiate")
+GET     /team/pc/about         controllers.LobidTeam.pcAbout(id = "http://lobid.org/team/pc", format ?= "negotiate")
 
 
 # Individual, specialized API routes for different resource types
