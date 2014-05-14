@@ -30,7 +30,7 @@ public final class LobidTeam extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result apAbout(final String id, final String format) {
-		return Dataset.getId(id, format, Index.LOBID_TEAM);
+		return Collection.getId(id, format, Index.LOBID_TEAM);
 	}
 
 	/**
@@ -46,7 +46,7 @@ public final class LobidTeam extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result fsAbout(final String id, final String format) {
-		return Dataset.getId(id, format, Index.LOBID_TEAM);
+		return Collection.getId(id, format, Index.LOBID_TEAM);
 	}
 
 	/**
@@ -62,6 +62,6 @@ public final class LobidTeam extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result pcAbout(final String id, final String format) {
-		return Dataset.getId(id, format, Index.LOBID_TEAM);
+		return Collection.getId(id, format, Index.LOBID_TEAM);
 	}
 }

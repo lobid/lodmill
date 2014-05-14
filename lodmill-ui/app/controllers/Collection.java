@@ -20,9 +20,9 @@ import play.mvc.Result;
  * 
  * @author Pascal Christoph (dr0i)
  */
-public final class Dataset extends Controller {
+public final class Collection extends Controller {
 
-	private Dataset() {
+	private Collection() {
 		/* No instantiation */
 	}
 
@@ -31,7 +31,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceRPB(final String format) {
-		return redirect(routes.Dataset.resourceAboutRPB(format));
+		return redirect(routes.Collection.resourceAboutRPB(format));
 	}
 
 	/**
@@ -39,7 +39,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutRPB(final String id, final String format) {
-		return getId(id, format, Index.LOBID_DATASET);
+		return getId(id, format, Index.LOBID_COLLECTIONS);
 	}
 
 	/**
@@ -47,7 +47,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceNWBib(final String format) {
-		return redirect(routes.Dataset.resourceAboutNWBib(format));
+		return redirect(routes.Collection.resourceAboutNWBib(format));
 	}
 
 	/**
@@ -55,7 +55,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutNWBib(final String id, final String format) {
-		return getId(id, format, Index.LOBID_DATASET);
+		return getId(id, format, Index.LOBID_COLLECTIONS);
 	}
 
 	/**
@@ -63,7 +63,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceEdoweb(final String format) {
-		return redirect(routes.Dataset.resourceAboutEdoweb(format));
+		return redirect(routes.Collection.resourceAboutEdoweb(format));
 	}
 
 	/**
@@ -71,7 +71,7 @@ public final class Dataset extends Controller {
 	 */
 	@SuppressWarnings("javadoc")
 	public static Result resourceAboutEdoweb(final String id, final String format) {
-		return getId(id, format, Index.LOBID_DATASET);
+		return getId(id, format, Index.LOBID_COLLECTIONS);
 	}
 
 	/**

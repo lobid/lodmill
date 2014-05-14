@@ -62,7 +62,7 @@ public enum Index {
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>().put(
 					Parameter.ID, new Dummy.IdQuery()).build()), /* @formatter:on */
 	/***/
-	LOBID_DATASET("lobid-provenance", "json-ld-lobid-provenance",
+	LOBID_COLLECTIONS("lobid-collections", "json-ld-lobid-collection",
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>().put(
 					Parameter.ID, new LobidResources.IdQuery()).build()); /* @formatter:on */
 

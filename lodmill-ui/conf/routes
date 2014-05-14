@@ -15,13 +15,13 @@ GET     /images/*file               controllers.Assets.at(path="/public/images",
 # Map JSON-LD context documents from the /public/contexts folder to the /contect URL path
 GET     /context/:file              controllers.Assets.at(path="/public/contexts", file)
 
-# Datasets
-GET     /resource/RPB               controllers.Dataset.resourceRPB(format ?= "negotiate")
-GET     /resource/RPB/about         controllers.Dataset.resourceAboutRPB(id = "http://lobid.org/resource/RPB", format ?= "negotiate")
-GET     /resource/NWBib             controllers.Dataset.resourceNWBib(format ?= "negotiate")
-GET     /resource/NWBib/about       controllers.Dataset.resourceAboutNWBib(id = "http://lobid.org/resource/NWBib", format ?= "negotiate")
-GET     /resource/Edoweb            controllers.Dataset.resourceEdoweb(format ?= "negotiate")
-GET     /resource/Edoweb/about      controllers.Dataset.resourceAboutEdoweb(id ="http://lobid.org/resource/Edoweb", format ?= "negotiate")
+# Collections
+GET     /resource/RPB               controllers.Collection.resourceRPB(format ?= "negotiate")
+GET     /resource/RPB/about         controllers.Collection.resourceAboutRPB(id = "http://lobid.org/resource/RPB", format ?= "negotiate")
+GET     /resource/NWBib             controllers.Collection.resourceNWBib(format ?= "negotiate")
+GET     /resource/NWBib/about       controllers.Collection.resourceAboutNWBib(id = "http://lobid.org/resource/NWBib", format ?= "negotiate")
+GET     /resource/Edoweb            controllers.Collection.resourceEdoweb(format ?= "negotiate")
+GET     /resource/Edoweb/about      controllers.Collection.resourceAboutEdoweb(id ="http://lobid.org/resource/Edoweb", format ?= "negotiate")
 
 
 # Lobid persons
