@@ -35,6 +35,14 @@
   case views.TableRow.VALUES => {
     @tr(valueLabel)
  }
+  case views.TableRow.VALUES_LANGUAGE_DE => {
+    @defining(views.tags.TagHelper.getLanguageLabelValue(property, "de", doc)) { value =>
+             <tr>
+                <td><a href="@property">@label</a></td>
+                <td property="@property">@value</td>
+            </tr>
+    }
+ }
   case views.TableRow.LINK_VALUES => {
     @tr(Option(Seq(property)))
  }

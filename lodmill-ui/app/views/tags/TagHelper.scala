@@ -6,6 +6,15 @@ import play.api.libs.json.JsObject
 import play.api.libs.json.JsArray
 
 object TagHelper {
+  def getLanguageLabelValue(objectId: String, language: String, node: JsValue): Option[String] = {
+    val res = for (
+      graphObject <- (node \ "@graph").as[List[JsValue]];
+      objects = (graphObject \ objectId);
+      obj <- objects.asOpt[List[JsValue]].getOrElse(List(objects));
+      if ((obj \ "@language").asOpt[String].getOrElse("") == language)
+    ) yield (obj \ "@value").asOpt[String].getOrElse("")
+    Some(res.mkString(","))
+  }
   def getLabelValue(objectId: String, language: String, node: JsValue): Option[String] = {
     val label = "http://www.w3.org/2004/02/skos/core#prefLabel"
     if ((node \\ objectId).isEmpty) return None
