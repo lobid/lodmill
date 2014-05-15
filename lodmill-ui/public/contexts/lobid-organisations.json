@@ -37,6 +37,12 @@
          "@id": "http://www.w3.org/2006/vcard/ns#url",
          "@type": "@id"
       },
+      "hasOpeningHoursSpecification":
+      {
+        "@id": "http://purl.org/goodrelations/v1#hasOpeningHoursSpecification",
+        "@type": "@id"
+      },
+      "description": "http://purl.org/dc/terms/description",
       "provides":
       {
          "@id": "http://purl.org/ontology/daia/provides",
