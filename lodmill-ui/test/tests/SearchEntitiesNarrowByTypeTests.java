@@ -40,7 +40,7 @@ public class SearchEntitiesNarrowByTypeTests extends SearchTestsHarness {
 				assertThat(response).isNotNull();
 				final JsonNode jsonObjectIds = Json.parse(response);
 				assertThat(jsonObjectIds.isArray()).isTrue();
-				assertThat(jsonObjectIds.size()).isEqualTo(hits);
+				assertThat(jsonObjectIds.size()).isEqualTo(hits + META);
 			}
 		});
 	}

@@ -44,8 +44,8 @@ public class SearchResourceNarrowBySetTests extends SearchTestsHarness {
 				assertThat(response).isNotNull();
 				final JsonNode jsonObjectIds = Json.parse(response);
 				assertThat(jsonObjectIds.isArray()).isTrue();
-				assertThat(jsonObjectIds.size()).isEqualTo(1);
-				assertThat(jsonObjectIds.get(0).toString()).contains(SET_FULL);
+				assertThat(jsonObjectIds.size()).isEqualTo(1 + META);
+				assertThat(jsonObjectIds.get(0 + META).toString()).contains(SET_FULL);
 			}
 		});
 	}
