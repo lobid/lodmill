@@ -58,6 +58,7 @@ public class SearchTestsHarness {
 	protected static Client client;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(SearchTestsHarness.class);
+	static final int META = 1;
 
 	@BeforeClass
 	public static void setup() throws IOException {
@@ -126,6 +127,7 @@ public class SearchTestsHarness {
 	private static void addIndexRequest(final String meta,
 			final BulkRequestBuilder bulkRequest, final String line, final Client c) {
 		try {
+			@SuppressWarnings("unchecked")
 			final Map<String, Object> map =
 					(Map<String, Object>) JSONValue.parseWithException(line);
 			final IndexRequestBuilder requestBuilder =

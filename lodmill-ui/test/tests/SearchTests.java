@@ -157,8 +157,8 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(response).isNotNull();
 				final JsonNode jsonObject = Json.parse(response);
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(1);
-				assertThat(jsonObject.elements().next().asText()).isEqualTo(
+				assertThat(jsonObject.size()).isEqualTo(1 + META);
+				assertThat(jsonObject.get(0 + META).asText()).isEqualTo(
 						"http://dx.doi.org/10.1007/978-1-4020-8389-1");
 			}
 		});
@@ -177,7 +177,7 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(response).isNotNull();
 				final JsonNode jsonObject = Json.parse(response);
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(0);
+				assertThat(jsonObject.size()).isEqualTo(0 + META);
 			}
 		});
 	}
@@ -192,14 +192,13 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(response).isNotNull();
 				final JsonNode jsonObject = Json.parse(response);
 				assertThat(jsonObject.isArray()).isTrue();
-				final Iterator<JsonNode> elements = jsonObject.elements();
-				assertThat(elements.next().asText()).isEqualTo("1719");
-				assertThat(elements.next().asText()).isEqualTo("1906");
-				assertThat(elements.next().asText()).isEqualTo("1973");
-				assertThat(elements.next().asText()).isEqualTo("1976");
-				assertThat(elements.next().asText()).isEqualTo("1977");
-				assertThat(elements.next().asText()).isEqualTo("1979");
-				assertThat(elements.next().asText()).isEqualTo("1981");
+				assertThat(jsonObject.get(0 + META).asText()).isEqualTo("1719");
+				assertThat(jsonObject.get(1 + META).asText()).isEqualTo("1906");
+				assertThat(jsonObject.get(2 + META).asText()).isEqualTo("1973");
+				assertThat(jsonObject.get(3 + META).asText()).isEqualTo("1976");
+				assertThat(jsonObject.get(4 + META).asText()).isEqualTo("1977");
+				assertThat(jsonObject.get(5 + META).asText()).isEqualTo("1979");
+				assertThat(jsonObject.get(6 + META).asText()).isEqualTo("1981");
 			}
 		});
 	}
@@ -295,8 +294,9 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject =
 						Json.parse(call("resource?author=abraham&format=full"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isGreaterThan(5).isLessThan(10);
-				assertThat(jsonObject.elements().next().isContainerNode()).isTrue();
+				assertThat(jsonObject.size())//
+						.isGreaterThan(5 + META).isLessThan(10 + META);
+				assertThat(jsonObject.get(0 + META).isContainerNode()).isTrue();
 			}
 		});
 	}
@@ -381,8 +381,8 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject =
 						Json.parse(call("resource?author=" + gndId));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(1);
-				assertThat(jsonObject.get(0).toString()).contains(
+				assertThat(jsonObject.size()).isEqualTo(1 + META);
+				assertThat(jsonObject.get(0 + META).toString()).contains(
 						"http://d-nb.info/gnd/" + gndId);
 			}
 		});
@@ -401,8 +401,8 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject =
 						Json.parse(call("resource?subject=" + gndId));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(results);
-				assertThat(jsonObject.get(0).toString()).contains(
+				assertThat(jsonObject.size()).isEqualTo(results + META);
+				assertThat(jsonObject.get(0 + META).toString()).contains(
 						"http://d-nb.info/gnd/" + gndId);
 			}
 		});
@@ -423,9 +423,9 @@ public class SearchTests extends SearchTestsHarness {
 			public void run() {
 				final JsonNode jsonObject = Json.parse(call("person?id=" + gndId));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(results);
+				assertThat(jsonObject.size()).isEqualTo(results + META);
 				final String gndPrefix = "http://d-nb.info/gnd/";
-				assertThat(jsonObject.get(0).toString()).contains(
+				assertThat(jsonObject.get(0 + META).toString()).contains(
 						gndPrefix + gndId.replace(gndPrefix, ""));
 			}
 		});
@@ -447,8 +447,8 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject =
 						Json.parse(call("subject?name=" + subjectName));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(results);
-				assertThat(jsonObject.get(0).toString()).contains(subjectName);
+				assertThat(jsonObject.size()).isEqualTo(results + META);
+				assertThat(jsonObject.get(0 + META).toString()).contains(subjectName);
 			}
 		});
 	}
@@ -468,7 +468,7 @@ public class SearchTests extends SearchTestsHarness {
 			public void run() {
 				final JsonNode jsonObject = Json.parse(call(call));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(1);
+				assertThat(jsonObject.size()).isEqualTo(1 + META);
 			}
 		});
 	}
@@ -625,10 +625,14 @@ public class SearchTests extends SearchTestsHarness {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
-				assertThat(call("resource?author=ha&from=0&size=3")).isEqualTo(
-						call("resource?author=ha&size=3")); /* default 'from' is 0 */
-				assertThat(call("resource?author=ha&from=10&size=50")).isEqualTo(
-						call("resource?author=ha&from=10")); /* default 'size' is 50 */
+				String r1 = "resource?author=ha&from=0&size=3";
+				String r2 = "resource?author=ha&size=3";
+				assertThat(call(r1).replace(r1, ""))
+						.isEqualTo(call(r2).replace(r2, "")); /* default 'from' is 0 */
+				String r3 = "resource?author=ha&from=10&size=50";
+				String r4 = "resource?author=ha&from=10";
+				assertThat(call(r3).replace(r3, ""))
+						.isEqualTo(call(r4).replace(r4, "")); /* default 'size' is 50 */
 			}
 		});
 	}
@@ -640,10 +644,10 @@ public class SearchTests extends SearchTestsHarness {
 			public void run() {
 				final JsonNode jsonObject = Json.parse(call("resource?id=BT000001260"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
+				assertThat(jsonObject.get(0 + META).get("@id").asText()).isEqualTo(
 						"http://lobid.org/resource/BT000001260/about");
-				assertThat(jsonObject.get(0).get("primaryTopic").asText()).isEqualTo(
-						"http://lobid.org/resource/BT000001260");
+				assertThat(jsonObject.get(0 + META).get("primaryTopic").asText())
+						.isEqualTo("http://lobid.org/resource/BT000001260");
 			}
 		});
 	}
@@ -655,10 +659,39 @@ public class SearchTests extends SearchTestsHarness {
 			public void run() {
 				final JsonNode jsonObject = Json.parse(call("person?id=1019737174"));
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.get(0).get("@id").asText()).isEqualTo(
+				assertThat(jsonObject.get(0 + META).get("@id").asText()).isEqualTo(
 						"http://d-nb.info/gnd/1019737174/about");
-				assertThat(jsonObject.get(0).get("primaryTopic").asText()).isEqualTo(
-						"http://d-nb.info/gnd/1019737174");
+				assertThat(jsonObject.get(0 + META).get("primaryTopic").asText())
+						.isEqualTo("http://d-nb.info/gnd/1019737174");
+			}
+		});
+	}
+
+	@Test
+	public void testAllHitsInResultJson() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				String request = "resource?q=*&from=0&size=3";
+				String response = call(request);
+				assertThat(response).contains(request);
+				assertThat(response).contains(
+						"\"http://sindice.com/vocab/search#totalResults\":25}");
+			}
+		});
+	}
+
+	@Test
+	public void testAllHitsInResultNTriples() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				String request = "resource?q=*&from=0&size=3";
+				String response = call(request, "text/plain");
+				assertThat(response).contains(request);
+				assertThat(response).contains(
+						"<http://sindice.com/vocab/search#totalResults> "
+								+ "\"25\"^^<http://www.w3.org/2001/XMLSchema#integer>");
 			}
 		});
 	}

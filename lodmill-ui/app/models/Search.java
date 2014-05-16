@@ -12,6 +12,8 @@ import models.queries.AbstractIndexQuery;
 import models.queries.LobidItems;
 import models.queries.LobidResources;
 
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
@@ -54,6 +56,7 @@ public class Search {
 					.build()).addTransportAddress(ES_SERVER);
 	/** The ElasticSearch client to use. */
 	public static Client client = productionClient;
+	/* TODO find a better way to inject the client for testing */
 
 	/** Required: */
 	private String term;
@@ -68,7 +71,8 @@ public class Search {
 	private int from = 0;
 	private String type = "";
 
-	/* TODO find a better way to inject the client for testing */
+	private List<Document> documents = null;
+	private Long hitCount = null;
 
 	/**
 	 * @param term The search term
@@ -97,11 +101,34 @@ public class Search {
 	 * @return The documents matching this search
 	 */
 	public List<Document> documents() {
+		if (documents == null)
+			initResults();
+		return documents;
+	}
+
+	/**
+	 * @return The total number of hits for this search.
+	 */
+	public long totalHits() {
+		if (hitCount == null)
+			initResults();
+		return hitCount;
+	}
+
+	private void initResults() {
+		Pair<List<Document>, Long> result = doSearch();
+		this.documents = result.getLeft();
+		this.hitCount = result.getRight();
+	}
+
+	private Pair<List<Document>, Long> doSearch() {
 		validateSearchParameters();
 		String cacheId = String.format("%s.%s.%s.%s.%s.%s.%s.%s.%s", //
 				term, index, parameter, field, owner, set, size, from, type);
 		if (play.api.Play.maybeApplication().isDefined() && !Play.isTest()) {
-			List<Document> cachedResult = (List<Document>) Cache.get(cacheId);
+			@SuppressWarnings("unchecked")
+			Pair<List<Document>, Long> cachedResult =
+					(Pair<List<Document>, Long>) Cache.get(cacheId);
 			if (cachedResult != null)
 				return cachedResult;
 		}
@@ -113,13 +140,15 @@ public class Search {
 		final SearchResponse response = search(queryBuilder);
 		Logger.debug("Got response: " + response);
 		final SearchHits hits = response.getHits();
-		final List<Document> documents = asDocuments(hits, indexQuery.fields());
+		final List<Document> docs = asDocuments(hits, indexQuery.fields());
+		final Pair<List<Document>, Long> result =
+				new ImmutablePair<>(docs, hits.getTotalHits());
 		Logger.debug(String.format("Got %s hits overall, created %s matching docs",
-				hits.hits().length, documents.size()));
+				hits.getTotalHits(), docs.size()));
 		if (play.api.Play.maybeApplication().isDefined() && !Play.isTest()) {
-			Cache.set(cacheId, documents, 60 * 60);
+			Cache.set(cacheId, result, 60 * 60);
 		}
-		return documents;
+		return result;
 	}
 
 	/**
