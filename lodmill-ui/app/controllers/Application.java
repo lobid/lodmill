@@ -3,7 +3,6 @@
 package controllers;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
 
@@ -20,7 +19,6 @@ import org.lobid.lodmill.JsonLdConverter.Format;
 import play.Logger;
 import play.api.http.MediaRange;
 import play.api.templates.Html;
-import play.libs.F;
 import play.libs.F.Promise;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -31,7 +29,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
-import com.google.common.base.Predicate;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -41,7 +38,7 @@ import com.google.common.collect.Lists;
 
 /**
  * Main application controller.
- * 
+ *
  * @author Fabian Steeg (fsteeg)
  */
 public final class Application extends Controller {
@@ -82,7 +79,7 @@ public final class Application extends Controller {
 
 	/**
 	 * Search enpoint for actual queries.
-	 * 
+	 *
 	 * @param indexParameter The index to search (see {@link Index}).
 	 * @param parameter The search parameter type (see {@link Parameter}).
 	 * @param queryParameter The search query
@@ -116,14 +113,10 @@ public final class Application extends Controller {
 					resultsPromise(queryParameter, docs, index,
 							getFieldAndFormat(formatParameter).getLeft(), allHits,
 							addQueryInfo);
-			return resultPromise
-					.map(new F.Function<ImmutableMap<ResultFormat, Result>, Result>() {
-						@Override
-						public Result apply(ImmutableMap<ResultFormat, Result> results) {
-							return results.get(ResultFormat.valueOf(getFieldAndFormat(
-									formatParameter).getRight().toUpperCase()));
-						}
-					});
+			return resultPromise.map(results -> {
+				return results.get(ResultFormat.valueOf(getFieldAndFormat(
+						formatParameter).getRight().toUpperCase()));
+			});
 		} catch (IllegalArgumentException e) {
 			Logger.error(e.getMessage(), e);
 			return badRequestPromise("Invalid 'format' parameter, use one of: "
@@ -136,30 +129,21 @@ public final class Application extends Controller {
 			final Index index, final String field, final long allHits,
 			final boolean addQueryInfo) {
 		return Promise
-				.promise(new F.Function0<ImmutableMap<ResultFormat, Result>>() {
-					@Override
-					public ImmutableMap<ResultFormat, Result> apply() {
-						return results(queryParameter, docs, index, field, allHits,
-								addQueryInfo);
-					}
+				.promise(() -> {
+					return results(queryParameter, docs, index, field, allHits,
+							addQueryInfo);
 				});
 	}
 
 	static Promise<Result> badRequestPromise(final String message) {
-		return Promise.promise(new F.Function0<Result>() {
-			@Override
-			public Result apply() {
-				return badRequest(message);
-			}
+		return Promise.promise(() -> {
+			return badRequest(message);
 		});
 	}
 
 	static Promise<Result> okPromise(final Html html) {
-		return Promise.promise(new F.Function0<Result>() {
-			@Override
-			public Result apply() {
-				return ok(html);
-			}
+		return Promise.promise(() -> {
+			return ok(html);
 		});
 	}
 
@@ -175,32 +159,12 @@ public final class Application extends Controller {
 		return new ImmutablePair<>("", format);
 	}
 
-	private static Function<Document, JsonNode> jsonFull =
-			new Function<Document, JsonNode>() {
-				@Override
-				public JsonNode apply(final Document doc) {
-					return Json.parse(doc.getSource());
-				}
-			};
-
-	private static Function<Document, String> jsonShort =
-			new Function<Document, String>() {
-				@Override
-				public String apply(final Document doc) {
-					return doc.getMatchedField();
-				}
-			};
-
-	private static Function<Document, JsonNode> jsonLabelValue =
-			new Function<Document, JsonNode>() {
-				@Override
-				public JsonNode apply(final Document doc) {
-					final ObjectNode object = Json.newObject();
-					object.put("label", doc.getMatchedField());
-					object.put("value", doc.getId());
-					return object;
-				}
-			};
+	private static Function<Document, JsonNode> jsonLabelValue = doc -> {
+		final ObjectNode object = Json.newObject();
+		object.put("label", doc.getMatchedField());
+		object.put("value", doc.getId());
+		return object;
+	};
 
 	private static ImmutableMap<ResultFormat, Result> results(final String query,
 			final List<Document> documents, final Index selectedIndex,
@@ -222,7 +186,9 @@ public final class Application extends Controller {
 						.put(
 								ResultFormat.SHORT,
 								withCallback(callback, Json.toJson(new LinkedHashSet<>(Lists
-										.transform(documents, jsonShort)))))
+										.transform(documents, doc -> {
+											return doc.getMatchedField();
+										})))))
 						.put(
 								ResultFormat.IDS,
 								withCallback(callback,
@@ -237,40 +203,21 @@ public final class Application extends Controller {
 				.format("%s(%s)", callback[0], shortJson)) : ok(shortJson);
 	}
 
-	private static final Predicate<JsonNode> nonEmptyNode =
-			new Predicate<JsonNode>() {
-				@Override
-				public boolean apply(JsonNode node) {
-					return node.size() > 0;
-				}
-			};
-
-	private static final Function<JsonNode, List<JsonNode>> nodeToArray =
-			new Function<JsonNode, List<JsonNode>>() {
-				@Override
-				public List<JsonNode> apply(JsonNode input) {
-					return input.isArray() ? /**/
-					Lists.newArrayList(input.elements()) : Lists.newArrayList(input);
-				}
-			};
-
-	private static final Comparator<JsonNode> nodeAsTextComparator =
-			new Comparator<JsonNode>() {
-				@Override
-				public int compare(JsonNode o1, JsonNode o2) {
-					return o1.asText().compareTo(o2.asText());
-				}
-			};
-
 	private static JsonNode fullJsonResponse(final List<Document> documents,
 			final String field, long allHits, boolean addQueryInfo) {
 		Iterable<JsonNode> nonEmptyNodes =
-				Iterables.filter(Lists.transform(documents, jsonFull), nonEmptyNode);
+				Iterables.filter(Lists.transform(documents, doc -> {
+					return Json.parse(doc.getSource());
+				}), node -> {
+					return node.size() > 0;
+				});
 		if (!field.isEmpty()) {
-			nonEmptyNodes =
-					ImmutableSortedSet.copyOf(nodeAsTextComparator,
-							FluentIterable.from(nonEmptyNodes)
-									.transformAndConcat(nodeToArray));
+			nonEmptyNodes = ImmutableSortedSet.copyOf((o1, o2) -> {
+				return o1.asText().compareTo(o2.asText());
+			}, FluentIterable.from(nonEmptyNodes).transformAndConcat(input -> {
+				return input.isArray() ? /**/
+				Lists.newArrayList(input.elements()) : Lists.newArrayList(input);
+			}));
 		}
 		List<JsonNode> data = new ArrayList<>();
 		if (addQueryInfo)
@@ -327,13 +274,9 @@ public final class Application extends Controller {
 		if (addQueryInfo)
 			transformed.add(transformed(queryInfo(allHits).toString(),
 					serialization.format));
-		transformed.addAll(Lists.transform(documents,
-				new Function<Document, String>() {
-					@Override
-					public String apply(final Document doc) {
-						return doc.as(serialization.format);
-					}
-				}));
+		transformed.addAll(Lists.transform(documents, doc -> {
+			return doc.as(serialization.format);
+		}));
 		return transformed;
 	}
 

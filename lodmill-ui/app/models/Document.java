@@ -17,9 +17,9 @@ import play.Logger;
 import play.libs.Json;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.github.jsonldjava.core.JsonLdProcessor;
 import com.github.jsonldjava.core.JsonLdError;
 import com.github.jsonldjava.core.JsonLdOptions;
+import com.github.jsonldjava.core.JsonLdProcessor;
 import com.github.jsonldjava.utils.JSONUtils;
 import com.google.common.collect.ImmutableMap;
 import com.hp.hpl.jena.shared.BadURIException;
@@ -49,6 +49,7 @@ public class Document {
 	public String getSource() {
 		try {
 			final Pair<URL, String> localAndPublicContextUrls = index.context();
+			@SuppressWarnings("unchecked")
 			final Map<String, Object> compactJsonLd =
 					sourceAsCompactJsonLd((Map<String, Object>) JSONUtils
 							.fromURL(localAndPublicContextUrls.getLeft()));
@@ -88,10 +89,9 @@ public class Document {
 	}
 
 	private Map<String, Object> sourceAsCompactJsonLd(
-			final Map<String, Object> contextObject) throws IOException,
-			JsonLdError {
+			final Map<String, Object> contextObject) throws IOException, JsonLdError {
 		final Map<String, Object> jsonLd =
-				wrappedIntoGraphIfMissing((Map<String, Object>) JsonLdProcessor.compact(
+				wrappedIntoGraphIfMissing(JsonLdProcessor.compact(
 						JSONUtils.fromString(source), contextObject, new JsonLdOptions()));
 		jsonLd.put("@id", id + "/about");
 		return jsonLd;

@@ -277,11 +277,8 @@ public class Search {
 				Logger.error(e.getMessage(), e);
 			}
 		}
-		final Predicate<Document> predicate = new Predicate<Document>() {
-			@Override
-			public boolean apply(final Document doc) {
+		final Predicate<Document> predicate = doc -> {
 				return doc.matchedField != null;
-			}
 		};
 		return ImmutableList.copyOf(Iterables.filter(res, predicate));
 	}

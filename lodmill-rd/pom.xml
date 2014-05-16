@@ -6,7 +6,7 @@
 	<version>1.1.0-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<target.jdk>1.6</target.jdk>
+		<target.jdk>1.8</target.jdk>
 		<junit.version>4.8.2</junit.version>
 	</properties>
 	<repositories>
