@@ -76,7 +76,7 @@ public final class Collection extends Controller {
 
 	/**
 	 * @param id the id to look up
-	 * @param format the serialization format served via content negotiation
+	 * @param format TODO the serialization format as parameter
 	 * @param dataIndex the index to be used
 	 * @param indexType the type of the index to be used
 	 */

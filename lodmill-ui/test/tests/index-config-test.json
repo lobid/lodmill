@@ -171,6 +171,15 @@
           "search_analyzer":"id_analyzer"
         }
       }
+    },
+    "json-ld-lobid-collection":{
+      "properties":{
+        "@graph.http://www.w3.org/2000/01/rdf-schema#seeAlso.@value":{
+          "type":"string",
+          "index_analyzer":"id_analyzer",
+          "search_analyzer":"id_analyzer"
+        }
+      }
     }
   }
 }
