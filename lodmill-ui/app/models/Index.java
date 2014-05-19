@@ -55,7 +55,13 @@ public enum Index {
 			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>()
 					.put(Parameter.Q, new LobidItems.AllFieldsQuery())
 					.put(Parameter.NAME, new LobidItems.NameQuery())
-					.put(Parameter.ID, new LobidItems.IdQuery()).build());/* @formatter:on */
+					.put(Parameter.ID, new LobidItems.IdQuery()).build()),
+	/***/
+	LOBID_TEAM("lobid-team", "json-ld-lobid-team",
+			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>().build()), 
+	/***/
+	LOBID_COLLECTIONS("lobid-collections", "json-ld-lobid-collection",
+			new ImmutableMap.Builder<Parameter, AbstractIndexQuery>().build()); /*@formatter:on*/
 
 	static final Config CONFIG = ConfigFactory.parseFile(
 			new File("conf/application.conf")).resolve();

@@ -1,0 +1,26 @@
+@* Copyright 2014 Pascal Christoph, hbz. Licensed under the Eclipse Public License 1.0 *@
+@(doc: play.api.libs.json.JsValue)
+@import play.api.libs.json.JsValue
+@import views.TableRow
+@import views.tags.TagHelper
+@import tags._
+<table class="table table-striped">
+  @rdfa("Name", "http://xmlns.com/foaf/0.1/name", doc, TableRow.VALUES)
+  @map("Lage", "http://www.w3.org/2003/01/geo/wgs84_pos#location",
+    "http://www.w3.org/2003/01/geo/wgs84_pos#long", "http://www.w3.org/2003/01/geo/wgs84_pos#lat", doc)
+  @rdfa("Identische Ressource", "http://www.w3.org/2002/07/owl#sameAs", doc, TableRow.LINKS)
+  @rdfa("Webblog", "http://xmlns.com/foaf/0.1/weblog", doc, TableRow.LINKS)
+  @rdfa("Hauptthema von", "http://xmlns.com/foaf/0.1/isPrimaryTopicOf", doc, TableRow.LINKS)
+  @rdfa("Telefon", "http://www.w3.org/2006/vcard/ns#tel", doc, TableRow.VALUES)
+  @rdfa("Abbildung", "http://xmlns.com/foaf/0.1/depiction", doc, TableRow.IMAGE)
+  @rdfa("Arbeitgeber", "http://xmlns.com/foaf/0.1/workplaceHomepage", doc, TableRow.LINKS)
+  @rdfa("E-Mail", "http://xmlns.com/foaf/0.1/mbox", doc, TableRow.LINKS)
+  @rdfa("Kennt", "http://xmlns.com/foaf/0.1/knows", doc, TableRow.LINKS)
+  @rdfa("Avatar", "http://rdfs.org/sioc/ns#avatar", doc, TableRow.IMAGE)
+  @rdfa("Wohnhaft in", "http://www.geonames.org/ontology#locatedIn", doc, TableRow.LINKS)
+  @rdfa("Typ", "http://www.w3.org/1999/02/22-rdf-syntax-ns#type", doc, TableRow.LINKS, TagHelper.getPrimaryTopicType(doc))
+  @rdfa("Skype ID", "http://xmlns.com/foaf/0.1/skypeID", doc, TableRow.IMAGE)
+  @rdfa("Publikationen", "http://xmlns.com/foaf/0.1/publications", doc, TableRow.LINKS)
+  @rdfa("Nickname", "http://xmlns.com/foaf/0.1/nick", doc, TableRow.VALUES)
+  @rdfa("Webblog", "http://xmlns.com/foaf/0.1/homepage", doc, TableRow.LINKS)
+</table>

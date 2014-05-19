@@ -30,6 +30,25 @@ class ScalaTests extends AssertionsForJUnit {
       asOpt[String].get === "http://lobid.org/media/DE-605_contactqr.png")
   }
 
+  @Test def accessLanguageTag() {
+    import views.tags.TagHelper._
+    val json: JsValue = toJson(
+      Map[String, JsValue](
+        "@graph" -> toJson(List[Map[String, JsValue]](
+          Map(
+            "@id" -> toJson("http://lobid.org/resource/NWBib"),
+            "http://www.w3.org/2000/01/rdf-schema#label" -> toJson(List(
+              Map(
+                "@value" -> toJson("North Rhine-Westphalian Bibliography"),
+                "@language" -> toJson("en")),
+              Map(
+                "@value" -> toJson("Nordrhein-Westfälische Bibliographie"),
+                "@language" -> toJson("de")))))))))
+
+    assert(getLanguageLabelValue("http://www.w3.org/2000/01/rdf-schema#label", "de", json)
+      === Some("Nordrhein-Westfälische Bibliographie"))
+  }
+
   @Test def accessLabel() {
     import views.tags.TagHelper._
     val json: JsValue = toJson(

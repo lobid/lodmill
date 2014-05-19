@@ -282,7 +282,7 @@ public final class Application extends Controller {
 				"http://sindice.com/vocab/search#totalResults", allHits));
 	}
 
-	private static Result negotiateContent(List<Document> documents,
+	static Result negotiateContent(List<Document> documents,
 			Index selectedIndex, String query, String field, long allHits) {
 		final Status notAcceptable =
 				status(406, "Not acceptable: unsupported content type requested\n");

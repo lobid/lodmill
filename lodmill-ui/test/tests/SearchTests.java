@@ -42,7 +42,7 @@ public class SearchTests extends SearchTestsHarness {
 	public void accessIndex() {
 		assertThat(
 				client.prepareSearch().execute().actionGet().getHits().totalHits())
-				.isEqualTo(50);
+				.isEqualTo(51);
 		JsonNode json =
 				Json.parse(client
 						.prepareGet(Index.LOBID_RESOURCES.id(), "json-ld-lobid",
@@ -52,6 +52,19 @@ public class SearchTests extends SearchTestsHarness {
 		assertThat(
 				json.findValue("http://d-nb.info/standards/elementset/gnd#dateOfBirth")
 						.findValue("@value").toString()).isEqualTo("\"1906\"");
+	}
+
+	@Test
+	public void accessIndexUsingCollectionRoute() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final String response = call("resource/NWBib");
+				assertThat(response).isNotNull();
+				final JsonNode jsonObject = Json.parse(response);
+				assertThat(jsonObject.asText().contains("Regionalbibliographien"));
+			}
+		});
 	}
 
 	@Test
