@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ES_SERVER=$1 # 193.30.112.171 aka quaoar1
+ES_SERVER=$1 # 193.30.112.171 aka quaoar2
 ES_CLUSTER=$2 # lobid-hbz
 
 TIME=`date '+%Y%m%d-%H%M%S'`
