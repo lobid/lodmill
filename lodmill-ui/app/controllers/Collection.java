@@ -93,7 +93,7 @@ public final class Collection extends Controller {
 			docs.add(doc);
 			Logger.debug("Response:\n" + response.getSourceAsString());
 			return !response.isExists() ? notFound() : Application.negotiateContent(
-					docs, index, id, "", 1);
+					docs, index, id, "", 1, false);
 		} catch (Exception x) {
 			x.printStackTrace();
 			return internalServerError(x.getMessage());

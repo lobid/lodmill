@@ -145,11 +145,11 @@ public class SearchTests extends SearchTestsHarness {
 	}
 
 	/*@formatter:off*/
-	@Test public void returnFieldParam() { returnFieldHit("resource?id=TT050326640&"); }
-	@Test public void returnFieldPath() { returnFieldHit("resource/TT050326640?"); }
+	@Test public void returnFieldPathOneHit() { returnFieldHitPath("resource/TT050326640?", 1); }
+	@Test public void returnFieldPathNoHit() { returnFieldHitPath("resource/HT000000716?", 0); }
 	/*@formatter:on*/
 
-	public void returnFieldHit(final String query) {
+	public void returnFieldHitPath(final String query, final int hits) {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
@@ -157,19 +157,20 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(response).isNotNull();
 				final JsonNode jsonObject = Json.parse(response);
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(1 + META);
-				assertThat(jsonObject.get(0 + META).asText()).isEqualTo(
-						"http://dx.doi.org/10.1007/978-1-4020-8389-1");
+				assertThat(jsonObject.size()).isEqualTo(hits);
+				if (hits > 0)
+					assertThat(jsonObject.get(0).asText()).isEqualTo(
+							"http://dx.doi.org/10.1007/978-1-4020-8389-1");
 			}
 		});
 	}
 
 	/*@formatter:off*/
-	@Test public void returnFieldParamNoHit() { returnFieldNoHit("resource?id=HT000000716&"); }
-	@Test public void returnFieldPathNoHit() { returnFieldNoHit("resource/HT000000716?"); }
+	@Test public void returnFieldParamOneHit() { returnFieldHitParam("resource?id=TT050326640&", 1); }
+	@Test public void returnFieldParamNoHit() { returnFieldHitParam("resource?id=HT000000716&", 0); }
 	/*@formatter:on*/
 
-	public void returnFieldNoHit(final String query) {
+	public void returnFieldHitParam(final String query, final int hits) {
 		running(TEST_SERVER, new Runnable() {
 			@Override
 			public void run() {
@@ -177,7 +178,7 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(response).isNotNull();
 				final JsonNode jsonObject = Json.parse(response);
 				assertThat(jsonObject.isArray()).isTrue();
-				assertThat(jsonObject.size()).isEqualTo(0 + META);
+				assertThat(jsonObject.size()).isEqualTo(hits + META);
 			}
 		});
 	}
@@ -456,7 +457,6 @@ public class SearchTests extends SearchTestsHarness {
 	/* @formatter:off */
 	@Test public void itemByIdParam1(){findItem("item?id=BT000000079%3AGA+644");}
 	@Test public void itemByIdParam2(){findItem("item?id=BT000001260%3AMA+742");}
-	@Test public void itemByIdRoute(){findItem("item/BT000000079%3AGA+644");}
 	@Test public void itemByIdUri1(){findItem("item?id=http://lobid.org/item/BT000000079%3AGA+644");}
 	@Test public void itemByIdUri2(){findItem("item?id=http://lobid.org/item/BT000001260%3AMA+742");}
 	@Test public void itemByName(){findItem("item?name=GA+644");}
@@ -469,6 +469,19 @@ public class SearchTests extends SearchTestsHarness {
 				final JsonNode jsonObject = Json.parse(call(call));
 				assertThat(jsonObject.isArray()).isTrue();
 				assertThat(jsonObject.size()).isEqualTo(1 + META);
+			}
+		});
+	}
+
+	@Test
+	public void itemByIdRoute() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				final JsonNode jsonObject =
+						Json.parse(call("item/BT000000079%3AGA+644"));
+				assertThat(jsonObject.isArray()).isTrue();
+				assertThat(jsonObject.size()).isEqualTo(1);
 			}
 		});
 	}
@@ -692,6 +705,32 @@ public class SearchTests extends SearchTestsHarness {
 				assertThat(response).contains(
 						"<http://sindice.com/vocab/search#totalResults> "
 								+ "\"25\"^^<http://www.w3.org/2001/XMLSchema#integer>");
+			}
+		});
+	}
+
+	@Test
+	public void testAllHitsNotInPathResultNTripelsJson() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				String request = "resource/BT000001260";
+				String response = call(request);
+				assertThat(response).doesNotContain(
+						"http://sindice.com/vocab/search#totalResults");
+			}
+		});
+	}
+
+	@Test
+	public void testAllHitsNotInPathResultNTripels() {
+		running(TEST_SERVER, new Runnable() {
+			@Override
+			public void run() {
+				String request = "resource/BT000001260";
+				String response = call(request, "text/plain");
+				assertThat(response).doesNotContain(
+						"<http://sindice.com/vocab/search#totalResults>");
 			}
 		});
 	}

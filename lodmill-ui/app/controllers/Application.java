@@ -25,6 +25,7 @@ import play.libs.F.Promise;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
+import scala.concurrent.ExecutionContext;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -37,8 +38,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-
-import scala.concurrent.ExecutionContext;
 
 /**
  * Main application controller.
@@ -99,7 +98,7 @@ public final class Application extends Controller {
 	static Promise<Result> search(final Index index, final Parameter parameter,
 			final String queryParameter, final String formatParameter,
 			final int from, final int size, final String owner, final String set,
-			final String type) {
+			final String type, final boolean addQueryInfo) {
 		Search search;
 		try {
 			search =
@@ -115,7 +114,8 @@ public final class Application extends Controller {
 			long allHits = search.totalHits();
 			final Promise<ImmutableMap<ResultFormat, Result>> resultPromise =
 					resultsPromise(queryParameter, docs, index,
-							getFieldAndFormat(formatParameter).getLeft(), allHits);
+							getFieldAndFormat(formatParameter).getLeft(), allHits,
+							addQueryInfo);
 			return resultPromise
 					.map(new F.Function<ImmutableMap<ResultFormat, Result>, Result>() {
 						@Override
@@ -133,12 +133,14 @@ public final class Application extends Controller {
 
 	private static Promise<ImmutableMap<ResultFormat, Result>> resultsPromise(
 			final String queryParameter, final List<Document> docs,
-			final Index index, final String field, final long allHits) {
+			final Index index, final String field, final long allHits,
+			final boolean addQueryInfo) {
 		return Promise
 				.promise(new F.Function0<ImmutableMap<ResultFormat, Result>>() {
 					@Override
 					public ImmutableMap<ResultFormat, Result> apply() {
-						return results(queryParameter, docs, index, field, allHits);
+						return results(queryParameter, docs, index, field, allHits,
+								addQueryInfo);
 					}
 				});
 	}
@@ -202,7 +204,7 @@ public final class Application extends Controller {
 
 	private static ImmutableMap<ResultFormat, Result> results(final String query,
 			final List<Document> documents, final Index selectedIndex,
-			final String field, long allHits) {
+			final String field, long allHits, boolean addQueryInfo) {
 		/* JSONP callback support for remote server calls with JavaScript: */
 		final String[] callback =
 				request() == null || request().queryString() == null ? null : request()
@@ -212,11 +214,11 @@ public final class Application extends Controller {
 						.put(
 								ResultFormat.NEGOTIATE,
 								negotiateContent(documents, selectedIndex, query, field,
-										allHits))
+										allHits, addQueryInfo))
 						.put(
 								ResultFormat.FULL,
 								withCallback(callback,
-										fullJsonResponse(documents, field, allHits)))
+										fullJsonResponse(documents, field, allHits, addQueryInfo)))
 						.put(
 								ResultFormat.SHORT,
 								withCallback(callback, Json.toJson(new LinkedHashSet<>(Lists
@@ -261,7 +263,7 @@ public final class Application extends Controller {
 			};
 
 	private static JsonNode fullJsonResponse(final List<Document> documents,
-			final String field, long allHits) {
+			final String field, long allHits, boolean addQueryInfo) {
 		Iterable<JsonNode> nonEmptyNodes =
 				Iterables.filter(Lists.transform(documents, jsonFull), nonEmptyNode);
 		if (!field.isEmpty()) {
@@ -271,19 +273,20 @@ public final class Application extends Controller {
 									.transformAndConcat(nodeToArray));
 		}
 		List<JsonNode> data = new ArrayList<>();
-		data.add(queryInfo(allHits));
+		if (addQueryInfo)
+			data.add(queryInfo(allHits));
 		data.addAll(ImmutableSet.copyOf(nonEmptyNodes));
 		return Json.toJson(data);
 	}
 
 	private static JsonNode queryInfo(long allHits) {
 		return Json.toJson(ImmutableMap.of(//
-				"@id", "http://" + request().host() + request().uri(),//
+				"@id", "http://lobid.org" + request().uri(),//
 				"http://sindice.com/vocab/search#totalResults", allHits));
 	}
 
-	static Result negotiateContent(List<Document> documents,
-			Index selectedIndex, String query, String field, long allHits) {
+	static Result negotiateContent(List<Document> documents, Index selectedIndex,
+			String query, String field, long allHits, boolean addQueryInfo) {
 		final Status notAcceptable =
 				status(406, "Not acceptable: unsupported content type requested\n");
 		if (invalidAcceptHeader())
@@ -293,21 +296,21 @@ public final class Application extends Controller {
 				for (String mimeType : serialization.getTypes())
 					if (mediaRange.accepts(mimeType))
 						return serialization(documents, selectedIndex, query,
-								serialization, field, allHits);
+								serialization, field, allHits, addQueryInfo);
 		return notAcceptable;
 	}
 
 	private static Result serialization(List<Document> documents,
 			Index selectedIndex, String query, Serialization serialization,
-			String field, long allHits) {
+			String field, long allHits, boolean addQueryInfo) {
 		switch (serialization) {
 		case JSON_LD:
-			return ok(fullJsonResponse(documents, field, allHits));
+			return ok(fullJsonResponse(documents, field, allHits, addQueryInfo));
 		case RDF_A:
 			return ok(views.html.docs.render(documents, selectedIndex, query));
 		default:
 			return ok(Joiner.on("\n").join(
-					transform(documents, serialization, allHits)));
+					transform(documents, serialization, allHits, addQueryInfo)));
 		}
 	}
 
@@ -319,10 +322,11 @@ public final class Application extends Controller {
 	}
 
 	private static List<String> transform(List<Document> documents,
-			final Serialization serialization, long allHits) {
+			final Serialization serialization, long allHits, boolean addQueryInfo) {
 		List<String> transformed = new ArrayList<>();
-		transformed.add(transformed(queryInfo(allHits).toString(),
-				serialization.format));
+		if (addQueryInfo)
+			transformed.add(transformed(queryInfo(allHits).toString(),
+					serialization.format));
 		transformed.addAll(Lists.transform(documents,
 				new Function<Document, String>() {
 					@Override

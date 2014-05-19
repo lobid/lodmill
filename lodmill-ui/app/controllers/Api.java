@@ -42,6 +42,7 @@ public final class Api extends Controller {
 	 * @param size The size of the result set
 	 * @param owner The ID of an owner holding items of the requested resources
 	 * @param type The type of the requested resources
+	 * @param addQueryInfo If true, add a query info object to the response
 	 * @return Matching resources
 	 */
 	public static Promise<Result> resource(
@@ -50,7 +51,7 @@ public final class Api extends Controller {
 			final String name, // NOPMD
 			final String author, final String subject, final String set,
 			final String format, final int from, final int size, final String owner,
-			final String type) {
+			final String type, final boolean addQueryInfo) {
 		Logger
 				.debug(String
 						.format(
@@ -66,7 +67,7 @@ public final class Api extends Controller {
 						.put(Parameter.SUBJECT, subject)
 						.put(Parameter.SET, set).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size, owner, set, type);
+				format, from, size, owner, set, type, addQueryInfo);
 	}
 
 	/**
@@ -77,14 +78,18 @@ public final class Api extends Controller {
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
 	 * @param type The type of the requested items
+	 * @param addQueryInfo If true, add a query info object to the response
 	 * @return Matching items
 	 */
-	public static Promise<Result> item(final String id, final String q,
+	public static Promise<Result> item(final String id,
+			final String q,
 			final String name, // NOPMD
-			final String format, final int from, final int size, final String type) {
+			final String format, final int from, final int size, final String type,
+			final boolean addQueryInfo) {
 		Logger.debug(String.format("GET /item; id: '%s', q: '%s', name: '%s'", id,
 				q, name));
-		return search(id, q, name, format, from, size, Index.LOBID_ITEMS, type);
+		return search(id, q, name, format, from, size, Index.LOBID_ITEMS, type,
+				addQueryInfo);
 	}
 
 	/**
@@ -95,15 +100,18 @@ public final class Api extends Controller {
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
 	 * @param type The type of the requested organisations
+	 * @param addQueryInfo If true, add a query info object to the response
 	 * @return Matching organisations
 	 */
-	public static Promise<Result> organisation(final String id, final String q,
+	public static Promise<Result> organisation(final String id,
+			final String q,
 			final String name, // NOPMD
-			final String format, final int from, final int size, final String type) {
+			final String format, final int from, final int size, final String type,
+			final boolean addQueryInfo) {
 		Logger.debug(String.format(
 				"GET /organisation; id: '%s', name: '%s', q: '%s'", id, name, q));
 		return search(id, q, name, format, from, size, Index.LOBID_ORGANISATIONS,
-				type);
+				type, addQueryInfo);
 	}
 
 	/**
@@ -114,14 +122,18 @@ public final class Api extends Controller {
 	 * @param from The start index of the result set
 	 * @param size The size of the result set
 	 * @param type The type of the requested persons
+	 * @param addQueryInfo If true, add a query info object to the response
 	 * @return Matching persons
 	 */
-	public static Promise<Result> person(final String id, final String q,
+	public static Promise<Result> person(final String id,
+			final String q,
 			final String name, // NOPMD
-			final String format, final int from, final int size, final String type) {
+			final String format, final int from, final int size, final String type,
+			final boolean addQueryInfo) {
 		Logger.debug(String.format("GET /person; id: '%s', q: '%s', name: '%s'",
 				id, q, name));
-		return search(id, q, name, format, from, size, Index.GND, type);
+		return search(id, q, name, format, from, size, Index.GND, type,
+				addQueryInfo);
 	}
 
 	/**
@@ -145,19 +157,19 @@ public final class Api extends Controller {
 						.put(Parameter.Q, q)
 						.put(Parameter.SUBJECT, name).build());/*@formatter:on*/
 		return Application.search(Index.GND, parameter.getKey(),
-				parameter.getValue(), format, from, size, "", "", type);
+				parameter.getValue(), format, from, size, "", "", type, true);
 	}
 
 	private static Promise<Result> search(final String id, final String q,
 			final String name, final String format, final int from, final int size,
-			final Index index, final String type) {
+			final Index index, final String type, final boolean addQueryInfo) {
 		final Map.Entry<Parameter, String> parameter =/*@formatter:off*/
 				Parameter.select(new ImmutableMap.Builder<Parameter, String>()
 						.put(Parameter.ID, id)
 						.put(Parameter.Q, q)
 						.put(Parameter.NAME, name).build());/*@formatter:on*/
 		return Application.search(index, parameter.getKey(), parameter.getValue(),
-				format, from, size, "", "", type);
+				format, from, size, "", "", type, addQueryInfo);
 	}
 
 	/**
@@ -181,11 +193,13 @@ public final class Api extends Controller {
 			return Application.badRequestPromise(message);
 		}
 		Promise<List<Result>> results =
-				Promise.sequence(
-						resource(id, q, name, "", "", "", format, from, size, "", ""),
-						organisation(id, q, name, format, from, size, ""),
-						person(id, q, name, format, from, size, ""),
-						subject(id, q, name, format, from, size, ""));
+				Promise
+						.sequence(
+								resource(id, q, name, "", "", "", format, from, size, "", "",
+										true),
+								organisation(id, q, name, format, from, size, "", true),
+								person(id, q, name, format, from, size, "", true),
+								subject(id, q, name, format, from, size, ""));
 		return results.map(okJson());
 	}
 
