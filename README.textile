@@ -2,7 +2,7 @@ h1. Lodmill
 
 Blend, grind, and enjoy LOD - fresh from the mill!
 
-This software implements "http://api.lobid.org":http://api.lobid.org, the LOD based web API offered by "hbz":http://www.hbz-nrw.de.
+This software implements the backend of "http://lobid.org":http://lobid.org, the LOD service offered by "hbz":http://www.hbz-nrw.de.
 
 h1. Build
 
@@ -14,9 +14,9 @@ h1. Technology Stack
 
 Raw data is transformed with "Metafacture":https://github.com/culturegraph/metafacture-core/wiki and "Hadoop":http://hadoop.apache.org/, indexed in "Elasticsearch":http://www.elasticsearch.org/, and exposed via an HTTP API implemented with the "Play framework":http://www.playframework.com/:
 
-!{height: 125px;}https://raw.github.com/lobid/lodmill/master/lodmill-ui/doc/overview.png!
+!{height: 125px;}https://raw.github.com/hbz/lobid/master/doc/overview.png!
 
-The @lodmill-rd@ folder contains code for working with raw data and its transformation to LOD, based on the Culturegraph Metafacture toolkit. The @lodmill-ld@ folder contains code for processing RDF with Hadoop and for indexing it in Elasticsearch. The @lodmill-ui@ folder contains a web app based on the Play framework that interacts with the resulting Elasticsearch index. It provides an HTTP API to the index and a UI for documentation and basic sample usage. See below for details on the data workflow.
+The @lodmill-rd@ folder contains code for working with raw data and its transformation to LOD, based on the Culturegraph Metafacture toolkit. The @lodmill-ld@ folder contains code for processing RDF with Hadoop and for indexing it in Elasticsearch. The @hbz/lobid@ repo contains a web app based on the Play framework that interacts with the resulting Elasticsearch index. It provides an HTTP API to the index and a UI for documentation and basic sample usage. See below for details on the data workflow.
 
 h1. Setup
 
@@ -31,15 +31,6 @@ h6. Clone lodmill and run the Maven build
 @umask 0022@ (required for MRUnit tests)
 @mvn clean install --settings settings.xml@ (or copy 'settings.xml' to '~/.m2')
 
-h6. Download Play and run the tests
-
-@wget http://downloads.typesafe.com/play/2.2.0/play-2.2.0.zip@
-@unzip play-2.2.0.zip@
-@cd lodmill-ui@
-@../play-2.2.0/play test@
-
-Replace 'test' with other Play commands, e.g. 'run' or 'eclipse' (to generate Eclipse project config files).
-
 h6. Build Hadoop Jar
 
 @cd .. ; cd lodmill-ld@
@@ -49,13 +40,13 @@ See the @convert.sh@ and @index.sh@ scripts in @lodmill-ld/doc/scripts@ on how t
 
 h1. Clusters
 
-The instructions above will set up a local API and frontend instance. For information on how we have set up our Hadoop and Elasticsearch backend clusters see @README.textile@ in @lodmill-ld@.
+For information on how we have set up our Hadoop and Elasticsearch backend clusters see @README.textile@ in @lodmill-ld@.
 
 h1. Data Workflow
 
 The complete data workflow transforms the original raw data to Linked Data served via an HTTP API:
 
-!{height: 40px;}https://raw.github.com/lobid/lodmill/master/lodmill-ui/doc/workflow.png!
+!{height: 40px;}https://raw.github.com/hbz/lobid/master/doc/workflow.png!
 
 h2. Raw Data to Linked Data Triples
 
@@ -95,7 +86,7 @@ The second Hadoop job writes the records as expanded JSON-LD in the "Elasticsear
 
 h2. Linked Data Index to HTTP API
 
-Finally our Play frontend accesses the Elasticsearch index and serves the records as JSON-LD. There are multiple options for queries and different supported results formats, see documentation at "http://api.lobid.org":http://api.lobid.org (implemented in the @app/views/index.scala.html@ template). Since the expanded JSON-LD described above is cumbersome, the API serves "compact JSON-LD":http://www.w3.org/TR/json-ld-api/#compaction-algorithms. It also uses an external JSON-LD context document to allow shorter keys instead of full URI properties, and to encapsulate the actual properties used in the expanded form. That way, we can change the properties, without requiring API clients to change how they process the JSON responses.
+Finally our Play frontend accesses the Elasticsearch index and serves the records as JSON-LD. There are multiple options for queries and different supported results formats, see documentation at "http://api.lobid.org":http://api.lobid.org (implemented in the @app/views/index.scala.html@ template in the @hbz/lobid@ repo). Since the expanded JSON-LD described above is cumbersome, the API serves "compact JSON-LD":http://www.w3.org/TR/json-ld-api/#compaction-algorithms. It also uses an external JSON-LD context document to allow shorter keys instead of full URI properties, and to encapsulate the actual properties used in the expanded form. That way, we can change the properties, without requiring API clients to change how they process the JSON responses.
 
 h1. License
 
