@@ -34,6 +34,18 @@
     "json-ld-lobid":{
       "date_detection":false,
       "properties":{
+        "@graph.@type":{
+          "type":"string",
+          "index":"not_analyzed"
+        },
+        "@graph.http://purl.org/dc/terms/subject.@id":{
+          "type":"string",
+          "index":"not_analyzed"
+        },
+        "@graph.http://purl.org/dc/terms/issued.@value":{
+          "type":"string",
+          "index":"not_analyzed"
+        },
         "@graph.http://purl.org/dc/terms/creator.@id":{
           "type":"string",
           "index":"not_analyzed"
