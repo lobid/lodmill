@@ -38,3 +38,4 @@ media
 log
 .DS_Store
 lodmill-ui/modules
+lodmill-rd/tmp.stats.csv
