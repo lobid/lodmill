@@ -23,6 +23,14 @@ ORGANISATIONS=output/json-ld-lobid-organisations
 sh convert.sh hbzlod/lobid-organisations/ $ORGANISATIONS http://lobid.org/organisation lobid-organisations-$TIME json-ld-lobid-orgs
 sh index.sh $ORGANISATIONS $ES_SERVER $ES_CLUSTER ""
 
+LOBID_TEAM=output/lobid-team
+sh convert.sh hbzlod/lobid-team $LOBID_TEAM http://lobid.org/team lobid-team-$TIME json-ld-lobid-team
+sh index.sh $LOBID_TEAM $ES_SERVER $ES_CLUSTER ""
+
+LOBID_COLLECTIONS=output/lobid-collections
+sh convert.sh hbzlod/lobid-collections $LOBID_COLLECTIONS http://lobid.org/resource lobid-collections-$TIME json-ld-lobid-collection
+sh index.sh $LOBID_COLLECTIONS $ES_SERVER $ES_CLUSTER ""
+
 GND=output/json-ld-gnd
 sh convert.sh extlod/gnd/ $GND http://d-nb.info/gnd gnd-$TIME json-ld-gnd
 sh index.sh $GND $ES_SERVER $ES_CLUSTER ""
