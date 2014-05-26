@@ -4,10 +4,19 @@
 # - transformes MAB2 XML Clobs into  NTriples
 # - sink is a mysql db
 # - mysql dump into hdfs
-# - converts into json ld and indexed into ES
+export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 
 FLUX=updates-hbz01-to-lobid-mysql.flux
-LODMILL_RD_JAR=../../../target/lodmill-rd-1.1.0-SNAPSHOT-jar-with-dependencies.jar
+# get the newest code and build it
+cd ../../.. ; git pull;  mvn assembly:assembly
+JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
+echo $JAR
+cd -
+
+# TODO should be done with maven: overwrite the flux-command from metafacture with that from lodmill 
+cd ../../../target/ ; cp ../src/main/resources/flux-commands.properties ./; jar uf $JAR flux-commands.properties; cd -
+
+LODMILL_RD_JAR=../../../target/$JAR
 
 function wait_load() {
 # wait if load >1 , that is: wait until the machine has finished e.g. yesterdays updates
@@ -30,23 +39,16 @@ fi
 # find all snapshot XML bz2 clobs directories and make a flux for them
 find /files/open_data/closed/hbzvk/snapshot/ -maxdepth 1  -type d  -name "[0123456789]*" | parallel --gnu --load 20 "echo pchbz{}; sed 's#/files/open_data/closed/hbzvk/snapshot/.*#{}\"\|#g' $FLUX > tmpFlux/{}.$FLUX"
 
-cp ../../../src/test/resources/morph-hbz01-to-lobid.xml  tmpFlux/files/open_data/closed/hbzvk/snapshot/
+cp ../../../src/main/resources/morph-hbz01-to-lobid.xml  tmpFlux/files/open_data/closed/hbzvk/snapshot/
 #always use the newest morph. TODO: should be copied via maven.
-jar xf $LODMILL_RD_JAR  ../../../src/test/resources/morph-hbz01-to-lobid.xml
+jar xf $LODMILL_RD_JAR  ../../../src/main/resources/morph-hbz01-to-lobid.xml
 
 echo "starting in 50 seconds .. break now if ever!"
 sleep 50
 find tmpFlux -type f -name "*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {}" # does not work: -Djava.util.logging.config.file=/home/lod/lobid-resources/logging.properties 
 
 wait_load
-HDFS_FILE=$1
-ssh hduser@weywot1 "hadoop fs -rm $HDFS_FILE"
+HDFS_FILE="hbzlod/lobid-resources/resources-dump.nt"
+hadoop fs -rm $HDFS_FILE
 date
-time bash -x mysql_bash.sh | ssh hduser@weywot1 "hadoop dfs -put - $HDFS_FILE"
-
-NAME_NODE="weywot1.hbz-nrw.de"
-export NAME_NODE
-
-exit # for now!
-# go convert via hadoop and index into elasticsearch
-ssh hduser@$NAME_NODE "cd /home/sol/git/lodmill/lodmill-ld/doc/scripts; bash -x process.sh 193.30.112.170 quaoar > process.sh.$(date "+%Y%m%d").log 2>&1"
+time bash -x mysql_bash.sh | hadoop dfs -put - $HDFS_FILE
