@@ -1,3 +1,58 @@
+<http://lobid.org/organisation/DE-38>
+        a       <http://xmlns.com/foaf/0.1/Organization> ;
+        <http://purl.org/lobid/lv#contactqr>
+                <http://lobid.org/media/DE-38_contactqr.png> ;
+        <http://purl.org/lobid/lv#fundertype>
+                <http://purl.org/lobid/fundertype#n02> ;
+        <http://purl.org/lobid/lv#isil>
+                "DE-38" ;
+        <http://purl.org/lobid/lv#stocksize>
+                <http://purl.org/lobid/stocksize#n10> ;
+        <http://www.w3.org/2002/07/owl#sameAs>
+                <http://ld.zdb-services.de/resource/organisations/DE-38> ;
+        <http://www.w3.org/2003/01/geo/wgs84_pos#location>
+                [ a       <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing> ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+                          "50.92593795" ;
+                  <http://www.w3.org/2003/01/geo/wgs84_pos#long>
+                          "6.92816704966065"
+                ] ;
+        <http://www.w3.org/2004/02/skos/core#altLabel>
+                "Köln USB" ;
+        <http://www.w3.org/2006/vcard/ns#adr>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Address> ;
+                  <http://www.w3.org/2006/vcard/ns#country-name>
+                          "Germany" ;
+                  <http://www.w3.org/2006/vcard/ns#locality>
+                          "Köln" ;
+                  <http://www.w3.org/2006/vcard/ns#postal-code>
+                          "50931" ;
+                  <http://www.w3.org/2006/vcard/ns#street-address>
+                          "Universitätsstr. 33"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#email>
+                <mailto:Fernleihe@ub.uni-koeln.de> ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0221) 4 70-2437"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(0221) 4 70-5053"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#url>
+                <http://www.ub.uni-koeln.de> ;
+        <http://www.w3.org/ns/org#classification>
+                <http://purl.org/lobid/libtype#n60> ;
+        <http://www.w3.org/ns/org#linkedTo>
+                <http://lobid.org/organisation/DE-605> ;
+        <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>
+                <http://dispatch.opac.d-nb.de/DB=1.2/CMD?ACT=SRCHA&IKT=8529&TRM=DE-38> ;
+        <http://xmlns.com/foaf/0.1/name>
+                "Universitäts- und Stadtbibliothek Köln, Hauptabteilung" .
+
 <http://lobid.org/organisation/DE-Tir1>
         a       <http://xmlns.com/foaf/0.1/Organization> ;
         <http://purl.org/lobid/lv#contactqr>
@@ -143,14 +198,14 @@
                           "Schwendenerstr. 31"
                 ] ;
         <http://www.w3.org/2006/vcard/ns#tel>
-                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
-                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
-                          "(030) 8 38-54225"
-                ] ;
-        <http://www.w3.org/2006/vcard/ns#tel>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
                           "(030) 8 38-56469"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 8 38-54225"
                 ] ;
         <http://www.w3.org/2006/vcard/ns#url>
                 <http://www.ub.fu-berlin.de/fbb/phi202.html> ;
@@ -279,14 +334,14 @@
         <http://www.w3.org/2006/vcard/ns#email>
                 <mailto:benutzung.h2@sbb.spk-berlin.de> , <mailto:info@sbb.spk-berlin.de> ;
         <http://www.w3.org/2006/vcard/ns#tel>
-                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
-                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
-                          "(030) 2 66-433888 (Auskunft)"
-                ] ;
-        <http://www.w3.org/2006/vcard/ns#tel>
                 [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Fax> ;
                   <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
                           "(030) 2 66-333501"
+                ] ;
+        <http://www.w3.org/2006/vcard/ns#tel>
+                [ a       <http://www.w3.org/2006/vcard/ns#Work> , <http://www.w3.org/2006/vcard/ns#Voice> ;
+                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                          "(030) 2 66-433888 (Auskunft)"
                 ] ;
         <http://www.w3.org/2006/vcard/ns#url>
                 <http://www.staatsbibliothek-berlin.de> ;
