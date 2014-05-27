@@ -1,4 +1,4 @@
-/** Copyright 2013 hbz
+/** Copyright 2013 hbz, Pascal Christoph.
  * Licensed under the Eclipse Public License 1.0 
  **/
 
@@ -18,7 +18,7 @@ import org.xml.sax.SAXException;
 /**
  * A pica xml reader.
  * 
- * @author Pascal Christoph
+ * @author Pascal Christoph (dr0i)
  * 
  */
 @Description("A pica xml reader")
