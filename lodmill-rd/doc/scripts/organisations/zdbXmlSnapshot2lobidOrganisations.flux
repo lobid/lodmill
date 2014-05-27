@@ -1,4 +1,4 @@
-// Attention! DoApiLookup set to 'false' when dispatching full dumps.
+// Attention! Don't set "DoApiLookup" to "true" without a reason when dispatching full dumps, because the OSM api will get queried for every single 40k entry
 
 default files = FLUX_DIR;
 default source="/files/open_data/closed/lobid-organisation/snapshot/";

@@ -1,5 +1,6 @@
 #!/bin/bash
 # the beginning is the former end
+
 DATE_FROM=$(grep dateUntil  oaipmh-zdbIsil2ld.flux | cut -d '"' -f4 )
 DATE_UNTIL=$(date +%Y-%m-%d)
 

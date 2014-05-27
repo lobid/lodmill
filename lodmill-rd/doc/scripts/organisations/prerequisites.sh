@@ -1,4 +1,8 @@
 # provides some variables and prerequisites
+
+# get the newest code and build it
+cd ../../.. ; git pull;  mvn assembly:assembly; cd -
+
 JAR=lodmill-rd-1.1.0-SNAPSHOT-jar-with-dependencies.jar
 TARGET=../../../target/
 cp ../../../src/main/resources/morph_zdb-isil-file-pica2ld.xml ./
