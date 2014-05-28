@@ -1009,7 +1009,6 @@
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118677942> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/publisher> "Mondadori Video" .
 <http://lobid.org/resource/HT006266886> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141649429> .
-<http://lobid.org/resource/HT006266886> <http://rdvocab.info/Elements/otherTitleInformation> "Finzi Contini" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/medium> <http://iflastandards.info/ns/isbd/terms/mediatype/T1007> .
 <http://lobid.org/resource/HT006266886> <http://rdvocab.info/Elements/statementOfResponsibility> "Regia: Vittorio DeSica. Interpreti: Dominique Sanda ; Lino Capolicchio ; Fabio Testi ; Helmut Berger" .
 <http://lobid.org/resource/HT006266886> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -1303,7 +1302,6 @@
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/105667129> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015865114%3ADE-Lan1> .
-<http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/otherTitleInformation> "Schulbuch Buchner" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4020533-2> .
 <http://lobid.org/item/HT015865114%3ADE-6-290> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT015865114%3ADE-6-290> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT015865114%3ADE-6-290/about> .
