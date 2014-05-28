@@ -1020,6 +1020,7 @@
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#hbzID> "HT006266886" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/ita> .
 <http://lobid.org/resource/HT006266886> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Videokassette (VHS, 93 Min.) : farb." .
+<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#titleKeyword> "Finzi Contini" .
 <http://lobid.org/item/HT006266886%3ADE-467%3AMedienzentrum> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT006266886%3ADE-467%3AMedienzentrum> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT006266886%3ADE-467%3AMedienzentrum/about> .
 <http://lobid.org/item/HT006266886%3ADE-467%3AMedienzentrum> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT006266886> .
@@ -1282,6 +1283,7 @@
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#hbzID> "HT015865114" .
 <http://lobid.org/resource/HT015865114> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015865114> .
 <http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/placeOfPublication> "Bamberg" .
+<http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#titleKeyword> "Schulbuch Buchner" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/bibliographicCitation> "Sch\u00FCler- und Lehrerbd." .
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015865114/about> .
