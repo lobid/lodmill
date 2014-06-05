@@ -8,11 +8,15 @@ export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 
 FLUX=updates-hbz01-to-lobid-mysql.flux
 # get the newest code and build it
-cd ../../.. ; git pull;  mvn assembly:assembly
+BRANCH=$1
+if [ -z $BRANCH ]; then
+        BRANCH="master"
+fi
+echo "Going checkout $BRANCH ..." 
+cd ../../.. ; git checkout $BRANCH ; git pull;  mvn assembly:assembly
 JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
 echo $JAR
 cd -
-
 # TODO should be done with maven: overwrite the flux-command from metafacture with that from lodmill 
 cd ../../../target/ ; cp ../src/main/resources/flux-commands.properties ./; jar uf $JAR flux-commands.properties; cd -
 
