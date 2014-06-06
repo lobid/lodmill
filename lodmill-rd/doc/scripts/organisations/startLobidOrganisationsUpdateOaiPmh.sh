@@ -1,5 +1,6 @@
 #!/bin/bash
 # the beginning is the former end
+
 DATE_FROM=$(grep dateUntil  oaipmh-zdbIsil2ld.flux | cut -d '"' -f4 )
 DATE_UNTIL=$(date +%Y-%m-%d)
 
@@ -20,7 +21,7 @@ done
 
 TARGET_PATH=/files/open_data/closed/lobid-organisation/
 TARGET_FN=${TARGET_PATH}/lobid-organisationZDB.nt
-rm $TARGET_FN
+mv $TARGET_FN $TARGET_FN.bak
 find  ${TARGET_PATH}/snapshot/lod/ | xargs cat >> $TARGET_FN
 
 bash moveToHadoop.sh
