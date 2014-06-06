@@ -21,7 +21,7 @@ done
 
 TARGET_PATH=/files/open_data/closed/lobid-organisation/
 TARGET_FN=${TARGET_PATH}/lobid-organisationZDB.nt
-rm $TARGET_FN
+mv $TARGET_FN $TARGET_FN.bak
 find  ${TARGET_PATH}/snapshot/lod/ | xargs cat >> $TARGET_FN
 
 bash moveToHadoop.sh
