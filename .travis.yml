@@ -1,18 +1,9 @@
 language: java
-env:
-  - PLAY_VERSION=2.2.2
 jdk: oraclejdk7
 before_install:
   - cd lodmill-rd; sh install-dependencies.sh; cd ..
 install:
   - mvn clean install -e -q -DskipTests=true --settings settings.xml
-before_script:
-  - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
-  - unzip -q play-${PLAY_VERSION}.zip
 script:
   - umask 0022
   - mvn test -e -q --settings settings.xml
-  - cd lodmill-ui
-  - cat ~/.m2/settings.xml
-  - rm -rf ~/.m2/repository/junit/ ; rm -rf ~/.m2/repository/org/hamcrest/ ; rm -rf ~/.m2/repository/org/elasticsearch/ ; rm -rf ~/.m2/repository/org/codehaus/ ; rm -rf ~/.m2/repository/stax/ ; rm -rf ~/.m2/repository/commons-logging/ ; rm -rf ~/.m2/repository/org/slf4j/ ; rm -rf ~/.m2/repository/log4j/ ; rm -rf ~/.m2/repository/org/apache/httpcomponents/ ; rm -rf ~/.m2/repository/asm/
-  - ../play-${PLAY_VERSION}/play test

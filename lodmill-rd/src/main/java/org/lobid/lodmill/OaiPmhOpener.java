@@ -1,3 +1,6 @@
+/* Copyright 2013 Pascal Christoph.
+ * Licensed under the Eclipse Public License 1.0 */
+
 package org.lobid.lodmill;
 
 import java.io.ByteArrayInputStream;
@@ -23,7 +26,7 @@ import ORG.oclc.oai.harvester2.app.RawWrite;
 /**
  * Opens an OAI-PMH stream and passes a reader to the receiver.
  * 
- * @author Pascal Christoph
+ * @author Pascal Christoph (dr0i)
  * 
  */
 @Description("Opens an OAI-PMH stream and passes a reader to the receiver. Mandatory arguments are: BASE_URL, DATE_FROM, DATE_UNTIL, METADATA_PREFIX, SET_SPEC .")
