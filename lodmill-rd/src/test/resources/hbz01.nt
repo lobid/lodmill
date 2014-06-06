@@ -46,11 +46,11 @@
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/medium> <http://iflastandards.info/ns/isbd/terms/mediatype/T1007> .
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/elements/1.1/publisher> "Apple Films" .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT003059252/about> .
+<http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2005535-3> .
 <http://lobid.org/resource/TT003059252> <http://rdvocab.info/Elements/otherTitleInformation> "Magical Mystery Tour" .
 <http://lobid.org/resource/TT003059252> <http://rdvocab.info/Elements/placeOfPublication> "s.l." .
 <http://lobid.org/resource/TT003059252> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT003059252%3ADE-5-58%3A9%2F041> .
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/issued> "1967" .
-<http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2005535-3> .
 <http://lobid.org/resource/TT003059252> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Video (VHS, 55 min.) : farb.; stereo" .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT003059252> .
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
@@ -514,11 +514,9 @@
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/128992204> .
 <http://lobid.org/resource/HT014525099> <http://rdvocab.info/Elements/otherTitleInformation> "Christ lag in Todesbanden BWV 4 ; Ein Herz, da seinen Jesum lebend wei\u00DF BWV 134 ; Erschallet, ihr Lieder BWV 172 ; Also hat Gott die Welt geliebt BWV 68" .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1212749-8> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11850553X> .
 <http://lobid.org/resource/HT014525099> <http://rdvocab.info/Elements/publicationStatement> "Berlin; Dt. Schallplatten; 1981" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/publisher> "Dt. Schallplatten" .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/806366-7> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118610724> .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioDocument> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/129389641> .
@@ -846,6 +844,7 @@
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/rus> .
 <http://lobid.org/resource/HT004944075> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT004944075> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/elements/1.1/publisher> "UN" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2023669-4> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43. 1993" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/050/> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43" .
@@ -856,31 +855,30 @@
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#hbzID> "HT004944075" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn13> "9789210162760" .
 <http://lobid.org/resource/HT004944075> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT004944075> .
-<http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2023669-4> .
 <http://lobid.org/resource/HT004944075> <http://rdvocab.info/Elements/placeOfPublication> "Gen\u00E8ve [u.a.]" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/isPartOf> <http://ld.zdb-services.de/resource/1257-9> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/10048424-4> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/title> "Leitfaden f\u00FCr die Behandlung von Ausbauasphalt und Stra\u00DFenaufbruch mit teer-/pechtypischen Bestandteilen" .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/RPB> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/otherTitleInformation> "Leitfaden f\u00FCr den Gesch\u00E4ftsbereich des Landesbetriebes Stra\u00DFen und Verkehr" .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1750752&custom_att_2=simple_viewer> .
-<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10048424-4> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/bibo/edition> "1. Aufl." .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#hbzID> "HT014997977" .
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/statementOfResponsibility> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz; Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht; Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz" .
-<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/3062366-2> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2092393-4> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014997977/about> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.archiveshub.ac.uk/def/ArchivalResource> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/subject> <http://dewey.info/class/380/> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014997977> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/3062366-2> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/Edoweb> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/issued> "2003" .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://iflastandards.info/ns/isbd/terms/mediatype/T1002> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/placeOfPublication> "[Mainz]" .
-<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2092393-4> .
 <http://lobid.org/resource/HT014997977> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014997977> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/rpb#n574040> .
@@ -1076,6 +1074,7 @@
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/otherTitleInformation> "das Kommunikationsspiel zur Bewertung weiblichen Verhaltens f\u00FCr 2 - 8 Spielerinnen" .
 <http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#hbzID> "HT014046679" .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/statementOfResponsibility> "Idee und Konzeption: Erika Herrenbr\u00FCck. Texte: Angelika Hoefler" .
+<http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2095440-2> .
 <http://lobid.org/resource/HT014046679> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Spiel (Inhalt: 1 Spielanleitung, 100 Situationskarten: 60 f\u00FCr Frauen, 40 f\u00FCr M\u00E4dchen (ab 12 J.). 90 Brave-Karten, 90 B\u00F6se-Karten)" .
 <http://lobid.org/resource/HT014046679> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014046679> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014046679> .
@@ -1084,9 +1083,8 @@
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/library/Game> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/publicationStatement> "Hennef; INVENTION; 1997" .
-<http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/183839064> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
-<http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2095440-2> .
+<http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/183839064> .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/placeOfPublication> "Hennef" .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/title> "Brave M\u00E4dchen - B\u00F6se M\u00E4dchen" .
@@ -1187,12 +1185,12 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747%3ADE-386%3AGOA+7%2F62-3%2C5%2C1> .
 <http://lobid.org/resource/TT001671747> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001671747> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073972-7> .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2056181-7> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747%3ADE-6-139a%3AC+367%2CV> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001671747> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747%3ADE-290%3AGOA+7%2F62-3%2C5%2C1> .
 <http://lobid.org/resource/TT001671747> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnster" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2056181-7> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
 <http://lobid.org/resource/TT001671747> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Aschendorff; 1990" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "Doppelbl. 1" .
@@ -1718,10 +1716,10 @@
 <http://lobid.org/resource/ZDB6211-x> <http://rdvocab.info/Elements/placeOfPublication> "Hamburg" .
 <http://lobid.org/resource/ZDB6211-x> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB6211-x%3ADE-Bm3-3%3ABg+168%3A1963> .
 <http://lobid.org/resource/ZDB6211-x> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB6211-x%3ADE-Bm3-3%3ABg+168%3A+4.1951> .
-<http://lobid.org/resource/ZDB6211-x> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/37043-5> .
 <http://lobid.org/resource/ZDB6211-x> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB6211-x%3ADE-Bm3-3%3ABg+168%3A+8.1955> .
 <http://lobid.org/resource/ZDB6211-x> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB6211-x%3ADE-38%3AHaa1455> .
 <http://lobid.org/resource/ZDB6211-x> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB6211-x> .
+<http://lobid.org/resource/ZDB6211-x> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/37043-5> .
 <http://lobid.org/resource/ZDB6211-x> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB6211-x%3ADE-Bm3-3%3ABg+168%3A1973> .
 <http://lobid.org/resource/ZDB6211-x> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB6211-x%3ADE-Bm3-3%3ABg+168%3A1983> .
 <http://lobid.org/resource/ZDB6211-x> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/ZDB6211-x%3ADE-Bm3-3%3ABg+168%3A1982> .
@@ -2357,7 +2355,6 @@
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Dankrede" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141889810> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/16068028-1> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141891173> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/118512536> .
@@ -2372,6 +2369,7 @@
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/statementOfResponsibility> "die Musik ist von dem ber\u00FChmten Kapellmeister Winter, Compositeur der Oper: Das unterbrochene Opferfest. [Textverf.: Alessandro Ercole Pepoli. \u00DCbers. und arrang. von Carl Ludwig von Giesecke]. Personen: Madam Bilau, Herr Fuchs, Madam B\u00F6hm d.j., Madam B\u00F6hm d.\u00E4., Herr Kellermann, Herr Dardenne, Herr Krug, Madam Annoni, Herr B\u00F6hm" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "Universit\u00E4ts- und Landesbibliothek" .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://iflastandards.info/ns/isbd/terms/mediatype/T1002> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/16068028-1> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:061:2-46125" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "B\u00F6gemann" .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
