@@ -451,7 +451,7 @@
 		<data source="335[-abcd][-12].a" name="@otherTitle"/>
 		<data source="3[45][01234567][-ab][-12].[ab]" name="http://purl.org/dc/terms/alternative"/>
 		<data source="35[012345][-ab][-1].a" name="@otherTitle"/>
-		<data source="36[0123456789][-abcd][-12].a|675[-abcd][-12].a" name="@otherTitle"/>
+		<data source="36[0123456789][-abcd][-12].a" name="@otherTitle"/>
 		<data source="376[-adb][-12].[ad]" name="http://purl.org/ontology/bibo/shortTitle"/>
 		<data source="504-[12].a" name="http://purl.org/dc/terms/alternative"/>
 		<data source="8[012][0123456789][-ab][-12].a|C[136][0135][-ab][-12].a" name="@otherTitle"/>
@@ -459,6 +459,7 @@
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="&lt;" with=""/>
 		</data>
+		<data source="675[-abcd][-12].a" name="http://purl.org/lobid/lv#titleKeyword"/>
 		<!-- ####################### -->
 		<!-- ########## date issued -->
 		<!-- ####################### -->
