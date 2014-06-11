@@ -859,6 +859,33 @@
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2023669-4> .
 <http://lobid.org/resource/HT004944075> <http://rdvocab.info/Elements/placeOfPublication> "Gen\u00E8ve [u.a.]" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/isPartOf> <http://ld.zdb-services.de/resource/1257-9> .
+<http://lobid.org/resource/BT000084171> <http://purl.org/dc/elements/1.1/publisher> "Neomedia" .
+<http://lobid.org/resource/BT000084171> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/BT000084171> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000084171> .
+<http://lobid.org/resource/BT000084171> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000084171> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000084171/about> .
+<http://lobid.org/resource/BT000084171> <http://rdvocab.info/Elements/placeOfPublication> "Reken" .
+<http://lobid.org/resource/BT000084171> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
+<http://lobid.org/resource/BT000084171> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/BT000084171> <http://rdvocab.info/Elements/publicationStatement> "Reken; Neomedia; 1988" .
+<http://lobid.org/resource/BT000084171> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/BT000084171%3ADE-6%3A2J+3> .
+<http://lobid.org/resource/BT000084171> <http://iflastandards.info/ns/isbd/elements/P1053> "75 S. : Ill. (farb.)" .
+<http://lobid.org/resource/BT000084171> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/BT000084171> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2904795/> .
+<http://lobid.org/resource/BT000084171> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s102000> .
+<http://lobid.org/resource/BT000084171> <http://purl.org/dc/terms/title> "Hildener Informationen & [und] Impressionen." .
+<http://lobid.org/resource/BT000084171> <http://purl.org/lobid/lv#hbzID> "BT000084171" .
+<http://lobid.org/resource/BT000084171> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000084171> .
+<http://lobid.org/resource/BT000084171> <http://purl.org/dc/terms/issued> "1988" .
+<http://lobid.org/item/BT000084171%3ADE-6%3A2J+3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/BT000084171%3ADE-6%3A2J+3> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/BT000084171%3ADE-6%3A2J+3/about> .
+<http://lobid.org/item/BT000084171%3ADE-6%3A2J+3> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/BT000084171> .
+<http://lobid.org/item/BT000084171%3ADE-6%3A2J+3> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
+<http://lobid.org/item/BT000084171%3ADE-6%3A2J+3> <http://purl.org/ontology/daia/label> "2J 3" .
+<http://lobid.org/item/BT000084171%3ADE-6%3A2J+3/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/item/BT000084171%3ADE-6%3A2J+3/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/BT000084171%3ADE-6%3A2J+3> .
+<http://lobid.org/resource/BT000084171/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/BT000084171/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/BT000084171> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/title> "Leitfaden f\u00FCr die Behandlung von Ausbauasphalt und Stra\u00DFenaufbruch mit teer-/pechtypischen Bestandteilen" .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/RPB> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
@@ -2282,31 +2309,6 @@
 <http://lobid.org/item/HT012926727%3ADE-1393%3A00%2FXYG3%282%29%2B4> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT012926727> .
 <http://lobid.org/item/HT012926727%3ADE-1393%3A00%2FXYG3%282%29%2B4> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-1393> .
 <http://lobid.org/item/HT012926727%3ADE-1393%3A00%2FXYG3%282%29%2B4> <http://purl.org/ontology/daia/label> "00/XYG3(2)+4" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124348165> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007072426> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s240000> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib-spatial#n46> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "34 (2014),1, S. 14-15" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/issued> "2014" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/title> "D\u00FCsseldorf und das bergische Territorium" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4137215-3> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#hbzID> "HT018131501" .
-<http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/statementOfResponsibility> "Manfred Engelhardt" .
-<http://lobid.org/resource/HT018131501> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018131501/about> .
-<http://lobid.org/resource/HT018131501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT018131501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "<<Der>> Gie\u00DFerjunge; 34 (2014),1, S. 14-15" .
-<http://lobid.org/resource/HT018131501> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018131501> .
-<http://lobid.org/resource/HT018131501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
-<http://lobid.org/resource/HT018131501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
-<http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf" .
-<http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/publicationStatement> "2014; D\u00FCsseldorf" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4013255-9> .
-<http://lobid.org/resource/HT018131501> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018131501> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
-<http://lobid.org/resource/HT018131501/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
-<http://lobid.org/resource/HT018131501/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT018131501> .
 <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT013911008%3ADE-361%3ACB088.87-4144798> .
 <http://lobid.org/resource/HT013911008/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
@@ -2566,3 +2568,29 @@
 <http://lobid.org/item/HT009719670%3ADE-467/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT009719670%3ADE-467> .
 <http://lobid.org/resource/HT009719670/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/resource/HT009719670/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT009719670> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2938342/> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s825500> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/issued> "1984" .
+<http://lobid.org/resource/BT000046090> <http://rdvocab.info/Elements/otherTitleInformation> "wieder Kirchenchor seit 15 Jahren" .
+<http://lobid.org/resource/BT000046090> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000046090> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/title> "Chorisches Singen" .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/109345444> .
+<http://lobid.org/resource/BT000046090> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000046090> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/bibliographicCitation> "Die Delling : Entstehung u. Geschichte d. Evang. Kirchengemeinde Delling, zum 150j\u00E4hr. Jubil\u00E4um d. Kirchenbaus 1834 - 1984; Maria Louise Denst. Mit Beitr. von Josef B\u00FCchel ...; 1984; S. 402-404 : 1 Ill." .
+<http://lobid.org/resource/BT000046090> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT004682992> .
+<http://lobid.org/resource/BT000046090> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000046090/about> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/bibliographicCitation> "1984; S. 402-404 : 1 Ill." .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/bibliographicCitation> "Die Delling : Entstehung u. Geschichte d. Evang. Kirchengemeinde Delling, zum 150j\u00E4hr. Jubil\u00E4um d. Kirchenbaus 1834 - 1984; S. 402-404 : 1 Ill." .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4163912-1> .
+<http://lobid.org/resource/BT000046090> <http://purl.org/lobid/lv#hbzID> "BT000046090" .
+<http://lobid.org/resource/BT000046090> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4100404-8> .
+<http://lobid.org/resource/BT000046090> <http://rdvocab.info/Elements/placeOfPublication> "K\u00FCrten-Delling" .
+<http://lobid.org/resource/BT000046090> <http://rdvocab.info/Elements/publicationStatement> "1984; K\u00FCrten-Delling" .
+<http://lobid.org/resource/BT000046090> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
+<http://lobid.org/resource/BT000046090> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/BT000046090> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/BT000046090/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/BT000046090/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/BT000046090> .

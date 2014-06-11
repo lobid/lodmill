@@ -55,7 +55,7 @@ public final class RdfModelMysqlWriter extends DefaultStreamReceiver implements
 
 	private Lang serialization;
 	private String nameProperty;
-	private Connection conn = null;
+	Connection conn = null;
 	private Statement stmt = null;
 	private PreparedStatement ps;
 	private String tablename;
