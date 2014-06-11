@@ -21,9 +21,9 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.google.common.io.CharStreams;
 
 /**
- * Decodes JSON. The JSON (or JSONP) record may consist of one or n records.
- * However, if there are objects in arrays, these will be handled as new objects
- * and not as part of the root object.
+ * Decodes JSON and JSONP. The JSON (or JSONP) record may consist of one or n
+ * records. However, if there are objects in arrays, these will be handled as
+ * new objects and not as part of the root object.
  * 
  * @author Pascal Christoph (dr0i)
  * 
@@ -110,9 +110,7 @@ public final class JsonDecoder extends
 									break;
 								}
 								// values of arrays are submitted with an index
-								// so
-								// you can handle
-								// semantics in the morph
+								// so you can handle semantics in the morph
 								int i = 0;
 								while (JsonToken.END_ARRAY != currentToken) {
 									final String value = this.jsonParser.getText();
