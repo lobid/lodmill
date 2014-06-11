@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="1">
+	<rules>
+		<combine name="${name}" value="${geonamesId}">
+			<data source="0" name="geonamesId"/>
+			<data source="10">
+				<regexp match="07"/>
+			</data>
+			<data source="1" name="name">
+				<replace pattern="\ " with=""/>
+				<replace pattern="," with=""/>
+			</data>
+		</combine>
+	</rules>
+</metamorph>
