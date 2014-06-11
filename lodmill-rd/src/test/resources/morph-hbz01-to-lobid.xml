@@ -451,7 +451,7 @@
 		<data source="335[-abcd][-12].a" name="@otherTitle"/>
 		<data source="3[45][01234567][-ab][-12].[ab]" name="http://purl.org/dc/terms/alternative"/>
 		<data source="35[012345][-ab][-1].a" name="@otherTitle"/>
-		<data source="36[0123456789][-abcd][-12].a|675[-abcd][-12].a" name="@otherTitle"/>
+		<data source="36[0123456789][-abcd][-12].a" name="@otherTitle"/>
 		<data source="376[-adb][-12].[ad]" name="http://purl.org/ontology/bibo/shortTitle"/>
 		<data source="504-[12].a" name="http://purl.org/dc/terms/alternative"/>
 		<data source="8[012][0123456789][-ab][-12].a|C[136][0135][-ab][-12].a" name="@otherTitle"/>
@@ -459,6 +459,7 @@
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="&lt;" with=""/>
 		</data>
+		<data source="675[-abcd][-12].a" name="http://purl.org/lobid/lv#titleKeyword"/>
 		<!-- ####################### -->
 		<!-- ########## date issued -->
 		<!-- ####################### -->
@@ -617,10 +618,12 @@
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
-		<!-- corporation links -->
-		<data source="2[0123456789][012345678]?[12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
+		<!-- corporation links as creator -->
+		<data source="2[0123456789][012345678][-a][12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
+
+		
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creatorLiteral}"
@@ -640,6 +643,10 @@
 		<data source="1[0123456789][0123456789]b[1234].b" name="@marcrelName"/>
 		<!-- person links -->
 		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
+			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+		</data>	
+		<!-- corporation links as contributor -->
+		<data source="2[0123456789][012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
