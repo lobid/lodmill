@@ -26,7 +26,8 @@ import org.slf4j.LoggerFactory;
 @Description("Writes the object value into mysql")
 @In(StreamReceiver.class)
 @Out(Void.class)
-public final class MysqlWriter extends DefaultStreamPipe<ObjectReceiver<String>> {
+public final class MysqlWriter extends
+		DefaultStreamPipe<ObjectReceiver<String>> {
 	private static final Logger LOG = LoggerFactory.getLogger(MysqlWriter.class);
 
 	private Connection conn = null;
@@ -120,9 +121,11 @@ public final class MysqlWriter extends DefaultStreamPipe<ObjectReceiver<String>>
 	// @TODO make Database configs configurable
 	private void connectMysqlDB() {
 		try {
-			conn =
-					DriverManager.getConnection(this.dbProtocolAndAdress + "?" + "user="
-							+ this.username + "&password=" + this.password);
+			String connectionUri =
+					this.dbProtocolAndAdress + "?" + "user=" + this.username
+							+ "&password=" + this.password;
+			LOG.debug("Connection URI =" + connectionUri);
+			conn = DriverManager.getConnection(connectionUri);
 			stmt = conn.createStatement();
 			stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + this.dbname);
 			conn =
