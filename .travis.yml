@@ -3,7 +3,7 @@ jdk: oraclejdk7
 before_install:
   - cd lodmill-rd; sh install-dependencies.sh; cd ..
 install:
-  - mvn clean install -e -q -DskipTests=true --settings settings.xml
+  - mvn clean install -e -q -DskipTests=true -Dmysql.classifier=linux-amd64 --settings settings.xml
 script:
   - umask 0022
   - mvn test -Dmysql.classifier=linux-amd64 -e -q --settings settings.xml
