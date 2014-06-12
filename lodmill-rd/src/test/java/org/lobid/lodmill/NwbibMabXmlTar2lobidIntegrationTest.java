@@ -30,10 +30,13 @@ import com.jcabi.aspects.Timeable;
 public final class NwbibMabXmlTar2lobidIntegrationTest {
 	private static final String TARGET_PATH = "tmp";
 	private static final String TEST_FILENAME = "hbz01.nt";
+	private static final String DB_PROTOCOL_AND_ADDRESS="jdbc:mysql://localhost:33061/";
+	private static final String DB_PASSWORD="tzSblDEUGC1XhJB7";
+	private static final String DB_DBNAME="lobid";
+
 
 	@SuppressWarnings("static-method")
 	@Test
-	@Timeable(limit = 2000, unit = TimeUnit.SECONDS)
 	public void testFlow() throws IOException, URISyntaxException {
 		// hbz catalog transformation
 		final FileOpener opener = new FileOpener();
@@ -91,9 +94,9 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 
 		// writing OSM url into SQL DBMS
 		MysqlWriter sqlWriterOsmUrl = new MysqlWriter();
-		sqlWriterOsmUrl.setDbname("lobid");
-		sqlWriterOsmUrl.setDbProtocolAndAdress("jdbc:mysql://localhost:33061/");
-		sqlWriterOsmUrl.setPassword("tzSblDEUGC1XhJB7");
+		sqlWriterOsmUrl.setDbname(DB_DBNAME);
+		sqlWriterOsmUrl.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
+		sqlWriterOsmUrl.setPassword(DB_PASSWORD);
 		sqlWriterOsmUrl.setTablename("NrwPlacesOsmUrl");
 		sqlWriterOsmUrl.setUsername("debian-sys-maint");
 		morphCreateOsmMysqlRow.setReceiver(sqlWriterOsmUrl);
@@ -114,9 +117,9 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 
 		// writing into SQL DBMS
 		MysqlWriter sqlWriter = new MysqlWriter();
-		sqlWriter.setDbname("lobid");
-		sqlWriter.setDbProtocolAndAdress("jdbc:mysql://localhost:33061/");
-		sqlWriter.setPassword("tzSblDEUGC1XhJB7");
+		sqlWriter.setDbname(DB_DBNAME);
+		sqlWriter.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
+		sqlWriter.setPassword(DB_PASSWORD);
 		sqlWriter.setTablename("NrwPlacesGeonamesId");
 		sqlWriter.setUsername("debian-sys-maint");
 
@@ -182,11 +185,11 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 	private static RdfModelMysqlWriter createModelWriter() {
 		RdfModelMysqlWriter modelWriter = new RdfModelMysqlWriter();
 		modelWriter.setProperty("http://purl.org/lobid/lv#hbzID");
-		modelWriter.setDbname("lobid");
+		modelWriter.setDbname(DB_DBNAME);
 		modelWriter.setTablename("resources");
 		modelWriter.setUsername("debian-sys-maint");
-		modelWriter.setPassword("tzSblDEUGC1XhJB7");
-		modelWriter.setDbProtocolAndAdress("jdbc:mysql://localhost:3306/");
+		modelWriter.setPassword(DB_PASSWORD);
+		modelWriter.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
 		return modelWriter;
 	}
 
