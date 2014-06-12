@@ -6,4 +6,4 @@ install:
   - mvn clean install -e -q -DskipTests=true --settings settings.xml
 script:
   - umask 0022
-  - mvn test -e -q --settings settings.xml
+  - mvn test -Dmysql.classifier=linux-amd64 -e -q --settings settings.xml
