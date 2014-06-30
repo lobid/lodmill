@@ -1063,6 +1063,30 @@
 <http://lobid.org/item/TT000075751%3ADE-Kn38%3ACD+2410+-+CD+2411/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/TT000075751%3ADE-Kn38%3ACD+2410+-+CD+2411> .
 <http://lobid.org/resource/TT000075751/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/resource/TT000075751/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/TT000075751> .
+<http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/37460-X> .
+<http://lobid.org/resource/HT001310215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
+<http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/title> "JOURNAL" .
+<http://lobid.org/resource/HT001310215> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT001310215/about> .
+<http://lobid.org/resource/HT001310215> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT001310215> .
+<http://lobid.org/resource/HT001310215> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT001310215> .
+<http://lobid.org/resource/HT001310215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/177572388> .
+<http://lobid.org/resource/HT001310215> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001310215%3ADE-294%3AZMC134> .
+<http://lobid.org/resource/HT001310215> <http://purl.org/lobid/lv#hbzID> "HT001310215" .
+<http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/placeOfPublication> "CHICAGO, ILL." .
+<http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/publicationStatement> "CHICAGO, ILL.; AMERICAN DENTAL ASSOCIATION" .
+<http://lobid.org/resource/HT001310215> <http://purl.org/dc/elements/1.1/publisher> "AMERICAN DENTAL ASSOCIATION" .
+<http://lobid.org/resource/HT001310215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/issued> "1980 - " .
+<http://lobid.org/item/HT001310215%3ADE-294%3AZMC134/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/item/HT001310215%3ADE-294%3AZMC134/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT001310215%3ADE-294%3AZMC134> .
+<http://lobid.org/item/HT001310215%3ADE-294%3AZMC134> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT001310215%3ADE-294%3AZMC134> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT001310215%3ADE-294%3AZMC134/about> .
+<http://lobid.org/item/HT001310215%3ADE-294%3AZMC134> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT001310215> .
+<http://lobid.org/item/HT001310215%3ADE-294%3AZMC134> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-294> .
+<http://lobid.org/item/HT001310215%3ADE-294%3AZMC134> <http://purl.org/ontology/daia/label> "ZMC134" .
+<http://lobid.org/resource/HT001310215/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/HT001310215/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT001310215> .
 <http://lobid.org/item/HT014046679%3ADE-Bi10%3AICE+Brav> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT014046679%3ADE-Bi10%3AICE+Brav> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT014046679%3ADE-Bi10%3AICE+Brav/about> .
 <http://lobid.org/item/HT014046679%3ADE-Bi10%3AICE+Brav> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT014046679> .
@@ -1323,6 +1347,43 @@
 <http://lobid.org/item/HT015865114%3ADE-Lan1> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Lan1> .
 <http://lobid.org/resource/HT013370531> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT015865114> .
 <http://lobid.org/resource/HT013370531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/item/HT018187026%3ADE-361/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/item/HT018187026%3ADE-361/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT018187026%3ADE-361> .
+<http://lobid.org/resource/HT018187026/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/HT018187026/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT018187026> .
+<http://lobid.org/item/HT018187026%3ADE-Bi10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018187026%3ADE-Bi10> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018187026%3ADE-Bi10/about> .
+<http://lobid.org/item/HT018187026%3ADE-Bi10> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018187026> .
+<http://lobid.org/item/HT018187026%3ADE-Bi10> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Bi10> .
+<http://lobid.org/item/HT018187026%3ADE-361> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018187026%3ADE-361> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018187026%3ADE-361/about> .
+<http://lobid.org/item/HT018187026%3ADE-361> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018187026> .
+<http://lobid.org/item/HT018187026%3ADE-361> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-361> .
+<http://lobid.org/item/HT018187026%3ADE-Bi10/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/item/HT018187026%3ADE-Bi10/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT018187026%3ADE-Bi10> .
+<http://lobid.org/item/HT018187026%3ADE-836/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/item/HT018187026%3ADE-836/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT018187026%3ADE-836> .
+<http://lobid.org/resource/HT018187026> <http://rdvocab.info/Elements/publicationStatement> "Berlin; Logos-Verl." .
+<http://lobid.org/resource/HT018187026> <http://purl.org/ontology/bibo/issn> "2195-5131" .
+<http://lobid.org/resource/HT018187026> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018187026> <http://purl.org/dc/terms/title> "Gesundheit und Pflege - aus der Hochschule in die Praxis" .
+<http://lobid.org/resource/HT018187026> <http://purl.org/dc/terms/issued> "2013 - " .
+<http://lobid.org/resource/HT018187026> <http://purl.org/dc/elements/1.1/publisher> "Logos-Verl." .
+<http://lobid.org/resource/HT018187026> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018187026> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Series> .
+<http://lobid.org/resource/HT018187026> <http://rdvocab.info/Elements/placeOfPublication> "Berlin" .
+<http://lobid.org/resource/HT018187026> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018187026/about> .
+<http://lobid.org/resource/HT018187026> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT018187026> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018187026%3ADE-Bi10> .
+<http://lobid.org/resource/HT018187026> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018187026> .
+<http://lobid.org/resource/HT018187026> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018187026%3ADE-836> .
+<http://lobid.org/resource/HT018187026> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018187026%3ADE-361> .
+<http://lobid.org/resource/HT018187026> <http://purl.org/lobid/lv#hbzID> "HT018187026" .
+<http://lobid.org/resource/HT018187026> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018187026> .
+<http://lobid.org/item/HT018187026%3ADE-836> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018187026%3ADE-836> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018187026%3ADE-836/about> .
+<http://lobid.org/item/HT018187026%3ADE-836> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018187026> .
+<http://lobid.org/item/HT018187026%3ADE-836> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-836> .
 <http://lobid.org/resource/HT016608165> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
 <http://lobid.org/resource/HT016608165> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016608165/about> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "1980" .
