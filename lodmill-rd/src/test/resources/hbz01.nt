@@ -2625,3 +2625,29 @@
 <http://lobid.org/item/HT009719670%3ADE-467/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/item/HT009719670%3ADE-467> .
 <http://lobid.org/resource/HT009719670/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/resource/HT009719670/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT009719670> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/title> "Alle B\u00F6cke bei\u00DFen oder in Feindschaft fest" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "Nach dem Spiel ist vor dem Spiel : die wunderbare Welt des Fu\u00DFballs / Wolfgang Frank (Hg.); S. 101-[108]" .
+<http://lobid.org/resource/BT000128754> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
+<http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/publicationStatement> "1996; Reinbek bei Hamburg" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/issued> "1996" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#hbzID> "BT000128754" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "1996; S. 101-[108]" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2041907-7> .
+<http://lobid.org/resource/BT000128754> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/BT000128754> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s736050> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "Nach dem Spiel ist vor dem Spiel : die wunderbare Welt des Fu\u00DFballs / Wolfgang Frank (Hg.); Orig.-Ausg.; 1996; S. 101-[108]" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib-spatial#n99> .
+<http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/otherTitleInformation> "Jugend zwischen zwei Magnetpolen ; nur Animosit\u00E4t gebiert gro\u00DFe Spiele" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/abstract> "Erinnerungen an d. 1. FC K\u00F6ln u. Borussia M\u00F6nchengladbach" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007138775> .
+<http://lobid.org/resource/BT000128754> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000128754> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/174423330> .
+<http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/placeOfPublication> "Reinbek bei Hamburg" .
+<http://lobid.org/resource/BT000128754> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/BT000128754> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000128754/about> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2050419-6> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/BT000128754> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000128754> .
+<http://lobid.org/resource/BT000128754/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/BT000128754/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/BT000128754> .
