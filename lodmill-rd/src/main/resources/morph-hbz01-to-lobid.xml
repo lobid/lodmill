@@ -251,6 +251,9 @@
 		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
+					<data source="@typeOnly">
+						<regexp match=".*"/>
+					</data>
 					<data source="@idzdb">
 						<regexp match=".*"/>
 					</data>
@@ -352,7 +355,6 @@
 			<regexp match="^.a" format="http://purl.org/ontology/bibo/Manuscript"/>
 		</data>
 		<data source="@rdftypeAndManifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-		<!-- TODO and not Journal/Series (andnot @typeOnly) -->
 		<!-- shortcut for special type AND type "manifestation" -->
 		<data source="@rdftypeAndManifestation" name="@manifestation"/>
 		<data source="@manifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
@@ -394,16 +396,22 @@
 		<data source="052." name="@rdftypeAndManifestation">
 			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
-		<data source="052." name="@typeOnly">
+		
+		<data source="052." name="@collection">
 			<regexp match="^[jp].*|^.il.*|^...il.*|^.....il.*" format="http://purl.org/ontology/bibo/Journal"/>
 		</data>
-		<data source="052." name="@typeOnly">
+		
+		
+		<data source="052." name="@collection">
 			<regexp match="^r|^.se|^...se|^.....se" format="http://purl.org/ontology/bibo/Series"/>
 		</data>
-		<data source="052." name="@typeOnly">
+		<data source="@collection" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
+		</data>
+		<data source="@collection" name="@typeOnly"/>
+		<data source="052." name="@collection">
 			<regexp match="^z|^.ao|^...ao|^.....ao" format="http://purl.org/ontology/bibo/Newspaper"/>
 		</data>
-		<!-- 058 -->
 		<!-- online -->
 		<data source="058." name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match="^.r" format="http://rdvocab.info/termList/RDACarrierType/1018"/>
@@ -622,8 +630,6 @@
 		<data source="2[0123456789][012345678][-a][12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
-
-		
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creatorLiteral}"
@@ -644,7 +650,7 @@
 		<!-- person links -->
 		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>	
+		</data>
 		<!-- corporation links as contributor -->
 		<data source="2[0123456789][012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
