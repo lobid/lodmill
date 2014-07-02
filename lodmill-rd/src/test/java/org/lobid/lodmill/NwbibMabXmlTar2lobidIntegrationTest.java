@@ -8,7 +8,6 @@ import java.net.URISyntaxException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.culturegraph.mf.Flux;
@@ -20,9 +19,11 @@ import org.culturegraph.mf.stream.source.FileOpener;
 import org.culturegraph.mf.stream.source.HttpOpener;
 import org.junit.Test;
 
-import com.jcabi.aspects.Timeable;
-
 /**
+ * Rather complex nested flow with two api calls for geo enrichment, caching
+ * data in a MySQL DB used by morph sql lookup function. The flux is aquivalent
+ * to the flow.
+ * 
  * @author Pascal Christoph (dr0i)
  * 
  */
@@ -30,10 +31,10 @@ import com.jcabi.aspects.Timeable;
 public final class NwbibMabXmlTar2lobidIntegrationTest {
 	private static final String TARGET_PATH = "tmp";
 	private static final String TEST_FILENAME = "hbz01.nt";
-	private static final String DB_PROTOCOL_AND_ADDRESS="jdbc:mysql://localhost:33061/";
-	private static final String DB_PASSWORD="tzSblDEUGC1XhJB7";
-	private static final String DB_DBNAME="lobid";
-
+	private static final String DB_PROTOCOL_AND_ADDRESS =
+			"jdbc:mysql://localhost:33061/";
+	private static final String DB_PASSWORD = "tzSblDEUGC1XhJB7";
+	private static final String DB_DBNAME = "lobid";
 
 	@SuppressWarnings("static-method")
 	@Test
@@ -50,24 +51,22 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		RdfModelMysqlWriter modelWriter = createModelWriter();
-		modelWriter.setProperty("http://purl.org/lobid/lv#hbzID");
 		triple2model.setReceiver(modelWriter);
-		// tee.addReceiver(triple2model);
 		StreamTee streamTee = new StreamTee();
 		final Stats stats = new Stats();
 		stats.setFilename("tmp.stats.csv");
 		streamTee.addReceiver(stats);
+		StreamTee streamTeeGeo = new StreamTee();
+		streamTee.addReceiver(streamTeeGeo);
+		PipeEncodeTriples encoder = new PipeEncodeTriples();
+		streamTeeGeo.addReceiver(encoder);
+		encoder.setReceiver(triple2model);
 
 		/*
 		 * geo enrichment
 		 */
 		// OSM API lookup
 		// make OSM API URL and lookup that
-		StreamTee streamTeeGeo = new StreamTee();
-		streamTee.addReceiver(streamTeeGeo);
-		PipeEncodeTriples encoder = new PipeEncodeTriples();
-		streamTeeGeo.addReceiver(encoder);
-		encoder.setReceiver(triple2model);
 		final Metamorph morphCreateOsmURl =
 				new Metamorph("src/test/resources/morph-nwbibhbz01-buildGeoOsmUrl.xml");
 		streamTeeGeo.addReceiver(morphCreateOsmURl);
@@ -100,7 +99,6 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		sqlWriterOsmUrl.setTablename("NrwPlacesOsmUrl");
 		sqlWriterOsmUrl.setUsername("debian-sys-maint");
 		morphCreateOsmMysqlRow.setReceiver(sqlWriterOsmUrl);
-		// streamTeeOsmUrl.addReceiver(sqlWriterOsmUrl);
 
 		// Geonames API lookup
 		// lookup geonames with generated URL
@@ -138,9 +136,6 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 
 		opener.closeStream();
 
-		// final File testFile =
-		// AbstractIngestTests.concatenateGeneratedFilesIntoOneFile(TARGET_PATH
-		// + "/" + TARGET_SUBPATH, TEST_FILENAME);
 		final File testFile = new File(TEST_FILENAME);
 		StringBuilder sb = new StringBuilder();
 		try {
@@ -157,11 +152,11 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 			e.printStackTrace();
 		}
 		FileUtils.writeStringToFile(testFile, sb.toString(), false);
-		// // positive test
+		// positive test
 		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
 				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
 				.toURI()));
-		// // negative test
+		// negative test
 		AbstractIngestTests.checkIfNoIntersection(
 				testFile,
 				new File(Thread.currentThread().getContextClassLoader()
@@ -194,7 +189,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 	}
 
 	@SuppressWarnings("static-method")
-	// @Test
+	@Test
 	public void testFlux() throws URISyntaxException {
 		File fluxFile =
 				new File(Thread.currentThread().getContextClassLoader()
