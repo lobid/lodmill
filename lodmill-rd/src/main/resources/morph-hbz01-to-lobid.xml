@@ -396,12 +396,9 @@
 		<data source="052." name="@rdftypeAndManifestation">
 			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
-		
 		<data source="052." name="@collection">
 			<regexp match="^[jp].*|^.il.*|^...il.*|^.....il.*" format="http://purl.org/ontology/bibo/Journal"/>
 		</data>
-		
-		
 		<data source="052." name="@collection">
 			<regexp match="^r|^.se|^...se|^.....se" format="http://purl.org/ontology/bibo/Series"/>
 		</data>
@@ -924,7 +921,7 @@
 		<concat delimiter="; " name="http://purl.org/dc/terms/bibliographicCitation">
 			<data source="5[29][0123568][-abcd][-1].a"/>
 		</concat>
-		<data source="599-[-1].a" name="@isPartOfHbzId"/>
+		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
 		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
@@ -973,10 +970,7 @@
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
 		<!-- ignore e.g. '700n|a 99|b Düsseldorf', s.: HT018131501 -->
-		<combine name="@nwbibB" value="${a}" flushWith="entity">
-			<data source="700n[-1].b" name="a"/>
-		</combine>
-		<combine name="@nwbib700_99" value="${a}">
+		<combine name="@nwbib700_99" value="${a}" flushWith="entity">
 			<data source="700n[-1].a">
 				<regexp match="99"/>
 			</data>
@@ -995,7 +989,6 @@
 		<combine name="http://purl.org/dc/terms/subject" value="${a}">
 			<if>
 				<none>
-					<data source="@nwbibB"/>
 					<data source="@nwbib700_99"/>
 				</none>
 			</if>
