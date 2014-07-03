@@ -969,13 +969,14 @@
 		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
-		<!-- ignore e.g. '700n|a 99|b Düsseldorf', s.: HT018131501 -->
-		<combine name="@nwbib700_99" value="${a}" flushWith="entity">
+		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
+		<combine name="@nwbib700_99" value="${a}">
 			<data source="700n[-1].a">
 				<regexp match="99"/>
 			</data>
 			<data source="700n[-1].b" name="a"/>
 		</combine>
+		<!-- emit field for other pipelined morphs -->
 		<data source="@nwbib700_99" name="nwbib700_99"/>
 		<data source="@nwbib700_99" name="@geonamesId">
 			<replace pattern=" " with=""/>
@@ -987,13 +988,8 @@
 			<data source="@geonamesId" name="id"/>
 		</combine>
 		<combine name="http://purl.org/dc/terms/subject" value="${a}">
-			<if>
-				<none>
-					<data source="@nwbib700_99"/>
-				</none>
-			</if>
 			<data source="700n[-1].a" name="a">
-				<regexp match="^(\d\d)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
+				<regexp match="^([0-8][0-8])\b|(91)\b|(96)\b|(97)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
 			</data>
 		</combine>
 		<!--edoweb -->
