@@ -22,7 +22,8 @@ import org.junit.Test;
 /**
  * Rather complex nested flow with two api calls for geo enrichment, caching
  * data in a MySQL DB used by morph sql lookup function. The flux is aquivalent
- * to the flow.
+ * to the flow. The port is deliberately hardwired to 3306. Skip this test if
+ * you have already a running daemon on port 3306.
  * 
  * @author Pascal Christoph (dr0i)
  * 
@@ -32,7 +33,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 	private static final String TARGET_PATH = "tmp";
 	private static final String TEST_FILENAME = "hbz01.nt";
 	private static final String DB_PROTOCOL_AND_ADDRESS =
-			"jdbc:mysql://localhost:33061/";
+			"jdbc:mysql://localhost:3306/";
 	private static final String DB_PASSWORD = "tzSblDEUGC1XhJB7";
 	private static final String DB_DBNAME = "lobid";
 
@@ -47,7 +48,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		XmlTee xmlTee = new XmlTee();
 		final MabXmlHandler handler = new MabXmlHandler();
 		final Metamorph morph =
-				new Metamorph("src/test/resources/morph-hbz01-to-lobid.xml");
+				new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		RdfModelMysqlWriter modelWriter = createModelWriter();
@@ -68,7 +69,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		// OSM API lookup
 		// make OSM API URL and lookup that
 		final Metamorph morphCreateOsmURl =
-				new Metamorph("src/test/resources/morph-nwbibhbz01-buildGeoOsmUrl.xml");
+				new Metamorph("src/main/resources/morph-nwbibhbz01-buildGeoOsmUrl.xml");
 		streamTeeGeo.addReceiver(morphCreateOsmURl);
 		// lookup and parse OSM API URL
 		final LiteralExtractor literalExtractor = new LiteralExtractor();
