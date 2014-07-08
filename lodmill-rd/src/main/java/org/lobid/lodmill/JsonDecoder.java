@@ -5,7 +5,6 @@ package org.lobid.lodmill;
 import java.io.IOException;
 import java.io.Reader;
 
-import org.culturegraph.mf.exceptions.MetafactureException;
 import org.culturegraph.mf.framework.DefaultObjectPipe;
 import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.annotations.Description;
@@ -47,7 +46,7 @@ public final class JsonDecoder extends
 					|| JsonToken.VALUE_NUMBER_INT == currentToken
 					|| JsonToken.VALUE_NUMBER_FLOAT == currentToken) {
 				final String value = this.jsonParser.getText();
-				JsonDecoder.LOG.debug("key=" + key + " value=" + value);
+				LOG.debug("key=" + key + " value=" + value);
 				getReceiver().literal(key, value);
 			}
 		}
@@ -56,7 +55,7 @@ public final class JsonDecoder extends
 	@Override
 	public void process(final Reader reader) {
 		STARTED = false;
-		JsonDecoder.LOG.debug("############################ New");
+		LOG.debug("############################ New");
 		// necessary if it is JSONP
 		String text;
 		try {
@@ -68,19 +67,23 @@ public final class JsonDecoder extends
 				currentToken = this.jsonParser.nextToken();
 			} catch (final JsonParseException e) {
 				// assuming JSONP :
+				if (text.indexOf(JsonDecoder.JSON_START_CHAR) == -1) {
+					LOG.info("No JSON(P - ignoring");
+					return;
+				}
 				final String callbackString =
 						text.substring(0, text.indexOf(JsonDecoder.JSON_START_CHAR) - 1);
 				text =
 						text.substring(text.indexOf(JsonDecoder.JSON_START_CHAR),
 								text.length() - 1);
 				this.jsonParser = new JsonFactory().createParser(text);
-				JsonDecoder.LOG.debug("key=" + JsonDecoder.JSON_CALLBACK + " value="
+				LOG.debug("key=" + JsonDecoder.JSON_CALLBACK + " value="
 						+ callbackString);
 				getReceiver().startRecord("");
 				STARTED = true;
 				JSONP = true;
 				getReceiver().literal(JsonDecoder.JSON_CALLBACK, callbackString);
-				JsonDecoder.LOG.debug("Text=" + text);
+				LOG.debug("Text=" + text);
 				currentToken = this.jsonParser.nextToken();
 			}
 			while (JsonToken.START_OBJECT != currentToken) {
@@ -114,8 +117,7 @@ public final class JsonDecoder extends
 								int i = 0;
 								while (JsonToken.END_ARRAY != currentToken) {
 									final String value = this.jsonParser.getText();
-									JsonDecoder.LOG.debug("key=" + key + i + " valueArray="
-											+ value);
+									LOG.debug("key=" + key + i + " valueArray=" + value);
 									getReceiver().literal(key + i, value);
 									currentToken = this.jsonParser.nextToken();
 									i++;
@@ -140,15 +142,21 @@ public final class JsonDecoder extends
 						}
 					}
 				}
-				JsonDecoder.LOG.debug("############################ End");
+				LOG.debug("############################ End");
 				if (STARTED) {
 					getReceiver().endRecord();
 					STARTED = false;
 				}
 			}
 		} catch (final IOException e) {
-			throw new MetafactureException(e);
-
+			try {
+				LOG.warn(e.getLocalizedMessage() + "while computing "
+						+ this.jsonParser.getText());
+			} catch (JsonParseException e1) {
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
 		}
 	}
 }
