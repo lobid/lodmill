@@ -48,7 +48,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  */
 public class CollectSubjects implements Tool {
 
-	private static final int REDUCERS = 1;
+	private static final int REDUCERS = 4;
 	private static final Logger LOG = LoggerFactory
 			.getLogger(CollectSubjects.class);
 	static final Configuration MAP_FILE_CONFIG = new Configuration();
@@ -102,6 +102,7 @@ public class CollectSubjects implements Tool {
 		conf.setStrings("map.file.name", mapFileName);
 		final Job job = Job.getInstance(conf);
 		job.setNumReduceTasks(REDUCERS);
+		job.getConfiguration().setInt("mapred.map.tasks", 4);
 		job.setJarByClass(CollectSubjects.class);
 		job.setJobName("CollectSubjects");
 		FileInputFormat.addInputPaths(job, args[0]);
