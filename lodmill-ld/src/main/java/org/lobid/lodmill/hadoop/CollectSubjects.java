@@ -6,11 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Properties;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -70,8 +69,8 @@ public class CollectSubjects implements Tool {
 		return props;
 	}
 
-	private static SortedSet<String> props(final String key) {
-		return new TreeSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(";")));
+	private static HashSet<String> props(final String key) {
+		return new HashSet<>(Arrays.asList(PROPERTIES.getProperty(key).split(";")));
 	}
 
 	/**
@@ -164,6 +163,7 @@ public class CollectSubjects implements Tool {
 		protected void setup(Context context) throws IOException,
 				InterruptedException {
 			prefix = context.getConfiguration().get(PREFIX_KEY);
+			LOG.debug("Set target.subject.prefix=" + PREFIX_KEY);
 		}
 
 		@Override
@@ -190,7 +190,7 @@ public class CollectSubjects implements Tool {
 					&& triple.getSubject().toString()
 							.startsWith(prefix == null ? "" : prefix)
 					&& TO_RESOLVE.contains(triple.getPredicate().toString())
-					&& (triple.getObject().isBlank() || triple.getObject().isURI());
+					& !(triple.getObject().isLiteral());
 		}
 
 		private static String getSubject(final String val, final Triple triple,
@@ -206,7 +206,7 @@ public class CollectSubjects implements Tool {
 		}
 
 		private static String preprocess(final String object) {
-			return object.contains(DEWEY) ? object + DEWEY_SUFFIX : object;
+			return object.startsWith(DEWEY) ? object + DEWEY_SUFFIX : object;
 		}
 
 		static Triple asTriple(final String val) {
