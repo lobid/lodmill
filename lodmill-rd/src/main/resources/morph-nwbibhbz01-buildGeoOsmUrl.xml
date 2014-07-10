@@ -23,7 +23,7 @@
 			</if>
 			<data source="nwbib700_99" name="query">
 				<!-- set to germany, NRW -->
-				<regexp match="(.*)" format="/de/nrw/${1}?"/>
+				<regexp match="[^\d](.*)" format="/de/nrw/${1}?"/>
 			</data>
 		</combine>
 		<!-- generate different URL's depending if there are "Ordnungszeichen" -->

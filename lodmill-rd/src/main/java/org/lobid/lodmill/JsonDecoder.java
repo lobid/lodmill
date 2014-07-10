@@ -68,7 +68,7 @@ public final class JsonDecoder extends
 			} catch (final JsonParseException e) {
 				// assuming JSONP :
 				if (text.indexOf(JsonDecoder.JSON_START_CHAR) == -1) {
-					LOG.info("No JSON(P - ignoring");
+					LOG.info("No JSON(P) - ignoring");
 					return;
 				}
 				final String callbackString =
