@@ -83,8 +83,8 @@ public class NTriplesToJsonLd implements Tool {
 		conf.set(INDEX_TYPE, args[4]);
 		final Job job = Job.getInstance(conf);
 		job.addCacheFile(new Path(mapFileName).toUri());
-		job.setNumReduceTasks(NODES * SLOTS / 2);
-		job.getConfiguration().setInt("mapred.map.tasks", NODES * SLOTS / 2);
+		job.setNumReduceTasks(NODES * SLOTS / 2 - 1);
+		job.getConfiguration().setInt("mapred.map.tasks", NODES * SLOTS / 2 - 1);
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
 		FileInputFormat.addInputPaths(job, args[0]);
