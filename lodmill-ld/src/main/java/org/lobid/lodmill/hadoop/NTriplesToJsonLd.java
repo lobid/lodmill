@@ -76,7 +76,7 @@ public class NTriplesToJsonLd implements Tool {
 		conf = getConf();
 		final String indexName = args[3];
 		final String mapFileName = CollectSubjects.mapFileName(indexName);
-		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
+		conf.setStrings("mapreduce.output.textoutputformat.separator", NEWLINE);
 		conf.setStrings("target.subject.prefix", args[5]);
 		conf.setStrings("map.file.name", mapFileName);
 		conf.set(INDEX_NAME, indexName);

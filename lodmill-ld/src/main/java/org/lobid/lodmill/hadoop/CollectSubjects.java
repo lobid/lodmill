@@ -96,7 +96,7 @@ public class CollectSubjects implements Tool {
 			System.exit(-1);
 		}
 		final String mapFileName = mapFileName(args[3]);
-		conf.setStrings("mapred.textoutputformat.separator", " ");
+		conf.setStrings("mapreduce.output.textoutputformat.separator", " ");
 		conf.setStrings("target.subject.prefix", args[2]);
 		conf.setStrings("map.file.name", mapFileName);
 		final Job job = Job.getInstance(conf);
