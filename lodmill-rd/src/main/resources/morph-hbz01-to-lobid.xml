@@ -563,7 +563,7 @@
 			flushWith="088??" reset="false">
 			<data source="@id|@idzdb" name="id"/>
 			<data source="088 ?.c" name="signature">
-				<apache-urlencode></apache-urlencode>
+				<urlescape></urlescape>
 			</data>
 			<data source="@sigel2isilMap" name="isil"/>
 		</combine>

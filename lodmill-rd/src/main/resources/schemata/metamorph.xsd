@@ -597,7 +597,7 @@ collector.
       <element ref="tns:script"/>
       <element ref="tns:setreplace"/>
       <element ref="tns:java"/>
-      <element ref="tns:apache-urlencode"/>
+      <element ref="tns:urlescape"/>
     </choice>
   </group>
   <!-- <element name="if-not-received"> -->
@@ -916,9 +916,9 @@ litereals)
       </attribute>
     </complexType>
   </element>
-  <element name="apache-urlencode">
+  <element name="urlescape">
     <annotation>
-      <documentation>URL encoding with the apache library.
+      <documentation>URL escaping according to the guava 15.0 UrlEscapers.urlFragmentEscaper library.
 </documentation>
     </annotation>
     <complexType/>
