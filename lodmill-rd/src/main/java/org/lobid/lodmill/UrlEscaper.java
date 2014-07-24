@@ -22,7 +22,7 @@ import com.google.common.net.UrlEscapers;
 /**
  * @author Pascal Christoph (dr0i)
  */
-public final class URLEscaper extends AbstractSimpleStatelessFunction {
+public final class UrlEscaper extends AbstractSimpleStatelessFunction {
 	@Override
 	public String process(final String value) {
 		return UrlEscapers.urlFragmentEscaper().escape(value);
