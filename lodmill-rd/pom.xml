@@ -61,6 +61,11 @@
 			<version>15.0</version>
 		</dependency>
 		<dependency>
+			<groupId>com.google.gdata</groupId>
+			<artifactId>core</artifactId>
+			<version>1.47.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.dspace</groupId>
 			<artifactId>oclc-harvester2</artifactId>
 			<version>0.1.12</version>

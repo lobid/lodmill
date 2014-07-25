@@ -17,14 +17,17 @@ package org.lobid.lodmill;
 
 import org.culturegraph.mf.morph.functions.AbstractSimpleStatelessFunction;
 
-import com.google.common.net.UrlEscapers;
+import com.google.gdata.util.common.base.PercentEscaper;
 
 /**
  * @author Pascal Christoph (dr0i)
  */
 public final class UrlEscaper extends AbstractSimpleStatelessFunction {
+	PercentEscaper percentEscaper = new PercentEscaper(
+			PercentEscaper.SAFEPATHCHARS_URLENCODER, false);
+
 	@Override
 	public String process(final String value) {
-		return UrlEscapers.urlFragmentEscaper().escape(value);
+		return percentEscaper.escape(value);
 	}
 }
