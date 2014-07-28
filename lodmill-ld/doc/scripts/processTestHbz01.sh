@@ -12,7 +12,7 @@ ES_CLUSTER=$2
 TIME=`date '+%Y%m%d-%H%M%S'`
 
 RESOURCES=output/json-ld-lobid-resources-test
-sh convert.sh hbzlod/lobid-resourcestest/,extlod/gnd/,extlod/dewey.nt,enrich/ $RESOURCES http://lobid.org/resource lobid-resources-$TIME json-ld-lobid
+sh convert.sh hbzlod/lobid-resourcestest/ $RESOURCES http://lobid.org/resource lobid-resources-$TIME json-ld-lobid
 sh index.sh $RESOURCES $ES_SERVER $ES_CLUSTER NOALIAS # no alias, index not ready yet, needs items from below
 
 ITEMS=output/json-ld-lobid-items-test
