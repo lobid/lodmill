@@ -1,4 +1,13 @@
 #!/bin/bash
+# parameters:
+#		1.: the branch to be checked out. Defaults to master
+#		2.: suffix to hdfs location, useful if testing. Defaults to nothing.
+
+# Caution if using with a test set:
+# If you want to transform a test set, make sure to give "test" as
+# second parameter. Also make sure to use another mysql instance -
+# otherwise the test data will be feeded into production system.
+
 # description: Transform xml MAB2 Clobs single files in parallel.
 # Because the single xml files represents a snapshot, this is fine.
 # - transformes MAB2 XML Clobs into  NTriples
