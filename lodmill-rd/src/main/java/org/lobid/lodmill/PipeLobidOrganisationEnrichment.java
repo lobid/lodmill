@@ -25,7 +25,6 @@ import java.util.Set;
 
 import org.apache.commons.httpclient.URIException;
 import org.apache.commons.httpclient.util.URIUtil;
-import org.apache.commons.io.IOUtils;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFLanguages;
@@ -239,7 +238,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
 			} finally {
-				IOUtils.closeQuietly(oos);
+					Closeables.closeQuietly(oos);
 			}
 		}
 	}
