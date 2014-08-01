@@ -238,7 +238,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			} catch (IOException e) {
 				LOG.error(e.getMessage(), e);
 			} finally {
-					Closeables.closeQuietly(oos);
+				Closeables.closeQuietly(oos);
 			}
 		}
 	}

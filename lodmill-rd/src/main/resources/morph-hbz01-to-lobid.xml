@@ -396,12 +396,9 @@
 		<data source="052." name="@rdftypeAndManifestation">
 			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
-		
 		<data source="052." name="@collection">
 			<regexp match="^[jp].*|^.il.*|^...il.*|^.....il.*" format="http://purl.org/ontology/bibo/Journal"/>
 		</data>
-		
-		
 		<data source="052." name="@collection">
 			<regexp match="^r|^.se|^...se|^.....se" format="http://purl.org/ontology/bibo/Series"/>
 		</data>
@@ -971,18 +968,41 @@
 		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
-		<!-- ignore e.g. '700n|a 99|b Düsseldorf', s.: HT018131501 -->
-		<combine name="@nwbibB" value="${a}" flushWith="entity">
+		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
+		<combine name="@nwbib700_99" value="${a}">
+			<data source="700n[-1].a">
+				<regexp match="99"/>
+			</data>
 			<data source="700n[-1].b" name="a"/>
 		</combine>
-		<combine name="http://purl.org/dc/terms/subject" value="${a}">
-			<if>
-				<none>
-					<data source="@nwbibB"/>
-				</none>
-			</if>
+		<!-- geo enrichment nwbib 99  -->
+		<!-- emit field for other pipelined morphs -->
+		<data source="@nwbib700_99" name="nwbib700_99"/>
+		<data source="@nwbib700_99" name="@nwbib700_99_lexeme">
+			<replace pattern=" " with=""/>
+			<replace pattern="&lt;" with=""/>
+			<replace pattern="&gt;" with=""/>
+			<replace pattern="-" with=""/>
+			<replace pattern="," with=""/>
+			<replace pattern="/" with=""/>
+		</data>
+		<data source="@nwbib700_99_lexeme" name="@geonamesId">
+			<lookup in="placesGeonames"/>
+		</data>
+		<combine name="http://purl.org/dc/terms/spatial" value="http://sws.geonames.org/${id}/">
+			<data source="@geonamesId" name="id"/>
+		</combine>
+		<data source="@nwbib700_99_lexeme" name="@osmTypeAndId">
+			<lookup in="osmTypeAndId"/>
+		</data>
+		<combine name="http://purl.org/dc/terms/spatial" value="http://linkedgeodata.org/triplify/${id}">
+			<data source="@osmTypeAndId" name="id">
+				<replace pattern="/" with=""/>
+			</data>
+		</combine>
+			<combine name="http://purl.org/dc/terms/subject" value="${a}">
 			<data source="700n[-1].a" name="a">
-				<regexp match="^(\d\d)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
+				<regexp match="^([0-8][0-8])\b|(91)\b|(96)\b|(97)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
 			</data>
 		</combine>
 		<!--edoweb -->
@@ -1031,5 +1051,9 @@
 		<filemap name="sigel2isilMap" files="sigel2isilMap.csv"/>
 		<filemap name="iso639-2bToIso639-2Map" files="iso639-2bToIso639-2Map.tsv"/>
 		<filemap name="iso639-2Map" files="iso639-2Map.tsv"/>
+		<sqlmap name="placesGeonames" query="SELECT data FROM NrwPlacesGeonamesId WHERE identifier=?"
+			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
+		<sqlmap name="osmTypeAndId" query="SELECT data FROM NrwPlacesOsmUrl WHERE identifier=?"
+			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
 	</maps>
 </metamorph>

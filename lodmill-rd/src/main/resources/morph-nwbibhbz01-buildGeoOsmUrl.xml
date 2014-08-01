@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="1">
+	<rules>	<!-- NRW geoLocation -->
+		<data source="nwbib700_99" name="@nwbib700_99_lexeme">
+			<replace pattern=" " with=""/>
+			<replace pattern="&lt;" with=""/>
+			<replace pattern="&gt;" with=""/>
+			<replace pattern="-" with=""/>
+			<replace pattern="," with=""/>
+			<replace pattern="/" with=""/>
+		</data>
+		<data source="@nwbib700_99_lexeme" name="@osmTypeAndId">
+			<lookup in="osmTypeAndId"/>
+		</data>
+		<combine name="@url" value="${query}">
+			<!-- generate only one URL -->
+			<if>
+				<none>
+					<data source="@osmTypeAndId"/>
+					<data source="@url_1"/>
+				</none>
+			</if>
+			<data source="nwbib700_99" name="query">
+				<!-- set to germany, NRW -->
+				<regexp match="\d*(.*)" format="/de/nrw/${1}?"/>
+			</data>
+		</combine>
+		<!-- generate different URL's depending if there are "Ordnungszeichen" -->
+		<combine name="url"
+			value="http://nominatim.openstreetmap.org/search${url}&amp;limit=1&amp;format=json&amp;addressdetails=1&amp;json_callback=${id}">
+			<if>
+				<none>
+					<data source="@osmTypeAndId"/>
+				</none>
+			</if>
+			<data source="@nwbib700_99_lexeme" name="id"/>
+			<data source="@url" name="url"/>
+		</combine>
+		<data source="nwbib700_99" name="@url_1">
+			<regexp match="(.*)&lt;(.*)&gt;(.*)" format="?q=${1}${2}${3}"/>
+			<urlencode></urlencode>
+		</data>
+		<data source="@url_1" name="@url"/>
+		<!-- /geoLocation -->
+		<data source="@nwbib700_99_lexeme" name="@geonamesId">
+			<lookup in="placesGeonames"/>
+		</data>
+	</rules>
+	<maps>
+		<!-- tsv of iso31661a country codes to geoname ID's -->
+		<sqlmap name="placesGeonames" query="SELECT data FROM NrwPlacesGeonamesId WHERE identifier=?"
+			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
+		<sqlmap name="osmTypeAndId" query="SELECT data FROM NrwPlacesOsmUrl WHERE identifier=?"
+			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
+	</maps>
+</metamorph>
