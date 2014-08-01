@@ -40,6 +40,21 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testFlow() throws IOException, URISyntaxException {
+		RdfModelMysqlWriter modelWriter = buildFlow();
+		final File testFile = dumpMysqlToFile(modelWriter);
+		// positive test
+		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
+				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
+				.toURI()));
+		// negative test
+		AbstractIngestTests.checkIfNoIntersection(
+				testFile,
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("hbz01negatives.ttl").toURI()));
+		testFile.deleteOnExit();
+	}
+
+	private static RdfModelMysqlWriter buildFlow() {
 		// hbz catalog transformation
 		final FileOpener opener = new FileOpener();
 		opener.setCompression("BZIP2");
@@ -63,9 +78,6 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		streamTeeGeo.addReceiver(encoder);
 		encoder.setReceiver(triple2model);
 
-		/*
-		 * geo enrichment
-		 */
 		// OSM API lookup
 		// make OSM API URL and lookup that
 		final Metamorph morphCreateOsmURl =
@@ -93,12 +105,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		streamTeeOsmUrl.addReceiver(morphCreateOsmMysqlRow);
 
 		// writing OSM url into SQL DBMS
-		MysqlWriter sqlWriterOsmUrl = new MysqlWriter();
-		sqlWriterOsmUrl.setDbname(DB_DBNAME);
-		sqlWriterOsmUrl.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
-		sqlWriterOsmUrl.setPassword(DB_PASSWORD);
-		sqlWriterOsmUrl.setTablename("NrwPlacesOsmUrl");
-		sqlWriterOsmUrl.setUsername("debian-sys-maint");
+		MysqlWriter sqlWriterOsmUrl = createMysqlWriter("NrwPlacesOsmUrl");
 		morphCreateOsmMysqlRow.setReceiver(sqlWriterOsmUrl);
 
 		// Geonames API lookup
@@ -115,15 +122,8 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		jsonGeonamesDecoder.setReceiver(morphGeonames);
 
 		// writing into SQL DBMS
-		MysqlWriter sqlWriter = new MysqlWriter();
-		sqlWriter.setDbname(DB_DBNAME);
-		sqlWriter.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
-		sqlWriter.setPassword(DB_PASSWORD);
-		sqlWriter.setTablename("NrwPlacesGeonamesId");
-		sqlWriter.setUsername("debian-sys-maint");
-
+		MysqlWriter sqlWriter = createMysqlWriter("NrwPlacesGeonamesId");
 		morphGeonames.setReceiver(sqlWriter);
-
 		XmlEntitySplitter xmlEntitySplitter = new XmlEntitySplitter();
 		xmlEntitySplitter.setEntityName("ListRecords");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter();
@@ -131,16 +131,27 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		xmlTee.addReceiver(xmlEntitySplitter);
 		xmlEntitySplitter.setReceiver(xmlFilenameWriter);
 		opener.setReceiver(tarReader).setReceiver(xmlDecoder).setReceiver(xmlTee);
-
 		opener.process(new File("src/test/resources/hbz01XmlClobs.tar.bz2")
 				.getAbsolutePath());
-
 		opener.closeStream();
+		return modelWriter;
+	}
 
+	private static MysqlWriter createMysqlWriter(String tableName) {
+		MysqlWriter sqlWriterOsmUrl = new MysqlWriter();
+		sqlWriterOsmUrl.setDbname(DB_DBNAME);
+		sqlWriterOsmUrl.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
+		sqlWriterOsmUrl.setPassword(DB_PASSWORD);
+		sqlWriterOsmUrl.setTablename(tableName);
+		sqlWriterOsmUrl.setUsername("debian-sys-maint");
+		return sqlWriterOsmUrl;
+	}
+
+	private static File dumpMysqlToFile(RdfModelMysqlWriter modelWriter)
+			throws IOException {
 		final File testFile = new File(TEST_FILENAME);
 		StringBuilder sb = new StringBuilder();
 		try {
-			// the "REPLACE" is no standard ANSI SQL, only works with MySQL
 			PreparedStatement ps =
 					modelWriter.conn.prepareStatement("SELECT * FROM resources ");
 			ResultSet res = ps.executeQuery();
@@ -153,16 +164,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 			e.printStackTrace();
 		}
 		FileUtils.writeStringToFile(testFile, sb.toString(), false);
-		// positive test
-		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
-				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
-				.toURI()));
-		// negative test
-		AbstractIngestTests.checkIfNoIntersection(
-				testFile,
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("hbz01negatives.ttl").toURI()));
-		testFile.deleteOnExit();
+		return testFile;
 	}
 
 	private static XmlFilenameWriter createXmlFilenameWriter() {
