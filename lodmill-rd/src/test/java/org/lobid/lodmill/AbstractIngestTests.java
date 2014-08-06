@@ -111,7 +111,6 @@ public abstract class AbstractIngestTests {
 				linesInFileToSetDefaultingBNodes(generatedFile));
 		assertSetElements(linesInFileToSetDefaultingBNodes(generatedFile),
 				linesInFileToSetDefaultingBNodes(testFile));
-		generatedFile.deleteOnExit();
 	}
 
 	/**

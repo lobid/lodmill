@@ -12,13 +12,15 @@ BRANCH=$1
 if [ -z $BRANCH ]; then
         BRANCH="master"
 fi
-echo "Going checkout $BRANCH ..." 
-cd ../../.. ; git checkout $BRANCH ; git pull;  mvn assembly:assembly
+echo "Going checkout $BRANCH ..."
+git stash # to avoid possible conflicts
+cd ../../.. ; git checkout $BRANCH ; git pull
+mvn assembly:assembly -DdescriptorId=jar-with-dependencies  -Dwith-DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
 JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
 echo $JAR
 cd -
 # TODO should be done with maven: overwrite the flux-command from metafacture with that from lodmill 
-cd ../../../target/ ; cp ../src/main/resources/flux-commands.properties ./; jar uf $JAR flux-commands.properties; cd -
+cd ../../../target/ ; cp ../src/main/resources/flux-commands.properties ./; jar uf $JAR flux-commands.properties; cp ../src/main/resources/morph-functions.properties ./ ; jar uf $JAR morph-functions.properties ; mkdir schemata; cp ../src/main/resources/schemata/* schemata/ ; jar uf $JAR schemata/* ; cd -
 
 LODMILL_RD_JAR=../../../target/$JAR
 
@@ -49,6 +51,9 @@ jar xf $LODMILL_RD_JAR  ../../../src/main/resources/morph-hbz01-to-lobid.xml
 
 echo "starting in 50 seconds .. break now if ever!"
 sleep 50
+# drop old table => no framgmentation
+echo "DROP TABLE resources" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
+
 find tmpFlux -type f -name "*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {}" # does not work: -Djava.util.logging.config.file=/home/lod/lobid-resources/logging.properties 
 
 wait_load

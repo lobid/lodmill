@@ -1,8 +1,9 @@
 #!/bin/sh
 
-PRINT_TIME () {
- printf "$(date '+%y/%m/%d %H:%M:%S')"
+PRINT_TIME() {
+ printf "\n$(date '+%y/%m/%d %H:%M:%S')"
 }
+
 if [ $# -ne 5 ]
 then
   printf "Usage: `basename $0` INPUT ES_SERVER ES_CLUSTER INDEX_ALIAS INDEX_NAME\n"
