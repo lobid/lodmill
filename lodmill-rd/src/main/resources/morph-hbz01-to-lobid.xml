@@ -26,6 +26,7 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
+		<data source="@idzdbInternal" name="http://purl.org/lobid/lv#zdbID"/>
 		<data source="@idzdbInternal" name="@idzdb">
 			<regexp match="(.*)" format="ZDB${1}"/>
 		</data>
@@ -975,7 +976,7 @@
 			</data>
 			<data source="700n[-1].b" name="a"/>
 		</combine>
-		<!-- geo enrichment nwbib 99  -->
+		<!-- geo enrichment nwbib 99 -->
 		<!-- emit field for other pipelined morphs -->
 		<data source="@nwbib700_99" name="nwbib700_99"/>
 		<data source="@nwbib700_99" name="@nwbib700_99_lexeme">
@@ -1000,7 +1001,7 @@
 				<replace pattern="/" with=""/>
 			</data>
 		</combine>
-			<combine name="http://purl.org/dc/terms/subject" value="${a}">
+		<combine name="http://purl.org/dc/terms/subject" value="${a}">
 			<data source="700n[-1].a" name="a">
 				<regexp match="^([0-8][0-8])\b|(91)\b|(96)\b|(97)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
 			</data>
