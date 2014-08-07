@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 PRINT_TIME() {
  printf "\n$(date '+%y/%m/%d %H:%M:%S')"
@@ -19,8 +19,9 @@ INDEX_ALIAS=$4
 INDEX_NAME=$5
 
 ES_URL="http://$ES_SERVER:9200/$INDEX_NAME/"
-PRINT_TIME ;printf "Create index in $ES_URL\n"
-curl -XPUT "$ES_URL"
+
+PRINT_TIME ;printf "Create index with mapping in $ES_URL\n"
+curl -XPUT "$ES_URL" -d @../../src/main/resources/index-config.json
 
 PRINT_TIME ; printf "Start stopping index refreshing ... \n" 
 curl -XPUT "$ES_URL"/_settings -d '{
