@@ -1,3 +1,5 @@
+// Queries OSM API , gets the coordinates and make reverse geo coding on geonames.
+
 default files = "src/main/resources/";
 
 "src/test/resources/hbz01XmlClobs.tar.bz2" |
