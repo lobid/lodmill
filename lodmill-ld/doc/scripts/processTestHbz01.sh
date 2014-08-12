@@ -1,8 +1,10 @@
 #!/bin/sh
+# parameter 3 defines the index alias. If not given resp. just as ""
+# no suffix is appended. Usage example: "-staging".
 
-if [ $# -ne 2 ]
+if [ $# -lt 2 ]
 then
-  echo "Usage: `basename $0` ES-SERVER ES-CLUSTER"
+  echo "Usage: `basename $0` ES-SERVER ES-CLUSTER [ALIAS]"
   exit 65
 fi
 
