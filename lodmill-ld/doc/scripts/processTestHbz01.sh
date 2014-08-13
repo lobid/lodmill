@@ -14,7 +14,7 @@ BRANCH=$3
 
 THIS="$(pwd)"
 
-cd ../../; mvn assembly:assembly -DskipTests
+cd ../../; git pull; mvn assembly:assembly -DskipTests
 
 # first, make the data
 cd ../lodmill-rd/doc/scripts/hbz01/
