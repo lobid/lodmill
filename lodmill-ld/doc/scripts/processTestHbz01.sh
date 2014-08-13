@@ -2,14 +2,22 @@
 # parameter 3 defines the index alias. If not given resp. just as ""
 # no suffix is appended. Usage example: "-staging".
 
-if [ $# -lt 2 ]
+if [ $# -lt 3 ]
 then
-  echo "Usage: `basename $0` ES-SERVER ES-CLUSTER [ALIAS]"
+  echo "Usage: `basename $0` ES-SERVER ES-CLUSTER BRANCH"
   exit 65
 fi
 
 ES_SERVER=$1
 ES_CLUSTER=$2
+BRANCH=$3
+
+THIS="$(pwd)"
+
+# first, make the data
+cd ../../../lodmill-rd/doc/scripts/hbz01/
+bash startHbz012lobidUpdateMysqlInParallel.sh $BRANCH test
+cd  "$THIS"
 
 TIME=`date '+%Y%m%d-%H%M%S'`
 
