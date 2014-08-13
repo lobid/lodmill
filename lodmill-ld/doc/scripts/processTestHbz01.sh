@@ -14,8 +14,10 @@ BRANCH=$3
 
 THIS="$(pwd)"
 
+cd ../../; mvn assembly:assembly -DskipTests
+
 # first, make the data
-cd ../../../lodmill-rd/doc/scripts/hbz01/
+cd ../lodmill-rd/doc/scripts/hbz01/
 bash startHbz012lobidUpdateMysqlInParallel.sh $BRANCH test
 cd  "$THIS"
 
