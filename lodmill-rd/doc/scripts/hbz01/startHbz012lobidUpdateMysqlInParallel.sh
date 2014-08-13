@@ -21,9 +21,6 @@ FLUX=hbz01-to-lobid.flux
 BRANCH=$1
 if [ -z $BRANCH ]; then
         BRANCH="master"
-fi
-echo "Going checkout $BRANCH ..." 
-cd ../../.. ; git checkout $BRANCH ; git pull;  mvn clean assembly:assembly -DskipTests -Dmysql.classifier=linux-amd64
 
 echo "Going checkout $BRANCH ..."
 git stash # to avoid possible conflicts
