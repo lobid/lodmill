@@ -1,6 +1,6 @@
 #!/bin/sh
-# parameter 3 defines the index alias. If not given resp. just as ""
-# no suffix is appended. Usage example: "-staging".
+# parameter 3 defines the branch to be used.
+# Index alias is automatically set to "-staging".
 
 if [ $# -lt 3 ]
 then
