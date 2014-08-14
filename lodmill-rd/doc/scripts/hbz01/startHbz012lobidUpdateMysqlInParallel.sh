@@ -21,6 +21,7 @@ FLUX=hbz01-to-lobid.flux
 BRANCH=$1
 if [ -z $BRANCH ]; then
         BRANCH="master"
+fi
 
 echo "Going checkout $BRANCH ..."
 git stash # to avoid possible conflicts
