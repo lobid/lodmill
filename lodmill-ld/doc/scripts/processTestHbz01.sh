@@ -26,7 +26,7 @@ TIME=`date '+%Y%m%d-%H%M%S'`
 INDEX_NAME=lobid-resources-$TIME
 
 RESOURCES=output/json-ld-lobid-resources-test
-sh convert.sh hbzlod/lobid-resourcestest/ $RESOURCES http://lobid.org/resource $INDEX_NAME json-ld-lobid
+sh convert.sh hbzlod/lobid-resourcestest/,extlod/dewey_preprocessed.nt $RESOURCES http://lobid.org/resource $INDEX_NAME json-ld-lobid
 sh index.sh $RESOURCES $ES_SERVER $ES_CLUSTER NOALIAS $INDEX_NAME # no alias, index not ready yet, needs items from below
 
 ITEMS=output/json-ld-lobid-items-test

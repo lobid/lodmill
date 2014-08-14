@@ -46,7 +46,7 @@ sh index.sh $GND $ES_SERVER $ES_CLUSTER "$ALIAS" $INDEX_NAME &
 
 RESOURCES=output/json-ld-lobid-resources
 INDEX_NAME=lobid-resources-$TIME
-sh convert.sh hbzlod/lobid-resources/,extlod/gnd/,extlod/dewey.nt,enrich/ $RESOURCES http://lobid.org/resource $INDEX_NAME json-ld-lobid
+sh convert.sh hbzlod/lobid-resources/,extlod/gnd/,extlod/dewey_preprocessed.nt,enrich/ $RESOURCES http://lobid.org/resource $INDEX_NAME json-ld-lobid
 sh index.sh $RESOURCES $ES_SERVER $ES_CLUSTER NOALIAS $INDEX_NAME & # no alias, index not ready yet, needs items from below
 
 ITEMS=output/json-ld-lobid-items
