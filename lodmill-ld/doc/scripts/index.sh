@@ -23,7 +23,7 @@ ES_URL="http://$ES_SERVER:9200/$INDEX_NAME/"
 PRINT_TIME ;printf "Create index with mapping in $ES_URL\n"
 curl -XPUT "$ES_URL" -d @../../src/main/resources/index-config.json
 
-PRINT_TIME ; printf "Start stopping index refreshing ... \n" 
+PRINT_TIME ; printf "Start stopping index refreshing $INDEX_NAME ... \n" 
 curl -XPUT "$ES_URL"/_settings -d '{
     "index" : {
         "refresh_interval" : "-1"
@@ -31,11 +31,11 @@ curl -XPUT "$ES_URL"/_settings -d '{
 
 $HADOOP/bin/hadoop jar ../../target/lodmill-ld-*-with-dependencies.jar org.lobid.lodmill.hadoop.IndexFromHdfsInElasticSearch hdfs://10.9.0.10:8020/ $INPUT $ES_SERVER $ES_CLUSTER $INDEX_ALIAS
 
-PRINT_TIME ;printf "Start index refreshing...\n"
+PRINT_TIME ;printf "Start index refreshing $INDEX_NAME ...\n"
 curl -XPUT "$ES_URL"/_settings -d '{
     "index" : {
         "refresh_interval" : "1s"
     } }'
-PRINT_TIME ;printf "Done index refreshing. Optimizing the index ...\n"
+PRINT_TIME ;printf "Done index refreshing $INDEX_NAME . Optimizing the index ...\n"
 curl -XPOST "$ES_URL"/_optimize
-PRINT_TIME ;printf "Done index optimizing.\n"
+PRINT_TIME ;printf "Done index optimizing $INDEX_NAME.\n"
