@@ -190,7 +190,7 @@ public class CollectSubjects implements Tool {
 					&& triple.getSubject().toString()
 							.startsWith(prefix == null ? "" : prefix)
 					&& TO_RESOLVE.contains(triple.getPredicate().toString())
-					& !(triple.getObject().isLiteral());
+					&& !(triple.getObject().isLiteral());
 		}
 
 		private static String getSubject(final String val, final Triple triple,
