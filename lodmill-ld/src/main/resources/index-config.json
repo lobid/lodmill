@@ -18,6 +18,16 @@
 						"filter":[
 							"lowercase"
 						]
+					},
+					"default":{
+						"type":"custom",
+						"tokenizer":"whitespace",
+						"filter":[
+							"icu_normalizer",
+							"icu_folding",
+							"german_umlaut",
+							"unique"
+						]
 					}
 				},
 				"filter":{
@@ -25,6 +35,10 @@
 						"type":"edgeNGram",
 						"min_gram":1,
 						"max_gram":40
+					},
+					"german_umlaut":{
+						"type":"snowball",
+						"name":"German2"
 					}
 				}
 			}
