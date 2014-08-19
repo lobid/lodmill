@@ -77,14 +77,16 @@ public class IndexFromHdfsInElasticSearch {
 			System.exit(-1);
 		}
 		try (FileSystem hdfs =
-				FileSystem.get(URI.create(args[0]), new Configuration())) {
-			final Client client =
-					new TransportClient(ImmutableSettings.settingsBuilder()
-							.put("cluster.name", args[3])
-							.put("client.transport.sniff", false)
-							.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS)
-							.build()).addTransportAddress(new InetSocketTransportAddress(
-							args[2], 9300));
+				FileSystem.get(URI.create(args[0]), new Configuration());
+				TransportClient transportClient =
+						new TransportClient(ImmutableSettings.settingsBuilder()
+								.put("cluster.name", args[3])
+								.put("client.transport.sniff", false)
+								.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS)
+								.build());
+				Client client =
+						transportClient.addTransportAddress(new InetSocketTransportAddress(
+								args[2], 9300))) {
 			final IndexFromHdfsInElasticSearch indexer =
 					new IndexFromHdfsInElasticSearch(hdfs, client);
 			indexer.indexAll(args[1].endsWith("/") ? args[1] : args[1] + "/",
