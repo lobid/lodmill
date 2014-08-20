@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1">
-	<!-- MAB2 to RDF - a mapping of the hbz01 catalog to lobid-resources -->
+	<!-- Aleph MAB2 XML to RDF - a mapping of the hbz01 catalog to lobid-resources -->
 	<!-- beware: the sequence of the rules are semantically important! Don't change the order. -->
+	<!-- Aleph MAB differs from MAB in that: -->
+	<!-- an indicator2 exists -->
+	<!-- every field has at least the subfield 'a' -->
+	<!-- => structure of alehp MAB: $field$indicator1$indicator2$subfield -->
 	<vars>
 		<var name="ns-lobid-resource" value="http://lobid.org/resource/"/>
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
@@ -975,7 +979,7 @@
 			</data>
 			<data source="700n[-1].b" name="a"/>
 		</combine>
-		<!-- geo enrichment nwbib 99  -->
+		<!-- geo enrichment nwbib 99 -->
 		<!-- emit field for other pipelined morphs -->
 		<data source="@nwbib700_99" name="nwbib700_99"/>
 		<data source="@nwbib700_99" name="@nwbib700_99_lexeme">
@@ -1000,7 +1004,7 @@
 				<replace pattern="/" with=""/>
 			</data>
 		</combine>
-			<combine name="http://purl.org/dc/terms/subject" value="${a}">
+		<combine name="http://purl.org/dc/terms/subject" value="${a}">
 			<data source="700n[-1].a" name="a">
 				<regexp match="^([0-8][0-8])\b|(91)\b|(96)\b|(97)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
 			</data>
