@@ -1,6 +1,51 @@
 {
+	"settings":{
+		"index":{
+			"analysis":{
+				"analyzer":{
+					"ngram_analyzer":{
+						"type":"custom",
+						"tokenizer":"letter",
+						"filter":[
+							"lowercase",
+							"stop",
+							"ngram"
+						]
+					},
+					"id_analyzer":{
+						"type":"custom",
+						"tokenizer":"keyword",
+						"filter":[
+							"lowercase"
+						]
+					},
+					"default":{
+						"type":"custom",
+						"tokenizer":"whitespace",
+						"filter":[
+							"icu_normalizer",
+							"icu_folding",
+							"german_umlaut",
+							"unique"
+						]
+					}
+				},
+				"filter":{
+					"ngram":{
+						"type":"edgeNGram",
+						"min_gram":1,
+						"max_gram":40
+					},
+					"german_umlaut":{
+						"type":"snowball",
+						"name":"German2"
+					}
+				}
+			}
+		}
+	},
 	"mappings":{
-		"json-ld-gnd":{
+		"json-ld-lobid":{
 			"date_detection":false,
 			"properties":{
 				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily.@value":{
@@ -22,27 +67,23 @@
 					"index_analyzer":"ngram_analyzer",
 					"search_analyzer":"standard"
 				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork.@value":{
-					"type":"string",
-					"index_analyzer":"ngram_analyzer",
-					"search_analyzer":"standard"
+				"@graph.http://purl.org/dc/terms/subject.@id":{
+					"index":"not_analyzed",
+					"type":"string"
 				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value":{
-					"type":"string",
-					"search_analyzer":"standard",
-					"index_analyzer":"ngram_analyzer"
+				"@graph.http://purl.org/dc/terms/issued.@value":{
+					"type":"string"
 				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName.@value":{
+				"@graph.http://purl.org/dc/terms/creator.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName.@value":{
 					"search_analyzer":"standard",
 					"index_analyzer":"ngram_analyzer",
 					"type":"string"
 				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName.@value":{
-					"type":"string",
-					"index_analyzer":"ngram_analyzer",
-					"search_analyzer":"standard"
-				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#variantName.@value":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value":{
 					"search_analyzer":"standard",
 					"index_analyzer":"ngram_analyzer",
 					"type":"string"
@@ -52,25 +93,25 @@
 					"index_analyzer":"ngram_analyzer",
 					"search_analyzer":"standard"
 				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheFamily.@value":{
-					"search_analyzer":"standard",
-					"index_analyzer":"ngram_analyzer",
-					"type":"string"
-				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent.@value":{
+				"@graph.http://purl.org/ontology/bibo/isbn13.@value":{
 					"type":"string",
-					"index_analyzer":"ngram_analyzer",
-					"search_analyzer":"standard"
-				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier.@value":{
-					"type":"string",
-					"search_analyzer":"id_analyzer",
+					"index":"not_analyzed",
 					"index_analyzer":"id_analyzer"
 				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheCorporateBody.@value":{
-					"index_analyzer":"ngram_analyzer",
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent.@value":{
 					"search_analyzer":"standard",
+					"index_analyzer":"ngram_analyzer",
 					"type":"string"
+				},
+				"@graph.http://purl.org/ontology/bibo/isbn.@value":{
+					"type":"string",
+					"index":"not_analyzed",
+					"index_analyzer":"id_analyzer"
+				},
+				"@graph.@id":{
+					"type":"string",
+					"index_analyzer":"id_analyzer",
+					"search_analyzer":"id_analyzer"
 				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheSubjectHeading.@value":{
 					"type":"string",
@@ -91,183 +132,133 @@
 					"type":"string",
 					"search_analyzer":"standard",
 					"index_analyzer":"ngram_analyzer"
-				}
-				
-			}
-			
-		},
-		"json-ld-lobid":{
-			"properties":{
+				},
+				"@graph.http://purl.org/dc/terms/hasPart.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
 				"@graph.http://umbel.org/umbel#isLike.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://purl.org/dc/terms/isPartOf.@id":{
 					"index":"not_analyzed",
 					"type":"string"
 				},
 				"@graph.http://id.loc.gov/vocabulary/relators/egr.@id":{
 					"index":"not_analyzed",
 					"type":"string"
-				},
-				"@graph.http://purl.org/ontology/bibo/isbn.@value":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://purl.org/dc/terms/hasPart.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value":{
-					"search_analyzer":"standard",
-					"index_analyzer":"ngram_analyzer",
-					"type":"string"
-				},
-				"@graph.http://purl.org/dc/terms/creator.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://purl.org/dc/terms/isPartOf.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
+				}
+			}
+		},
+		"json-ld-lobid-item":{
+			"date_detection":false,
+			"_parent":{
+				"type":"json-ld-lobid"
+			},
+			"properties":{
 				"@graph.@type":{
 					"type":"string",
 					"index":"not_analyzed"
 				},
-				"@graph.http://purl.org/dc/terms/subject.@id":{
+				"@graph.http://purl.org/vocab/frbr/core#owner.@id":{
 					"type":"string",
 					"index":"not_analyzed"
 				},
-				"@graph.http://www.w3.org/2000/01/rdf-schema#inDataset.@id":{
+				"@graph.http://purl.org/vocab/frbr/core#exemplarOf.@id":{
+					"type":"string",
+					"index":"not_analyzed"
+                                }
+			}
+		},
+		"json-ld-gnd":{
+			"date_detection":false,
+			"properties":{
+				"@graph.@type":{
 					"type":"string",
 					"index":"not_analyzed"
 				},
-				"@graph.http://purl.org/ontology/bibo/doi.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredName.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://purl.org/dc/terms/language.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantName.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://www.w3.org/2002/07/owl#sameAs.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://purl.org/dc/terms/isFormatOf.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePerson.@value":{
+                                        "type":"string",
+                                        "index_analyzer":"ngram_analyzer",
+                                        "search_analyzer":"standard"
+				},
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheConferenceOrEvent.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://id.loc.gov/vocabulary/relators/act.@id":{
-					"index":"not_analyzed",
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent.@value":{
+					"type":"string",
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
+				},
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody.@value":{
+					"type":"string",
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
+				},
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheCorporateBody.@value":{
+                                        "type":"string",
+                                        "index_analyzer":"ngram_analyzer",
+                                        "search_analyzer":"standard"
+				},
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily.@value":{
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard",
 					"type":"string"
 				},
-				"@graph.http://purl.org/dc/terms/issued.@value":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://purl.org/ontology/bibo/isbn13.@value":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheFamily.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://purl.org/ontology/mo/wikipedia.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://purl.org/dc/terms/hasFormat.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://id.loc.gov/vocabulary/relators/mus.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://xmlns.com/foaf/0.1/isPrimaryTopicOf.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/prf.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/col.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheSubjectHeading.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://id.loc.gov/vocabulary/relators/clb.@id":{
-					"index":"not_analyzed",
-					"type":"string"
+				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork.@value":{
+                                        "type":"string",
+                                        "index_analyzer":"ngram_analyzer",
+                                        "search_analyzer":"standard"
 				},
-				"@graph.http://www.w3.org/2000/01/rdf-schema#seeAlso.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/cnd.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForTheWork.@value":{
 					"type":"string",
-					"index":"not_analyzed"
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"@graph.http://www.w3.org/2007/05/powder-s#describedby.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://rdvocab.info/RDARelationshipsWEMI/workManifested.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://purl.org/dc/terms/contributor.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://purl.org/ontology/bibo/editor.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/aui.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/hnr.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://purl.org/ontology/bibo/translator.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/drt.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://purl.org/dc/terms/tableOfContents.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/pht.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/ctg.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/sng.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://purl.org/dc/terms/hasVersion.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/ivr.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/dte.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://purl.org/vocab/frbr/core#exemplar.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/cng.@id":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier.@value":{
 					"index":"not_analyzed",
 					"type":"string"
 				},
@@ -275,56 +266,19 @@
 					"index":"not_analyzed",
 					"type":"string"
 				},
-				"@graph.http://purl.org/dc/terms/medium.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/cmp.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/pro.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
 				"@graph.@id":{
 					"index_analyzer":"id_analyzer",
 					"search_analyzer":"id_analyzer",
 					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/ctb.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://purl.org/lobid/lv#fulltextOnline.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/ill.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/ive.@id":{
-					"type":"string",
-					"index":"not_analyzed"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/aft.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://id.loc.gov/vocabulary/relators/aus.@id":{
-					"index":"not_analyzed",
-					"type":"string"
 				}
-				
-			},
-			"date_detection":false
+			}
 		},
 		"json-ld-lobid-orgs":{
+			"date_detection":false,
 			"properties":{
 				"@graph.@type":{
-					"index":"not_analyzed",
-					"type":"string"
+					"type":"string",
+					"index":"not_analyzed"
 				},
 				"@graph.http://purl.org/dc/terms/identifier.@value":{
 					"index_analyzer":"id_analyzer",
@@ -332,111 +286,46 @@
 					"type":"string"
 				},
 				"@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value":{
-					"search_analyzer":"standard",
+					"type":"string",
 					"index_analyzer":"ngram_analyzer",
-					"type":"string"
+					"search_analyzer":"standard"
 				},
 				"@graph.http://xmlns.com/foaf/0.1/name.@value":{
+					"type":"string",
 					"index_analyzer":"ngram_analyzer",
-					"search_analyzer":"standard",
-					"type":"string"
+					"search_analyzer":"standard"
 				}
-				
-			},
-			"date_detection":false
-		},
-		"json-ld-lobid-item":{
-			"_parent":{
-				"type":"json-ld-lobid"
-			},
-			"date_detection":false,
-			"properties":{
-				"@graph.@type":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://purl.org/vocab/frbr/core#owner.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				},
-				"@graph.http://purl.org/vocab/frbr/core#exemplarOf.@id":{
-					"index":"not_analyzed",
-					"type":"string"
-				}
-				
 			}
-			
-		},
-		"json-ld-nwbib-spatial":{
-			"date_detection":false,
-			"properties":{
-				"@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value":{
-					"search_analyzer":"standard",
-					"index_analyzer":"ngram_analyzer",
-					"type":"string"
-				},
-				"@graph.@id":{
-					"index_analyzer":"id_analyzer",
-					"search_analyzer":"id_analyzer",
-					"type":"string"
-				}
-				
-			}
-			
 		},
 		"json-ld-nwbib":{
 			"date_detection":false,
 			"properties":{
 				"@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value":{
+					"type":"string",
 					"index_analyzer":"ngram_analyzer",
-					"search_analyzer":"standard",
-					"type":"string"
+					"search_analyzer":"standard"
 				},
 				"@graph.@id":{
 					"type":"string",
-					"search_analyzer":"id_analyzer",
-					"index_analyzer":"id_analyzer"
+					"index_analyzer":"id_analyzer",
+					"search_analyzer":"id_analyzer"
 				}
-				
 			}
-			
-		}
-		
-	},
-	"settings":{
-		"index":{
-			"analysis":{
-				"analyzer":{
-					"ngram_analyzer":{
-						"filter":[
-							"lowercase",
-							"stop",
-							"ngram"
-						],
-						"tokenizer":"letter",
-						"type":"custom"
-					},
-					"id_analyzer":{
-						"filter":[
-							"lowercase"
-						],
-						"tokenizer":"keyword",
-						"type":"custom"
-					}
-					
+		},
+		"json-ld-nwbib-spatial":{
+			"date_detection":false,
+			"properties":{
+				"@graph.http://www.w3.org/2004/02/skos/core#prefLabel.@value":{
+					"type":"string",
+					"index_analyzer":"ngram_analyzer",
+					"search_analyzer":"standard"
 				},
-				"filter":{
-					"ngram":{
-						"min_gram":1,
-						"max_gram":40,
-						"type":"edgeNGram"
-					}
-					
+				"@graph.@id":{
+					"type":"string",
+					"index_analyzer":"id_analyzer",
+					"search_analyzer":"id_analyzer"
 				}
-				
 			}
-			
 		}
-		
 	}
 }

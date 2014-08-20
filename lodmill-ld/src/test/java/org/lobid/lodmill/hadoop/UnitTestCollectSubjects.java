@@ -35,9 +35,7 @@ public final class UnitTestCollectSubjects {
 			+ "<http://purl.org/dc/terms/creator>" + "<" + GND_ID + ">.";
 	private static final String LOBID_ID_DEWEY =
 			"http://lobid.org/resource/HT007307035";
-	private static final String DEWEY_ID_PLAIN = "http://dewey.info/class/325/";
-	private static final String DEWEY_ID_SUFFIXED = DEWEY_ID_PLAIN
-			+ "2009/08/about.en";
+	private static final String DEWEY_ID = "http://dewey.info/class/325/";
 
 	private MapDriver<LongWritable, Text, Text, Text> mapDriver;
 	private ReduceDriver<Text, Text, Text, Text> reduceDriver;
@@ -76,14 +74,12 @@ public final class UnitTestCollectSubjects {
 
 	@Test
 	public void testMapperDewey() throws IOException { // NOPMD (MRUnit)
-		mapDriver
-				.addInput(new LongWritable(), new Text("<" + LOBID_ID_DEWEY + "> "
-						+ "<http://purl.org/dc/terms/subject> " + "<" + DEWEY_ID_PLAIN
-						+ "> ."));
-		mapDriver.addInput(new LongWritable(), new Text("<" + DEWEY_ID_SUFFIXED
-				+ "> " + "<http://www.w3.org/2004/02/skos/core#prefLabel> "
+		mapDriver.addInput(new LongWritable(), new Text("<" + LOBID_ID_DEWEY + "> "
+				+ "<http://purl.org/dc/terms/subject> " + "<" + DEWEY_ID + "> ."));
+		mapDriver.addInput(new LongWritable(), new Text("<" + DEWEY_ID + "> "
+				+ "<http://www.w3.org/2004/02/skos/core#prefLabel> "
 				+ "\"International migration & colonization\"@en ."));
-		mapDriver.addOutput(new Text(DEWEY_ID_SUFFIXED), new Text(LOBID_ID_DEWEY));
+		mapDriver.addOutput(new Text(DEWEY_ID), new Text(LOBID_ID_DEWEY));
 		mapDriver.runTest();
 	}
 
@@ -98,10 +94,10 @@ public final class UnitTestCollectSubjects {
 
 	@Test
 	public void testReducerDewey() throws IOException { // NOPMD (MRUnit)
-		reduceDriver.addInput(new Text(DEWEY_ID_SUFFIXED),
+		reduceDriver.addInput(new Text(DEWEY_ID),
 				Arrays.asList(new Text(LOBID_ID_GND), new Text(LOBID_ID_DEWEY)));
-		reduceDriver.addOutput(new Text(DEWEY_ID_SUFFIXED), new Text(LOBID_ID_GND
-				+ "," + LOBID_ID_DEWEY));
+		reduceDriver.addOutput(new Text(DEWEY_ID), new Text(LOBID_ID_GND + ","
+				+ LOBID_ID_DEWEY));
 		reduceDriver.runTest();
 	}
 
