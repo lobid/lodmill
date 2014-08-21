@@ -238,10 +238,7 @@
 		<!-- ####################### -->
 		<data source="037[-b][-123].a" name="@639-2"/>
 		<data source="@639-2" name="@language">
-			<lookup in="iso639-2Map"/>
-		</data>
-		<data source="@639-2" name="@language">
-			<lookup in="iso639-2bToIso639-2Map"/>
+			<lookup in="iso639xToIso639-3-Map"/>
 		</data>
 		<data source="@language" name="http://purl.org/dc/terms/language">
 			<regexp match="(.*)" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
@@ -1053,8 +1050,7 @@
 	<!-- ####################### -->
 	<maps>
 		<filemap name="sigel2isilMap" files="sigel2isilMap.csv"/>
-		<filemap name="iso639-2bToIso639-2Map" files="iso639-2bToIso639-2Map.tsv"/>
-		<filemap name="iso639-2Map" files="iso639-2Map.tsv"/>
+		<filemap name="iso639xToIso639-3-Map" files="iso639xToIso639-3-Map.tsv"/>
 		<sqlmap name="placesGeonames" query="SELECT data FROM NrwPlacesGeonamesId WHERE identifier=?"
 			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
 		<sqlmap name="osmTypeAndId" query="SELECT data FROM NrwPlacesOsmUrl WHERE identifier=?"
