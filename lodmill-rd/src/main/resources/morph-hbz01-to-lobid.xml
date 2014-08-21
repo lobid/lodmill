@@ -236,7 +236,7 @@
 		<!-- ####################### -->
 		<!-- ################ language -->
 		<!-- ####################### -->
-		<data source="037[-b][-123].a" name="@639-2"/>
+		<data source="037[-abc][-123].a" name="@639-2"/>
 		<data source="@639-2" name="@language">
 			<lookup in="iso639xToIso639-3-Map"/>
 		</data>
