@@ -418,6 +418,8 @@
 		<data source="058." name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match="^.[^r]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
 		</data>
+
+		
 		<!-- ####################### -->
 		<!-- ########## periodicals, collections -->
 		<!-- ####################### -->
@@ -485,13 +487,69 @@
 				<regexp match="(\d{4})" format="${1}"/>
 			</data>
 		</combine>
-		<data source="425[ap][-1].a" name="@dateFix"/>
+		<data source="@dateRange" name="http://purl.org/dc/terms/issued">
+			<regexp match="^\d{4}.*"/>
+		</data>
+		<!-- issue precedence -->
+		<data source="425a[-1].a" name="@dateFix"/>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425b[-1].a" name="a"/>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425c[-1].a" name="a">
+			</data>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425-[-1].a" name="a"/>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425p[-1].a" name="a">
+			</data>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="595-[-12].a" name="a">
+			</data>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="089-[-1].a" name="a">
+			</data>
+		</combine>
 		<!-- date validation. Field must begin with 4 digits -->
-		<data source="@dateFix|@dateRange" name="http://purl.org/dc/terms/issued">
+		<data source="@dateFix|@dateSecondary" name="http://purl.org/dc/terms/issued">
 			<regexp match="^\d{4}.*"/>
 		</data>
 		<!-- semantic shift: 425 is only date of issue if resource is not a secondary form (21) -->
-		<combine name="@dateRange" value="${dateSecondary}">
+		<combine name="@dateSecondary" value="${dateSecondary}">
 			<data source="021[-b]1.a">
 				<regexp match=".*"/>
 			</data>
