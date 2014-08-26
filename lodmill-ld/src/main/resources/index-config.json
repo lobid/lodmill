@@ -21,7 +21,7 @@
 					},
 					"default":{
 						"type":"custom",
-						"tokenizer":"whitespace",
+						"tokenizer":"standard",
 						"filter":[
 							"icu_normalizer",
 							"icu_folding",
