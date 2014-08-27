@@ -59,21 +59,23 @@ public class IndexFromHdfsInElasticSearch {
 	private final Client client;
 
 	/**
-	 * @param args Pass 4 params: hdfs-server hdfs-input-path es-host
-	 *          es-cluster-name to index files in hdfs-input-path from HDFS on
-	 *          hdfs-server into es-cluster-name on es-host. Optional 5. argument:
-	 *          a suffix to append to the index aliases created (e.g. `-staging`).
-	 *          If the 5. argument is 'NOALIAS', alias creation is skipped"
+	 * @param args Pass 5 params: hdfs-server hdfs-input-path es-host
+	 *          es-cluster-name index-name to index files in hdfs-input-path from
+	 *          HDFS on hdfs-server into es-cluster-name on es-host. Optional 6.
+	 *          argument: a suffix to append to the index aliases created (e.g.
+	 *          `-staging`). If the 6. argument is 'NOALIAS', alias creation is
+	 *          skipped"
 	 */
 	public static void main(final String[] args) {
-		if (args.length < 4 || args.length > 5) {
+		if (args.length < 5 || args.length > 6) {
 			System.err
-					.println("Pass 4 params: <hdfs-server> <hdfs-input-path>"
-							+ " <es-host> <es-cluster-name> to index files in"
+					.println("Pass 5 params: <hdfs-server> <hdfs-input-path>"
+							+ " <es-host> <es-cluster-name> <index-name> to index files in"
 							+ " <hdfs-input-path> from HDFS on <hdfs-server> into"
-							+ " <es-cluster-name> on <es-host>. Optional 5. argument:"
+							+ " <es-cluster-name> on <es-host> with index name <index-name>."
+							+ " Optional 6. argument:"
 							+ "a suffix to append to the index aliases created (e.g. `-staging`)."
-							+ " If the 5. argument is 'NOALIAS', alias creation is skipped");
+							+ " If the 6. argument is 'NOALIAS', alias creation is skipped");
 			System.exit(-1);
 		}
 		try (FileSystem hdfs =
@@ -90,7 +92,7 @@ public class IndexFromHdfsInElasticSearch {
 			final IndexFromHdfsInElasticSearch indexer =
 					new IndexFromHdfsInElasticSearch(hdfs, client);
 			indexer.indexAll(args[1].endsWith("/") ? args[1] : args[1] + "/",
-					args.length == 5 ? args[4] : "");
+					args[4], args.length == 6 ? args[5] : "");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -110,11 +112,12 @@ public class IndexFromHdfsInElasticSearch {
 	 * 
 	 * @param dir The directory to index
 	 * @param aliasSuffix A suffix to append to the index aliases created
+	 * @param indexName The name of the index
 	 * @return A list of responses for requests that failed
 	 * @throws IOException When HDFS operations fail
 	 */
 	public List<BulkItemResponse> indexAll(final String dir,
-			final String aliasSuffix) throws IOException {
+			final String indexName, final String aliasSuffix) throws IOException {
 		checkPathInHdfs(dir);
 		final List<BulkItemResponse> result = new ArrayList<>();
 		final FileStatus[] listStatus = hdfs.listStatus(new Path(dir));
@@ -125,7 +128,7 @@ public class IndexFromHdfsInElasticSearch {
 			}
 		}
 		if (!aliasSuffix.equals("NOALIAS"))
-			updateAliases(aliasSuffix);
+			updateAliases(indexName, aliasSuffix);
 		return result;
 	}
 
@@ -194,7 +197,7 @@ public class IndexFromHdfsInElasticSearch {
 		return result;
 	}
 
-	private void updateAliases(final String aliasSuffix) {
+	private void updateAliases(final String indexName, final String aliasSuffix) {
 		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
 		for (String prefix : indices.keySet()) {
 			final SortedSet<String> indicesForPrefix = indices.get(prefix);
@@ -203,7 +206,7 @@ public class IndexFromHdfsInElasticSearch {
 			LOG.info(format("Prefix '%s', newest index: %s", prefix, newIndex));
 			removeOldAliases(indicesForPrefix, newAlias);
 			createNewAlias(newIndex, newAlias);
-			deleteOldIndices(indicesForPrefix);
+			deleteOldIndices(indexName, indicesForPrefix);
 		}
 	}
 
@@ -237,9 +240,11 @@ public class IndexFromHdfsInElasticSearch {
 				.execute().actionGet();
 	}
 
-	private void deleteOldIndices(final SortedSet<String> allIndices) {
+	private void deleteOldIndices(final String indexName,
+			final SortedSet<String> allIndices) {
 		if (allIndices.size() >= 3) {
 			final List<String> list = new ArrayList<>(allIndices);
+			list.remove(indexName);
 			for (String indexToDelete : list.subList(0, list.size() - 2)) {
 				if (aliases(indexToDelete).isEmpty()) {
 					LOG.info(format("Deleting index: " + indexToDelete));
