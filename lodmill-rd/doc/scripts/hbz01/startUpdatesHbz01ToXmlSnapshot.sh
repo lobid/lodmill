@@ -2,7 +2,8 @@
 # - Transform xml-MAB2-Update-Tar-Clobs sequentially. It is important to not do
 # this in parallel when having multiple files, because older updates could
 # overwrite newer ones.
-# - xmls is splitted and lonely xml entities copied into fs. There, they reside as base for a new snapshotted update
+# - XMLs are splitted and lonely xml entities copied into fs. There, they reside as base for a new snapshotted update
+# - ... and write each record into mysql. Then, dump whole mysql into hdfs.
 
 FLUX=updatesHbz01ToXmlSnapshot.flux
 UPDATE_FILES_LIST=toBeUpdateFilesXmlClobs.txt
@@ -40,3 +41,7 @@ for i in $(cat $UPDATE_FILES_LIST); do
     exit
   fi
 done
+
+HDFS_FILE="hbzlod/lobid-resources/resources-dump.nt"
+hadoop fs -rm $HDFS_FILE
+time bash -x mysql_bash.sh | hadoop dfs -put - $HDFS_FILE
