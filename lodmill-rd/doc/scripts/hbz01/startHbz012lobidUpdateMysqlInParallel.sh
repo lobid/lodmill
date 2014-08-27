@@ -46,7 +46,7 @@ done
 }
 
 cp ../../../src/test/resources/sigel2isilMap.csv ./
-cp ../../../src/main/resources/iso639xToIso639-3-Map ./
+cp ../../../src/main/resources/iso639xToIso639-3-Map.tsv ./
 
 wait_load
 
