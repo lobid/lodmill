@@ -259,7 +259,7 @@
 					"search_analyzer":"standard"
 				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier.@value":{
-					"index":"not_analyzed",
+					"analyzer":"id_analyzer",
 					"type":"string"
 				},
 				"@graph.http://xmlns.com/foaf/0.1/primaryTopic.@id":{
