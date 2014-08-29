@@ -37,3 +37,5 @@ done
 
 # done with gnd already - nothing to transform and convert
 cat $TARGET_ITEM |  hadoop dfs -put - $HDFS_FILE
+# manually copy gnd resource
+cat  $SOURCE_PATH_ITEM/170/1706733-9.nt |  hadoop dfs -put - extlod/gnd-test/1706733-9.nt
