@@ -9,6 +9,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -24,6 +25,12 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
+import org.elasticsearch.action.index.IndexRequestBuilder;
+import org.elasticsearch.client.Client;
+import org.elasticsearch.client.transport.NoNodeAvailableException;
+import org.elasticsearch.client.transport.TransportClient;
+import org.elasticsearch.common.settings.ImmutableSettings;
+import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
@@ -52,6 +59,18 @@ public class NTriplesToJsonLd implements Tool {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(NTriplesToJsonLd.class);
 	private Configuration conf;
+
+	// TODO pass params
+	private static final InetSocketTransportAddress NODE_1 =
+			new InetSocketTransportAddress("193.30.112.171", 9300);
+	private static final InetSocketTransportAddress NODE_2 =
+			new InetSocketTransportAddress("193.30.112.172", 9300);
+	private static final TransportClient TC = new TransportClient(
+			ImmutableSettings.settingsBuilder().put("cluster.name", "lobid-wan")
+					.put("client.transport.sniff", false)
+					.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
+	private static final Client CLIENT = TC.addTransportAddress(NODE_1)
+			.addTransportAddress(NODE_2);
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -210,11 +229,46 @@ public class NTriplesToJsonLd implements Tool {
 					new ObjectMapper().readValue(jsonLd, JsonNode.class);
 			final JsonNode parent =
 					node.findValue(CollectSubjects.PARENTS.iterator().next());
+			final String json = JSONValue.toJSONString(JSONValue.parse(jsonLd));
+			index(key, context, parent, json);
 			context.write(
 					// write both with JSONValue for consistent escaping:
 					new Text(JSONValue.toJSONString(createIndexMap(key, context,
 							parent != null ? parent.findValue("@id").asText() : null))),
-					new Text(JSONValue.toJSONString(JSONValue.parse(jsonLd))));
+					new Text(json));
+		}
+
+		private static void index(final Text key, final Context context,
+				final JsonNode parent, final String json) {
+			final String indexType = context.getConfiguration().get(INDEX_TYPE);
+			final IndexRequestBuilder request = CLIENT.prepareIndex(//
+					context.getConfiguration().get(INDEX_NAME), indexType);
+			if (indexType.equals("json-ld-lobid-item"))
+				request.setParent(parent != null ? parent.findValue("@id").asText()
+						: "none");
+			final String id =
+					key.toString().substring(1, key.toString().length() - 1);
+			execute(request, json, id);
+		}
+
+		private static void execute(IndexRequestBuilder indexRequest, String json,
+				String id) {
+			int retries = 40;
+			while (retries > 0) {
+				try {
+					indexRequest.setId(id).setSource(json).execute();
+					break; // stop retry-while
+				} catch (NoNodeAvailableException e) {
+					retries--;
+					try {
+						Thread.sleep(10000);
+					} catch (InterruptedException x) {
+						x.printStackTrace();
+					}
+					System.err.printf("Retry indexing record %s: %s (%s more retries)\n",
+							id, e.getMessage(), retries);
+				}
+			}
 		}
 
 		private static String concatTriples(final Iterable<Text> values) {
