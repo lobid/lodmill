@@ -96,8 +96,9 @@ public class IntegrationTestLobidNTriplesToJsonLd extends
 		final String mapFileName = CollectSubjects.mapFileName("testing");
 		conf.setStrings("mapred.textoutputformat.separator", " ");
 		conf.setStrings(CollectSubjects.PREFIX_KEY, "http://lobid.org/organisation");
-		conf.set(NTriplesToJsonLd.INDEX_NAME, "lobid-resources");
+		conf.set(NTriplesToJsonLd.INDEX_NAME, "lobid-resources-000");
 		conf.set(NTriplesToJsonLd.INDEX_TYPE, "json-ld-lobid");
+		conf.setBoolean(NTriplesToJsonLd.INDEX_DO, false);
 		conf.setStrings("map.file.name", mapFileName);
 		final Path mapFileLocation = new Path(conf.get("map.file.name"));
 		CollectSubjects

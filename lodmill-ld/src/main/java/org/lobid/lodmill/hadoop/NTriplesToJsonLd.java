@@ -2,13 +2,20 @@
 
 package org.lobid.lodmill.hadoop;
 
+import static java.lang.String.format;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.hadoop.conf.Configuration;
@@ -25,8 +32,12 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
+import org.elasticsearch.action.admin.cluster.state.ClusterStateRequest;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
+import org.elasticsearch.client.IndicesAdminClient;
+import org.elasticsearch.client.Requests;
 import org.elasticsearch.client.transport.NoNodeAvailableException;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
@@ -40,6 +51,10 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Sets;
+import com.google.common.collect.SortedSetMultimap;
+import com.google.common.collect.TreeMultimap;
+import com.google.common.io.CharStreams;
 import com.hp.hpl.jena.graph.Triple;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -56,9 +71,14 @@ public class NTriplesToJsonLd implements Tool {
 	private static final String NEWLINE = "\n";
 	static final String INDEX_NAME = "index.name";
 	static final String INDEX_TYPE = "index.type";
+	static final String INDEX_DO = "index.do";
+
 	private static final Logger LOG = LoggerFactory
 			.getLogger(NTriplesToJsonLd.class);
 	private Configuration conf;
+	private String indexName;
+	private Client client = CLIENT;
+	private String aliasSuffix = "-testing";
 
 	// TODO pass params
 	private static final InetSocketTransportAddress NODE_1 =
@@ -86,14 +106,14 @@ public class NTriplesToJsonLd implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 6) {
+		if (args.length != 7) {
 			System.err
 					.println("Usage: NTriplesToJsonLd"
-							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix>");
+							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix> <index alias suffix>");
 			System.exit(-1);
 		}
 		conf = getConf();
-		final String indexName = args[3];
+		indexName = args[3];
 		final String mapFileName = CollectSubjects.mapFileName(indexName);
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
 		conf.setStrings("target.subject.prefix", args[5]);
@@ -111,8 +131,116 @@ public class NTriplesToJsonLd implements Tool {
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
-		System.exit(job.waitForCompletion(true) ? 0 : 1);
+		aliasSuffix = args[6];
+		createIndex();
+		setIndexRefreshInterval(CLIENT, "-1");
+		boolean success = job.waitForCompletion(true);
+		if (success) {
+			setIndexRefreshInterval(CLIENT, "1");
+			if (!aliasSuffix.equals("NOALIAS"))
+				updateAliases(indexName, aliasSuffix);
+		}
+		System.exit(success ? 0 : 1);
 		return 0;
+	}
+
+	private void createIndex() {
+		IndicesAdminClient adminClient = CLIENT.admin().indices();
+		if (!adminClient.prepareExists(indexName).execute().actionGet().isExists()) {
+			adminClient.prepareCreate(indexName).setSource(config()).execute()
+					.actionGet();
+		}
+	}
+
+	private static String config() {
+		String res = null;
+		try {
+			final InputStream config =
+					Thread.currentThread().getContextClassLoader()
+							.getResourceAsStream("index-config.json");
+			try (InputStreamReader reader = new InputStreamReader(config, "UTF-8")) {
+				res = CharStreams.toString(reader);
+			}
+		} catch (IOException e) {
+			LOG.error(e.getMessage(), e);
+		}
+		return res;
+	}
+
+	private void setIndexRefreshInterval(Client client, String setting) {
+		client
+				.admin()
+				.indices()
+				.prepareUpdateSettings(indexName)
+				.setSettings(
+						ImmutableSettings.settingsBuilder().put("index.refresh_interval",
+								setting)).execute().actionGet();
+
+	}
+
+	private void updateAliases(final String name, final String suffix) {
+		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
+		for (String prefix : indices.keySet()) {
+			final SortedSet<String> indicesForPrefix = indices.get(prefix);
+			final String newIndex = indicesForPrefix.last();
+			final String newAlias = prefix + suffix;
+			LOG.info(format("Prefix '%s', newest index: %s", prefix, newIndex));
+			removeOldAliases(indicesForPrefix, newAlias);
+			createNewAlias(newIndex, newAlias);
+			deleteOldIndices(name, indicesForPrefix);
+		}
+	}
+
+	private SortedSetMultimap<String, String> groupByIndexCollection() {
+		final SortedSetMultimap<String, String> indices = TreeMultimap.create();
+		for (String index : client.admin().indices().prepareStats().execute()
+				.actionGet().getIndices().keySet()) {
+			final String[] nameAndTimestamp = index.split("-(?=\\d)");
+			indices.put(nameAndTimestamp[0], index);
+		}
+		return indices;
+	}
+
+	private void removeOldAliases(final SortedSet<String> indicesForPrefix,
+			final String newAlias) {
+		for (String name : indicesForPrefix) {
+			final Set<String> aliases = aliases(name);
+			for (String alias : aliases) {
+				if (alias.equals(newAlias)) {
+					LOG.info(format("Delete alias index,alias: %s,%s", name, alias));
+					client.admin().indices().prepareAliases().removeAlias(name, alias)
+							.execute().actionGet();
+				}
+			}
+		}
+	}
+
+	private void createNewAlias(final String newIndex, final String newAlias) {
+		LOG.info(format("Create alias index,alias: %s,%s", newIndex, newAlias));
+		client.admin().indices().prepareAliases().addAlias(newIndex, newAlias)
+				.execute().actionGet();
+	}
+
+	private void deleteOldIndices(final String name,
+			final SortedSet<String> allIndices) {
+		if (allIndices.size() >= 3) {
+			final List<String> list = new ArrayList<>(allIndices);
+			list.remove(name);
+			for (String indexToDelete : list.subList(0, list.size() - 2)) {
+				if (aliases(indexToDelete).isEmpty()) {
+					LOG.info(format("Deleting index: " + indexToDelete));
+					client.admin().indices()
+							.delete(new DeleteIndexRequest(indexToDelete)).actionGet();
+				}
+			}
+		}
+	}
+
+	private Set<String> aliases(final String name) {
+		final ClusterStateRequest clusterStateRequest =
+				Requests.clusterStateRequest().nodes(true).indices(name);
+		return Sets.newHashSet(client.admin().cluster().state(clusterStateRequest)
+				.actionGet().getState().getMetaData().aliases().keysIt());
 	}
 
 	/**
@@ -230,12 +358,15 @@ public class NTriplesToJsonLd implements Tool {
 			final JsonNode parent =
 					node.findValue(CollectSubjects.PARENTS.iterator().next());
 			final String json = JSONValue.toJSONString(JSONValue.parse(jsonLd));
-			index(key, context, parent, json);
-			context.write(
-					// write both with JSONValue for consistent escaping:
-					new Text(JSONValue.toJSONString(createIndexMap(key, context,
-							parent != null ? parent.findValue("@id").asText() : null))),
-					new Text(json));
+			if (context.getConfiguration().getBoolean(INDEX_DO, true)) {
+				index(key, context, parent, json);
+			} else {
+				context.write(
+						// write both with JSONValue for consistent escaping:
+						new Text(JSONValue.toJSONString(createIndexMap(key, context,
+								parent != null ? parent.findValue("@id").asText() : null))),
+						new Text(json));
+			}
 		}
 
 		private static void index(final Text key, final Context context,

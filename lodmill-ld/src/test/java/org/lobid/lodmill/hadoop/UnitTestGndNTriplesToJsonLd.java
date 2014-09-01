@@ -61,6 +61,7 @@ public final class UnitTestGndNTriplesToJsonLd {
 	private static void setConfiguration(final TestDriver<?, ?, ?, ?, ?> driver) {
 		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_NAME, INDEX);
 		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_TYPE, TYPE);
+		driver.getConfiguration().setBoolean(NTriplesToJsonLd.INDEX_DO, false);
 	}
 
 	@Test
