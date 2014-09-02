@@ -1,8 +1,8 @@
 #!/bin/sh
 
-if [ $# -ne 5 ]
+if [ $# -ne 6 ]
 then
-  echo "Usage: `basename $0` INPUT OUTPUT SUBJECT INDEX TYPE"
+  echo "Usage: `basename $0` INPUT OUTPUT SUBJECT INDEX TYPE INDEX_ALIAS_SUFFIX"
   exit 65
 fi
 
@@ -16,9 +16,10 @@ OUT=$2
 SUBJ=$3
 INDEX=$4
 TYPE=$5
+INDEX_ALIAS=$6
 
 $HADOOP/bin/hadoop fs -rmr $TMP
 $HADOOP/bin/hadoop fs -rmr $OUT
 $HADOOP/bin/hadoop fs -rmr *.map
 $HADOOP/bin/hadoop org.lobid.lodmill.hadoop.CollectSubjects $IN $TMP $SUBJ $INDEX
-$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $TMP $OUT $INDEX $TYPE $SUBJ
+$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $TMP $OUT $INDEX $TYPE $SUBJ $INDEX_ALIAS

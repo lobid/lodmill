@@ -2,19 +2,18 @@
 # parameter 3 defines the branch.
 # Index alias is hardcoded to "-staging".
 
-if [ $# -lt 3 ]
+if [ $# -lt 1 ]
 then
-  echo "Usage: `basename $0` ES-SERVER ES-CLUSTER BRANCH"
+  echo "Usage: `basename $0` BRANCH"
   exit 65
 fi
 
-ES_SERVER=$1
-ES_CLUSTER=$2
-BRANCH=$3
+BRANCH=$1
 
 THIS="$(pwd)"
 
-cd ../../; git pull; mvn assembly:assembly -DskipTests
+cd ../../; git pull;
+mvn assembly:assembly -DskipTests
 
 # first, make the data
 cd ../lodmill-rd/doc/scripts/hbz01/
