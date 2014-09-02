@@ -22,6 +22,7 @@
 				</none>
 			</if>
 			<data source="nwbib700_99" name="query">
+			<urlescape></urlescape>
 				<!-- set to germany, NRW -->
 				<regexp match="\d*(.*)" format="/de/nrw/${1}?"/>
 			</data>
@@ -39,7 +40,7 @@
 		</combine>
 		<data source="nwbib700_99" name="@url_1">
 			<regexp match="(.*)&lt;(.*)&gt;(.*)" format="?q=${1}${2}${3}"/>
-			<urlencode></urlencode>
+			<urlescape></urlescape>
 		</data>
 		<data source="@url_1" name="@url"/>
 		<!-- /geoLocation -->
