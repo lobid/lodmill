@@ -314,7 +314,7 @@
 		<data source="050." name="@matVideo">
 			<regexp match="^.....[bc]"/>
 		</data>
-		<data source="@matVideo" name="@rdftypeAndManifestation">
+		<data source="@matVideo" name="@medium">
 			<regexp match=".*" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
 		</data>
 		<data source="@matVideo" name="@medium">
@@ -369,9 +369,6 @@
 		<!-- game -->
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.........a" format="http://purl.org/library/Game"/>
-		</data>
-		<data source="050." name="@medium">
-			<regexp match="^...[abc]" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1003"/>
 		</data>
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.a" format="http://purl.org/ontology/bibo/Manuscript"/>
