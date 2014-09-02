@@ -78,6 +78,10 @@
 					"index":"not_analyzed",
 					"type":"string"
 				},
+				"@graph.http://purl.org/dc/terms/medium.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName.@value":{
 					"search_analyzer":"standard",
 					"index_analyzer":"ngram_analyzer",

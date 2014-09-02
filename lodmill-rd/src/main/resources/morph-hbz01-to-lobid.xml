@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1">
-	<!-- MAB2 to RDF - a mapping of the hbz01 catalog to lobid-resources -->
+	<!-- Aleph MAB2 XML to RDF - a mapping of the hbz01 catalog to lobid-resources -->
 	<!-- beware: the sequence of the rules are semantically important! Don't change the order. -->
+	<!-- Aleph MAB differs from MAB in that: -->
+	<!-- an indicator2 exists -->
+	<!-- every field has at least the subfield 'a' -->
+	<!-- => structure of alehp MAB: $field$indicator1$indicator2$subfield -->
 	<vars>
 		<var name="ns-lobid-resource" value="http://lobid.org/resource/"/>
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
@@ -232,12 +236,9 @@
 		<!-- ####################### -->
 		<!-- ################ language -->
 		<!-- ####################### -->
-		<data source="037[-b][-123].a" name="@639-2"/>
+		<data source="037[-abc][-123].a" name="@639-2"/>
 		<data source="@639-2" name="@language">
-			<lookup in="iso639-2Map"/>
-		</data>
-		<data source="@639-2" name="@language">
-			<lookup in="iso639-2bToIso639-2Map"/>
+			<lookup in="iso639xToIso639-3-Map"/>
 		</data>
 		<data source="@language" name="http://purl.org/dc/terms/language">
 			<regexp match="(.*)" format="http://id.loc.gov/vocabulary/iso639-2/${1}"/>
@@ -257,22 +258,22 @@
 					<data source="@idzdb">
 						<regexp match=".*"/>
 					</data>
-					<data source="@type">
+					<data source="051.">
 						<regexp match="^a"/>
 					</data>
-					<data source="@type">
+					<data source="051.">
 						<regexp match="^.[mt]"/>
 					</data>
-					<data source="@type">
+					<data source="051.">
 						<regexp match="^..[tm]"/>
 					</data>
-					<data source="@type">
+					<data source="051.">
 						<regexp match="^...t"/>
 					</data>
-					<data source="@type">
+					<data source="051.">
 						<regexp match="^....t"/>
 					</data>
-					<data source="@type">
+					<data source="051.">
 						<regexp match="^.....t"/>
 					</data>
 					<data source="052.">
@@ -281,7 +282,7 @@
 					<data source="@matVideo">
 						<regexp match=".*"/>
 					</data>
-					<data source="@typeAudio">
+					<data source="@mediumAudio">
 						<regexp match=".*"/>
 					</data>
 				</none>
@@ -290,39 +291,60 @@
 				<regexp match="^a"/>
 			</data>
 		</combine>
-		<!-- electronic -->
-		<data source="050." name="@typeOnly">
-			<regexp match="^........[abcdefgz].*" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1002"/>
+		<!-- print -->
+		<data source="050." name="@medium">
+			<regexp match="^[abcd]" format="http://rdvocab.info/termList/RDAproductionMethod/1010"/>
+		</data>
+		<data source="050." name="@medium">
+			<regexp match="^.......a" format="http://rdvocab.info/termList/RDAproductionMethod/1010"/>
+		</data>
+		<!-- multimedia -->
+		<data source="050." name="@medium">
+			<regexp match="^.......a" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1008"/>
 		</data>
 		<!--audio -->
-		<data source="050." name="@typeAudio">
+		<data source="050." name="@mediumAudio">
 			<regexp match="^.....a" format="http://purl.org/ontology/bibo/AudioDocument"/>
 		</data>
-		<data source="@typeAudio" name="@rdftypeAndManifestation"/>
-		<!--video -->
+		<data source="@mediumAudio" name="@medium"/>
+		<data source="334-[12].a" name="@medium">
+			<regexp match="^[Tt][oO]" format="http://purl.org/ontology/bibo/AudioDocument"/>
+		</data>
+		<!--audio visual video -->
 		<data source="050." name="@matVideo">
 			<regexp match="^.....[bc]"/>
+		</data>
+		<data source="@matVideo" name="@rdftypeAndManifestation">
+			<regexp match=".*" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
+		</data>
+		<data source="@matVideo" name="@medium">
+			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1050"/>
+		</data>
+		<data source="334-[12].a" name="@medium">
+			<regexp match="^Bildton" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
 		</data>
 		<!-- picture -->
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.....d" format="http://purl.org/ontology/bibo/Image"/>
 		</data>
-		<data source="@matVideo" name="@rdftypeAndManifestation">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
+		<data source="@matVideo" name="@medium">
+			<regexp match=".*" format="http://rdvocab.info/termList/RDAMediaType/1005"/>
 		</data>
-		<data source="@matVideo" name="http://purl.org/dc/terms/medium">
-			<regexp match=".*" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1007"/>
+		<data source="334-[12].a" name="@medium">
+			<regexp match="^Bildli" format="http://purl.org/ontology/bibo/Image"/>
 		</data>
 		<!-- microform -->
-		<data source="050." name="http://purl.org/dc/terms/medium">
+		<data source="050." name="@medium">
 			<regexp match="^...[abc]" format="http://rdvocab.info/termList/RDACarrierType/1020"/>
+		</data>
+		<data source="334-[12].a" name="@medium">
+			<regexp match="^Mikrofor" format="http://rdvocab.info/termList/RDACarrierType/1020"/>
+		</data>
+		<data source="057." name="@medium">
+			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1020"/>
 		</data>
 		<data source="050." name="@manifestation">
 			<regexp match="^...[abc]"/>
-		</data>
-		<!-- multimedia -->
-		<data source="050." name="http://purl.org/dc/terms/medium">
-			<regexp match="^.......a" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1008"/>
 		</data>
 		<data source="050." name="@manifestation">
 			<regexp match="^......a"/>
@@ -348,20 +370,22 @@
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.........a" format="http://purl.org/library/Game"/>
 		</data>
-		<data source="050." name="http://purl.org/dc/terms/medium">
+		<data source="050." name="@medium">
 			<regexp match="^...[abc]" format="http://iflastandards.info/ns/isbd/terms/mediatype/T1003"/>
 		</data>
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.a" format="http://purl.org/ontology/bibo/Manuscript"/>
 		</data>
+		<!-- Computer carriers -->
+		<data source="050." name="@medium">
+			<regexp match="^........[abcdefgz]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
+		</data>
 		<data source="@rdftypeAndManifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-		<!-- shortcut for special type AND type "manifestation" -->
+		<!-- shortcut for type/medium being also ever a "manifestation" -->
 		<data source="@rdftypeAndManifestation" name="@manifestation"/>
+		<data source="@medium" name="@manifestation"/>
 		<data source="@manifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
-		</data>
-		<data source="@manifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Document"/>
 		</data>
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- 051: type -->
@@ -377,7 +401,7 @@
 					<data source="@matVideo">
 						<regexp match=".*"/>
 					</data>
-					<data source="@typeAudio">
+					<data source="@mediumAudio">
 						<regexp match=".*"/>
 					</data>
 					<data source="050.">
@@ -389,8 +413,72 @@
 				<regexp match="^m|^.x|^..x|^...x|^....[fkls]"/>
 			</data>
 		</combine>
+		<!-- music -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^.m|^..m" format="http://purl.org/ontology/bibo/AudioDocument"/>
+			<regexp match="^.m|^..m|^...m" format="http://purl.org/ontology/mo/PublishedScore"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.mu|^...mu|^.....mu" format="http://purl.org/ontology/mo/PublishedScore"/>
+		</data>
+		<!-- amtliche Druckschrift -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^......[bfiklmorsu]" format="http://purl.org/lobid/lv#OfficialPublication"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.aa|^............[bfiklmorsu]" format="http://purl.org/lobid/lv#OfficialPublication"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.aa|^...aa|^.....aa" format="http://purl.org/lobid/lv#OfficialPublication"/>
+		</data>
+		<!-- bibliography -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.[bh]|^..[bh]|^...[bh]" format="http://purl.org/lobid/lv#Bibliography"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.b[gi]|^...b[gi]|^.....b[gi]" format="http://purl.org/lobid/lv#Bibliography"/>
+		</data>
+		<!-- festschrift -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.f|^..f|^...f" format="http://purl.org/lobid/lv#Festschrift"/>
+		</data>
+		<!-- reference source -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.[de]|^..[de]|^...[de]" format="http://purl.org/ontology/bibo/ReferenceSource"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.ez|^...ez|^.....ez" format="http://purl.org/ontology/bibo/ReferenceSource"/>
+		</data>
+		<!-- norm -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.n|^..n|^...n" format="http://purl.org/ontology/bibo/Standard"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.no|^...no|^.....no" format="http://purl.org/ontology/bibo/Standard"/>
+		</data>
+		<!-- norm -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.x|^..x|^...x" format="http://purl.org/lobid/lv#Schoolbook"/>
+		</data>
+		<!-- legislation -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.l|^..l|^...l" format="http://purl.org/lobid/lv#Legislation"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.ag|^...ag|^.....ag" format="http://purl.org/lobid/lv#Legislation"/>
+		</data>
+		<!-- thesis -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.[uy]|^..[uy]|^...[uy]" format="http://purl.org/ontology/bibo/Thesis"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.sc|^...sc|^.....sc" format="http://purl.org/ontology/bibo/Thesis"/>
+		</data>
+		<!-- proceedings -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.k|^..k|^...k" format="http://purl.org/ontology/bibo/Proceedings"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.ko|^...ko|^.....ko" format="http://purl.org/ontology/bibo/Proceedings"/>
 		</data>
 		<!-- 052: type -->
 		<data source="052." name="@rdftypeAndManifestation">
@@ -406,17 +494,62 @@
 			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
 		</data>
 		<data source="@collection" name="@typeOnly"/>
+		<!-- newspaper -->
 		<data source="052." name="@collection">
-			<regexp match="^z|^.ao|^...ao|^.....ao" format="http://purl.org/ontology/bibo/Newspaper"/>
+			<regexp match="^z|^.[ae]o|^...[ae]o|^.....[ae]o" format="http://purl.org/ontology/bibo/Newspaper"/>
+		</data>
+		<data source="052." name="@collection">
+			<regexp match="^z|^.[url]p|^...[url]p|^.....[url]p" format="http://purl.org/ontology/bibo/Newspaper"/>
 		</data>
 		<!-- online -->
-		<data source="058." name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="050." name="@medium">
+			<regexp match="^........g" format="http://rdvocab.info/termList/RDACarrierType/1018"/>
+		</data>
+		<data source="058." name="@medium">
 			<regexp match="^.r" format="http://rdvocab.info/termList/RDACarrierType/1018"/>
 		</data>
+		<data source="652a[-1].a" name="@medium">
+			<regexp match="^[AaOo][rn]" format="http://rdvocab.info/termList/RDACarrierType/1018"/>
+		</data>
 		<!-- computer carrier (disks etc) -->
-		<data source="058." name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="058." name="@medium">
 			<regexp match="^.[^r]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
 		</data>
+		<!-- electronic -->
+		<data source="@fulltextOnline" name="@medium">
+			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
+		</data>
+		<data source="652a[-1].a" name="@medium">
+			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
+		</data>
+		<data source="@medium" name="http://purl.org/dc/terms/medium"/>
+		<!-- set default medium -->
+		<combine name="@medium" value="http://purl.org/lobid/lv#Miscellaneous"
+			flushWith="record">
+			<if>
+				<none>
+					<data source="@medium">
+						<regexp match=".*"/>
+					</data>
+				</none>
+			</if>
+			<data source="@id"/>
+		</combine>
+		<!-- set default type -->
+		<combine name="@rdftypeAndManifestation" value="http://purl.org/lobid/lv#Miscellaneous"
+			flushWith="record">
+			<if>
+				<none>
+					<data source="@rdftypeAndManifestation">
+						<regexp match=".*"/>
+					</data>
+					<data source="@rdftypeOnly">
+						<regexp match=".*"/>
+					</data>
+				</none>
+			</if>
+			<data source="@id"/>
+		</combine>
 		<!-- ####################### -->
 		<!-- ########## periodicals, collections -->
 		<!-- ####################### -->
@@ -484,13 +617,69 @@
 				<regexp match="(\d{4})" format="${1}"/>
 			</data>
 		</combine>
-		<data source="425[ap][-1].a" name="@dateFix"/>
+		<data source="@dateRange" name="http://purl.org/dc/terms/issued">
+			<regexp match="^\d{4}.*"/>
+		</data>
+		<!-- issue precedence -->
+		<data source="425a[-1].a" name="@dateFix"/>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425b[-1].a" name="a"/>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425c[-1].a" name="a">
+			</data>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425-[-1].a" name="a"/>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="425p[-1].a" name="a">
+			</data>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="595-[-12].a" name="a">
+			</data>
+		</combine>
+		<combine name="@dateFix" value="${a}">
+			<if>
+				<none>
+					<data source="@dateFix"/>
+				</none>
+			</if>
+			<data source="089-[-1].a" name="a">
+			</data>
+		</combine>
 		<!-- date validation. Field must begin with 4 digits -->
-		<data source="@dateFix|@dateRange" name="http://purl.org/dc/terms/issued">
+		<data source="@dateFix|@dateSecondary" name="http://purl.org/dc/terms/issued">
 			<regexp match="^\d{4}.*"/>
 		</data>
 		<!-- semantic shift: 425 is only date of issue if resource is not a secondary form (21) -->
-		<combine name="@dateRange" value="${dateSecondary}">
+		<combine name="@dateSecondary" value="${dateSecondary}">
 			<data source="021[-b]1.a">
 				<regexp match=".*"/>
 			</data>
@@ -861,7 +1050,7 @@
 				<regexp match="(.*)" format="${1}"/>
 			</data>
 		</combine>
-		<data source="902[-a][-1].f" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- ####################### -->
@@ -869,7 +1058,7 @@
 		<!-- ####################### -->
 		<combine name="@fulltextOnline" value="${link}">
 			<data source="334-[12].a">
-				<regexp match="^[eE][lL]"/>
+				<regexp match="^[eEcC][lLoO]"/>
 			</data>
 			<data source="@linkUri" name="link">
 				<regexp match="^([a-zA-Z].*)" format="${1}"/>
@@ -971,28 +1160,33 @@
 		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
 		<combine name="@nwbib700_99" value="${a}">
 			<data source="700n[-1].a">
-				<regexp match="99"/>
+				<regexp match="^9[79]\b"/>
 			</data>
 			<data source="700n[-1].b" name="a"/>
 		</combine>
-		<!-- geo enrichment nwbib 99  -->
+		<!-- geo enrichment nwbib 99 -->
 		<!-- emit field for other pipelined morphs -->
-		<data source="@nwbib700_99" name="nwbib700_99"/>
-		<data source="@nwbib700_99" name="@nwbib700_99_lexeme">
-			<replace pattern=" " with=""/>
+		<data source="@nwbib700_99_cleaned" name="nwbib700_99"/>
+
+		<data source="@nwbib700_99" name="@nwbib700_99_cleaned">
 			<replace pattern="&lt;" with=""/>
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="-" with=""/>
 			<replace pattern="," with=""/>
 			<replace pattern="/" with=""/>
+			<replace pattern="\(" with=""/>
+			<replace pattern="\)" with=""/>
 		</data>
-		<data source="@nwbib700_99_lexeme" name="@geonamesId">
+			<data source="@nwbib700_99_cleaned" name="@nwbib700_99_id">
+				<replace pattern=" " with=""/>
+				</data>
+		<data source="@nwbib700_99_id" name="@geonamesId">
 			<lookup in="placesGeonames"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/spatial" value="http://sws.geonames.org/${id}/">
 			<data source="@geonamesId" name="id"/>
 		</combine>
-		<data source="@nwbib700_99_lexeme" name="@osmTypeAndId">
+		<data source="@nwbib700_99_id" name="@osmTypeAndId">
 			<lookup in="osmTypeAndId"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/spatial" value="http://linkedgeodata.org/triplify/${id}">
@@ -1000,9 +1194,9 @@
 				<replace pattern="/" with=""/>
 			</data>
 		</combine>
-			<combine name="http://purl.org/dc/terms/subject" value="${a}">
+		<combine name="http://purl.org/dc/terms/subject" value="${a}">
 			<data source="700n[-1].a" name="a">
-				<regexp match="^([0-8][0-8])\b|(91)\b|(96)\b|(97)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
+				<regexp match="^([0-8][0-8])\b|(91)\b|(96)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
 			</data>
 		</combine>
 		<!--edoweb -->
@@ -1049,8 +1243,7 @@
 	<!-- ####################### -->
 	<maps>
 		<filemap name="sigel2isilMap" files="sigel2isilMap.csv"/>
-		<filemap name="iso639-2bToIso639-2Map" files="iso639-2bToIso639-2Map.tsv"/>
-		<filemap name="iso639-2Map" files="iso639-2Map.tsv"/>
+		<filemap name="iso639xToIso639-3-Map" files="iso639xToIso639-3-Map.tsv"/>
 		<sqlmap name="placesGeonames" query="SELECT data FROM NrwPlacesGeonamesId WHERE identifier=?"
 			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
 		<sqlmap name="osmTypeAndId" query="SELECT data FROM NrwPlacesOsmUrl WHERE identifier=?"
