@@ -1506,6 +1506,27 @@
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000003404> .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000003404/about> .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
+<http://lobid.org/resource/BT000067443/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/BT000067443/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/BT000067443> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/bibliographicCitation> "Kiebitz. - 6 (1986), S. 29-36, S. 63-67" .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118033948> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006990419> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation157769> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2939945/> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s163060> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
+<http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
+<http://lobid.org/resource/BT000067443> <http://rdvocab.info/Elements/otherTitleInformation> "Vergleichsunters. zu e. Erfassung aus d. Jahre 1976." .
+<http://lobid.org/resource/BT000067443> <http://rdvocab.info/Elements/publicationStatement> "1986" .
+<http://lobid.org/resource/BT000067443> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/BT000067443> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/BT000067443> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000067443> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000067443> .
+<http://lobid.org/resource/BT000067443> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000067443/about> .
+<http://lobid.org/resource/BT000067443> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000067443> .
 <http://lobid.org/resource/BT000100437> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/BT000003404> .
 <http://lobid.org/resource/BT000100437> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/BT000128754/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .

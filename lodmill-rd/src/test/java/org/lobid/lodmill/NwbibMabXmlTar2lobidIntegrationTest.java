@@ -86,7 +86,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		// lookup and parse OSM API URL
 		final LiteralExtractor literalExtractor = new LiteralExtractor();
 		morphCreateOsmURl.setReceiver(literalExtractor);
-		final HttpOpener httpOpener = new HttpOpener();
+		final HttpOpener httpOpener = getJsonHttpOpener();
 		final JsonDecoder jsonOsmDecoder = new JsonDecoder();
 		literalExtractor.setReceiver(httpOpener);
 		httpOpener.setReceiver(jsonOsmDecoder);
@@ -111,7 +111,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		// Geonames API lookup
 		// lookup geonames with generated URL
 		final LiteralExtractor literalExtractorGeonames = new LiteralExtractor();
-		final HttpOpener geonamesHttpOpener = new HttpOpener();
+		final HttpOpener geonamesHttpOpener = getJsonHttpOpener();
 		final JsonDecoder jsonGeonamesDecoder = new JsonDecoder();
 		morphOSM.setReceiver(literalExtractorGeonames);
 		literalExtractorGeonames.setReceiver(geonamesHttpOpener);
@@ -135,6 +135,12 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 				.getAbsolutePath());
 		opener.closeStream();
 		return modelWriter;
+	}
+
+	private static HttpOpener getJsonHttpOpener() {
+		final HttpOpener httpOpener = new HttpOpener();
+		httpOpener.setAccept("application/json");
+		return httpOpener;
 	}
 
 	private static MysqlWriter createMysqlWriter(String tableName) {
