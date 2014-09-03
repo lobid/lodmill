@@ -586,7 +586,7 @@
 			</data>
 		</combine>
 		<!-- deliberatley not everything linked with OR '|' because of performance problems -->
-		<data source="335[-abcd][-12].a" name="@otherTitle"/>
+		<data source="335[-abcd][-12].a|370[a][-12].a" name="@otherTitle"/>
 		<data source="3[45][01234567][-ab][-12].[ab]" name="http://purl.org/dc/terms/alternative"/>
 		<data source="35[012345][-ab][-1].a" name="@otherTitle"/>
 		<data source="36[0123456789][-abcd][-12].a" name="@otherTitle"/>
