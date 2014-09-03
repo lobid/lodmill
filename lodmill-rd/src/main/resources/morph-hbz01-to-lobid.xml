@@ -373,8 +373,9 @@
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.........a" format="http://purl.org/library/Game"/>
 		</data>
-		<data source="050." name="@rdftypeAndManifestation">
-			<regexp match="^.a" format="http://purl.org/ontology/bibo/Manuscript"/>
+		<!-- manuscript -->
+		<data source="050." name="@medium">
+			<regexp match="^.a" format="http://rdvocab.info/termList/prodManuscript/1002"/>
 		</data>
 		<!-- Computer carriers -->
 		<data source="050." name="@medium">
