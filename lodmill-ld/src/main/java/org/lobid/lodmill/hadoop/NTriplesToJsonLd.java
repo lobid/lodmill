@@ -42,6 +42,7 @@ import org.elasticsearch.client.transport.NoNodeAvailableException;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
+import org.elasticsearch.transport.ReceiveTimeoutTransportException;
 import org.json.simple.JSONValue;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
@@ -389,7 +390,7 @@ public class NTriplesToJsonLd implements Tool {
 				try {
 					indexRequest.setId(id).setSource(json).execute();
 					break; // stop retry-while
-				} catch (NoNodeAvailableException e) {
+				} catch (NoNodeAvailableException | ReceiveTimeoutTransportException e) {
 					retries--;
 					try {
 						Thread.sleep(10000);
