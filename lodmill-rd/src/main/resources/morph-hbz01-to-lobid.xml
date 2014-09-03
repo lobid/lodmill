@@ -355,8 +355,11 @@
 			<regexp match="^..........a" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- vinyl -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@mediumAudio">
 			<regexp match="^.....aj" format="http://purl.org/ontology/mo/Vinyl"/>
+		</data>
+		<data source="050." name="@mediumAudio">
+			<regexp match="^.....aj" format="http://purl.org/ontology/bibo/AudioDocument"/>
 		</data>
 		<!-- audio cassette -->
 		<data source="050." name="@rdftypeAndManifestation">
