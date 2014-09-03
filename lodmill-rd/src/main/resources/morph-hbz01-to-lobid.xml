@@ -363,8 +363,11 @@
 			<regexp match="^.....ad" format="http://purl.org/library/CassetteTape"/>
 		</data>
 		<!-- braille -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@medium">
 			<regexp match="^....a" format="http://purl.org/library/BrailleBook"/>
+		</data>
+		<data source="050." name="@medium">
+			<regexp match="^....a" format="http://rdvocab.info/termList/RDAproductionMethod/1010"/>
 		</data>
 		<!-- game -->
 		<data source="050." name="@rdftypeAndManifestation">

@@ -2408,6 +2408,7 @@
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/publisher> "Blindenhochschulb\u00FCcherei" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118551655> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/medium> <http://purl.org/library/BrailleBook> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/title> "Mein Kampf" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/lobid/lv#hbzID> "TT001210514" .
@@ -2417,7 +2418,6 @@
 <http://lobid.org/resource/TT001210514> <http://rdvocab.info/Elements/publicationStatement> "Marburg/Lahn; Blindenhochschulb\u00FCcherei" .
 <http://lobid.org/resource/TT001210514> <http://rdvocab.info/Elements/statementOfResponsibility> "von Adolf Hitler" .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/library/BrailleBook> .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
