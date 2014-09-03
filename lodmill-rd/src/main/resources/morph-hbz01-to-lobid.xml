@@ -1154,7 +1154,7 @@
 		<data source="078n[-1].a|700n[-1].[ab]" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match=".*" format="$[ns-lobid-resource]NWBib"/>
 		</data>
-		<data source="700n[-1].a" name="http://purl.org/dc/terms/subject">
+		<data source="700n[-1].a" name="http://purl.org/lobid/lv#nwbibsubject">
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
 		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
@@ -1194,7 +1194,7 @@
 				<replace pattern="/" with=""/>
 			</data>
 		</combine>
-		<combine name="http://purl.org/dc/terms/subject" value="${a}">
+		<combine name="http://purl.org/lobid/lv#nwbibspatial" value="${a}">
 			<data source="700n[-1].a" name="a">
 				<regexp match="^([0-8][0-8])\b|(91)\b|(96)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
 			</data>
