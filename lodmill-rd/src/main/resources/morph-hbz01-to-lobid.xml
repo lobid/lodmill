@@ -351,7 +351,7 @@
 		</data>
 		<!-- Dini Kim , TODO dcterms:medium "rdacarrier:1044" (unmediated) -->
 		<!-- map -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@medium">
 			<regexp match="^..........a" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- vinyl -->
