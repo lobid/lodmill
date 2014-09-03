@@ -97,7 +97,7 @@ public class NTriplesToJsonLd implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 8) {
+		if (args.length != 9) {
 			System.err
 					.println("Usage: NTriplesToJsonLd"
 							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix> <index alias suffix> <server> <cluster name>");
