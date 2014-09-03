@@ -307,7 +307,7 @@
 			<regexp match="^.....a" format="http://purl.org/ontology/bibo/AudioDocument"/>
 		</data>
 		<data source="@mediumAudio" name="@medium"/>
-		<data source="334-[12].a" name="@medium">
+		<data source="334-[12].a" name="@mediumAudio">
 			<regexp match="^[Tt][oO]" format="http://purl.org/ontology/bibo/AudioDocument"/>
 		</data>
 		<!--audio visual video -->
@@ -362,7 +362,7 @@
 			<regexp match="^.....aj" format="http://purl.org/ontology/bibo/AudioDocument"/>
 		</data>
 		<!-- audio cassette -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@mediumAudio">
 			<regexp match="^.....ad" format="http://purl.org/library/CassetteTape"/>
 		</data>
 		<!-- braille -->
