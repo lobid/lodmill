@@ -1489,10 +1489,10 @@
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042570-8> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4115393-5> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s126000> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib-spatial#n01> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/title> "Deutschland 1:300000" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#hbzID> "BT000003404" .
+<http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
+<http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s126000> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/edition> "10.[Aufl., Ausg.] 1993/94" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn13> "9783575112088" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "3575112088" .
@@ -1514,9 +1514,9 @@
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s163060> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
+<http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s163060> .
 <http://lobid.org/resource/BT000067443> <http://rdvocab.info/Elements/otherTitleInformation> "Vergleichsunters. zu e. Erfassung aus d. Jahre 1976." .
 <http://lobid.org/resource/BT000067443> <http://rdvocab.info/Elements/publicationStatement> "1986" .
 <http://lobid.org/resource/BT000067443> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -1542,9 +1542,9 @@
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2852739/> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2041907-7> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2050419-6> .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s736050> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/title> "Alle B\u00F6cke bei\u00DFen oder in Feindschaft fest" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#hbzID> "BT000128754" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s736050> .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/otherTitleInformation> "Jugend zwischen zwei Magnetpolen ; nur Animosit\u00E4t gebiert gro\u00DFe Spiele" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/placeOfPublication> "Reinbek bei Hamburg" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/publicationStatement> "1996; Reinbek bei Hamburg" .
@@ -2335,10 +2335,10 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2934246/> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4013255-9> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4137215-3> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib#s240000> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/nwbib-spatial#n46> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/title> "D\u00FCsseldorf und das bergische Territorium" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#hbzID> "HT018131501" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n46> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/publicationStatement> "2014; D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/statementOfResponsibility> "Manfred Engelhardt" .
