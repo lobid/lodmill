@@ -64,6 +64,7 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
  * Convert RDF represented as N-Triples to JSON-LD for elasticsearch indexing.
  * 
  * @author Fabian Steeg (fsteeg)
+ * @author Pascal Christoph (dr0i)
  */
 public class NTriplesToJsonLd implements Tool {
 
@@ -79,19 +80,8 @@ public class NTriplesToJsonLd implements Tool {
 	private Configuration conf;
 	private String indexName;
 	private Client client = CLIENT;
-	private String aliasSuffix = "-testing";
-
-	// TODO pass params
-	private static final InetSocketTransportAddress NODE_1 =
-			new InetSocketTransportAddress("193.30.112.171", 9300);
-	private static final InetSocketTransportAddress NODE_2 =
-			new InetSocketTransportAddress("193.30.112.172", 9300);
-	private static final TransportClient TC = new TransportClient(
-			ImmutableSettings.settingsBuilder().put("cluster.name", "lobid-wan")
-					.put("client.transport.sniff", false)
-					.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
-	private static final Client CLIENT = TC.addTransportAddress(NODE_1)
-			.addTransportAddress(NODE_2);
+	private static Client CLIENT;
+	private TransportClient transportClient;
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -107,10 +97,10 @@ public class NTriplesToJsonLd implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 7) {
+		if (args.length != 8) {
 			System.err
 					.println("Usage: NTriplesToJsonLd"
-							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix> <index alias suffix>");
+							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix> <index alias suffix> <server> <cluster name>");
 			System.exit(-1);
 		}
 		conf = getConf();
@@ -132,10 +122,11 @@ public class NTriplesToJsonLd implements Tool {
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
-		aliasSuffix = args[6];
+		CLIENT = createClient(args[7], args[8]);
 		createIndex();
 		setIndexRefreshInterval(CLIENT, "-1");
 		boolean success = job.waitForCompletion(true);
+		String aliasSuffix = args[6];
 		if (success) {
 			setIndexRefreshInterval(CLIENT, "1");
 			if (!aliasSuffix.equals("NOALIAS"))
@@ -143,6 +134,16 @@ public class NTriplesToJsonLd implements Tool {
 		}
 		System.exit(success ? 0 : 1);
 		return 0;
+	}
+
+	private Client createClient(final String server, final String clusterName) {
+		transportClient =
+				new TransportClient(ImmutableSettings.settingsBuilder()
+						.put("cluster.name", clusterName)
+						.put("client.transport.sniff", false)
+						.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
+		return transportClient.addTransportAddress(new InetSocketTransportAddress(
+				server, 9300));
 	}
 
 	private void createIndex() {
