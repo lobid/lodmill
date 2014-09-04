@@ -1,7 +1,8 @@
 default files = FLUX_DIR;
+default target="/files/open_data/closed/gnd/";
 
 "http://gnd-proxy.lobid.org/oai/repository" |
-open-oaipmh(dateFrom="2014-04-24",dateUntil="2014-04-30",metadataPrefix="RDFxml",setSpec="authorities") |
+open-oaipmh(dateFrom="2014-09-03",dateUntil="2014-09-04",metadataPrefix="RDFxml",setSpec="authorities") |
 decode-xml|
 xml-tee | {
         split-xml(entityName="Description",toplevelelement="rdf:RDF")|
