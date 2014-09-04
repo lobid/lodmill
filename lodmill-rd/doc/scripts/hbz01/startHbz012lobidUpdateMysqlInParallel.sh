@@ -1,7 +1,7 @@
 #!/bin/bash
 # parameters:
-#		1.: the branch to be checked out. Defaults to master
-#		2.: suffix to hdfs location, useful if testing. Defaults to nothing.
+#	1.: the branch to be checked out. Defaults to master
+#	2.: suffix to hdfs location, useful if testing. Defaults to nothing.
 
 # Caution if using with a test set:
 # If you want to transform a test set, make sure to give "test" as
@@ -16,7 +16,10 @@
 
 export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 
+cp ../../../src/main/resources/hbz01-to-lobid.flux ./
 FLUX=hbz01-to-lobid.flux
+TMP_FLUX_PARENT="tmpFlux/files/open_data/closed/hbzvk/snapshot/"
+
 # get the newest code and build it
 BRANCH=$1
 if [ -z $BRANCH ]; then
@@ -26,7 +29,7 @@ fi
 echo "Going checkout $BRANCH ..."
 git stash # to avoid possible conflicts
 cd ../../.. ; git checkout $BRANCH ; git pull
-mvn assembly:assembly -DdescriptorId=jar-with-dependencies  -Dwith-DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
+mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies  -Dwith-DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
 
 JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
 echo $JAR
@@ -64,7 +67,8 @@ fi
 
 # find all snapshot XML bz2 clobs directories and make a flux for them
 # first, remove if old are theres:
-rm tmpFlux/files/open_data/closed/hbzvk/snapshot/*.flux
+rm $TMP_FLUX_PARENT/*.flux
+mkdir $TMP_FLUX_PARENT
 find $SNAPSHOT_PATH -maxdepth 1  -type d  -name "$FILE_PATTERN" | parallel --gnu --load 20 "echo {}; sed 's#/files/open_data/closed/hbzvk/snapshot/.*#{}\"\|#g' $FLUX > tmpFlux/{}.$FLUX"
 
 cp ../../../src/main/resources/*.xml  tmpFlux/$SNAPSHOT_PATH
