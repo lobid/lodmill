@@ -84,14 +84,11 @@ public class NTriplesToJsonLd implements Tool {
 	// TODO pass params
 	private static final InetSocketTransportAddress NODE_1 =
 			new InetSocketTransportAddress("193.30.112.171", 9300);
-	private static final InetSocketTransportAddress NODE_2 =
-			new InetSocketTransportAddress("193.30.112.172", 9300);
 	private static final TransportClient TC = new TransportClient(
-			ImmutableSettings.settingsBuilder().put("cluster.name", "lobid-wan")
+			ImmutableSettings.settingsBuilder().put("cluster.name", "quaoar")
 					.put("client.transport.sniff", false)
 					.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
-	private static final Client CLIENT = TC.addTransportAddress(NODE_1)
-			.addTransportAddress(NODE_2);
+	private static final Client CLIENT = TC.addTransportAddress(NODE_1);
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -137,9 +134,10 @@ public class NTriplesToJsonLd implements Tool {
 		setIndexRefreshInterval(CLIENT, "-1");
 		boolean success = job.waitForCompletion(true);
 		if (success) {
-			setIndexRefreshInterval(CLIENT, "1");
 			if (!aliasSuffix.equals("NOALIAS"))
 				updateAliases(indexName, aliasSuffix);
+			setIndexRefreshInterval(CLIENT, "1");
+			client.admin().indices().prepareRefresh(indexName).execute().actionGet();
 		}
 		System.exit(success ? 0 : 1);
 		return 0;
