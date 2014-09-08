@@ -1515,6 +1515,8 @@
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation157769> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2939945/> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s163060> .
@@ -1776,7 +1778,7 @@
 <http://lobid.org/resource/HT006266886> <http://rdvocab.info/Elements/publicationStatement> "Segrate (Milano); Mondadori Video; 1992" .
 <http://lobid.org/resource/HT006266886> <http://rdvocab.info/Elements/statementOfResponsibility> "Regia: Vittorio DeSica. Interpreti: Dominique Sanda ; Lino Capolicchio ; Fabio Testi ; Helmut Berger" .
 <http://lobid.org/resource/HT006266886> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT006266886> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioVisualDocument> .
+<http://lobid.org/resource/HT006266886> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT006266886> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT006266886> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT006266886> .
 <http://lobid.org/resource/HT006266886> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT006266886/about> .
@@ -1924,6 +1926,7 @@
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013911051> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/issued> "2003" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/medium> <http://purl.org/library/CassetteTape> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/AudioDocument> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4050698-8> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/title> "1000 Fotos aus Rothenburg ob der Tauber" .
@@ -1935,7 +1938,7 @@
 <http://lobid.org/resource/HT013911008> <http://rdvocab.info/Elements/placeOfPublication> "Velbert" .
 <http://lobid.org/resource/HT013911008> <http://rdvocab.info/Elements/publicationStatement> "Velbert; Eutropia; 2003" .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/library/CassetteTape> .
+<http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT013911008> .
 <http://lobid.org/resource/HT013911008> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013911008/about> .
@@ -2015,6 +2018,7 @@
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/issued> "1981" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/AudioDocument> .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/mo/Vinyl> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/title> "Kantaten Ostern, Pfingsten" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/lobid/lv#hbzID> "HT014525099" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014525099:DE-1156:AR%20ba%2071> .
@@ -2024,7 +2028,6 @@
 <http://lobid.org/resource/HT014525099> <http://rdvocab.info/Elements/statementOfResponsibility> "Johann Sebastian Bach" .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/PublishedScore> .
-<http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/mo/Vinyl> .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014525099> .
 <http://lobid.org/resource/HT014525099> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014525099/about> .
@@ -2310,7 +2313,7 @@
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/5293676-4> .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/issued> "1757" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/lat> .
-<http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/medium> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/title> "Territorium Seculare Episcopatus Monasterii Munster Germanis dicti. Ubi una cum Episcopatu Osnabr. simul integri Comitatus Bentheim, Steinfurt, Teklenburg, Lingen, Diepholz, Gemen conspiciuntur" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#hbzID> "HT017468042" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017468042:DE-6:RK%2013> .
@@ -2320,7 +2323,6 @@
 <http://lobid.org/resource/HT017468042> <http://rdvocab.info/Elements/statementOfResponsibility> "Mappa publicata per Homannianos Heredes" .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
-<http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT017468042> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017468042/about> .
@@ -2410,6 +2412,7 @@
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/publisher> "Blindenhochschulb\u00FCcherei" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118551655> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/medium> <http://purl.org/library/BrailleBook> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/title> "Mein Kampf" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/lobid/lv#hbzID> "TT001210514" .
@@ -2419,7 +2422,6 @@
 <http://lobid.org/resource/TT001210514> <http://rdvocab.info/Elements/publicationStatement> "Marburg/Lahn; Blindenhochschulb\u00FCcherei" .
 <http://lobid.org/resource/TT001210514> <http://rdvocab.info/Elements/statementOfResponsibility> "von Adolf Hitler" .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/library/BrailleBook> .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
@@ -2436,7 +2438,6 @@
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/TT001197763> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/issued> "1596" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/lat> .
-<http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/medium> <http://iflastandards.info/ns/isbd/terms/mediatype/T1003> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1020> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/title> "Reliqua librorum Friderici II. ... de arte venandi cum avibus" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/lobid/lv#hbzID> "TT001230001" .
@@ -2463,6 +2464,7 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002808565> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/issued> "1990" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4065781-4> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073972-7> .
@@ -2486,7 +2488,6 @@
 <http://lobid.org/resource/TT001671747> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Aschendorff; 1990" .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
-<http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001671747> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001671747/about> .
@@ -2498,6 +2499,7 @@
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/115541802> .
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/issued> "1683" .
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/fra> .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/prodManuscript/1002> .
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/title> "Critique Du Jesuite Secularis\u00E9" .
 <http://lobid.org/resource/TT001726537> <http://purl.org/lobid/lv#hbzID> "TT001726537" .
@@ -2508,7 +2510,6 @@
 <http://lobid.org/resource/TT001726537> <http://rdvocab.info/Elements/publicationStatement> "Cologne [i.e.] Amsterdam; Delpeuck; 1683" .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
-<http://lobid.org/resource/TT001726537> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Manuscript> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001726537> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001726537/about> .
@@ -2532,7 +2533,7 @@
 <http://lobid.org/resource/TT003059252> <http://rdvocab.info/Elements/publicationStatement> "s.l.; Apple Films; 1967" .
 <http://lobid.org/resource/TT003059252> <http://rdvocab.info/Elements/statementOfResponsibility> "The Beatles. Produced and Directed by The Beatles." .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/TT003059252> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/AudioVisualDocument> .
+<http://lobid.org/resource/TT003059252> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT003059252> .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT003059252/about> .
