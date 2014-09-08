@@ -7,8 +7,6 @@ then
 fi
 
 ALIAS=$1
-ES_SERVER=$2
-ES_CLUSTER_NAME=$3
 
 TIME=`date '+%Y%m%d-%H%M%S'`
 
