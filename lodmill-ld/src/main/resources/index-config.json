@@ -18,10 +18,6 @@
 						"filter":[
 							"lowercase"
 						]
-					},
-					"default":{
-						"type":"custom",
-						"tokenizer":"standard"
 					}
 				},
 				"filter":{

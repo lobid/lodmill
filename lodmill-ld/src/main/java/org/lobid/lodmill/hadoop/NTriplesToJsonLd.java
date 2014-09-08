@@ -19,6 +19,7 @@ import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapFile;
@@ -112,14 +113,17 @@ public class NTriplesToJsonLd implements Tool {
 		}
 		conf = getConf();
 		indexName = args[3];
-		final String mapFileName = CollectSubjects.mapFileName(indexName);
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
 		conf.setStrings("target.subject.prefix", args[5]);
-		conf.setStrings("map.file.name", mapFileName);
 		conf.set(INDEX_NAME, indexName);
 		conf.set(INDEX_TYPE, args[4]);
+		final String mapFileName = CollectSubjects.mapFileName(indexName);
+		conf.setStrings("map.file.name", mapFileName);
 		final Job job = Job.getInstance(conf);
-		job.addCacheFile(new Path(mapFileName).toUri());
+		final Path mapFilePath = new Path(mapFileName);
+		if (FileSystem.get(conf).exists(mapFilePath)) {
+			job.addCacheFile(mapFilePath.toUri());
+		}
 		job.setNumReduceTasks(NODES * SLOTS);
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
@@ -136,7 +140,7 @@ public class NTriplesToJsonLd implements Tool {
 		if (success) {
 			if (!aliasSuffix.equals("NOALIAS"))
 				updateAliases(indexName, aliasSuffix);
-			setIndexRefreshInterval(CLIENT, "1");
+			setIndexRefreshInterval(CLIENT, "1000");
 			client.admin().indices().prepareRefresh(indexName).execute().actionGet();
 		}
 		System.exit(success ? 0 : 1);
@@ -312,9 +316,10 @@ public class NTriplesToJsonLd implements Tool {
 		}
 
 		private boolean subjectIsUriToBeCollected(final Triple triple) {
+			String subjectString = triple.getSubject().toString();
 			return triple.getSubject().isURI()
-					&& triple.getSubject().toString()
-							.startsWith(prefix == null ? "" : prefix);
+					&& (subjectString.startsWith(prefix == null ? "" : prefix) //
+					&& !subjectString.endsWith("/about"));
 		}
 
 		private static boolean objectIsUnresolvedBlankNode(final Triple triple) {
