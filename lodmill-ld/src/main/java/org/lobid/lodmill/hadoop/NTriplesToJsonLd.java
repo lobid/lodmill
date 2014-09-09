@@ -33,6 +33,7 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
+import org.elasticsearch.ElasticsearchIllegalStateException;
 import org.elasticsearch.action.admin.cluster.state.ClusterStateRequest;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.index.IndexRequestBuilder;
@@ -113,10 +114,11 @@ public class NTriplesToJsonLd implements Tool {
 		}
 		conf = getConf();
 		indexName = args[3];
+		String indexType = args[4];
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
 		conf.setStrings("target.subject.prefix", args[5]);
 		conf.set(INDEX_NAME, indexName);
-		conf.set(INDEX_TYPE, args[4]);
+		conf.set(INDEX_TYPE, indexType);
 		final String mapFileName = CollectSubjects.mapFileName(indexName);
 		conf.setStrings("map.file.name", mapFileName);
 		final Job job = Job.getInstance(conf);
@@ -136,12 +138,13 @@ public class NTriplesToJsonLd implements Tool {
 		aliasSuffix = args[6];
 		createIndex();
 		setIndexRefreshInterval(CLIENT, "-1");
+		LOG.info(String.format("Process: index %s, type %s", indexName, indexType));
 		boolean success = job.waitForCompletion(true);
 		if (success) {
 			if (!aliasSuffix.equals("NOALIAS"))
 				updateAliases(indexName, aliasSuffix);
-			setIndexRefreshInterval(CLIENT, "1000");
 			client.admin().indices().prepareRefresh(indexName).execute().actionGet();
+			setIndexRefreshInterval(CLIENT, "1000");
 		}
 		System.exit(success ? 0 : 1);
 		return 0;
@@ -391,9 +394,10 @@ public class NTriplesToJsonLd implements Tool {
 			int retries = 40;
 			while (retries > 0) {
 				try {
-					indexRequest.setId(id).setSource(json).execute();
+					indexRequest.setId(id).setSource(json).execute().actionGet();
 					break; // stop retry-while
-				} catch (NoNodeAvailableException | ReceiveTimeoutTransportException e) {
+				} catch (NoNodeAvailableException | ReceiveTimeoutTransportException
+						| ElasticsearchIllegalStateException e) {
 					retries--;
 					try {
 						Thread.sleep(10000);
