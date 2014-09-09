@@ -2277,6 +2277,28 @@
 <http://lobid.org/resource/HT016382441> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016382441/about> .
 <http://lobid.org/resource/HT016382441> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016382441> .
 <http://lobid.org/resource/HT016511663> <http://purl.org/dc/terms/hasFormat> <http://lobid.org/resource/CT003012479> .
+<http://lobid.org/resource/HT016545462/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
+<http://lobid.org/resource/HT016545462/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT016545462> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/publisher> "Heimatverein der Gemeinde Nordkirchen e. V:" .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/issued> "9999" .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042552-6> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4151183-9> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4156127-2> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/title> "Verzeichnis der Geb\u00E4ude und ihrer Eigent\u00FCmer auf dem Gebiet der Altgemeinde Nordkirchen 1805, 1900, 1955 und 2000" .
+<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#hbzID> "HT016545462" .
+<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s503050> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s843060> .
+<http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/placeOfPublication> "Nordkirchen" .
+<http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/publicationStatement> "Nordkirchen; Heimatverein der Gemeinde Nordkirchen e. V:; 9999" .
+<http://lobid.org/resource/HT016545462> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT016545462> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT016545462> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT016545462> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT016545462> .
+<http://lobid.org/resource/HT016545462> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016545462/about> .
+<http://lobid.org/resource/HT016545462> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016545462> .
 <http://lobid.org/resource/HT016608165/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
 <http://lobid.org/resource/HT016608165/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/HT016608165> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "1980" .
