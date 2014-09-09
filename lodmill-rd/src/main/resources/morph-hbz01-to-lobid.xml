@@ -436,10 +436,17 @@
 		</data>
 		<!-- bibliography -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^.[bh]|^..[bh]|^...[bh]" format="http://purl.org/lobid/lv#Bibliography"/>
+			<regexp match="^.[b]|^..[b]|^...[b]" format="http://purl.org/lobid/lv#Bibliography"/>
 		</data>
 		<data source="052." name="@rdftypeAndManifestation">
-			<regexp match="^.b[gi]|^...b[gi]|^.....b[gi]" format="http://purl.org/lobid/lv#Bibliography"/>
+			<regexp match="^.b[i]|^...b[i]|^.....b[i]" format="http://purl.org/lobid/lv#Bibliography"/>
+		</data>
+		<!-- biography -->
+		<data source="051." name="@rdftypeAndManifestation">
+			<regexp match="^.[h]|^..[h]|^...[h]" format="http://purl.org/lobid/lv#Biography"/>
+		</data>
+		<data source="052." name="@rdftypeAndManifestation">
+			<regexp match="^.b[g]|^...b[g]|^.....b[g]" format="http://purl.org/lobid/lv#Biography"/>
 		</data>
 		<!-- festschrift -->
 		<data source="051." name="@rdftypeAndManifestation">
