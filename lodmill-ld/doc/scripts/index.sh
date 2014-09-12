@@ -29,7 +29,8 @@ curl -XPUT "$ES_URL"/_settings -d '{
         "refresh_interval" : "-1"
     } }'
 
-$HADOOP/bin/hadoop jar ../../target/lodmill-ld-*-with-dependencies.jar org.lobid.lodmill.hadoop.IndexFromHdfsInElasticSearch hdfs://10.9.0.10:8020/ $INPUT $ES_SERVER $ES_CLUSTER $INDEX_NAME $INDEX_ALIAS
+JAR=$(ls ../../target/lodmill-ld-*-with-dependencies.jar)
+$HADOOP/bin/hadoop jar $JAR org.lobid.lodmill.hadoop.IndexFromHdfsInElasticSearch hdfs://10.9.0.10:8020/ $INPUT $ES_SERVER $ES_CLUSTER $INDEX_NAME $INDEX_ALIAS
 
 PRINT_TIME ;printf "Start index refreshing $INDEX_NAME ...\n"
 curl -XPUT "$ES_URL"/_settings -d '{
