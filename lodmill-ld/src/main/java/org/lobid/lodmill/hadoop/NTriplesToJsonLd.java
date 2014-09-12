@@ -86,11 +86,14 @@ public class NTriplesToJsonLd implements Tool {
 	// TODO pass params
 	private static final InetSocketTransportAddress NODE_1 =
 			new InetSocketTransportAddress("193.30.112.171", 9300);
+	private static final InetSocketTransportAddress NODE_2 =
+			new InetSocketTransportAddress("193.30.112.172", 9300);
 	private static final TransportClient TC = new TransportClient(
 			ImmutableSettings.settingsBuilder().put("cluster.name", "quaoar")
 					.put("client.transport.sniff", false)
 					.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
-	private static final Client CLIENT = TC.addTransportAddress(NODE_1);
+	private static final Client CLIENT = TC.addTransportAddress(NODE_1)
+			.addTransportAddress(NODE_2);
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -378,6 +381,8 @@ public class NTriplesToJsonLd implements Tool {
 
 		private static void index(final Text key, final Context context,
 				final JsonNode parent, final String json) {
+			CLIENT.admin().cluster().prepareHealth().setWaitForGreenStatus()
+					.execute().actionGet();
 			final String indexType = context.getConfiguration().get(INDEX_TYPE);
 			final IndexRequestBuilder request = CLIENT.prepareIndex(//
 					context.getConfiguration().get(INDEX_NAME), indexType);
@@ -394,7 +399,7 @@ public class NTriplesToJsonLd implements Tool {
 			int retries = 40;
 			while (retries > 0) {
 				try {
-					indexRequest.setId(id).setSource(json).execute().actionGet();
+					indexRequest.setId(id).setSource(json).execute();
 					break; // stop retry-while
 				} catch (NoNodeAvailableException | ReceiveTimeoutTransportException
 						| ElasticsearchIllegalStateException e) {
