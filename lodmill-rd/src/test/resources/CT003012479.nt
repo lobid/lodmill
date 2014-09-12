@@ -55,5 +55,3 @@
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142061166> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/hasVersion> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141927135> .
-<http://lobid.org/resource/CT003012479/about> <http://vocab.deri.ie/void#inDataset> <http://lobid.org/dataset/resource> .
-<http://lobid.org/resource/CT003012479/about> <http://xmlns.com/foaf/0.1/primaryTopic> <http://lobid.org/resource/CT003012479> .
