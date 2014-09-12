@@ -83,11 +83,11 @@
 			<data source="010-1.a|529z1.9|@idTitleSeries"/>
 		</combine>
 		<!-- ####################### -->
-		<!-- ####### provenance -->
+		<!-- ####### provenance not used for now, see https://github.com/lobid/lodmill/issues/541-->
 		<!-- ####################### -->
-		<data source="@idzdb" name="@idzdbProvenance">
+		<!-- <data source="@idzdb" name="@idzdbProvenance">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/>
-		</data>
+		</data> 
 		<data source="@idzdbProvenance" name="~rdf:subject"/>
 		<data source="@idzdb" name="http://xmlns.com/foaf/0.1/primaryTopic">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
@@ -138,7 +138,7 @@
 			<data source="@id" name="id">
 				<regexp match="(.*)" format="${1}"/>
 			</data>
-		</combine>
+		</combine>-->
 		<!-- ####################### -->
 		<!-- ####### Set main subject uri -->
 		<!-- ####################### -->
