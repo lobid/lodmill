@@ -76,14 +76,15 @@ public class NTriplesToJsonLd implements Tool {
 		conf = getConf();
 		final String indexName = args[3];
 		final String mapFileName = CollectSubjects.mapFileName(indexName);
-		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
+		conf.setStrings("mapreduce.output.textoutputformat.separator", NEWLINE);
 		conf.setStrings("target.subject.prefix", args[5]);
 		conf.setStrings("map.file.name", mapFileName);
 		conf.set(INDEX_NAME, indexName);
 		conf.set(INDEX_TYPE, args[4]);
 		final Job job = Job.getInstance(conf);
 		job.addCacheFile(new Path(mapFileName).toUri());
-		job.setNumReduceTasks(NODES * SLOTS);
+		job.setNumReduceTasks(NODES * SLOTS / 2 - 1);
+		job.getConfiguration().setInt("mapred.map.tasks", NODES * SLOTS / 2 - 1);
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
 		FileInputFormat.addInputPaths(job, args[0]);

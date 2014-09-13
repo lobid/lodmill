@@ -17,8 +17,8 @@ SUBJ=$3
 INDEX=$4
 TYPE=$5
 
-$HADOOP/bin/hadoop fs -rmr $TMP
-$HADOOP/bin/hadoop fs -rmr $OUT
-$HADOOP/bin/hadoop fs -rmr *.map
+$HADOOP/bin/hadoop fs -rm -r $TMP
+$HADOOP/bin/hadoop fs -rm -r $OUT
+$HADOOP/bin/hadoop fs -rm -r *.map
 $HADOOP/bin/hadoop org.lobid.lodmill.hadoop.CollectSubjects $IN $TMP $SUBJ $INDEX
 $HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $TMP $OUT $INDEX $TYPE $SUBJ
