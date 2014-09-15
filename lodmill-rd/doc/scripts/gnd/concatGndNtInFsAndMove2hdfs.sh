@@ -2,6 +2,8 @@
 
 # duration: 12 h alone for concat and copying
 
+PATH=$PATH:/opt/hadoop/hadoop/bin
+
 DIR="/files/open_data/closed/gnd/gnd_snapshot/"
 HDFS="hdfs://weywot1.hbz-nrw.de:8020/user/hduser/extlod/gnd/"
 function concat() {
@@ -20,7 +22,7 @@ for i in $(find $DIR -maxdepth 1 -mindepth 1 -type d); do
   concat $i &
   sleep 2
   echo "waiting for load to be sanitized"
-  while [ "$(uptime |cut -d , -f 4|cut -d : -f 2 | cut -d . -f1 )" -ge 3 ]; do
+  while [ "$(uptime |cut -d , -f 4|cut -d : -f 2 | cut -d . -f1 )" -ge 6 ]; do
     printf "."
     sleep 60
   done
