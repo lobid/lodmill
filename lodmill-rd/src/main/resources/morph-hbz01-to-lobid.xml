@@ -83,62 +83,24 @@
 			<data source="010-1.a|529z1.9|@idTitleSeries"/>
 		</combine>
 		<!-- ####################### -->
-		<!-- ####### provenance not used for now, see https://github.com/lobid/lodmill/issues/541-->
+		<!-- ####### provenance not used for now, see https://github.com/lobid/lodmill/issues/541 -->
 		<!-- ####################### -->
-		<!-- <data source="@idzdb" name="@idzdbProvenance">
-			<regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/>
-		</data> 
-		<data source="@idzdbProvenance" name="~rdf:subject"/>
-		<data source="@idzdb" name="http://xmlns.com/foaf/0.1/primaryTopic">
-			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
-		</data>
-		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}/about">
-			<if>
-				<none>
-					<data source="@idzdbProvenance"/>
-				</none>
-			</if>
-			<data source="@id" name="id">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>
-		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}/about">
-			<data source="@idzdb"/>
-			<data source="@id" name="id">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>
-		<data source="@idzdbProvenance" name="http://vocab.deri.ie/void#inDataset">
-			<regexp match=".*" format="http://lobid.org/dataset/resource"/>
-		</data>
-		<combine name="http://vocab.deri.ie/void#inDataset" value="http://lobid.org/dataset/resource">
-			<if>
-				<none>
-					<data source="@idzdbProvenance"/>
-				</none>
-			</if>
-			<data source="@id"/>
-		</combine>
-		<combine name="http://vocab.deri.ie/void#inDataset" value="http://lobid.org/dataset/resource">
-			<data source="@idzdb"/>
-			<data source="@id"/>
-		</combine>
-		<combine name="http://xmlns.com/foaf/0.1/primaryTopic" value="$[ns-lobid-resource]${id}">
-			<if>
-				<none>
-					<data source="@idzdbProvenance"/>
-				</none>
-			</if>
-			<data source="@id" name="id">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>
-		<combine name="http://xmlns.com/foaf/0.1/primaryTopic" value="$[ns-lobid-resource]${id}">
-			<data source="@idzdb"/>
-			<data source="@id" name="id">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>-->
+		<!-- <data source="@idzdb" name="@idzdbProvenance"> <regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/> 
+			</data> <data source="@idzdbProvenance" name="~rdf:subject"/> <data source="@idzdb" name="http://xmlns.com/foaf/0.1/primaryTopic"> 
+			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/> </data> <combine name="~rdf:subject" 
+			value="$[ns-lobid-resource]${id}/about"> <if> <none> <data source="@idzdbProvenance"/> </none> 
+			</if> <data source="@id" name="id"> <regexp match="(.*)" format="${1}"/> </data> </combine> 
+			<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}/about"> <data source="@idzdb"/> 
+			<data source="@id" name="id"> <regexp match="(.*)" format="${1}"/> </data> </combine> <data 
+			source="@idzdbProvenance" name="http://vocab.deri.ie/void#inDataset"> <regexp match=".*" format="http://lobid.org/dataset/resource"/> 
+			</data> <combine name="http://vocab.deri.ie/void#inDataset" value="http://lobid.org/dataset/resource"> 
+			<if> <none> <data source="@idzdbProvenance"/> </none> </if> <data source="@id"/> </combine> 
+			<combine name="http://vocab.deri.ie/void#inDataset" value="http://lobid.org/dataset/resource"> 
+			<data source="@idzdb"/> <data source="@id"/> </combine> <combine name="http://xmlns.com/foaf/0.1/primaryTopic" 
+			value="$[ns-lobid-resource]${id}"> <if> <none> <data source="@idzdbProvenance"/> </none> </if> 
+			<data source="@id" name="id"> <regexp match="(.*)" format="${1}"/> </data> </combine> <combine 
+			name="http://xmlns.com/foaf/0.1/primaryTopic" value="$[ns-lobid-resource]${id}"> <data source="@idzdb"/> 
+			<data source="@id" name="id"> <regexp match="(.*)" format="${1}"/> </data> </combine> -->
 		<!-- ####################### -->
 		<!-- ####### Set main subject uri -->
 		<!-- ####################### -->
@@ -787,19 +749,11 @@
 			<data source="088 ?.c" name="signature"/>
 		</combine>
 		<!-- provenance -->
-		<combine name="~rdf:subject" value="${itemId}/about">
-			<data source="@itemId" name="itemId">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>
-		<data source="@itemId" name="http://vocab.deri.ie/void#inDataset">
-			<regexp match=".*" format="http://lobid.org/dataset/resource"/>
-		</data>
-		<combine name="http://xmlns.com/foaf/0.1/primaryTopic" value="${itemId}">
-			<data source="@itemId" name="itemId">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>
+		<!-- <combine name="~rdf:subject" value="${itemId}/about"> <data source="@itemId" name="itemId"> 
+			<regexp match="(.*)" format="${1}"/> </data> </combine> <data source="@itemId" name="http://vocab.deri.ie/void#inDataset"> 
+			<regexp match=".*" format="http://lobid.org/dataset/resource"/> </data> <combine name="http://xmlns.com/foaf/0.1/primaryTopic" 
+			value="${itemId}"> <data source="@itemId" name="itemId"> <regexp match="(.*)" format="${1}"/> 
+			</data> </combine> -->
 		<!-- set subject uri of resource anew -->
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id|@idzdb" name="subject"/>
