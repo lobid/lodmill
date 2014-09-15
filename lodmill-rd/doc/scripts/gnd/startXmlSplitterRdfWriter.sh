@@ -11,8 +11,6 @@ cd ../../.. ; git pull;  mvn clean assembly:assembly -DskipTests -Dmysql.classif
 
 LODMILL_RD_JAR=$(ls ../../../target/lodmill-rd*jar-with-dependencies.jar)
 
-java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux
-
 # TODO:  copy lobid's flux-commands over metafacture's using maven
 cp ../../../src/main/resources/flux-commands.properties ./
 jar uf $LODMILL_RD_JAR flux-commands.properties
