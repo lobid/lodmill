@@ -4,8 +4,6 @@ package org.lobid.lodmill.hadoop;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -63,7 +61,6 @@ public final class UnitTestLobidNTriplesToJsonLd {
 	private static void setConfiguration(TestDriver<?, ?, ?, ?, ?> driver) {
 		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_NAME, INDEX);
 		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_TYPE, TYPE);
-		driver.getConfiguration().setBoolean(NTriplesToJsonLd.INDEX_DO, false);
 	}
 
 	@Test
@@ -85,21 +82,9 @@ public final class UnitTestLobidNTriplesToJsonLd {
 		// assertion)
 		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
 				TRIPLE_1), new Text(TRIPLE_2), new Text(TRIPLE_3), new Text(TRIPLE_4)));
-		reduceDriver.withOutput(
-				new Text(JSONValue.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
+		reduceDriver.withOutput(new Text(""),
 				new Text(JSONValue.toJSONString(correctJson())));
 		reduceDriver.runTest();
-	}
-
-	static Map<String, Map<?, ?>> indexMap(final String indexName,
-			final String indexType, final String resourceId) {
-		final Map<String, String> map = new HashMap<>();
-		map.put("_index", indexName);
-		map.put("_type", indexType);
-		map.put("_id", resourceId);
-		final Map<String, Map<?, ?>> index = new HashMap<>();
-		index.put("index", map);
-		return index;
 	}
 
 	@SuppressWarnings({ "unchecked" })
@@ -117,6 +102,7 @@ public final class UnitTestLobidNTriplesToJsonLd {
 		obj.put("http://purl.org/dc/terms/creator",
 				Arrays.asList(ImmutableMap.of("@id", "http://d-nb.info/gnd/118643606")));
 		array.add(obj);
-		return new JSONObject(ImmutableMap.of("@graph", array));
+		return new JSONObject(ImmutableMap.of("@graph", array,
+				NTriplesToJsonLd.INTERNAL_ID, TRIPLE_ID)); // FIXME why null?
 	}
 }

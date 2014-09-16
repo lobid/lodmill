@@ -11,9 +11,7 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.URI;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
@@ -30,30 +28,23 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
-import org.elasticsearch.ElasticsearchIllegalStateException;
 import org.elasticsearch.action.admin.cluster.state.ClusterStateRequest;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
-import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.IndicesAdminClient;
 import org.elasticsearch.client.Requests;
-import org.elasticsearch.client.transport.NoNodeAvailableException;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
-import org.elasticsearch.transport.ReceiveTimeoutTransportException;
-import org.json.simple.JSONValue;
+import org.elasticsearch.hadoop.mr.EsOutputFormat;
 import org.lobid.lodmill.JsonLdConverter;
 import org.lobid.lodmill.JsonLdConverter.Format;
 import org.lobid.lodmill.hadoop.CollectSubjects.CollectSubjectsMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Sets;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
@@ -74,7 +65,6 @@ public class NTriplesToJsonLd implements Tool {
 	private static final String NEWLINE = "\n";
 	static final String INDEX_NAME = "index.name";
 	static final String INDEX_TYPE = "index.type";
-	static final String INDEX_DO = "index.do";
 
 	private static final Logger LOG = LoggerFactory
 			.getLogger(NTriplesToJsonLd.class);
@@ -94,6 +84,10 @@ public class NTriplesToJsonLd implements Tool {
 					.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
 	private static final Client CLIENT = TC.addTransportAddress(NODE_1)
 			.addTransportAddress(NODE_2);
+	/** JSON key to use internally to identify the ES parent during indexing. */
+	public static final String INTERNAL_PARENT = "internal_parent";
+	/** JSON key to use internally to identify the ES document during indexing. */
+	public static final String INTERNAL_ID = "internal_id";
 
 	/**
 	 * @param args Generic command-line arguments passed to {@link ToolRunner}.
@@ -122,6 +116,16 @@ public class NTriplesToJsonLd implements Tool {
 		conf.setStrings("target.subject.prefix", args[5]);
 		conf.set(INDEX_NAME, indexName);
 		conf.set(INDEX_TYPE, indexType);
+
+		conf.setBoolean("mapred.map.tasks.speculative.execution", false);
+		conf.setBoolean("mapred.reduce.tasks.speculative.execution", false);
+		conf.set("es.nodes", "193.30.112.171:9200");
+		conf.set("es.resource", indexName + "/" + indexType);
+		conf.set("es.input.json", "yes");
+		conf.set("es.mapping.id", INTERNAL_ID);
+		if (indexType.equals("json-ld-lobid-item"))
+			conf.set("es.mapping.parent", INTERNAL_PARENT);
+
 		final String mapFileName = CollectSubjects.mapFileName(indexName);
 		conf.setStrings("map.file.name", mapFileName);
 		final Job job = Job.getInstance(conf);
@@ -133,7 +137,9 @@ public class NTriplesToJsonLd implements Tool {
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
 		FileInputFormat.addInputPaths(job, args[0]);
-		FileOutputFormat.setOutputPath(job, new Path(args[2]));
+
+		job.setOutputFormatClass(EsOutputFormat.class);
+
 		job.setMapperClass(NTriplesToJsonLdMapper.class);
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
 		job.setOutputKeyClass(Text.class);
@@ -361,58 +367,15 @@ public class NTriplesToJsonLd implements Tool {
 		public void reduce(final Text key, final Iterable<Text> values,
 				final Context context) throws IOException, InterruptedException {
 			final String triples = concatTriples(values);
-			final String jsonLd =
-					new JsonLdConverter(Format.N_TRIPLE).toJsonLd(triples);
-			final JsonNode node =
-					new ObjectMapper().readValue(jsonLd, JsonNode.class);
-			final JsonNode parent =
-					node.findValue(CollectSubjects.PARENTS.iterator().next());
-			final String json = JSONValue.toJSONString(JSONValue.parse(jsonLd));
-			if (context.getConfiguration().getBoolean(INDEX_DO, true)) {
-				index(key, context, parent, json);
-			} else {
-				context.write(
-						// write both with JSONValue for consistent escaping:
-						new Text(JSONValue.toJSONString(createIndexMap(key, context,
-								parent != null ? parent.findValue("@id").asText() : null))),
-						new Text(json));
-			}
-		}
-
-		private static void index(final Text key, final Context context,
-				final JsonNode parent, final String json) {
-			CLIENT.admin().cluster().prepareHealth().setWaitForGreenStatus()
-					.execute().actionGet();
-			final String indexType = context.getConfiguration().get(INDEX_TYPE);
-			final IndexRequestBuilder request = CLIENT.prepareIndex(//
-					context.getConfiguration().get(INDEX_NAME), indexType);
-			if (indexType.equals("json-ld-lobid-item"))
-				request.setParent(parent != null ? parent.findValue("@id").asText()
-						: "none");
 			final String id =
 					key.toString().substring(1, key.toString().length() - 1);
-			execute(request, json, id);
-		}
-
-		private static void execute(IndexRequestBuilder indexRequest, String json,
-				String id) {
-			int retries = 40;
-			while (retries > 0) {
-				try {
-					indexRequest.setId(id).setSource(json).execute();
-					break; // stop retry-while
-				} catch (NoNodeAvailableException | ReceiveTimeoutTransportException
-						| ElasticsearchIllegalStateException e) {
-					retries--;
-					try {
-						Thread.sleep(10000);
-					} catch (InterruptedException x) {
-						x.printStackTrace();
-					}
-					System.err.printf("Retry indexing record %s: %s (%s more retries)\n",
-							id, e.getMessage(), retries);
-				}
-			}
+			final String parentProperty =
+					context.getConfiguration().get("es.mapping.parent") == null ? null
+							: CollectSubjects.PARENTS.iterator().next();
+			final String jsonLd =
+					new JsonLdConverter(Format.N_TRIPLE).toJsonLd(triples,
+							parentProperty, id);
+			context.write(new Text(""), new Text(jsonLd));
 		}
 
 		private static String concatTriples(final Iterable<Text> values) {
@@ -438,20 +401,6 @@ public class NTriplesToJsonLd implements Tool {
 		private static String fixInvalidUriLiterals(Text value) {
 			return value.toString().replaceAll("\"\\s*?(http[s]?://[^\"]+)s*?\"",
 					"<$1>");
-		}
-
-		private static Map<String, Map<?, ?>> createIndexMap(final Text key,
-				final Context context, final String parent) {
-			final Map<String, String> map = new HashMap<>();
-			map.put("_index", context.getConfiguration().get(INDEX_NAME));
-			map.put("_type", context.getConfiguration().get(INDEX_TYPE));
-			map.put("_id", key.toString().substring(1, key.toString().length() - 1));
-			if (context.getConfiguration().get(INDEX_TYPE)
-					.equals("json-ld-lobid-item"))
-				map.put("_parent", parent != null ? parent : "none");
-			final Map<String, Map<?, ?>> index = new HashMap<>();
-			index.put("index", map);
-			return index;
 		}
 	}
 

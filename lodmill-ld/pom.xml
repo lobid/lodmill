@@ -182,6 +182,11 @@
 			<version>1.3.2</version>
 		</dependency>
 		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch-hadoop-mr</artifactId>
+			<version>2.1.0.Beta1</version>
+		</dependency>
+		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>13.0</version>
@@ -201,8 +206,8 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.4</version>
 		</dependency>
-		<!-- 'provided' deps for globel exlusion (are pulled in by jfresnel and jsonld-java), see 
-			http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
+		<!-- 'provided' deps for globel exlusion (are pulled in by jfresnel and 
+			jsonld-java), see http://tarunsapra.wordpress.com/2011/10/08/maven-global-dependency-exclusion/ -->
 		<dependency>
 			<groupId>com.hp.hpl.jena</groupId>
 			<artifactId>jena</artifactId>

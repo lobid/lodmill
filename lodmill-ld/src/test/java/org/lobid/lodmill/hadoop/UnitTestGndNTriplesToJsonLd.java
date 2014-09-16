@@ -4,7 +4,6 @@ package org.lobid.lodmill.hadoop; // NOPMD
 
 import static org.lobid.lodmill.hadoop.UnitTestCollectSubjects.GND_CREATOR_ID;
 import static org.lobid.lodmill.hadoop.UnitTestCollectSubjects.gnd;
-import static org.lobid.lodmill.hadoop.UnitTestLobidNTriplesToJsonLd.indexMap;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -61,7 +60,6 @@ public final class UnitTestGndNTriplesToJsonLd {
 	private static void setConfiguration(final TestDriver<?, ?, ?, ?, ?> driver) {
 		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_NAME, INDEX);
 		driver.getConfiguration().set(NTriplesToJsonLd.INDEX_TYPE, TYPE);
-		driver.getConfiguration().setBoolean(NTriplesToJsonLd.INDEX_DO, false);
 	}
 
 	@Test
@@ -79,8 +77,7 @@ public final class UnitTestGndNTriplesToJsonLd {
 	public void testReducer() throws IOException { // NOPMD (MRUnit)
 		reduceDriver.withInput(new Text(TRIPLE_URI), Arrays.asList(new Text(
 				GND_TRIPLE_1), new Text(GND_TRIPLE_2), new Text(GND_TRIPLE_3)));
-		reduceDriver.withOutput(
-				new Text(JSONValue.toJSONString(indexMap(INDEX, TYPE, TRIPLE_ID))),
+		reduceDriver.withOutput(new Text(""),
 				new Text(JSONValue.toJSONString(correctJson())));
 		reduceDriver.runTest();
 	}
@@ -98,6 +95,7 @@ public final class UnitTestGndNTriplesToJsonLd {
 		obj.put("http://d-nb.info/standards/elementset/gnd#dateOfBirth",
 				Arrays.asList(ImmutableMap.of("@value", "1828")));
 		array.add(obj);
-		return new JSONObject(ImmutableMap.of("@graph", array));
+		return new JSONObject(ImmutableMap.of("@graph", array,
+				NTriplesToJsonLd.INTERNAL_ID, "http://d-nb.info/gnd/118643606"));
 	}
 }
