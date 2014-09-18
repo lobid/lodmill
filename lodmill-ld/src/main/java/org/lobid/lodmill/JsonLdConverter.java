@@ -5,20 +5,23 @@ package org.lobid.lodmill;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+import org.lobid.lodmill.hadoop.NTriplesToJsonLd;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.jsonldjava.core.JsonLdError;
 import com.github.jsonldjava.core.JsonLdOptions;
 import com.github.jsonldjava.core.JsonLdProcessor;
 import com.github.jsonldjava.jena.JenaRDFParser;
 import com.github.jsonldjava.jena.JenaTripleCallback;
 import com.github.jsonldjava.utils.JSONUtils;
-import com.google.common.collect.ImmutableMap;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 
@@ -83,27 +86,61 @@ public class JsonLdConverter {
 	 * @return The input, converted to JSON-LD, or null
 	 */
 	public String toJsonLd(final String rdf) {
+		return toJsonLd(rdf, null, null);
+	}
+
+	/**
+	 * @param rdf The RDF string in this converter's format
+	 * @param parentProperty The property pointing to the parent
+	 * @param id The internal ID to use in ES
+	 * @return The input, converted to JSON-LD, or null
+	 */
+	public String toJsonLd(final String rdf, String parentProperty, String id) {
 		final Model model = ModelFactory.createDefaultModel();
 		model.read(new StringReader(rdf), null, format.getName());
-		return jenaModelToJsonLd(model);
+		return jenaModelToJsonLd(model, parentProperty, id);
 	}
 
 	/**
 	 * @param model The Jena model to serialize as a JSON-LD string
+	 * @param parentProperty The property pointing to the parent
+	 * @param id The internal ID to use in ES
 	 * @return The JSON-LD serialization of the Jena model, or null
 	 */
-	public static String jenaModelToJsonLd(final Model model) {
+	public static String jenaModelToJsonLd(final Model model,
+			String parentProperty, String id) {
 		final JenaRDFParser parser = new JenaRDFParser();
 		try {
 			Object json = JsonLdProcessor.fromRDF(model, new JsonLdOptions(), parser);
 			/* We use the 'expanded' JSON-LD serialization for consistent field types: */
 			json = JsonLdProcessor.expand(json);
 			/* But we wrap it into a "@graph" for elasticsearch (still valid JSON-LD): */
-			return JSONObject.toJSONString(ImmutableMap.of("@graph",
-					(JSONArray) JSONValue.parse(JSONUtils.toString(json))));
+			String jsonString = JSONUtils.toString(json);
+			Map<String, Object> map = new HashMap<>();
+			map.put("@graph", JSONValue.parse(jsonString));
+			addInternalProperties(parentProperty, id, jsonString, map);
+			return JSONObject.toJSONString(map);
 		} catch (JsonLdError e) {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	private static void addInternalProperties(String parentProperty, String id,
+			String jsonString, Map<String, Object> map) {
+		if (parentProperty != null) {
+			try {
+				JsonNode node =
+						new ObjectMapper().readValue(jsonString, JsonNode.class);
+				final JsonNode parent = node.findValue(parentProperty);
+				String p = parent != null ? parent.findValue("@id").asText() : "none";
+				map.put(NTriplesToJsonLd.INTERNAL_PARENT, p);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		if (id != null) {
+			map.put(NTriplesToJsonLd.INTERNAL_ID, id);
+		}
 	}
 }

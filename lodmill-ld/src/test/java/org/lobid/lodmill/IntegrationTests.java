@@ -5,7 +5,6 @@ package org.lobid.lodmill;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.lobid.lodmill.hadoop.IntegrationTestCollectSubjects;
-import org.lobid.lodmill.hadoop.IntegrationTestIndexFromHdfsInElasticSearch;
 import org.lobid.lodmill.hadoop.IntegrationTestLobidNTriplesToJsonLd;
 
 /**
@@ -14,8 +13,7 @@ import org.lobid.lodmill.hadoop.IntegrationTestLobidNTriplesToJsonLd;
  * @author Fabian Steeg (fsteeg)
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({ IntegrationTestIndexFromHdfsInElasticSearch.class,
-		IntegrationTestCollectSubjects.class,
+@Suite.SuiteClasses({ IntegrationTestCollectSubjects.class,
 		IntegrationTestLobidNTriplesToJsonLd.class })
 public final class IntegrationTests {
 	/* Suite class, groups tests via annotation above */
