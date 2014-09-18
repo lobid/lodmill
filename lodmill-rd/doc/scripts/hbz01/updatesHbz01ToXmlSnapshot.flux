@@ -17,7 +17,7 @@ stream-tee | {
         stream-tee | {
                 encode-ntriples |
                 triples-to-rdfmodel(input="N-TRIPLE") |
-                write-rdfmodel-mysql(property="http://purl.org/lobid/lv#hbzID",  dbname="lobid", tablename="resources", username="debian-sys-maint", password="tzSblDEUGC1XhJB7", dbprotocolandadress="jdbc:mysql://localhost:3306/")
+                write-rdfmodel-mysql(property="http://purl.org/lobid/lv#hbzID",  dbname="lobid", tablename="resourcesUpdates", username="debian-sys-maint", password="tzSblDEUGC1XhJB7", dbprotocolandadress="jdbc:mysql://localhost:3306/")
         }{
                 morph(morphDirectory+"morph-nwbibhbz01-buildGeoOsmUrl.xml") |
                 extract-literals |

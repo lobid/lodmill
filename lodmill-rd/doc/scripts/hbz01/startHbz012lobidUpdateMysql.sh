@@ -1,14 +1,14 @@
 #!/bin/bash
 # parameters:
 #	1.: the branch to be checked out. Defaults to master
-#	2.: suffix to hdfs location, discriminate testing, update
-#		and all.
+#	2.: suffix to hdfs location, discriminate "test", "update"
+#		and "all".
+#
 # Caution if using with a test set:
-# If you want to transform a test set, make sure to give "test" as
-# second parameter. Also make sure to use another mysql instance -
-# otherwise the test data will be feeded into production system.
+# If you want to transform a test set, make sure to use another
+# mysql instance - otherwise the test data will be feeded into production system.
 
-#if in "test" or "all" mode:
+# if in "test" or "all" mode:
 # Transform xml MAB2 Clobs single files in parallel.
 # Because the single xml files represents a snapshot, this is fine.
 # - transforms MAB2 XML Clobs into  NTriples
@@ -17,7 +17,8 @@
 # - Transform xml-MAB2-Update-Tar-Clobs sequentially. It is important to not do
 # this in parallel when having multiple files, because older updates could
 # overwrite newer ones.
-# - XMLs are splitted and lonely xml entities copied into fs. There, they reside as base for a new snapshotted update
+# - XMLs are splitted and lonely xml entities copied into fs. There, they reside
+# as base for a new snapshotted update
 
 # for every mode:
 # - sink is a mysql db
@@ -36,12 +37,10 @@ echo "Going checkout $BRANCH ..."
 git stash # to avoid possible conflicts
 cd ../../.. ; git checkout $BRANCH ; git pull
 mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies  -Dwith-DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
-
 JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
 LODMILL_RD_JAR=../../../target/$JAR
 cd -
 cp ../../../src/main/resources/hbz01-to-lobid.flux ./
-FLUX=hbz01-to-lobid.flux
 # TODO should be done with maven: overwrite the flux-command from metafacture with that from lodmill 
 cd ../../../target/ ; cp ../src/main/resources/flux-commands.properties ./; jar uf $JAR flux-commands.properties; cp ../src/main/resources/morph-functions.properties ./ ; jar uf $JAR morph-functions.properties ; mkdir schemata; cp ../src/main/resources/schemata/* schemata/ ; jar uf $JAR schemata/* ; cd -
 cp ../../../src/test/resources/sigel2isilMap.csv ./
@@ -57,6 +56,7 @@ done
 }
 
 function all() {
+FLUX=hbz01-to-lobid.flux
 TMP_FLUX_PARENT="tmpFlux/files/open_data/closed/hbzvk/snapshot/"
 # find all snapshot XML bz2 clobs directories and make a flux for them
 # first, remove if old are theres:
@@ -74,6 +74,8 @@ find tmpFlux -type f -name "*.flux"| parallel --gnu --load 20 "java -classpath c
 function update(){
 FLUX=updatesHbz01ToXmlSnapshot.flux
 UPDATE_FILES_LIST=toBeUpdateFilesXmlClobs.txt
+# drop table first so we will have only the updates
+echo "DROP TABLE resourcesUpdates" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
 for i in $(cat $UPDATE_FILES_LIST); do
 	echo "going to work on $i..."
 	sed -i s#/home/data/demeter/alephxml/clobs/update/.*\"#$i\"#g $FLUX ;
@@ -99,6 +101,7 @@ FILE_PATTERN="[0123456789]*"
 if [ "$2" = "test" ]; then
 	SNAPSHOT_PATH=/files/open_data/closed/hbzvk
 	FILE_PATTERN=test
+	all
 fi
 
 if [ ! -d tmpFlux/$SNAPSHOT_PATH ]; then
@@ -115,7 +118,7 @@ fi
 
 wait_load
 HDFS_FILE="hbzlod/lobid-resources-$2/resources-dump.nt"
-echo $HDFS_FILE
+echo "Dumping to $HDFS_FILE ..."
 
 exit
 hadoop fs -rm $HDFS_FILE
