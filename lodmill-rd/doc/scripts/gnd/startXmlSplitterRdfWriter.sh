@@ -7,9 +7,10 @@
 # and the fulldump as a base is to be splitted and stored as single files.
 
 # get the newest code and build it
-cd ../../.. ; git pull;  mvn clean assembly:assembly; cd -
+cd ../../.. ; git pull;  mvn clean assembly:assembly -DskipTests -Dmysql.classifier=linux-x86 -Dmysql.port=33061; cd -
 
-LODMILL_RD_JAR=../../../target/lodmill-rd-*-jar-with-dependencies.jar
+LODMILL_RD_JAR=$(ls ../../../target/lodmill-rd*jar-with-dependencies.jar)
+
 # TODO:  copy lobid's flux-commands over metafacture's using maven
 cp ../../../src/main/resources/flux-commands.properties ./
 jar uf $LODMILL_RD_JAR flux-commands.properties
