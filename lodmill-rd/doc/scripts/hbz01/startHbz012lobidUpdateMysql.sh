@@ -1,7 +1,7 @@
 #!/bin/bash
 # parameters:
 #	1.: the branch to be checked out. Defaults to master
-#	2.: suffix (case snesitive!) to hdfs location, discriminate:
+#	2.: suffix (case sensitive!) to hdfs location, discriminate:
 #		"Test", "Updates" and "All".
 #
 # Caution if using with a test set:
