@@ -1,7 +1,7 @@
 default files = FLUX_DIR;
 morphDirectory = files+"../../../src/main/resources/";
 
-"/home/data/demeter/alephxml/clobs/update/20140818_20140819.tar.bz2"|
+"/home/data/demeter/alephxml/clobs/update/20140907_20140908.tar.bz2"|
 open-file(compression="BZIP2") |
 open-tar|
 decode-xml |
@@ -12,7 +12,7 @@ xml-tee | {
         handle-mabxml |
         morph(morphDirectory+"morph-hbz01-to-lobid.xml") |
 stream-tee | {
-        encode-stats(filename="tmp.stats.csv")
+        encode-stats(filename="logStats/tmp.stats.csv.20140907_20140908")
 }{
         stream-tee | {
                 encode-ntriples |

@@ -1,19 +1,19 @@
 #!/bin/bash
 # parameters:
 #	1.: the branch to be checked out. Defaults to master
-#	2.: suffix to hdfs location, discriminate "test", "update"
-#		and "all".
+#	2.: suffix (case snesitive!) to hdfs location, discriminate:
+#		"Test", "Updates" and "All".
 #
 # Caution if using with a test set:
 # If you want to transform a test set, make sure to use another
 # mysql instance - otherwise the test data will be feeded into production system.
 
-# if in "test" or "all" mode:
+# if in "Test" or "All" mode:
 # Transform xml MAB2 Clobs single files in parallel.
 # Because the single xml files represents a snapshot, this is fine.
 # - transforms MAB2 XML Clobs into  NTriples
 
-# if in "update" mode:
+# if in "Updates" mode:
 # - Transform xml-MAB2-Update-Tar-Clobs sequentially. It is important to not do
 # this in parallel when having multiple files, because older updates could
 # overwrite newer ones.
@@ -24,17 +24,21 @@
 # - sink is a mysql db
 # - mysql dumps into hdfs
 
+function usage(){
+	printf "Usage: `basename $0` BRANCH {Test|Updates|All}\n"
+	exit 65
+}
+
 if [ $# -ne 2 ]
 then
-  printf "Usage: `basename $0` BRANCH {test|update|all}\n"
-  exit 65
+	usage
 fi
 BRANCH=$1
 
 export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 
 echo "Going checkout $BRANCH ..."
-git stash # to avoid possible conflicts
+#git stash # to avoid possible conflicts
 cd ../../.. ; git checkout $BRANCH ; git pull
 mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies  -Dwith-DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
 JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
@@ -58,6 +62,10 @@ done
 function all() {
 FLUX=hbz01-to-lobid.flux
 TMP_FLUX_PARENT="tmpFlux/files/open_data/closed/hbzvk/snapshot/"
+if [ ! -d tmpFlux/$SNAPSHOT_PATH ]; then 
+        echo "mkdir tmpFlux/$SNAPSHOT_PATH"
+        mkdir -p tmpFlux/$SNAPSHOT_PATH 
+fi 
 # find all snapshot XML bz2 clobs directories and make a flux for them
 # first, remove if old are theres:
 rm $TMP_FLUX_PARENT/*.flux
@@ -98,23 +106,16 @@ wait_load
 
 SNAPSHOT_PATH=/files/open_data/closed/hbzvk/snapshot/
 FILE_PATTERN="[0123456789]*"
-if [ "$2" = "test" ]; then
+if [ "$2" = "Test" ]; then
 	SNAPSHOT_PATH=/files/open_data/closed/hbzvk
 	FILE_PATTERN=test
 	all
-fi
-
-if [ ! -d tmpFlux/$SNAPSHOT_PATH ]; then
-	echo "mkdir tmpFlux/$SNAPSHOT_PATH"
-	mkdir -p tmpFlux/$SNAPSHOT_PATH 
-fi
-
-if [ "$2" = "update" ]; then
+else if [ "$2" = "Updates" ]; then
 	update
-fi
-if [ "$2" = "all" ]; then
+else if [ "$2" = "All" ]; then
 	all
-fi
+else usage
+fi; fi; fi
 
 wait_load
 HDFS_FILE="hbzlod/lobid-resources-$2/resources-dump.nt"
@@ -122,4 +123,4 @@ echo "Dumping to $HDFS_FILE ..."
 
 hadoop fs -rm $HDFS_FILE
 date
-time bash -x mysql_bash.sh | hadoop dfs -put - $HDFS_FILE
+time bash -x mysql_bash.sh $2 | hadoop dfs -put - $HDFS_FILE
