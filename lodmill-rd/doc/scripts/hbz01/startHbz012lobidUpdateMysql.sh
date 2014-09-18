@@ -75,7 +75,7 @@ cp ../../../src/main/resources/*.xml  tmpFlux/$SNAPSHOT_PATH
 #always use the newest morph. TODO: should be copied via maven.
 jar xf $LODMILL_RD_JAR  ../../../src/main/resources/morph-hbz01-to-lobid.xml
 # drop old table => no framgmentation
-echo "DROP TABLE resources" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
+echo "DROP TABLE resourcesAll" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
 find tmpFlux -type f -name "*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {}" # does not work: -Djava.util.logging.config.file=/home/lod/lobid-resources/logging.properties 
 }
 
