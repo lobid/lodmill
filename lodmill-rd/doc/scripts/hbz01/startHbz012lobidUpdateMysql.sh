@@ -120,7 +120,6 @@ wait_load
 HDFS_FILE="hbzlod/lobid-resources-$2/resources-dump.nt"
 echo "Dumping to $HDFS_FILE ..."
 
-exit
 hadoop fs -rm $HDFS_FILE
 date
 time bash -x mysql_bash.sh | hadoop dfs -put - $HDFS_FILE
