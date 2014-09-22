@@ -103,17 +103,17 @@ public class NTriplesToJsonLd implements Tool {
 
 	@Override
 	public int run(String[] args) throws Exception {
-		if (args.length != 7) {
+		if (args.length != 5) {
 			System.err
 					.println("Usage: NTriplesToJsonLd"
-							+ " <input path> <subjects path> <output path> <index name> <index type> <target subjects prefix> <index alias suffix>");
+							+ " <input path> <index name> <index type> <target subjects prefix> <index alias suffix>");
 			System.exit(-1);
 		}
 		conf = getConf();
-		indexName = args[3];
-		String indexType = args[4];
+		indexName = args[1];
+		String indexType = args[2];
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
-		conf.setStrings("target.subject.prefix", args[5]);
+		conf.setStrings("target.subject.prefix", args[3]);
 		conf.set(INDEX_NAME, indexName);
 		conf.set(INDEX_TYPE, indexType);
 
@@ -144,7 +144,7 @@ public class NTriplesToJsonLd implements Tool {
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
-		aliasSuffix = args[6];
+		aliasSuffix = args[4];
 		createIndex();
 		setIndexRefreshInterval(CLIENT, "-1");
 		LOG.info(String.format("Process: index %s, type %s", indexName, indexType));

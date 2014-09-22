@@ -103,6 +103,6 @@ public final class UnitTestLobidNTriplesToJsonLd {
 				Arrays.asList(ImmutableMap.of("@id", "http://d-nb.info/gnd/118643606")));
 		array.add(obj);
 		return new JSONObject(ImmutableMap.of("@graph", array,
-				NTriplesToJsonLd.INTERNAL_ID, TRIPLE_ID)); // FIXME why null?
+				NTriplesToJsonLd.INTERNAL_ID, TRIPLE_ID));
 	}
 }

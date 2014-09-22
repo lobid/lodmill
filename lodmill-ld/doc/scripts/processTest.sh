@@ -21,13 +21,10 @@ cd  "$THIS"
 
 TIME=`date '+%Y%m%d-%H%M%S'`
 
-GND=output/json-ld-gnd
 INDEX_NAME=gnd-$TIME
-sh convert.sh extlod/gnd-test/ $GND http://d-nb.info/gnd $INDEX_NAME json-ld-gnd "-smallTest"
+sh convert.sh extlod/gnd-test/ http://d-nb.info/gnd $INDEX_NAME json-ld-gnd "-smallTest"
 
 INDEX_NAME=lobid-resources-$TIME
-RESOURCES=output/json-ld-lobid-resources-test
-sh convert.sh hbzlod/lobid-resourcestest/,extlod/dewey_preprocessed.nt,extlod/gnd-test/gndTest.nt $RESOURCES http://lobid.org/resource $INDEX_NAME json-ld-lobid NOALIAS COLLECT # no alias, index not ready yet, needs items from below
+sh convert.sh hbzlod/lobid-resourcestest/,extlod/dewey_preprocessed.nt,extlod/gnd-test/gndTest.nt http://lobid.org/resource $INDEX_NAME json-ld-lobid NOALIAS COLLECT # no alias, index not ready yet, needs items from below
 
-ITEMS=output/json-ld-lobid-items-test
-sh convert.sh hbzlod/lobid-resourcestest/ $ITEMS http://lobid.org/item $INDEX_NAME json-ld-lobid-item "-smallTest"
+sh convert.sh hbzlod/lobid-resourcestest/ $ITEMS http://lobid.org/item json-ld-lobid-item "-smallTest"
