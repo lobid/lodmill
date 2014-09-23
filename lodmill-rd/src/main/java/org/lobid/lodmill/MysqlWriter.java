@@ -134,7 +134,7 @@ public final class MysqlWriter extends
 			stmt = conn.createStatement();
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS " + this.tablename + " ( "
 					+ this.columnId + " VARCHAR(128), PRIMARY KEY (" + this.columnId
-					+ ")," + this.columnData + " VARCHAR(128) )");
+					+ ")," + this.columnData + " VARCHAR(128) ) ENGINE=MYISAM");
 			if (stmt != null) {
 				try {
 					stmt.close();
