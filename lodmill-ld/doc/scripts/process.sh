@@ -29,7 +29,7 @@ INDEX_NAME=gnd-$TIME
 sh convert.sh extlod/gnd/ http://d-nb.info/gnd $INDEX_NAME json-ld-gnd "$ALIAS"
 
 INDEX_NAME=lobid-resources-$TIME
-sh convert.sh hbzlod/lobid-resources/,extlod/gnd/,extlod/dewey_preprocessed.nt,enrich/ http://lobid.org/resource $INDEX_NAME json-ld-lobid NOALIAS COLLECT
+sh convert.sh hbzlod/lobid-resources-All/,extlod/gnd/,extlod/dewey_preprocessed.nt,enrich/ http://lobid.org/resource $INDEX_NAME json-ld-lobid NOALIAS COLLECT
 
 INDEX_NAME=lobid-resources-$TIME
-sh convert.sh hbzlod/lobid-resources/ http://lobid.org/item $INDEX_NAME json-ld-lobid-item "$ALIAS"
+sh convert.sh hbzlod/lobid-resources-All/ http://lobid.org/item $INDEX_NAME json-ld-lobid-item "$ALIAS"

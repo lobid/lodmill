@@ -159,7 +159,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		StringBuilder sb = new StringBuilder();
 		try {
 			PreparedStatement ps =
-					modelWriter.conn.prepareStatement("SELECT * FROM resources ");
+					modelWriter.conn.prepareStatement("SELECT * FROM resourcesAll ");
 			ResultSet res = ps.executeQuery();
 
 			while (res.next()) {
@@ -190,7 +190,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		RdfModelMysqlWriter modelWriter = new RdfModelMysqlWriter();
 		modelWriter.setProperty("http://purl.org/lobid/lv#hbzID");
 		modelWriter.setDbname(DB_DBNAME);
-		modelWriter.setTablename("resources");
+		modelWriter.setTablename("resourcesAll");
 		modelWriter.setUsername("debian-sys-maint");
 		modelWriter.setPassword(DB_PASSWORD);
 		modelWriter.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
