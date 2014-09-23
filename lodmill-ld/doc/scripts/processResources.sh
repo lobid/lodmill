@@ -10,10 +10,8 @@ ALIAS=$1
 
 TIME=`date '+%Y%m%d-%H%M%S'`
 
-RESOURCES=output/json-ld-lobid-resources
 INDEX_NAME=lobid-resources-$TIME
-sh convert.sh hbzlod/lobid-resources-All/,extlod/gnd/,extlod/dewey_preprocessed.nt,enrich/ $RESOURCES http://lobid.org/resource $INDEX_NAME json-ld-lobid NOALIAS COLLECT
+sh convert.sh hbzlod/lobid-resources-All/,extlod/gnd/,extlod/dewey_preprocessed.nt,enrich/ http://lobid.org/resource $INDEX_NAME json-ld-lobid NOALIAS COLLECT
 
-ITEMS=output/json-ld-lobid-items
 INDEX_NAME=lobid-resources-$TIME
-sh convert.sh hbzlod/lobid-resources-All/ $ITEMS http://lobid.org/item $INDEX_NAME json-ld-lobid-item "$ALIAS"
+sh convert.sh hbzlod/lobid-resources-All/ http://lobid.org/item $INDEX_NAME json-ld-lobid-item "$ALIAS"
