@@ -86,7 +86,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		// lookup and parse OSM API URL
 		final LiteralExtractor literalExtractor = new LiteralExtractor();
 		morphCreateOsmURl.setReceiver(literalExtractor);
-		final HttpOpener httpOpener = new HttpOpener();
+		final HttpOpener httpOpener = getJsonHttpOpener();
 		final JsonDecoder jsonOsmDecoder = new JsonDecoder();
 		literalExtractor.setReceiver(httpOpener);
 		httpOpener.setReceiver(jsonOsmDecoder);
@@ -111,7 +111,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		// Geonames API lookup
 		// lookup geonames with generated URL
 		final LiteralExtractor literalExtractorGeonames = new LiteralExtractor();
-		final HttpOpener geonamesHttpOpener = new HttpOpener();
+		final HttpOpener geonamesHttpOpener = getJsonHttpOpener();
 		final JsonDecoder jsonGeonamesDecoder = new JsonDecoder();
 		morphOSM.setReceiver(literalExtractorGeonames);
 		literalExtractorGeonames.setReceiver(geonamesHttpOpener);
@@ -137,6 +137,12 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		return modelWriter;
 	}
 
+	private static HttpOpener getJsonHttpOpener() {
+		final HttpOpener httpOpener = new HttpOpener();
+		httpOpener.setAccept("application/json");
+		return httpOpener;
+	}
+
 	private static MysqlWriter createMysqlWriter(String tableName) {
 		MysqlWriter sqlWriterOsmUrl = new MysqlWriter();
 		sqlWriterOsmUrl.setDbname(DB_DBNAME);
@@ -153,7 +159,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		StringBuilder sb = new StringBuilder();
 		try {
 			PreparedStatement ps =
-					modelWriter.conn.prepareStatement("SELECT * FROM resources ");
+					modelWriter.conn.prepareStatement("SELECT * FROM resourcesAll ");
 			ResultSet res = ps.executeQuery();
 
 			while (res.next()) {
@@ -184,7 +190,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		RdfModelMysqlWriter modelWriter = new RdfModelMysqlWriter();
 		modelWriter.setProperty("http://purl.org/lobid/lv#hbzID");
 		modelWriter.setDbname(DB_DBNAME);
-		modelWriter.setTablename("resources");
+		modelWriter.setTablename("resourcesAll");
 		modelWriter.setUsername("debian-sys-maint");
 		modelWriter.setPassword(DB_PASSWORD);
 		modelWriter.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);

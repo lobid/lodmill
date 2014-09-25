@@ -154,9 +154,6 @@ public class CollectSubjects implements Tool {
 	static final class CollectSubjectsMapper extends
 			Mapper<LongWritable, Text, Text, Text> {
 
-		private static final String DEWEY = "http://dewey.info/class";
-		private static final String DEWEY_SUFFIX = "2009/08/about.en";
-
 		private String prefix;
 
 		@Override
@@ -174,8 +171,7 @@ public class CollectSubjects implements Tool {
 			final Triple triple = asTriple(val);
 			if (shouldProcess(triple)) {
 				final String subject = getSubject(val, triple, context.getInputSplit());
-				final String object =
-						preprocess(getObject(val, triple, context.getInputSplit()));
+				final String object = getObject(val, triple, context.getInputSplit());
 				LOG.debug(String.format(
 						"Collecting ID found in object position (%s) of subject (%s)",
 						object, subject));
@@ -188,6 +184,7 @@ public class CollectSubjects implements Tool {
 					&& triple.getSubject().isURI()
 					&& triple.getSubject().toString()
 							.startsWith(prefix == null ? "" : prefix)
+					&& !triple.getSubject().toString().endsWith("/about")
 					&& TO_RESOLVE.contains(triple.getPredicate().toString())
 					&& (triple.getObject().isBlank() || triple.getObject().isURI());
 		}
@@ -202,10 +199,6 @@ public class CollectSubjects implements Tool {
 				final InputSplit inputSplit) {
 			return triple.getObject().isBlank() ? blankObjectLabel(val, inputSplit)
 					: triple.getObject().toString();
-		}
-
-		private static String preprocess(final String object) {
-			return object.contains(DEWEY) ? object + DEWEY_SUFFIX : object;
 		}
 
 		static Triple asTriple(final String val) {
