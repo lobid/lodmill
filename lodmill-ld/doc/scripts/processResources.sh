@@ -6,6 +6,7 @@ then
   exit 65
 fi
 
+export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 ALIAS=$1
 SET=$2
 
