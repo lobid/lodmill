@@ -2,7 +2,7 @@
 
 SOURCE_ROOT="/files/open_data/closed/"
 SOURCE_PATH=$SOURCE_ROOT/hbzvk/snapshot
-TARGET=/files/open_data/closed/hbzvk/test/
+TARGET=/files/open_data/closed/hbzvk/Test/Test1
 TMP_FILE=testIdsTmp.txt
 
 # hbz
@@ -19,23 +19,23 @@ done
 #gnd
 echo "building gnd test set ..."
 ITEM_FILE_NT="gndTest.nt"
-SOURCE_PATH_ITEM="$SOURCE_ROOT/gnd/gnd_snapshot"
-HDFS_FILE="extlod/gnd-test/$ITEM_FILE_NT"
-TARGET_ITEM="/files/open_data/closed/gnd/gnd_snapshot/test/$ITEM_FILE_NT"
-rm $TARGET_ITEM
+SOURCE_PATH_GND="$SOURCE_ROOT/gnd/gnd_snapshot"
+HDFS_FILE="extlod/gnd-Test/$ITEM_FILE_NT"
+TARGET_GND="/files/open_data/closed/gnd/Test/$ITEM_FILE_NT"
+rm $TARGET_GND
 hadoop fs -rm $HDFS_FILE
 
 # include all gnd id's of the data which was just build
-for i in $(ls /files/open_data/closed/hbzvk/test/); do
-	a=$(bzcat  /files/open_data/closed/hbzvk/test/$i | tr '>' '\n' | sed -n 's#^(DE-588)\(.*\)</sub.*#\1#p' )
+for i in $(ls $TARGET); do
+	a=$(bzcat  $TARGET/$i | tr '>' '\n' | sed -n 's#^(DE-588)\(.*\)</sub.*#\1#p' )
 	for aa in $a; do
 		echo "$i has gnd id $aa"
 		b=$(echo $aa | sed 's#^\(...\).*#\1#g')
-		cat $SOURCE_PATH_ITEM/$b/$aa.nt >> $TARGET_ITEM
+		cat $SOURCE_PATH_GND/$b/$aa.nt >> $TARGET_GND
 	done
 done
 
 # done with gnd already - nothing to transform and convert
-cat $TARGET_ITEM |  hadoop dfs -put - $HDFS_FILE
+cat $TARGET_GND |  hadoop dfs -put - $HDFS_FILE
 # manually copy gnd resource
-cat  $SOURCE_PATH_ITEM/170/1706733-9.nt |  hadoop dfs -put - extlod/gnd-test/1706733-9.nt
+cat  $SOURCE_PATH_GND/170/1706733-9.nt |  hadoop dfs -put - extlod/gnd-Test/1706733-9.nt
