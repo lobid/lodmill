@@ -64,14 +64,13 @@ fi
 # first, remove the old ones:
 rm $TMP_FLUX_PARENT/*.flux
 mkdir $TMP_FLUX_PARENT
- echo "pchbz1 $SNAPSHOT_PATH";
 find $SNAPSHOT_PATH -maxdepth 1  -type d  -name "$FILE_PATTERN" | parallel --gnu --load 20 "echo {}; sed  's#/files/open_data/closed/hbzvk/snapshot/.*#{}\"\|#g' $FLUX > tmpFlux/{}.$FLUX"
 cp ../../../src/main/resources/*.xml  tmpFlux/$SNAPSHOT_PATH
 #always use the newest morph. TODO: should be copied via maven.
 jar xf $LODMILL_RD_JAR  ../../../src/main/resources/morph-hbz01-to-lobid.xml
 # drop old table => no framgmentation
 echo "DROP TABLE resources$SET" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
-find tmpFlux -type f -name "*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {}" # does not work: -Djava.util.logging.config.file=/home/lod/lobid-resources/logging.properties 
+find tmpFlux -type f -name "$FILE_PATTERN"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {}" # does not work: -Djava.util.logging.config.file=/home/lod/lobid-resources/logging.properties 
 }
 
 function update(){
@@ -103,7 +102,7 @@ SNAPSHOT_PATH=/files/open_data/closed/hbzvk/snapshot/
 FILE_PATTERN="[0123456789]*"
 if [ "$SET" = "Test" ]; then
 	SNAPSHOT_PATH=/files/open_data/closed/hbzvk/Test
-	FILE_PATTERN="Test1"
+	FILE_PATTERN="Test1*"
 	sed -i 's#tablename="resourcesAll"#tablename="resourcesTest"#g' $FLUX
 	all
 else if [ "$SET" = "Updates" ]; then
