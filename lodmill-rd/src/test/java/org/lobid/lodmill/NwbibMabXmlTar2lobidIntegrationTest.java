@@ -16,7 +16,6 @@ import org.culturegraph.mf.stream.converter.LiteralExtractor;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.StreamTee;
 import org.culturegraph.mf.stream.source.FileOpener;
-import org.culturegraph.mf.stream.source.HttpOpener;
 import org.junit.Test;
 
 /**
