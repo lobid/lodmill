@@ -8,7 +8,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<target.jdk>1.6</target.jdk>
 		<junit.version>4.8.2</junit.version>
-		<mysql.classifier>linux-amd64</mysql.classifier>
 	</properties>
 	<repositories>
 		<repository>
