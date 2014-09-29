@@ -1136,13 +1136,9 @@
 		<!-- emit field for other pipelined morphs -->
 		<data source="@nwbib700_99_cleaned" name="nwbib700_99"/>
 		<data source="@nwbib700_99" name="@nwbib700_99_cleaned">
-			<replace pattern="&lt;" with=""/>
-			<replace pattern="&gt;" with=""/>
-			<replace pattern="-" with=""/>
-			<replace pattern="," with=""/>
-			<replace pattern="/" with=""/>
-			<replace pattern="\(" with=""/>
-			<replace pattern="\)" with=""/>
+			<replace pattern="/" with="%20"/>
+			<replace pattern="\(" with="%20"/>
+			<replace pattern="\)" with="%20"/>
 		</data>
 		<data source="@nwbib700_99_cleaned" name="@nwbib700_99_id">
 			<replace pattern=" " with=""/>

@@ -500,6 +500,11 @@
 <http://lobid.org/item/HT015894164:DE-Tr5:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Tr5> .
 <http://lobid.org/item/HT015894164:DE-Tr5:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT015894164:DE-Tr5:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT015894164:DE-Tr5:/about> .
+<http://lobid.org/item/HT016135351:DE-6:2C%208876> <http://purl.org/ontology/daia/label> "2C 8876" .
+<http://lobid.org/item/HT016135351:DE-6:2C%208876> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT016135351> .
+<http://lobid.org/item/HT016135351:DE-6:2C%208876> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
+<http://lobid.org/item/HT016135351:DE-6:2C%208876> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT016135351:DE-6:2C%208876> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT016135351:DE-6:2C%208876/about> .
 <http://lobid.org/item/HT016382441:DE-1044:11%20=%20TWR5408%2B1> <http://purl.org/ontology/daia/label> "11 = TWR5408+1" .
 <http://lobid.org/item/HT016382441:DE-1044:11%20=%20TWR5408%2B1> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT016382441> .
 <http://lobid.org/item/HT016382441:DE-1044:11%20=%20TWR5408%2B1> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-1044> .
@@ -1033,6 +1038,26 @@
 <http://lobid.org/item/ZDB6211-x:DE-Bo133:Z%20848> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Bo133> .
 <http://lobid.org/item/ZDB6211-x:DE-Bo133:Z%20848> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/ZDB6211-x:DE-Bo133:Z%20848> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/ZDB6211-x:DE-Bo133:Z%20848/about> .
+<http://lobid.org/resource/BT000002852> <http://iflastandards.info/ns/isbd/elements/P1053> "46 S. : Ill., Kt." .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/4018466-3> .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/issued> "1989" .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4018466-3> .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4020517-4> .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/title> "Stadt Freudenberg" .
+<http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#hbzID> "BT000002852" .
+<http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
+<http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/otherTitleInformation> "wechselvolle Geschichte" .
+<http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/placeOfPublication> "Freudenberg" .
+<http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/publicationStatement> "Freudenberg; 1989" .
+<http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/statementOfResponsibility> "[Hrsg.: Stadt Freudenberg, Der Stadtdirektor]" .
+<http://lobid.org/resource/BT000002852> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/BT000002852> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/BT000002852> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000002852> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000002852> .
+<http://lobid.org/resource/BT000002852> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000002852/about> .
+<http://lobid.org/resource/BT000002852> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000002852> .
 <http://lobid.org/resource/BT000003404> <http://iflastandards.info/ns/isbd/elements/P1053> "Kt." .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/publisher> "Reise- u. Verkehrsverl." .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/BT000100437> .
@@ -1061,6 +1086,22 @@
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000003404> .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000003404/about> .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/bibliographicCitation> "Wirtschaftsspiegel. - 38 (1983) H. 7, S. 24-25 : 1 Abb." .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10880724X> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007751353> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/issued> "1983" .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/title> "Das Portrait einer Region: Kreis Coesfeld." .
+<http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#hbzID> "BT000041593" .
+<http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s543000> .
+<http://lobid.org/resource/BT000041593> <http://rdvocab.info/Elements/publicationStatement> "1983" .
+<http://lobid.org/resource/BT000041593> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/BT000041593> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/BT000041593> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000041593> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000041593> .
+<http://lobid.org/resource/BT000041593> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000041593/about> .
+<http://lobid.org/resource/BT000041593> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000041593> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/bibliographicCitation> "Kiebitz. - 6 (1986), S. 29-36, S. 63-67" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118033948> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006990419> .
@@ -1734,6 +1775,29 @@
 <http://lobid.org/resource/HT015894164> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015894164> .
 <http://lobid.org/resource/HT015894164> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015894164/about> .
 <http://lobid.org/resource/HT015894164> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015894164> .
+<http://lobid.org/resource/HT016135351> <http://id.loc.gov/vocabulary/relators/pht> <http://d-nb.info/gnd/186931808> .
+<http://lobid.org/resource/HT016135351> <http://iflastandards.info/ns/isbd/elements/P1053> "32 gez. S. : \u00FCberw. Ill." .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/publisher> "Selbstverl." .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/186931808> .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/issued> "2006" .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/7684863-2> .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/title> "Lutter-Wasserm\u00FChle Roberg" .
+<http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#hbzID> "HT016135351" .
+<http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s708029> .
+<http://lobid.org/resource/HT016135351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016135351:DE-6:2C%208876> .
+<http://lobid.org/resource/HT016135351> <http://rdvocab.info/Elements/otherTitleInformation> "Zeitzeuge und Kleinod in Harsewinkel" .
+<http://lobid.org/resource/HT016135351> <http://rdvocab.info/Elements/placeOfPublication> "Marienfeld" .
+<http://lobid.org/resource/HT016135351> <http://rdvocab.info/Elements/publicationStatement> "Marienfeld; Selbstverl.; 2006" .
+<http://lobid.org/resource/HT016135351> <http://rdvocab.info/Elements/statementOfResponsibility> "[Hemut Buchmann" .
+<http://lobid.org/resource/HT016135351> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT016135351> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT016135351> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT016135351> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT016135351> .
+<http://lobid.org/resource/HT016135351> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016135351/about> .
+<http://lobid.org/resource/HT016135351> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016135351> .
 <http://lobid.org/resource/HT016382441> <http://iflastandards.info/ns/isbd/elements/P1053> "1 DVD-ROM (12 cm)" .
 <http://lobid.org/resource/HT016382441> <http://iflastandards.info/ns/isbd/elements/P1053> "418 S. : zahlr. Ill., graph. Darst." .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/publisher> "Wiley-VCH" .
