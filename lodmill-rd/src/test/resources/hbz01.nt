@@ -1108,6 +1108,8 @@
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/node2640704225> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2939945/> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s163060> .
