@@ -1120,14 +1120,19 @@
 		</combine>
 		<!-- geo enrichment nwbib 99 -->
 		<!-- emit field for other pipelined morphs -->
-		<data source="@nwbib700_99_cleaned" name="nwbib700_99"/>
-		<data source="@nwbib700_99" name="@nwbib700_99_cleaned">
-			<replace pattern="/" with="%20"/>
-			<replace pattern="\(" with="%20"/>
-			<replace pattern="\)" with="%20"/>
-		</data>
-		<data source="@nwbib700_99_cleaned" name="@nwbib700_99_id">
+		<data source="@nwbib700_99" name="nwbib700_99"/>
+		<data source="@nwbib700_99" name="http://purl.org/dc/elements/1.1/coverage"/>
+		<!-- any changes here must be also done in morph which builds nominatim URL! -->
+		<data source="@nwbib700_99" name="@nwbib700_99_id">
+			<replace pattern="/" with=""/>
+			<replace pattern="\(" with=""/>
+			<replace pattern="\)" with=""/>
 			<replace pattern=" " with=""/>
+			<replace pattern="&lt;" with=""/>
+			<replace pattern="&gt;" with=""/>
+			<replace pattern="-" with=""/>
+			<replace pattern="," with=""/>
+			<replace pattern="/" with=""/>
 		</data>
 		<data source="@nwbib700_99_id" name="@geonamesId">
 			<lookup in="placesGeonames"/>
