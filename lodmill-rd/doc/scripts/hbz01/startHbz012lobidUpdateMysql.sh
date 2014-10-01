@@ -78,7 +78,7 @@ FLUX=updatesHbz01ToXmlSnapshot.flux
 UPDATE_FILES_LIST=toBeUpdateFilesXmlClobs.txt
 for i in $(cat $UPDATE_FILES_LIST); do
 	echo "going to work on $i..."
-	sed -i s#/home/data/demeter/alephxml/clobs/update/.*\"#$i\"#g $FLUX ;
+	sed -i s#/files/open_data/closed/hbzvk/index.hbz-nrw.de/alephxml/clobs/updates/.*\"#$i\"#g $FLUX ;
 	sed -i s#tmp.stats.csv.*#tmp.stats.csv.$(basename $i .tar.bz2)\"\)#g $FLUX;
 	wait_load
 	java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux $FLUX

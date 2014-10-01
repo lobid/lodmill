@@ -1,7 +1,7 @@
 default files = FLUX_DIR;
 morphDirectory = files+"../../../src/main/resources/";
 
-"/home/data/demeter/alephxml/clobs/update/20140907_20140908.tar.bz2"|
+"/files/open_data/closed/hbzvk/index.hbz-nrw.de/alephxml/clobs/updates/20140907_20140908.tar.bz2"|
 open-file(compression="BZIP2") |
 open-tar|
 decode-xml |
