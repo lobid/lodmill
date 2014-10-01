@@ -1122,9 +1122,7 @@
 <http://lobid.org/resource/BT000100437> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/BT000003404> .
 <http://lobid.org/resource/BT000100437> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/abstract> "Erinnerungen an d. 1. FC K\u00F6ln u. Borussia M\u00F6nchengladbach" .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "1996; S. 101-[108]" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "Nach dem Spiel ist vor dem Spiel : die wunderbare Welt des Fu\u00DFballs / Wolfgang Frank (Hg.); Orig.-Ausg.; 1996; S. 101-[108]" .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "Nach dem Spiel ist vor dem Spiel : die wunderbare Welt des Fu\u00DFballs / Wolfgang Frank (Hg.); S. 101-[108]" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/174423330> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007138775> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
@@ -1254,6 +1252,7 @@
 <http://lobid.org/resource/HT001898812> <http://iflastandards.info/ns/isbd/elements/P1053> "XVIII, 1306 S." .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/publisher> "Verl. Enzyklop\u00E4die [u.a.]" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/alternative> "Wie\u0142ki slownik polsko-niemiecki" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/bibliographicCitation> "Erschienen: Bd. 1 - 2" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124515312> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/177005009> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001381485> .
@@ -1674,9 +1673,7 @@
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015183529> .
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015183529/about> .
 <http://lobid.org/resource/HT015183529> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015183529> .
-<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "2002; S. 80 - 93" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "Medien und Terrorismus; Christian Schicha ... (Hg.); 2002; S. 80 - 93" .
-<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "Medien und Terrorismus; S. 80 - 93" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11075851X> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/122021878> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/186186193> .
@@ -1866,8 +1863,6 @@
 <http://lobid.org/resource/HT016545462> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT016545462> .
 <http://lobid.org/resource/HT016545462> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016545462/about> .
 <http://lobid.org/resource/HT016545462> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016545462> .
-<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "1980" .
-<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "M\u00E9lodies" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "M\u00E9lodies; Claude Debussy; 1980" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119080389> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118524186> .
@@ -1912,7 +1907,6 @@
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT017468042> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017468042/about> .
 <http://lobid.org/resource/HT017468042> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT017468042> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "34 (2014),1, S. 14-15" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "<<Der>> Gie\u00DFerjunge; 34 (2014),1, S. 14-15" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007072426> .
