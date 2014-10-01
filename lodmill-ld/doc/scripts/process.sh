@@ -17,7 +17,7 @@ INDEX_NAME=nwbib-$TIME
 sh convert.sh hbzlod/nwbib/nwbib-spatial.nt http://purl.org/lobid/nwbib-spatial $INDEX_NAME json-ld-nwbib-spatial "$ALIAS"
 
 INDEX_NAME=lobid-organisations-$TIME
-sh convert.sh hbzlod/lobid-organisations/ http://lobid.org/organisation $INDEX_NAME json-ld-lobid-orgs "$ALIAS"
+sh convert.sh hbzlod/lobid-organisations/ http://lobid.org/organisation $INDEX_NAME json-ld-lobid-orgs "$ALIAS" COLLECT
 
 INDEX_NAME=lobid-team-$TIME
 sh convert.sh hbzlod/lobid-team http://lobid.org/team $INDEX_NAME json-ld-lobid-team "$ALIAS"

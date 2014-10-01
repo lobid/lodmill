@@ -1075,7 +1075,7 @@
 		<!-- ########## source , isPartOf -->
 		<!-- ####################### -->
 		<concat delimiter="; " name="http://purl.org/dc/terms/bibliographicCitation">
-			<data source="5[29][0123568][-abcd][-1].a"/>
+			<data source="5[29][0123568][-abcd][-12].a"/>
 		</concat>
 		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
 		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
@@ -1085,20 +1085,6 @@
 		<data source="599s[-1].a" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
-		<combine name="http://purl.org/dc/terms/bibliographicCitation" value="${biblioConcat}"
-			sameEntity="true">
-			<concat delimiter="; " name="biblioConcat">
-				<data source="596[-abc][-12].a"/>
-				<data source="595-[-12].a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/dc/terms/bibliographicCitation" value="${biblioConcat}"
-			sameEntity="true">
-			<concat delimiter="; " name="biblioConcat">
-				<data source="590-[-12].a"/>
-				<data source="596[-abc][-12].a"/>
-			</concat>
-		</combine>
 		<combine name="http://purl.org/dc/elements/1.1/isPartOf" value="${isPartOfLiteral}">
 			<if>
 				<none>
