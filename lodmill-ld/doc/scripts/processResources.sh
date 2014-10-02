@@ -29,5 +29,6 @@ echo "done resources!"
 time sh convert.sh hbzlod/lobid-resources-$SET/ http://lobid.org/item $INDEX_NAME json-ld-lobid-item "$ALIAS"
 echo "done items!"
 
-curl -L 'http://lobid.org/resource?author=118580604&owner=DE-5,DE-6' > /dev/null
+curl -L 'http://api.lobid.org/resource?author=118580604&owner=DE-5,DE-6' > /dev/null
+curl -L 'http://staging.api.lobid.org/resource?author=118580604&owner=DE-5,DE-6' > /dev/null
 echo "done owner warm-up"
