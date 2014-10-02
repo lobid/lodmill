@@ -106,6 +106,16 @@
 					"index":"not_analyzed",
 					"index_analyzer":"id_analyzer"
 				},
+				"@graph.http://purl.org/lobid/lv#zdbID.@value":{
+					"type":"string",
+					"index":"not_analyzed",
+					"index_analyzer":"id_analyzer"
+				},
+				"@graph.http://purl.org/lobid/lv#urn.@value":{
+					"type":"string",
+					"index":"not_analyzed",
+					"index_analyzer":"id_analyzer"
+				},
 				"@graph.@id":{
 					"type":"string",
 					"index_analyzer":"id_analyzer",
