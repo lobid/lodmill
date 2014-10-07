@@ -2,7 +2,11 @@
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1">
 	<rules>	<!-- NRW geoLocation -->
-		<data source="nwbib700_99" name="@nwbib700_99_lexeme">
+		<data source="nwbib700_99" name="@nwbib700_99_id">
+			<replace pattern=" " with=""/>
+			<replace pattern="/" with=""/>
+			<replace pattern="\(" with=""/>
+			<replace pattern="\)" with=""/>
 			<replace pattern=" " with=""/>
 			<replace pattern="&lt;" with=""/>
 			<replace pattern="&gt;" with=""/>
@@ -10,7 +14,7 @@
 			<replace pattern="," with=""/>
 			<replace pattern="/" with=""/>
 		</data>
-		<data source="@nwbib700_99_lexeme" name="@osmTypeAndId">
+		<data source="@nwbib700_99_id" name="@osmTypeAndId">
 			<lookup in="osmTypeAndId"/>
 		</data>
 		<combine name="@url" value="${query}">
@@ -35,7 +39,7 @@
 					<data source="@osmTypeAndId"/>
 				</none>
 			</if>
-			<data source="@nwbib700_99_lexeme" name="id"/>
+			<data source="@nwbib700_99_id" name="id"/>
 			<data source="@url" name="url"/>
 		</combine>
 		<data source="nwbib700_99" name="@url_1">
@@ -44,7 +48,7 @@
 		</data>
 		<data source="@url_1" name="@url"/>
 		<!-- /geoLocation -->
-		<data source="@nwbib700_99_lexeme" name="@geonamesId">
+		<data source="@nwbib700_99_id" name="@geonamesId">
 			<lookup in="placesGeonames"/>
 		</data>
 	</rules>

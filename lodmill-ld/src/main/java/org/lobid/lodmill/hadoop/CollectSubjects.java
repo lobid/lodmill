@@ -184,6 +184,7 @@ public class CollectSubjects implements Tool {
 					&& triple.getSubject().isURI()
 					&& triple.getSubject().toString()
 							.startsWith(prefix == null ? "" : prefix)
+					&& !triple.getSubject().toString().endsWith("/about")
 					&& TO_RESOLVE.contains(triple.getPredicate().toString())
 					&& (triple.getObject().isBlank() || triple.getObject().isURI());
 		}

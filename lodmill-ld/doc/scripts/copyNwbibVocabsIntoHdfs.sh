@@ -4,6 +4,7 @@
 # - get the vocabs turtle from github
 # - transform that to ntriples
 # - put that into hdfs
+export PATH="$PATH:/opt/hadoop/hadoop/bin/"
  
 function getFileAndCopy2Hdfs() {
         rapper -i turtle https://raw.github.com/lobid/vocabs/master/$1.ttl -o ntriples  | hadoop dfs -put - hbzlod/lobid-vocab/$1.nt

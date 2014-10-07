@@ -29,7 +29,9 @@ import org.culturegraph.mf.framework.annotations.Out;
 import org.slf4j.LoggerFactory;
 
 /**
- * Opens a {@link URLConnection} and passes a reader to the receiver.
+ * Opens a {@link URLConnection} and passes a reader to the receiver. If the URL
+ * connection eturns a HTTP status code of 420 the programm waits for some
+ * seconds before going on.
  * 
  * @author Christoph Böhme
  * @author Jan Schnasse
@@ -44,6 +46,7 @@ public final class HttpOpener extends
 		org.culturegraph.mf.stream.source.Opener {
 	private String encoding = "UTF-8";
 	private String accept = "*/*";
+	private final long MILLISECONDS_TO_WAIT = 5000L;
 
 	/**
 	 * @param accept The accept header in the form type/subtype, e.g. text/plain.
@@ -73,8 +76,17 @@ public final class HttpOpener extends
 			}
 			getReceiver().process(new InputStreamReader(con.getInputStream(), enc));
 		} catch (IOException e) {
-			LoggerFactory.getLogger(DirReader.class).error(
-					"Problems with URL '" + urlStr + "'", e);
+			LoggerFactory.getLogger(HttpOpener.class).error(
+					"Problems with URL '" + urlStr + "'", e.getLocalizedMessage());
+			if (e.getLocalizedMessage().contains("420")) {
+				try {
+					LoggerFactory.getLogger(HttpOpener.class).info(
+							"Wait for " + MILLISECONDS_TO_WAIT / 1000 + " sec.");
+					Thread.sleep(MILLISECONDS_TO_WAIT);
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+			}
 		}
 	}
 }

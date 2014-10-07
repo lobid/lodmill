@@ -1,6 +1,7 @@
 #!/bin/bash
 # description: when called, get an etherpad page (hopefully valid turtle)
 # and transform that to ntriples. Copy that to hdfs and index into SPARQL endpoint.
+export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 
 ETHERPAD_PAGE=$1
 DATASET=$2

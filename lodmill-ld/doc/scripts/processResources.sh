@@ -1,25 +1,34 @@
 #!/bin/sh
-# parameter 3 defines the index alias. If not given resp. just as ""
-# no suffix is appended. Usage example: "-staging".
 
-if [ $# -lt 2 ]
+if [ ! $# -eq 2 ]
 then
-  echo "Usage: `basename $0` ES-SERVER ES-CLUSTER [ALIAS]"
+  echo "Usage: `basename $0` ALIAS {"All","Updates"}"
   exit 65
 fi
 
-ES_SERVER=$1
-ES_CLUSTER=$2
-ALIAS=$3
+export PATH="$PATH:/opt/hadoop/hadoop/bin/"
+ALIAS=$1
+SET=$2
 
 TIME=`date '+%Y%m%d-%H%M%S'`
 
-RESOURCES=output/json-ld-lobid-resources
 INDEX_NAME=lobid-resources-$TIME
-sh convert.sh hbzlod/lobid-resources/,extlod/gnd/,extlod/dewey_preprocessed.nt,enrich/ $RESOURCES http://lobid.org/resource $INDEX_NAME json-ld-lobid
-sh index.sh $RESOURCES $ES_SERVER $ES_CLUSTER NOALIAS $INDEX_NAME & # no alias, index not ready yet, needs items from below
+if [ $SET = "Updates" ]; then
+        INDEX_NAME=$ALIAS
+fi
 
-ITEMS=output/json-ld-lobid-items
-INDEX_NAME=lobid-resources-$TIME
-sh convert.sh hbzlod/lobid-resources/ $ITEMS http://lobid.org/item $INDEX_NAME json-ld-lobid-item
-sh index.sh $ITEMS $ES_SERVER $ES_CLUSTER "$ALIAS" $INDEX_NAME
+HDFS_FILE="hbzlod/lobid-resources-$SET/resources-dump.nt"
+echo "Dumping to $HDFS_FILE ..."
+hadoop fs -rm $HDFS_FILE
+time bash -x mysqlDumpTable.sh $SET | hadoop dfs -put - $HDFS_FILE
+echo "done dumping!"
+
+time sh convert.sh hbzlod/lobid-resources-$SET/,extlod/gnd/,extlod/dewey_preprocessed.nt,enrich/ http://lobid.org/resource $INDEX_NAME json-ld-lobid NOALIAS COLLECT
+echo "done resources!"
+
+time sh convert.sh hbzlod/lobid-resources-$SET/ http://lobid.org/item $INDEX_NAME json-ld-lobid-item "$ALIAS"
+echo "done items!"
+
+curl -L 'http://api.lobid.org/resource?author=118580604&owner=DE-5,DE-6' > /dev/null
+curl -L 'http://staging.api.lobid.org/resource?author=118580604&owner=DE-5,DE-6' > /dev/null
+echo "done owner warm-up"
