@@ -2,6 +2,7 @@ package org.lobid.lodmill;
 
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import org.culturegraph.mf.exceptions.MetafactureException;
@@ -38,6 +39,7 @@ public final class ElasticsearchReader extends
 	private String hostname;
 	private String clustername;
 	private String indexname;
+	private int hits = 100;
 	private TransportClient transportClient;
 
 	/**
@@ -67,6 +69,15 @@ public final class ElasticsearchReader extends
 		this.indexname = indexname;
 	}
 
+	/**
+	 * Sets the size of the result set .
+	 * 
+	 * @param size the size of the result set fetched at once
+	 */
+	public void setIndexname(final int size) {
+		this.hits = size;
+	}
+
 	@Override
 	public void process(String ignore) {
 		if (hostname == null || clustername == null || indexname == null) {
@@ -78,34 +89,48 @@ public final class ElasticsearchReader extends
 		TimeValue timeValue = TimeValue.timeValueHours(20);
 		SearchResponse scrollResp =
 				transportClient.prepareSearch(indexname).setSearchType(SearchType.SCAN)
-						.setScroll(timeValue).setQuery(qb).setSize(1000).execute()
+						.setScroll(timeValue).setQuery(qb).setSize(hits).execute()
 						.actionGet();
+		int cnt = 1;
+		Calendar cal = Calendar.getInstance();
+		long lastTime = cal.getTimeInMillis();
 		while (true) {
 			scrollResp =
 					transportClient.prepareSearchScroll(scrollResp.getScrollId())
 							.setScroll(timeValue).execute().actionGet();
 			try {
+				System.out.println("Stop getting dox at point of seconds: "
+						+ getDuration(lastTime));
+				System.out.println("Start metafacturing results starting at hit: "
+						+ cnt);
 				java.util.Iterator<SearchHit> hitIt = scrollResp.getHits().iterator();
 				while (hitIt.hasNext()) {
+
 					SearchHit hit = hitIt.next();
-					System.out.println(hit.getSource().get("mabXml").toString());
-					// getReceiver().process(response.getScrollId());
 					getReceiver().process(
 							new StringReader(hit.getSource().get("mabXml").toString()));
 				}
 			} catch (MetafactureException e) {
 				LoggerFactory.getLogger(ElasticsearchReader.class).error(
 						"Problems with elasticsearch, index '" + indexname
-								+ "', with scroll ID '" + scrollResp.getScrollId() + "'", e);
+								+ "' at doc number '" + cnt + "'", e);
 				getReceiver().closeStream();
 				break;
 			}
+			System.out.println("Metafactured results at point of seconds: "
+					+ getDuration(lastTime));
+			cnt += hits;
 			// Break condition: No hits are returned
 			if (scrollResp.getHits().getHits().length == 0) {
 				getReceiver().closeStream();
 				break;
 			}
 		}
+	}
+
+	private static int getDuration(long lastTime) {
+		Calendar cal = Calendar.getInstance();
+		return (int) ((cal.getTimeInMillis() - lastTime) / 1000);
 	}
 
 	private void initClient() {
