@@ -12,13 +12,14 @@ import org.culturegraph.mf.framework.annotations.Description;
 import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
 import org.culturegraph.mf.stream.source.Opener;
+import org.elasticsearch.ElasticsearchException;
+import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.ImmutableSettings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.common.unit.TimeValue;
-import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.slf4j.Logger;
@@ -39,8 +40,14 @@ public final class ElasticsearchReader extends
 	private String hostname;
 	private String clustername;
 	private String indexname;
-	private int hits = 100;
+	private int batchSize = 10;
+	private int from = 0;
+	private int to = Integer.MAX_VALUE;
 	private TransportClient transportClient;
+	private SearchResponse response;
+	private SearchRequestBuilder searchRequestBuilder;
+	private final long lastTime = Calendar.getInstance().getTimeInMillis();
+	private int shards;
 
 	/**
 	 * Sets the elasticsearch hostname
@@ -72,10 +79,37 @@ public final class ElasticsearchReader extends
 	/**
 	 * Sets the size of the result set .
 	 * 
-	 * @param size the size of the result set fetched at once
+	 * @param batchSize the size of the result set fetched at once
 	 */
-	public void setIndexname(final int size) {
-		this.hits = size;
+	public void setBatchSize(final int batchSize) {
+		this.batchSize = batchSize;
+	}
+
+	/**
+	 * Sets start of range of the result set .
+	 * 
+	 * @param from the beginning of the range of the result set
+	 */
+	public void setFrom(final int from) {
+		this.from = from;
+	}
+
+	/**
+	 * Sets which shards should be searched May be comma separated list .
+	 * 
+	 * @param shards the beginning of the range of the result set
+	 */
+	public void setShards(final int shards) {
+		this.shards = shards;
+	}
+
+	/**
+	 * Sets end of range of the result set .
+	 * 
+	 * @param to the end of the range of the result set
+	 */
+	public void setTo(final int to) {
+		this.to = to;
 	}
 
 	@Override
@@ -84,56 +118,12 @@ public final class ElasticsearchReader extends
 			LOG.error("Pass 3 params: <hostname> <clustername> <indexname>");
 			return;
 		}
-		initClient();
-		QueryBuilder qb = QueryBuilders.matchAllQuery();
-		TimeValue timeValue = TimeValue.timeValueHours(20);
-		SearchResponse scrollResp =
-				transportClient.prepareSearch(indexname).setSearchType(SearchType.SCAN)
-						.setScroll(timeValue).setQuery(qb).setSize(hits).execute()
-						.actionGet();
-		int cnt = 1;
-		Calendar cal = Calendar.getInstance();
-		long lastTime = cal.getTimeInMillis();
-		while (true) {
-			scrollResp =
-					transportClient.prepareSearchScroll(scrollResp.getScrollId())
-							.setScroll(timeValue).execute().actionGet();
-			try {
-				System.out.println("Stop getting dox at point of seconds: "
-						+ getDuration(lastTime));
-				System.out.println("Start metafacturing results starting at hit: "
-						+ cnt);
-				java.util.Iterator<SearchHit> hitIt = scrollResp.getHits().iterator();
-				while (hitIt.hasNext()) {
-
-					SearchHit hit = hitIt.next();
-					getReceiver().process(
-							new StringReader(hit.getSource().get("mabXml").toString()));
-				}
-			} catch (MetafactureException e) {
-				LoggerFactory.getLogger(ElasticsearchReader.class).error(
-						"Problems with elasticsearch, index '" + indexname
-								+ "' at doc number '" + cnt + "'", e);
-				getReceiver().closeStream();
-				break;
-			}
-			System.out.println("Metafactured results at point of seconds: "
-					+ getDuration(lastTime));
-			cnt += hits;
-			// Break condition: No hits are returned
-			if (scrollResp.getHits().getHits().length == 0) {
-				getReceiver().closeStream();
-				break;
-			}
-		}
+		initScrollSearch();
+		logStatus();
+		harvestAndProcess();
 	}
 
-	private static int getDuration(long lastTime) {
-		Calendar cal = Calendar.getInstance();
-		return (int) ((cal.getTimeInMillis() - lastTime) / 1000);
-	}
-
-	private void initClient() {
+	private void initScrollSearch() {
 		transportClient =
 				new TransportClient(ImmutableSettings.settingsBuilder()
 						.put("cluster.name", clustername)
@@ -141,6 +131,54 @@ public final class ElasticsearchReader extends
 						.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
 		transportClient.addTransportAddress(new InetSocketTransportAddress(
 				hostname, 9300));
+		response =
+				transportClient.prepareSearch(indexname).setSearchType(SearchType.SCAN)
+						.setPreference("_shards:" + shards)
+						.setScroll(TimeValue.timeValueHours(20))
+						.setQuery(QueryBuilders.matchAllQuery()).setExplain(false)
+						.setSize(batchSize).execute().actionGet();
+	}
 
+	private void logStatus() {
+		LOG.info("Amount of shards: "
+				+ transportClient.prepareSearch(indexname).execute().actionGet()
+						.getTotalShards());
+		LOG.info("Starting querying from doc number: " + from + " to doc number "
+				+ to);
+		LOG.info("Starting querying amount of docs: " + (to - from)
+				+ " in partitions of " + batchSize);
+	}
+
+	private void harvestAndProcess() throws ElasticsearchException {
+		int cnt = 0;
+		while (true) {
+			try {
+
+				response =
+						transportClient.prepareSearchScroll(response.getScrollId())
+								.setScroll("1s").execute().actionGet();
+				java.util.Iterator<SearchHit> hitIt = response.getHits().iterator();
+				while (hitIt.hasNext()) {
+					getReceiver().process(
+							new StringReader(hitIt.next().getSource().get("mabXml")
+									.toString()));
+					cnt++;
+				}
+			} catch (MetafactureException e) {
+				LOG.error("Problems with elasticsearch, index '" + indexname
+						+ "' at doc number '" + response.getTotalShards() * cnt + "'", e);
+				getReceiver().closeStream();
+				break;
+			}
+			System.out.println(cnt);
+
+			LOG.info("Doc pos: - " + (cnt + from) + " ,sec:"
+					+ ((Calendar.getInstance().getTimeInMillis() - lastTime) / 1000));
+			// Break condition: No hits are returned or range is exceeded
+			if (response.getHits().getHits().length == 0 || cnt >= to - from) {
+				getReceiver().closeStream();
+				break;
+			}
+		}
 	}
 }
