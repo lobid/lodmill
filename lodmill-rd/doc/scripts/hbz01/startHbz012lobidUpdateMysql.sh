@@ -20,7 +20,7 @@
 # - sink is a mysql db
 
 function usage(){
-	printf "Usage: `basename $0` BRANCH {Test|Updates|All}\n"
+	printf "Usage: `basename $0` BRANCH {Test|Updates|All|AllES}\n"
 	exit 65
 }
 
@@ -36,7 +36,7 @@ export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 echo "Going checkout $BRANCH ..."
 #git stash # to avoid possible conflicts
 cd ../../.. ; git checkout $BRANCH ; git pull
-mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies  -DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
+#mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies  -DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
 JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
 LODMILL_RD_JAR=../../../target/$JAR
 cd -
@@ -45,6 +45,8 @@ cp ../../../src/main/resources/hbz01-to-lobid.flux ./
 cd ../../../target/ ; cp ../src/main/resources/flux-commands.properties ./; jar uf $JAR flux-commands.properties; cp ../src/main/resources/morph-functions.properties ./ ; jar uf $JAR morph-functions.properties ; mkdir schemata; cp ../src/main/resources/schemata/* schemata/ ; jar uf $JAR schemata/* ; cd -
 cp ../../../src/main/resources/sigel2isilMap.csv ./
 cp ../../../src/main/resources/iso639xToIso639-3-Map.tsv ./
+cp ../../../src/main/resources/*.xml ./
+jar xf $LODMILL_RD_JAR  ../../../src/main/resources/morph-hbz01-to-lobid.xml
 
 function wait_load() {
 # wait if load exceeds maximum
@@ -52,6 +54,15 @@ while [ "$(uptime |cut -d , -f 4|cut -d : -f 2 | cut -d . -f1 )" -ge 7 ]; do
 	printf "."
 	sleep 60
 done
+}
+
+function allES() {
+# use as template:
+cp ../../../src/main/resources/hbz01ES-to-lobid.flux ./
+# drop old table => no framgmentation
+echo "DROP TABLE resources" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
+echo "create table resources (identifier VARCHAR (20), PRIMARY KEY (identifier), data MEDIUMTEXT) ENGINE=INNODB" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
+find .  -type f -name "hbz01ES-to-lobid_*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {} >log/{}.log 2>&1"
 }
 
 function all() {
@@ -109,5 +120,7 @@ else if [ "$SET" = "Updates" ]; then
 	update
 else if [ "$SET" = "All" ]; then
 	all
+else if [ "$SET" = "AllES" ]; then
+       allES
 else usage
-fi; fi; fi
+fi; fi; fi; fi
