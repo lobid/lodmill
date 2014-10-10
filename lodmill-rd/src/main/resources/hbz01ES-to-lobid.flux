@@ -1,7 +1,7 @@
 default files = FLUX_DIR;
 
 "" |
-read-elasticsearch(clustername="quaoar", hostname="193.30.112.171", indexname="hbz01", batchsize="100", from="100", to="1500", shards="1") |
+read-elasticsearch(clustername="quaoar", hostname="193.30.112.172", indexname="hbz01", batchsize="1000", shards="0,1,2,3,4") |
 decode-xml |
 handle-mabxml |
 morph(files+"morph-hbz01-to-lobid.xml") |

@@ -13,7 +13,6 @@ import org.culturegraph.mf.framework.annotations.In;
 import org.culturegraph.mf.framework.annotations.Out;
 import org.culturegraph.mf.stream.source.Opener;
 import org.elasticsearch.ElasticsearchException;
-import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.client.transport.TransportClient;
@@ -41,13 +40,11 @@ public final class ElasticsearchReader extends
 	private String clustername;
 	private String indexname;
 	private int batchSize = 10;
-	private int from = 0;
 	private int to = Integer.MAX_VALUE;
 	private TransportClient transportClient;
 	private SearchResponse response;
-	private SearchRequestBuilder searchRequestBuilder;
 	private final long lastTime = Calendar.getInstance().getTimeInMillis();
-	private int shards;
+	private String shards;
 
 	/**
 	 * Sets the elasticsearch hostname
@@ -77,7 +74,8 @@ public final class ElasticsearchReader extends
 	}
 
 	/**
-	 * Sets the size of the result set .
+	 * Sets the size of the result set . Will be multiplicated with number of
+	 * shards.
 	 * 
 	 * @param batchSize the size of the result set fetched at once
 	 */
@@ -86,20 +84,11 @@ public final class ElasticsearchReader extends
 	}
 
 	/**
-	 * Sets start of range of the result set .
-	 * 
-	 * @param from the beginning of the range of the result set
-	 */
-	public void setFrom(final int from) {
-		this.from = from;
-	}
-
-	/**
 	 * Sets which shards should be searched May be comma separated list .
 	 * 
 	 * @param shards the beginning of the range of the result set
 	 */
-	public void setShards(final int shards) {
+	public void setShards(final String shards) {
 		this.shards = shards;
 	}
 
@@ -143,20 +132,17 @@ public final class ElasticsearchReader extends
 		LOG.info("Amount of shards: "
 				+ transportClient.prepareSearch(indexname).execute().actionGet()
 						.getTotalShards());
-		LOG.info("Starting querying from doc number: " + from + " to doc number "
-				+ to);
-		LOG.info("Starting querying amount of docs: " + (to - from)
-				+ " in partitions of " + batchSize);
+		LOG.info("Starting querying in partitions of "
+				+ (batchSize * response.getTotalShards()));
 	}
 
 	private void harvestAndProcess() throws ElasticsearchException {
 		int cnt = 0;
 		while (true) {
 			try {
-
 				response =
 						transportClient.prepareSearchScroll(response.getScrollId())
-								.setScroll("1s").execute().actionGet();
+								.setScroll("1h").execute().actionGet();
 				java.util.Iterator<SearchHit> hitIt = response.getHits().iterator();
 				while (hitIt.hasNext()) {
 					getReceiver().process(
@@ -166,16 +152,14 @@ public final class ElasticsearchReader extends
 				}
 			} catch (MetafactureException e) {
 				LOG.error("Problems with elasticsearch, index '" + indexname
-						+ "' at doc number '" + response.getTotalShards() * cnt + "'", e);
+						+ "' at doc number '" + cnt + "'", e);
 				getReceiver().closeStream();
 				break;
 			}
-			System.out.println(cnt);
-
-			LOG.info("Doc pos: - " + (cnt + from) + " ,sec:"
+			LOG.info("Doc " + cnt + " ,sec:"
 					+ ((Calendar.getInstance().getTimeInMillis() - lastTime) / 1000));
 			// Break condition: No hits are returned or range is exceeded
-			if (response.getHits().getHits().length == 0 || cnt >= to - from) {
+			if (response.getHits().getHits().length == 0 || cnt >= to) {
 				getReceiver().closeStream();
 				break;
 			}
