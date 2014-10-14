@@ -1021,6 +1021,171 @@
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
+		<!-- ############ schlagwortketten #### -->
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="902-1.[cfgkpstz-]"/>
+				<data source="903-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="907-1.[cfgkpstz-]"/>
+				<data source="908-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="912-1.[cfgkpstz-]"/>
+				<data source="913-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="917-1.[cfgkpstz-]"/>
+				<data source="918-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="922-1.[cfgkpstz-]"/>
+				<data source="923-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="927-1.[cfgkpstz-]"/>
+				<data source="928-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="932-1.[cfgkpstz-]"/>
+				<data source="933-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="937-1.[cfgkpstz-]"/>
+				<data source="938-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="942-1.[cfgkpstz-]"/>
+				<data source="943-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}">
+			<concat delimiter=", " name="a">
+				<data source="947-1.[cfgkpstz-]"/>
+				<data source="948-1.a">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="952-1.[cfgkpstz-]"/>
+				<data source="952-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="957-1.[cfgkpstz-]"/>
+				<data source="957-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="962-1.[cfgkpstz-]"/>
+				<data source="962-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="967-1.[cfgkpstz-]"/>
+				<data source="967-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="972-1.[cfgkpstz-]"/>
+				<data source="972-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="977-1.[cfgkpstz-]"/>
+				<data source="977-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="982-1.[cfgkpstz-]"/>
+				<data source="982-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="987-1.[cfgkpstz-]"/>
+				<data source="987-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="992-1.[cfgkpstz-]"/>
+				<data source="992-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<combine name="@subjectChain" value="${a}${b}">
+			<concat delimiter=", " name="a">
+				<data source="997-1.[cfgkpstz-]"/>
+				<data source="997-1.[hx]" name="b">
+					<regexp match="(.*)" format="(${1})"/>
+				</data>
+			</concat>
+		</combine>
+		<data source="@subjectChain" name="http://purl.org/lobid/lv#subjectChain">
+			<replace pattern="\), \(" with=","/>
+			<replace pattern=", \(" with=" \("/>
+		</data>
 		<!-- ####################### -->
 		<!-- ##########fulltext, toc, seeAlso -->
 		<!-- ####################### -->
