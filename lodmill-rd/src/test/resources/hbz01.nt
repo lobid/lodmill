@@ -1117,8 +1117,8 @@
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/way166333256> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2882459/> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/node301737391> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2939945/> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s163060> .
@@ -1141,8 +1141,8 @@
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/issued> "1996" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/way291860127> .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2939454/> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62410> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2852739/> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2041907-7> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2050419-6> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/title> "Alle B\u00F6cke bei\u00DFen oder in Feindschaft fest" .
@@ -1977,8 +1977,8 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/issued> "2014" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/way270067539> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2833284/> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62539> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/6947268/> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4013255-9> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4137215-3> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/title> "D\u00FCsseldorf und das bergische Territorium" .
