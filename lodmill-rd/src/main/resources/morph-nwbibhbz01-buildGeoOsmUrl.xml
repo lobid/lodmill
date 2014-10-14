@@ -7,7 +7,6 @@
 			<replace pattern="/" with=""/>
 			<replace pattern="\(" with=""/>
 			<replace pattern="\)" with=""/>
-			<replace pattern=" " with=""/>
 			<replace pattern="&lt;" with=""/>
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="-" with=""/>
@@ -17,23 +16,9 @@
 		<data source="@nwbib700_99_id" name="@osmTypeAndId">
 			<lookup in="osmTypeAndId"/>
 		</data>
-		<combine name="@url" value="${query}">
-			<!-- generate only one URL -->
-			<if>
-				<none>
-					<data source="@osmTypeAndId"/>
-					<data source="@url_1"/>
-				</none>
-			</if>
-			<data source="nwbib700_99" name="query">
-			<urlescape></urlescape>
-				<!-- set to germany, NRW -->
-				<regexp match="\d*(.*)" format="/de/nrw/${1}?"/>
-			</data>
-		</combine>
 		<!-- generate different URL's depending if there are "Ordnungszeichen" -->
 		<combine name="url"
-			value="http://nominatim.openstreetmap.org/search${url}&amp;limit=1&amp;format=json&amp;addressdetails=1&amp;json_callback=${id}">
+			value="http://nominatim.openstreetmap.org/search?q=${url}%20Nordrhein-Westfalen&amp;limit=1&amp;format=json&amp;addressdetails=1&amp;json_callback=${id}">
 			<if>
 				<none>
 					<data source="@osmTypeAndId"/>
@@ -42,11 +27,11 @@
 			<data source="@nwbib700_99_id" name="id"/>
 			<data source="@url" name="url"/>
 		</combine>
-		<data source="nwbib700_99" name="@url_1">
-			<regexp match="(.*)&lt;(.*)&gt;(.*)" format="?q=${1}${2}${3}"/>
+		<data source="nwbib700_99" name="@url">
+			<replace pattern="&lt;" with=" "/>
+			<replace pattern="&gt;" with=" "/>
 			<urlescape></urlescape>
 		</data>
-		<data source="@url_1" name="@url"/>
 		<!-- /geoLocation -->
 		<data source="@nwbib700_99_id" name="@geonamesId">
 			<lookup in="placesGeonames"/>
