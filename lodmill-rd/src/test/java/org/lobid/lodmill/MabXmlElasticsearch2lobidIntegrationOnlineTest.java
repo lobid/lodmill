@@ -24,7 +24,7 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("javadoc")
-public final class MabXmlElasticsearch2lobidIntegrationTest {
+public final class MabXmlElasticsearch2lobidIntegrationOnlineTest {
 	private static final String TARGET_PATH = "tmp";
 	private static final String DB_PROTOCOL_AND_ADDRESS =
 			"jdbc:mysql://localhost:3306/";
