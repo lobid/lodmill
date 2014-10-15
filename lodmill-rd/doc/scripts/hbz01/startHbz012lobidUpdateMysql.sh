@@ -60,8 +60,7 @@ function allES() {
 # use as template:
 cp ../../../src/main/resources/hbz01ES-to-lobid.flux ./
 # drop old table => no framgmentation
-echo "DROP TABLE resources" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
-echo "create table resources (identifier VARCHAR (20), PRIMARY KEY (identifier), data MEDIUMTEXT) ENGINE=INNODB" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
+echo "DROP TABLE resourcesAll" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
 find .  -type f -name "hbz01ES-to-lobid_*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {} >log/{}.log 2>&1"
 }
 
