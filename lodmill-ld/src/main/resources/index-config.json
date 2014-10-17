@@ -116,8 +116,7 @@
 				},
 				"@graph.http://purl.org/lobid/lv#urn.@value":{
 					"type":"string",
-					"index":"not_analyzed",
-					"index_analyzer":"id_analyzer"
+					"index":"not_analyzed"
 				},
 				"@graph.@id":{
 					"type":"string",
