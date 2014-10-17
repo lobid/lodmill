@@ -2,13 +2,13 @@
 <metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1">
 	<rules>	<!-- NRW geoLocation -->
-		<!-- any changes here must be also done in super morph! -->
 		<data source="nwbib700_99" name="@nwbib700_99_id">
 			<replace pattern=" " with=""/>
 			<replace pattern="/" with=""/>
-			<replace pattern="\(.*\)" with=""/>
-			<replace pattern="&lt;.*&gt;" with=""/>
-			<replace pattern="" with=""/>
+			<replace pattern="\(" with=""/>
+			<replace pattern="\)" with=""/>
+			<replace pattern="&lt;" with=""/>
+			<replace pattern="&gt;" with=""/>
 			<replace pattern="-" with=""/>
 			<replace pattern="," with=""/>
 			<replace pattern="/" with=""/>
@@ -28,8 +28,8 @@
 			<data source="@url" name="url"/>
 		</combine>
 		<data source="nwbib700_99" name="@url">
-			<replace pattern="&lt;.*&gt;" with=""/>
-			<replace pattern="\(.*\)" with=""/>
+			<replace pattern="&lt;" with=" "/>
+			<replace pattern="&gt;" with=" "/>
 			<urlescape></urlescape>
 		</data>
 		<!-- /geoLocation -->
