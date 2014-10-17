@@ -105,9 +105,15 @@
 		<!-- ####################### -->
 		<!-- ####### Set main subject uri -->
 		<!-- ####################### -->
-		<data source="@id" name="~rdf:subject">
+		<data source="@idzdb" name="~rdf:subject">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
+		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-lobid-resource]${id}">
+			<data source="@idzdb"/>
+			<data source="@id" name="id">
+				<regexp match="(.*)" format="${1}"/>
+			</data>
+		</combine>
 		<!-- set zdbId also for ZDB subjects -->
 		<data source="@idzdb" name="http://purl.org/lobid/lv#zdbID"/>
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}">
@@ -123,12 +129,6 @@
 		<!-- ####################### -->
 		<!-- ####### Set owl:sameAs -->
 		<!-- ####################### -->
-		<!-- owl:sameAs between two subject uri's which are minted via this morph -->
-		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="${a}">
-			<data source="@idzdb">
-				<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
-			</data>
-		</combine>
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="http://hub.culturegraph.org/resource/HBZ-${id}">
 			<if>
 				<none>
@@ -1367,12 +1367,6 @@
 		<!-- ########## abstract -->
 		<!-- ####################### -->
 		<data source="750[-abcdefghijklm][-1].a" name="http://purl.org/dc/terms/abstract"/>
-		<data source="@idzdb" name="~rdf:subject">
-			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
-		</data>
-		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-lobid-resource]${a}">
-			<data source="@id" name="a" />
-		</combine>
 		<!-- ####################### -->
 		<!-- ############### statistics -->
 		<!-- ####################### -->
