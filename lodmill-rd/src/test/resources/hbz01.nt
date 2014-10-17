@@ -103,6 +103,31 @@
 <http://lobid.org/item/HT001898812:DE-98:V,%2018809%20(2)> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-98> .
 <http://lobid.org/item/HT001898812:DE-98:V,%2018809%20(2)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT001898812:DE-98:V,%2018809%20(2)> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT001898812:DE-98:V,%2018809%20(2)/about> .
+<http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> <http://purl.org/ontology/daia/label> "ONG/g52127" .
+<http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT003160768> .
+<http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-385> .
+<http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127/about> .
+<http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT003160768> .
+<http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-465> .
+<http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127/about> .
+<http://lobid.org/item/HT003160768:DE-6-007:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT003160768> .
+<http://lobid.org/item/HT003160768:DE-6-007:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-007> .
+<http://lobid.org/item/HT003160768:DE-6-007:ONG%2Fg52127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT003160768:DE-6-007:ONG%2Fg52127> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT003160768:DE-6-007:ONG%2Fg52127/about> .
+<http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT003160768> .
+<http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-210> .
+<http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127/about> .
+<http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT003160768> .
+<http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-A> .
+<http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127/about> .
+<http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT003160768> .
+<http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
+<http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127/about> .
 <http://lobid.org/item/HT004944075:DE-294:ZRC828-43> <http://purl.org/ontology/daia/label> "ZRC828-43" .
 <http://lobid.org/item/HT004944075:DE-294:ZRC828-43> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT004944075> .
 <http://lobid.org/item/HT004944075:DE-294:ZRC828-43> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-294> .
@@ -1093,7 +1118,7 @@
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000003404> .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000003404/about> .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
-<http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld (Kreis)" .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/bibliographicCitation> "Wirtschaftsspiegel. - 38 (1983) H. 7, S. 24-25 : 1 Abb." .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10880724X> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007751353> .
@@ -1110,15 +1135,15 @@
 <http://lobid.org/resource/BT000041593> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000041593> .
 <http://lobid.org/resource/BT000041593> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000041593/about> .
 <http://lobid.org/resource/BT000041593> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000041593> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld (Kreis)" .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/bibliographicCitation> "Kiebitz. - 6 (1986), S. 29-36, S. 63-67" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118033948> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006990419> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/node301737391> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2939945/> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62779> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2941838/> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s163060> .
@@ -1315,6 +1340,37 @@
 <http://lobid.org/resource/HT002619538> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT002808565> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/TT001671747> .
 <http://lobid.org/resource/HT002808565> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/coverage> "Regierungsbezirk M\u00FCnster <Westfalen, Bezirk>" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/publisher> "Der Regierungspr\u00E4sident" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2019209-5> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/issued> "1980 - " .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/issued> "1980" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4034268-2> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4040613-1> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/title> "Regierungsbezirk M\u00FCnster" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#hbzID> "HT003160768" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Bezirk M\u00FCnster (Westf) | Landesplanung (21)" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Handwerkskammerbezirk M\u00FCnster (Westf) | M\u00FCnster (Westf,Bezirk) | Gebietsplanung | Landesentwicklungsplanung" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6-007:ONG%2Fg52127> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> .
+<http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnster" .
+<http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Der Regierungspr\u00E4sident; 1980" .
+<http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
+<http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT003160768> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT003160768> .
+<http://lobid.org/resource/HT003160768> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT003160768/about> .
+<http://lobid.org/resource/HT003160768> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT003160768> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/elements/1.1/publisher> "UN" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/alternative> "Bulletin annuel de statistiques des transports pour l'Europe et l'Am\u00E9rique du Nord" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/alternative> "E\u017Eegodnyj bjulleten' statistiki transporta dlja Evropy i Severnoj Ameriki" .
