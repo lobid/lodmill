@@ -32,8 +32,7 @@ public class OaipmhZdbOrganisationTest {
 		enrich.doApiLookup = false;
 		enrich.setSerialization("TURTLE");
 		final ObjectWriter<String> writer =
-				new ObjectWriter<String>(
-						"update_zdb-isil-file2lobid-organisations1.ttl");
+				new ObjectWriter<>("update_zdb-isil-file2lobid-organisations1.ttl");
 		opener.setReceiver(xmlDecoder);
 		xmlDecoder.setReceiver(handler);
 		handler.setReceiver(metamorph);

@@ -43,6 +43,9 @@ public abstract class AbstractIngestTests {
 	private final Reader reader;
 	protected Metamorph metamorph;
 	private final String statsMorphFile;
+	private static Scanner scanner;
+	private static FileOutputStream fos;
+	private static Scanner scanner2;
 
 	public AbstractIngestTests(final String dataFile, final String morphFile,
 			final String statsMorphFile, final Reader reader) {
@@ -81,7 +84,7 @@ public abstract class AbstractIngestTests {
 
 	private static SortedSet<String> linesInFileToSetDefaultingBNodes(
 			final File file) {
-		Scanner scanner = null;
+		scanner = null;
 		SortedSet<String> set = null;
 		try {
 			scanner = new Scanner(file);
@@ -145,17 +148,17 @@ public abstract class AbstractIngestTests {
 	private static void assertSetSize(final SortedSet<String> expectedSet,
 			final SortedSet<String> actualSet) {
 		if (expectedSet.size() != actualSet.size()) {
-			final SortedSet<String> missingSet = new TreeSet<String>(expectedSet);
+			final SortedSet<String> missingSet = new TreeSet<>(expectedSet);
 			missingSet.removeAll(actualSet);
 			LOG.error("Missing expected result set entries: " + missingSet);
 		}
 		Assert.assertEquals(expectedSet.size(), actualSet.size());
 	}
 
-	private static SortedSet<String> asSet(final Scanner scanner) {
-		final SortedSet<String> set = new TreeSet<String>();
-		while (scanner.hasNextLine()) {
-			String actual = scanner.nextLine();
+	private static SortedSet<String> asSet(final Scanner scanner1) {
+		final SortedSet<String> set = new TreeSet<>();
+		while (scanner1.hasNextLine()) {
+			String actual = scanner1.nextLine();
 			if (!actual.isEmpty()) {
 				actual =
 						actual.replaceFirst("(^_:\\w* )|( _:\\w* ?.$)", "_:bnodeDummy ");
@@ -225,7 +228,7 @@ public abstract class AbstractIngestTests {
 	}
 
 	private static ObjectTee<String> outputTee(final File triples) {
-		final ObjectTee<String> tee = new ObjectTee<String>();
+		final ObjectTee<String> tee = new ObjectTee<>();
 		tee.addReceiver(new ObjectWriter<String>("stdout"));
 		tee.addReceiver(new ObjectWriter<String>(triples.getAbsolutePath()));
 		return tee;
@@ -246,7 +249,7 @@ public abstract class AbstractIngestTests {
 		concatenateGeneratedFilesIntoOneString(targetPath, triples);
 		File testFile = new File(testFilename);
 		if (triples.length() > 1) {
-			final FileOutputStream fos = new FileOutputStream(testFile);
+			fos = new FileOutputStream(testFile);
 			fos.write(triples.toString().getBytes());
 			fos.close();
 		}
@@ -279,11 +282,11 @@ public abstract class AbstractIngestTests {
 
 	private static String getFileContent(File file) {
 		StringBuilder ntriples = new StringBuilder();
-		Scanner scanner = null;
+
 		try {
-			scanner = new Scanner(file);
-			while (scanner.hasNextLine()) {
-				final String actual = scanner.nextLine();
+			scanner2 = new Scanner(file);
+			while (scanner2.hasNextLine()) {
+				final String actual = scanner2.nextLine();
 				if (!actual.isEmpty()) {
 					ntriples.append(actual + "\n");
 				}

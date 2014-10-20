@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 
 import org.antlr.runtime.RecognitionException;
 import org.apache.commons.io.FileUtils;
-import org.culturegraph.mf.Flux;
+import org.culturegraph.mf.runner.Flux;
 import org.junit.Test;
 
 /**
