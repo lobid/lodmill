@@ -43,9 +43,6 @@ public abstract class AbstractIngestTests {
 	private final Reader reader;
 	protected Metamorph metamorph;
 	private final String statsMorphFile;
-	private static Scanner scanner;
-	private static FileOutputStream fos;
-	private static Scanner scanner2;
 
 	public AbstractIngestTests(final String dataFile, final String morphFile,
 			final String statsMorphFile, final Reader reader) {
@@ -84,17 +81,11 @@ public abstract class AbstractIngestTests {
 
 	private static SortedSet<String> linesInFileToSetDefaultingBNodes(
 			final File file) {
-		scanner = null;
 		SortedSet<String> set = null;
-		try {
-			scanner = new Scanner(file);
+		try (Scanner scanner = new Scanner(file)) {
 			set = asSet(scanner);
 		} catch (IOException e) {
 			LOG.error(e.getMessage(), e);
-		} finally {
-			if (scanner != null) {
-				scanner.close();
-			}
 		}
 		return set;
 	}
@@ -155,10 +146,10 @@ public abstract class AbstractIngestTests {
 		Assert.assertEquals(expectedSet.size(), actualSet.size());
 	}
 
-	private static SortedSet<String> asSet(final Scanner scanner1) {
+	private static SortedSet<String> asSet(final Scanner scanner) {
 		final SortedSet<String> set = new TreeSet<>();
-		while (scanner1.hasNextLine()) {
-			String actual = scanner1.nextLine();
+		while (scanner.hasNextLine()) {
+			String actual = scanner.nextLine();
 			if (!actual.isEmpty()) {
 				actual =
 						actual.replaceFirst("(^_:\\w* )|( _:\\w* ?.$)", "_:bnodeDummy ");
@@ -248,10 +239,11 @@ public abstract class AbstractIngestTests {
 		StringBuilder triples = new StringBuilder();
 		concatenateGeneratedFilesIntoOneString(targetPath, triples);
 		File testFile = new File(testFilename);
-		if (triples.length() > 1) {
-			fos = new FileOutputStream(testFile);
-			fos.write(triples.toString().getBytes());
-			fos.close();
+		try (FileOutputStream fos = new FileOutputStream(testFile)) {
+			if (triples.length() > 1) {
+				fos.write(triples.toString().getBytes());
+				fos.close();
+			}
 		}
 		return testFile;
 	}
@@ -282,11 +274,9 @@ public abstract class AbstractIngestTests {
 
 	private static String getFileContent(File file) {
 		StringBuilder ntriples = new StringBuilder();
-
-		try {
-			scanner2 = new Scanner(file);
-			while (scanner2.hasNextLine()) {
-				final String actual = scanner2.nextLine();
+		try (Scanner scanner = new Scanner(file)) {
+			while (scanner.hasNextLine()) {
+				final String actual = scanner.nextLine();
 				if (!actual.isEmpty()) {
 					ntriples.append(actual + "\n");
 				}
