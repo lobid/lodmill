@@ -28,4 +28,4 @@ sh convert.sh hbzlod/lobid-collections http://lobid.org/resource $INDEX_NAME jso
 INDEX_NAME=gnd-$TIME
 sh convert.sh extlod/gnd/ http://d-nb.info/gnd $INDEX_NAME json-ld-gnd "$ALIAS"
 
-sh processResources.sh $ALIAS All
+sh processResources.sh "$ALIAS" All
