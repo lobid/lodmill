@@ -330,6 +330,21 @@
 <http://lobid.org/item/HT012926727:DE-Kob7:AR%2FG%202003%206306(2)> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kob7> .
 <http://lobid.org/item/HT012926727:DE-Kob7:AR%2FG%202003%206306(2)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT012926727:DE-Kob7:AR%2FG%202003%206306(2)> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT012926727:DE-Kob7:AR%2FG%202003%206306(2)/about> .
+<http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> <http://purl.org/ontology/daia/label> "Y 401 - 36" .
+<http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT013077595> .
+<http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-290> .
+<http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036/about> .
+<http://lobid.org/item/HT013077595:DE-6:2J%201468> <http://purl.org/ontology/daia/label> "2J 1468" .
+<http://lobid.org/item/HT013077595:DE-6:2J%201468> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT013077595> .
+<http://lobid.org/item/HT013077595:DE-6:2J%201468> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
+<http://lobid.org/item/HT013077595:DE-6:2J%201468> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT013077595:DE-6:2J%201468> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT013077595:DE-6:2J%201468/about> .
+<http://lobid.org/item/HT013077595:DE-6:AA%2012514> <http://purl.org/ontology/daia/label> "AA 12514" .
+<http://lobid.org/item/HT013077595:DE-6:AA%2012514> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT013077595> .
+<http://lobid.org/item/HT013077595:DE-6:AA%2012514> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
+<http://lobid.org/item/HT013077595:DE-6:AA%2012514> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT013077595:DE-6:AA%2012514> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT013077595:DE-6:AA%2012514/about> .
 <http://lobid.org/item/HT013911008:DE-361:CB088.87-4144798> <http://purl.org/ontology/daia/label> "CB088.87-4144798" .
 <http://lobid.org/item/HT013911008:DE-361:CB088.87-4144798> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT013911008> .
 <http://lobid.org/item/HT013911008:DE-361:CB088.87-4144798> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-361> .
@@ -1125,6 +1140,8 @@
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/issued> "1983" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62779> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2941838/> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/title> "Das Portrait einer Region: Kreis Coesfeld." .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#hbzID> "BT000041593" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s543000> .
@@ -1552,6 +1569,39 @@
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT012926727> .
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT012926727/about> .
 <http://lobid.org/resource/HT012926727> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT012926727> .
+<http://lobid.org/resource/HT013077595> <http://iflastandards.info/ns/isbd/elements/P1053> "VII, 119 S. : Ill., graph. Darst., Kt." .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld <Kreis>" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/109490312> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11079267X> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/128755-2> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/issued> "2000" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4010355-9> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4010356-0> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4024116-6> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/title> "Geschichte hier" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#hbzID> "HT013077595" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s784080> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Hauptamt (Coesfeld) | Coesfeld | Stadtdirektor (Coesfeld) | Coesfeld | Pressestelle (Coesfeld) | Kosfel'd | Stadt Coesfeld | Heimatkunde (Unterricht) | Heimatkunde (Didaktik) | Heimatkundedidaktik" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Oberkreisdirektor (Kreis Coesfeld) | Kreis Coesfeld | Kreistag (Kreis Coesfeld) | Kreis Coesfeld | Hauptamt (Kreis Coesfeld) | Kreis Coesfeld | Landrat (Kreis Coesfeld) | Kreis Coesfeld | Kreisverwaltung (Kreis Coesfeld) | Landkreis Coesfeld | Coesfeld (Kreis) | Heimatkunde (Unterricht) | Heimatkunde (Didaktik) | Heimatkundedidaktik" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:2J%201468> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:AA%2012514> .
+<http://lobid.org/resource/HT013077595> <http://rdvocab.info/Elements/otherTitleInformation> "Kirsten Balke. [Hrsg.: Kreisheimatverein Coesfeld e.V. Red.: Hans-Peter Boer ...]" .
+<http://lobid.org/resource/HT013077595> <http://rdvocab.info/Elements/placeOfPublication> "Coesfeld" .
+<http://lobid.org/resource/HT013077595> <http://rdvocab.info/Elements/publicationStatement> "Coesfeld; 2000" .
+<http://lobid.org/resource/HT013077595> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT013077595> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT013077595> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT013077595> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT013077595> .
+<http://lobid.org/resource/HT013077595> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013077595/about> .
+<http://lobid.org/resource/HT013077595> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013077595> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#hbzID> "HT013304490" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#zdbID> "2073588-1" .
 <http://lobid.org/resource/HT013304490> <http://www.w3.org/2002/07/owl#sameAs> <http://ld.zdb-services.de/resource/2073588-1> .

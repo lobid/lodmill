@@ -1281,19 +1281,19 @@
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
 		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
-		<combine name="@nwbib700_99" value="${a}">
+		<combine name="@nwbib700_99" value="${a}" sameEntity="true">
 			<data source="700n[-1].a">
 				<regexp match="^99\b"/>
 			</data>
 			<data source="700n[-1].b" name="a"/>
 		</combine>
-		<combine name="@nwbib700_99" value="Kreis ${a}">
+		<combine name="@nwbib700_99" value="Kreis ${a}" sameEntity="true">
 			<data source="700n[-1].a">
 				<regexp match="^97\b"/>
 			</data>
 			<data source="700n[-1].b" name="a"/>
 		</combine>
-		<combine name="@nwbib700_99" value="Regierungsbezirk ${a}">
+		<combine name="@nwbib700_99" value="Regierungsbezirk ${a}" sameEntity="true">
 			<data source="700n[-1].a">
 				<regexp match="^96\b"/>
 			</data>
