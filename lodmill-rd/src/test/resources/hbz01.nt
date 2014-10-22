@@ -1352,7 +1352,7 @@
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4040613-1> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/title> "Regierungsbezirk M\u00FCnster" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#hbzID> "HT003160768" .
-<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n96> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Bezirk M\u00FCnster (Westf) | Landesplanung (21)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Handwerkskammerbezirk M\u00FCnster (Westf) | M\u00FCnster (Westf,Bezirk) | Gebietsplanung | Landesentwicklungsplanung" .
