@@ -23,4 +23,5 @@ $HADOOP/bin/hadoop fs -rmr *.map
 if [ $COLLECT = "COLLECT" ]; then
     $HADOOP/bin/hadoop org.lobid.lodmill.hadoop.CollectSubjects $IN $TMP $SUBJ $INDEX
 fi
-$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $INDEX $TYPE $SUBJ $INDEX_ALIAS
+echo "<$IN> <$INDEX> <$TYPE> <$SUBJ> <$INDEX_ALIAS>"
+$HADOOP/bin/hadoop org.lobid.lodmill.hadoop.NTriplesToJsonLd $IN $INDEX $TYPE $SUBJ "$INDEX_ALIAS"
