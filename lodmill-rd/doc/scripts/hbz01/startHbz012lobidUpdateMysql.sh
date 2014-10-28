@@ -125,3 +125,4 @@ else if [ "$SET" = "AllES" ]; then
        allES
 else usage
 fi; fi; fi; fi
+echo "done!"
