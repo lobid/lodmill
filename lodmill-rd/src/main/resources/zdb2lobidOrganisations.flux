@@ -16,6 +16,6 @@ xml-tee | {
 	triples-to-rdfmodel(input="TURTLE")|
 	write-rdfmodel(property="http://purl.org/lobid/lv#isil",endIndex="2",startIndex="0", fileSuffix="nt",serialization="N-TRIPLE",target="tmp")
 }{
-	split-xml(entityname=entityname_var) |
+	split-xml(entityname=entityname_var, topLevelElement="harvest")|
 	write-xml(startindex="0", endindex="2",target="tmp",property=property_var)
 };
