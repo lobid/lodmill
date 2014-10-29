@@ -63,7 +63,7 @@ function allES() {
 cp ../../../src/main/resources/hbz01ES-to-lobid.flux ./
 # drop old table => no framgmentation
 echo "DROP TABLE resourcesAll" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
-find .  -type f -name "hbz01ES-to-lobid_*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources $FLUX_MAIN {} >log/{}.log 2>&1"
+find .  -type f -name "hbz01ES-to-lobid.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources $FLUX_MAIN {} >log/{}.log 2>&1"
 }
 
 function all() {
