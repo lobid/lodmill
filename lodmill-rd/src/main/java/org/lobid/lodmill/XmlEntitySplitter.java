@@ -28,11 +28,13 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 
 	private String entity;
 	private StringBuilder builder = new StringBuilder();
-	private HashSet<String> namespaces = new HashSet<String>();
+	private HashSet<String> namespaces = new HashSet<>();
 	private boolean inEntity = false;
 	private int recordCnt = 0;
 	private String root;
-	private final static String XML_DECLARATION =
+	private String rootStart = "";
+	private String rootEnd = "";
+	private String xmlDeclaration =
 			"<?xml version = \"1.0\" encoding = \"UTF-8\"?>";
 	private int entityDepth = 0;
 
@@ -49,16 +51,30 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	/**
 	 * Sets the top-level XML document element.
 	 * 
-	 * @param name the element
+	 * @param root the top level element. Don't set it to omit setting top level
+	 *          element.
 	 */
-	public void setTopLevelElement(final String name) {
-		this.root = name;
+	public void setTopLevelElement(final String root) {
+		this.root = root;
+		this.rootStart = "<" + root;
+		this.rootEnd = "</" + root + ">";
+	}
+
+	/**
+	 * Sets the XML declaration.
+	 * 
+	 * @param xmlDeclaration the xml declaration. Default is '<?xml version =
+	 *          "1.0" encoding = "UTF-8"?>'. If empty value is given, the xml
+	 *          declaration is skipped.
+	 */
+	public void setXmlDeclaration(final String xmlDeclaration) {
+		this.xmlDeclaration = xmlDeclaration;
 	}
 
 	@Override
 	public void startPrefixMapping(String prefix, String uri) throws SAXException {
 		super.startPrefixMapping(prefix, uri);
-		if (!prefix.isEmpty() && uri != null) {
+		if (root != null & !prefix.isEmpty() && uri != null) {
 			namespaces.add(" xmlns:" + prefix + "=\"" + uri + "\"");
 		}
 	}
@@ -73,8 +89,7 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 				inEntity = true;
 				appendValuesToEntity(qName, attributes);
 				entityDepth++;
-			} else if (this.root == null)
-				this.root = qName;
+			}
 		} else {
 			if (entity.equals(localName)) {
 				entityDepth++;
@@ -103,15 +118,14 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 			builder.append("</" + qName + ">");
 			if (entity.equals(localName)) {
 				if (entityDepth <= 1) {
-					StringBuilder sb =
-							new StringBuilder(XML_DECLARATION + "<" + this.root);
-					if (namespaces != null) {
+					StringBuilder sb = new StringBuilder(xmlDeclaration + rootStart);
+					if (this.root != null && namespaces.size() > 0) {
 						for (String ns : namespaces) {
 							sb.append(ns);
 						}
 						sb.append(">");
 					}
-					builder.insert(0, sb.toString()).append("</" + this.root + ">");
+					builder.insert(0, sb.toString()).append(rootEnd);
 					getReceiver().literal("entity", builder.toString());
 					getReceiver().endRecord();
 					reset();
@@ -140,13 +154,12 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	}
 
 	/**
-	 * Returns the XML declaration which is hard coded. @TODO change that hard
-	 * wired.
+	 * Returns the XML declaration.
 	 * 
 	 * @return the XML decalration
 	 */
-	public static String getXmlDeclaration() {
-		return XML_DECLARATION;
+	public String getXmlDeclaration() {
+		return xmlDeclaration;
 	}
 
 	@Override
