@@ -35,6 +35,7 @@ public class LobidOrganisationsUpdateTest {
 		XmlTee tee = new XmlTee();
 		final XmlEntitySplitter xmlSplitter = new XmlEntitySplitter();
 		xmlSplitter.setEntityName("metadata");
+		xmlSplitter.setTopLevelElement("harvest");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter(PATH);
 		xmlSplitter.setReceiver(xmlFilenameWriter);
 		tee.addReceiver(xmlSplitter);

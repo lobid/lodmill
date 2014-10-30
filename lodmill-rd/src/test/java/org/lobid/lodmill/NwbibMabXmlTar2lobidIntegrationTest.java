@@ -127,6 +127,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		morphGeonames.setReceiver(sqlWriter);
 		XmlEntitySplitter xmlEntitySplitter = new XmlEntitySplitter();
 		xmlEntitySplitter.setEntityName("ListRecords");
+		xmlEntitySplitter.setTopLevelElement("OAI-PMH");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter();
 		xmlTee.setReceiver(handler).setReceiver(morph).setReceiver(streamTee);
 		xmlTee.addReceiver(xmlEntitySplitter);
