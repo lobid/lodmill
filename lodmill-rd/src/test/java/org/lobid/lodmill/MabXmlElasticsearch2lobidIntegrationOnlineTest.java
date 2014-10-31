@@ -5,8 +5,8 @@ package org.lobid.lodmill;
 import java.io.File;
 import java.net.URISyntaxException;
 
-import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
+import org.culturegraph.mf.runner.Flux;
 import org.culturegraph.mf.stream.converter.LiteralExtractor;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.StreamTee;

@@ -21,7 +21,7 @@ public final class GeonamesCsvTest extends AbstractIngestTests {
 	public GeonamesCsvTest() {
 		super("src/main/resources/geonames_DE_sample.csv",
 				"morphGeonamesCsv2ld.xml", "default_morph-stats.xml", new CsvReader(
-						"\t"));
+						'\t'));
 	}
 
 	@Test

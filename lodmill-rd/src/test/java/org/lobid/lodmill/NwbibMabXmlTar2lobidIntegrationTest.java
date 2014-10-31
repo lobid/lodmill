@@ -10,8 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.apache.commons.io.FileUtils;
-import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
+import org.culturegraph.mf.runner.Flux;
 import org.culturegraph.mf.stream.converter.LiteralExtractor;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.StreamTee;
@@ -35,6 +35,8 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 			"jdbc:mysql://localhost:3306/";
 	private static final String DB_PASSWORD = "tzSblDEUGC1XhJB7";
 	private static final String DB_DBNAME = "lobid";
+	private static PreparedStatement ps;
+	private static ResultSet res;
 
 	@SuppressWarnings("static-method")
 	@Test
@@ -125,6 +127,7 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		morphGeonames.setReceiver(sqlWriter);
 		XmlEntitySplitter xmlEntitySplitter = new XmlEntitySplitter();
 		xmlEntitySplitter.setEntityName("ListRecords");
+		xmlEntitySplitter.setTopLevelElement("OAI-PMH");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter();
 		xmlTee.setReceiver(handler).setReceiver(morph).setReceiver(streamTee);
 		xmlTee.addReceiver(xmlEntitySplitter);
@@ -157,9 +160,8 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		final File testFile = new File(TEST_FILENAME);
 		StringBuilder sb = new StringBuilder();
 		try {
-			PreparedStatement ps =
-					modelWriter.conn.prepareStatement("SELECT * FROM resourcesAll ");
-			ResultSet res = ps.executeQuery();
+			ps = modelWriter.conn.prepareStatement("SELECT * FROM resourcesAll ");
+			res = ps.executeQuery();
 
 			while (res.next()) {
 				sb.append(res.getString(2));

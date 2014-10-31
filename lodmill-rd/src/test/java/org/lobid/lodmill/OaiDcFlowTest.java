@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import org.antlr.runtime.RecognitionException;
-import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
+import org.culturegraph.mf.runner.Flux;
 import org.culturegraph.mf.stream.pipe.StreamLogger;
 import org.culturegraph.mf.stream.pipe.StreamTee;
 import org.culturegraph.mf.stream.sink.EventList;
@@ -51,7 +51,7 @@ public class OaiDcFlowTest {
 		final NTripleDecoder decoder = new NTripleDecoder();
 		final StreamLogger logger = new StreamLogger("decoder");
 		final Metamorph metamorph = new Metamorph("morph-lobid-to-oaidc.xml");
-		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<String>();
+		final ObjectStdoutWriter<String> writer = new ObjectStdoutWriter<>();
 		final StreamTee tee = new StreamTee();
 		final OaiDcEncoder encoder = new OaiDcEncoder();
 		metamorph.setReceiver(encoder).setReceiver(writer);

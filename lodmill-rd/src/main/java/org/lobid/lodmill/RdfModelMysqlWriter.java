@@ -195,8 +195,8 @@ public final class RdfModelMysqlWriter extends DefaultStreamReceiver implements
 	private void connectMysqlDB() {
 		try {
 			conn =
-					DriverManager.getConnection(this.dbProtocolAndAdress + "?" + "user="
-							+ this.username + "&password=" + this.password);
+					DriverManager.getConnection(this.dbProtocolAndAdress, this.username,
+							this.password);
 			stmt = conn.createStatement();
 			stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + this.dbname);
 			conn =
