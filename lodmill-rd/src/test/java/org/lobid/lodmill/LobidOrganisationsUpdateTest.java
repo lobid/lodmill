@@ -10,8 +10,8 @@ import java.net.URISyntaxException;
 
 import org.antlr.runtime.RecognitionException;
 import org.apache.commons.io.FileUtils;
-import org.culturegraph.mf.Flux;
 import org.culturegraph.mf.morph.Metamorph;
+import org.culturegraph.mf.runner.Flux;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Test;
@@ -35,6 +35,7 @@ public class LobidOrganisationsUpdateTest {
 		XmlTee tee = new XmlTee();
 		final XmlEntitySplitter xmlSplitter = new XmlEntitySplitter();
 		xmlSplitter.setEntityName("metadata");
+		xmlSplitter.setTopLevelElement("harvest");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter(PATH);
 		xmlSplitter.setReceiver(xmlFilenameWriter);
 		tee.addReceiver(xmlSplitter);

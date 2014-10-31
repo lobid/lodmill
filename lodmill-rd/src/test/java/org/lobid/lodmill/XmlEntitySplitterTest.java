@@ -24,19 +24,20 @@ public class XmlEntitySplitterTest {
 		final XmlDecoder xmldecoder = new XmlDecoder();
 		final XmlEntitySplitter xmlsplitter = new XmlEntitySplitter();
 		xmlsplitter.setEntityName("Description");
+		xmlsplitter.setTopLevelElement("rdf:RDF");
 		final EventList expected = new EventList();
 		expected.startRecord("0");
 		expected
 				.literal(
 						"entity",
-						XmlEntitySplitter.getXmlDeclaration()
+						xmlsplitter.getXmlDeclaration()
 								+ "<rdf:RDF xmlns:rdf=\"ns#\"><rdf:Description rdf:about=\"1\"> <a rdf:resource=\"r1\">1</a></rdf:Description></rdf:RDF>");
 		expected.endRecord();
 		expected.startRecord("1");
 		expected
 				.literal(
 						"entity",
-						XmlEntitySplitter.getXmlDeclaration()
+						xmlsplitter.getXmlDeclaration()
 								+ "<rdf:RDF xmlns:rdf=\"ns#\"><rdf:Description rdf:about=\"2\"> <a rdf:resource=\"r2\">2</a></rdf:Description></rdf:RDF>");
 		expected.endRecord();
 		final StreamValidator validator = new StreamValidator(expected.getEvents());

@@ -33,6 +33,8 @@ SET=$2
 
 export PATH="$PATH:/opt/hadoop/hadoop/bin/"
 
+FLUX_MAIN="org.culturegraph.mf.runner.Flux"
+
 echo "Going checkout $BRANCH ..."
 #git stash # to avoid possible conflicts
 cd ../../.. ; git checkout $BRANCH ; git pull
@@ -61,7 +63,7 @@ function allES() {
 cp ../../../src/main/resources/hbz01ES-to-lobid.flux ./
 # drop old table => no framgmentation
 echo "DROP TABLE resourcesAll" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
-find .  -type f -name "hbz01ES-to-lobid_*.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {} >log/{}.log 2>&1"
+find .  -type f -name "hbz01ES-to-lobid.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources $FLUX_MAIN {} >log/{}.log 2>&1"
 }
 
 function all() {
@@ -80,7 +82,7 @@ cp ../../../src/main/resources/*.xml  tmpFlux/$SNAPSHOT_PATH
 jar xf $LODMILL_RD_JAR  ../../../src/main/resources/morph-hbz01-to-lobid.xml
 # drop old table => no framgmentation
 echo "DROP TABLE resources$SET" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lobid
-find tmpFlux -type f -name "$FILE_PATTERN"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux {}" # does not work: -Djava.util.logging.config.file=/home/lod/lobid-resources/logging.properties 
+find tmpFlux -type f -name "$FILE_PATTERN"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources $FLUX_MAIN {}" # does not work: -Djava.util.logging.config.file=/home/lod/lobid-resources/logging.properties 
 }
 
 function update(){
@@ -91,7 +93,7 @@ for i in $(cat $UPDATE_FILES_LIST); do
 	sed -i s#/files/open_data/closed/hbzvk/index.hbz-nrw.de/alephxml/clobs/updates/.*\"#$i\"#g $FLUX ;
 	sed -i s#tmp.stats.csv.*#tmp.stats.csv.$(basename $i .tar.bz2)\"\)#g $FLUX;
 	wait_load
-	java -classpath classes:$LODMILL_RD_JAR:src/main/resources org.culturegraph.mf.Flux $FLUX
+	java -classpath classes:$LODMILL_RD_JAR:src/main/resources $FLUX_MAIN $FLUX
 	# delete the first line in the update files list if everything was ok, else exit
 	if [ $? -eq "0" ]; then
 		echo "Status: success. Going to remove the line from $UPDATE_FILES_LIST"
@@ -123,3 +125,4 @@ else if [ "$SET" = "AllES" ]; then
        allES
 else usage
 fi; fi; fi; fi
+echo "done!"
