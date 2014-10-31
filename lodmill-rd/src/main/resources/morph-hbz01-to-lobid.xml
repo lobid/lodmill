@@ -18,16 +18,12 @@
 		<!-- ####################### -->
 		<data source="001-[-1].a" name="@id"/>
 		<!-- get also the ZDB id to mint it -->
-		<data source="025z[-1].a" name="@idzdb">
-			<regexp match="(.*)" format="${1}"/>
-		</data>
+		<data source="025z[-1].a" name="@idzdb"/>
 		<!-- ####################### -->
 		<!-- ####### hbz ID sameAs ZDB ID -->
 		<!-- ####################### -->
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-zdb-services]${idzdb}">
-			<data source="@idzdb" name="idzdb">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="@idzdb" name="idzdb"/>
 		</combine>
 		<data source="@idzdb" name="http://purl.org/lobid/lv#zdbID"/>
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="${idzdb}">
@@ -106,9 +102,7 @@
 		</data>
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-lobid-resource]${id}">
 			<data source="@idzdb"/>
-			<data source="@id" name="id">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="@id" name="id"/>
 		</combine>
 		<!-- set zdbId also for ZDB subjects -->
 		<combine value="$[ns-lobid-resource]ZDB${a}/about" name="http://www.w3.org/2007/05/powder-s#describedby">
@@ -117,9 +111,7 @@
 		</combine>
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]/${id}">
 			<data source="@idzdb"/>
-			<data source="@id" name="id">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="@id" name="id"/>
 		</combine>
 		<!-- ####################### -->
 		<!-- ####### Set owl:sameAs -->
@@ -130,9 +122,7 @@
 					<data source="@idzdb"/>
 				</none>
 			</if>
-			<data source="@id" name="id">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="@id" name="id"/>
 		</combine>
 		<!-- ####################### -->
 		<!-- ####### General attributes for each record -->
@@ -182,9 +172,7 @@
 					<data source="@idzdb"/>
 				</none>
 			</if>
-			<data source="@oclcnum" name="num">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="@oclcnum" name="num"/>
 		</combine>
 		<!-- ####################### -->
 		<!-- ################ language -->
@@ -205,12 +193,8 @@
 		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
-					<data source="@typeOnly">
-						<regexp match=".*"/>
-					</data>
-					<data source="@idzdb">
-						<regexp match=".*"/>
-					</data>
+					<data source="@typeOnly"/>
+					<data source="@idzdb"/>
 					<data source="051.">
 						<regexp match="^a"/>
 					</data>
@@ -232,12 +216,8 @@
 					<data source="052.">
 						<regexp match="^[{alpha}|]"/>
 					</data>
-					<data source="@matVideo">
-						<regexp match=".*"/>
-					</data>
-					<data source="@mediumAudio">
-						<regexp match=".*"/>
-					</data>
+					<data source="@matVideo"/>
+					<data source="@mediumAudio"/>
 				</none>
 			</if>
 			<data source="050.">
@@ -355,12 +335,8 @@
 		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
-					<data source="@matVideo">
-						<regexp match=".*"/>
-					</data>
-					<data source="@mediumAudio">
-						<regexp match=".*"/>
-					</data>
+					<data source="@matVideo"/>
+					<data source="@mediumAudio"/>
 					<data source="050.">
 						<regexp match="^.........a"/>
 					</data>
@@ -504,12 +480,8 @@
 			flushWith="record">
 			<if>
 				<none>
-					<data source="@rdftypeAndManifestation">
-						<regexp match=".*"/>
-					</data>
-					<data source="@rdftypeOnly">
-						<regexp match=".*"/>
-					</data>
+					<data source="@rdftypeAndManifestation"/>
+					<data source="@rdftypeOnly"/>
 				</none>
 			</if>
 			<data source="@id"/>
@@ -545,9 +517,7 @@
 					<data source="@title"/>
 				</none>
 			</if>
-			<data source="33[13][-ab][-1].a" name="title">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="33[13][-ab][-1].a" name="title"/>
 		</combine>
 		<!-- deliberatley not everything linked with OR '|' because of performance problems -->
 		<data source="335[-abcd][-12].a|370[a][-12].a" name="@otherTitle"/>
@@ -569,9 +539,7 @@
 		<combine name="@dateRange" value="${dateStart} - ${dateEnd}" flushWith="record">
 			<if>
 				<none>
-					<data source="021[-b]1.a">
-						<regexp match=".*"/>
-					</data>
+					<data source="021[-b]1.a"/>
 				</none>
 			</if>
 			<data source="425b[-1].a" name="dateStart">
@@ -644,9 +612,7 @@
 		</data>
 		<!-- semantic shift: 425 is only date of issue if resource is not a secondary form (21) -->
 		<combine name="@dateSecondary" value="${dateSecondary}">
-			<data source="021[-b]1.a">
-				<regexp match=".*"/>
-			</data>
+			<data source="021[-b]1.a"/>
 			<data source="619a[-1].a" name="dateSecondary">
 				<regexp match="(\d{4})" format="${1}"/>
 			</data>
@@ -966,9 +932,7 @@
 					</data>
 				</none>
 			</if>
-			<data source="@contributorId" name="contributorId">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="@contributorId" name="contributorId"/>
 		</combine>
 		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
 		<!-- if there are only literals for contributor: -->
@@ -1002,9 +966,7 @@
 					</data>
 				</none>
 			</if>
-			<data source="9[01234][27][-acfgkpstkz][-12].[sha]" name="subjectName">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
+			<data source="9[01234][27][-acfgkpstkz][-12].[sha]" name="subjectName"/>
 		</combine>
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
@@ -1208,12 +1170,8 @@
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
 			<if>
 				<none>
-					<data source="@fulltextOnline">
-						<regexp match=".*"/>
-					</data>
-					<data source="@toc">
-						<regexp match=".*"/>
-					</data>
+					<data source="@fulltextOnline"/>
+					<data source="@toc"/>
 				</none>
 			</if>
 			<data source="@linkUri" name="seeAlsoUri"/>
@@ -1243,9 +1201,7 @@
 		<combine name="http://purl.org/dc/elements/1.1/isPartOf" value="${isPartOfLiteral}">
 			<if>
 				<none>
-					<data source="@isPartOfHbzId">
-						<regexp match=".*"/>
-					</data>
+					<data source="@isPartOfHbzId"/>
 				</none>
 			</if>
 			<data source="451[-ab][12].a" name="isPartOfLiteral">
