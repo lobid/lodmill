@@ -6,7 +6,7 @@ decode-xml |
 xml-tee | {
 	split-xml(entityname="record",xmlDeclaration="") |
 	extract-literals |
-	write("/files/open_data/closed/hbz01MabXmlClobsFulldump.xml.gz", compression="gzip", header="<?xml version = \"1.0\" encoding = \"UTF-8\"?><ListRecords>",footer="</ListRecords>" )
+	write("/files/open_data/open/DE-605/mabxml/hbz01MabXmlClobsFulldump.xml.gz", compression="gzip", header="<?xml version = \"1.0\" encoding = \"UTF-8\"?><ListRecords>",footer="</ListRecords>" )
 	}{
 	handle-mabxml |
 	morph(files+"morph-hbz01-to-lobid.xml") |
