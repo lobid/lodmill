@@ -6,7 +6,7 @@ open-file(compression="BZIP2") |
 open-tar|
 decode-xml |
 xml-tee | {
-        split-xml(entityname="ListRecords") |
+        split-xml(entityname="ListRecords",topLevelElement="OAI-PMH") |
         write-xml(encoding="utf8",filesuffix="",compression="bz2",startindex="2", endindex="7",target="/files/open_data/closed/hbzvk/snapshot",property="/OAI-PMH/ListRecords/record/metadata/record/datafield[@tag='001']/subfield[@code='a']")
         } {
         handle-mabxml |
