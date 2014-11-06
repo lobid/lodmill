@@ -1263,14 +1263,7 @@
 		<data source="@wikidataId" name="@wikidataLatLon">
 			<lookup in="wikidataLatLon"/>
 		</data>
-		<entity name="http://www.w3.org/2003/01/geo/wgs84_pos#location" flushWith="@wikidataId">
-			<data source="@wikidataLatLon" name="http://purl.org/lv#subjectLocation">
-				<regexp match="(.*),(.*)" format="${2}"/>
-			</data>
-			<data source="@wikidataLatLon" name="http://purl.org/lv#subjectLocation">
-				<regexp match="(.*),(.*)" format="${1}"/>
-			</data>
-		</entity>	
+		<data source="@wikidataLatLon" name="http://purl.org/lv#subjectLocation"/>
 		<combine name="http://purl.org/dc/terms/spatial" value="https://www.wikidata.org/wiki/Special:EntityData/${id}">
 			<data source="@wikidataId" name="id"/>
 		</combine>

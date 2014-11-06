@@ -27,7 +27,7 @@ import org.junit.Test;
  * 
  */
 @SuppressWarnings("javadoc")
-public final class MabXmlWikidataTar2lobidIntegrationTest {
+public final class MabXmlWikidata2lobidIntegrationTest {
 	private static final String TARGET_PATH = "tmp";
 	private static final String TEST_FILENAME = "hbz01.nt";
 	private static final String DB_PROTOCOL_AND_ADDRESS =
@@ -38,7 +38,7 @@ public final class MabXmlWikidataTar2lobidIntegrationTest {
 	private static ResultSet res;
 
 	@SuppressWarnings("static-method")
-	// @Test
+	@Test
 	public void testFlow() throws IOException, URISyntaxException {
 		RdfModelMysqlWriter modelWriter = buildFlow();
 		final File testFile = dumpMysqlToFile(modelWriter);
