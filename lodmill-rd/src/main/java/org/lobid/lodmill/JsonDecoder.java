@@ -151,7 +151,7 @@ public final class JsonDecoder extends
 			final String key) throws JsonParseException, IOException {
 		int i = 0;
 		JsonToken jtoken = currentToken;
-		while (JsonToken.END_ARRAY != currentToken) {
+		while (JsonToken.END_ARRAY != jtoken) {
 			final String value = this.jsonParser.getText();
 			LOG.debug("key=" + key + i + " valueArray=" + value);
 			getReceiver().literal(key + i, value);
