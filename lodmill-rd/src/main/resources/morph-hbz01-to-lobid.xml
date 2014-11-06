@@ -1245,7 +1245,7 @@
 		<!-- emit field for other pipelined morphs -->
 		<data source="@nwbib700_99" name="nwbib700_99"/>
 		<data source="@nwbib700_99" name="http://purl.org/dc/elements/1.1/coverage"/>
-		<!-- any changes here must be also done in morph which builds nominatim URL! -->
+		<!--some normalizing -->
 		<data source="@nwbib700_99" name="@nwbib700_99_id">
 			<replace pattern=" " with=""/>
 			<replace pattern="/" with=""/>
@@ -1256,19 +1256,23 @@
 			<replace pattern="," with=""/>
 			<replace pattern="/" with=""/>
 		</data>
-		<data source="@nwbib700_99_id" name="@geonamesId">
-			<lookup in="placesGeonames"/>
+		<!-- wikidata -->
+		<data source="@nwbib700_99_id" name="@wikidataId">
+			<lookup in="wikidataId"/>
 		</data>
-		<combine name="http://purl.org/dc/terms/spatial" value="http://sws.geonames.org/${id}/">
-			<data source="@geonamesId" name="id"/>
-		</combine>
-		<data source="@nwbib700_99_id" name="@osmTypeAndId">
-			<lookup in="osmTypeAndId"/>
+		<data source="@wikidataId" name="@wikidataLatLon">
+			<lookup in="wikidataLatLon"/>
 		</data>
-		<combine name="http://purl.org/dc/terms/spatial" value="http://linkedgeodata.org/triplify/${id}">
-			<data source="@osmTypeAndId" name="id">
-				<replace pattern="/" with=""/>
+		<entity name="http://www.w3.org/2003/01/geo/wgs84_pos#location" flushWith="@wikidataId">
+			<data source="@wikidataLatLon" name="http://purl.org/lv#subjectLocation">
+				<regexp match="(.*),(.*)" format="${2}"/>
 			</data>
+			<data source="@wikidataLatLon" name="http://purl.org/lv#subjectLocation">
+				<regexp match="(.*),(.*)" format="${1}"/>
+			</data>
+		</entity>	
+		<combine name="http://purl.org/dc/terms/spatial" value="https://www.wikidata.org/wiki/Special:EntityData/${id}">
+			<data source="@wikidataId" name="id"/>
 		</combine>
 		<combine name="http://purl.org/lobid/lv#nwbibspatial" value="${a}">
 			<data source="700n[-1].a" name="a">
@@ -1320,9 +1324,9 @@
 	<maps>
 		<filemap name="sigel2isilMap" files="sigel2isilMap.csv"/>
 		<filemap name="iso639xToIso639-3-Map" files="iso639xToIso639-3-Map.tsv"/>
-		<sqlmap name="placesGeonames" query="SELECT data FROM NrwPlacesGeonamesId WHERE identifier=?"
+		<sqlmap name="wikidataId" query="SELECT data FROM wikidataGeo WHERE identifier=?"
 			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
-		<sqlmap name="osmTypeAndId" query="SELECT data FROM NrwPlacesOsmUrl WHERE identifier=?"
+		<sqlmap name="wikidataLatLon" query="SELECT data FROM wikidataGeo WHERE identifier=?"
 			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
 	</maps>
 </metamorph>
