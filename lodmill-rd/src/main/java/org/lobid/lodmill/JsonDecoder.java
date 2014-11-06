@@ -24,6 +24,8 @@ import com.google.common.io.CharStreams;
  * records. However, if there are objects in arrays, these will be handled as
  * new objects and not as part of the root object.
  * 
+ * Note: Ejects just plain key-value structures, not paths.
+ * 
  * @author Pascal Christoph (dr0i)
  * 
  */
@@ -38,6 +40,17 @@ public final class JsonDecoder extends
 	private static final Logger LOG = LoggerFactory.getLogger(JsonDecoder.class);
 	private boolean STARTED;
 	private boolean JSONP;
+	private boolean oneRecord = true;
+
+	/**
+	 * Sets the name of the database of the DBMS.
+	 * 
+	 * @param oneRecord if set to true the whole json structure is handled as one
+	 *          record, not necessarily as records within records.
+	 */
+	public void setOneRecord(final String oneRecord) {
+		this.oneRecord = true;
+	}
 
 	private void handleValue(final JsonToken currentToken, final String key)
 			throws IOException, JsonParseException {
@@ -106,7 +119,7 @@ public final class JsonDecoder extends
 				currentToken = processRecordContent(this.jsonParser.nextToken());
 			}
 			LOG.debug("############################ End");
-			if (STARTED) {
+			if (STARTED & !oneRecord) {
 				getReceiver().endRecord();
 				STARTED = false;
 			}
