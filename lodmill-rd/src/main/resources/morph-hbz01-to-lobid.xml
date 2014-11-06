@@ -109,7 +109,7 @@
 			<data source="@idzdb" name="a"/>
 			<data source="@id"/>
 		</combine>
-		<combine name="~rdf:subject" value="$[ns-lobid-resource]/${id}">
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}">
 			<data source="@idzdb"/>
 			<data source="@id" name="id"/>
 		</combine>
