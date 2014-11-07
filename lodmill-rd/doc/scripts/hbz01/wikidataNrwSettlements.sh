@@ -13,8 +13,9 @@ cat wikidataNrwSettlements.json | sed  's#.*\[\(.*\)].*#\1#g' > wikidataNrwSettl
 # lookup all IDs and store them as single files
 IFS=","; for i in $(cat wikidataNrwSettlements.csv) ; do echo $i ; curl "https://www.wikidata.org/wiki/Special:EntityData/Q$i.json" > wikidataEntities/Q$i.json ;done
 
-# start java. First build it, something like:
-mvn  clean install  -Dmysql.classifier=linux-x86 -Dmysql.port=33061
+# start java. First build it, something like (maybe adapt mysql.classifier)
+cd ../../../
+mvn  clean install  -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
 # This creates a rather incomplete and concordance with in part
 # data which will not be used after all (e.g. pathes to jpegs).
 # because of the way the json decoder works (emits just plain
