@@ -25,6 +25,8 @@ import com.google.common.io.CharStreams;
  * key-value structures, not paths! Values of objects in arrays can be handled
  * as values clinging to these objects or as part of the root object.
  * 
+ * Note: Ejects just plain key-value structures, not paths.
+ * 
  * @author Pascal Christoph (dr0i)
  * 
  */
@@ -39,6 +41,7 @@ public final class JsonDecoder extends
 	private static final Logger LOG = LoggerFactory.getLogger(JsonDecoder.class);
 	private boolean STARTED;
 	private boolean JSONP;
+
 	private boolean oneRecord = true;
 
 	/**
