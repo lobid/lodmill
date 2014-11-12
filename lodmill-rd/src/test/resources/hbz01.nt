@@ -1092,7 +1092,7 @@
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectChain> "Freudenberg | Geschichte" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectChain> "Freudenberg Siegen | Freudenberg (Siegerland) | Stadt Freudenberg | Stadt Freudenberg S\u00FCdwestfalen | Landesgeschichte | Regionalgeschichte | Ortsgeschichte | Zeitgeschichte" .
-<http://lobid.org/resource/BT000002852> <http://purl.org/lv#subjectLocation> "50.8722,7.915" .
+<http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectLocation> "50.8722,7.915" .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/otherTitleInformation> "wechselvolle Geschichte" .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/placeOfPublication> "Freudenberg" .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/publicationStatement> "Freudenberg; 1989" .
@@ -1192,8 +1192,8 @@
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectChain> "1. Fu\u00DFball-Club K\u00F6ln 01/07 | Geschichte" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectChain> "Borussia M\u00F6nchengladbach | VfL Borussia M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectChain> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach | Geschichte" .
-<http://lobid.org/resource/BT000128754> <http://purl.org/lv#subjectLocation> "50.942222222222,6.9577777777778" .
-<http://lobid.org/resource/BT000128754> <http://purl.org/lv#subjectLocation> "51.2,6.4333333333333" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectLocation> "50.942222222222,6.9577777777778" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectLocation> "51.2,6.4333333333333" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/otherTitleInformation> "Jugend zwischen zwei Magnetpolen ; nur Animosit\u00E4t gebiert gro\u00DFe Spiele" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/placeOfPublication> "Reinbek bei Hamburg" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/publicationStatement> "1996; Reinbek bei Hamburg" .
@@ -1718,7 +1718,7 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Oberkreisdirektor (Kreis Coesfeld) | Kreis Coesfeld | Kreistag (Kreis Coesfeld) | Kreis Coesfeld | Hauptamt (Kreis Coesfeld) | Kreis Coesfeld | Landrat (Kreis Coesfeld) | Kreis Coesfeld | Kreisverwaltung (Kreis Coesfeld) | Landkreis Coesfeld | Coesfeld (Kreis) | Heimatkunde (Unterricht) | Heimatkunde (Didaktik) | Heimatkundedidaktik" .
-<http://lobid.org/resource/HT013077595> <http://purl.org/lv#subjectLocation> "51.857222222222,7.4827777777778" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectLocation> "51.857222222222,7.4827777777778" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:2J%201468> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:AA%2012514> .
@@ -2185,7 +2185,7 @@
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s843060> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Haus (im weiteren Sinn)" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Nordkirchen | Geb\u00E4ude | Eigent\u00FCmer | Geschichte 1805-2000 | Verzeichnis (23145,32145)" .
-<http://lobid.org/resource/HT016545462> <http://purl.org/lv#subjectLocation> "51.738055555556,7.5255555555556" .
+<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectLocation> "51.738055555556,7.5255555555556" .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/placeOfPublication> "Nordkirchen" .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/publicationStatement> "Nordkirchen; Heimatverein der Gemeinde Nordkirchen e. V:; 9999" .
 <http://lobid.org/resource/HT016545462> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -2255,7 +2255,7 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectChain> "D\u00FCsseldorf | Oberstadtdirektor (D\u00FCsseldorf) | D\u00FCsseldorf | Stadtverwaltung (D\u00FCsseldorf) | D\u00FCsseldorf | Rat (D\u00FCsseldorf) | D\u00FCsseldorf | Presseamt (D\u00FCsseldorf) | D\u00FCsseldorf | Stadtverordnetenversammlung (D\u00FCsseldorf) | D\u00FCsseldorf | Ratsversammlung (D\u00FCsseldorf) | D\u00FCsseldorf | Hauptamt (D\u00FCsseldorf) | D\u00FCsseldorf | D\u00FCsseldorf | Oberb\u00FCrgermeister (D\u00FCsseldorf) | Djussel'dorf | Landeshauptstadt D\u00FCsseldorf | Dyusserudorufu | Duseerduofu | Stadt D\u00FCsseldorf | Stadtgemeinde D\u00FCsseldorf | Grafschaft Berg | Herzogtum Berg | Gro\u00DFherzogtum Berg | Berg (Staat) | Grand Duch\u00E9 Berg | Gro\u00DFherzogthum Berg | Ducatus Montensis" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectChain> "D\u00FCsseldorf | Staat Berg | Geschichte 1288-1815 (213)" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/lv#subjectLocation> "51.2289,6.77361" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectLocation> "51.2289,6.77361" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/publicationStatement> "2014; D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/statementOfResponsibility> "Manfred Engelhardt" .
