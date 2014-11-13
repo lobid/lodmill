@@ -35,12 +35,10 @@
 			"date_detection":false,
 			"properties":{
 				"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth.@value":{
-					"type":"string",
-					"index":"no"
+					"type":"string"
 				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath.@value":{
-					"type":"string",
-					"index":"no"
+					"type":"string"
 				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily.@value":{
 					"index_analyzer":"ngram_analyzer",
