@@ -34,6 +34,12 @@
 		"json-ld-lobid":{
 			"date_detection":false,
 			"properties":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth.@value":{
+					"type":"string"
+				},
+				"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath.@value":{
+					"type":"string"
+				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily.@value":{
 					"index_analyzer":"ngram_analyzer",
 					"search_analyzer":"standard",
