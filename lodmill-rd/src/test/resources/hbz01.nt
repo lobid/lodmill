@@ -1141,6 +1141,7 @@
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/title> "Das Portrait einer Region: Kreis Coesfeld." .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#hbzID> "BT000041593" .
+<http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n97> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s543000> .
 <http://lobid.org/resource/BT000041593> <http://rdvocab.info/Elements/publicationStatement> "1983" .
 <http://lobid.org/resource/BT000041593> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -1158,6 +1159,7 @@
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
+<http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n97> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s163060> .
 <http://lobid.org/resource/BT000067443> <http://rdvocab.info/Elements/otherTitleInformation> "Vergleichsunters. zu e. Erfassung aus d. Jahre 1976." .
 <http://lobid.org/resource/BT000067443> <http://rdvocab.info/Elements/publicationStatement> "1986" .
@@ -1704,6 +1706,7 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4024116-6> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/title> "Geschichte hier" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#hbzID> "HT013077595" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n97> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s784080> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
