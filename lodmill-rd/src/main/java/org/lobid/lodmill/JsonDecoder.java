@@ -20,9 +20,12 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.google.common.io.CharStreams;
 
 /**
- * Decodes JSON and JSONP. The JSON (or JSONP) record may consist of one or n
- * records. However, if there are objects in arrays, these will be handled as
- * new objects and not as part of the root object.
+ * Ejects just plain key-value structures, not paths. Decodes JSON and JSONP.
+ * The JSON (or JSONP) record may consist of one or n records. Ejects just plain
+ * key-value structures, not paths! Values of objects in arrays can be handled
+ * as values clinging to these objects or as part of the root object.
+ * 
+ * Note: Ejects just plain key-value structures, not paths.
  * 
  * @author Pascal Christoph (dr0i)
  * 
@@ -38,6 +41,18 @@ public final class JsonDecoder extends
 	private static final Logger LOG = LoggerFactory.getLogger(JsonDecoder.class);
 	private boolean STARTED;
 	private boolean JSONP;
+
+	private boolean oneRecord = true;
+
+	/**
+	 * Sets the whole json structure to be handled as one record.
+	 * 
+	 * @param oneRecord if set to true the whole json structure is handled as one
+	 *          record, not necessarily as records within records.
+	 */
+	public void setOneRecord(final String oneRecord) {
+		this.oneRecord = true;
+	}
 
 	private void handleValue(final JsonToken currentToken, final String key)
 			throws IOException, JsonParseException {
@@ -106,7 +121,7 @@ public final class JsonDecoder extends
 				currentToken = processRecordContent(this.jsonParser.nextToken());
 			}
 			LOG.debug("############################ End");
-			if (STARTED) {
+			if (STARTED & !oneRecord) {
 				getReceiver().endRecord();
 				STARTED = false;
 			}
@@ -151,7 +166,7 @@ public final class JsonDecoder extends
 			final String key) throws JsonParseException, IOException {
 		int i = 0;
 		JsonToken jtoken = currentToken;
-		while (JsonToken.END_ARRAY != currentToken) {
+		while (JsonToken.END_ARRAY != jtoken) {
 			final String value = this.jsonParser.getText();
 			LOG.debug("key=" + key + i + " valueArray=" + value);
 			getReceiver().literal(key + i, value);

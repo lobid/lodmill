@@ -82,6 +82,9 @@
 					"index":"not_analyzed",
 					"type":"string"
 				},
+				"@graph.http://purl.org/lobid/lv#subjectLocation.@value":{
+					"type":"geo_point"
+				},
 				"@graph.http://purl.org/vocab/frbr/core#exemplar.@id":{
 					"index":"not_analyzed",
 					"type":"string"

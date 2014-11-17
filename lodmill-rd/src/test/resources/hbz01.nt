@@ -1084,12 +1084,14 @@
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/issued> "1989" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/spatial> <https://www.wikidata.org/wiki/Special:EntityData/Q1745675> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4018466-3> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4020517-4> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/title> "Stadt Freudenberg" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#hbzID> "BT000002852" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectChain> "Freudenberg | Geschichte" .
+<http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectLocation> "50.8722,7.915" .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/otherTitleInformation> "wechselvolle Geschichte" .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/placeOfPublication> "Freudenberg" .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/publicationStatement> "Freudenberg; 1989" .
@@ -1137,8 +1139,6 @@
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/issued> "1983" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62779> .
-<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2941838/> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/title> "Das Portrait einer Region: Kreis Coesfeld." .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#hbzID> "BT000041593" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s543000> .
@@ -1156,8 +1156,6 @@
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62779> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2941838/> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s163060> .
@@ -1180,8 +1178,8 @@
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/issued> "1996" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62410> .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/2852739/> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <https://www.wikidata.org/wiki/Special:EntityData/Q2758> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/spatial> <https://www.wikidata.org/wiki/Special:EntityData/Q365> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2041907-7> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2050419-6> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/title> "Alle B\u00F6cke bei\u00DFen oder in Feindschaft fest" .
@@ -1189,6 +1187,8 @@
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s736050> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectChain> "1. Fu\u00DFball-Club K\u00F6ln 01/07 | Geschichte" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectChain> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach | Geschichte" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectLocation> "50.942222222222,6.9577777777778" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectLocation> "51.2,6.4333333333333" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/otherTitleInformation> "Jugend zwischen zwei Magnetpolen ; nur Animosit\u00E4t gebiert gro\u00DFe Spiele" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/placeOfPublication> "Reinbek bei Hamburg" .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/publicationStatement> "1996; Reinbek bei Hamburg" .
@@ -1698,6 +1698,7 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/issued> "2000" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/spatial> <https://www.wikidata.org/wiki/Special:EntityData/Q14926> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4010355-9> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4010356-0> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4024116-6> .
@@ -1707,6 +1708,7 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s784080> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectLocation> "51.857222222222,7.4827777777778" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:2J%201468> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:AA%2012514> .
@@ -2156,6 +2158,7 @@
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/issued> "9999" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/spatial> <https://www.wikidata.org/wiki/Special:EntityData/Q14923> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042552-6> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4151183-9> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4156127-2> .
@@ -2164,6 +2167,7 @@
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s503050> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s843060> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Nordkirchen | Geb\u00E4ude | Eigent\u00FCmer | Geschichte 1805-2000 | Verzeichnis (23145,32145)" .
+<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectLocation> "51.738055555556,7.5255555555556" .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/placeOfPublication> "Nordkirchen" .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/publicationStatement> "Nordkirchen; Heimatverein der Gemeinde Nordkirchen e. V:; 9999" .
 <http://lobid.org/resource/HT016545462> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -2224,8 +2228,7 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/issued> "2014" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <http://linkedgeodata.org/triplify/relation62539> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <http://sws.geonames.org/6947268/> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/spatial> <https://www.wikidata.org/wiki/Special:EntityData/Q445486> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4013255-9> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4137215-3> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/title> "D\u00FCsseldorf und das bergische Territorium" .
@@ -2233,6 +2236,7 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n46> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectChain> "D\u00FCsseldorf | Staat Berg | Geschichte 1288-1815 (213)" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectLocation> "51.2289,6.77361" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/publicationStatement> "2014; D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/statementOfResponsibility> "Manfred Engelhardt" .

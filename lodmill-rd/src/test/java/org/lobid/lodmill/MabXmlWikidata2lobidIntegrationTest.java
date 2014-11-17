@@ -12,23 +12,22 @@ import java.sql.SQLException;
 import org.apache.commons.io.FileUtils;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.runner.Flux;
-import org.culturegraph.mf.stream.converter.LiteralExtractor;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.StreamTee;
 import org.culturegraph.mf.stream.source.FileOpener;
 import org.junit.Test;
 
 /**
- * Rather complex nested flow with two api calls for geo enrichment, caching
- * data in a MySQL DB used by morph sql lookup function. The flux is aquivalent
- * to the flow. The port is deliberately hardwired to 3306. Skip this test if
- * you have already a running daemon on port 3306.
+ * Transform hbz01 MAB2 catalog data. Using wikidata concordance table (which
+ * was build with {@link WikidataGeoJson2Mysql}).The port is deliberately
+ * hardwired to 3306. Skip this test if you have already a running daemon on
+ * port 3306.
  * 
  * @author Pascal Christoph (dr0i)
  * 
  */
 @SuppressWarnings("javadoc")
-public final class NwbibMabXmlTar2lobidIntegrationTest {
+public final class MabXmlWikidata2lobidIntegrationTest {
 	private static final String TARGET_PATH = "tmp";
 	private static final String TEST_FILENAME = "hbz01.nt";
 	private static final String DB_PROTOCOL_AND_ADDRESS =
@@ -79,52 +78,6 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 		streamTeeGeo.addReceiver(encoder);
 		encoder.setReceiver(triple2model);
 
-		// OSM API lookup
-		// make OSM API URL and lookup that
-		final Metamorph morphCreateOsmURl =
-				new Metamorph("src/main/resources/morph-nwbibhbz01-buildGeoOsmUrl.xml");
-		streamTeeGeo.addReceiver(morphCreateOsmURl);
-		// lookup and parse OSM API URL
-		final LiteralExtractor literalExtractor = new LiteralExtractor();
-		morphCreateOsmURl.setReceiver(literalExtractor);
-		final HttpOpener httpOpener = getJsonHttpOpener();
-		final JsonDecoder jsonOsmDecoder = new JsonDecoder();
-		literalExtractor.setReceiver(httpOpener);
-		httpOpener.setReceiver(jsonOsmDecoder);
-
-		// parse OSM result, get lat lon and make URL for geonames lookup
-		final Metamorph morphOSM =
-				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResource("morph-osmResult-buildGeonamesLatLonUrl.xml")
-						.getFile());
-
-		StreamTee streamTeeOsmUrl = new StreamTee();
-		jsonOsmDecoder.setReceiver(streamTeeOsmUrl);
-		streamTeeOsmUrl.setReceiver(morphOSM);
-		final Metamorph morphCreateOsmMysqlRow =
-				new Metamorph("src/main/resources/morph-jsonOsm2mysqlRow.xml");
-		streamTeeOsmUrl.addReceiver(morphCreateOsmMysqlRow);
-
-		// writing OSM url into SQL DBMS
-		MysqlWriter sqlWriterOsmUrl = createMysqlWriter("NrwPlacesOsmUrl");
-		morphCreateOsmMysqlRow.setReceiver(sqlWriterOsmUrl);
-
-		// Geonames API lookup
-		// lookup geonames with generated URL
-		final LiteralExtractor literalExtractorGeonames = new LiteralExtractor();
-		final HttpOpener geonamesHttpOpener = getJsonHttpOpener();
-		final JsonDecoder jsonGeonamesDecoder = new JsonDecoder();
-		morphOSM.setReceiver(literalExtractorGeonames);
-		literalExtractorGeonames.setReceiver(geonamesHttpOpener);
-		geonamesHttpOpener.setReceiver(jsonGeonamesDecoder);
-		final Metamorph morphGeonames =
-				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResource("morph-jsonGeonames2mysqlRow.xml").getFile());
-		jsonGeonamesDecoder.setReceiver(morphGeonames);
-
-		// writing into SQL DBMS
-		MysqlWriter sqlWriter = createMysqlWriter("NrwPlacesGeonamesId");
-		morphGeonames.setReceiver(sqlWriter);
 		XmlEntitySplitter xmlEntitySplitter = new XmlEntitySplitter();
 		xmlEntitySplitter.setEntityName("ListRecords");
 		xmlEntitySplitter.setTopLevelElement("OAI-PMH");
@@ -137,22 +90,6 @@ public final class NwbibMabXmlTar2lobidIntegrationTest {
 				.getAbsolutePath());
 		opener.closeStream();
 		return modelWriter;
-	}
-
-	private static HttpOpener getJsonHttpOpener() {
-		final HttpOpener httpOpener = new HttpOpener();
-		httpOpener.setAccept("application/json");
-		return httpOpener;
-	}
-
-	private static MysqlWriter createMysqlWriter(String tableName) {
-		MysqlWriter sqlWriterOsmUrl = new MysqlWriter();
-		sqlWriterOsmUrl.setDbname(DB_DBNAME);
-		sqlWriterOsmUrl.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
-		sqlWriterOsmUrl.setPassword(DB_PASSWORD);
-		sqlWriterOsmUrl.setTablename(tableName);
-		sqlWriterOsmUrl.setUsername("debian-sys-maint");
-		return sqlWriterOsmUrl;
 	}
 
 	private static File dumpMysqlToFile(RdfModelMysqlWriter modelWriter)

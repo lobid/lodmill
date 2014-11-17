@@ -9,6 +9,7 @@
 	<!-- => structure of alehp MAB: $field$indicator1$indicator2$subfield -->
 	<vars>
 		<var name="ns-lobid-resource" value="http://lobid.org/resource/"/>
+		<var name="ns-lobid-vocab" value="http://purl.org/lobid/lv#"/>
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
 		<var name="ns-zdb-services" value="http://ld.zdb-services.de/resource/"/>
 	</vars>
@@ -25,7 +26,7 @@
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-zdb-services]${idzdb}">
 			<data source="@idzdb" name="idzdb"/>
 		</combine>
-		<data source="@idzdb" name="http://purl.org/lobid/lv#zdbID"/>
+		<data source="@idzdb" name="$[ns-lobid-vocab]zdbID"/>
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="${idzdb}">
 			<data source="@id"/>
 			<data source="@idzdb" name="idzdb">
@@ -143,7 +144,7 @@
 				<regexp match="(.*)" format="http://193.30.112.134/F/?func=find-c&amp;ccl_term=IDN%3D${1}"/>
 			</data>
 		</combine>
-		<data source="@id" name="http://purl.org/lobid/lv#hbzID"/>
+		<data source="@id" name="$[ns-lobid-vocab]hbzID"/>
 		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://purl.org/dc/terms/BibliographicResource"/>
 		</data>
@@ -355,31 +356,31 @@
 		</data>
 		<!-- amtliche Druckschrift -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^......[bfiklmorsu]" format="http://purl.org/lobid/lv#OfficialPublication"/>
+			<regexp match="^......[bfiklmorsu]" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
 		<data source="052." name="@rdftypeAndManifestation">
-			<regexp match="^.aa|^............[bfiklmorsu]" format="http://purl.org/lobid/lv#OfficialPublication"/>
+			<regexp match="^.aa|^............[bfiklmorsu]" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
 		<data source="052." name="@rdftypeAndManifestation">
-			<regexp match="^.aa|^...aa|^.....aa" format="http://purl.org/lobid/lv#OfficialPublication"/>
+			<regexp match="^.aa|^...aa|^.....aa" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
 		<!-- bibliography -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^.[b]|^..[b]|^...[b]" format="http://purl.org/lobid/lv#Bibliography"/>
+			<regexp match="^.[b]|^..[b]|^...[b]" format="$[ns-lobid-vocab]Bibliography"/>
 		</data>
 		<data source="052." name="@rdftypeAndManifestation">
-			<regexp match="^.b[i]|^...b[i]|^.....b[i]" format="http://purl.org/lobid/lv#Bibliography"/>
+			<regexp match="^.b[i]|^...b[i]|^.....b[i]" format="$[ns-lobid-vocab]Bibliography"/>
 		</data>
 		<!-- biography -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^.[h]|^..[h]|^...[h]" format="http://purl.org/lobid/lv#Biography"/>
+			<regexp match="^.[h]|^..[h]|^...[h]" format="$[ns-lobid-vocab]Biography"/>
 		</data>
 		<data source="052." name="@rdftypeAndManifestation">
-			<regexp match="^.b[g]|^...b[g]|^.....b[g]" format="http://purl.org/lobid/lv#Biography"/>
+			<regexp match="^.b[g]|^...b[g]|^.....b[g]" format="$[ns-lobid-vocab]Biography"/>
 		</data>
 		<!-- festschrift -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^.f|^..f|^...f" format="http://purl.org/lobid/lv#Festschrift"/>
+			<regexp match="^.f|^..f|^...f" format="$[ns-lobid-vocab]Festschrift"/>
 		</data>
 		<!-- reference source -->
 		<data source="051." name="@rdftypeAndManifestation">
@@ -397,14 +398,14 @@
 		</data>
 		<!-- norm -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^.x|^..x|^...x" format="http://purl.org/lobid/lv#Schoolbook"/>
+			<regexp match="^.x|^..x|^...x" format="$[ns-lobid-vocab]Schoolbook"/>
 		</data>
 		<!-- legislation -->
 		<data source="051." name="@rdftypeAndManifestation">
-			<regexp match="^.l|^..l|^...l" format="http://purl.org/lobid/lv#Legislation"/>
+			<regexp match="^.l|^..l|^...l" format="$[ns-lobid-vocab]Legislation"/>
 		</data>
 		<data source="052." name="@rdftypeAndManifestation">
-			<regexp match="^.ag|^...ag|^.....ag" format="http://purl.org/lobid/lv#Legislation"/>
+			<regexp match="^.ag|^...ag|^.....ag" format="$[ns-lobid-vocab]Legislation"/>
 		</data>
 		<!-- thesis -->
 		<data source="051." name="@rdftypeAndManifestation">
@@ -464,7 +465,7 @@
 		</data>
 		<data source="@medium" name="http://purl.org/dc/terms/medium"/>
 		<!-- set default medium -->
-		<combine name="@medium" value="http://purl.org/lobid/lv#Miscellaneous"
+		<combine name="@medium" value="$[ns-lobid-vocab]Miscellaneous"
 			flushWith="record">
 			<if>
 				<none>
@@ -476,7 +477,7 @@
 			<data source="@id"/>
 		</combine>
 		<!-- set default type -->
-		<combine name="@rdftypeAndManifestation" value="http://purl.org/lobid/lv#Miscellaneous"
+		<combine name="@rdftypeAndManifestation" value="$[ns-lobid-vocab]Miscellaneous"
 			flushWith="record">
 			<if>
 				<none>
@@ -531,7 +532,7 @@
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="&lt;" with=""/>
 		</data>
-		<data source="675[-abcd][-12].a" name="http://purl.org/lobid/lv#titleKeyword"/>
+		<data source="675[-abcd][-12].a" name="$[ns-lobid-vocab]titleKeyword"/>
 		<!-- ####################### -->
 		<!-- ########## date issued -->
 		<!-- ####################### -->
@@ -660,7 +661,7 @@
 		<data source="552b[-1].a" name="@urn">
 			<regexp match="(^.*:.*\d+)$" format="${1}"/>
 		</data>
-		<data source="@urn" name="http://purl.org/lobid/lv#urn"/>
+		<data source="@urn" name="$[ns-lobid-vocab]urn"/>
 		<data source="@urn" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://nbn-resolving.de/${1}"/>
 		</data>
@@ -1077,7 +1078,7 @@
 			</data>
 			<data source="@linkUri" name="uri"/>
 		</combine>
-		<data source="@fulltextOnlineUri" name="http://purl.org/lobid/lv#fulltextOnline"/>
+		<data source="@fulltextOnlineUri" name="$[ns-lobid-vocab]fulltextOnline"/>
 		<data source="@fulltextOnlineUri" name="http://purl.org/dc/terms/hasVersion"/>
 		<!-- rdf:seeAlso if 655 AND first three letter "Zusätzliche Angaben" -->
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
@@ -1139,7 +1140,7 @@
 		<data source="078n[-1].a|700n[-1].[ab]" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match=".*" format="$[ns-lobid-resource]NWBib"/>
 		</data>
-		<data source="700n[-1].a" name="http://purl.org/lobid/lv#nwbibsubject">
+		<data source="700n[-1].a" name="$[ns-lobid-vocab]nwbibsubject">
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
 		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
@@ -1165,7 +1166,7 @@
 		<!-- emit field for other pipelined morphs -->
 		<data source="@nwbib700_99" name="nwbib700_99"/>
 		<data source="@nwbib700_99" name="http://purl.org/dc/elements/1.1/coverage"/>
-		<!-- any changes here must be also done in morph which builds nominatim URL! -->
+		<!--some normalizing -->
 		<data source="@nwbib700_99" name="@nwbib700_99_id">
 			<replace pattern=" " with=""/>
 			<replace pattern="/" with=""/>
@@ -1176,21 +1177,18 @@
 			<replace pattern="," with=""/>
 			<replace pattern="/" with=""/>
 		</data>
-		<data source="@nwbib700_99_id" name="@geonamesId">
-			<lookup in="placesGeonames"/>
+		<!-- wikidata -->
+		<data source="@nwbib700_99_id" name="@wikidataId">
+			<lookup in="wikidataId"/>
 		</data>
-		<combine name="http://purl.org/dc/terms/spatial" value="http://sws.geonames.org/${id}/">
-			<data source="@geonamesId" name="id"/>
-		</combine>
-		<data source="@nwbib700_99_id" name="@osmTypeAndId">
-			<lookup in="osmTypeAndId"/>
+		<data source="@wikidataId" name="@wikidataLatLon">
+			<lookup in="wikidataLatLon"/>
 		</data>
-		<combine name="http://purl.org/dc/terms/spatial" value="http://linkedgeodata.org/triplify/${id}">
-			<data source="@osmTypeAndId" name="id">
-				<replace pattern="/" with=""/>
-			</data>
+		<data source="@wikidataLatLon" name="$[ns-lobid-vocab]subjectLocation"/>
+		<combine name="http://purl.org/dc/terms/spatial" value="https://www.wikidata.org/wiki/Special:EntityData/${id}">
+			<data source="@wikidataId" name="id"/>
 		</combine>
-		<combine name="http://purl.org/lobid/lv#nwbibspatial" value="${a}">
+		<combine name="$[ns-lobid-vocab]nwbibspatial" value="${a}">
 			<data source="700n[-1].a" name="a">
 				<regexp match="^([0-8][0-8]\b|91\b|96)\b" format="http://purl.org/lobid/nwbib-spatial#n${1}"/>
 			</data>
@@ -1240,9 +1238,9 @@
 	<maps>
 		<filemap name="sigel2isilMap" files="sigel2isilMap.csv"/>
 		<filemap name="iso639xToIso639-3-Map" files="iso639xToIso639-3-Map.tsv"/>
-		<sqlmap name="placesGeonames" query="SELECT data FROM NrwPlacesGeonamesId WHERE identifier=?"
+		<sqlmap name="wikidataId" query="SELECT data FROM wikidataGeo WHERE identifier=?"
 			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
-		<sqlmap name="osmTypeAndId" query="SELECT data FROM NrwPlacesOsmUrl WHERE identifier=?"
+		<sqlmap name="wikidataLatLon" query="SELECT data FROM wikidataGeo WHERE identifier=?"
 			host="localhost:3306" database="lobid" login="debian-sys-maint" password="tzSblDEUGC1XhJB7"/>
 	</maps>
 </metamorph>
