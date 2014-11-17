@@ -1185,7 +1185,7 @@
 			<lookup in="wikidataLatLon"/>
 		</data>
 		<data source="@wikidataLatLon" name="$[ns-lobid-vocab]subjectLocation"/>
-		<combine name="http://purl.org/dc/terms/spatial" value="https://www.wikidata.org/wiki/Special:EntityData/${id}">
+		<combine name="http://purl.org/dc/terms/spatial" value="http://www.wikidata.org/entity/${id}">
 			<data source="@wikidataId" name="id"/>
 		</combine>
 		<combine name="$[ns-lobid-vocab]nwbibspatial" value="${a}">
