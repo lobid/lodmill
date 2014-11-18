@@ -16,7 +16,7 @@ public final class MabXmlElasticsearch2FieldValueStatistics {
 	public static void main(String... args) {
 		// hbz catalog transformation
 		final ElasticsearchReader opener = new ElasticsearchReader();
-		opener.setClustername("lobid-hbz");
+		opener.setClustername("quaoar");
 		opener.setHostname("193.30.112.172");
 		opener.setIndexname("hbz01");
 		opener.setShards("0,1,2,3,4");
