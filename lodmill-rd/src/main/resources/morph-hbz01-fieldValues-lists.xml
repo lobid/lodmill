@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamorph xmlns="http://www.culturegraph.org/metamorph" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="1">
+	<!-- Aleph MAB differs from MAB in that: -->
+	<!-- an indicator2 exists -->
+	<!-- every field has at least the subfield 'a' -->
+	<!-- => structure of alehp MAB: $field$indicator1$indicator2$subfield -->
+	<rules>
+		<!--nwbib -->
+		<data source="078n[-1].a|700n[-1].[ab]" name="@partOfNwbib"/>
+		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
+		<combine name="700_99 ${a}" value="" sameEntity="true">
+			<data source="700n[-1].a">
+				<regexp match="^99\b"/>
+			</data>
+			<data source="700n[-1].b" name="a"/>
+		</combine>
+		<combine name="700_97 ${a}" value="" sameEntity="true">
+			<data source="700n[-1].a">
+				<regexp match="^97\b"/>
+			</data>
+			<data source="700n[-1].b" name="a"/>
+		</combine>
+		<combine name="700_96 ${a}" value="${a}" sameEntity="true">
+			<data source="700n[-1].a">
+				<regexp match="^96\b"/>
+			</data>
+			<data source="700n[-1].b" name="a"/>
+		</combine>
+		</rules>
+</metamorph>
