@@ -6,6 +6,7 @@
 	<version>2.0.1</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<target.jdk>1.7</target.jdk>
 		<junit.version>4.8.2</junit.version>
 		<org.springframework.version>3.0.5.RELEASE</org.springframework.version>

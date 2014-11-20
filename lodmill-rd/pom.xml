@@ -6,6 +6,7 @@
 	<version>2.0.0-SNAPSHOT</version>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<target.jdk>1.7</target.jdk>
 		<junit.version>4.8.2</junit.version>
 	</properties>
