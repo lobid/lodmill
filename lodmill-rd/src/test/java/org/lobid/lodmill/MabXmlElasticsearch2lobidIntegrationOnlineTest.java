@@ -7,16 +7,12 @@ import java.net.URISyntaxException;
 
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.runner.Flux;
-import org.culturegraph.mf.stream.converter.LiteralExtractor;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.StreamTee;
-import org.culturegraph.mf.stream.source.HttpOpener;
 import org.junit.Test;
 
 /**
- * Rather complex nested flow: gets the data out of an elasticsearch sink, uses
- * two api calls for geo enrichment, caching data in a MySQL DB used by morph
- * sql lookup function. The flux is aquivalent to the flow. The port is
+ * Gets the data out of an elasticsearch index. Sink is a MySQL DB. The port is
  * deliberately hardwired to 3306. Skip this test if you have already a running
  * daemon on port 3306.
  * 
@@ -36,9 +32,10 @@ public final class MabXmlElasticsearch2lobidIntegrationOnlineTest {
 	public void testFlow() {
 		// hbz catalog transformation
 		final ElasticsearchReader opener = new ElasticsearchReader();
-		opener.setClustername("aither");
-		opener.setHostname("193.30.112.84");
-		opener.setIndexname("hbz01-20140829");
+		opener.setClustername("quaoar");
+		opener.setHostname("193.30.112.171");
+		opener.setIndexname("hbz01");
+		opener.setShards("0,1,2,3,4");
 
 		final XmlDecoder xmlDecoder = new XmlDecoder();
 		XmlTee xmlTee = new XmlTee();
@@ -58,53 +55,6 @@ public final class MabXmlElasticsearch2lobidIntegrationOnlineTest {
 		PipeEncodeTriples encoder = new PipeEncodeTriples();
 		streamTeeGeo.addReceiver(encoder);
 		encoder.setReceiver(triple2model);
-
-		// OSM API lookup
-		// make OSM API URL and lookup that
-		final Metamorph morphCreateOsmURl =
-				new Metamorph("src/main/resources/morph-nwbibhbz01-buildGeoOsmUrl.xml");
-		streamTeeGeo.addReceiver(morphCreateOsmURl);
-		// lookup and parse OSM API URL
-		final LiteralExtractor literalExtractor = new LiteralExtractor();
-		morphCreateOsmURl.setReceiver(literalExtractor);
-		final HttpOpener httpOpener = getJsonHttpOpener();
-		final JsonDecoder jsonOsmDecoder = new JsonDecoder();
-		literalExtractor.setReceiver(httpOpener);
-		httpOpener.setReceiver(jsonOsmDecoder);
-
-		// parse OSM result, get lat lon and make URL for geonames lookup
-		final Metamorph morphOSM =
-				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResource("morph-osmResult-buildGeonamesLatLonUrl.xml")
-						.getFile());
-
-		StreamTee streamTeeOsmUrl = new StreamTee();
-		jsonOsmDecoder.setReceiver(streamTeeOsmUrl);
-		streamTeeOsmUrl.setReceiver(morphOSM);
-		final Metamorph morphCreateOsmMysqlRow =
-				new Metamorph("src/main/resources/morph-jsonOsm2mysqlRow.xml");
-		streamTeeOsmUrl.addReceiver(morphCreateOsmMysqlRow);
-
-		// writing OSM url into SQL DBMS
-		MysqlWriter sqlWriterOsmUrl = createMysqlWriter("NrwPlacesOsmUrl");
-		morphCreateOsmMysqlRow.setReceiver(sqlWriterOsmUrl);
-
-		// Geonames API lookup
-		// lookup geonames with generated URL
-		final LiteralExtractor literalExtractorGeonames = new LiteralExtractor();
-		final HttpOpener geonamesHttpOpener = getJsonHttpOpener();
-		final JsonDecoder jsonGeonamesDecoder = new JsonDecoder();
-		morphOSM.setReceiver(literalExtractorGeonames);
-		literalExtractorGeonames.setReceiver(geonamesHttpOpener);
-		geonamesHttpOpener.setReceiver(jsonGeonamesDecoder);
-		final Metamorph morphGeonames =
-				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResource("morph-jsonGeonames2mysqlRow.xml").getFile());
-		jsonGeonamesDecoder.setReceiver(morphGeonames);
-
-		// writing into SQL DBMS
-		MysqlWriter sqlWriter = createMysqlWriter("NrwPlacesGeonamesId");
-		morphGeonames.setReceiver(sqlWriter);
 		XmlEntitySplitter xmlEntitySplitter = new XmlEntitySplitter();
 		xmlEntitySplitter.setEntityName("ListRecords");
 		XmlFilenameWriter xmlFilenameWriter = createXmlFilenameWriter();
@@ -115,22 +65,6 @@ public final class MabXmlElasticsearch2lobidIntegrationOnlineTest {
 		opener.setReceiver(xmlDecoder).setReceiver(xmlTee);
 		opener.process("");
 		opener.closeStream();
-	}
-
-	private static HttpOpener getJsonHttpOpener() {
-		final HttpOpener httpOpener = new HttpOpener();
-		httpOpener.setAccept("application/json");
-		return httpOpener;
-	}
-
-	private static MysqlWriter createMysqlWriter(String tableName) {
-		MysqlWriter sqlWriterOsmUrl = new MysqlWriter();
-		sqlWriterOsmUrl.setDbname(DB_DBNAME);
-		sqlWriterOsmUrl.setDbProtocolAndAdress(DB_PROTOCOL_AND_ADDRESS);
-		sqlWriterOsmUrl.setPassword(DB_PASSWORD);
-		sqlWriterOsmUrl.setTablename(tableName);
-		sqlWriterOsmUrl.setUsername("debian-sys-maint");
-		return sqlWriterOsmUrl;
 	}
 
 	private static XmlFilenameWriter createXmlFilenameWriter() {
