@@ -34,6 +34,12 @@
 		"json-ld-lobid":{
 			"date_detection":false,
 			"properties":{
+				"@graph.http://d-nb.info/standards/elementset/gnd#dateOfBirth.@value":{
+					"type":"string"
+				},
+				"@graph.http://d-nb.info/standards/elementset/gnd#dateOfDeath.@value":{
+					"type":"string"
+				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#preferredNameForTheFamily.@value":{
 					"index_analyzer":"ngram_analyzer",
 					"search_analyzer":"standard",
@@ -75,6 +81,9 @@
 				"@graph.http://purl.org/lobid/lv#nwbibspatial.@id":{
 					"index":"not_analyzed",
 					"type":"string"
+				},
+				"@graph.http://purl.org/lobid/lv#subjectLocation.@value":{
+					"type":"geo_point"
 				},
 				"@graph.http://purl.org/vocab/frbr/core#exemplar.@id":{
 					"index":"not_analyzed",
