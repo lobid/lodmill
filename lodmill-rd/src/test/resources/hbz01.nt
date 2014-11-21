@@ -1133,7 +1133,6 @@
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000003404/about> .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
-<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/bibliographicCitation> "Wirtschaftsspiegel. - 38 (1983) H. 7, S. 24-25 : 1 Abb." .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10880724X> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007751353> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
@@ -1151,7 +1150,6 @@
 <http://lobid.org/resource/BT000041593> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000041593/about> .
 <http://lobid.org/resource/BT000041593> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000041593> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/bibliographicCitation> "Kiebitz. - 6 (1986), S. 29-36, S. 63-67" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118033948> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006990419> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
@@ -1255,7 +1253,6 @@
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/CT003012479/about> .
 <http://lobid.org/resource/CT003012479> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DCT003012479> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/elements/1.1/publisher> "DAG" .
-<http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/bibliographicCitation> "Bei Jg. 28 setzt die durchgehende Nr.-Z\u00E4hlung ein" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/37043-5> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006886476> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006886477> .
@@ -1375,7 +1372,6 @@
 <http://lobid.org/resource/HT001898812> <http://iflastandards.info/ns/isbd/elements/P1053> "XVIII, 1306 S." .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/publisher> "Verl. Enzyklop\u00E4die [u.a.]" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/alternative> "Wie\u0142ki slownik polsko-niemiecki" .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/bibliographicCitation> "Erschienen: Bd. 1 - 2" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124515312> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/177005009> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001381485> .
@@ -1521,7 +1517,6 @@
 <http://lobid.org/resource/HT007527436> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/HT007527436> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/publisher> "Hatier/Didier" .
-<http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/bibliographicCitation> "Erschienen: 1 - 2, jeweils Videokass. u. Begleith." .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11860225X> .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/133991210> .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/172026644> .
@@ -1625,7 +1620,6 @@
 <http://lobid.org/resource/HT010726584> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT010726584> .
 <http://lobid.org/resource/HT012299746> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/HT012299746> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
-<http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Kt.-Beil." .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "XIV, 514 S. : graph. Darst., Kt." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/publisher> "Springer" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1031919368> .
@@ -1725,7 +1719,6 @@
 <http://lobid.org/resource/HT013077595> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013077595/about> .
 <http://lobid.org/resource/HT013077595> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013077595> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/publisher> "Ebner" .
-<http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/bibliographicCitation> "viertelj\u00E4hrl." .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013304885> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002 - 2002" .
@@ -1765,7 +1758,6 @@
 <http://lobid.org/resource/HT013304885> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT013370531> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT015865114> .
 <http://lobid.org/resource/HT013370531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/bibliographicCitation> "Kontinuit\u00E4t und Diskontinuit\u00E4t / hrsg. von Thomas Gr\u00FCnewald ... - Berlin [u.a.], 2003. - (Reallexikon der germanischen Altertumskunde : Erg\u00E4nzungsb\u00E4nde ; 35). - S. [266]-344 : Ill., Kt." .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/108092704> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013538692> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/NWBib> .
@@ -2003,7 +1995,6 @@
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015414894/about> .
 <http://lobid.org/resource/HT015414894> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015414894> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/publisher> "Buchner" .
-<http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/bibliographicCitation> "Sch\u00FCler- und Lehrerbd." .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/105667129> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013370531> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/issued> "2003 - " .
@@ -2031,7 +2022,6 @@
 <http://lobid.org/resource/HT015865114> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015865114/about> .
 <http://lobid.org/resource/HT015865114> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015865114> .
 <http://lobid.org/resource/HT015894164> <http://iflastandards.info/ns/isbd/elements/P1053> "88 p." .
-<http://lobid.org/resource/HT015894164> <http://iflastandards.info/ns/isbd/elements/P1053> "ill." .
 <http://lobid.org/resource/HT015894164> <http://purl.org/dc/elements/1.1/isPartOf> "Examens en mati\u00E8re de coop\u00E9ration pour le d\u00E9veloppement" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/dc/elements/1.1/publisher> "OECD Publishing" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/dc/terms/hasVersion> <http://dx.doi.org/10.1787/9789264273085-fr> .
@@ -2106,7 +2096,6 @@
 <http://lobid.org/resource/HT016135351> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT016135351> .
 <http://lobid.org/resource/HT016135351> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016135351/about> .
 <http://lobid.org/resource/HT016135351> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016135351> .
-<http://lobid.org/resource/HT016382441> <http://iflastandards.info/ns/isbd/elements/P1053> "1 DVD-ROM (12 cm)" .
 <http://lobid.org/resource/HT016382441> <http://iflastandards.info/ns/isbd/elements/P1053> "418 S. : zahlr. Ill., graph. Darst." .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/publisher> "Wiley-VCH" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/alternative> "Linux for dummies <dt.>" .
@@ -2204,7 +2193,6 @@
 <http://lobid.org/resource/HT017290519> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/CT003012479> .
 <http://lobid.org/resource/HT017290519> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT017468042> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Kt. : grenzkolor., fl\u00E4chenkolor., Kupferst." .
-<http://lobid.org/resource/HT017468042> <http://iflastandards.info/ns/isbd/elements/P1053> "46 x 48 cm" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/elements/1.1/publisher> "Homannianos Heredes" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/5293676-4> .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/issued> "1757" .

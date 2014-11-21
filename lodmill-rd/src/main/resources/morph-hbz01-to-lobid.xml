@@ -465,8 +465,7 @@
 		</data>
 		<data source="@medium" name="http://purl.org/dc/terms/medium"/>
 		<!-- set default medium -->
-		<combine name="@medium" value="$[ns-lobid-vocab]Miscellaneous"
-			flushWith="record">
+		<combine name="@medium" value="$[ns-lobid-vocab]Miscellaneous" flushWith="record">
 			<if>
 				<none>
 					<data source="@medium">
@@ -1109,8 +1108,9 @@
 		<!-- ########## source , isPartOf -->
 		<!-- ####################### -->
 		<concat delimiter="; " name="http://purl.org/dc/terms/bibliographicCitation">
-			<data source="5[29][0123568][-abcd][-12].a"/>
+			<data source="59[0123568][-abcd][-12].a"/>
 		</concat>
+
 		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
 		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
