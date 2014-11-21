@@ -1110,7 +1110,22 @@
 		<concat delimiter="; " name="http://purl.org/dc/terms/bibliographicCitation">
 			<data source="59[0123568][-abcd][-12].a"/>
 		</concat>
-
+		<!-- if 523-1p and 523-1a -->
+		<combine name="http://rdvocab.info/Elements/frequency" value="${p}${a}">
+			<data source="523[-a][-1].p" name="p">
+				<regexp match="(.*)" format="${1}: "/>
+			</data>
+			<data source="523[-a][-1].a" name="a"/>
+		</combine>
+		<!-- if only 523-1a -->
+		<combine name="http://rdvocab.info/Elements/frequency" value="${a}">
+			<if>
+				<none>
+					<data source="523[-a][-1].p"/>
+				</none>
+			</if>
+			<data source="523[-a][-1].a" name="a"/>
+		</combine>
 		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
 		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>

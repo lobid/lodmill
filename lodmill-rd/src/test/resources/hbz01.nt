@@ -1311,6 +1311,7 @@
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-Bo102:Zs%20371> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-Bo133:AMZ%20336> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-Bo133:Z%20848> .
+<http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/frequency> "Bei Jg. 28 setzt die durchgehende Nr.-Z\u00E4hlung ein" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/otherTitleInformation> "Zeitschrift der Deutschen Angestellten-Gewerkschaft" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/placeOfPublication> "Hamburg" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/publicationStatement> "Hamburg; DAG; 1948" .
@@ -1526,6 +1527,7 @@
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/title> "Le cin\u00E9ma de la vie" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#hbzID> "HT009719670" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT009719670:DE-467:> .
+<http://lobid.org/resource/HT009719670> <http://rdvocab.info/Elements/frequency> "Erschienen: 1 - 2, jeweils Videokass. u. Begleith." .
 <http://lobid.org/resource/HT009719670> <http://rdvocab.info/Elements/otherTitleInformation> "extraits de films de Eric Rohmer" .
 <http://lobid.org/resource/HT009719670> <http://rdvocab.info/Elements/placeOfPublication> "Paris" .
 <http://lobid.org/resource/HT009719670> <http://rdvocab.info/Elements/publicationStatement> "Paris; Hatier/Didier" .
@@ -1740,6 +1742,7 @@
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-829:%3C%3C01%3E%3E%2034%20Z%2041> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-Kn3:Zd%20Decide> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-Tr5:> .
+<http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/frequency> "Periodizit\u00E4t: viertelj\u00E4hrl." .
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/otherTitleInformation> "Magazin f\u00FCr Frauen, Kultur & Luxus" .
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/placeOfPublication> "Ulm" .
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/publicationStatement> "Ulm; Ebner; 2002" .
@@ -2010,6 +2013,7 @@
 <http://lobid.org/resource/HT015865114> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015865114:DE-6-290:> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015865114:DE-929:> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015865114:DE-Lan1:> .
+<http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/frequency> "Erschienen: Sch\u00FCler- und Lehrerbd." .
 <http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/otherTitleInformation> "die Welt nach 1945" .
 <http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/placeOfPublication> "Bamberg" .
 <http://lobid.org/resource/HT015865114> <http://rdvocab.info/Elements/publicationStatement> "Bamberg; Buchner; 2003" .
