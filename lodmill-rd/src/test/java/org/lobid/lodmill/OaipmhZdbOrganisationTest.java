@@ -5,6 +5,7 @@ package org.lobid.lodmill;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.sink.ObjectWriter;
+import org.culturegraph.mf.stream.source.OaiPmhOpener;
 import org.junit.Test;
 
 /**

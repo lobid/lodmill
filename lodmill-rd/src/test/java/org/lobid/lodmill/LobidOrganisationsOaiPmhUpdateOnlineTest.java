@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.runner.Flux;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
+import org.culturegraph.mf.stream.source.OaiPmhOpener;
 import org.junit.Test;
 
 /**
