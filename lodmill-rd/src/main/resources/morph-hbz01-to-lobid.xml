@@ -1061,6 +1061,9 @@
 		<!-- ####################### -->
 		<!-- ##########fulltext, toc, seeAlso -->
 		<!-- ####################### -->
+		<data source="652a[-1].a" name="@archived">
+			<regexp match="^[Aa][r]"/>
+		</data>
 		<combine name="@fulltextOnline" value="${link}">
 			<data source="334-[12].a">
 				<regexp match="^[eEcC][lLoO]"/>
@@ -1075,6 +1078,10 @@
 			<data source="655[-eu][ -1].[x3]">
 				<regexp match="^[AERV][rZoe][cBls]"/>
 			</data>
+			<data source="@linkUri" name="uri"/>
+		</combine>
+		<combine name="@fulltextOnlineUri" value="${uri}">
+			<data source="@archived"/>
 			<data source="@linkUri" name="uri"/>
 		</combine>
 		<data source="@fulltextOnlineUri" name="$[ns-lobid-vocab]fulltextOnline"/>
@@ -1213,7 +1220,7 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<data source="@edoweb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="@edoweb|@archived" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://data.archiveshub.ac.uk/def/ArchivalResource"/>
 		</data>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
