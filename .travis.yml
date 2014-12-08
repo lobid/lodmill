@@ -2,6 +2,7 @@ language: java
 jdk: oraclejdk7
 before_install:
   - cd lodmill-rd; sh install-dependencies.sh; cd ..
+  - sudo apt-get install libaio-dev
 install:
   - mvn clean install -e -q -DskipTests=true -Dmysql.classifier=linux-amd64 --settings settings.xml
 script:
