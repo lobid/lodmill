@@ -1923,8 +1923,8 @@
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/placeOfPublication> "[Mainz]" .
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/publicationStatement> "[Mainz]; 2003" .
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/statementOfResponsibility> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz; Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht; Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz" .
-<http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.archiveshub.ac.uk/def/ArchivalResource> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#ArchivedWebPage> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Thesis> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
@@ -2398,7 +2398,6 @@
 <http://lobid.org/resource/TT001726537> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001726537> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Guntram" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
-<http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
@@ -2408,14 +2407,14 @@
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4114067-9> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/title> "Jakobswege : der Lahn-Camino" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
-<http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#hbzID> "TT002234459" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectChain> "Rhein-Lahn-Kreis | Jakobsweg | Karte (213)" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:929:01-2079" .
+<http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#webPageArchived> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT002234459:DE-929:> .
 <http://lobid.org/resource/TT002234459> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:929:01-2079> .
-<http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.archiveshub.ac.uk/def/ArchivalResource> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#ArchivedWebPage> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT002234459> .
