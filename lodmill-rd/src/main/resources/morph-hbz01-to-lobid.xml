@@ -665,9 +665,7 @@
 			<regexp match="(.*)" format="http://nbn-resolving.de/${1}"/>
 		</data>
 		<!-- fulltext online , if 655 AND 334 exists with "[eE][lL]"ektro.. -->
-		<data source="655[-e][ -1].u" name="@linkUri">
-			<regexp match="(.*)" format="${1}"/>
-		</data>
+		<data source="655[-e][ -1].u" name="@linkUri"/>
 		<!-- ####################### -->
 		<!-- ################ items -->
 		<!-- ####################### -->
@@ -739,6 +737,7 @@
 		</data>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
+		<!-- TODO: this doesn't work: -->
 		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creatorLiteral}"
 			sameEntity="true">
 			<if>
@@ -1061,6 +1060,9 @@
 		<!-- ####################### -->
 		<!-- ##########fulltext, toc, seeAlso -->
 		<!-- ####################### -->
+		<data source="652a[-1].a" name="@archived">
+			<regexp match="^[Aa][r]"/>
+		</data>
 		<combine name="@fulltextOnline" value="${link}">
 			<data source="334-[12].a">
 				<regexp match="^[eEcC][lLoO]"/>
@@ -1076,6 +1078,18 @@
 				<regexp match="^[AERV][rZoe][cBls]"/>
 			</data>
 			<data source="@linkUri" name="uri"/>
+		</combine>
+		<!-- emit URI only if there are no description subfields ... -->
+		<choose name="@urlLonely" flushWith="655??">
+			<data source="655[-eu][ -1].[xy3]"/>
+			<data source="655[-e][ -1].u"/>
+		</choose>
+		<!-- ... check if URI and if 652=Archive to determine if it's the archived web source -->
+		<combine name="$[ns-lobid-vocab]webPageArchived" value="${uri}">
+			<data source="@urlLonely" name="uri">
+				<regexp match="^http.*"/>
+			</data>
+			<data source="@archived"/>
 		</combine>
 		<data source="@fulltextOnlineUri" name="$[ns-lobid-vocab]fulltextOnline"/>
 		<data source="@fulltextOnlineUri" name="http://purl.org/dc/terms/hasVersion"/>
@@ -1213,8 +1227,8 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<data source="@edoweb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://data.archiveshub.ac.uk/def/ArchivalResource"/>
+		<data source="@edoweb|@archived" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+			<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
 		</data>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
