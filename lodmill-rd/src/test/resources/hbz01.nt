@@ -1217,15 +1217,7 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "Universit\u00E4ts- und Landesbibliothek" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/alternative> "<<La>> Belisa Ossia La Fedelt\u00E1 Riconosciuta" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/116620153> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118512536> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119055716> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/123633206> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141834919> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141889810> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141891173> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141927135> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/142027901> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/142061166> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/16068028-1> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14216075X> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/hasVersion> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
@@ -1490,11 +1482,6 @@
 <http://lobid.org/resource/HT006266886> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Videokassette (VHS, 93 Min.) : farb." .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/publisher> "Mondadori Video" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118657496> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118677942> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/120454874> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141618302> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141649429> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/143102893> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/issued> "1992" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/ita> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/AudioVisualDocument> .
@@ -1823,7 +1810,6 @@
 <http://lobid.org/resource/HT014015351> <http://id.loc.gov/vocabulary/relators/hnr> <http://d-nb.info/gnd/136788548> .
 <http://lobid.org/resource/HT014015351> <http://iflastandards.info/ns/isbd/elements/P1053> "324 S. : Ill." .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/publisher> "Fink" .
-<http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/129016713> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/issued> "2005" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -1960,7 +1946,6 @@
 <http://lobid.org/resource/HT015082724> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015082724> .
 <http://lobid.org/resource/HT015183529> <http://iflastandards.info/ns/isbd/elements/P1053> "LV, 225 S. : Kt." .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/publisher> "Cambridge Univ. Press" .
-<http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119468476> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118533592> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT004984061> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/issued> "2006" .
@@ -2086,7 +2071,6 @@
 <http://lobid.org/resource/HT016135351> <http://iflastandards.info/ns/isbd/elements/P1053> "32 gez. S. : \u00FCberw. Ill." .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/coverage> "Harsewinkel-Marienfeld" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/publisher> "Selbstverl." .
-<http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/186931808> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/issued> "2006" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -2275,11 +2259,8 @@
 <http://lobid.org/resource/TT000075751> <http://iflastandards.info/ns/isbd/elements/P1053> "2 CD : DDD + Beih." .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/publisher> "Hyperion" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134769236> .
-<http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134782852> .
-<http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/13482167X> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134845323> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134926277> .
-<http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134926285> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118515527> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/issued> "1994" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/AudioDocument> .
