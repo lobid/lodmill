@@ -11,6 +11,6 @@ xml-tee | {
 	triples-to-rdfmodel(input="TURTLE")|
 	write-rdfmodel(property="http://purl.org/lobid/lv#isil",endIndex="2",startIndex="0", fileSuffix="nt",serialization="N-TRIPLE",target=target+"lod/")
 }{
-	split-xml(entityname="metadata") |
+	split-xml(entityname="metadata",topLevelElement="harvest") |
 	write-xml(startindex="0", endindex="2",target=target+"xml/",property="/harvest/metadata/*[local-name() = 'record']/*[local-name() = 'global']/*[local-name() = 'tag'][@id='008H']/*[local-name() = 'subf'][@id='e']")
 };
