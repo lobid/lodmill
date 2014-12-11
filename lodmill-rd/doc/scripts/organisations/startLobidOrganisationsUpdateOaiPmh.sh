@@ -11,7 +11,7 @@ DATE_UNTIL=$(date +%Y-%m-%d)
 FLUX_LINE="open-oaipmh(dateFrom=\"$DATE_FROM\",dateUntil=\"$DATE_UNTIL\",metadataPrefix=\"PicaPlus-xml\",setSpec=\"bib\") |"
 sed -i "s#.*dateUntil=\".*#$FLUX_LINE#" oaipmh-zdbIsil2ld.flux
 
-java -classpath classes:$TARGET$JAR:src/main/resources org.culturegraph.mf.runner.Flux oaipmh-zdbIsil2ld.flux > startLobidOrganisationsUpdateOaiPmh.sh.log 2>&1
+java -classpath classes:$TARGET$JAR:src/main/resources org.culturegraph.mf.runner.Flux oaipmh-zdbIsil2ld.flux
 
 QRCODE_PATH="/files/open_data/closed/lobid-organisation/qrcodes/"
 # copy only files which are max 24 hours old
