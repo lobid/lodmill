@@ -737,7 +737,7 @@
 		</data>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
-		<!-- TODO: this doesn't work: -->
+		<!-- TODO: this doesn't work. Hint: use "choose" to do the job. -->
 		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creatorLiteral}"
 			sameEntity="true">
 			<if>
@@ -753,14 +753,15 @@
 		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
 		<data source="1[0123456789][0123456789]b[1234].b" name="@marcrelName"/>
-		<!-- person links -->
+		<!-- id of person -->
 		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
-		<!-- corporation links as contributor -->
+		<!-- id of corporation -->
 		<data source="2[0123456789][012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
+		<!-- map literals to marc relator property -->
 		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
 				<regexp match="[dD]ars" format="http://id.loc.gov/vocabulary/relators/act"/>
@@ -920,26 +921,22 @@
 		<data source="104f1.9" name="http://id.loc.gov/vocabulary/relators/hnr">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
-		<!-- default: if none of the above matches and @marcrelName and @contributorId exists => 
-			dc:contributor -->
-		<combine name="http://purl.org/dc/terms/contributor" value="${contributorId}">
-			<if>
-				<none>
-					<data source="@marcrelName">
-						<regexp
-							match="[dD]ars|[hH]rsg|[rR]egi|bers|[iI]ll|[zZ]eichn|[mM]itarb|[oO]togr|[dD]ir|[kK]om|[vV]or|[dD]rehb|[sS]ammler|[bB]eitr|[iI]nterpr|[kK]amera|[vV]orl|[gG]esang|[iI]nterviewer|[iI]nterviewter|[kK]artogra|[mM]usi|[nN]ach|[pP]rod|[sS]techer|[wW]idmun"/>
-					</data>
-				</none>
-			</if>
-			<data source="@contributorId" name="contributorId"/>
-		</combine>
-		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
-		<!-- if there are only literals for contributor: -->
+		<!-- use dct:contributor only if no marc:rel could be build -->
+		<choose name="@contributorWithoutMarcRel" flushWith="@contributorId">
+			<data source="@marcrelName">
+				<regexp
+					match="[dD]ars|[hH]rsg|[rR]egi|bers|[iI]ll|[zZ]eichn|[mM]itarb|[oO]togr|[dD]ir|[kK]om|[vV]or|[dD]rehb|[sS]ammler|[bB]eitr|[iI]nterpr|[kK]amera|[vV]orl|[gG]esang|[iI]nterviewer|[iI]nterviewter|[kK]artogra|[mM]usi|[nN]ach|[pP]rod|[sS]techer|[wW]idmun"/>
+			</data>
+			<data source="@contributorId"/>
+		</choose>
+		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
+			<regexp match="^http.*"/>
+		</data>
+		<!-- use dc:contributor if there is no id -->
 		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
 			<if>
 				<none>
-					<data source="@contributorId">
-					</data>
+					<data source="@contributorId"/>
 				</none>
 			</if>
 			<data source="1[0123456789][0123456789]b1.a" name="contributorLiteral"/>

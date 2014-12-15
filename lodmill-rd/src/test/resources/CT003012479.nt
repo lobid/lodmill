@@ -2,8 +2,6 @@
 <http://lobid.org/resource/HT017290519> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/CT003012479> .
 <http://lobid.org/resource/HT017290519> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/source> <http://lobid.org/resource/HT016511663> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141927135> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119055716> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16" .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/publicationStatement> "[D\u00FCsseldorf]; B\u00F6gemann; 1805; D\u00FCsseldorf; Universit\u00E4ts- und Landesbibliothek" .
 <http://lobid.org/resource/CT003012479> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
@@ -13,18 +11,14 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14216075X> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Zum Beschlu\u00DF wird Mad. B\u00F6hm d.j. eine Dankrede halten, welche gedruckt an der Kassa zu kaufen ist" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017290519> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141834919> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Dankrede" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141889810> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141891173> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/118512536> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elise, Gr\u00E4fin von Hartburg" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142027901> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118512536> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/141889810> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/116620153> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "... wird heute Mittwoch den 17ten April die hier anwesende deutsche Schauspieler-Gesellschaft (Zum Letztenmale) die Ehre haben aufzuf\u00FChren ; eine ganz neue gro\u00DFe komische Oper in 2 Aufz\u00FCgen" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
@@ -41,9 +35,7 @@
 <http://lobid.org/resource/CT003012479> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Plakat : sw ; 33 x 29 cm" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/alternative> "<<La>> Belisa Ossia La Fedelt\u00E1 Riconosciuta" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/123633206> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/142061166> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "1805" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/142027901> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "[D\u00FCsseldorf]" .
