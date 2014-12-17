@@ -1,8 +1,8 @@
 default files = FLUX_DIR;
 morphDirectory = files+"../../../src/main/resources/";
 
-"/files/open_data/closed/hbzvk/index.hbz-nrw.de/alephxml/clobs/updates/20140907_20140908.tar.bz2"|
-open-file(compression="BZIP2") |
+"/files/open_data/open/DE-605/mabxml/DE-605-aleph-update-marcxchange-20141201-20141202.tar.gz"|
+open-file |
 open-tar|
 decode-xml |
 xml-tee | {
