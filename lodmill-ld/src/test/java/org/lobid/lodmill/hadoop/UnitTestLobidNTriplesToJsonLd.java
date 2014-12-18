@@ -92,17 +92,17 @@ public final class UnitTestLobidNTriplesToJsonLd {
 		JSONArray array = new JSONArray();
 		JSONObject obj = new JSONObject();
 		obj.put("@id", TRIPLE_ID);
+		obj.put("http://purl.org/dc/terms/subject", Arrays.asList(ImmutableMap.of(
+				"@id", "https://dewey.info/class/[892.1, 22]/")));
 		obj.put("http://purl.org/dc/terms/subject#prefLabel", Arrays
 				.asList(ImmutableMap.of("@value",
 						"International migration & colonization@en")));
-		obj.put("http://purl.org/dc/terms/subject", Arrays.asList(ImmutableMap.of(
-				"@id", "https://dewey.info/class/[892.1, 22]/")));
 		obj.put("http://purl.org/dc/elements/1.1/creator",
 				Arrays.asList(ImmutableMap.of("@value", "Adamucci, Antonio")));
 		obj.put("http://purl.org/dc/terms/creator",
 				Arrays.asList(ImmutableMap.of("@id", "http://d-nb.info/gnd/118643606")));
 		array.add(obj);
-		return new JSONObject(ImmutableMap.of("@graph", array,
-				NTriplesToJsonLd.INTERNAL_ID, TRIPLE_ID));
+		return new JSONObject(ImmutableMap.of(NTriplesToJsonLd.INTERNAL_ID,
+				TRIPLE_ID, "@graph", array));
 	}
 }
