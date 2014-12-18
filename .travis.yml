@@ -1,5 +1,5 @@
 language: java
-jdk: oraclejdk7
+jdk: oraclejdk8
 before_install:
   - cd lodmill-rd; sh install-dependencies.sh; cd ..
   - sudo apt-get install libaio-dev
