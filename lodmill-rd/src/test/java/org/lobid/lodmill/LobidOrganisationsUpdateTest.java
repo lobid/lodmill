@@ -56,7 +56,7 @@ public class LobidOrganisationsUpdateTest {
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
 		assertEquals(
-				Long.parseLong("2877981990"),
+				Long.parseLong("1066709072"),
 				FileUtils.checksumCRC32(new File(PATH + File.separator + "DE"
 						+ File.separator + "DE-Tir1.xml")));
 		deleteTestFiles();
