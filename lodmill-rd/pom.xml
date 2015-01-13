@@ -12,28 +12,10 @@
 	</properties>
 	<repositories>
 		<repository>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-			<id>lobid-snapshots</id>
-			<name>Lobid Snapshots</name>
-			<url>http://lobid.github.io/snapshots</url>
-		</repository>
-		<repository>
 			<id>oss.sonatype.org</id>
 			<url>https://oss.sonatype.org/content/groups/public/</url>
 		</repository>
 	</repositories>
-	<distributionManagement>
-		<snapshotRepository>
-			<id>lobid-snapshots</id>
-			<url>file:///${basedir}/../../lobid.github.com/snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<id>lobid-releases</id>
-			<url>file:///${basedir}/../../lobid.github.com/releases/</url>
-		</repository>
-	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.culturegraph</groupId>
