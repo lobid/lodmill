@@ -95,7 +95,7 @@ public final class UnitTestGndNTriplesToJsonLd {
 		obj.put("http://d-nb.info/standards/elementset/gnd#dateOfBirth",
 				Arrays.asList(ImmutableMap.of("@value", "1828")));
 		array.add(obj);
-		return new JSONObject(ImmutableMap.of("@graph", array,
-				NTriplesToJsonLd.INTERNAL_ID, "http://d-nb.info/gnd/118643606"));
+		return new JSONObject(ImmutableMap.of(NTriplesToJsonLd.INTERNAL_ID,
+				"http://d-nb.info/gnd/118643606", "@graph", array));
 	}
 }

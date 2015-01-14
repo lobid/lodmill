@@ -10,15 +10,10 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mrunit.TestDriver;
 import org.apache.hadoop.mrunit.mapreduce.MapDriver;
 import org.apache.hadoop.mrunit.mapreduce.ReduceDriver;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 import org.junit.Before;
 import org.junit.Test;
 import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdMapper;
 import org.lobid.lodmill.hadoop.NTriplesToJsonLd.NTriplesToJsonLdReducer;
-
-import com.google.common.collect.ImmutableMap;
 
 /**
  * Test the {@link NTriplesToJsonLd} class with a lobid item.
@@ -73,23 +68,11 @@ public final class UnitTestItemNTriplesToJsonLd {
 	public void testReducer() throws IOException {
 		reduceDriver.withInput(new Text(TRIPLE_URI),
 				Arrays.asList(new Text(TRIPLE_1), new Text(TRIPLE_2)));
-		reduceDriver.withOutput(new Text(""),
-				new Text(JSONValue.toJSONString(correctJson())));
+		reduceDriver
+				.withOutput(
+						new Text(""),
+						new Text(
+								"{\"internal_parent\":\"http:\\/\\/lobid.org\\/resource\\/BT000000079\",\"internal_id\":\"http:\\/\\/lobid.org\\/item\\/BT000000079:GA+644\",\"@graph\":[{\"http:\\/\\/purl.org\\/vocab\\/frbr\\/core#owner\":[{\"@id\":\"http:\\/\\/lobid.org\\/organisation\\/DE-Sol1\"}],\"http:\\/\\/purl.org\\/vocab\\/frbr\\/core#exemplarOf\":[{\"@id\":\"http:\\/\\/lobid.org\\/resource\\/BT000000079\"}],\"@id\":\"http:\\/\\/lobid.org\\/item\\/BT000000079:GA+644\"}]}"));
 		reduceDriver.runTest();
-	}
-
-	@SuppressWarnings({ "unchecked" })
-	static JSONObject correctJson() {
-		JSONArray array = new JSONArray();
-		JSONObject obj = new JSONObject();
-		obj.put("@id", TRIPLE_ID);
-		obj.put("http://purl.org/vocab/frbr/core#owner", Arrays.asList(ImmutableMap
-				.of("@id", "http://lobid.org/organisation/DE-Sol1")));
-		obj.put("http://purl.org/vocab/frbr/core#exemplarOf",
-				Arrays.asList(ImmutableMap.of("@id", PARENT_ID)));
-		array.add(obj);
-		return new JSONObject(ImmutableMap.of("@graph", array,
-				NTriplesToJsonLd.INTERNAL_ID, TRIPLE_ID,
-				NTriplesToJsonLd.INTERNAL_PARENT, PARENT_ID));
 	}
 }
