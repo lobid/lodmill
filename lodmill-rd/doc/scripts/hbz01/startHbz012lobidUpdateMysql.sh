@@ -66,6 +66,7 @@ echo "DROP TABLE resourcesAll" | mysql -udebian-sys-maint -ptzSblDEUGC1XhJB7 lob
 find .  -type f -name "hbz01ES-to-lobid.flux"| parallel --gnu --load 20 "java -classpath classes:$LODMILL_RD_JAR:src/main/resources $FLUX_MAIN {} >log/{}.log 2>&1"
 }
 
+# deprecated - use allES() instead
 function all() {
 TMP_FLUX_PARENT="tmpFlux/$SNAPSHOT_PATH"
 if [ ! -d tmpFlux/$SNAPSHOT_PATH ]; then 
@@ -90,7 +91,7 @@ FLUX=updatesHbz01ToXmlSnapshot.flux
 UPDATE_FILES_LIST=toBeUpdateFilesXmlClobs.txt
 for i in $(cat $UPDATE_FILES_LIST); do
 	echo "going to work on $i..."
-	sed -i s#/files/open_data/closed/hbzvk/index.hbz-nrw.de/alephxml/clobs/updates/.*\"#$i\"#g $FLUX ;
+	sed -i s#/files/open_data/open/DE-605/mabxml/.*\"#$i\"#g $FLUX ;
 	sed -i s#tmp.stats.csv.*#tmp.stats.csv.$(basename $i .tar.bz2)\"\)#g $FLUX;
 	wait_load
 	java -classpath classes:$LODMILL_RD_JAR:src/main/resources $FLUX_MAIN $FLUX
