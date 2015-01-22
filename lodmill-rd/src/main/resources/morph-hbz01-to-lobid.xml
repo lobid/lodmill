@@ -932,6 +932,9 @@
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>
+				<data source="1[0123456789][0123456789][bcp][1234].p" name="@contributorLiteral">
+			<regexp match=".*"/>
+		</data>
 		<!-- use dc:contributor if there is no id -->
 		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
 			<if>
@@ -939,8 +942,26 @@
 					<data source="@contributorId"/>
 				</none>
 			</if>
-			<data source="1[0123456789][0123456789]b1.a" name="contributorLiteral"/>
+			<data source="@contributorLiteral" name="contributorLiteral"/>
 		</combine>
+		<!-- ####### adding data to the GND IDs, i.e. the literal of the preferredName -->
+		<!-- set gnd ID as subject -->
+		<combine name="~rdf:subject" value="${contributorId}" sameEntity="true">
+			<data source="@contributorLiteral"/>
+			<data source="@contributorId" name="contributorId"/>
+		</combine>
+		<combine name="http://d-nb.info/standards/elementset/gnd#preferredName" value="${contributorLiteral}"
+			sameEntity="true">
+			<data source="@contributorId"/>
+			<data source="@contributorLiteral" name="contributorLiteral"/>
+		</combine>
+		<!-- set manifestation ID as subject anew -->
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
+			<data source="@id" name="subject"/>
+			<data source="@contributorLiteral"/>
+			<data source="@contributorId"/>
+		</combine>
+		<!-- ####### /adding data to the GND IDs, i.e. the literal of the preferredName -->
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
