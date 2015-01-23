@@ -1,4 +1,4 @@
-<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig <<von>>" .
+<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig von" .
 <http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann" .
 <http://lobid.org/resource/HT017290519> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/CT003012479> .
 <http://lobid.org/resource/HT017290519> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
@@ -54,6 +54,6 @@
 <http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pepoli, Alessandro Ercole" .
 <http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredName> "Dardenne, ..." .
 <http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fuchs, ..." .
-<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter <<von>>" .
+<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter von" .
 <http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne" .
 <http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredName> "Annoni, ..." .

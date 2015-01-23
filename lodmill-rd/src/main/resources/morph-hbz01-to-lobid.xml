@@ -932,8 +932,8 @@
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>
-				<data source="1[0123456789][0123456789][bcp][1234].p" name="@contributorLiteral">
-			<regexp match=".*"/>
+		<data source="1[0123456789][0123456789][bcp][1234].p" name="@contributorLiteral">
+			<replace pattern="&lt;&lt;|&gt;&gt;" with=""/>
 		</data>
 		<!-- use dc:contributor if there is no id -->
 		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
