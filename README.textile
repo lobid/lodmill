@@ -20,16 +20,13 @@ The @lodmill-rd@ folder contains code for working with raw data and its transfor
 
 h1. Setup
 
-Prerequisites: Java 7 and Maven 3 (check @mvn -version@ to make sure Maven is using Java 7)
+Prerequisites: Java 8 and Maven 3 (check @mvn -version@ to make sure Maven is using Java 8)
 
 To set up a local build of the lodmill components follow these steps:
 
 h6. Clone lodmill and run the Maven build
 
-@git clone https://github.com/lobid/lodmill.git@
-@cd lodmill@
-@umask 0022@ (required for MRUnit tests)
-@mvn clean install --settings settings.xml@ (or copy 'settings.xml' to '~/.m2')
+@git clone https://github.com/lobid/lodmill.git; cd lodmill; echo "required for MRUnit tests:"; umask 0022; mvn clean install -DdescriptorId=jar-with-dependencies -DskipIntegrationTests --settings settings.xml@
 
 h6. Build Hadoop Jar
 
