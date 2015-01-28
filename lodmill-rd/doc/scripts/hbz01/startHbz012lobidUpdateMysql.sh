@@ -38,7 +38,7 @@ FLUX_MAIN="org.culturegraph.mf.runner.Flux"
 echo "Going checkout $BRANCH ..."
 #git stash # to avoid possible conflicts
 cd ../../.. ; git checkout $BRANCH ; git pull
-mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies  -DskipTests=true -Dmysql.classifier=linux-amd64 -Dmysql.port=33061
+mvn clean assembly:assembly -DdescriptorId=jar-with-dependencies -DskipTests=true -DskipIntegrationTests
 JAR=$(basename $(ls target/lodmill-rd-*jar-with-dependencies.jar))
 LODMILL_RD_JAR=../../../target/$JAR
 cd -
