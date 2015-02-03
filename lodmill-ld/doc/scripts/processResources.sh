@@ -13,9 +13,6 @@ SET=$2
 TIME=`date '+%Y%m%d-%H%M%S'`
 
 INDEX_NAME=lobid-resources-$TIME
-if [ $SET = "Updates" ]; then
-        INDEX_NAME=$ALIAS
-fi
 
 HDFS_FILE="hbzlod/lobid-resources-$SET/resources-dump.nt"
 echo "Dumping to $HDFS_FILE ..."
