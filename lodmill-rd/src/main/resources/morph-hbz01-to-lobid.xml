@@ -952,18 +952,10 @@
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
-		<!-- gnd subjects literals, use only if no link present, see e.g. HT015865114 -->
-		<combine name="http://purl.org/dc/elements/1.1/subject" value="${subjectName}"
-			sameEntity="true">
-			<if>
-				<none>
-					<data source="@subjectLinks">
-						<regexp match="^[^.*]"/>
-					</data>
-				</none>
-			</if>
-			<data source="9[01234][27][-acfgkpstkz][-12].[sha]" name="subjectName"/>
-		</combine>
+		<!-- gnd subjects literals, use even if link present -->
+		<data source="9[01234][27]-[-12].[acfghkpstkz]" name="http://purl.org/dc/elements/1.1/subject"/>
+		<!-- other subjects -->
+		<data source="71[01][-abcdfz][123].a" name="http://purl.org/dc/elements/1.1/subject"/>
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
