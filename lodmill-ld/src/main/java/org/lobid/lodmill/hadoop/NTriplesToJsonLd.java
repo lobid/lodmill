@@ -154,7 +154,8 @@ public class NTriplesToJsonLd implements Tool {
 		LOG.info(String.format("Process: index %s, type %s", indexName, indexType));
 		boolean success = job.waitForCompletion(true);
 		if (success) {
-			if (!aliasSuffix.equals("NOALIAS") || !update)
+			if (!aliasSuffix.equals("NOALIAS") || !update
+					|| !aliasSuffix.toLowerCase().contains("test"))
 				updateAliases(indexName, aliasSuffix);
 			client.admin().indices().prepareRefresh(indexName).execute().actionGet();
 			setIndexRefreshInterval(CLIENT, "1000");
