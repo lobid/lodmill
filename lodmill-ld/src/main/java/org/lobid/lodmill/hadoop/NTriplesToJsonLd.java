@@ -72,10 +72,12 @@ public class NTriplesToJsonLd implements Tool {
 	private String indexName;
 	private Client client = CLIENT;
 	private String aliasSuffix = "-testing";
+	private boolean update = false;
+	private static final String ES_NODE = "193.30.112.171";
 
 	// TODO pass params
 	private static final InetSocketTransportAddress NODE_1 =
-			new InetSocketTransportAddress("193.30.112.171", 9300);
+			new InetSocketTransportAddress(ES_NODE, 9300);
 	private static final InetSocketTransportAddress NODE_2 =
 			new InetSocketTransportAddress("193.30.112.172", 9300);
 	private static final TransportClient TC = new TransportClient(
@@ -112,20 +114,25 @@ public class NTriplesToJsonLd implements Tool {
 		conf = getConf();
 		indexName = args[1];
 		String indexType = args[2];
+		aliasSuffix = args[4];
+		update = args[0].toLowerCase().contains("update");
+		if (update) {
+			getNewestIndex();
+		} else
+			createIndex();
 		conf.setStrings("mapred.textoutputformat.separator", NEWLINE);
 		conf.setStrings("target.subject.prefix", args[3]);
-		conf.set(INDEX_NAME, indexName);
 		conf.set(INDEX_TYPE, indexType);
-
 		conf.setBoolean("mapred.map.tasks.speculative.execution", false);
 		conf.setBoolean("mapred.reduce.tasks.speculative.execution", false);
-		conf.set("es.nodes", "193.30.112.171:9200");
+		conf.set("es.nodes", ES_NODE + ":9200");
+		conf.set(INDEX_NAME, indexName);
 		conf.set("es.resource", indexName + "/" + indexType);
 		conf.set("es.input.json", "yes");
 		conf.set("es.mapping.id", INTERNAL_ID);
+
 		if (indexType.equals("json-ld-lobid-item"))
 			conf.set("es.mapping.parent", INTERNAL_PARENT);
-
 		final String mapFileName = CollectSubjects.mapFileName(indexName);
 		conf.setStrings("map.file.name", mapFileName);
 		final Job job = Job.getInstance(conf);
@@ -137,20 +144,17 @@ public class NTriplesToJsonLd implements Tool {
 		job.setJarByClass(NTriplesToJsonLd.class);
 		job.setJobName("LobidToJsonLd");
 		FileInputFormat.addInputPaths(job, args[0]);
-
 		job.setOutputFormatClass(EsOutputFormat.class);
-
 		job.setMapperClass(NTriplesToJsonLdMapper.class);
 		job.setReducerClass(NTriplesToJsonLdReducer.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
-		aliasSuffix = args[4];
-		createIndex();
+
 		setIndexRefreshInterval(CLIENT, "-1");
 		LOG.info(String.format("Process: index %s, type %s", indexName, indexType));
 		boolean success = job.waitForCompletion(true);
 		if (success) {
-			if (!aliasSuffix.equals("NOALIAS"))
+			if (!aliasSuffix.equals("NOALIAS") || !update)
 				updateAliases(indexName, aliasSuffix);
 			client.admin().indices().prepareRefresh(indexName).execute().actionGet();
 			setIndexRefreshInterval(CLIENT, "1000");
@@ -159,9 +163,22 @@ public class NTriplesToJsonLd implements Tool {
 		return 0;
 	}
 
+	private void getNewestIndex() {
+		String indexNameWithoutTimestamp = indexName.replaceAll("20.*", "");
+		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
+		for (String prefix : indices.keySet()) {
+			final SortedSet<String> indicesForPrefix = indices.get(prefix);
+			final String newestIndex = indicesForPrefix.last();
+			if (newestIndex.startsWith(indexNameWithoutTimestamp))
+				indexName = newestIndex;
+		}
+		LOG.info("Going to UPDATE existing index " + indexName);
+	}
+
 	private void createIndex() {
 		IndicesAdminClient adminClient = CLIENT.admin().indices();
 		if (!adminClient.prepareExists(indexName).execute().actionGet().isExists()) {
+			LOG.info("Going to CREATE new index " + indexName);
 			adminClient.prepareCreate(indexName).setSource(config()).execute()
 					.actionGet();
 		}
