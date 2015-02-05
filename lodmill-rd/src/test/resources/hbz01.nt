@@ -1017,6 +1017,18 @@
 <http://lobid.org/item/HT018187026:DE-Bi10:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Bi10> .
 <http://lobid.org/item/HT018187026:DE-Bi10:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT018187026:DE-Bi10:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018187026:DE-Bi10:/about> .
+<http://lobid.org/item/HT018433961:DE-107:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018433961> .
+<http://lobid.org/item/HT018433961:DE-107:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-107> .
+<http://lobid.org/item/HT018433961:DE-107:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018433961:DE-107:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018433961:DE-107:/about> .
+<http://lobid.org/item/HT018433961:DE-929:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018433961> .
+<http://lobid.org/item/HT018433961:DE-929:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-929> .
+<http://lobid.org/item/HT018433961:DE-929:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018433961:DE-929:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018433961:DE-929:/about> .
+<http://lobid.org/item/HT018433961:DE-Zw1:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018433961> .
+<http://lobid.org/item/HT018433961:DE-Zw1:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Zw1> .
+<http://lobid.org/item/HT018433961:DE-Zw1:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018433961:DE-Zw1:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018433961:DE-Zw1:/about> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/ontology/daia/label> "CD 2410 - CD 2411" .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/TT000075751> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kn38> .
@@ -2239,6 +2251,8 @@
 <http://lobid.org/resource/HT016608165> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016608165> .
 <http://lobid.org/resource/HT017290519> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/CT003012479> .
 <http://lobid.org/resource/HT017290519> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT017447882> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT018433961> .
+<http://lobid.org/resource/HT017447882> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT017468042> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Kt. : grenzkolor., fl\u00E4chenkolor., Kupferst." .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/elements/1.1/publisher> "Homannianos Heredes" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/5293676-4> .
@@ -2308,6 +2322,57 @@
 <http://lobid.org/resource/HT018187026> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018187026> .
 <http://lobid.org/resource/HT018187026> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018187026/about> .
 <http://lobid.org/resource/HT018187026> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018187026> .
+<http://lobid.org/resource/HT018433961> <http://iflastandards.info/ns/isbd/elements/P1053> "8 S. : Ill." .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/publisher> "Landeszentrale f\u00FCr Politische Bildung" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch, Johann" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch, Johannes" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch von Sorgenloch, Johann" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch zum Gutenberg, Johann" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch zur Lade, Johannes" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch zur Laden, Johannes" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch ZurLaden, Johannes" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gutemberg, Joannes" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gutenberg, Giovanni" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gutenberg, Iogann" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gutenberg, Jean" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gutenberg, Johann" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gutenberg, Johann G." .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Guttemberg, Giovanni" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Guttenbergius, Joannes" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Guttenberg, Johann" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "Gutenberg, Johannes" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/139758526> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=5832978&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=5832982&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017447882> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/issued> "2008" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/subject> <http://dewey.info/class/900/> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/rpb#n109000> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/rpb#n861040> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/terms/title> "Der Mann des Jahrtausends - Johannes Gutenberg" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=5832978&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=5832982&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/lobid/lv#hbzID> "HT018433961" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/ontology/bibo/volume> "2008,3" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/Edoweb> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/RPB> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018433961:DE-107:> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018433961:DE-929:> .
+<http://lobid.org/resource/HT018433961> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018433961:DE-Zw1:> .
+<http://lobid.org/resource/HT018433961> <http://rdvocab.info/Elements/placeOfPublication> "Mainz" .
+<http://lobid.org/resource/HT018433961> <http://rdvocab.info/Elements/publicationStatement> "Mainz; Landeszentrale f\u00FCr Politische Bildung; 2008" .
+<http://lobid.org/resource/HT018433961> <http://rdvocab.info/Elements/statementOfResponsibility> "[Autorin: Eva-Maria Hanebutt-Benz]" .
+<http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#ArchivedWebPage> .
+<http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT018433961> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018433961> .
+<http://lobid.org/resource/HT018433961> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018433961/about> .
+<http://lobid.org/resource/HT018433961> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018433961> .
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/134782852> .
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/13482167X> .
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/134926285> .
