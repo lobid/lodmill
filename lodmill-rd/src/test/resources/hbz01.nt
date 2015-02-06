@@ -1122,8 +1122,8 @@
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectChain> "Niedersachsen | S\u00FCd | Karte" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectChain> "Nordrhein-Westfalen | Karte" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/edition> "10.[Aufl., Ausg.] 1993/94" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn13> "9783575112088" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "3575112088" .
+<http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "9783575112088" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/volume> "2" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "Bundesrepublik Deutschland" .
@@ -1267,7 +1267,7 @@
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/title> "Der Angestellte Hamburg" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#hbzID> "HT000009600" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#zdbID> "6211-x" .
-<http://lobid.org/resource/HT000009600> <http://purl.org/ontology/bibo/issn> "0028-307x" .
+<http://lobid.org/resource/HT000009600> <http://purl.org/ontology/bibo/issn> "0028307x" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/ontology/bibo/oclcnum> "263589870" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-260:Z%201009> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-294-17:BX-7> .
@@ -1332,8 +1332,8 @@
 <http://lobid.org/resource/HT000290078> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT000290078> <http://purl.org/dc/terms/title> "NEUE GRAMMATIK IM DEUTSCHUNTERRICHT FUER- ZEHN- BIS FUENFZEHNJAEHRIGE" .
 <http://lobid.org/resource/HT000290078> <http://purl.org/lobid/lv#hbzID> "HT000290078" .
-<http://lobid.org/resource/HT000290078> <http://purl.org/ontology/bibo/isbn13> "9783209001733" .
 <http://lobid.org/resource/HT000290078> <http://purl.org/ontology/bibo/isbn> "3209001731" .
+<http://lobid.org/resource/HT000290078> <http://purl.org/ontology/bibo/isbn> "9783209001733" .
 <http://lobid.org/resource/HT000290078> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000290078:DE-290:Jc%20F%2016826> .
 <http://lobid.org/resource/HT000290078> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000290078:DE-467:11DCX1513%2B1> .
 <http://lobid.org/resource/HT000290078> <http://rdvocab.info/Elements/placeOfPublication> "GRAZ" .
@@ -1459,8 +1459,8 @@
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/050/> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/310/> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#hbzID> "HT004944075" .
-<http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn13> "9789210162760" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn> "9210162765" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn> "9789210162760" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43. 1993" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT004944075:DE-294:ZRC828-43> .
@@ -1564,7 +1564,7 @@
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#hbzID> "HT010726584" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#subjectChain> "Plasmaphysik | Zeitschrift | Online-Publikation" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#zdbID> "1472746-8" .
-<http://lobid.org/resource/HT010726584> <http://purl.org/ontology/bibo/issn> "1089-7674" .
+<http://lobid.org/resource/HT010726584> <http://purl.org/ontology/bibo/issn> "10897674" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/ontology/bibo/shortTitle> "PHPAEN" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT010726584:DE-1010:> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT010726584:DE-1044:> .
@@ -1628,9 +1628,8 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#hbzID> "HT012926727" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectChain> "Deutschland | Elektrizit\u00E4tswirtschaft (21)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/edition> "2. Aufl." .
-<http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783540676379" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783642631948" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "3540676376" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "9783540676379" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "9783642631948" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727:DE-1010:01PUM23(2)> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012926727:DE-1042:etech%20A%20002%202.%20Aufl.> .
@@ -1730,7 +1729,7 @@
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#hbzID> "HT013304490" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#subjectChain> "Schmuck | Zeitschrift" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#zdbID> "2073588-1" .
-<http://lobid.org/resource/HT013304490> <http://purl.org/ontology/bibo/issn> "1618-7792" .
+<http://lobid.org/resource/HT013304490> <http://purl.org/ontology/bibo/issn> "16187792" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/ontology/bibo/oclcnum> "635743319" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-829:%3C%3C01%3E%3E%2034%20Z%2041> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-Kn3:Zd%20Decide> .
@@ -1793,8 +1792,8 @@
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/title> "1000 Fotos aus Rothenburg ob der Tauber" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#hbzID> "HT013911008" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectChain> "Rothenburg ob der Tauber | CD-ROM" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn13> "9783936547047" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn> "3936547041" .
+<http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn> "9783936547047" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/volume> "5" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013911008:DE-361:CB088.87-4144798> .
 <http://lobid.org/resource/HT013911008> <http://rdvocab.info/Elements/placeOfPublication> "Velbert" .
@@ -1819,8 +1818,8 @@
 <http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#hbzID> "HT014015351" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#subjectChain> "Abbild | Symbolik | Aufsatzsammlung (213)" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/129016713> .
-<http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/isbn13> "9783770538478" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/isbn> "3770538471" .
+<http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/isbn> "9783770538478" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014015351:DE-294:IFB9657> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014015351:DE-361:OH058%20S7L5> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014015351:DE-467:21KKZJ1005> .
@@ -1956,7 +1955,6 @@
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/edition> "12. print." .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/119468476> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn> "0521402301" .
-<http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn13> "9780521402309" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn> "9780521402309" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015183529:DE-5:2007%2F4575> .
 <http://lobid.org/resource/HT015183529> <http://rdvocab.info/Elements/placeOfPublication> "Cambridge [u.a.]" .
@@ -2029,7 +2027,6 @@
 <http://lobid.org/resource/HT015894164> <http://purl.org/lobid/lv#fulltextOnline> <http://dx.doi.org/10.1787/9789264273085-fr> .
 <http://lobid.org/resource/HT015894164> <http://purl.org/lobid/lv#hbzID> "HT015894164" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/doi> "10.1787/9789264273085-fr" .
-<http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/isbn13> "9789264273085" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/isbn> "9789264273085" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/ontology/bibo/volume> "no.33" .
 <http://lobid.org/resource/HT015894164> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015894164:DE-1044:> .
@@ -2104,7 +2101,6 @@
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#hbzID> "HT016382441" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#subjectChain> "LINUX" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/edition> "1. Aufl." .
-<http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/isbn13> "9783527706495" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/isbn> "9783527706495" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441:DE-1044:11%20=%20TWR5408> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441:DE-1044:11%20=%20TWR5408%2B1> .
@@ -2239,7 +2235,7 @@
 <http://lobid.org/resource/HT018187026> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT018187026> <http://purl.org/dc/terms/title> "Gesundheit und Pflege - aus der Hochschule in die Praxis" .
 <http://lobid.org/resource/HT018187026> <http://purl.org/lobid/lv#hbzID> "HT018187026" .
-<http://lobid.org/resource/HT018187026> <http://purl.org/ontology/bibo/issn> "2195-5131" .
+<http://lobid.org/resource/HT018187026> <http://purl.org/ontology/bibo/issn> "21955131" .
 <http://lobid.org/resource/HT018187026> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018187026:DE-361:> .
 <http://lobid.org/resource/HT018187026> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018187026:DE-836:> .
 <http://lobid.org/resource/HT018187026> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018187026:DE-Bi10:> .
@@ -2335,8 +2331,8 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073972-7> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/title> "Bev\u00F6lkerungsdichte der Gemeinden 1871 - 1987 und Ver\u00E4nderung 1818 - 1987" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#hbzID> "TT001671747" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn13> "9783402061749" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "3402061740" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "9783402061749" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "3,5,1" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "Doppelbl. 1" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "Lfg. 5" .
