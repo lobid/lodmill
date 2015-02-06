@@ -341,6 +341,7 @@
 					<data source="050.">
 						<regexp match="^.........a"/>
 					</data>
+					<data source="@archived"/>
 				</none>
 			</if>
 			<data source="051.">
@@ -1224,7 +1225,7 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<data source="@edoweb|@archived" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="@edoweb|@archived" name="@rdftypeAndManifestation">
 			<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
 		</data>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
