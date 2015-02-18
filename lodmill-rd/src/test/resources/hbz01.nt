@@ -1812,6 +1812,7 @@
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/publisher> "Fink" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/issued> "2005" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/medium> <http://purl.org/lobid/lv#EditedVolume> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4184194-3> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4604932-0> .
