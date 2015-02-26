@@ -21,6 +21,9 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Carl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Pepoli, Alessandro E." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Carl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Annoni, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Pepoli, Alessandro Ercole" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, Pietro" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Charles" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, P." .
@@ -33,11 +36,14 @@
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141889810> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Metzler, Johann G." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "B\u00F6hm, Johann" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, Peter <<von>>" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Karl Ludwig" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Johann G." .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/118512536> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Karl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Bilau, Margarete" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Ludwig" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Carl Ludwig" .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elise, Gr\u00E4fin von Hartburg" .
@@ -59,9 +65,11 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Karl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "B\u00F6hm, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "Universit\u00E4ts- und Landesbibliothek" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "B\u00F6hm, Marianne" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/16068028-1> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> <urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Pepoli, Alessandro" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Fuchs, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "B\u00F6gemann" .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/CT003012479> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DCT003012479> .

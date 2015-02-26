@@ -737,16 +737,9 @@
 		</data>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
-		<!-- TODO: this doesn't work. Hint: use "choose" to do the job. -->
-		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creatorLiteral}"
-			sameEntity="true">
-			<if>
-				<none>
-					<data source="@creator"/>
-				</none>
-			</if>
-			<data source="1[0123456789][0123456789][-acefmn]2.[pa]|8[012][02468][-mn]1.[pa]"
-				name="creatorLiteral"/>
+		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
+			<data source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]1.[pa]"
+				name="contributorLiteral"/>
 		</combine>
 		<!-- corporation contributor literals -->
 		<data source="2[0123456789][012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
