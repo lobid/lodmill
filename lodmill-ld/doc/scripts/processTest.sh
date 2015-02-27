@@ -14,8 +14,9 @@ THIS="$(pwd)"
 cd ../../; git pull;
 mvn assembly:assembly -DskipTests
 
-# first, make the data
 cd ../lodmill-rd/doc/scripts/hbz01/
+# first, make the data :
+bash createTestSet.sh
 bash startHbz012lobidUpdateMysql.sh $BRANCH Test
 
 HDFS_FILE="hbzlod/lobid-resources-Test/resources-dump.nt"
