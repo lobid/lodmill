@@ -1136,6 +1136,7 @@
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000003404> .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000003404/about> .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/contributor> "Altekamp, Heinrich" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/bibliographicCitation> "Wirtschaftsspiegel. - 38 (1983) H. 7, S. 24-25 : 1 Abb." .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10880724X> .
@@ -1154,6 +1155,7 @@
 <http://lobid.org/resource/BT000041593> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000041593> .
 <http://lobid.org/resource/BT000041593> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000041593/about> .
 <http://lobid.org/resource/BT000041593> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000041593> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/contributor> "Meier, Elmar" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/bibliographicCitation> "Kiebitz. - 6 (1986), S. 29-36, S. 63-67" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118033948> .
@@ -1175,6 +1177,7 @@
 <http://lobid.org/resource/BT000067443> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000067443> .
 <http://lobid.org/resource/BT000100437> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/BT000003404> .
 <http://lobid.org/resource/BT000100437> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/contributor> "Job, Bertram" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/coverage> "K\u00F6ln" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/coverage> "M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/abstract> "Erinnerungen an d. 1. FC K\u00F6ln u. Borussia M\u00F6nchengladbach" .
@@ -1213,6 +1216,58 @@
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142061166> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/cmp> <http://d-nb.info/gnd/119055716> .
 <http://lobid.org/resource/CT003012479> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Plakat : sw ; 33 x 29 cm" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Annoni, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Bilau, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Bilau, Margarete" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Bilau, Wilhelmine" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "B\u00F6hm, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "B\u00F6hm, Johann" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "b\u00F6hm, madame" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "B\u00F6hm, Marianne" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Fuchs, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Carl" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Carl L." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Carl Ludwig" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Carl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Charles" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Charles L." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Charles Lewis" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, J. G. K." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Johann G." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Johann George Carl Ludwig" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Johann Georg Karl" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Joh. Georg Karl" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Karl" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Karl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Giesecke, Ludwig" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Carl L." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Carl Ludwig" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Carl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Charles Lewis" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Karl L." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Karl Ludwig" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Gieseke, Karl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "kellermann, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Metzler, Carl L." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Metzler, Johann G." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Metzler, Johann Georg Karl" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Metzler, Johann Georg <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Mezler, Johann G." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Mezler, Johann Georg" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Mezler, Johann Georg Karl" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Pepoli, Alessandro" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Pepoli, Alessandro E." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Pepoli, Alessandro Ercole" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, J. P." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, P." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, Peter" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, Peter <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, Pierre" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, Pietro" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Winter, Pietro <<de>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/contributor> "Wintter, P." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "B\u00F6gemann" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "Universit\u00E4ts- und Landesbibliothek" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/alternative> "<<La>> Belisa Ossia La Fedelt\u00E1 Riconosciuta" .
@@ -1232,6 +1287,7 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/title> "Elise, Gr\u00E4finn von Hillburg" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#fulltextOnline> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Deutsche Schauspieler-Gesellschaft" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:061:2-46125" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16" .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Dankrede" .
@@ -1260,6 +1316,10 @@
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/subject> <http://dewey.info/class/360/> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/title> "Der Angestellte Hamburg" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#hbzID> "HT000009600" .
+<http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Angestellten-Gewerkschaft" .
+<http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "DAG" .
+<http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Deutsche Angestellten-Gewerkschaft" .
+<http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Gewerkschaft der Deutschen Angestellten" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/lobid/lv#zdbID> "6211-x" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/ontology/bibo/issn> "0028-307x" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/ontology/bibo/oclcnum> "263589870" .
@@ -1325,6 +1385,7 @@
 <http://lobid.org/resource/HT000009600> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000009600/about> .
 <http://lobid.org/resource/HT000009600> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000009600> .
 <http://lobid.org/resource/HT000290078> <http://iflastandards.info/ns/isbd/elements/P1053> "X, 99 S. : GRAPH. DARST." .
+<http://lobid.org/resource/HT000290078> <http://purl.org/dc/elements/1.1/contributor> "Aigner, Johann" .
 <http://lobid.org/resource/HT000290078> <http://purl.org/dc/elements/1.1/publisher> "HOELDER-PICHLER-TEMPSKY" .
 <http://lobid.org/resource/HT000290078> <http://purl.org/dc/elements/1.1/publisher> "LEYKAM" .
 <http://lobid.org/resource/HT000290078> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/174737203> .
@@ -1345,6 +1406,7 @@
 <http://lobid.org/resource/HT000290078> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT000290078> .
 <http://lobid.org/resource/HT000290078> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT000290078/about> .
 <http://lobid.org/resource/HT000290078> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT000290078> .
+<http://lobid.org/resource/HT001310215> <http://purl.org/dc/elements/1.1/contributor> "SCHOLLE, ROGER H." .
 <http://lobid.org/resource/HT001310215> <http://purl.org/dc/elements/1.1/publisher> "AMERICAN DENTAL ASSOCIATION" .
 <http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/177572388> .
 <http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/37460-X> .
@@ -1353,6 +1415,9 @@
 <http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT001310215> <http://purl.org/dc/terms/title> "JOURNAL" .
 <http://lobid.org/resource/HT001310215> <http://purl.org/lobid/lv#hbzID> "HT001310215" .
+<http://lobid.org/resource/HT001310215> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "ADA" .
+<http://lobid.org/resource/HT001310215> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "American Dental Association" .
+<http://lobid.org/resource/HT001310215> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Dental Association" .
 <http://lobid.org/resource/HT001310215> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001310215:DE-294:ZMC134> .
 <http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/placeOfPublication> "CHICAGO, ILL." .
 <http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/publicationStatement> "CHICAGO, ILL.; AMERICAN DENTAL ASSOCIATION; 1980" .
@@ -1369,6 +1434,7 @@
 <http://lobid.org/resource/HT001381485> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT001898812> .
 <http://lobid.org/resource/HT001381485> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT001898812> <http://iflastandards.info/ns/isbd/elements/P1053> "XVIII, 1306 S." .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/contributor> "Ippoldt, Juljusz" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/publisher> "Verl. Enzyklop\u00E4die [u.a.]" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/alternative> "Wie\u0142ki slownik polsko-niemiecki" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124515312> .
@@ -1459,6 +1525,19 @@
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/050/> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/310/> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#hbzID> "HT004944075" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "CEE" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Commission Economique pour l'Europe" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "ECE" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Economic Commission for Europe" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Europ\u00E4ische Wirtschaftskommission" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Eur\u00F3pai Gazdas\u00E1gi Bizotts\u00E1g" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evropejskaja \u0116konomi\u010Deskaja Komissija" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftskommission f\u00FCr Europa" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn13> "9789210162760" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn> "9210162765" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43" .
@@ -1480,6 +1559,18 @@
 <http://lobid.org/resource/HT006266886> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/143102893> .
 <http://lobid.org/resource/HT006266886> <http://id.loc.gov/vocabulary/relators/drt> <http://d-nb.info/gnd/118677942> .
 <http://lobid.org/resource/HT006266886> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Videokassette (VHS, 93 Min.) : farb." .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Basani, G'org'o" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Bassani, Giorgio" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Berger, Helmut" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Capolicchio, Lino" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "DeSica, Vittorio" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "De Sica, Vittorio" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Marchi, Giacomo" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Sanda, Dominique" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Sica, Vittorio <<de>>" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Steinberger, Helmut" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Testi, Fabio" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/contributor> "Varaigne, Dominique" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/elements/1.1/publisher> "Mondadori Video" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118657496> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/dc/terms/issued> "1992" .
@@ -1505,6 +1596,18 @@
 <http://lobid.org/resource/HT006886478> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/HT006886479> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/HT007527436> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Cordier, Gilbert" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Courtillon, J." .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Courtillon, Janine" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Rohmer, Eric" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Salins, G. D. <<de>>" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Salins, Genevi\u00E8ve-Dominique <<de>>" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Scherer, Henri Joseph" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Scherer, Maurice" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Scherer, Maurice Jean-Marie" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Sch\u00E9rer, Henri Maurice Joseph" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Sch\u00E9rer, Jean-Marie Maurice" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Sch\u00E9rer, Maurice Henri Joseph" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/publisher> "Hatier/Didier" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11860225X> .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/133991210> .
@@ -1527,6 +1630,11 @@
 <http://lobid.org/resource/HT009719670> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT009719670/about> .
 <http://lobid.org/resource/HT009719670> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT009719670> .
 <http://lobid.org/resource/HT010662586> <http://iflastandards.info/ns/isbd/elements/P1053> "23 p." .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/contributor> "C." .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/contributor> "Wedgwood, Cicely V." .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/contributor> "Wedgwood, Cicely Veronica" .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/contributor> "Wedgwood, C. V." .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/contributor> "Wedgwood, Veronica" .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/publisher> "Leicester Univ. Pr." .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118839055> .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/issued> "1957" .
@@ -1610,6 +1718,8 @@
 <http://lobid.org/resource/HT010726584> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT010726584> .
 <http://lobid.org/resource/HT012299746> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "XIV, 514 S. : graph. Darst., Kt." .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, L." .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Leonhard" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/publisher> "Springer" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1031919368> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/issued> "2001" .
@@ -1674,6 +1784,9 @@
 <http://lobid.org/resource/HT012926727> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT012926727/about> .
 <http://lobid.org/resource/HT012926727> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT012926727> .
 <http://lobid.org/resource/HT013077595> <http://iflastandards.info/ns/isbd/elements/P1053> "VII, 119 S. : Ill., graph. Darst., Kt." .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/contributor> "Balke, Kirsten" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/contributor> "Boer, Hans Peter" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/contributor> "Boer, Hans-Peter" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld <Kreis>" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/109490312> .
@@ -1688,6 +1801,7 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4024116-6> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/title> "Geschichte hier" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#hbzID> "HT013077595" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Kreisheimatverein" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n97> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s784080> .
@@ -1747,6 +1861,7 @@
 <http://lobid.org/resource/HT013304885> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT013304490> .
 <http://lobid.org/resource/HT013370531> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT015865114> .
 <http://lobid.org/resource/HT013370531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/contributor> "Heinrichs, Johannes" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/bibliographicCitation> "Kontinuit\u00E4t und Diskontinuit\u00E4t / hrsg. von Thomas Gr\u00FCnewald ... - Berlin [u.a.], 2003. - (Reallexikon der germanischen Altertumskunde : Erg\u00E4nzungsb\u00E4nde ; 35). - S. [266]-344 : Ill., Kt." .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/108092704> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013538692> .
@@ -1802,6 +1917,8 @@
 <http://lobid.org/resource/HT013911051> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT014015351> <http://id.loc.gov/vocabulary/relators/hnr> <http://d-nb.info/gnd/136788548> .
 <http://lobid.org/resource/HT014015351> <http://iflastandards.info/ns/isbd/elements/P1053> "324 S. : Ill." .
+<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/contributor> "Fehrmann, Gisela" .
+<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/contributor> "J\u00E4ger, Ludwig" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/publisher> "Fink" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/issued> "2005" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -1836,6 +1953,8 @@
 <http://lobid.org/resource/HT014015351> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014015351/about> .
 <http://lobid.org/resource/HT014015351> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014015351> .
 <http://lobid.org/resource/HT014046679> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Spiel (Inhalt: 1 Spielanleitung, 100 Situationskarten: 60 f\u00FCr Frauen, 40 f\u00FCr M\u00E4dchen (ab 12 J.). 90 Brave-Karten, 90 B\u00F6se-Karten)" .
+<http://lobid.org/resource/HT014046679> <http://purl.org/dc/elements/1.1/contributor> "Herrenbr\u00FCck, Erika" .
+<http://lobid.org/resource/HT014046679> <http://purl.org/dc/elements/1.1/contributor> "Hoefler, Angelika" .
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/elements/1.1/publisher> "INVENTION" .
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/175894612> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/183839064> .
@@ -1845,6 +1964,8 @@
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/medium> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/dc/terms/title> "Brave M\u00E4dchen - B\u00F6se M\u00E4dchen" .
 <http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#hbzID> "HT014046679" .
+<http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Amt f\u00FCr Jugendarbeit" .
+<http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evangelische Kirche von Westfalen" .
 <http://lobid.org/resource/HT014046679> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014046679:DE-Bi10:ICE%20Brav> .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/otherTitleInformation> "das Kommunikationsspiel zur Bewertung weiblichen Verhaltens f\u00FCr 2 - 8 Spielerinnen" .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/placeOfPublication> "Hennef" .
@@ -1857,6 +1978,39 @@
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014046679/about> .
 <http://lobid.org/resource/HT014046679> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014046679> .
 <http://lobid.org/resource/HT014525099> <http://iflastandards.info/ns/isbd/elements/P1053> "2 Schallpl. : 33 UpM, stereo ; 30 cm" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Adam, Theo" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Adam, Theo Siegfried" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Aug\u00E9r, Arleen" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, ..." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Giovanni Sebastiano" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, G. S." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Iogann Sebast\u02B9jan" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Jan Sebastian" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Jean S." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Jean-Sebastien" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Jean-S\u00E9bastien" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Johannes S." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Johannes Sebastian" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Johann S." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Johann Seb." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Johann Sebastian" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Johann-Sebastian" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Joh. Seb." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Joh.-Seb." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Joh. Sebas." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Joh. Sebast." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Joh. Sebastian" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, J. S." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Bach, Sebastian" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "O\u017Ee, Arlen" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Rotzsch, Hans J." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Rotzsch, Hans Joachim" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Rotzsch, Hans-Joachim" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Schreier, P." .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Schreier, Peter" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Shuraiya, P\u0113t\u0101" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "\u0160rajer, Peter" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Wenkel, Ortrun" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/publisher> "Dt. Schallplatten" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118500546> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11850553X> .
@@ -1870,6 +2024,10 @@
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/mo/Vinyl> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/title> "Kantaten Ostern, Pfingsten" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/lobid/lv#hbzID> "HT014525099" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Neues Bach'sches Collegium Musicum" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "New Leipzig Bach Collegium Musicum" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Thomaner" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Thomaner Chor" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014525099:DE-1156:AR%20ba%2071> .
 <http://lobid.org/resource/HT014525099> <http://rdvocab.info/Elements/otherTitleInformation> "Christ lag in Todesbanden BWV 4 ; Ein Herz, da seinen Jesum lebend wei\u00DF BWV 134 ; Erschallet, ihr Lieder BWV 172 ; Also hat Gott die Welt geliebt BWV 68" .
 <http://lobid.org/resource/HT014525099> <http://rdvocab.info/Elements/placeOfPublication> "Berlin" .
@@ -1895,6 +2053,11 @@
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/title> "Leitfaden f\u00FCr die Behandlung von Ausbauasphalt und Stra\u00DFenaufbruch mit teer-/pechtypischen Bestandteilen" .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1750752&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#hbzID> "HT014997977" .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz" .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz" .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr RP" .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "LSV" .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Rheinland-Pfalz" .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/bibo/edition> "1. Aufl." .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/Edoweb> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/RPB> .
@@ -1937,6 +2100,19 @@
 <http://lobid.org/resource/HT015082724> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015082724/about> .
 <http://lobid.org/resource/HT015082724> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015082724> .
 <http://lobid.org/resource/HT015183529> <http://iflastandards.info/ns/isbd/elements/P1053> "LV, 225 S. : Kt." .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Bruccoli, Matthew J." .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Bruccoli, Matthew Joseph" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fic\u01C6eralds, Skots Fr\u0101nsiss" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fitzgerald, Francis S." .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fitzgerald, Francis Scott" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fitzgerald, Francis Scott Key" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fitzgerald, F. S." .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fitzgerald, F. Scott" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fitzgerald, Scott" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Fitzgerald, Scott F." .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Scott Fitzgerald, F." .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Scott Fitzgerald, Francis" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Scott-Fitzgerald, Francis" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/publisher> "Cambridge Univ. Press" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118533592> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT004984061> .
@@ -1960,6 +2136,9 @@
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015183529> .
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015183529/about> .
 <http://lobid.org/resource/HT015183529> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015183529> .
+<http://lobid.org/resource/HT015414894> <http://purl.org/dc/elements/1.1/contributor> "Conrad, Christoph" .
+<http://lobid.org/resource/HT015414894> <http://purl.org/dc/elements/1.1/contributor> "Kim, Richard" .
+<http://lobid.org/resource/HT015414894> <http://purl.org/dc/elements/1.1/contributor> "Werthes, Sascha" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "Medien und Terrorismus; Christian Schicha ... (Hg.); 2002; S. 80 - 93" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11075851X> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/122021878> .
@@ -1981,6 +2160,7 @@
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015414894> .
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015414894/about> .
 <http://lobid.org/resource/HT015414894> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015414894> .
+<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/contributor> "Weber, J\u00FCrgen" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/publisher> "Buchner" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/105667129> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013370531> .
@@ -2061,6 +2241,7 @@
 <http://lobid.org/resource/HT015894164> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015894164> .
 <http://lobid.org/resource/HT016135351> <http://id.loc.gov/vocabulary/relators/pht> <http://d-nb.info/gnd/186931808> .
 <http://lobid.org/resource/HT016135351> <http://iflastandards.info/ns/isbd/elements/P1053> "32 gez. S. : \u00FCberw. Ill." .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/contributor> "Buchmann, Helmut" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/coverage> "Harsewinkel-Marienfeld" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/publisher> "Selbstverl." .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/issued> "2006" .
@@ -2084,6 +2265,8 @@
 <http://lobid.org/resource/HT016135351> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016135351/about> .
 <http://lobid.org/resource/HT016135351> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016135351> .
 <http://lobid.org/resource/HT016382441> <http://iflastandards.info/ns/isbd/elements/P1053> "418 S. : zahlr. Ill., graph. Darst." .
+<http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/contributor> "Blum, Richard" .
+<http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/contributor> "Blum, Richard Kenneth" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/publisher> "Wiley-VCH" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/alternative> "Linux for dummies <dt.>" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14320713X> .
@@ -2155,6 +2338,26 @@
 <http://lobid.org/resource/HT016545462> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT016545462> .
 <http://lobid.org/resource/HT016545462> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT016545462/about> .
 <http://lobid.org/resource/HT016545462> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016545462> .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Baldwin, Dalton" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Banville, Teodoro <<de>>" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Banville, Th. <<de>>" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Banville, Th\u00E9odore" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Banville, Th\u00E9odore <<de>>" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Banville, Th\u00E9odore Follain <<de>>" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debjussi, Klod" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, ..." .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Achille" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Achille-Claude" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, C." .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, C. A." .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Claude" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Claude A." .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Claude Achill" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Claude Achille" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Claude-Achille" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Debussy, Claudio" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Follain de Banville, Th\u00E9odore" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Mespl\u00E9, Mady" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "M\u00E9lodies; Claude Debussy; 1980" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119080389> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118524186> .
@@ -2187,6 +2390,34 @@
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/HT017468042> <http://purl.org/dc/terms/title> "Territorium Seculare Episcopatus Monasterii Munster Germanis dicti. Ubi una cum Episcopatu Osnabr. simul integri Comitatus Bentheim, Steinfurt, Teklenburg, Lingen, Diepholz, Gemen conspiciuntur" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#hbzID> "HT017468042" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Bureau Geographique de Homann" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Coheredis Homanniani" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Heritiers de Homann" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Heritiers d'Homann" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homaennische Erben" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homan. Hered." .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homann Heredib." .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homann Heredibus" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homanniani Heredes" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannianis Heredibus" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannianos Heredes" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannianus Heredus" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homanni Heredes" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannische Buchhandlung" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannische Erben" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannische Handlung" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannische Officin" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannische Offizin" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homannsche Erben" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homanns Erben" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homann-Verlag" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Homann, Verlag" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Hom\u00E4nnische Erben" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Hom\u00E4nnische Officin" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Hom\u00E4nnischer Verlag" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Johann Baptist Homann Erben" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Officina Homanniana" .
+<http://lobid.org/resource/HT017468042> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Verlag Homann" .
 <http://lobid.org/resource/HT017468042> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017468042:DE-6:RK%2013> .
 <http://lobid.org/resource/HT017468042> <http://rdvocab.info/Elements/longitudeAndLatitude> "E 006 26 -E 008 47 /N 053 11 -N 051 37" .
 <http://lobid.org/resource/HT017468042> <http://rdvocab.info/Elements/placeOfPublication> "[N\u00FCrnberg]" .
@@ -2198,6 +2429,7 @@
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT017468042> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017468042/about> .
 <http://lobid.org/resource/HT017468042> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT017468042> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/contributor> "Engelhardt, Manfred" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/coverage> "D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "<<Der>> Gie\u00DFerjunge; 34 (2014),1, S. 14-15" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124348165> .
@@ -2249,6 +2481,18 @@
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/13482167X> .
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/134926285> .
 <http://lobid.org/resource/TT000075751> <http://iflastandards.info/ns/isbd/elements/P1053> "2 CD : DDD + Beih." .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Anderson, Lorna" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Britten, ..." .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Britten, Benjamin" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Britten, Edward B." .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Britten, Edward Benjamin" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Lewis, Bryn" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "MacDougall, Jamie" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Mac Dougall, Jamie" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Martineau, Malcolm" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "McDougall, Jamie" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Nathan, Regina" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Ogden, Craig" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/publisher> "Hyperion" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134769236> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134845323> .
@@ -2270,6 +2514,21 @@
 <http://lobid.org/resource/TT000075751> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT000075751> .
 <http://lobid.org/resource/TT001197763> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/TT001230001> .
 <http://lobid.org/resource/TT001197763> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Chitler, Adolf" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Chitler, Adolphu" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Gitler, ..." .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Gitler, Adol'f" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitlar" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitlar, Ad\u016Blf" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitler, ..." .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitler, Adolf" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitler, Adolfo" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitler, Adolph" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitler, Adolphe" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitlers, Adolphs" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitlers, \u0100dolfs" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitor\u00E2, Adorufu" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Xitler, Adolf" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/publisher> "Blindenhochschulb\u00FCcherei" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118551655> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -2290,6 +2549,31 @@
 <http://lobid.org/resource/TT001210514> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001210514/about> .
 <http://lobid.org/resource/TT001210514> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001210514> .
 <http://lobid.org/resource/TT001230001> <http://iflastandards.info/ns/isbd/elements/P1053> "[8] Bl., 414, [1] S. : Ill." .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Albert" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Alberto" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Albertus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Albertus Magnus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Bolstadius, Albertus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Federico" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Federicus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Frederick" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Fredericus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Friderichus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Friderichus secundus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Fridericus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Friedrich" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Friedrich II." .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Fr\u00E9d\u00E9ric" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Magnus, Albertus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Manfred" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Manfredi" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Manfredo" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Manfredus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Petrus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Phreiderikos" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Ps.-Albertus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Pseudo-Albertus" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Stupor mundi" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/publisher> "Praetorius" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118577018> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118535765> .
@@ -2315,6 +2599,7 @@
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001230001/about> .
 <http://lobid.org/resource/TT001230001> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001230001> .
 <http://lobid.org/resource/TT001671747> <http://iflastandards.info/ns/isbd/elements/P1053> "[2] Bl. : graph. Darst., Kt." .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/contributor> "Mayr, A." .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/publisher> "Aschendorff" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/137082479> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2056181-7> .
@@ -2327,6 +2612,8 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073972-7> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/title> "Bev\u00F6lkerungsdichte der Gemeinden 1871 - 1987 und Ver\u00E4nderung 1818 - 1987" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#hbzID> "TT001671747" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Geographische Kommission f\u00FCr Westfalen" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn13> "9783402061749" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "3402061740" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "3,5,1" .
@@ -2350,6 +2637,14 @@
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001671747/about> .
 <http://lobid.org/resource/TT001671747> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001671747> .
 <http://lobid.org/resource/TT001726537> <http://iflastandards.info/ns/isbd/elements/P1053> "[2] Bl., 116 S. : Ill. (Kupfert.)" .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Maimbourg, ..." .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Maimbourg, Lewis" .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Maimbourg, Louis" .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Maimburgius, Ludovicus" .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Maimburg, Ludwig" .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Maimburgo, Luigi" .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Maimburgus, Ludovicus" .
+<http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/contributor> "Romain, Fran\u00E7ois" .
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/elements/1.1/publisher> "Delpeuck" .
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/115541802> .
 <http://lobid.org/resource/TT001726537> <http://purl.org/dc/terms/issued> "1683" .
@@ -2369,6 +2664,7 @@
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001726537> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001726537/about> .
 <http://lobid.org/resource/TT001726537> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001726537> .
+<http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/contributor> "Kranz, Heinrich" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Guntram" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -2403,6 +2699,8 @@
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/title> "The Beatles" .
 <http://lobid.org/resource/TT003059252> <http://purl.org/lobid/lv#hbzID> "TT003059252" .
+<http://lobid.org/resource/TT003059252> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "<<The>> Beatles" .
+<http://lobid.org/resource/TT003059252> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "The Beatles" .
 <http://lobid.org/resource/TT003059252> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT003059252:DE-5-58:9%2F041> .
 <http://lobid.org/resource/TT003059252> <http://rdvocab.info/Elements/otherTitleInformation> "Magical Mystery Tour" .
 <http://lobid.org/resource/TT003059252> <http://rdvocab.info/Elements/placeOfPublication> "s.l." .
