@@ -1308,12 +1308,6 @@
 <http://lobid.org/resource/CT003012479> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DCT003012479> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/elements/1.1/publisher> "DAG" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/37043-5> .
-<http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006886476> .
-<http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006886477> .
-<http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006886478> .
-<http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006886479> .
-<http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007527436> .
-<http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT012299746> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/issued> "1948" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/issued> "1948 - 1983" .
 <http://lobid.org/resource/HT000009600> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -1369,6 +1363,12 @@
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-Bo102:Zs%20371> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-Bo133:AMZ%20336> .
 <http://lobid.org/resource/HT000009600> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000009600:DE-Bo133:Z%20848> .
+<http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT006886476> .
+<http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT006886477> .
+<http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT006886478> .
+<http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT006886479> .
+<http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT007527436> .
+<http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT012299746> .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/frequency> "Bei Jg. 28 setzt die durchgehende Nr.-Z\u00E4hlung ein" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/otherTitleInformation> "Zeitschrift der Deutschen Angestellten-Gewerkschaft" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/placeOfPublication> "Hamburg" .
@@ -1591,16 +1591,11 @@
 <http://lobid.org/resource/HT006266886> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT006266886> .
 <http://lobid.org/resource/HT006266886> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT006266886/about> .
 <http://lobid.org/resource/HT006266886> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT006266886> .
-<http://lobid.org/resource/HT006886476> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
-<http://lobid.org/resource/HT006886476> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
-<http://lobid.org/resource/HT006886477> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
-<http://lobid.org/resource/HT006886477> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
-<http://lobid.org/resource/HT006886478> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
-<http://lobid.org/resource/HT006886478> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
-<http://lobid.org/resource/HT006886479> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
-<http://lobid.org/resource/HT006886479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
-<http://lobid.org/resource/HT007527436> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
-<http://lobid.org/resource/HT007527436> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT006886476> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
+<http://lobid.org/resource/HT006886477> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
+<http://lobid.org/resource/HT006886478> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
+<http://lobid.org/resource/HT006886479> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
+<http://lobid.org/resource/HT007527436> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Cordier, Gilbert" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Courtillon, J." .
 <http://lobid.org/resource/HT009719670> <http://purl.org/dc/elements/1.1/contributor> "Courtillon, Janine" .
@@ -1721,8 +1716,7 @@
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB1472746-8> .
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT010726584/about> .
 <http://lobid.org/resource/HT010726584> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT010726584> .
-<http://lobid.org/resource/HT012299746> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT000009600> .
-<http://lobid.org/resource/HT012299746> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT012299746> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "XIV, 514 S. : graph. Darst., Kt." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, L." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Leonhard" .
@@ -1828,7 +1822,6 @@
 <http://lobid.org/resource/HT013077595> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013077595/about> .
 <http://lobid.org/resource/HT013077595> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013077595> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/publisher> "Ebner" .
-<http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013304885> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002 - 2002" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -1849,6 +1842,7 @@
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-829:%3C%3C01%3E%3E%2034%20Z%2041> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-Kn3:Zd%20Decide> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013304490:DE-Tr5:> .
+<http://lobid.org/resource/HT013304490> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT013304885> .
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/frequency> "Periodizit\u00E4t: viertelj\u00E4hrl." .
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/otherTitleInformation> "Magazin f\u00FCr Frauen, Kultur & Luxus" .
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/placeOfPublication> "Ulm" .
@@ -1864,8 +1858,7 @@
 <http://lobid.org/resource/HT013304490> <http://www.w3.org/2002/07/owl#sameAs> <http://worldcat.org/oclc/635743319> .
 <http://lobid.org/resource/HT013304490> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013304490/about> .
 <http://lobid.org/resource/HT013304490> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013304490> .
-<http://lobid.org/resource/HT013304885> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT013304490> .
-<http://lobid.org/resource/HT013304885> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
+<http://lobid.org/resource/HT013304885> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT013304490> .
 <http://lobid.org/resource/HT013370531> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT015865114> .
 <http://lobid.org/resource/HT013370531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/contributor> "Heinrichs, Johannes" .
@@ -2074,7 +2067,6 @@
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/statementOfResponsibility> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz; Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht; Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz" .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#ArchivedWebPage> .
-<http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Thesis> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014997977> .
@@ -2692,7 +2684,6 @@
 <http://lobid.org/resource/TT002234459> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:929:01-2079> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#ArchivedWebPage> .
-<http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT002234459> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT002234459/about> .
