@@ -1459,7 +1459,11 @@
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/contributor> "Ippoldt, Juljusz" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/publisher> "Verl. Enzyklop\u00E4die [u.a.]" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Deutsch" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Deutsche Sprache" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Hochdeutsch" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Neuhochdeutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Polnisch" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Polnische Sprache" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "W\u00F6rterbuch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/alternative> "Wie\u0142ki slownik polsko-niemiecki" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124515312> .
@@ -1858,14 +1862,8 @@
 <http://lobid.org/resource/HT013077595> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT013077595/about> .
 <http://lobid.org/resource/HT013077595> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013077595> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/publisher> "Ebner" .
-<<<<<<< HEAD
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Schmuck" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Zeitschrift" .
-<http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013304885> .
-||||||| merged common ancestors
-<http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013304885> .
-=======
->>>>>>> master
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002 - 2002" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -1905,17 +1903,13 @@
 <http://lobid.org/resource/HT013304885> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT013304490> .
 <http://lobid.org/resource/HT013370531> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT015865114> .
 <http://lobid.org/resource/HT013370531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
-<<<<<<< HEAD
+<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/contributor> "Heinrichs, Johannes" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Germanen" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Geschichte 71 v. Chr.-70 v. Chr" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnze" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnzfund" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinland" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "R\u00F6merzeit" .
-||||||| merged common ancestors
-=======
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/contributor> "Heinrichs, Johannes" .
->>>>>>> master
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/bibliographicCitation> "Kontinuit\u00E4t und Diskontinuit\u00E4t / hrsg. von Thomas Gr\u00FCnewald ... - Berlin [u.a.], 2003. - (Reallexikon der germanischen Altertumskunde : Erg\u00E4nzungsb\u00E4nde ; 35). - S. [266]-344 : Ill., Kt." .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/108092704> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013538692> .
@@ -2136,8 +2130,11 @@
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Noordhoff" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Van Gorcum" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Wolters-Noordhoff" .
+<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Batavische Republik" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Niederlande" .
+<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Staat Holland" .
+<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Vereinigte Niederlande" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Zeitschrift" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/isPartOf> <http://ld.zdb-services.de/resource/208524-0> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001373475> .
@@ -2557,6 +2554,15 @@
 <http://lobid.org/resource/HT018187026> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018187026/about> .
 <http://lobid.org/resource/HT018187026> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018187026> .
 <http://lobid.org/resource/HT018433961> <http://iflastandards.info/ns/isbd/elements/P1053> "8 S. : Ill." .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Benz, Eva H.-" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Benz, Eva M." .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Benz, Eva-Maria H.-" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Benz, Eva Maria Hanebutt-" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Benz, Eva-Maria Hanebutt-" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Hanebutt-Benz, Eva" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Hanebutt-Benz, Eva M." .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Hanebutt-Benz, Eva Maria" .
+<http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/contributor> "Hanebutt-Benz, Eva-Maria" .
 <http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/publisher> "Landeszentrale f\u00FCr Politische Bildung" .
 <http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468" .
 <http://lobid.org/resource/HT018433961> <http://purl.org/dc/elements/1.1/subject> "1400-1468; Gensfleisch, Johann" .
@@ -2602,7 +2608,6 @@
 <http://lobid.org/resource/HT018433961> <http://rdvocab.info/Elements/statementOfResponsibility> "[Autorin: Eva-Maria Hanebutt-Benz]" .
 <http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#ArchivedWebPage> .
-<http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT018433961> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT018433961> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018433961> .
 <http://lobid.org/resource/HT018433961> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018433961/about> .
@@ -2732,8 +2737,13 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/contributor> "Mayr, A." .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/publisher> "Aschendorff" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Atlas" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Herzogtum Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Landeskunde" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Provinz Westfalen" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Regionalkunde" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen <Provinzialverband>" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen <Volk, Neuzeit>" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/137082479> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2056181-7> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002808565> .

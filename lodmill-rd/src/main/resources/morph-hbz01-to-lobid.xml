@@ -959,6 +959,12 @@
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
+		<!-- "Verweisungsformen" literals -->
+		<combine name="http://purl.org/dc/elements/1.1/subject" value="${g} &lt;${h}&gt;" sameEntity="true">
+				<data source="952-2.g" name="g"/>
+					<data source="952-2.h" name="h"/>	
+		</combine>
+		<data source="952-2.[cfgkpstz-]" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!-- ############ schlagwortketten #### -->
 		<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
 			(as our MAB does here) -->
