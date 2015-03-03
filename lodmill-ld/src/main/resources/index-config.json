@@ -164,7 +164,103 @@
 					"index":"not_analyzed",
 					"type":"string"
 				},
+				"@graph.http://purl.org/dc/terms/contributor.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/act.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/aft.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/aui.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/aus.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/clb.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/cmp.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/cnd.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/cng.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/col.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/ctg.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/drt.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/dte.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
 				"@graph.http://id.loc.gov/vocabulary/relators/egr.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/ill.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/ive.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/ivr.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/mus.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/pht.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/prf.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/pro.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/sng.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://id.loc.gov/vocabulary/relators/hnr.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://purl.org/ontology/bibo/translator.@id":{
+					"index":"not_analyzed",
+					"type":"string"
+				},
+				"@graph.http://purl.org/ontology/bibo/editor.@id":{
 					"index":"not_analyzed",
 					"type":"string"
 				}
@@ -187,7 +283,7 @@
 				"@graph.http://purl.org/vocab/frbr/core#exemplarOf.@id":{
 					"type":"string",
 					"index":"not_analyzed"
-                                }
+				}
 			}
 		},
 		"json-ld-gnd":{

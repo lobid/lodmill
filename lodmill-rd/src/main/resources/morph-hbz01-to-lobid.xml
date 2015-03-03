@@ -59,16 +59,22 @@
 		<!-- ####### Child, link to parent and vice versa, e.g. HT000009600 -->
 		<!-- ####################### -->
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
-		<data source="010-1.a|529z1.9|@idTitleSeries" name="@isPartOfHbzId"/>
+		<data source="529z1.9" name="@hasSupplement"/>
+		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId"/>
 		<!-- temporarily set new subject uri -->
 		<data name="~rdf:subject" source="010-1.a|529z1.9|@idTitleSeries">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/hasPart" value="$[ns-lobid-resource]${subjectid}">
-			<data source="010-1.a|529z1.9|@idTitleSeries" name=""/>
+			<data source="010-1.a|@idTitleSeries"/>
 			<data source="@id" name="subjectid"/>
 		</combine>
-		<data source="010-1.a|529z1.9|@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<!-- is supplement to -->
+		<combine name="http://rdaregistry.info/Elements/u/P60259" value="$[ns-lobid-resource]${subjectid}">
+			<data source="529z1.9"/>
+			<data source="@id" name="subjectid"/>
+		</combine>
+		<data source="010-1.a|@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
 		</data>
 		<!-- set subject uri of resource anew -->
@@ -341,6 +347,7 @@
 					<data source="050.">
 						<regexp match="^.........a"/>
 					</data>
+					<data source="@archived"/>
 				</none>
 			</if>
 			<data source="051.">
@@ -737,17 +744,13 @@
 		</data>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
-		<!-- TODO: this doesn't work. Hint: use "choose" to do the job. -->
-		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creatorLiteral}"
-			sameEntity="true">
-			<if>
-				<none>
-					<data source="@creator"/>
-				</none>
-			</if>
-			<data source="1[0123456789][0123456789][-acefmn]2.[pa]|8[012][02468][-mn]1.[pa]"
-				name="creatorLiteral"/>
+		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
+			<data source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]1.[pa]"
+				name="contributorLiteral"/>
 		</combine>
+		<!-- corporation contributor literals -->
+		<data source="2[0123456789][012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2[0123456789][012345678][bcp][1234].k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<!-- ####################### -->
 		<!-- ################ contributor -->
 		<!-- ####################### -->
@@ -932,15 +935,10 @@
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>
-		<!-- use dc:contributor if there is no id -->
-		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
-			<if>
-				<none>
-					<data source="@contributorId"/>
-				</none>
-			</if>
-			<data source="1[0123456789][0123456789]b1.a" name="contributorLiteral"/>
-		</combine>
+		<!-- use dc:contributor for creator even if there is an id -->
+		<data source="1[0123456789][0123456789]b1.a" name="http://purl.org/dc/elements/1.1/contributor"/>
+		<data source="1[0123456789][0123456789][-acefmn][12].[pa]|8[012][02468][-mn]1.[pa]"
+			name="http://purl.org/dc/elements/1.1/contributor"/>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -1132,6 +1130,9 @@
 			</if>
 			<data source="523[-a][-1].a" name="a"/>
 		</combine>
+		<data source="@hasSupplement" name="http://rdaregistry.info/Elements/u/P60281">
+			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
+		</data>
 		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
 		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
@@ -1218,7 +1219,7 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<data source="@edoweb|@archived" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+		<data source="@edoweb|@archived" name="@rdftypeAndManifestation">
 			<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
 		</data>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
