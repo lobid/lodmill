@@ -13,7 +13,6 @@
 						]
 					},
 					"id_analyzer":{
-						"type":"custom",
 						"tokenizer":"keyword",
 						"filter":[
 							"lowercase"
@@ -276,6 +275,11 @@
 					"type":"string",
 					"index":"not_analyzed"
 				},
+				"@graph.@id":{
+					"type":"string",
+					"index_analyzer":"id_analyzer",
+					"search_analyzer":"id_analyzer"
+				},
 				"@graph.http://purl.org/vocab/frbr/core#owner.@id":{
 					"type":"string",
 					"index":"not_analyzed"
@@ -374,17 +378,18 @@
 					"search_analyzer":"standard"
 				},
 				"@graph.http://d-nb.info/standards/elementset/gnd#gndIdentifier.@value":{
-					"analyzer":"id_analyzer",
-					"type":"string"
+					"type":"string",
+					"index_analyzer":"id_analyzer",
+					"search_analyzer":"id_analyzer"
 				},
 				"@graph.http://xmlns.com/foaf/0.1/primaryTopic.@id":{
 					"index":"not_analyzed",
 					"type":"string"
 				},
 				"@graph.@id":{
+					"type":"string",
 					"index_analyzer":"id_analyzer",
-					"search_analyzer":"id_analyzer",
-					"type":"string"
+					"search_analyzer":"id_analyzer"
 				}
 			}
 		},
