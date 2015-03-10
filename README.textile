@@ -83,7 +83,7 @@ The second Hadoop job writes the records as expanded JSON-LD in the "Elasticsear
 
 h2. Linked Data Index to HTTP API
 
-Finally our Play frontend accesses the Elasticsearch index and serves the records as JSON-LD. There are multiple options for queries and different supported results formats, see documentation at "http://lobid.org/api":http://api.lobid.org (implemented in the @app/views/index.scala.html@ template in the @hbz/lobid@ repo). Since the expanded JSON-LD described above is cumbersome, the API serves "compact JSON-LD":http://www.w3.org/TR/json-ld-api/#compaction-algorithms. It also uses an external JSON-LD context document to allow shorter keys instead of full URI properties, and to encapsulate the actual properties used in the expanded form. That way, we can change the properties, without requiring API clients to change how they process the JSON responses.
+Finally our Play frontend accesses the Elasticsearch index and serves the records as JSON-LD. There are multiple options for queries and different supported results formats, see documentation at "http://lobid.org/api":http://lobid.org/api (implemented in the @app/views/index.scala.html@ template in the @hbz/lobid@ repo). Since the expanded JSON-LD described above is cumbersome, the API serves "compact JSON-LD":http://www.w3.org/TR/json-ld-api/#compaction-algorithms. It also uses an external JSON-LD context document to allow shorter keys instead of full URI properties, and to encapsulate the actual properties used in the expanded form. That way, we can change the properties, without requiring API clients to change how they process the JSON responses.
 
 h1. License
 
