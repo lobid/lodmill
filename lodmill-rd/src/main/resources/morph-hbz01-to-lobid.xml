@@ -964,7 +964,7 @@
 				<data source="952-2.g" name="g"/>
 					<data source="952-2.h" name="h"/>	
 		</combine>
-		<data source="952-2.[cfgkpstz-]" name="http://purl.org/dc/elements/1.1/subject"/>
+		<data source="9[56][27]-[12].[cfgkpstz-]" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!-- ############ schlagwortketten #### -->
 		<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
 			(as our MAB does here) -->
