@@ -1543,6 +1543,7 @@
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Landesentwicklungsplanung" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Landesplanung" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnster (Westf)" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnster (Westf) (Bezirk)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2019209-5> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/issued> "1980 - " .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/issued> "1980" .
@@ -1712,9 +1713,12 @@
 <http://lobid.org/resource/HT010662586> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT010662586> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/publisher> "American Institute of Physics" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Computerdatei im Fernzugriff" .
+<http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Computerdatei im Fernzugriff (Formschlagwort)" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Netzpublikation" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "On-line-Datenbank" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Online-Datenbank" .
+<http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "On-line-Datenbank (Formschlagwort)" .
+<http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Online-Datenbank (Formschlagwort)" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "On-line-Dokument" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Online-Dokument" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "On-line-Publikation" .
@@ -1794,28 +1798,41 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Leonhard" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/publisher> "Springer" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Allemagne" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Allemagne (Deutschland)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "BRD" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "BRD (1990-)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Bundesrepublik Deutschland" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Bundesrepublik Deutschland (1990-)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutsche L\u00E4nder" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutscher Bund" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutsches Reich" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutschland" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutschland (Bundesrepublik, 1990-)" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deutschland (Gebiet unter Alliierter Besatzung)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Deyizhi-Lianbang-Gongheguo" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrischer Strom" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrischer Strom / Energiewirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4t" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4t / Energiewirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4tswirtschaft" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4t / Wirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Federal Republic of Germany" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Federal Republic of Germany (Deutschland)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Federativnaja Respublika Germanija" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "FRG" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Germanija" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Germany" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Germany (Deutschland)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Heiliges R\u00F6misches Reich" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Niemcy" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Norddeutscher Bund" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Repubblica Federale di Germania" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Repubblica Federale di Germania (Deutschland)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Republic of Germany" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Republic of Germany (Deutschland)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Rheinbund" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "R\u00E9publique F\u00E9d\u00E9rale d'Allemagne" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "R\u00E9publique F\u00E9d\u00E9rale d'Allemagne (Deutschland)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Stromwirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "\u01E6umh\u016Br\u012Byat Alm\u0101niy\u0101 al-Itti\u1E25\u0101d\u012Bya" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1031919368> .
@@ -1887,21 +1904,40 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld <Kreis>" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Coesfeld" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Coesfeld. Hauptamt" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Coesfeld (Kreis)" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Coesfeld. Pressestelle" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Coesfeld. Stadtdirektor" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Hauptamt" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Hauptamt (Coesfeld)" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Hauptamt (Kreis Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkunde" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkundedidaktik" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkunde / Didaktik" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkundeunterricht" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkunde (Unterricht)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kosfel'd" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreis Coesfeld" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreis Coesfeld. Hauptamt" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreis Coesfeld. Kreistag" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreis Coesfeld. Kreisverwaltung" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreis Coesfeld. Landrat" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreis Coesfeld. Oberkreisdirektor" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreistag" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreistag (Kreis Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreisverwaltung" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreisverwaltung (Kreis Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Landkreis Coesfeld" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Landrat" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Landrat (Kreis Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Lehrmittel" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Oberkreisdirektor" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Oberkreisdirektor (Kreis Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Pressestelle" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Pressestelle (Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Stadt Coesfeld" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Stadtdirektor" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Stadtdirektor (Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/109490312> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11079267X> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/128755-2> .
@@ -1994,6 +2030,7 @@
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnzschatz" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinland" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinlande" .
+<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinlande (im engeren Sinn)" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "R\u00F6merzeit" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "R\u00F6mische Zeit" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/bibliographicCitation> "Kontinuit\u00E4t und Diskontinuit\u00E4t / hrsg. von Thomas Gr\u00FCnewald ... - Berlin [u.a.], 2003. - (Reallexikon der germanischen Altertumskunde : Erg\u00E4nzungsb\u00E4nde ; 35). - S. [266]-344 : Ill., Kt." .
@@ -2031,6 +2068,7 @@
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg o.d.T." .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg, Tauber" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Stadtmagistrat" .
+<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Stadtmagistrat (Rothenburg, Tauber)" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013911051> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/issued> "2003" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -2312,6 +2350,8 @@
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/publisher> "Buchner" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte 1945-2003" .
+<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte / Didaktik" .
+<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte / Unterricht" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichtsdidaktik" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichtsunterricht" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Schulbuch" .
@@ -2400,8 +2440,11 @@
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Bildband" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Harsewinkel" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Kornm\u00FChle Roberg" .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Kornm\u00FChle Roberg (Harsewinkel)" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Lutter-Wasserm\u00FChle Roberg" .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Lutter-Wasserm\u00FChle Roberg (Harsewinkel-Marienfeld)" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "M\u00FChle Roberg" .
+<http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "M\u00FChle Roberg (Harsewinkel)" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/issued> "2006" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -2479,6 +2522,7 @@
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Geb\u00E4ude" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Geschichte 1805-2000" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Haus" .
+<http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Haus (im weiteren Sinn)" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Nordkirchen" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Verzeichnis" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/issued> "9999" .
@@ -2599,8 +2643,18 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/contributor> "Engelhardt, Manfred" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/coverage> "D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Berg" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Berg (Staat)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Djussel'dorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Hauptamt" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Oberb\u00FCrgermeister" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Oberstadtdirektor" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Organisationsabteilung" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Presseamt" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Rat" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Ratsversammlung" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Stadtverordnetenversammlung" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "D\u00FCsseldorf. Stadtverwaltung" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Ducatus Montensis" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Duseerduofu" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Dyusserudorufu" .
@@ -2610,18 +2664,26 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Gro\u00DFherzogthum Berg" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Gro\u00DFherzogtum Berg" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Hauptamt" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Hauptamt (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Herzogtum Berg" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Landeshauptstadt D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Oberb\u00FCrgermeister" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Oberb\u00FCrgermeister (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Oberstadtdirektor" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Oberstadtdirektor (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Presseamt" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Presseamt (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Rat" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Rat (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Ratsversammlung" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Ratsversammlung (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Staat Berg" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadt D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtgemeinde D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtverordnetenversammlung" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtverordnetenversammlung (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtverwaltung" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtverwaltung (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "<<Der>> Gie\u00DFerjunge; 34 (2014),1, S. 14-15" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007072426> .
@@ -2857,8 +2919,8 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Provinz Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Regionalkunde" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen <Provinzialverband>" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen <Volk, Neuzeit>" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen (Provinzialverband)" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen (Volk, Neuzeit)" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/137082479> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2056181-7> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002808565> .
@@ -2930,6 +2992,8 @@
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Jakobusweg" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Karte" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Rhein-Lahn-Kreis" .
+<http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Rhein-Lahn-Kreis / Kreisverwaltung" .
+<http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Rhein-Lahn-Kreis / Landratsamt" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Sternenweg" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Wandern, Diez, Lahnstein, Rhein-Lahn-Info, Rhein, Lahn, Wirtschaftsf\u00F6rderung" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
