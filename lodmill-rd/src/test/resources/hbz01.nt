@@ -1128,6 +1128,7 @@
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "Bundesrepublik Deutschland" .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "mit Ortsverzeichnis" .
+<http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "Nordrhein-Westfalen, Niedersachsen-S\u00FCd" .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/placeOfPublication> "Berlin [u.a.]" .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/publicationStatement> "Berlin [u.a.]; Berlin [u.a.]; Reise- u. Verkehrsverl.; Reise- u. Verkehrsverl.; 1993" .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -1370,6 +1371,7 @@
 <http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT007527436> .
 <http://lobid.org/resource/HT000009600> <http://rdaregistry.info/Elements/u/P60281> <http://lobid.org/resource/HT012299746> .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/frequency> "Bei Jg. 28 setzt die durchgehende Nr.-Z\u00E4hlung ein" .
+<http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/otherTitleInformation> "Der Angestellte" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/otherTitleInformation> "Zeitschrift der Deutschen Angestellten-Gewerkschaft" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/placeOfPublication> "Hamburg" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/publicationStatement> "Hamburg; DAG; 1948" .
@@ -1397,6 +1399,7 @@
 <http://lobid.org/resource/HT000290078> <http://purl.org/ontology/bibo/isbn> "3209001731" .
 <http://lobid.org/resource/HT000290078> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000290078:DE-290:Jc%20F%2016826> .
 <http://lobid.org/resource/HT000290078> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT000290078:DE-467:11DCX1513%2B1> .
+<http://lobid.org/resource/HT000290078> <http://rdvocab.info/Elements/otherTitleInformation> "NEUE GRAMMATIK IM DEUTSCHUNTERRICHT FUER 10 - 15JAEHRIGE : E. HANDBUCH FUER D. LEHRER ; FACHLICHE ANREGUNGEN U. PRAKTISCHE BEISPIELE MIT VERWENDUNG D. SATZFIGUREN / VERF. VON E. ARBEITSGEMEINSCHAFT IM RAHMEN D. OESTERR. VERSUCHSSCHULWESENS: JOHANN AIGNER .." .
 <http://lobid.org/resource/HT000290078> <http://rdvocab.info/Elements/placeOfPublication> "GRAZ" .
 <http://lobid.org/resource/HT000290078> <http://rdvocab.info/Elements/placeOfPublication> "WIEN" .
 <http://lobid.org/resource/HT000290078> <http://rdvocab.info/Elements/publicationStatement> "WIEN; HOELDER-PICHLER-TEMPSKY; GRAZ; LEYKAM; 1976" .
@@ -1419,6 +1422,7 @@
 <http://lobid.org/resource/HT001310215> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "American Dental Association" .
 <http://lobid.org/resource/HT001310215> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Dental Association" .
 <http://lobid.org/resource/HT001310215> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001310215:DE-294:ZMC134> .
+<http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/otherTitleInformation> "THE JOURNAL OF THE AMERICAN DENTAL ASSOCIATION / ED.: ROGER H. SCHOLLE" .
 <http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/placeOfPublication> "CHICAGO, ILL." .
 <http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/publicationStatement> "CHICAGO, ILL.; AMERICAN DENTAL ASSOCIATION; 1980" .
 <http://lobid.org/resource/HT001310215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -1491,7 +1495,7 @@
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4034268-2> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4040613-1> .
-<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/title> "Regierungsbezirk M\u00FCnster" .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/title> "Gebietsentwicklungsplan" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#hbzID> "HT003160768" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n96> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
@@ -1503,6 +1507,7 @@
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> .
+<http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/otherTitleInformation> "Regierungsbezirk M\u00FCnster" .
 <http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnster" .
 <http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Der Regierungspr\u00E4sident; 1980" .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -2590,6 +2595,7 @@
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "Albertvs Magnvs De Falconibus, Asturibus, & Accipitribus" .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "Cvm Manfredi Regis additionibus" .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "De falconibus, asturibus et accipitribus" .
+<http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "Reliqva Librorvm Friderici II. Imperatoris, De arte venandi cum auibus" .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/placeOfPublication> "Avgvstae Vindelicorvm" .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/publicationStatement> "Avgvstae Vindelicorvm; Praetorius; 1596" .
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
