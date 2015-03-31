@@ -745,7 +745,8 @@
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
-			<data source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]1.[pa]"
+			<data
+				source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]1.[pa]"
 				name="contributorLiteral"/>
 		</combine>
 		<!-- corporation contributor literals -->
@@ -960,17 +961,20 @@
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
-		<combine name="http://purl.org/dc/elements/1.1/subject" value="${main} (${h})" sameEntity="true">
-				<data source="9[56][27]-[12].[acdefpmogkrstuz]" name="main"/>
-					<data source="9[56][27]-[12].h" name="h"/>	
+		<combine name="http://purl.org/dc/elements/1.1/subject" value="${main} (${h})"
+			sameEntity="true">
+			<data source="9[56][27]-[12].[acdefpmogkrstuz]" name="main"/>
+			<data source="9[56][27]-[12].h" name="h"/>
 		</combine>
-				<combine name="http://purl.org/dc/elements/1.1/subject" value="${main}. ${b}" sameEntity="true">
-				<data source="9[56][27]-[12].[acdefpmogkrstuz]" name="main"/>
-					<data source="9[56][27]-[12].b" name="b"/>	
+		<combine name="http://purl.org/dc/elements/1.1/subject" value="${main}. ${b}"
+			sameEntity="true">
+			<data source="9[56][27]-[12].[acdefpmogkrstuz]" name="main"/>
+			<data source="9[56][27]-[12].b" name="b"/>
 		</combine>
-				<combine name="http://purl.org/dc/elements/1.1/subject" value="${main} / ${x}" sameEntity="true">
-				<data source="9[56][27]-[12].[acdefpmogkrstuz]" name="main"/>
-					<data source="9[56][27]-[12].x" name="x"/>	
+		<combine name="http://purl.org/dc/elements/1.1/subject" value="${main} / ${x}"
+			sameEntity="true">
+			<data source="9[56][27]-[12].[acdefpmogkrstuz]" name="main"/>
+			<data source="9[56][27]-[12].x" name="x"/>
 		</combine>
 		<data source="9[56][27]-[12].[cfgkpstz-]" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!-- ############ schlagwortketten #### -->
@@ -1233,11 +1237,11 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<combine name="@rdftypeAndManifestation"  value="${a}">
-		<data source="@linkUri"/>
-		<data source="@archived" name="a">
-			<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
-		</data>
+		<combine name="@rdftypeAndManifestation" value="${a}">
+			<data source="@linkUri"/>
+			<data source="@archived" name="a">
+				<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
+			</data>
 		</combine>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
