@@ -1085,7 +1085,7 @@
 		<!-- emit URI only if there are no description subfields ... -->
 		<choose name="@urlLonely" flushWith="655??">
 			<data source="655[-eu][ -1].[xy3]"/>
-			<data source="655[-e][ -1].u"/>
+			<data source="@linkUri"/>
 		</choose>
 		<!-- ... check if URI and if 652=Archive to determine if it's the archived web source -->
 		<combine name="$[ns-lobid-vocab]webPageArchived" value="${uri}">
