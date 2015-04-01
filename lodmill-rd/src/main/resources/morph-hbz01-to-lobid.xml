@@ -511,20 +511,42 @@
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="&lt;" with=""/>
 		</data>
-		<!-- has other title information. If no title exists yet, use this as title. -->
-		<combine name="@otherTitle" value="${titleRemainder}" sameEntity="true">
-			<data source="@title"/>
-			<data source="33[13][-ab][-1].a" name="titleRemainder">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>
-		<combine name="@title" value="${title}">
+		<!-- has other title information. If no title exists yet, use these (331 or 333) as title. -->
+		<data source="331[-ab][-1].a" name="@titleRemainder331"/>
+		<data source="333[-ab][-1].a" name="@titleRemainder333"/>
+		<combine name="@titleRemainder2title331" value="${title}">
 			<if>
 				<none>
 					<data source="@title"/>
 				</none>
 			</if>
-			<data source="33[13][-ab][-1].a" name="title"/>
+			<data source="@titleRemainder331" name="title"/>
+		</combine>
+		<combine name="@titleRemainder333" value="${title}">
+			<if>
+				<none>
+					<data source="@title"/>
+				</none>
+			</if>
+			<data source="@titleRemainder333" name="title"/>
+		</combine>
+		<data source="@titleRemainder2title331" name="@title"/>
+		<data source="@titleRemainder2title333" name="@title"/>
+		<combine name="@otherTitle" value="${titleRemainder}">
+			<if>
+				<none>
+					<data source="@titleRemainder2title331"/>
+				</none>
+			</if>
+			<data source="@titleRemainder331" name="titleRemainder"/>
+		</combine>
+		<combine name="@otherTitle" value="${titleRemainder}">
+			<if>
+				<none>
+					<data source="@titleRemainder2title333"/>
+				</none>
+			</if>
+			<data source="@titleRemainder333" name="titleRemainder"/>
 		</combine>
 		<!-- deliberatley not everything linked with OR '|' because of performance problems -->
 		<data source="335[-abcd][-12].a|370[a][-12].a" name="@otherTitle"/>
