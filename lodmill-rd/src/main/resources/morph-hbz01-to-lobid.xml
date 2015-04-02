@@ -983,7 +983,7 @@
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
-		<data source="9[56][27]-[12].[acdefpmogkrstuz]" name="@subjectMain"/>
+		<data source="9[56][27]-[12].[adefgks]" name="@subjectMain"/>
 		<combine name="@subjectTopic" value="${main} (${h})" sameEntity="true">
 			<data source="@subjectMain" name="main"/>
 			<data source="9[56][27]-[12].h" name="h"/>
@@ -995,6 +995,10 @@
 		<combine name="@subjectTopic" value="${main} / ${x}" sameEntity="true">
 			<data source="@subjectMain" name="main"/>
 			<data source="9[56][27]-[12].x" name="x"/>
+		</combine>
+		<combine name="@subjectTopic" value="${main} (${z})" sameEntity="true">
+			<data source="@subjectMain" name="main"/>
+			<data source="9[56][27]-[12].[cpmortuz]" name="z"/>
 		</combine>
 		<choose name="http://purl.org/dc/elements/1.1/subject" flushWith="9[56][27]-[12]">
 			<data source="@subjectTopic"/>

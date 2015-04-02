@@ -2694,13 +2694,12 @@
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Gebietsplanung" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Landesentwicklungsplanung" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Landesplanung" .
-<http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrhein" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinebene" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrhein-Gebiet" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinisches Tiefland" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinische Tiefebene" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinlande" .
-<http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Region" .
+<http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrhein (Region)" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/121842118> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/16080300-7> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/5079636-7> .
