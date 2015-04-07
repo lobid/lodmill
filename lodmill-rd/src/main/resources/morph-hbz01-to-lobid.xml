@@ -973,8 +973,6 @@
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
-		<!-- gnd subjects literals, use even if link present -->
-		<data source="9[01234][27]-[-12].[acfghkpstkz]" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!-- other subjects -->
 		<data source="71[01][-abcdfz][123].a" name="http://purl.org/dc/elements/1.1/subject">
 			<split delimiter=" / "/>
@@ -1000,7 +998,14 @@
 		</combine>
 		<data source="9[56][27]-[12].[cfgkpstz-]" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!-- ############ schlagwortketten #### -->
-		<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
+		<!-- gnd subjects literals, use even if link present -->
+
+			<concat delimiter=" | " name="http://purl.org/lobid/lv#subjectChain" flushWith="9[01234][27]-[-12]" reset="true">
+			<if><none><data source="@subjectChain"/></none></if>
+				<data source="9[01234][27]-[-12].[acfghkpstkz]"/>
+		</concat>
+
+			<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
 			(as our MAB does here) -->
 		<combine name="@subjectChain" value="${a}">
 			<concat delimiter=" | " name="a">
