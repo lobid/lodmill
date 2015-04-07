@@ -1164,6 +1164,28 @@
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000003404> .
 <http://lobid.org/resource/BT000003404> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000003404/about> .
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/contributor> "Schmidt, Eckhard" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/coverage> "Rheine" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/subject> "Rheine" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/subject> "Vogelschutz" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/bibliographicCitation> "Rheine gestern, heute, morgen. - 11 (1983), S. 26-38 : Abb." .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/105745944> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT003759287> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/issued> "1983" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/spatial> <http://www.wikidata.org/entity/Q3890> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/title> "Die Vogelwelt der Stadt Rheine." .
+<http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#hbzID> "BT000040377" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s584060> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#subjectLocation> "52.283333333333,7.4333333333333" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/BT000040377> <http://rdvocab.info/Elements/publicationStatement> "1983" .
+<http://lobid.org/resource/BT000040377> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/BT000040377> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/BT000040377> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/BT000040377> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000040377> .
+<http://lobid.org/resource/BT000040377> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000040377/about> .
+<http://lobid.org/resource/BT000040377> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000040377> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/contributor> "Altekamp, Heinrich" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/bibliographicCitation> "Wirtschaftsspiegel. - 38 (1983) H. 7, S. 24-25 : 1 Abb." .
