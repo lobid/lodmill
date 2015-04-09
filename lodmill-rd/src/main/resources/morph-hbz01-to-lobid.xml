@@ -1259,11 +1259,9 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<combine name="@rdftypeAndManifestation" value="${a}">
+		<combine name="@rdftypeAndManifestation" value="$[ns-lobid-vocab]ArchivedWebPage">
 			<data source="@linkUri"/>
-			<data source="@archived" name="a">
-				<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
-			</data>
+			<data source="@archived"/>
 		</combine>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
@@ -1295,7 +1293,7 @@
 		<!-- ####################### -->
 		<!-- ############### statistics -->
 		<!-- ####################### -->
-		<data source="_else"/>
+	<!-- 	<data source="_else"/> -->
 	</rules>
 	<!-- ####################### -->
 	<!-- ########### maps -->
