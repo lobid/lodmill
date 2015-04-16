@@ -522,7 +522,7 @@
 			</if>
 			<data source="@titleRemainder331" name="title"/>
 		</combine>
-		<combine name="@titleRemainder333" value="${title}">
+		<combine name="@titleRemainder2title333" value="${title}">
 			<if>
 				<none>
 					<data source="@title"/>
