@@ -478,6 +478,11 @@
 <http://lobid.org/item/HT010726584:DE-Lan1:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Lan1> .
 <http://lobid.org/item/HT010726584:DE-Lan1:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT010726584:DE-Lan1:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT010726584:DE-Lan1:/about> .
+<http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://purl.org/ontology/daia/label> "C2001A/13" .
+<http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT012895751> .
+<http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-929> .
+<http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT012895751:DE-929:C2001A%2F13/about> .
 <http://lobid.org/item/HT012926727:DE-1010:01PUM23(2)> <http://purl.org/ontology/daia/label> "01PUM23(2)" .
 <http://lobid.org/item/HT012926727:DE-1010:01PUM23(2)> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT012926727> .
 <http://lobid.org/item/HT012926727:DE-1010:01PUM23(2)> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-1010> .
@@ -1790,6 +1795,31 @@
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT010726584/about> .
 <http://lobid.org/resource/HT010726584> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT010726584> .
 <http://lobid.org/resource/HT012299746> <http://rdaregistry.info/Elements/u/P60259> <http://lobid.org/resource/HT000009600> .
+<http://lobid.org/resource/HT012895751> <http://iflastandards.info/ns/isbd/elements/P1053> "76 S. : zahlr. Ill." .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/elements/1.1/publisher> "FORM-Medien-Verl.-Ges." .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/elements/1.1/subject> "Heimatforschung" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/elements/1.1/subject> "Heimatgeschichte" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/elements/1.1/subject> "Heimatkunde" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/elements/1.1/subject> "Main-Kinzig-Kreis" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2037247-4> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/issued> "2000" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4037117-7> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4127794-6> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/title> "Mainz-Kinzig-Kreis" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#hbzID> "HT012895751" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectChain> "Main-Kinzig-Kreis | Heimatkunde" .
+<http://lobid.org/resource/HT012895751> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> .
+<http://lobid.org/resource/HT012895751> <http://rdvocab.info/Elements/otherTitleInformation> "Informationen f\u00FCr B\u00FCrger, Neub\u00FCrger & G\u00E4ste" .
+<http://lobid.org/resource/HT012895751> <http://rdvocab.info/Elements/placeOfPublication> "Bad Kreuznach" .
+<http://lobid.org/resource/HT012895751> <http://rdvocab.info/Elements/publicationStatement> "Bad Kreuznach; FORM-Medien-Verl.-Ges.; 2000" .
+<http://lobid.org/resource/HT012895751> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT012895751> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT012895751> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT012895751> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT012895751> .
+<http://lobid.org/resource/HT012895751> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT012895751/about> .
+<http://lobid.org/resource/HT012895751> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT012895751> .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "XIV, 514 S. : graph. Darst., Kt." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, L." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Leonhard" .

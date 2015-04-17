@@ -522,7 +522,7 @@
 			</if>
 			<data source="@titleRemainder331" name="title"/>
 		</combine>
-		<combine name="@titleRemainder333" value="${title}">
+		<combine name="@titleRemainder2title333" value="${title}">
 			<if>
 				<none>
 					<data source="@title"/>
@@ -655,8 +655,9 @@
 		<!-- ####################### -->
 		<!-- ########## publisher -->
 		<!-- ####################### -->
-		<data source="41[058][-abcu][-12].a|594[-abc][-12].a|61[14][-abcu][-12].a|673[-abc]-.a"
-			name="http://rdvocab.info/Elements/placeOfPublication"/>
+		<data source="41[058][-abcu][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
+		<data source="594[-abc][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
+		<data source="61[14][-abcu][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
 		<data source="41[278][-abcu][-12].[ag]|61[36][-abcu][-12].a" name="http://purl.org/dc/elements/1.1/publisher"/>
 		<!-- TODO if multiple publisher these are melted to one. See HT015082724 -->
 		<combine name="http://rdvocab.info/Elements/publicationStatement" value="${publicationConcat}"
@@ -675,7 +676,8 @@
 		<!-- ####################### -->
 		<!-- ################ edition -->
 		<!-- ####################### -->
-		<data source="40[03]-1.[an]|510-1.a" name="http://purl.org/ontology/bibo/edition"/>
+		<data source="40[03]-1.[an]" name="http://purl.org/ontology/bibo/edition"/>
+		<data source="510-1.a" name="http://purl.org/ontology/bibo/edition"/>
 		<!-- ####################### -->
 		<!-- ########## links to the fulltext, online doi, toc etc. -->
 		<!-- ####################### -->
@@ -751,17 +753,19 @@
 		<!-- ########## volume -->
 		<!-- ####################### -->
 		<!-- 32-[-12].a is not bibo:volume - but what is it? -->
-		<data source="089-[-1].a|432-[-12].a|090-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="089-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="090-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
 		<!-- ####################### -->
 		<!-- #######creator -->
 		<!-- ####################### -->
 		<!-- person links -->
-		<data source="1[0123456789][0123456789][-aemn]1.9|8[012][02468][-mn]1.9" name="@creator">
+		<data source="1??[-aemn]1.9|8[012][02468][-mn]1.9" name="@creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
 		<!-- corporation links as creator -->
-		<data source="2[0123456789][012345678][-a][12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
+		<data source="2?[012345678][-a][12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- literals of creator -->
@@ -772,19 +776,20 @@
 				name="contributorLiteral"/>
 		</combine>
 		<!-- corporation contributor literals -->
-		<data source="2[0123456789][012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
-		<data source="2[0123456789][012345678][bcp][1234].k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2?[012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2?[012345678][bcp][1234].k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<!-- ####################### -->
 		<!-- ################ contributor -->
 		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
-		<data source="1[0123456789][0123456789]b[1234].b" name="@marcrelName"/>
+		<data source="1??b[1234].b" name="@marcrelName"/>
 		<!-- id of person -->
-		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
+		<data source="1??[bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- id of corporation -->
-		<data source="2[0123456789][012345678][bcp][1234].9" name="@contributorId">
+		<data source="2?[012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- map literals to marc relator property -->
@@ -959,9 +964,9 @@
 			<regexp match="^http.*"/>
 		</data>
 		<!-- use dc:contributor for creator even if there is an id -->
-		<data source="1[0123456789][0123456789]b1.a" name="http://purl.org/dc/elements/1.1/contributor"/>
-		<data source="1[0123456789][0123456789][-acefmn][12].[pa]|8[012][02468][-mn]1.[pa]"
-			name="http://purl.org/dc/elements/1.1/contributor"/>
+		<data source="1??b1.a" name="http://purl.org/dc/elements/1.1/contributor"/>
+		<data source="1??[-acefmn][12].[pa]" name="http://purl.org/dc/elements/1.1/contributor"/>
+		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/dc/elements/1.1/contributor"/>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -1259,11 +1264,9 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<combine name="@rdftypeAndManifestation" value="${a}">
+		<combine name="@rdftypeAndManifestation" value="$[ns-lobid-vocab]ArchivedWebPage">
 			<data source="@linkUri"/>
-			<data source="@archived" name="a">
-				<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
-			</data>
+			<data source="@archived"/>
 		</combine>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
@@ -1291,11 +1294,11 @@
 		<!-- ####################### -->
 		<!-- ########## abstract -->
 		<!-- ####################### -->
-		<data source="750[-abcdefghijklm][-1].a" name="http://purl.org/dc/terms/abstract"/>
+		<data source="750?[-1].a" name="http://purl.org/dc/terms/abstract"/>
 		<!-- ####################### -->
 		<!-- ############### statistics -->
 		<!-- ####################### -->
-		<data source="_else"/>
+		<!-- <data source="_else"/> -->
 	</rules>
 	<!-- ####################### -->
 	<!-- ########### maps -->
