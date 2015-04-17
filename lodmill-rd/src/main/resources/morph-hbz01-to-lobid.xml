@@ -1004,13 +1004,57 @@
 		<data source="9[56][27]-[12].[cfgkpstz-]" name="http://purl.org/dc/elements/1.1/subject"/>
 		<!-- ############ schlagwortketten #### -->
 		<!-- gnd subjects literals, use even if link present -->
-
-			<concat delimiter=" | " name="http://purl.org/lobid/lv#subjectChain" flushWith="9[01234][27]-[-12]" reset="true">
-			<if><none><data source="@subjectChain"/></none></if>
-				<data source="9[01234][27]-[-12].[acfghkpstkz]"/>
-		</concat>
-
-			<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="902-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="907-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="912-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="917-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="922-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="927-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="932-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="937-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="942-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="947-[-12].[acfghkpstkz]" name="a"/>
+			</concat>
+		</combine>
+		<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
 			(as our MAB does here) -->
 		<combine name="@subjectChain" value="${a}">
 			<concat delimiter=" | " name="a">

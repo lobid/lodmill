@@ -1093,11 +1093,8 @@
 <http://lobid.org/item/TT003059252:DE-5-58:9%2F041> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/TT003059252:DE-5-58:9%2F041/about> .
 <http://lobid.org/resource/BT000002852> <http://iflastandards.info/ns/isbd/elements/P1053> "46 S. : Ill., Kt." .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/coverage> "Freudenberg <Siegen-Wittgenstein>" .
-<http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Freudenberg" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Freudenberg Siegen" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Freudenberg (Siegerland)" .
-<http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
-<http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Kreis Siegen-Wittgenstein" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Landesgeschichte" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Ortsgeschichte" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/elements/1.1/subject> "Regionalgeschichte" .
@@ -1114,6 +1111,7 @@
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#hbzID> "BT000002852" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectChain> "Freudenberg | Geschichte" .
+<http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectChain> "Freudenberg | Kreis Siegen-Wittgenstein | Geschichte" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectLocation> "50.8722,7.915" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/otherTitleInformation> "wechselvolle Geschichte" .
@@ -1128,16 +1126,12 @@
 <http://lobid.org/resource/BT000002852> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000002852> .
 <http://lobid.org/resource/BT000003404> <http://iflastandards.info/ns/isbd/elements/P1053> "Kt." .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/publisher> "Reise- u. Verkehrsverl." .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Karte" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Niedersachsen" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Noordrijn-Westfalen" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Nordrhein-Westfalen" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Nord-Westphalie" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "Norte-Westfalia" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "North Rhine-Westphalia" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "NRW" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "NW" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "S\u00FCd" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "S\u00FCdliches Niedersachsen" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/elements/1.1/subject> "S\u00FCdniedersachsen" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/BT000100437> .
@@ -1171,8 +1165,6 @@
 <http://lobid.org/resource/BT000003404> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000003404> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/contributor> "Schmidt, Eckhard" .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/coverage> "Rheine" .
-<http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/subject> "Rheine" .
-<http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/subject> "Vogelschutz" .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/bibliographicCitation> "Rheine gestern, heute, morgen. - 11 (1983), S. 26-38 : Abb." .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/105745944> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT003759287> .
@@ -1182,6 +1174,8 @@
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/title> "Die Vogelwelt der Stadt Rheine." .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#hbzID> "BT000040377" .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s584060> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#subjectChain> "Rheine | Vogelschutz" .
+<http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#subjectChain> "Vogelschutz | Rheine" .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#subjectLocation> "52.283333333333,7.4333333333333" .
 <http://lobid.org/resource/BT000040377> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000040377> <http://rdvocab.info/Elements/publicationStatement> "1983" .
@@ -1237,14 +1231,11 @@
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/coverage> "M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "1. FC K\u00F6ln" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "1. FC K\u00F6ln 01/07" .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "1. Fu\u00DFball-Club K\u00F6ln 01/07" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "1. Fu\u00DFball-Club K\u00F6ln 01/07 e.V." .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "Borussia M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "Erster FC K\u00F6ln" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "Erster Fu\u00DFball-Club K\u00F6ln 01/07" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "Erster Fu\u00DFball-Klub K\u00F6ln 01/07" .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "VfL Borussia M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/abstract> "Erinnerungen an d. 1. FC K\u00F6ln u. Borussia M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "Nach dem Spiel ist vor dem Spiel : die wunderbare Welt des Fu\u00DFballs / Wolfgang Frank (Hg.); Orig.-Ausg.; 1996; S. 101-[108]" .
@@ -1505,13 +1496,10 @@
 <http://lobid.org/resource/HT001898812> <http://iflastandards.info/ns/isbd/elements/P1053> "XVIII, 1306 S." .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/contributor> "Ippoldt, Juljusz" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/publisher> "Verl. Enzyklop\u00E4die [u.a.]" .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Deutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Deutsche Sprache" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Hochdeutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Neuhochdeutsch" .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Polnisch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "Polnische Sprache" .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/subject> "W\u00F6rterbuch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/alternative> "Wie\u0142ki slownik polsko-niemiecki" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124515312> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/177005009> .
@@ -1525,6 +1513,7 @@
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/tableOfContents> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=3362189&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/title> "O - \u017B" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#hbzID> "HT001898812" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#subjectChain> "Polnisch | W\u00F6rterbuch | Deutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/ontology/bibo/volume> "2" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812:DE-294:LLB3272-2> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812:DE-361:NP701.35%20G8D4P%5B2,2> .
@@ -1560,11 +1549,9 @@
 <http://lobid.org/resource/HT002808565> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/coverage> "Regierungsbezirk M\u00FCnster <Westfalen, Bezirk>" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/publisher> "Der Regierungspr\u00E4sident" .
-<http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Bezirk M\u00FCnster (Westf)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Gebietsplanung" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Handwerkskammerbezirk M\u00FCnster (Westf)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Landesentwicklungsplanung" .
-<http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Landesplanung" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnster (Westf)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnster (Westf) (Bezirk)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2019209-5> .
@@ -1578,6 +1565,7 @@
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#hbzID> "HT003160768" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n96> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Bezirk M\u00FCnster (Westf) | Landesplanung" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Bezirk M\u00FCnster (Westf) | Landesplanung (21)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> .
@@ -1746,11 +1734,8 @@
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "On-line-Dokument" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Online-Dokument" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "On-line-Publikation" .
-<http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Online-Publikation" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Online-Ressource" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Periodikum" .
-<http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Plasmaphysik" .
-<http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Zeitschrift" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/subject> "Zeitschriften" .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/hasVersion> <http://www.bibliothek.uni-regensburg.de/ezeit/?1472746> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/issued> "1994 - " .
@@ -1863,7 +1848,6 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrischer Strom / Energiewirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4t" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4t / Energiewirtschaft" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4tswirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Elektrizit\u00E4t / Wirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Federal Republic of Germany" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Federal Republic of Germany (Deutschland)" .
@@ -1893,6 +1877,7 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/tableOfContents> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1533597&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/title> "Handbuch der Elektrizit\u00E4tswirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#hbzID> "HT012926727" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectChain> "Deutschland | Elektrizit\u00E4tswirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectChain> "Deutschland | Elektrizit\u00E4tswirtschaft (21)" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/edition> "2. Aufl." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783540676379" .
@@ -1963,7 +1948,6 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkunde" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkundedidaktik" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkunde / Didaktik" .
-<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkundeunterricht" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Heimatkunde (Unterricht)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kosfel'd" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Kreis Coesfeld" .
@@ -1979,7 +1963,6 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Landkreis Coesfeld" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Landrat" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Landrat (Kreis Coesfeld)" .
-<http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Lehrmittel" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Oberkreisdirektor" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Oberkreisdirektor (Kreis Coesfeld)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/subject> "Pressestelle" .
@@ -2003,7 +1986,9 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n97> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s784080> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Heimatkundeunterricht | Lehrmittel" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectLocation> "51.857222222222,7.4827777777778" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
@@ -2024,9 +2009,7 @@
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Juwelenschmuck" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Juwelierschmuck" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Periodikum" .
-<http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Schmuck" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Schmuckware" .
-<http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Zeitschrift" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/elements/1.1/subject> "Zeitschriften" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002" .
 <http://lobid.org/resource/HT013304490> <http://purl.org/dc/terms/issued> "2002 - 2002" .
@@ -2069,18 +2052,12 @@
 <http://lobid.org/resource/HT013370531> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/contributor> "Heinrichs, Johannes" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Fundm\u00FCnze" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Germanen" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Germanische V\u00F6lker" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Geschichte 71 v. Chr.-70 v. Chr" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Metallgeld" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnze" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnzen" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnzfund" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnzschatz" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinland" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinlande" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinlande (im engeren Sinn)" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "R\u00F6merzeit" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "R\u00F6mische Zeit" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/bibliographicCitation> "Kontinuit\u00E4t und Diskontinuit\u00E4t / hrsg. von Thomas Gr\u00FCnewald ... - Berlin [u.a.], 2003. - (Reallexikon der germanischen Altertumskunde : Erg\u00E4nzungsb\u00E4nde ; 35). - S. [266]-344 : Ill., Kt." .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/108092704> .
@@ -2098,7 +2075,9 @@
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n03> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s226040> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "Rheinland" .
+<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "Rheinland | R\u00F6merzeit | Germanen | M\u00FCnze | Geschichte 71 v. Chr.-70 v. Chr" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "Rheinland | R\u00F6merzeit | Germanen | M\u00FCnze | Geschichte 71 v. Chr.-70 v. Chr (23415,34215,43215)" .
+<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "R\u00F6merzeit | M\u00FCnzfund | Geschichte 71 v. Chr.-70 v. Chr" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "R\u00F6merzeit | M\u00FCnzfund | Geschichte 71 v. Chr.-70 v. Chr (2314,3214)" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT013577568> <http://rdvocab.info/Elements/otherTitleInformation> "Mittel- und Niederrhein ca. 70 - 71 v. Chr. anhand germanischer M\u00FCnzen" .
@@ -2112,7 +2091,6 @@
 <http://lobid.org/resource/HT013577568> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013577568> .
 <http://lobid.org/resource/HT013911008> <http://iflastandards.info/ns/isbd/elements/P1053> "1 CD-ROM ; 12 cm + 1 Beih. [6] S." .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/publisher> "Eutropia" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "CD-ROM" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg ob der Tauber" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg o.d.T." .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/elements/1.1/subject> "Rothenburg, Tauber" .
@@ -2146,9 +2124,6 @@
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/contributor> "Fehrmann, Gisela" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/contributor> "J\u00E4ger, Ludwig" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/publisher> "Fink" .
-<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/subject> "Abbild" .
-<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/subject> "Aufsatzsammlung" .
-<http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/subject> "Symbolik" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/issued> "2005" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -2156,6 +2131,7 @@
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4604932-0> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/title> "Spuren, Lekt\u00FCren" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#hbzID> "HT014015351" .
+<http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#subjectChain> "Abbild | Symbolik | Aufsatzsammlung" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#subjectChain> "Abbild | Symbolik | Aufsatzsammlung (213)" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/129016713> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/isbn13> "9783770538478" .
@@ -2307,11 +2283,8 @@
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Van Gorcum" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/publisher> "Wolters-Noordhoff" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Batavische Republik" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Niederlande" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Staat Holland" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Vereinigte Niederlande" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/elements/1.1/subject> "Zeitschrift" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/isPartOf> <http://ld.zdb-services.de/resource/208524-0> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001373475> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/issued> "2006" .
@@ -2320,6 +2293,7 @@
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/subject> <http://dewey.info/class/900/> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042203-3> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#hbzID> "HT015082724" .
+<http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectChain> "Niederlande | Geschichte | Zeitschrift" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119. 2006" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015082724:DE-361:CA000%20T340%5B119> .
@@ -2398,12 +2372,9 @@
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/contributor> "Weber, J\u00FCrgen" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/publisher> "Buchner" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte" .
-<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte 1945-2003" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte / Didaktik" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte / Unterricht" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichtsdidaktik" .
-<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichtsunterricht" .
-<http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Schulbuch" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/105667129> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013370531> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/issued> "2003 - " .
@@ -2486,8 +2457,6 @@
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/contributor> "Buchmann, Helmut" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/coverage> "Harsewinkel-Marienfeld" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/publisher> "Selbstverl." .
-<http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Bildband" .
-<http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Harsewinkel" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Kornm\u00FChle Roberg" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Kornm\u00FChle Roberg (Harsewinkel)" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/elements/1.1/subject> "Lutter-Wasserm\u00FChle Roberg" .
@@ -2502,6 +2471,7 @@
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#hbzID> "HT016135351" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s708029> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectChain> "Lutter-Wasserm\u00FChle Roberg | Bildband" .
+<http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectChain> "Lutter-Wasserm\u00FChle Roberg | Harsewinkel | Bildband" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016135351:DE-6:2C%208876> .
 <http://lobid.org/resource/HT016135351> <http://rdvocab.info/Elements/otherTitleInformation> "Zeitzeuge und Kleinod in Harsewinkel" .
@@ -2518,7 +2488,6 @@
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/contributor> "Blum, Richard" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/contributor> "Blum, Richard Kenneth" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/publisher> "Wiley-VCH" .
-<http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/subject> "LINUX" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/alternative> "Linux for dummies <dt.>" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14320713X> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/issued> "2011" .
@@ -2567,13 +2536,8 @@
 <http://lobid.org/resource/HT016511663> <http://purl.org/dc/terms/hasFormat> <http://lobid.org/resource/CT003012479> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/coverage> "Nordkirchen" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/publisher> "Heimatverein der Gemeinde Nordkirchen e. V:" .
-<http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Eigent\u00FCmer" .
-<http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Geb\u00E4ude" .
-<http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Geschichte 1805-2000" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Haus" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Haus (im weiteren Sinn)" .
-<http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Nordkirchen" .
-<http://lobid.org/resource/HT016545462> <http://purl.org/dc/elements/1.1/subject> "Verzeichnis" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/issued> "9999" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -2585,6 +2549,7 @@
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#hbzID> "HT016545462" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s503050> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s843060> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Nordkirchen | Geb\u00E4ude | Eigent\u00FCmer | Geschichte 1805-2000 | Verzeichnis" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Nordkirchen | Geb\u00E4ude | Eigent\u00FCmer | Geschichte 1805-2000 | Verzeichnis (23145,32145)" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectLocation> "51.738055555556,7.5255555555556" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
@@ -2705,7 +2670,6 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Ducatus Montensis" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Duseerduofu" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Dyusserudorufu" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Geschichte 1288-1815" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Grafschaft Berg" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Grand Duch\u00E9 Berg" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Gro\u00DFherzogthum Berg" .
@@ -2724,7 +2688,6 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Rat (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Ratsversammlung" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Ratsversammlung (D\u00FCsseldorf)" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Staat Berg" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadt D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtgemeinde D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtverordnetenversammlung" .
@@ -2744,6 +2707,7 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#hbzID> "HT018131501" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n46> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectChain> "D\u00FCsseldorf | Staat Berg | Geschichte 1288-1815" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectChain> "D\u00FCsseldorf | Staat Berg | Geschichte 1288-1815 (213)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectLocation> "51.2289,6.77361" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
@@ -2781,11 +2745,9 @@
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/contributor> "Clev, Hans-G\u00FCnther" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Gebietsplanung" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Landesentwicklungsplanung" .
-<http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Landesplanung" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrhein" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinebene" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrhein-Gebiet" .
-<http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinisches Tiefland" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinische Tiefebene" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Oberrheinlande" .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/elements/1.1/subject> "Region" .
@@ -2946,9 +2908,7 @@
 <http://lobid.org/resource/TT001671747> <http://iflastandards.info/ns/isbd/elements/P1053> "[2] Bl. : graph. Darst., Kt." .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/contributor> "Mayr, A." .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/publisher> "Aschendorff" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Atlas" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Herzogtum Westfalen" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Landeskunde" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Provinz Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Regionalkunde" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/subject> "Westfalen" .
@@ -2967,6 +2927,7 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#hbzID> "TT001671747" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Geographische Kommission f\u00FCr Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung" .
+<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectChain> "Westfalen | Landeskunde | Atlas" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn13> "9783402061749" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "3402061740" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "3,5,1" .
@@ -3021,9 +2982,7 @@
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Guntram" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Camino de Santiago" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Chemin de Saint Jacques" .
-<http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Jakobsweg" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Jakobusweg" .
-<http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Karte" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Rhein-Lahn-Kreis" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Rhein-Lahn-Kreis / Kreisverwaltung" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/subject> "Rhein-Lahn-Kreis / Landratsamt" .
@@ -3040,6 +2999,7 @@
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/title> "Jakobswege : der Lahn-Camino" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#hbzID> "TT002234459" .
+<http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectChain> "Rhein-Lahn-Kreis | Jakobsweg | Karte" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectChain> "Rhein-Lahn-Kreis | Jakobsweg | Karte (213)" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:929:01-2079" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#webPageArchived> <http://www.rhein-lahn-info.de/jakobsweg/> .
