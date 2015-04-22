@@ -2,6 +2,7 @@
 
 # get the newest code and build it
 THIS_BASE="$(pwd)"
+cp ../../../src/main/resources/morph_zdb-isil-file-pica2ld.xml ./
 
 cd ../../../../..
 git clone https://github.com/hbz/metafacture-core.git
