@@ -12,6 +12,7 @@
 		<var name="ns-lobid-vocab" value="http://purl.org/lobid/lv#"/>
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
 		<var name="ns-zdb-services" value="http://ld.zdb-services.de/resource/"/>
+		<var name="ns-gnd" value="http://d-nb.info/standards/elementset/gnd#"/>
 	</vars>
 	<rules>
 		<!-- ####################### -->
@@ -759,15 +760,13 @@
 		<!-- ####################### -->
 		<!-- #######creator -->
 		<!-- ####################### -->
-		<!-- person links -->
-		<data source="1??[-aemn]1.9|8[012][02468][-mn]1.9" name="@creator">
+		<!-- person/corporation links -->
+		<data
+			source="1??[-aemn]1.9|8[012][02468][-mn]1.9|2?[012345678][-a][12-].9|8[012][02468][-mn]-.9"
+			name="@creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
-		<!-- corporation links as creator -->
-		<data source="2?[012345678][-a][12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
@@ -778,7 +777,16 @@
 		<!-- corporation contributor literals -->
 		<data source="2?[012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<data source="8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
-		<data source="2?[012345678][bcp][1234].k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2?[012345678][bcp][1234].k" name="@nameOfContributingCorporateBodyK"/>
+		<combine name="@nameOfContributingCorporateBodyKH" value="${k} &lt;${h}&gt;">
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+			<data source="2?[012345678][bcp][1234].h" name="h"/>
+		</combine>
+		<choose name="@nameOfContributingCorporateBody" flushWith="2?[012345678][bcp][1234].9">
+			<data source="@nameOfContributingCorporateBodyKH"/>
+			<data source="@nameOfContributingCorporateBodyK"/>
+		</choose>
+		<data source="@nameOfContributingCorporateBody" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<!-- ####################### -->
 		<!-- ################ contributor -->
 		<!-- ####################### -->
@@ -974,10 +982,88 @@
 		<data source="70[05][-b][-12345].a" name="http://purl.org/dc/terms/subject">
 			<regexp match="([0-9]{3})" format="http://dewey.info/class/${1}/"/>
 		</data>
+		<!-- gnd links -->
 		<data source="9[01234][27]-[-12].9" name="@subjectLinks">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
+		<!-- ########### -->
+		<!-- # Create subgraph: temporarily set new subjects or contributor id -->
+		<!-- ########### -->
+		<data name="~rdf:subject" source="@subjectLinks|@creator|@contributorId"/>
+		<!-- subjects -->
+		<combine name="@preferredNameForTheWork" value="${a}">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].t" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true">
+			<data source="9[01234][27]-[-12].[cghksz]|1??[-bcfep]1.p|@nameOfContributingCorporateBody"
+				name="a"/>
+			<data source="@subjectLinks|@creator|@contributorId"/>
+		</combine>
+		<combine name="@preferredNameP" value="${a}" sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].p" name="a"/>
+		</combine>
+		<combine name="@preferredNameConcat" value="${a}: ${b}" sameEntity="true">
+			<data source="@preferredNameP" name="a"/>
+			<data source="9[01234][27]-[-12].t" name="b">
+				<replace pattern="&gt;" with=""/>
+				<replace pattern="&lt;" with=""/>
+			</data>
+		</combine>
+		<choose name="$[ns-gnd]preferredName" flushWith="@preferredNameP">
+			<data source="@preferredNameConcat"/>
+			<data source="@preferredNameP"/>
+		</choose>
+		<combine name="$[ns-gnd]preferredNameForTheSubjectHeading" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].s" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameEntityForThePerson" value="${a}"
+			sameEntity="true">
+			<if>
+				<none>
+					<data source="9[01234][27]-[-12].t"/>
+				</none>
+			</if>
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].p" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForThePlaceOrGeographicName" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].g" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheWork" value="${a}" sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="@preferredNameForTheWork" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].k" name="a"/>
+		</combine>
+		<!-- /subjects -->
+		<!-- START contributor/creator -->
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
+			<data source="@creator|@contributorId"/>
+			<data source="1??[-bcfep]1.p" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@contributorId"/>
+			<data source="@nameOfContributingCorporateBody" name="a"/>
+		</combine>
+		<!-- END contributor/creator -->
+		<!-- ########### -->
+		<!-- # set subject uri of resource anew -->
+		<!-- ########### -->
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
+			<data source="@subjectLinks|@creator|@contributorId"/>
+			<data source="@id" name="subject"/>
+		</combine>
 		<!-- other subjects -->
 		<data source="71[01][-abcdfz][123].a" name="http://purl.org/dc/elements/1.1/subject">
 			<split delimiter=" / "/>
