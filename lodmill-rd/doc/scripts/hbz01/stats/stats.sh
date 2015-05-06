@@ -13,7 +13,7 @@ TIMESTAMP="$(date +%Y-%m-%d)"
 echo " #FORMAT: BEACON
 #VERSION: 0.1
 #PREFIX: http://d-nb.info/gnd/
-#TARGET: http://lobid.org/nwbib/search?person={ID}
+#TARGET: http://lobid.org/nwbib/search?q=%22http://d-nb.info/gnd/{ID}%22
 #FEED: http://lobid.org/download/beacons/$NWBIB_CONTRIBUTORS
 #CONTACT: lobid-Team im hbz <semweb@hbz-nrw.de>
 #NAME: Nordrhein-Westfälische Bibliographie (NWBib)
@@ -33,7 +33,7 @@ NWBIB_SUBJECTS="nwbibSubjects.bf"
 echo "#FORMAT: BEACON
 #VERSION: 0.1
 #PREFIX: http://d-nb.info/gnd/
-#TARGET: http://lobid.org/nwbib/search?subject={ID}
+#TARGET: http://lobid.org/nwbib/search?q=%22http://d-nb.info/gnd/{ID}%22
 #FEED: http://lobid.org/download/beacons/$NWBIB_SUBJECTS
 #CONTACT: lobid-Team im hbz <semweb@hbz-nrw.de>
 #NAME: Nordrhein-Westfälische Bibliographie (NWBib)
@@ -46,6 +46,6 @@ echo "#FORMAT: BEACON
 #EXAMPLES: 118515470
 " > $NWBIB_SUBJECTS
 
-grep "terms/subject" NWBib_all.nt |sed 's#.*info/gnd/\(.*\)>.*#\1#'|sort | uniq -c | awk '{print $2 "|" $1}' >> $NWBIB_SUBJECTS
+grep "terms/subject.*d-nb" NWBib_all.nt |sed 's#.*info/gnd/\(.*\)>.*#\1#'|sort | uniq -c | awk '{print $2 "|" $1}' >> $NWBIB_SUBJECTS
 
 scp *.bf emphytos:src/lobid.org/download/beacons/
