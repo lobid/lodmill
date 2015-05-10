@@ -59,10 +59,11 @@ public class ElasticsearchIndexer extends
 	private Client client;
 	private int retries = 40;
 	// collect so many documents before bulk indexing them all
-	private int bulkSize = 1000;
+	private int bulkSize = 5000;
 	private int docs = 0;
 	private String indexName;
 	private boolean updateIndex;
+	private String aliasSuffix;
 
 	/**
 	 * Keys to get index properties and the json document ("graph")
@@ -85,12 +86,13 @@ public class ElasticsearchIndexer extends
 	protected void onCloseStream() {
 		// feed the rest of the bulk
 		bulkRequest.execute().actionGet();
-		String aliasSuffix = "-staging";
 		if (!aliasSuffix.equals("NOALIAS") && !updateIndex
 				&& !aliasSuffix.toLowerCase().contains("test"))
 			updateAliases(indexName, aliasSuffix);
+		bulkRequest.setRefresh(true);
 	}
 
+	// TODO use BulkProcessorbuilder by updating to ES 1.5
 	@Override
 	public void onSetReceiver() {
 		this.CLIENT_SETTINGS =
@@ -104,14 +106,12 @@ public class ElasticsearchIndexer extends
 						.build());
 		this.client = this.tc.addTransportAddress(this.NODE);
 		bulkRequest = new BulkRequestBuilder(client);
-		bulkRequest.setRefresh(false);
 		bulkRequest = client.prepareBulk();
-		updateIndex = indexName.toLowerCase().contains("update");
 		if (updateIndex) {
 			getNewestIndex();
 		} else
 			createIndex();
-
+		bulkRequest.setRefresh(false);
 	}
 
 	@Override
@@ -129,8 +129,10 @@ public class ElasticsearchIndexer extends
 		docs++;
 		while (docs > bulkSize && retries > 0) {
 			try {
-				bulkRequest.execute().actionGet();
+				bulkRequest.setRefresh(false).execute().actionGet();
 				docs = 0;
+				bulkRequest = client.prepareBulk();
+				bulkRequest.setRefresh(false);
 				break; // stop retry-while
 			} catch (final NoNodeAvailableException e) {
 				retries--;
@@ -172,6 +174,25 @@ public class ElasticsearchIndexer extends
 		this.indexName = indexname;
 	}
 
+	/**
+	 * Sets the suffix of elasticsearch index alias suffix
+	 * 
+	 * @param aliasSuffix may be an IP or a domain name
+	 */
+	public void setIndexAliasSuffix(String aliasSuffix) {
+		this.aliasSuffix = aliasSuffix;
+
+	}
+
+	/**
+	 * Sets the elasticsearch index name
+	 * 
+	 * @param updateIndex name of the index
+	 */
+	public void setUpdateNewestIndex(final boolean updateIndex) {
+		this.updateIndex = updateIndex;
+	}
+
 	private void getNewestIndex() {
 		String indexNameWithoutTimestamp = indexName.replaceAll("20.*", "");
 		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
@@ -206,17 +227,6 @@ public class ElasticsearchIndexer extends
 			LOG.error(e.getMessage(), e);
 		}
 		return res;
-	}
-
-	private void setIndexRefreshInterval(Client client, String setting) {
-		client
-				.admin()
-				.indices()
-				.prepareUpdateSettings(indexName)
-				.setSettings(
-						ImmutableSettings.settingsBuilder().put("index.refresh_interval",
-								setting)).execute().actionGet();
-
 	}
 
 	private void updateAliases(final String name, final String suffix) {

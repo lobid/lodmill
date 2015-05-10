@@ -4,6 +4,7 @@ package org.lobid.lodmill;
 
 import java.io.File;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
@@ -40,15 +41,18 @@ public final class MabXml2lobidJsonTest {
 		opener.setCompression("BZIP2");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
+		// @TODO test elasticsearch indexing runner with mock up
 		opener
 				.setReceiver(new TarReader())
 				.setReceiver(new XmlDecoder())
 				.setReceiver(new MabXmlHandler())
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))
-				.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
+				.setReceiver(new PipeEncodeTriples())
+				.setReceiver(triple2model)
 				.setReceiver(new RdfModel2ElasticsearchJsonLd())
-				.setReceiver(new ObjectFileWriter<String>(TEST_FILENAME));
+				.setReceiver(
+						new ObjectFileWriter<HashMap<String, String>>(TEST_FILENAME));
 		opener.process(new File("src/test/resources/hbz01XmlClobs.tar.bz2")
 				.getAbsolutePath());
 		opener.closeStream();
