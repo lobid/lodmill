@@ -52,7 +52,10 @@ public final class MabXml2lobidJsonEs {
 								+ node + "\n", ": " + cluster, ": " + "\n" + update));
 		// hbz catalog transformation
 		final FileOpener opener = new FileOpener();
-		opener.setCompression("BZIP2");
+		if (inputPath.toLowerCase().endsWith("bz2")) {
+			opener.setCompression("BZIP2");
+		} else if (inputPath.toLowerCase().endsWith("gz"))
+			opener.setCompression("GZIP");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		ElasticsearchIndexer esIndexer = new ElasticsearchIndexer();
