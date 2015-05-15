@@ -59,8 +59,8 @@ public final class MabXml2lobidJsonEs {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		ElasticsearchIndexer esIndexer = new ElasticsearchIndexer();
-		esIndexer.setClustername(cluster);// lobid-hbz
-		esIndexer.setHostname(node); // quaoar1.hbz-nrw.de
+		esIndexer.setClustername(cluster);
+		esIndexer.setHostname(node);
 		esIndexer.setIndexName(indexName);
 		esIndexer.setIndexAliasSuffix(indexAliasSuffix);
 		esIndexer.setUpdateNewestIndex(update);
