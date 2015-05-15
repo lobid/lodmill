@@ -129,7 +129,7 @@ public class ElasticsearchIndexer extends
 		docs++;
 		while (docs > bulkSize && retries > 0) {
 			try {
-				bulkRequest.setRefresh(false).execute().actionGet();
+				bulkRequest.execute().actionGet();
 				docs = 0;
 				bulkRequest = client.prepareBulk();
 				bulkRequest.setRefresh(false);
