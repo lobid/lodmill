@@ -141,6 +141,8 @@ public final class RdfModel2ElasticsearchJsonLd extends
 				String p = parent != null ? parent.findValue("@id").asText() : null;
 				if (p == null) {
 					LOG.warn("Item URI " + id + " has no parent declared!");
+					jsonMap.put(ElasticsearchIndexer.Properties.PARENT.getName(),
+							"no_parent");
 				} else
 					jsonMap.put(ElasticsearchIndexer.Properties.PARENT.getName(), p);
 			} catch (IOException e) {
