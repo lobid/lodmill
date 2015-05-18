@@ -7,6 +7,7 @@
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Weber, J\u00FCrgen" .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredName> "Weber, J\u00FCrgen" .
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schmidt, Eckhard" .
+<http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schmidt, Eckhard" .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Heinrichs, Johannes" .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heinrichs, Johannes" .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Altekamp, Heinrich" .
@@ -37,6 +38,7 @@
 <http://d-nb.info/gnd/118535765> <http://d-nb.info/standards/elementset/gnd#preferredName> "Friedrich" .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hitler, Adolf" .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hitler, Adolf" .
+<http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl , I. , Heiliges R\u00F6misches Reich, Kaiser , 747-814" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Manfredi" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredName> "Manfredi" .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rohmer, Eric" .
@@ -59,6 +61,8 @@
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bruccoli, Matthew Joseph" .
 <http://d-nb.info/gnd/120454874> <http://d-nb.info/standards/elementset/gnd#preferredName> "Berger, Helmut" .
 <http://d-nb.info/gnd/120454874> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Berger, Helmut" .
+<http://d-nb.info/gnd/121815684> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "L\u00FCken, Sven" .
+<http://d-nb.info/gnd/121815684> <http://d-nb.info/standards/elementset/gnd#preferredName> "L\u00FCken, Sven" .
 <http://d-nb.info/gnd/121842118> <http://d-nb.info/standards/elementset/gnd#preferredName> "Clev, Hans-G\u00FCnther" .
 <http://d-nb.info/gnd/121842118> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Clev, Hans-G\u00FCnther" .
 <http://d-nb.info/gnd/122021878> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Werthes, Sascha" .
@@ -160,7 +164,7 @@
 <http://d-nb.info/gnd/4014228-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Elektrizit\u00E4tswirtschaft" .
 <http://d-nb.info/gnd/4014228-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Elektrizit\u00E4tswirtschaft" .
 <http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Freudenberg" .
-<http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreis Siegen-Wittgenstein" .
+<http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Freudenberg , Kreis Siegen-Wittgenstein" .
 <http://d-nb.info/gnd/4020378-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Germanen" .
 <http://d-nb.info/gnd/4020378-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Germanen" .
 <http://d-nb.info/gnd/4020517-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Geschichte" .
@@ -175,6 +179,8 @@
 <http://d-nb.info/gnd/4037117-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Main-Kinzig-Kreis" .
 <http://d-nb.info/gnd/4040613-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bezirk M\u00FCnster (Westf)" .
 <http://d-nb.info/gnd/4040613-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Bezirk M\u00FCnster (Westf)" .
+<http://d-nb.info/gnd/4040619-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "M\u00FCnsterland" .
+<http://d-nb.info/gnd/4040619-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCnsterland" .
 <http://d-nb.info/gnd/4040629-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "M\u00FCnze" .
 <http://d-nb.info/gnd/4040629-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCnze" .
 <http://d-nb.info/gnd/4042203-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Niederlande" .
@@ -211,7 +217,7 @@
 <http://d-nb.info/gnd/4114067-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Jakobsweg" .
 <http://d-nb.info/gnd/4114067-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Jakobsweg" .
 <http://d-nb.info/gnd/4115393-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Niedersachsen" .
-<http://d-nb.info/gnd/4115393-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "S\u00FCd" .
+<http://d-nb.info/gnd/4115393-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Niedersachsen , S\u00FCd" .
 <http://d-nb.info/gnd/4120314-8> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Polnisch" .
 <http://d-nb.info/gnd/4120314-8> <http://d-nb.info/standards/elementset/gnd#preferredName> "Polnisch" .
 <http://d-nb.info/gnd/4124796-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "Dramaturgie" .
@@ -227,8 +233,12 @@
 <http://d-nb.info/gnd/4151183-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Eigent\u00FCmer" .
 <http://d-nb.info/gnd/4156127-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Geb\u00E4ude" .
 <http://d-nb.info/gnd/4156127-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Geb\u00E4ude" .
+<http://d-nb.info/gnd/4159648-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Herrscherbild" .
+<http://d-nb.info/gnd/4159648-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Herrscherbild" .
 <http://d-nb.info/gnd/4184194-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Symbolik" .
 <http://d-nb.info/gnd/4184194-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Symbolik" .
+<http://d-nb.info/gnd/4306876-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Regionalplan" .
+<http://d-nb.info/gnd/4306876-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regionalplan" .
 <http://d-nb.info/gnd/4337730-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "LINUX" .
 <http://d-nb.info/gnd/4337730-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "LINUX" .
 <http://d-nb.info/gnd/4511937-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Online-Publikation" .
@@ -238,9 +248,9 @@
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork> "<<Der>> Cid" .
-<http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Grabbe, Christian Dietrich: Der Cid" .
+<http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Grabbe, Christian Dietrich" .
 <http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Lutter-Wasserm\u00FChle Roberg" .
-<http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Harsewinkel" .
+<http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Lutter-Wasserm\u00FChle Roberg , Harsewinkel" .
 <http://lobid.org/item/HT000009600:DE-260:Z%201009> <http://purl.org/ontology/daia/label> "Z 1009" .
 <http://lobid.org/item/HT000009600:DE-260:Z%201009> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/item/HT000009600:DE-260:Z%201009> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-260> .
@@ -571,6 +581,26 @@
 <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
 <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127/about> .
+<http://lobid.org/item/HT004381366:DE-6-007:Sep.%2010.04.01%2F55,5> <http://purl.org/ontology/daia/label> "Sep. 10.04.01/55,5" .
+<http://lobid.org/item/HT004381366:DE-6-007:Sep.%2010.04.01%2F55,5> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT004381366> .
+<http://lobid.org/item/HT004381366:DE-6-007:Sep.%2010.04.01%2F55,5> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-007> .
+<http://lobid.org/item/HT004381366:DE-6-007:Sep.%2010.04.01%2F55,5> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT004381366:DE-6-007:Sep.%2010.04.01%2F55,5> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT004381366:DE-6-007:Sep.%2010.04.01%2F55,5/about> .
+<http://lobid.org/item/HT004381366:DE-6-210:Boe%2070%20-%20%5B2%5D> <http://purl.org/ontology/daia/label> "Boe 70 - [2]" .
+<http://lobid.org/item/HT004381366:DE-6-210:Boe%2070%20-%20%5B2%5D> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT004381366> .
+<http://lobid.org/item/HT004381366:DE-6-210:Boe%2070%20-%20%5B2%5D> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-210> .
+<http://lobid.org/item/HT004381366:DE-6-210:Boe%2070%20-%20%5B2%5D> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT004381366:DE-6-210:Boe%2070%20-%20%5B2%5D> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT004381366:DE-6-210:Boe%2070%20-%20%5B2%5D/about> .
+<http://lobid.org/item/HT004381366:DE-6:2C%20583-2> <http://purl.org/ontology/daia/label> "2C 583-2" .
+<http://lobid.org/item/HT004381366:DE-6:2C%20583-2> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT004381366> .
+<http://lobid.org/item/HT004381366:DE-6:2C%20583-2> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
+<http://lobid.org/item/HT004381366:DE-6:2C%20583-2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT004381366:DE-6:2C%20583-2> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT004381366:DE-6:2C%20583-2/about> .
+<http://lobid.org/item/HT004381366:DE-6-A:MG%2023990%2F1-1> <http://purl.org/ontology/daia/label> "MG 23990/1-1" .
+<http://lobid.org/item/HT004381366:DE-6-A:MG%2023990%2F1-1> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT004381366> .
+<http://lobid.org/item/HT004381366:DE-6-A:MG%2023990%2F1-1> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-A> .
+<http://lobid.org/item/HT004381366:DE-6-A:MG%2023990%2F1-1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT004381366:DE-6-A:MG%2023990%2F1-1> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT004381366:DE-6-A:MG%2023990%2F1-1/about> .
 <http://lobid.org/item/HT004944075:DE-294:ZRC828-43> <http://purl.org/ontology/daia/label> "ZRC828-43" .
 <http://lobid.org/item/HT004944075:DE-294:ZRC828-43> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT004944075> .
 <http://lobid.org/item/HT004944075:DE-294:ZRC828-43> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-294> .
@@ -1797,6 +1827,7 @@
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "Landesentwicklungsplanung" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnster (Westf) (Bezirk)" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2019209-5> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/hasPart> <http://lobid.org/resource/HT004381366> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/issued> "1980 - " .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/issued> "1980" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -1821,11 +1852,52 @@
 <http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Der Regierungspr\u00E4sident; 1980" .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Collection> .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/MultiVolumeBook> .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT003160768> .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT003160768/about> .
 <http://lobid.org/resource/HT003160768> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT003160768> .
+<http://lobid.org/resource/HT004381366> <http://iflastandards.info/ns/isbd/elements/P1053> "117 S. : zahlr. Kt." .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/publisher> "Der Regierungspr\u00E4sident" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "Gebietsentwicklungsplan" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "Gebietsplanung" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "Handwerkskammerbezirk M\u00FCnster (Westf)" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "Landesentwicklungsplanung" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "M\u00FCnster (Westf) (Bezirk)" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "Regierungsbezirk M\u00FCnster" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "Regionalentwicklungsplan" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/elements/1.1/subject> "Regionaler Raumordnungsplan" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/2019209-5> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT003160768> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/issued> "1986" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/medium> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4034268-2> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4040613-1> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4040619-2> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4306876-5> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/title> "Teilabschnitt Zentrales M\u00FCnsterland" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#hbzID> "HT004381366" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n10> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectChain> "M\u00FCnsterland | Regionalplan (21)" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectChain> "M\u00FCnsterland | Regionalplan | Bezirk M\u00FCnster (Westf) | Landesplanung" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "<Tezemu>" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "Tezemu" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT004381366:DE-6-007:Sep.%2010.04.01%2F55,5> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT004381366:DE-6-210:Boe%2070%20-%20%5B2%5D> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT004381366:DE-6:2C%20583-2> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT004381366:DE-6-A:MG%2023990%2F1-1> .
+<http://lobid.org/resource/HT004381366> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnster" .
+<http://lobid.org/resource/HT004381366> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Der Regierungspr\u00E4sident; 1986" .
+<http://lobid.org/resource/HT004381366> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT004381366> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/HT004381366> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT004381366> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT004381366> .
+<http://lobid.org/resource/HT004381366> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT004381366/about> .
+<http://lobid.org/resource/HT004381366> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT004381366> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/elements/1.1/publisher> "UN" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/alternative> "Bulletin annuel de statistiques des transports pour l'Europe et l'Am\u00E9rique du Nord" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/alternative> "E\u017Eegodnyj bjulleten' statistiki transporta dlja Evropy i Severnoj Ameriki" .
@@ -2397,6 +2469,48 @@
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014046679> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014046679/about> .
 <http://lobid.org/resource/HT014046679> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014046679> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/contributor> "L\u00FCken, Sven" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Carlomagno (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Charlemagne (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Charlemaigne (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Charlemaine (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "der Gro\u00DFe (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Franken, K\u00F6nig (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Germania, Imperator (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Heiliges R\u00F6misches Reich, Kaiser (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Imperium Romanum-Germanicum, Imperator (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Karlmeinet (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "le Grand (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Magno (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Magnus (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "Magnus Germanus (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "M\u00F3r (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "R\u00F6mischer Kaiser (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "R\u00F6misches Reich, Kaiser I. (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "the Great (747-814)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/bibliographicCitation> "Karl der Gro\u00DFe und Europa / hrsg. von der Schweizerischen Botschaft in der Bundesrepublik Deutschland ... - Frankfurt am Main [u.a.], 2004. - S. 67-86 : Ill." .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/121815684> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT014168843> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/issued> "2004" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/118560034> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4159648-1> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/title> "Karl der Gro\u00DFe und sein Bild" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#hbzID> "HT014215912" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectChain> "Karl | Heiliges R\u00F6misches Reich, Kaiser | Herrscherbild | Geschichte" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectChain> "Karl | Heiliges R\u00F6misches Reich, Kaiser | Herrscherbild | Geschichte (213)" .
+<http://lobid.org/resource/HT014215912> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT014215912> <http://rdvocab.info/Elements/publicationStatement> "2004" .
+<http://lobid.org/resource/HT014215912> <http://rdvocab.info/Elements/statementOfResponsibility> "Sven L\u00FCken" .
+<http://lobid.org/resource/HT014215912> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT014215912> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/HT014215912> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT014215912> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014215912> .
+<http://lobid.org/resource/HT014215912> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014215912/about> .
+<http://lobid.org/resource/HT014215912> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014215912> .
 <http://lobid.org/resource/HT014525099> <http://iflastandards.info/ns/isbd/elements/P1053> "2 Schallpl. : 33 UpM, stereo ; 30 cm" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Adam, Theo" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Adam, Theo Siegfried" .
