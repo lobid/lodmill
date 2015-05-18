@@ -50,9 +50,6 @@ public final class RdfModel2ElasticsearchJsonLd extends
 	private static final String TYPE_ITEM = "json-ld-lobid-item";
 	private static final String TYPE_RESOURCE = "json-ld-lobid";
 
-	// stores index properties as well as the document itself
-	private static HashMap<String, String> jsonMap;
-
 	@Override
 	public void process(final Model originModel) {
 		splitModel2ItemAndResourceModel(originModel);
@@ -109,7 +106,7 @@ public final class RdfModel2ElasticsearchJsonLd extends
 	private void toJson(Model model, String id) {
 		if (model.isEmpty())
 			return;
-		jsonMap = new HashMap<>();
+		HashMap<String, String> jsonMap = new HashMap<>();
 		final JenaRDFParser parser = new JenaRDFParser();
 		try {
 			Object json = JsonLdProcessor.fromRDF(model, new JsonLdOptions(), parser);
@@ -121,9 +118,7 @@ public final class RdfModel2ElasticsearchJsonLd extends
 							+ id + "\"}";
 			jsonMap
 					.put(ElasticsearchIndexer.Properties.GRAPH.getName(), jsonDocument);
-			// defining the elasticsearch index properties
-			jsonMap = addInternalProperties(jsonMap, id, jsonDocument);
-			getReceiver().process(jsonMap);
+			getReceiver().process(addInternalProperties(jsonMap, id, jsonDocument));
 		} catch (JsonLdError e) {
 			e.printStackTrace();
 		}
