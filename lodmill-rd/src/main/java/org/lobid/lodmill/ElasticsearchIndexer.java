@@ -118,10 +118,9 @@ public class ElasticsearchIndexer extends
 	public void process(final HashMap<String, String> json) {
 		updateRequest =
 				new UpdateRequest(indexName, json.get(Properties.TYPE.getName()),
-						json.get(Properties.ID.getName())).doc(
-						json.get(Properties.GRAPH.getName())).upsert(
-						json.get(Properties.GRAPH.getName()));
-
+						json.get(Properties.ID.getName())).doc(json.get(Properties.GRAPH
+						.getName()));
+		updateRequest.docAsUpsert(true);
 		if (json.containsKey(Properties.PARENT.getName())) {
 			updateRequest.parent(json.get(Properties.PARENT.getName()));
 		}
