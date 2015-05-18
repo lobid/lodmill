@@ -105,7 +105,6 @@ public class ElasticsearchIndexer extends
 						.put("client.transport.ping_timeout", 120, TimeUnit.SECONDS)
 						.build());
 		this.client = this.tc.addTransportAddress(this.NODE);
-		bulkRequest = new BulkRequestBuilder(client);
 		bulkRequest = client.prepareBulk();
 		if (updateIndex) {
 			getNewestIndex();
