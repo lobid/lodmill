@@ -13,7 +13,7 @@ TIMESTAMP="$(date +%Y-%m-%d)"
 echo " #FORMAT: BEACON
 #VERSION: 0.1
 #PREFIX: http://d-nb.info/gnd/
-#TARGET: http://lobid.org/nwbib/search?q=%22http://d-nb.info/gnd/{ID}%22
+#TARGET: http://lobid.org/nwbib/search?person={ID}
 #FEED: http://lobid.org/download/beacons/$NWBIB_CONTRIBUTORS
 #CONTACT: lobid-Team im hbz <semweb@hbz-nrw.de>
 #NAME: Nordrhein-Westfälische Bibliographie (NWBib)
@@ -33,7 +33,7 @@ NWBIB_SUBJECTS="nwbibSubjects.bf"
 echo "#FORMAT: BEACON
 #VERSION: 0.1
 #PREFIX: http://d-nb.info/gnd/
-#TARGET: http://lobid.org/nwbib/search?q=%22http://d-nb.info/gnd/{ID}%22
+#TARGET: http://lobid.org/nwbib/search?subject={ID}
 #FEED: http://lobid.org/download/beacons/$NWBIB_SUBJECTS
 #CONTACT: lobid-Team im hbz <semweb@hbz-nrw.de>
 #NAME: Nordrhein-Westfälische Bibliographie (NWBib)
