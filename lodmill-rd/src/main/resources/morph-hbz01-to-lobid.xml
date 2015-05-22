@@ -992,10 +992,6 @@
 		<!-- ########### -->
 		<data name="~rdf:subject" source="@subjectLinks|@creator|@contributorId"/>
 		<!-- subjects -->
-		<combine name="@preferredNameForTheWork" value="${a}">
-			<data source="@subjectLinks"/>
-			<data source="9[01234][27]-[-12].t" name="a"/>
-		</combine>
 		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true">
 			<data source="1??[-bcfep]1.p|@nameOfContributingCorporateBody" name="a"/>
 			<data source="@subjectLinks|@creator|@contributorId"/>
@@ -1011,27 +1007,22 @@
 				<replace pattern="&lt;" with=""/>
 			</data>
 		</combine>
-		<!-- <combine name="$[ns-gnd]preferredName" sameEntity="true" value="${a}" > <data source="@subjectLinks"/> 
-			<concat delimiter=" , " name="a"> <data source="9[01234][27]-[-12].[chdnps]" /> [cghksznp] 
-			</concat> </combine> -->
+		<choose name="$[ns-gnd]preferredNameForTheWork" flushWith="@subjectLinks">
+			<data source="@preferredNameSemicolon"/>
+			<data source="9[01234][27]-[-12].t"/>
+		</choose>
 		<combine name="@preferredNameConcat" value="${a}" sameEntity="true" flushWith="@subjectLinks"
 			reset="true">
 			<concat delimiter=" , " name="a" flushWith="@subjectLinks" sameEntity="true"
 				reset="true">
 				<data source="9[01234][27]-[-12].[cdghknpsz]"/>
 			</concat>
-			<data source="9[01234][27].9"/>
+			<data source="@subjectLinks"/>
 		</combine>
-		<choose name="$[ns-gnd]preferredName" flushWith="@preferredNameP">
-			<if>
-				<none>
-					<data source="@preferredNameConcat"/>
-				</none>
-			</if>
+		<choose name="$[ns-gnd]preferredName" flushWith="@subjectLinks">
 			<data source="@preferredNameSemicolon"/>
-			<data source="@preferredNameP"/>
+			<data source="@preferredNameConcat"/>
 		</choose>
-		<data source="@preferredNameConcat" name="$[ns-gnd]preferredName"></data>
 		<combine name="$[ns-gnd]preferredNameForTheSubjectHeading" value="${a}"
 			sameEntity="true">
 			<data source="@subjectLinks"/>
@@ -1051,10 +1042,6 @@
 			sameEntity="true">
 			<data source="@subjectLinks"/>
 			<data source="9[01234][27]-[-12].g" name="a"/>
-		</combine>
-		<combine name="$[ns-gnd]preferredNameForTheWork" value="${a}" sameEntity="true">
-			<data source="@subjectLinks"/>
-			<data source="@preferredNameForTheWork" name="a"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
 			sameEntity="true">
@@ -1088,13 +1075,6 @@
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
-		<!-- geht immerhin etwas: <combine name="$[ns-gnd]preferredName" value="${c} , ${n} , ${p}" 
-			> <data source="@95c|@95n|@95p" name="a" /> <data source="9[56][27]-[12].c" name="c" /> <data 
-			source="9[56][27]-[12].n" name="n" /> <data source="9[56][27]-[12].p" name="p" /> </combine> -->
-		<!-- <combine name="$[ns-gnd]preferredName" value="${a}" reset="false"> <concat delimiter=" 
-			, " name="a"> <data source="9[56][27]-[12].[cnp]" name="a" /> [cghksznp] </concat> </combine> -->
-		<!-- <combine name="$[ns-gnd]preferredName" sameEntity="true" value="${a}"> <concat delimiter=" 
-			, " name="a"> <data source="9[56][27]-[12].[cdnp]" name="a"/> </concat> </combine> -->
 		<data source="9[56][27]-[12].[acefgkps]" name="@subjectMain"/>
 		<combine name="@subjectTopic" value="${main}. ${b}" sameEntity="true">
 			<data source="@subjectMain" name="main"/>
