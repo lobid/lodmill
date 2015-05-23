@@ -39,6 +39,7 @@
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hitler, Adolf" .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hitler, Adolf" .
 <http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl , I. , Heiliges R\u00F6misches Reich, Kaiser , 747-814" .
+<http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Karl , I. , Heiliges R\u00F6misches Reich, Kaiser , 747-814" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredName> "Manfredi" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Manfredi" .
 <http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredName> "Porsche, Ferdinand , 1875-1951" .
@@ -262,6 +263,7 @@
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Grabbe, Christian Dietrich: Der Cid" .
+<http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Grabbe, Christian Dietrich: Der Cid" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork> "Grabbe, Christian Dietrich: Der Cid" .
 <http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Lutter-Wasserm\u00FChle Roberg , Harsewinkel" .
 <http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Lutter-Wasserm\u00FChle Roberg" .

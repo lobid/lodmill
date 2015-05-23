@@ -1029,6 +1029,10 @@
 			<data source="9[01234][27]-[-12].s"/>
 			<data source="@preferredName" name="a"/>
 		</combine>
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
+			<data source="9[01234][27]-[-12].p"/>
+			<data source="@preferredName" name="a"/>
+		</combine>
 		<combine name="$[ns-gnd]preferredNameEntityForThePerson" value="${a}"
 			sameEntity="true">
 			<if>
