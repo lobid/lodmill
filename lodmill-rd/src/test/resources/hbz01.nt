@@ -41,6 +41,8 @@
 <http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl , I. , Heiliges R\u00F6misches Reich, Kaiser , 747-814" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredName> "Manfredi" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Manfredi" .
+<http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredName> "Porsche, Ferdinand , 1875-1951" .
+<http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Porsche, Ferdinand , 1875-1951" .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rohmer, Eric" .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rohmer, Eric" .
 <http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schreier, Peter" .
@@ -73,6 +75,8 @@
 <http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Engelhardt, Manfred" .
 <http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredName> "Baldwin, Dalton" .
 <http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Baldwin, Dalton" .
+<http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfundner, Martin" .
+<http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pfundner, Martin" .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreisheimatverein <Coesfeld>" .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Kreisheimatverein <Coesfeld>" .
 <http://d-nb.info/gnd/128992204> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wenkel, Ortrun" .
@@ -149,10 +153,14 @@
 <http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Rheinland-Pfalz <Koblenz>" .
 <http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Evangelische Kirche von Westfalen" .
 <http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Evangelische Kirche von Westfalen" .
+<http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Austro-Daimler-Puchwerke" .
+<http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Austro-Daimler-Puchwerke" .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz" .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz" .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Angestellten-Gewerkschaft" .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Angestellten-Gewerkschaft" .
+<http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Automobilsport" .
+<http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Automobilsport" .
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Coesfeld" .
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Coesfeld" .
 <http://d-nb.info/gnd/4010356-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreis Coesfeld" .
@@ -205,6 +213,8 @@
 <http://d-nb.info/gnd/4065781-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Westfalen" .
 <http://d-nb.info/gnd/4067488-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zeitschrift" .
 <http://d-nb.info/gnd/4067488-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Zeitschrift" .
+<http://d-nb.info/gnd/4073757-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kraftfahrzeug" .
+<http://d-nb.info/gnd/4073757-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Kraftfahrzeug" .
 <http://d-nb.info/gnd/4073972-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Landeskunde" .
 <http://d-nb.info/gnd/4073972-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Landeskunde" .
 <http://d-nb.info/gnd/4075561-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Oberrheinisches Tiefland" .
@@ -235,12 +245,18 @@
 <http://d-nb.info/gnd/4159648-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Herrscherbild" .
 <http://d-nb.info/gnd/4184194-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Symbolik" .
 <http://d-nb.info/gnd/4184194-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Symbolik" .
+<http://d-nb.info/gnd/4207786-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Steyr-Daimler-Puch AG" .
+<http://d-nb.info/gnd/4207786-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Steyr-Daimler-Puch AG" .
 <http://d-nb.info/gnd/4306876-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regionalplan" .
 <http://d-nb.info/gnd/4306876-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Regionalplan" .
 <http://d-nb.info/gnd/4337730-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "LINUX" .
 <http://d-nb.info/gnd/4337730-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "LINUX" .
+<http://d-nb.info/gnd/4443675-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Daimler , Marke" .
+<http://d-nb.info/gnd/4443675-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Daimler , Marke" .
 <http://d-nb.info/gnd/4511937-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Online-Publikation" .
 <http://d-nb.info/gnd/4511937-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Online-Publikation" .
+<http://d-nb.info/gnd/4576855-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Steyr , Marke" .
+<http://d-nb.info/gnd/4576855-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Steyr , Marke" .
 <http://d-nb.info/gnd/4604932-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Abbild" .
 <http://d-nb.info/gnd/4604932-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Abbild" .
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
@@ -1046,6 +1062,16 @@
 <http://lobid.org/item/HT015414894:DE-6:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
 <http://lobid.org/item/HT015414894:DE-6:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT015414894:DE-6:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT015414894:DE-6:/about> .
+<http://lobid.org/item/HT015455455:DE-107:208-316> <http://purl.org/ontology/daia/label> "208-316" .
+<http://lobid.org/item/HT015455455:DE-107:208-316> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT015455455> .
+<http://lobid.org/item/HT015455455:DE-107:208-316> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-107> .
+<http://lobid.org/item/HT015455455:DE-107:208-316> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT015455455:DE-107:208-316> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT015455455:DE-107:208-316/about> .
+<http://lobid.org/item/HT015455455:DE-82:(1)043776> <http://purl.org/ontology/daia/label> "(1)043776" .
+<http://lobid.org/item/HT015455455:DE-82:(1)043776> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT015455455> .
+<http://lobid.org/item/HT015455455:DE-82:(1)043776> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-82> .
+<http://lobid.org/item/HT015455455:DE-82:(1)043776> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT015455455:DE-82:(1)043776> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT015455455:DE-82:(1)043776/about> .
 <http://lobid.org/item/HT015865114:DE-294-11:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT015865114> .
 <http://lobid.org/item/HT015865114:DE-294-11:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-294-11> .
 <http://lobid.org/item/HT015865114:DE-294-11:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
@@ -1381,7 +1407,6 @@
 <http://lobid.org/resource/BT000002852> <http://purl.org/dc/terms/title> "Stadt Freudenberg" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#hbzID> "BT000002852" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
-<http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectChain> "Freudenberg | Geschichte" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectChain> "Freudenberg | Kreis Siegen-Wittgenstein | Geschichte" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectLocation> "50.899722222222,7.8666666666667" .
 <http://lobid.org/resource/BT000002852> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
@@ -1831,7 +1856,6 @@
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n96> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Bezirk M\u00FCnster (Westf) | Landesplanung (21)" .
-<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectChain> "Bezirk M\u00FCnster (Westf) | Landesplanung" .
 <http://lobid.org/resource/HT003160768> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127> .
@@ -1873,8 +1897,7 @@
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#hbzID> "HT004381366" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n10> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
-<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectChain> "M\u00FCnsterland | Regionalplan (21)" .
-<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectChain> "M\u00FCnsterland | Regionalplan | Bezirk M\u00FCnster (Westf) | Landesplanung" .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectChain> "M\u00FCnsterland | Regionalplan | Bezirk M\u00FCnster (Westf) | Landesplanung (21)" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "<Tezemu>" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "Tezemu" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
@@ -2169,7 +2192,6 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/title> "Handbuch der Elektrizit\u00E4tswirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#hbzID> "HT012926727" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectChain> "Deutschland | Elektrizit\u00E4tswirtschaft (21)" .
-<http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectChain> "Deutschland | Elektrizit\u00E4tswirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/edition> "2. Aufl." .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783540676379" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn13> "9783642631948" .
@@ -2267,9 +2289,7 @@
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s784080> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
-<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Coesfeld | Heimatkundeunterricht | Lehrmittel" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Heimatkundeunterricht | Lehrmittel (213)" .
-<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectChain> "Kreis Coesfeld | Heimatkundeunterricht | Lehrmittel" .
 <http://lobid.org/resource/HT013077595> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:2J%201468> .
@@ -2353,9 +2373,7 @@
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n03> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s226040> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "R\u00F6merzeit | M\u00FCnzfund | Geschichte 71 v. Chr.-70 v. Chr (2314,3214)" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "R\u00F6merzeit | M\u00FCnzfund | Geschichte 71 v. Chr.-70 v. Chr" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "Rheinland | R\u00F6merzeit | Germanen | M\u00FCnze | Geschichte 71 v. Chr.-70 v. Chr (23415,34215,43215)" .
-<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "Rheinland | R\u00F6merzeit | Germanen | M\u00FCnze | Geschichte 71 v. Chr.-70 v. Chr" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectChain> "Rheinland" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT013577568> <http://rdvocab.info/Elements/otherTitleInformation> "Mittel- und Niederrhein ca. 70 - 71 v. Chr. anhand germanischer M\u00FCnzen" .
@@ -2409,7 +2427,6 @@
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/title> "Spuren, Lekt\u00FCren" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#hbzID> "HT014015351" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#subjectChain> "Abbild | Symbolik | Aufsatzsammlung (213)" .
-<http://lobid.org/resource/HT014015351> <http://purl.org/lobid/lv#subjectChain> "Abbild | Symbolik | Aufsatzsammlung" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/129016713> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/isbn13> "9783770538478" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/ontology/bibo/isbn> "3770538471" .
@@ -2491,7 +2508,6 @@
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectChain> "Karl | Heiliges R\u00F6misches Reich, Kaiser | Herrscherbild | Geschichte (213)" .
-<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectChain> "Karl | Heiliges R\u00F6misches Reich, Kaiser | Herrscherbild | Geschichte" .
 <http://lobid.org/resource/HT014215912> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT014215912> <http://rdvocab.info/Elements/publicationStatement> "2004" .
 <http://lobid.org/resource/HT014215912> <http://rdvocab.info/Elements/statementOfResponsibility> "Sven L\u00FCken" .
@@ -2688,6 +2704,53 @@
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015414894> .
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015414894/about> .
 <http://lobid.org/resource/HT015414894> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015414894> .
+<http://lobid.org/resource/HT015455455> <http://iflastandards.info/ns/isbd/elements/P1053> "291 S. : Ill., graph. Darst." .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/contributor> "Pfundner, Martin" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Austro-Daimler-Puchwerke (Wiener Neustadt)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Automobilrennsport" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Autorennsport" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Daimler Company (Marke)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Daimler-Puchwerke, Austro-" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Kfz" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Kraftfahrzeuge" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Motorfahrzeug" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "SDP AG" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Steyr-Daimler-Puch-AG" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "\u00D6sterreichische Daimler-Motoren-Commanditgesellschaft Bierenz, Fischer und Co. (Wiener Neustadt)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124897274> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/issued> "2007" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/118595881> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2101246-5> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4003988-2> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073757-3> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4207786-2> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4443675-0> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4576855-9> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/subject> <http://dewey.info/class/330/> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/title> "Austro-Daimler und Steyr" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#hbzID> "HT015455455" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectChain> "Austro-Daimler-Puchwerke | Automobilsport | Steyr-Daimler-Puch AG | Geschichte (2134,3214)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectChain> "Austro-Daimler-Puchwerke | Porsche, Ferdinand | Steyr-Daimler-Puch AG | Geschichte (2134,3214)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectChain> "Daimler | Marke | Kraftfahrzeug | Geschichte 1918-1940 | Verzeichnis (2134)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectChain> "Steyr | Marke | Kraftfahrzeug | Geschichte 1920-1945 | Verzeichnis (2134)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/ontology/bibo/isbn13> "9783205776390" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/ontology/bibo/isbn> "3205776399" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/ontology/bibo/isbn> "9783205776390" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015455455:DE-107:208-316> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015455455:DE-82:(1)043776> .
+<http://lobid.org/resource/HT015455455> <http://rdvocab.info/Elements/otherTitleInformation> "Rivalen bis zur Fusion ; die fr\u00FChen Jahre des Ferdinand Porsche" .
+<http://lobid.org/resource/HT015455455> <http://rdvocab.info/Elements/placeOfPublication> "Wien ; K\u00F6ln ; Weimar" .
+<http://lobid.org/resource/HT015455455> <http://rdvocab.info/Elements/publicationStatement> "Wien ; K\u00F6ln ; Weimar; 2007" .
+<http://lobid.org/resource/HT015455455> <http://rdvocab.info/Elements/statementOfResponsibility> "Martin Pfundner" .
+<http://lobid.org/resource/HT015455455> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT015455455> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT015455455> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
+<http://lobid.org/resource/HT015455455> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://deposit.d-nb.de/cgi-bin/dokserv?id=2957975&prov=M&dok_var=1&dok_ext=htm> .
+<http://lobid.org/resource/HT015455455> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015455455> .
+<http://lobid.org/resource/HT015455455> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015455455/about> .
+<http://lobid.org/resource/HT015455455> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015455455> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/contributor> "Weber, J\u00FCrgen" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/publisher> "Buchner" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/elements/1.1/subject> "Geschichte / Didaktik" .
@@ -2785,7 +2848,6 @@
 <http://lobid.org/resource/HT016135351> <http://purl.org/dc/terms/title> "Lutter-Wasserm\u00FChle Roberg" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#hbzID> "HT016135351" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s708029> .
-<http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectChain> "Lutter-Wasserm\u00FChle Roberg | Bildband" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectChain> "Lutter-Wasserm\u00FChle Roberg | Harsewinkel | Bildband" .
 <http://lobid.org/resource/HT016135351> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016135351:DE-6:2C%208876> .
@@ -2863,7 +2925,6 @@
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s503050> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s843060> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Nordkirchen | Geb\u00E4ude | Eigent\u00FCmer | Geschichte 1805-2000 | Verzeichnis (23145,32145)" .
-<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Nordkirchen | Geb\u00E4ude | Eigent\u00FCmer | Geschichte 1805-2000 | Verzeichnis" .
 <http://lobid.org/resource/HT016545462> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/placeOfPublication> "Nordkirchen" .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/publicationStatement> "Nordkirchen; Heimatverein der Gemeinde Nordkirchen e. V:; 9999" .
@@ -3009,7 +3070,6 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n46> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectChain> "D\u00FCsseldorf | Staat Berg | Geschichte 1288-1815 (213)" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectChain> "D\u00FCsseldorf | Staat Berg | Geschichte 1288-1815" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf" .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/publicationStatement> "2014; D\u00FCsseldorf" .
@@ -3062,7 +3122,6 @@
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s768030> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s769030> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectChain> "Grabbe, Christian Dietrich | <<Der>> Cid | Dramaturgie | Rezeption (231,321)" .
-<http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectChain> "Grabbe, Christian Dietrich | <<Der>> Cid | Dramaturgie | Rezeption" .
 <http://lobid.org/resource/HT018312899> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT018312899> <http://rdvocab.info/Elements/otherTitleInformation> "der Cid als Zeit- und Gattungskritik" .
 <http://lobid.org/resource/HT018312899> <http://rdvocab.info/Elements/placeOfPublication> "Bielefeld" .
@@ -3330,7 +3389,6 @@
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#hbzID> "TT002234459" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectChain> "Rhein-Lahn-Kreis | Jakobsweg | Karte (213)" .
-<http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectChain> "Rhein-Lahn-Kreis | Jakobsweg | Karte" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:929:01-2079" .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#webPageArchived> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT002234459:DE-929:> .
