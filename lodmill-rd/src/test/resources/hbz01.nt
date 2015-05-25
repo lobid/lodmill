@@ -76,6 +76,7 @@
 <http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Engelhardt, Manfred" .
 <http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredName> "Baldwin, Dalton" .
 <http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Baldwin, Dalton" .
+<http://d-nb.info/gnd/124515312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Ippoldt, Juliusz" .
 <http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfundner, Martin" .
 <http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pfundner, Martin" .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreisheimatverein <Coesfeld>" .
@@ -102,6 +103,9 @@
 <http://d-nb.info/gnd/134926277> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Ogden, Craig" .
 <http://d-nb.info/gnd/134926285> <http://d-nb.info/standards/elementset/gnd#preferredName> "Nathan, Regina" .
 <http://d-nb.info/gnd/134926285> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Nathan, Regina" .
+<http://d-nb.info/gnd/136788548> <http://d-nb.info/standards/elementset/gnd#preferredName> "J\u00E4ger, Ludwig" .
+<http://d-nb.info/gnd/136788548> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "J\u00E4ger, Ludwig" .
+<http://d-nb.info/gnd/137082479> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mayr, Alois" .
 <http://d-nb.info/gnd/141618302> <http://d-nb.info/standards/elementset/gnd#preferredName> "Capolicchio, Lino" .
 <http://d-nb.info/gnd/141618302> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Capolicchio, Lino" .
 <http://d-nb.info/gnd/141649429> <http://d-nb.info/standards/elementset/gnd#preferredName> "Testi, Fabio" .
@@ -134,6 +138,7 @@
 <http://d-nb.info/gnd/174737203> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Aigner, Johann" .
 <http://d-nb.info/gnd/175894612> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hoefler, Angelika" .
 <http://d-nb.info/gnd/175894612> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hoefler, Angelika" .
+<http://d-nb.info/gnd/177005009> <http://d-nb.info/standards/elementset/gnd#preferredName> "Piprek, Jan" .
 <http://d-nb.info/gnd/177572388> <http://d-nb.info/standards/elementset/gnd#preferredName> "SCHOLLE, ROGER H." .
 <http://d-nb.info/gnd/177572388> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "SCHOLLE, ROGER H." .
 <http://d-nb.info/gnd/183839064> <http://d-nb.info/standards/elementset/gnd#preferredName> "Herrenbr\u00FCck, Erika" .
@@ -1464,6 +1469,7 @@
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/contributor> "Schmidt, Eckhard" .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/coverage> "Rheine" .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/bibliographicCitation> "Rheine gestern, heute, morgen. - 11 (1983), S. 26-38 : Abb." .
+<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/105745944> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/105745944> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT003759287> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/issued> "1983" .
@@ -1484,6 +1490,7 @@
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/contributor> "Altekamp, Heinrich" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/bibliographicCitation> "Wirtschaftsspiegel. - 38 (1983) H. 7, S. 24-25 : 1 Abb." .
+<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/10880724X> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10880724X> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007751353> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/issued> "1983" .
@@ -1503,6 +1510,7 @@
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/contributor> "Meier, Elmar" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)" .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/bibliographicCitation> "Kiebitz. - 6 (1986), S. 29-36, S. 63-67" .
+<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118033948> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118033948> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006990419> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986" .
@@ -1535,6 +1543,7 @@
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/subject> "VfL Borussia M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/abstract> "Erinnerungen an d. 1. FC K\u00F6ln u. Borussia M\u00F6nchengladbach" .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "Nach dem Spiel ist vor dem Spiel : die wunderbare Welt des Fu\u00DFballs / Wolfgang Frank (Hg.); Orig.-Ausg.; 1996; S. 101-[108]" .
+<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/174423330> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/174423330> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007138775> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/issued> "1996" .
@@ -2039,6 +2048,7 @@
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/contributor> "Wedgwood, Cicely Veronica" .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/contributor> "Wedgwood, Veronica" .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/publisher> "Leicester Univ. Pr." .
+<http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118839055> .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118839055> .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/issued> "1957" .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -2184,6 +2194,7 @@
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Rheinbund" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "Stromwirtschaft" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/subject> "\u01E6umh\u016Br\u012Byat Alm\u0101niy\u0101 al-Itti\u1E25\u0101d\u012Bya" .
+<http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1031919368> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1031919368> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/issued> "2001" .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -2360,6 +2371,7 @@
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "R\u00F6mische Zeit" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/elements/1.1/subject> "Rheinlande (im engeren Sinn)" .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/bibliographicCitation> "Kontinuit\u00E4t und Diskontinuit\u00E4t / hrsg. von Thomas Gr\u00FCnewald ... - Berlin [u.a.], 2003. - (Reallexikon der germanischen Altertumskunde : Erg\u00E4nzungsb\u00E4nde ; 35). - S. [266]-344 : Ill., Kt." .
+<http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/108092704> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/108092704> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013538692> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/issued> "2003" .
@@ -2421,6 +2433,7 @@
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/contributor> "Fehrmann, Gisela" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/contributor> "J\u00E4ger, Ludwig" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/elements/1.1/publisher> "Fink" .
+<http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/136788548> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/issued> "2005" .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT014015351> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -2498,6 +2511,7 @@
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "le Grand (747-814)" .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/elements/1.1/subject> "the Great (747-814)" .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/bibliographicCitation> "Karl der Gro\u00DFe und Europa / hrsg. von der Schweizerischen Botschaft in der Bundesrepublik Deutschland ... - Frankfurt am Main [u.a.], 2004. - S. 67-86 : Ill." .
+<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/121815684> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/121815684> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT014168843> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/issued> "2004" .
@@ -2554,6 +2568,12 @@
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "Wenkel, Ortrun" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/contributor> "\u0160rajer, Peter" .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/publisher> "Dt. Schallplatten" .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118500546> .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11850553X> .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118610724> .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118867539> .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/128992204> .
+<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/129389641> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118500546> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11850553X> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118610724> .
@@ -2660,6 +2680,7 @@
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Scott Fitzgerald, Francis" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/contributor> "Scott-Fitzgerald, Francis" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/publisher> "Cambridge Univ. Press" .
+<http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118533592> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118533592> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT004984061> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/issued> "2006" .
@@ -2686,6 +2707,7 @@
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/elements/1.1/contributor> "Kim, Richard" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/elements/1.1/contributor> "Werthes, Sascha" .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "Medien und Terrorismus; Christian Schicha ... (Hg.); 2002; S. 80 - 93" .
+<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/122021878> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11075851X> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/122021878> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/186186193> .
@@ -2719,6 +2741,7 @@
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "SDP AG" .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "Steyr-Daimler-Puch-AG" .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/elements/1.1/subject> "\u00D6sterreichische Daimler-Motoren-Commanditgesellschaft Bierenz, Fischer und Co. (Wiener Neustadt)" .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124897274> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124897274> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/issued> "2007" .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -2868,6 +2891,7 @@
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/contributor> "Blum, Richard" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/publisher> "Wiley-VCH" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/alternative> "Linux for dummies <dt.>" .
+<http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/14320713X> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14320713X> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/issued> "2011" .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -2957,7 +2981,10 @@
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Follain de Banville, Th\u00E9odore" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/elements/1.1/contributor> "Mespl\u00E9, Mady" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "M\u00E9lodies; Claude Debussy; 1980" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118524186> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119080389> .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124362869> .
+<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/130290637> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118524186> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124362869> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/130290637> .
@@ -3060,6 +3087,7 @@
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtverordnetenversammlung (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/subject> "Stadtverwaltung (D\u00FCsseldorf)" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "<<Der>> Gie\u00DFerjunge; 34 (2014),1, S. 14-15" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007072426> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/issued> "2014" .
@@ -3111,6 +3139,7 @@
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/elements/1.1/subject> "Nachwirkung (Rezeption)" .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/elements/1.1/subject> "Wirkungsgeschichte" .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/bibliographicCitation> "Grabbe-Jahrbuch ...; 32. 2013 (2014), S. 80-95" .
+<http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1023391147> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1023391147> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002156174> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/issued> "2014" .
@@ -3193,6 +3222,7 @@
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Nathan, Regina" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/contributor> "Ogden, Craig" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/publisher> "Hyperion" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118515527> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134769236> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134845323> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134926277> .
@@ -3229,6 +3259,7 @@
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Hitor\u00E2, Adorufu" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/contributor> "Xitler, Adolf" .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/publisher> "Blindenhochschulb\u00FCcherei" .
+<http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118551655> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118551655> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/medium> <http://purl.org/library/BrailleBook> .
@@ -3274,6 +3305,7 @@
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Pseudo-Albertus" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/contributor> "Stupor mundi" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/publisher> "Praetorius" .
+<http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118535765> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118577018> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118535765> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118637649> .

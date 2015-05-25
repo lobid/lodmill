@@ -793,7 +793,7 @@
 		<!-- contributors with roles @TODO many roles needs tests -->
 		<data source="1??b[1234].b" name="@marcrelName"/>
 		<!-- id of person -->
-		<data source="1??[bcp][1234].9" name="@contributorId">
+		<data source="1??[-bcfep][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- id of corporation -->
@@ -993,7 +993,7 @@
 		<data name="~rdf:subject" source="@subjectLinks|@creator|@contributorId"/>
 		<!-- subjects -->
 		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true">
-			<data source="1??[-bcfep]1.p|@nameOfContributingCorporateBody" name="a"/>
+			<data source="1??[-bcfep][1234].p|@nameOfContributingCorporateBody" name="a"/>
 			<data source="@subjectLinks|@creator|@contributorId"/>
 		</combine>
 		<combine name="@preferredNameP" value="${a}" sameEntity="true">
