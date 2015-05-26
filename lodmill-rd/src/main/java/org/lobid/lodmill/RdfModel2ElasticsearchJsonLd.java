@@ -106,44 +106,46 @@ public final class RdfModel2ElasticsearchJsonLd extends
 	private void toJson(Model model, String id) {
 		if (model.isEmpty())
 			return;
-		HashMap<String, String> jsonMap = new HashMap<>();
 		final JenaRDFParser parser = new JenaRDFParser();
 		try {
 			Object json = JsonLdProcessor.fromRDF(model, new JsonLdOptions(), parser);
 			// the json document itself
 			json = JsonLdProcessor.expand(json);
-			// wrap json into a "@graph" for elasticsearch (still valid JSON-LD)
-			String jsonDocument =
-					"{\"@graph\":" + JSONUtils.toString(json) + ",\"internal_id\":\""
-							+ id + "\"}";
-			jsonMap
-					.put(ElasticsearchIndexer.Properties.GRAPH.getName(), jsonDocument);
-			getReceiver().process(addInternalProperties(jsonMap, id, jsonDocument));
+			getReceiver().process(
+					addInternalProperties(new HashMap<String, String>(), id,
+							JSONUtils.toString(json)));
 		} catch (JsonLdError e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static HashMap<String, String> addInternalProperties(
-			HashMap<String, String> jsonMap, String id, String jsonString) {
+			HashMap<String, String> jsonMap, String id, String json) {
+		String internal_parent = "";
 		String type = TYPE_RESOURCE;
 		if (id.startsWith(LOBID_ITEM_URI_PREFIX)) {
 			type = TYPE_ITEM;
 			try {
-				JsonNode node =
-						new ObjectMapper().readValue(jsonString, JsonNode.class);
+				JsonNode node = new ObjectMapper().readValue(json, JsonNode.class);
 				final JsonNode parent = node.findValue(PROPERTY_TO_PARENT);
 				String p = parent != null ? parent.findValue("@id").asText() : null;
+				internal_parent = ",\"_parent\":\"" + p + "\"";
 				if (p == null) {
 					LOG.warn("Item URI " + id + " has no parent declared!");
 					jsonMap.put(ElasticsearchIndexer.Properties.PARENT.getName(),
 							"no_parent");
+
 				} else
 					jsonMap.put(ElasticsearchIndexer.Properties.PARENT.getName(), p);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+		// wrap json into a "@graph" for elasticsearch (still valid JSON-LD)
+		String jsonDocument =
+				"{\"@graph\":" + json + ",\"internal_id\":\"" + id + "\""
+						+ internal_parent + "}";
+		jsonMap.put(ElasticsearchIndexer.Properties.GRAPH.getName(), jsonDocument);
 		jsonMap.put(ElasticsearchIndexer.Properties.TYPE.getName(), type);
 		jsonMap.put(ElasticsearchIndexer.Properties.ID.getName(), id);
 		return jsonMap;

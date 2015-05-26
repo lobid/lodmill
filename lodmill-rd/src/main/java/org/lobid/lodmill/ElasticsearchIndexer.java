@@ -117,8 +117,8 @@ public class ElasticsearchIndexer extends
 	public void process(final HashMap<String, String> json) {
 		updateRequest =
 				new UpdateRequest(indexName, json.get(Properties.TYPE.getName()),
-						json.get(Properties.ID.getName())).doc(json.get(Properties.GRAPH
-						.getName()));
+						json.get(Properties.ID.getName()));
+		updateRequest.doc(json.get(Properties.GRAPH.getName()));
 		updateRequest.docAsUpsert(true);
 		if (json.containsKey(Properties.PARENT.getName())) {
 			updateRequest.parent(json.get(Properties.PARENT.getName()));
@@ -208,8 +208,10 @@ public class ElasticsearchIndexer extends
 		if (!adminClient.prepareExists(indexName).execute().actionGet().isExists()) {
 			LOG.info("Going to CREATE new index " + indexName);
 			adminClient.prepareCreate(indexName).setSource(config()).execute()
-					.actionGet();
-		}
+
+			.actionGet();
+		} else
+			LOG.info("Index already exists, going to UPDATE index " + indexName);
 	}
 
 	private static String config() {
