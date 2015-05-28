@@ -5,13 +5,14 @@
 	<!-- beware: the sequence of the rules are semantically important! Don't change the order. -->
 	<!-- Aleph MAB differs from MAB in that: -->
 	<!-- an indicator2 exists -->
-	<!-- every field has at least the subfield 'a' -->
+	<!-- most fields have a subfield 'a' -->
 	<!-- => structure of alehp MAB: $field$indicator1$indicator2$subfield -->
 	<vars>
 		<var name="ns-lobid-resource" value="http://lobid.org/resource/"/>
 		<var name="ns-lobid-vocab" value="http://purl.org/lobid/lv#"/>
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
 		<var name="ns-zdb-services" value="http://ld.zdb-services.de/resource/"/>
+		<var name="ns-gnd" value="http://d-nb.info/standards/elementset/gnd#"/>
 	</vars>
 	<rules>
 		<!-- ####################### -->
@@ -759,15 +760,13 @@
 		<!-- ####################### -->
 		<!-- #######creator -->
 		<!-- ####################### -->
-		<!-- person links -->
-		<data source="1??[-aemn]1.9|8[012][02468][-mn]1.9" name="@creator">
+		<!-- person/corporation links -->
+		<data
+			source="1??[-aemn]1.9|8[012][02468][-mn]1.9|2?[012345678][-a][12-].9|8[012][02468][-mn]-.9"
+			name="@creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
-		<!-- corporation links as creator -->
-		<data source="2?[012345678][-a][12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
@@ -778,14 +777,23 @@
 		<!-- corporation contributor literals -->
 		<data source="2?[012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<data source="8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
-		<data source="2?[012345678][bcp][1234].k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2?[012345678][bcp][1234].k" name="@nameOfContributingCorporateBodyK"/>
+		<combine name="@nameOfContributingCorporateBodyKH" value="${k} &lt;${h}&gt;">
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+			<data source="2?[012345678][bcp][1234].h" name="h"/>
+		</combine>
+		<choose name="@nameOfContributingCorporateBody" flushWith="2?[012345678][bcp][1234].9">
+			<data source="@nameOfContributingCorporateBodyKH"/>
+			<data source="@nameOfContributingCorporateBodyK"/>
+		</choose>
+		<data source="@nameOfContributingCorporateBody" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<!-- ####################### -->
 		<!-- ################ contributor -->
 		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
 		<data source="1??b[1234].b" name="@marcrelName"/>
 		<!-- id of person -->
-		<data source="1??[bcp][1234].9" name="@contributorId">
+		<data source="1??[-abcfep][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- id of corporation -->
@@ -974,10 +982,96 @@
 		<data source="70[05][-b][-12345].a" name="http://purl.org/dc/terms/subject">
 			<regexp match="([0-9]{3})" format="http://dewey.info/class/${1}/"/>
 		</data>
+		<!-- gnd links -->
 		<data source="9[01234][27]-[-12].9" name="@subjectLinks">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
+		<!-- ########### -->
+		<!-- # Create subgraph: temporarily set new subjects or contributor id -->
+		<!-- ########### -->
+		<data name="~rdf:subject" source="@subjectLinks|@creator|@contributorId"/>
+		<!-- subjects -->
+		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true">
+			<data source="1??[-abcfep][1234].p|@nameOfContributingCorporateBody" name="a"/>
+			<data source="@subjectLinks|@creator|@contributorId"/>
+		</combine>
+		<combine name="@preferredNameP" value="${a}" sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].p" name="a"/>
+		</combine>
+		<combine name="@preferredNameSemicolon" value="${a}: ${b}" sameEntity="true">
+			<data source="@preferredNameP" name="a"/>
+			<data source="9[01234][27]-[-12].t" name="b">
+				<replace pattern="&gt;" with=""/>
+				<replace pattern="&lt;" with=""/>
+			</data>
+		</combine>
+		<choose name="$[ns-gnd]preferredNameForTheWork" flushWith="@subjectLinks">
+			<data source="@preferredNameSemicolon"/>
+			<data source="9[01234][27]-[-12].t"/>
+		</choose>
+		<combine name="@preferredNameConcat" value="${a}" sameEntity="true" flushWith="@subjectLinks"
+			reset="true">
+			<concat delimiter=" , " name="a" flushWith="@subjectLinks" sameEntity="true"
+				reset="true">
+				<data source="9[01234][27]-[-12].[cdghknpsz]"/>
+			</concat>
+			<data source="@subjectLinks"/>
+		</combine>
+		<choose name="@preferredName" flushWith="@subjectLinks">
+			<data source="@preferredNameSemicolon"/>
+			<data source="@preferredNameConcat"/>
+		</choose>
+		<data source="@preferredName" name="$[ns-gnd]preferredName"/>
+		<combine name="$[ns-gnd]preferredNameForTheSubjectHeading" value="${a}"
+			sameEntity="true">
+			<data source="9[01234][27]-[-12].s"/>
+			<data source="@preferredName" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
+			<data source="9[01234][27]-[-12].p"/>
+			<data source="@preferredName" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameEntityForThePerson" value="${a}"
+			sameEntity="true">
+			<if>
+				<none>
+					<data source="9[01234][27]-[-12].t"/>
+				</none>
+			</if>
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].p" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForThePlaceOrGeographicName" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].g" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].k" name="a"/>
+		</combine>
+		<!-- /subjects -->
+		<!-- START contributor/creator -->
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
+			<data source="@creator|@contributorId"/>
+			<data source="1??[-abcefp]1.p" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@contributorId"/>
+			<data source="@nameOfContributingCorporateBody" name="a"/>
+		</combine>
+		<!-- END contributor/creator -->
+		<!-- ########### -->
+		<!-- # set subject uri of resource anew -->
+		<!-- ########### -->
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
+			<data source="@subjectLinks|@creator|@contributorId"/>
+			<data source="@id" name="subject"/>
+		</combine>
 		<!-- other subjects -->
 		<data source="71[01][-abcdfz][123].a" name="http://purl.org/dc/elements/1.1/subject">
 			<split delimiter=" / "/>
@@ -986,11 +1080,7 @@
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
-		<data source="9[56][27]-[12].[adefgks]" name="@subjectMain"/>
-		<combine name="@subjectTopic" value="${main} (${h})" sameEntity="true">
-			<data source="@subjectMain" name="main"/>
-			<data source="9[56][27]-[12].h" name="h"/>
-		</combine>
+		<data source="9[56][27]-[12].[acefgkps]" name="@subjectMain"/>
 		<combine name="@subjectTopic" value="${main}. ${b}" sameEntity="true">
 			<data source="@subjectMain" name="main"/>
 			<data source="9[56][27]-[12].b" name="b"/>
@@ -1001,147 +1091,75 @@
 		</combine>
 		<combine name="@subjectTopic" value="${main} (${z})" sameEntity="true">
 			<data source="@subjectMain" name="main"/>
-			<data source="9[56][27]-[12].[cpmortuz]" name="z"/>
+			<data source="9[56][27]-[12].[cdhmortuz]" name="z"/>
 		</combine>
 		<choose name="http://purl.org/dc/elements/1.1/subject" flushWith="9[56][27]-[12]">
 			<data source="@subjectTopic"/>
 			<data source="@subjectMain"/>
 		</choose>
-		<!-- ############ schlagwortketten #### -->
+		<!-- ############ schlagwortketten (with permutation number) s#### -->
 		<!-- gnd subjects literals, use even if link present -->
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="902-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="907-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="912-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="917-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="922-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="927-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="932-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="937-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="942-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<combine name="http://purl.org/lobid/lv#subjectChain" sameEntity="true" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="947-[-12].[acfghkpstkz]" name="a"/>
-			</concat>
-		</combine>
-		<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
-			(as our MAB does here) -->
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="902-1.[cfgkpstz-]"/>
-				<data source="903-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="907-1.[cfgkpstz-]"/>
-				<data source="908-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="912-1.[cfgkpstz-]"/>
-				<data source="913-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="917-1.[cfgkpstz-]"/>
-				<data source="918-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="922-1.[cfgkpstz-]"/>
-				<data source="923-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="927-1.[cfgkpstz-]"/>
-				<data source="928-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="932-1.[cfgkpstz-]"/>
-				<data source="933-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="937-1.[cfgkpstz-]"/>
-				<data source="938-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="942-1.[cfgkpstz-]"/>
-				<data source="943-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="947-1.[cfgkpstz-]"/>
-				<data source="948-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<data source="@subjectChain" name="http://purl.org/lobid/lv#subjectChain">
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="902-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="903-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="907-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="908-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="912-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="913-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="917-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="918-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="922-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="923-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="927-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="928-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="932-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="933-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="937-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="938-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="942-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="943-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="947-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="948-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<data source="@subjectChainPerm" name="http://purl.org/lobid/lv#subjectChain">
 			<replace pattern="\) \| \(" with=","/>
 			<replace pattern=" \| \(" with=" \("/>
 		</data>
