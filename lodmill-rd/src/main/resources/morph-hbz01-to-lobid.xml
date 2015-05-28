@@ -1336,10 +1336,6 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<combine name="@rdftypeAndManifestation" value="$[ns-lobid-vocab]ArchivedWebPage">
-			<data source="@linkUri"/>
-			<data source="@archived"/>
-		</combine>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
 		</data>
