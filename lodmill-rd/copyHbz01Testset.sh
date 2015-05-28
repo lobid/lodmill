@@ -7,7 +7,8 @@ FILE_TYPE="$1"
 sort -g hbz01.$FILE_TYPE |
 sort -u > hbz01.$FILE_TYPE.sorted
 
-sort -g src/test/resources/hbz01.$FILE_TYPE >b
+sort -g src/test/resources/hbz01.$FILE_TYPE |
+sort -u >b
 
 diff b hbz01.$FILE_TYPE.sorted
 rm b
