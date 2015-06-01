@@ -31,17 +31,14 @@ public final class MabXml2lobidJsonEs {
 
 	public static void main(String... args) {
 		String usage =
-				"<input path>%s<index name>%s<index alias suffix>%s<node>%s<cluster>%s<update latest index or create new index>%s";
-		if (args.length != 6) {
-			System.err.println("Usage: MabXml2lobidJsonEs"
-					+ String.format(usage, " ", " ", " ", " ", " ", " "));
-			System.exit(-1);
-		}
+				"<input path>%s<index name>%s<index alias suffix>%s<node>%s<cluster>%s<'update' (will take latest index), 'exact' (will take ->'index name' even when no timestamp is suffixed) , else create new index with actual timestamp>%s";
 		String inputPath = args[0];
 		String indexName = args[1];
 		String date = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
 		indexName =
-				indexName.matches(".*-20.*") ? indexName : indexName + "-" + date;
+				indexName.matches(".*-20.*") || args[5].toLowerCase().equals("exact") ? indexName
+						: indexName + "-" + date;
+
 		String indexAliasSuffix = args[2];
 		String node = args[3];
 		String cluster = args[4];
@@ -50,6 +47,12 @@ public final class MabXml2lobidJsonEs {
 				+ String.format(usage, ": " + inputPath + "\n",
 						": " + indexName + "\n", ": " + indexAliasSuffix + "\n", ": "
 								+ node + "\n", ": " + cluster, ": " + "\n" + update));
+		if (args.length != 6) {
+			System.err.println("Usage: MabXml2lobidJsonEs"
+					+ String.format(usage, " ", " ", " ", " ", " ", " "));
+			System.exit(-1);
+		}
+
 		// hbz catalog transformation
 		final FileOpener opener = new FileOpener();
 		if (inputPath.toLowerCase().endsWith("bz2")) {
