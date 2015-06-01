@@ -348,7 +348,6 @@
 					<data source="050.">
 						<regexp match="^.........a"/>
 					</data>
-					<data source="@archived"/>
 				</none>
 			</if>
 			<data source="051.">

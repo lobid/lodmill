@@ -2632,6 +2632,7 @@
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/publicationStatement> "[Mainz]; 2003" .
 <http://lobid.org/resource/HT014997977> <http://rdvocab.info/Elements/statementOfResponsibility> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz; Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht; Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz" .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Thesis> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT014997977> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014997977> .
@@ -3205,7 +3206,7 @@
 <http://lobid.org/resource/HT018585406> <http://rdvocab.info/Elements/publicationStatement> "Kaiserslautern; 2006" .
 <http://lobid.org/resource/HT018585406> <http://rdvocab.info/Elements/statementOfResponsibility> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz, AG Raumordnung. Hrsg.: Entwicklungsagentur Rheinland-Pfalz e.V. Red.: Hans-G\u00FCnther Clev ..." .
 <http://lobid.org/resource/HT018585406> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT018585406> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/HT018585406> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT018585406> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/HT018585406> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018585406> .
 <http://lobid.org/resource/HT018585406> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018585406/about> .
@@ -3434,7 +3435,7 @@
 <http://lobid.org/resource/TT002234459> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT002234459:DE-929:> .
 <http://lobid.org/resource/TT002234459> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:929:01-2079> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Manifestation> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT002234459> .
 <http://lobid.org/resource/TT002234459> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT002234459/about> .
