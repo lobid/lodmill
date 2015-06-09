@@ -3,7 +3,7 @@
 <http://d-nb.info/gnd/1023391147> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Maes, Sientje" .
 <http://d-nb.info/gnd/1023391147> <http://d-nb.info/standards/elementset/gnd#preferredName> "Maes, Sientje" .
 <http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "M\u00FCller, Leonhard" .
-<http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCller, Leonhard" .
+<http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCller, Leonhard , 1929-" .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Weber, J\u00FCrgen" .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredName> "Weber, J\u00FCrgen" .
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schmidt, Eckhard" .
@@ -12,98 +12,97 @@
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heinrichs, Johannes" .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Altekamp, Heinrich" .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Altekamp, Heinrich" .
-<http://d-nb.info/gnd/109490312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Boer, Hans-Peter" .
+<http://d-nb.info/gnd/109490312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Boer, Hans-Peter , 1949-" .
 <http://d-nb.info/gnd/109490312> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Boer, Hans-Peter" .
-<http://d-nb.info/gnd/109702662> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mensing, Hans Peter" .
+<http://d-nb.info/gnd/109702662> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mensing, Hans Peter , 1942-" .
 <http://d-nb.info/gnd/11075851X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Conrad, Christoph" .
 <http://d-nb.info/gnd/11075851X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Conrad, Christoph" .
 <http://d-nb.info/gnd/11079267X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Balke, Kirsten" .
 <http://d-nb.info/gnd/11079267X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Balke, Kirsten" .
 <http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Maimbourg, Louis" .
-<http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredName> "Maimbourg, Louis" .
+<http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredName> "Maimbourg, Louis , 1610-1686" .
 <http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig <<von>>" .
-<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig <<von>>" .
+<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig <<von>> , 1761-1833" .
 <http://d-nb.info/gnd/118033948> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Meier, Elmar" .
 <http://d-nb.info/gnd/118033948> <http://d-nb.info/standards/elementset/gnd#preferredName> "Meier, Elmar" .
-<http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adam, Theo" .
+<http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adam, Theo , 1926-" .
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adam, Theo" .
-<http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad" .
 <http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad , 1876-1967" .
 <http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adenauer, Konrad , 1876-1967" .
-<http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bach, Johann Sebastian" .
+<http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bach, Johann Sebastian , 1685-1750" .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bach, Johann Sebastian" .
-<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne" .
+<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne , 1750-1810" .
 <http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Marianne" .
-<http://d-nb.info/gnd/118515527> <http://d-nb.info/standards/elementset/gnd#preferredName> "Britten, Benjamin" .
+<http://d-nb.info/gnd/118515527> <http://d-nb.info/standards/elementset/gnd#preferredName> "Britten, Benjamin , 1913-1976" .
 <http://d-nb.info/gnd/118515527> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Britten, Benjamin" .
-<http://d-nb.info/gnd/118524186> <http://d-nb.info/standards/elementset/gnd#preferredName> "Debussy, Claude" .
+<http://d-nb.info/gnd/118524186> <http://d-nb.info/standards/elementset/gnd#preferredName> "Debussy, Claude , 1862-1918" .
 <http://d-nb.info/gnd/118524186> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Debussy, Claude" .
-<http://d-nb.info/gnd/118533592> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fitzgerald, Francis Scott" .
+<http://d-nb.info/gnd/118533592> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fitzgerald, Francis Scott , 1896-1940" .
 <http://d-nb.info/gnd/118533592> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fitzgerald, Francis Scott" .
 <http://d-nb.info/gnd/118535765> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Friedrich" .
-<http://d-nb.info/gnd/118535765> <http://d-nb.info/standards/elementset/gnd#preferredName> "Friedrich" .
+<http://d-nb.info/gnd/118535765> <http://d-nb.info/standards/elementset/gnd#preferredName> "Friedrich , II. , Heiliges R\u00F6misches Reich, Kaiser , 1194-1250" .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hitler, Adolf" .
-<http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hitler, Adolf" .
+<http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hitler, Adolf , 1889-1945" .
 <http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Karl , I. , Heiliges R\u00F6misches Reich, Kaiser , 747-814" .
 <http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl , I. , Heiliges R\u00F6misches Reich, Kaiser , 747-814" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Manfredi" .
-<http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredName> "Manfredi" .
+<http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredName> "Manfredi , Sicilia, Re , 1232-1266" .
 <http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Porsche, Ferdinand , 1875-1951" .
 <http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredName> "Porsche, Ferdinand , 1875-1951" .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rohmer, Eric" .
-<http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rohmer, Eric" .
+<http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rohmer, Eric , 1920-2010" .
 <http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schreier, Peter" .
-<http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schreier, Peter" .
-<http://d-nb.info/gnd/118637649> <http://d-nb.info/standards/elementset/gnd#preferredName> "Albertus" .
+<http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schreier, Peter , 1935-" .
+<http://d-nb.info/gnd/118637649> <http://d-nb.info/standards/elementset/gnd#preferredName> "Albertus , Magnus , 1193-1280" .
 <http://d-nb.info/gnd/118637649> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Albertus" .
-<http://d-nb.info/gnd/118657496> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bassani, Giorgio" .
+<http://d-nb.info/gnd/118657496> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bassani, Giorgio , 1916-2000" .
 <http://d-nb.info/gnd/118657496> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bassani, Giorgio" .
-<http://d-nb.info/gnd/118677942> <http://d-nb.info/standards/elementset/gnd#preferredName> "De Sica, Vittorio" .
+<http://d-nb.info/gnd/118677942> <http://d-nb.info/standards/elementset/gnd#preferredName> "De Sica, Vittorio , 1901-1974" .
 <http://d-nb.info/gnd/118677942> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "De Sica, Vittorio" .
 <http://d-nb.info/gnd/118839055> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Wedgwood, Cicely V." .
-<http://d-nb.info/gnd/118839055> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wedgwood, Cicely V." .
+<http://d-nb.info/gnd/118839055> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wedgwood, Cicely V. , 1910-1997" .
 <http://d-nb.info/gnd/118867539> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rotzsch, Hans-Joachim" .
-<http://d-nb.info/gnd/118867539> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rotzsch, Hans-Joachim" .
+<http://d-nb.info/gnd/118867539> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rotzsch, Hans-Joachim , 1929-2013" .
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Winter, Peter <<von>>" .
-<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter <<von>>" .
-<http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredName> "Banville, Th\u00E9odore <<de>>" .
+<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter <<von>> , 1754-1825" .
+<http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredName> "Banville, Th\u00E9odore <<de>> , 1823-1891" .
 <http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Banville, Th\u00E9odore <<de>>" .
-<http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bruccoli, Matthew Joseph" .
+<http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bruccoli, Matthew Joseph , 1931-" .
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bruccoli, Matthew Joseph" .
-<http://d-nb.info/gnd/120454874> <http://d-nb.info/standards/elementset/gnd#preferredName> "Berger, Helmut" .
+<http://d-nb.info/gnd/120454874> <http://d-nb.info/standards/elementset/gnd#preferredName> "Berger, Helmut , 1944-" .
 <http://d-nb.info/gnd/120454874> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Berger, Helmut" .
 <http://d-nb.info/gnd/121815684> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "L\u00FCken, Sven" .
 <http://d-nb.info/gnd/121815684> <http://d-nb.info/standards/elementset/gnd#preferredName> "L\u00FCken, Sven" .
-<http://d-nb.info/gnd/121842118> <http://d-nb.info/standards/elementset/gnd#preferredName> "Clev, Hans-G\u00FCnther" .
+<http://d-nb.info/gnd/121842118> <http://d-nb.info/standards/elementset/gnd#preferredName> "Clev, Hans-G\u00FCnther , 1961-" .
 <http://d-nb.info/gnd/121842118> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Clev, Hans-G\u00FCnther" .
 <http://d-nb.info/gnd/122021878> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Werthes, Sascha" .
 <http://d-nb.info/gnd/122021878> <http://d-nb.info/standards/elementset/gnd#preferredName> "Werthes, Sascha" .
 <http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pepoli, Alessandro Ercole" .
-<http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pepoli, Alessandro Ercole" .
-<http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredName> "Engelhardt, Manfred" .
+<http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pepoli, Alessandro Ercole , 1757-1796" .
+<http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredName> "Engelhardt, Manfred , 1924-" .
 <http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Engelhardt, Manfred" .
-<http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredName> "Baldwin, Dalton" .
+<http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredName> "Baldwin, Dalton , 1931-" .
 <http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Baldwin, Dalton" .
-<http://d-nb.info/gnd/124515312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Ippoldt, Juliusz" .
+<http://d-nb.info/gnd/124515312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Ippoldt, Juliusz , 1867-1960" .
 <http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pfundner, Martin" .
-<http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfundner, Martin" .
+<http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfundner, Martin , 1930-" .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Kreisheimatverein <Coesfeld>" .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreisheimatverein <Coesfeld>" .
 <http://d-nb.info/gnd/128992204> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Wenkel, Ortrun" .
-<http://d-nb.info/gnd/128992204> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wenkel, Ortrun" .
+<http://d-nb.info/gnd/128992204> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wenkel, Ortrun , 1942-" .
 <http://d-nb.info/gnd/129016713> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fehrmann, Gisela" .
 <http://d-nb.info/gnd/129016713> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fehrmann, Gisela" .
-<http://d-nb.info/gnd/129389641> <http://d-nb.info/standards/elementset/gnd#preferredName> "Aug\u00E9r, Arleen" .
+<http://d-nb.info/gnd/129389641> <http://d-nb.info/standards/elementset/gnd#preferredName> "Aug\u00E9r, Arleen , 1939-1993" .
 <http://d-nb.info/gnd/129389641> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Aug\u00E9r, Arleen" .
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Mespl\u00E9, Mady" .
-<http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mespl\u00E9, Mady" .
+<http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mespl\u00E9, Mady , 1931-" .
 <http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Salins, Genevi\u00E8ve-Dominique <<de>>" .
 <http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredName> "Salins, Genevi\u00E8ve-Dominique <<de>>" .
 <http://d-nb.info/gnd/134769236> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Martineau, Malcolm" .
-<http://d-nb.info/gnd/134769236> <http://d-nb.info/standards/elementset/gnd#preferredName> "Martineau, Malcolm" .
+<http://d-nb.info/gnd/134769236> <http://d-nb.info/standards/elementset/gnd#preferredName> "Martineau, Malcolm , 1960-" .
 <http://d-nb.info/gnd/134782852> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "MacDougall, Jamie" .
-<http://d-nb.info/gnd/134782852> <http://d-nb.info/standards/elementset/gnd#preferredName> "MacDougall, Jamie" .
-<http://d-nb.info/gnd/13482167X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Anderson, Lorna" .
+<http://d-nb.info/gnd/134782852> <http://d-nb.info/standards/elementset/gnd#preferredName> "MacDougall, Jamie , 1966-" .
+<http://d-nb.info/gnd/13482167X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Anderson, Lorna , 1962-" .
 <http://d-nb.info/gnd/13482167X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Anderson, Lorna" .
 <http://d-nb.info/gnd/134845323> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Lewis, Bryn" .
 <http://d-nb.info/gnd/134845323> <http://d-nb.info/standards/elementset/gnd#preferredName> "Lewis, Bryn" .
@@ -112,27 +111,28 @@
 <http://d-nb.info/gnd/134926285> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Nathan, Regina" .
 <http://d-nb.info/gnd/134926285> <http://d-nb.info/standards/elementset/gnd#preferredName> "Nathan, Regina" .
 <http://d-nb.info/gnd/136788548> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "J\u00E4ger, Ludwig" .
-<http://d-nb.info/gnd/136788548> <http://d-nb.info/standards/elementset/gnd#preferredName> "J\u00E4ger, Ludwig" .
-<http://d-nb.info/gnd/137082479> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mayr, Alois" .
-<http://d-nb.info/gnd/141618302> <http://d-nb.info/standards/elementset/gnd#preferredName> "Capolicchio, Lino" .
+<http://d-nb.info/gnd/136788548> <http://d-nb.info/standards/elementset/gnd#preferredName> "J\u00E4ger, Ludwig , 1943-" .
+<http://d-nb.info/gnd/137082479> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mayr, Alois , 1938-" .
+<http://d-nb.info/gnd/141618302> <http://d-nb.info/standards/elementset/gnd#preferredName> "Capolicchio, Lino , 1943-" .
 <http://d-nb.info/gnd/141618302> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Capolicchio, Lino" .
 <http://d-nb.info/gnd/141649429> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Testi, Fabio" .
-<http://d-nb.info/gnd/141649429> <http://d-nb.info/standards/elementset/gnd#preferredName> "Testi, Fabio" .
+<http://d-nb.info/gnd/141649429> <http://d-nb.info/standards/elementset/gnd#preferredName> "Testi, Fabio , 1941-" .
 <http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredName> "Dardenne, ..." .
 <http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Dardenne, ..." .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Krug, ..." .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredName> "Krug, ..." .
-<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann" .
+<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann , der J\u00FCngere" .
 <http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Johann" .
-<http://d-nb.info/gnd/141927135> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bilau, Margarete" .
+<http://d-nb.info/gnd/141927135> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bilau, Margarete , 1768-" .
 <http://d-nb.info/gnd/141927135> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bilau, Margarete" .
 <http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fuchs, ..." .
 <http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fuchs, ..." .
 <http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredName> "Annoni, ..." .
 <http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Annoni, ..." .
+<http://d-nb.info/gnd/14216075X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bilau, Wilhelmine , 1787-1805" .
 <http://d-nb.info/gnd/143102893> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Sanda, Dominique" .
-<http://d-nb.info/gnd/143102893> <http://d-nb.info/standards/elementset/gnd#preferredName> "Sanda, Dominique" .
-<http://d-nb.info/gnd/14320713X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Blum, Richard" .
+<http://d-nb.info/gnd/143102893> <http://d-nb.info/standards/elementset/gnd#preferredName> "Sanda, Dominique , 1951-" .
+<http://d-nb.info/gnd/14320713X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Blum, Richard , 1962-" .
 <http://d-nb.info/gnd/14320713X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Blum, Richard" .
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
@@ -157,8 +157,10 @@
 <http://d-nb.info/gnd/186931808> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Buchmann, Helmut" .
 <http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "<<The>> Beatles" .
 <http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "<<The>> Beatles" .
+<http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regierungsbezirk M\u00FCnster , Westfalen" .
 <http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "United Nations" .
 <http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "United Nations" .
+<http://d-nb.info/gnd/2037247-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Main-Kinzig-Kreis" .
 <http://d-nb.info/gnd/2041907-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach" .
 <http://d-nb.info/gnd/2041907-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach" .
 <http://d-nb.info/gnd/2050419-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "1. Fu\u00DFball-Club K\u00F6ln 01/07" .
@@ -175,6 +177,7 @@
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz" .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Angestellten-Gewerkschaft" .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Angestellten-Gewerkschaft" .
+<http://d-nb.info/gnd/37460-X> <http://d-nb.info/standards/elementset/gnd#preferredName> "American Dental Association" .
 <http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Automobilsport" .
 <http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Automobilsport" .
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Coesfeld" .
@@ -277,6 +280,7 @@
 <http://d-nb.info/gnd/4604932-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Abbild" .
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
+<http://d-nb.info/gnd/5293676-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Homannsche Erben , N\u00FCrnberg" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Grabbe, Christian Dietrich: Der Cid" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork> "Grabbe, Christian Dietrich: Der Cid" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Grabbe, Christian Dietrich: Der Cid" .

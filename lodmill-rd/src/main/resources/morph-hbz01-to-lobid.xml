@@ -760,8 +760,7 @@
 		<!-- #######creator -->
 		<!-- ####################### -->
 		<!-- person/corporation links -->
-		<data
-			source="1??[-aemn]1.9|8[012][02468][-mn]1.9|2?[012345678][-a][12-].9|8[012][02468][-mn]-.9"
+		<data source="1??[-aemn]1.9|8[012]?[-mn]1.9|2??[-a][12-].9|8[012]?[-mn][-12].9"
 			name="@creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
@@ -770,7 +769,7 @@
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
 			<data
-				source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]1.[pa]"
+				source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]-12.[pa]"
 				name="contributorLiteral"/>
 		</combine>
 		<!-- corporation contributor literals -->
@@ -991,9 +990,17 @@
 		<!-- ########### -->
 		<data name="~rdf:subject" source="@subjectLinks|@creator|@contributorId"/>
 		<!-- subjects -->
-		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true">
-			<data source="1??[-abcfep][1234].p|@nameOfContributingCorporateBody" name="a"/>
+		<combine name="@preferredNameConcatSubject" value="${a}" sameEntity="true"
+			flushWith="@subjectLinks|@creator|@contributorId">
+			<concat delimiter=" , " name="a" flushWith="@subjectLinks|@creator|@contributorId"
+				sameEntity="true">
+				<data source="1????.[cdghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cdghknpsz]"/>
+			</concat>
 			<data source="@subjectLinks|@creator|@contributorId"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true"> <!-- flushWith="@subjectLinks|@creator|@contributorId"> -->
+			<data source="@nameOfContributingCorporateBody" name="a"/>
+			<data source="@contributorId"/>
 		</combine>
 		<combine name="@preferredNameP" value="${a}" sameEntity="true">
 			<data source="@subjectLinks"/>
@@ -1012,15 +1019,16 @@
 		</choose>
 		<combine name="@preferredNameConcat" value="${a}" sameEntity="true" flushWith="@subjectLinks"
 			reset="true">
-			<concat delimiter=" , " name="a" flushWith="@subjectLinks" sameEntity="true"
-				reset="true">
+			<concat delimiter=" , " name="a" flushWith="@subjectLinks" sameEntity="true">
 				<data source="9[01234][27]-[-12].[cdghknpsz]"/>
 			</concat>
 			<data source="@subjectLinks"/>
 		</combine>
-		<choose name="@preferredName" flushWith="@subjectLinks">
+		<choose name="@preferredName" flushWith="@subjectLinks|@creator|@contributorId">
+			<data source="@nameOfContributingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
 			<data source="@preferredNameConcat"/>
+			<data source="@preferredNameConcatSubject"/>
 		</choose>
 		<data source="@preferredName" name="$[ns-gnd]preferredName"/>
 		<combine name="$[ns-gnd]preferredNameForTheSubjectHeading" value="${a}"
