@@ -1036,20 +1036,16 @@
 			<data source="9[01234][27]-[-12].s"/>
 			<data source="@preferredName" name="a"/>
 		</combine>
-		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
-			<data source="9[01234][27]-[-12].p"/>
-			<data source="@preferredName" name="a"/>
-		</combine>
-		<combine name="$[ns-gnd]preferredNameEntityForThePerson" value="${a}"
-			sameEntity="true">
+		<combine name="@preferredNameForThePerson" value="${a}" sameEntity="true">
 			<if>
 				<none>
 					<data source="9[01234][27]-[-12].t"/>
 				</none>
 			</if>
-			<data source="@subjectLinks"/>
-			<data source="9[01234][27]-[-12].p" name="a"/>
+			<data source="@preferredNameP" name="a"/>
 		</combine>
+		<data source="@preferredNameForThePerson" name="$[ns-gnd]preferredNameForThePerson"/>
+		<data source="@preferredNameForThePerson" name="$[ns-gnd]preferredNameEntityForThePerson"/>
 		<combine name="$[ns-gnd]preferredNameForThePlaceOrGeographicName" value="${a}"
 			sameEntity="true">
 			<data source="@subjectLinks"/>
