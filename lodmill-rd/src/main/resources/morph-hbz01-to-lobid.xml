@@ -1064,7 +1064,7 @@
 		<!-- START contributor/creator -->
 		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
 			<data source="@creator|@contributorId"/>
-			<data source="1??[-abcefp]1.p" name="a"/>
+			<data source="@preferredName" name="a"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
 			sameEntity="true">
