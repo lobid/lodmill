@@ -992,7 +992,7 @@
 		<!-- subjects -->
 		<combine name="@preferredNameConcatSubject" value="${a}" sameEntity="true"
 			flushWith="@subjectLinks|@creator|@contributorId">
-			<concat delimiter=" , " name="a" flushWith="@subjectLinks|@creator|@contributorId"
+			<concat delimiter=", " name="a" flushWith="@subjectLinks|@creator|@contributorId"
 				sameEntity="true">
 				<data source="1????.[cdghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cdghknpsz]"/>
 			</concat>
