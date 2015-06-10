@@ -29,7 +29,6 @@
 <http://d-nb.info/gnd/118033948> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Meier, Elmar" .
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adam, Theo, 1926-" .
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adam, Theo, 1926-" .
-<http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad , 1876-1967" .
 <http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad, 1876-1967" .
 <http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adenauer, Konrad, 1876-1967" .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bach, Johann Sebastian, 1685-1750" .
@@ -46,10 +45,10 @@
 <http://d-nb.info/gnd/118535765> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Friedrich, II., Heiliges R\u00F6misches Reich, Kaiser, 1194-1250" .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hitler, Adolf, 1889-1945" .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hitler, Adolf, 1889-1945" .
-<http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl , I. , Heiliges R\u00F6misches Reich, Kaiser , 747-814" .
+<http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl, I., Heiliges R\u00F6misches Reich, Kaiser, 747-814" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredName> "Manfredi, Sicilia, Re, 1232-1266" .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Manfredi, Sicilia, Re, 1232-1266" .
-<http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredName> "Porsche, Ferdinand , 1875-1951" .
+<http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredName> "Porsche, Ferdinand, 1875-1951" .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rohmer, Eric, 1920-2010" .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rohmer, Eric, 1920-2010" .
 <http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schreier, Peter, 1935-" .
@@ -99,7 +98,6 @@
 <http://d-nb.info/gnd/129389641> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Aug\u00E9r, Arleen, 1939-1993" .
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mespl\u00E9, Mady, 1931-" .
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Mespl\u00E9, Mady, 1931-" .
-<http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredName> "Reinarz, Titus , 1948-" .
 <http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredName> "Reinarz, Titus, 1948-" .
 <http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Reinarz, Titus, 1948-" .
 <http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredName> "Salins, Genevi\u00E8ve-Dominique <<de>>" .
@@ -213,7 +211,6 @@
 <http://d-nb.info/gnd/4013255-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "D\u00FCsseldorf" .
 <http://d-nb.info/gnd/4014228-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Elektrizit\u00E4tswirtschaft" .
 <http://d-nb.info/gnd/4014228-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Elektrizit\u00E4tswirtschaft" .
-<http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Freudenberg , Kreis Siegen-Wittgenstein" .
 <http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Freudenberg, Kreis Siegen-Wittgenstein" .
 <http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Freudenberg, Kreis Siegen-Wittgenstein" .
 <http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Freudenberg" .
@@ -271,7 +268,7 @@
 <http://d-nb.info/gnd/4113292-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Deutsch" .
 <http://d-nb.info/gnd/4114067-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Jakobsweg" .
 <http://d-nb.info/gnd/4114067-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Jakobsweg" .
-<http://d-nb.info/gnd/4115393-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Niedersachsen , S\u00FCd" .
+<http://d-nb.info/gnd/4115393-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Niedersachsen, S\u00FCd" .
 <http://d-nb.info/gnd/4115393-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Niedersachsen" .
 <http://d-nb.info/gnd/4120314-8> <http://d-nb.info/standards/elementset/gnd#preferredName> "Polnisch" .
 <http://d-nb.info/gnd/4120314-8> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Polnisch" .
@@ -297,12 +294,12 @@
 <http://d-nb.info/gnd/4306876-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Regionalplan" .
 <http://d-nb.info/gnd/4337730-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "LINUX" .
 <http://d-nb.info/gnd/4337730-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "LINUX" .
-<http://d-nb.info/gnd/4443675-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Daimler , Marke" .
-<http://d-nb.info/gnd/4443675-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Daimler , Marke" .
+<http://d-nb.info/gnd/4443675-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Daimler, Marke" .
+<http://d-nb.info/gnd/4443675-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Daimler, Marke" .
 <http://d-nb.info/gnd/4511937-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Online-Publikation" .
 <http://d-nb.info/gnd/4511937-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Online-Publikation" .
-<http://d-nb.info/gnd/4576855-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Steyr , Marke" .
-<http://d-nb.info/gnd/4576855-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Steyr , Marke" .
+<http://d-nb.info/gnd/4576855-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Steyr, Marke" .
+<http://d-nb.info/gnd/4576855-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Steyr, Marke" .
 <http://d-nb.info/gnd/4604932-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Abbild" .
 <http://d-nb.info/gnd/4604932-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Abbild" .
 <http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz" .
@@ -312,7 +309,7 @@
 <http://d-nb.info/gnd/5293676-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Homannsche Erben, N\u00FCrnberg" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Grabbe, Christian Dietrich: Der Cid" .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork> "Grabbe, Christian Dietrich: Der Cid" .
-<http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Lutter-Wasserm\u00FChle Roberg , Harsewinkel" .
+<http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Lutter-Wasserm\u00FChle Roberg, Harsewinkel" .
 <http://d-nb.info/gnd/7684863-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Lutter-Wasserm\u00FChle Roberg" .
 <http://lobid.org/item/HT000009600:DE-260:Z%201009> <http://purl.org/ontology/daia/label> "Z 1009" .
 <http://lobid.org/item/HT000009600:DE-260:Z%201009> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT000009600> .

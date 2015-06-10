@@ -1019,7 +1019,7 @@
 		</choose>
 		<combine name="@preferredNameConcat" value="${a}" sameEntity="true" flushWith="@subjectLinks"
 			reset="true">
-			<concat delimiter=" , " name="a" flushWith="@subjectLinks" sameEntity="true">
+			<concat delimiter=", " name="a" flushWith="@subjectLinks" sameEntity="true">
 				<data source="9[01234][27]-[-12].[cdghknpsz]"/>
 			</concat>
 			<data source="@subjectLinks"/>
