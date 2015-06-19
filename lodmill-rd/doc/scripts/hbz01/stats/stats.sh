@@ -10,7 +10,7 @@
 NWBIB_CONTRIBUTORS="nwbibContributors.bf"
 TIMESTAMP="$(date +%Y-%m-%d)"
 
-echo " #FORMAT: BEACON
+echo "#FORMAT: BEACON
 #VERSION: 0.1
 #PREFIX: http://d-nb.info/gnd/
 #TARGET: http://lobid.org/nwbib/search?person={ID}
