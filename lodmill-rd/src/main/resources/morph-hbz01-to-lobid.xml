@@ -329,9 +329,6 @@
 		<!-- shortcut for type/medium being also ever a "manifestation" -->
 		<data source="@rdftypeAndManifestation" name="@manifestation"/>
 		<data source="@medium" name="@manifestation"/>
-		<data source="@manifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
-		</data>
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- 051: type -->
 		<data source="051." name="@rdftypeAndManifestation">
@@ -493,15 +490,6 @@
 			</if>
 			<data source="@id"/>
 		</combine>
-		<!-- ####################### -->
-		<!-- ########## periodicals, collections -->
-		<!-- ####################### -->
-		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Periodical"/>
-		</data>
-		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
-		</data>
 		<!-- ####################### -->
 		<!-- ########## title -->
 		<!-- ####################### -->
