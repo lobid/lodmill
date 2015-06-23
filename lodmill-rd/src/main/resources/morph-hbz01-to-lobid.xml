@@ -767,7 +767,7 @@
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
-		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
+		<combine name="http://purl.org/lobid/lv#contributorLabel" value="${contributorLiteral}">
 			<data
 				source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]-12.[pa]"
 				name="contributorLiteral"/>
@@ -970,9 +970,9 @@
 			<regexp match="^http.*"/>
 		</data>
 		<!-- use dc:contributor for creator even if there is an id -->
-		<data source="1??b1.a" name="http://purl.org/dc/elements/1.1/contributor"/>
-		<data source="1??[-acefmn][12].[pa]" name="http://purl.org/dc/elements/1.1/contributor"/>
-		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/dc/elements/1.1/contributor"/>
+		<data source="1??b1.a" name="http://purl.org/lobid/lv#contributorLabel"/>
+		<data source="1??[-acefmn][12].[pa]" name="http://purl.org/lobid/lv#contributorLabel"/>
+		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/lobid/lv#contributorLabel"/>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -1076,7 +1076,7 @@
 			<data source="@id" name="subject"/>
 		</combine>
 		<!-- other subjects -->
-		<data source="71[01][-abcdfz][123].a" name="http://purl.org/dc/elements/1.1/subject">
+		<data source="71[01][-abcdfz][123].a" name="http://purl.org/lobid/lv#subjectLabel">
 			<split delimiter=" / "/>
 		</data>
 		<data source="902[-a][-1].f" name="@medium">
@@ -1096,7 +1096,7 @@
 			<data source="@subjectMain" name="main"/>
 			<data source="9[56][27]-[12].[cdhmortuz]" name="z"/>
 		</combine>
-		<choose name="http://purl.org/dc/elements/1.1/subject" flushWith="9[56][27]-[12]">
+		<choose name="http://purl.org/lobid/lv#subjectLabel" flushWith="9[56][27]-[12]">
 			<data source="@subjectTopic"/>
 			<data source="@subjectMain"/>
 		</choose>
