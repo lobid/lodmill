@@ -75,9 +75,6 @@
 			<data source="529z1.9"/>
 			<data source="@id" name="subjectid"/>
 		</combine>
-		<data source="010-1.a|@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
-		</data>
 		<!-- set subject uri of resource anew -->
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id" name="subject"/>
@@ -425,9 +422,6 @@
 		</data>
 		<data source="052." name="@collection">
 			<regexp match="^r|^.se|^...se|^.....se" format="http://purl.org/ontology/bibo/Series"/>
-		</data>
-		<data source="@collection" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
 		</data>
 		<data source="@collection" name="@typeOnly"/>
 		<!-- newspaper -->
