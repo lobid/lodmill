@@ -284,12 +284,6 @@
 		<data source="057." name="@medium">
 			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1020"/>
 		</data>
-		<data source="050." name="@manifestation">
-			<regexp match="^...[abc]"/>
-		</data>
-		<data source="050." name="@manifestation">
-			<regexp match="^......a"/>
-		</data>
 		<!-- Dini Kim , TODO dcterms:medium "rdacarrier:1044" (unmediated) -->
 		<!-- map -->
 		<data source="050." name="@medium">
@@ -326,9 +320,6 @@
 			<regexp match="^........[abcdefgz]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
 		</data>
 		<data source="@rdftypeAndManifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-		<!-- shortcut for type/medium being also ever a "manifestation" -->
-		<data source="@rdftypeAndManifestation" name="@manifestation"/>
-		<data source="@medium" name="@manifestation"/>
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- 051: type -->
 		<data source="051." name="@rdftypeAndManifestation">
