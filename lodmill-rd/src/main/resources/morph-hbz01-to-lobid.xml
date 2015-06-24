@@ -268,9 +268,6 @@
 		<data source="050." name="@rdftypeAndManifestation">
 			<regexp match="^.....d" format="http://purl.org/ontology/bibo/Image"/>
 		</data>
-		<data source="@matVideo" name="@medium">
-			<regexp match=".*" format="http://rdvocab.info/termList/RDAMediaType/1005"/>
-		</data>
 		<data source="334-[12].a" name="@medium">
 			<regexp match="^Bildli" format="http://purl.org/ontology/bibo/Image"/>
 		</data>
