@@ -476,7 +476,6 @@
 			<if>
 				<none>
 					<data source="@rdftype"/>
-					<data source="@rdftypeOnly"/>
 				</none>
 			</if>
 			<data source="@id"/>
