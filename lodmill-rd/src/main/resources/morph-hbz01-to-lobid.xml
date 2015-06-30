@@ -967,7 +967,7 @@
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
-		<data source="902[-a][-1].f" name="@medium">
+		<data source="902[-a][-1].f" name="@typeOnly">
 			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
 		</data>
 		<!-- ############ schlagwortketten #### -->
