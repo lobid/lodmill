@@ -1051,6 +1051,9 @@
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
+		<data source="902[-a][-1].f" name="@typeOnly">
+			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
+		</data>
 		<!-- "Verweisungsformen" literals -->
 		<data source="9[56][27]-[12].[acefgkps]" name="@subjectMain"/>
 		<combine name="@subjectTopic" value="${main}. ${b}" sameEntity="true">
