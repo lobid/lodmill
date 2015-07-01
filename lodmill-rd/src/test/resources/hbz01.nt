@@ -1987,7 +1987,6 @@
 <http://lobid.org/resource/HT002619538> <http://rdvocab.info/Elements/publicationStatement> "Gen\u00E8ve [u.a.]; UN; 1955" .
 <http://lobid.org/resource/HT002619538> <http://rdvocab.info/Elements/statementOfResponsibility> "Economic Commission for Europe, Transport Division, United Nations" .
 <http://lobid.org/resource/HT002619538> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT002619538> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT002619538> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
 <http://lobid.org/resource/HT002619538> <http://www.w3.org/2002/07/owl#sameAs> <http://ld.zdb-services.de/resource/1257-9> .
 <http://lobid.org/resource/HT002619538> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB1257-9> .
