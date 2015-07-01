@@ -196,7 +196,6 @@
 		<!-- ####################### -->
 		<!-- type is book (and also manifestation) if 050 begins with 'a' and 051 or 052 is missing 
 			or 051 and 052 does not fulfill a certain pattern -->
-		<data source="051." name="@type"/>
 		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
@@ -469,6 +468,7 @@
 			<if>
 				<none>
 					<data source="@rdftype"/>
+					<data source="@typeOnly"/>
 				</none>
 			</if>
 			<data source="@id"/>
@@ -1052,6 +1052,9 @@
 		</data>
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
+		</data>
+		<data source="902[-a][-1].f" name="@typeOnly">
+			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
 		<data source="9[56][27]-[12].[acefgkps]" name="@subjectMain"/>
