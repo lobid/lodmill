@@ -1827,7 +1827,6 @@
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/placeOfPublication> "Hamburg" .
 <http://lobid.org/resource/HT000009600> <http://rdvocab.info/Elements/publicationStatement> "Hamburg; DAG; 1948" .
 <http://lobid.org/resource/HT000009600> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT000009600> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT000009600> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
 <http://lobid.org/resource/HT000009600> <http://www.w3.org/2002/07/owl#sameAs> <http://ld.zdb-services.de/resource/6211-x> .
 <http://lobid.org/resource/HT000009600> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB6211-x> .
@@ -1873,7 +1872,6 @@
 <http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/placeOfPublication> "CHICAGO, ILL." .
 <http://lobid.org/resource/HT001310215> <http://rdvocab.info/Elements/publicationStatement> "CHICAGO, ILL.; AMERICAN DENTAL ASSOCIATION; 1980" .
 <http://lobid.org/resource/HT001310215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT001310215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT001310215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
 <http://lobid.org/resource/HT001310215> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT001310215> .
 <http://lobid.org/resource/HT001310215> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT001310215/about> .
@@ -2205,7 +2203,6 @@
 <http://lobid.org/resource/HT010726584> <http://rdvocab.info/Elements/publicationStatement> "[S.l.]; American Institute of Physics; 1994" .
 <http://lobid.org/resource/HT010726584> <http://rdvocab.info/Elements/statementOfResponsibility> "publ. by the American Institute of Physics" .
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT010726584> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/2002/07/owl#sameAs> <http://ld.zdb-services.de/resource/1472746-8> .
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB1472746-8> .
@@ -2418,7 +2415,6 @@
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/placeOfPublication> "Ulm" .
 <http://lobid.org/resource/HT013304490> <http://rdvocab.info/Elements/publicationStatement> "Ulm; Ebner; 2002" .
 <http://lobid.org/resource/HT013304490> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT013304490> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT013304490> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
 <http://lobid.org/resource/HT013304490> <http://www.w3.org/2002/07/owl#sameAs> <http://ld.zdb-services.de/resource/2073588-1> .
 <http://lobid.org/resource/HT013304490> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB2073588-1> .
@@ -3246,7 +3242,6 @@
 <http://lobid.org/resource/HT018187026> <http://rdvocab.info/Elements/placeOfPublication> "Berlin" .
 <http://lobid.org/resource/HT018187026> <http://rdvocab.info/Elements/publicationStatement> "Berlin; Logos-Verl.; 2013" .
 <http://lobid.org/resource/HT018187026> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT018187026> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT018187026> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Series> .
 <http://lobid.org/resource/HT018187026> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018187026> .
 <http://lobid.org/resource/HT018187026> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018187026/about> .

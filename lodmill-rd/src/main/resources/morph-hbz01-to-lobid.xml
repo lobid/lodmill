@@ -194,7 +194,6 @@
 		<!-- ####################### -->
 		<!-- type is book (and also manifestation) if 050 begins with 'a' and 051 or 052 is missing 
 			or 051 and 052 does not fulfill a certain pattern -->
-		<data source="051." name="@type"/>
 		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
@@ -467,6 +466,7 @@
 			<if>
 				<none>
 					<data source="@rdftype"/>
+					<data source="@typeOnly"/>
 				</none>
 			</if>
 			<data source="@id"/>
