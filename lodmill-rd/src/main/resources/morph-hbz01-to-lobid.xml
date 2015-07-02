@@ -43,26 +43,28 @@
 		<data source="021[-b]1.a" name="http://purl.org/dc/terms/isFormatOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
-		<!-- temporarily set new subject id -->
+		<!-- temporarily set new subject id
+		outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155
 		<data name="~rdf:subject" source="021[-b]1.a">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/hasFormat" value="$[ns-lobid-resource]${subjectid}">
 			<data source="021[-b]1.a" name=""/>
 			<data source="@id" name="subjectid"/>
-		</combine>
-		<!-- set subject uri of resource anew -->
+		</combine> 
+		 set subject uri of resource anew 
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id" name="subject"/>
 			<data source="021[-b]1.a"/>
-		</combine>
+		</combine>-->
 		<!-- ####################### -->
 		<!-- ####### Child, link to parent and vice versa, e.g. HT000009600 -->
 		<!-- ####################### -->
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
 		<data source="529z1.9" name="@hasSupplement"/>
 		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId"/>
-		<!-- temporarily set new subject uri -->
+		<!-- temporarily set new subject uri 
+		outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155 
 		<data name="~rdf:subject" source="010-1.a|529z1.9|@idTitleSeries">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
@@ -70,16 +72,16 @@
 			<data source="010-1.a|@idTitleSeries"/>
 			<data source="@id" name="subjectid"/>
 		</combine>
-		<!-- is supplement to -->
+		 is supplement to 
 		<combine name="http://rdaregistry.info/Elements/u/P60259" value="$[ns-lobid-resource]${subjectid}">
 			<data source="529z1.9"/>
 			<data source="@id" name="subjectid"/>
 		</combine>
-		<!-- set subject uri of resource anew -->
+		 set subject uri of resource anew 
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id" name="subject"/>
 			<data source="010-1.a|529z1.9|@idTitleSeries"/>
-		</combine>
+		</combine>-->
 		<!-- ####################### -->
 		<!-- ####### provenance not used for now, see https://github.com/lobid/lodmill/issues/541 -->
 		<!-- ####################### -->
