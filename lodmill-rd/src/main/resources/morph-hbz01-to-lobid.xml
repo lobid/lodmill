@@ -1332,13 +1332,17 @@
 		<data source="540[-ab][-1].[ab]" name="http://purl.org/ontology/bibo/isbn">
 			<isbn to="clean"/>
 		</data>
-		<data source="540[-ab][-1].[ab]" name="http://purl.org/ontology/bibo/isbn13">
+		<data source="540[-ab][-1].[ab]" name="http://purl.org/ontology/bibo/isbn">
 			<isbn to="isbn13"/>
 		</data>
 		<!--ISMN -->
-		<data source="541[-ab][-12].[ab]" name="http://purl.org/ontology/mo/ismn"/>
+		<data source="541[-ab][-12].[ab]" name="http://purl.org/ontology/mo/ismn">
+			<replace pattern="-| " with=""/>
+		</data>
 		<!-- ISSN -->
-		<data source="542[-ab][-1].[a]" name="http://purl.org/ontology/bibo/issn"/>
+		<data source="542[-ab][-1].[a]" name="http://purl.org/ontology/bibo/issn">
+			<replace pattern="-| " with=""/>
+		</data>
 		<!-- ####################### -->
 		<!-- ########## abstract -->
 		<!-- ####################### -->
