@@ -5,13 +5,14 @@
 	<!-- beware: the sequence of the rules are semantically important! Don't change the order. -->
 	<!-- Aleph MAB differs from MAB in that: -->
 	<!-- an indicator2 exists -->
-	<!-- every field has at least the subfield 'a' -->
+	<!-- most fields have a subfield 'a' -->
 	<!-- => structure of alehp MAB: $field$indicator1$indicator2$subfield -->
 	<vars>
 		<var name="ns-lobid-resource" value="http://lobid.org/resource/"/>
 		<var name="ns-lobid-vocab" value="http://purl.org/lobid/lv#"/>
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
 		<var name="ns-zdb-services" value="http://ld.zdb-services.de/resource/"/>
+		<var name="ns-gnd" value="http://d-nb.info/standards/elementset/gnd#"/>
 	</vars>
 	<rules>
 		<!-- ####################### -->
@@ -42,40 +43,45 @@
 		<data source="021[-b]1.a" name="http://purl.org/dc/terms/isFormatOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
-		<!-- temporarily set new subject id -->
+		<!-- temporarily set new subject id
+		outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155
 		<data name="~rdf:subject" source="021[-b]1.a">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/hasFormat" value="$[ns-lobid-resource]${subjectid}">
 			<data source="021[-b]1.a" name=""/>
 			<data source="@id" name="subjectid"/>
-		</combine>
-		<!-- set subject uri of resource anew -->
+		</combine> 
+		 set subject uri of resource anew 
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id" name="subject"/>
 			<data source="021[-b]1.a"/>
-		</combine>
+		</combine>-->
 		<!-- ####################### -->
 		<!-- ####### Child, link to parent and vice versa, e.g. HT000009600 -->
 		<!-- ####################### -->
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
-		<data source="010-1.a|529z1.9|@idTitleSeries" name="@isPartOfHbzId"/>
-		<!-- temporarily set new subject uri -->
+		<data source="529z1.9" name="@hasSupplement"/>
+		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId"/>
+		<!-- temporarily set new subject uri 
+		outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155 
 		<data name="~rdf:subject" source="010-1.a|529z1.9|@idTitleSeries">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/hasPart" value="$[ns-lobid-resource]${subjectid}">
-			<data source="010-1.a|529z1.9|@idTitleSeries" name=""/>
+			<data source="010-1.a|@idTitleSeries"/>
 			<data source="@id" name="subjectid"/>
 		</combine>
-		<data source="010-1.a|529z1.9|@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
-		</data>
-		<!-- set subject uri of resource anew -->
+		 is supplement to 
+		<combine name="http://rdaregistry.info/Elements/u/P60259" value="$[ns-lobid-resource]${subjectid}">
+			<data source="529z1.9"/>
+			<data source="@id" name="subjectid"/>
+		</combine>
+		 set subject uri of resource anew 
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id" name="subject"/>
 			<data source="010-1.a|529z1.9|@idTitleSeries"/>
-		</combine>
+		</combine>-->
 		<!-- ####################### -->
 		<!-- ####### provenance not used for now, see https://github.com/lobid/lodmill/issues/541 -->
 		<!-- ####################### -->
@@ -190,8 +196,7 @@
 		<!-- ####################### -->
 		<!-- type is book (and also manifestation) if 050 begins with 'a' and 051 or 052 is missing 
 			or 051 and 052 does not fulfill a certain pattern -->
-		<data source="051." name="@type"/>
-		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
+		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
 					<data source="@typeOnly"/>
@@ -258,11 +263,8 @@
 			<regexp match="^Bildton" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
 		</data>
 		<!-- picture -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@rdftype">
 			<regexp match="^.....d" format="http://purl.org/ontology/bibo/Image"/>
-		</data>
-		<data source="@matVideo" name="@medium">
-			<regexp match=".*" format="http://rdvocab.info/termList/RDAMediaType/1005"/>
 		</data>
 		<data source="334-[12].a" name="@medium">
 			<regexp match="^Bildli" format="http://purl.org/ontology/bibo/Image"/>
@@ -276,12 +278,6 @@
 		</data>
 		<data source="057." name="@medium">
 			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1020"/>
-		</data>
-		<data source="050." name="@manifestation">
-			<regexp match="^...[abc]"/>
-		</data>
-		<data source="050." name="@manifestation">
-			<regexp match="^......a"/>
 		</data>
 		<!-- Dini Kim , TODO dcterms:medium "rdacarrier:1044" (unmediated) -->
 		<!-- map -->
@@ -307,7 +303,7 @@
 			<regexp match="^....a" format="http://rdvocab.info/termList/RDAproductionMethod/1010"/>
 		</data>
 		<!-- game -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@rdftype">
 			<regexp match="^.........a" format="http://purl.org/library/Game"/>
 		</data>
 		<!-- manuscript -->
@@ -318,22 +314,16 @@
 		<data source="050." name="@medium">
 			<regexp match="^........[abcdefgz]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
 		</data>
-		<data source="@rdftypeAndManifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-		<!-- shortcut for type/medium being also ever a "manifestation" -->
-		<data source="@rdftypeAndManifestation" name="@manifestation"/>
-		<data source="@medium" name="@manifestation"/>
-		<data source="@manifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
-		</data>
+		<data source="@rdftype" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- 051: type -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^a|^.t|^..t|^...t|^.....t" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^[nt]" format="http://purl.org/ontology/bibo/MultiVolumeBook"/>
 		</data>
-		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
+		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
 					<data source="@matVideo"/>
@@ -348,81 +338,81 @@
 			</data>
 		</combine>
 		<!-- music -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.m|^..m|^...m" format="http://purl.org/ontology/mo/PublishedScore"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.mu|^...mu|^.....mu" format="http://purl.org/ontology/mo/PublishedScore"/>
 		</data>
 		<!-- amtliche Druckschrift -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^......[bfiklmorsu]" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.aa|^............[bfiklmorsu]" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.aa|^...aa|^.....aa" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
 		<!-- bibliography -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[b]|^..[b]|^...[b]" format="$[ns-lobid-vocab]Bibliography"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.b[i]|^...b[i]|^.....b[i]" format="$[ns-lobid-vocab]Bibliography"/>
 		</data>
 		<!-- biography -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[h]|^..[h]|^...[h]" format="$[ns-lobid-vocab]Biography"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.b[g]|^...b[g]|^.....b[g]" format="$[ns-lobid-vocab]Biography"/>
 		</data>
 		<!-- festschrift -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.f|^..f|^...f" format="$[ns-lobid-vocab]Festschrift"/>
 		</data>
 		<!-- reference source -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[de]|^..[de]|^...[de]" format="http://purl.org/ontology/bibo/ReferenceSource"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.ez|^...ez|^.....ez" format="http://purl.org/ontology/bibo/ReferenceSource"/>
 		</data>
 		<!-- norm -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.n|^..n|^...n" format="http://purl.org/ontology/bibo/Standard"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.no|^...no|^.....no" format="http://purl.org/ontology/bibo/Standard"/>
 		</data>
 		<!-- norm -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.x|^..x|^...x" format="$[ns-lobid-vocab]Schoolbook"/>
 		</data>
 		<!-- legislation -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.l|^..l|^...l" format="$[ns-lobid-vocab]Legislation"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.ag|^...ag|^.....ag" format="$[ns-lobid-vocab]Legislation"/>
 		</data>
 		<!-- thesis -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[uy]|^..[uy]|^...[uy]" format="http://purl.org/ontology/bibo/Thesis"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.sc|^...sc|^.....sc" format="http://purl.org/ontology/bibo/Thesis"/>
 		</data>
 		<!-- proceedings -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.k|^..k|^...k" format="http://purl.org/ontology/bibo/Proceedings"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.ko|^...ko|^.....ko" format="http://purl.org/ontology/bibo/Proceedings"/>
 		</data>
 		<!-- 052: type -->
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
 		<data source="052." name="@collection">
@@ -430,9 +420,6 @@
 		</data>
 		<data source="052." name="@collection">
 			<regexp match="^r|^.se|^...se|^.....se" format="http://purl.org/ontology/bibo/Series"/>
-		</data>
-		<data source="@collection" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
 		</data>
 		<data source="@collection" name="@typeOnly"/>
 		<!-- newspaper -->
@@ -476,25 +463,16 @@
 			<data source="@id"/>
 		</combine>
 		<!-- set default type -->
-		<combine name="@rdftypeAndManifestation" value="$[ns-lobid-vocab]Miscellaneous"
+		<combine name="@rdftype" value="$[ns-lobid-vocab]Miscellaneous"
 			flushWith="record">
 			<if>
 				<none>
-					<data source="@rdftypeAndManifestation"/>
-					<data source="@rdftypeOnly"/>
+					<data source="@rdftype"/>
+					<data source="@typeOnly"/>
 				</none>
 			</if>
 			<data source="@id"/>
 		</combine>
-		<!-- ####################### -->
-		<!-- ########## periodicals, collections -->
-		<!-- ####################### -->
-		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Periodical"/>
-		</data>
-		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
-		</data>
 		<!-- ####################### -->
 		<!-- ########## title -->
 		<!-- ####################### -->
@@ -504,20 +482,42 @@
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="&lt;" with=""/>
 		</data>
-		<!-- has other title information. If no title exists yet, use this as title. -->
-		<combine name="@otherTitle" value="${titleRemainder}" sameEntity="true">
-			<data source="@title"/>
-			<data source="33[13][-ab][-1].a" name="titleRemainder">
-				<regexp match="(.*)" format="${1}"/>
-			</data>
-		</combine>
-		<combine name="@title" value="${title}">
+		<!-- has other title information. If no title exists yet, use these (331 or 333) as title. -->
+		<data source="331[-ab][-1].a" name="@titleRemainder331"/>
+		<data source="333[-ab][-1].a" name="@titleRemainder333"/>
+		<combine name="@titleRemainder2title331" value="${title}">
 			<if>
 				<none>
 					<data source="@title"/>
 				</none>
 			</if>
-			<data source="33[13][-ab][-1].a" name="title"/>
+			<data source="@titleRemainder331" name="title"/>
+		</combine>
+		<combine name="@titleRemainder2title333" value="${title}">
+			<if>
+				<none>
+					<data source="@title"/>
+				</none>
+			</if>
+			<data source="@titleRemainder333" name="title"/>
+		</combine>
+		<data source="@titleRemainder2title331" name="@title"/>
+		<data source="@titleRemainder2title333" name="@title"/>
+		<combine name="@otherTitle" value="${titleRemainder}">
+			<if>
+				<none>
+					<data source="@titleRemainder2title331"/>
+				</none>
+			</if>
+			<data source="@titleRemainder331" name="titleRemainder"/>
+		</combine>
+		<combine name="@otherTitle" value="${titleRemainder}">
+			<if>
+				<none>
+					<data source="@titleRemainder2title333"/>
+				</none>
+			</if>
+			<data source="@titleRemainder333" name="titleRemainder"/>
 		</combine>
 		<!-- deliberatley not everything linked with OR '|' because of performance problems -->
 		<data source="335[-abcd][-12].a|370[a][-12].a" name="@otherTitle"/>
@@ -626,8 +626,9 @@
 		<!-- ####################### -->
 		<!-- ########## publisher -->
 		<!-- ####################### -->
-		<data source="41[058][-abcu][-12].a|594[-abc][-12].a|61[14][-abcu][-12].a|673[-abc]-.a"
-			name="http://rdvocab.info/Elements/placeOfPublication"/>
+		<data source="41[058][-abcu][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
+		<data source="594[-abc][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
+		<data source="61[14][-abcu][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
 		<data source="41[278][-abcu][-12].[ag]|61[36][-abcu][-12].a" name="http://purl.org/dc/elements/1.1/publisher"/>
 		<!-- TODO if multiple publisher these are melted to one. See HT015082724 -->
 		<combine name="http://rdvocab.info/Elements/publicationStatement" value="${publicationConcat}"
@@ -646,7 +647,8 @@
 		<!-- ####################### -->
 		<!-- ################ edition -->
 		<!-- ####################### -->
-		<data source="40[03]-1.[an]|510-1.a" name="http://purl.org/ontology/bibo/edition"/>
+		<data source="40[03]-1.[an]" name="http://purl.org/ontology/bibo/edition"/>
+		<data source="510-1.a" name="http://purl.org/ontology/bibo/edition"/>
 		<!-- ####################### -->
 		<!-- ########## links to the fulltext, online doi, toc etc. -->
 		<!-- ####################### -->
@@ -658,6 +660,9 @@
 		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
 		<data source="552b[-1].a" name="@urn">
+			<regexp match="(^.*:.*\d+)$" format="${1}"/>
+		</data>
+				<data source="URN-1.a" name="@urn">
 			<regexp match="(^.*:.*\d+)$" format="${1}"/>
 		</data>
 		<data source="@urn" name="$[ns-lobid-vocab]urn"/>
@@ -722,43 +727,49 @@
 		<!-- ########## volume -->
 		<!-- ####################### -->
 		<!-- 32-[-12].a is not bibo:volume - but what is it? -->
-		<data source="089-[-1].a|432-[-12].a|090-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="089-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="090-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
 		<!-- ####################### -->
 		<!-- #######creator -->
 		<!-- ####################### -->
-		<!-- person links -->
-		<data source="1[0123456789][0123456789][-aemn]1.9|8[012][02468][-mn]1.9" name="@creator">
+		<!-- person/corporation links -->
+		<data source="1??[-aemn]1.9|8[012]?[-mn]1.9|2??[-a][12-].9|8[012]?[-mn][-12].9"
+			name="@creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
-		<!-- corporation links as creator -->
-		<data source="2[0123456789][012345678][-a][12-].9|8[012][02468][-mn]-.9" name="http://purl.org/dc/terms/creator">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
-		<!-- TODO: this doesn't work. Hint: use "choose" to do the job. -->
-		<combine name="http://purl.org/dc/elements/1.1/creator" value="${creatorLiteral}"
-			sameEntity="true">
-			<if>
-				<none>
-					<data source="@creator"/>
-				</none>
-			</if>
-			<data source="1[0123456789][0123456789][-acefmn]2.[pa]|8[012][02468][-mn]1.[pa]"
-				name="creatorLiteral"/>
+		<combine name="http://purl.org/lobid/lv#contributorLabel" value="${contributorLiteral}">
+			<data
+				source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]-12.[pa]"
+				name="contributorLiteral"/>
 		</combine>
+		<!-- corporation contributor literals -->
+		<data source="2?[012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2?[012345678][bcp][1234].k" name="@nameOfContributingCorporateBodyK"/>
+		<combine name="@nameOfContributingCorporateBodyKH" value="${k} &lt;${h}&gt;">
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+			<data source="2?[012345678][bcp][1234].h" name="h"/>
+		</combine>
+		<choose name="@nameOfContributingCorporateBody" flushWith="2?[012345678][bcp][1234].9">
+			<data source="@nameOfContributingCorporateBodyKH"/>
+			<data source="@nameOfContributingCorporateBodyK"/>
+		</choose>
+		<data source="@nameOfContributingCorporateBody" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<!-- ####################### -->
 		<!-- ################ contributor -->
 		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
-		<data source="1[0123456789][0123456789]b[1234].b" name="@marcrelName"/>
+		<data source="1??b[1234].b" name="@marcrelName"/>
 		<!-- id of person -->
-		<data source="1[0123456789][0123456789][bcp][1234].9" name="@contributorId">
+		<data source="1??[-abcfep][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- id of corporation -->
-		<data source="2[0123456789][012345678][bcp][1234].9" name="@contributorId">
+		<data source="2?[012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- map literals to marc relator property -->
@@ -932,15 +943,10 @@
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>
-		<!-- use dc:contributor if there is no id -->
-		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
-			<if>
-				<none>
-					<data source="@contributorId"/>
-				</none>
-			</if>
-			<data source="1[0123456789][0123456789]b1.a" name="contributorLiteral"/>
-		</combine>
+		<!-- use dc:contributor for creator even if there is an id -->
+		<data source="1??b1.a" name="http://purl.org/lobid/lv#contributorLabel"/>
+		<data source="1??[-acefmn][12].[pa]" name="http://purl.org/lobid/lv#contributorLabel"/>
+		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/lobid/lv#contributorLabel"/>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -948,109 +954,192 @@
 		<data source="70[05][-b][-12345].a" name="http://purl.org/dc/terms/subject">
 			<regexp match="([0-9]{3})" format="http://dewey.info/class/${1}/"/>
 		</data>
+		<!-- gnd links -->
 		<data source="9[01234][27]-[-12].9" name="@subjectLinks">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
-		<!-- gnd subjects literals, use only if no link present, see e.g. HT015865114 -->
-		<combine name="http://purl.org/dc/elements/1.1/subject" value="${subjectName}"
+		<!-- ########### -->
+		<!-- # Create subgraph: temporarily set new subjects or contributor id -->
+		<!-- ########### -->
+		<data name="~rdf:subject" source="@subjectLinks|@creator|@contributorId"/>
+		<!-- subjects -->
+		<combine name="@preferredNameConcatSubject" value="${a}" sameEntity="true"
+			flushWith="@subjectLinks|@creator|@contributorId">
+			<concat delimiter=", " name="a" flushWith="@subjectLinks|@creator|@contributorId"
+				sameEntity="true">
+				<data source="1????.[cdghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cdghknpsz]"/>
+			</concat>
+			<data source="@subjectLinks|@creator|@contributorId"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true"> <!-- flushWith="@subjectLinks|@creator|@contributorId"> -->
+			<data source="@nameOfContributingCorporateBody" name="a"/>
+			<data source="@contributorId"/>
+		</combine>
+		<combine name="@preferredNameP" value="${a}" sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].p" name="a"/>
+		</combine>
+		<combine name="@preferredNameSemicolon" value="${a}: ${b}" sameEntity="true">
+			<data source="@preferredNameP" name="a"/>
+			<data source="9[01234][27]-[-12].t" name="b">
+				<replace pattern="&gt;" with=""/>
+				<replace pattern="&lt;" with=""/>
+			</data>
+		</combine>
+		<choose name="$[ns-gnd]preferredNameForTheWork" flushWith="@subjectLinks">
+			<data source="@preferredNameSemicolon"/>
+			<data source="9[01234][27]-[-12].t"/>
+		</choose>
+		<combine name="@preferredNameConcat" value="${a}" sameEntity="true" flushWith="@subjectLinks"
+			reset="true">
+			<concat delimiter=", " name="a" flushWith="@subjectLinks" sameEntity="true">
+				<data source="9[01234][27]-[-12].[cdghknpsz]"/>
+			</concat>
+			<data source="@subjectLinks"/>
+		</combine>
+		<choose name="@preferredName" flushWith="@subjectLinks|@creator|@contributorId">
+			<data source="@nameOfContributingCorporateBody"/>
+			<data source="@preferredNameSemicolon"/>
+			<data source="@preferredNameConcat"/>
+			<data source="@preferredNameConcatSubject"/>
+		</choose>
+		<data source="@preferredName" name="$[ns-gnd]preferredName"/>
+		<combine name="$[ns-gnd]preferredNameForTheSubjectHeading" value="${a}"
 			sameEntity="true">
+			<data source="9[01234][27]-[-12].s"/>
+			<data source="@preferredName" name="a"/>
+		</combine>
+		<combine name="@preferredNameForThePerson" value="${a}" sameEntity="true">
 			<if>
 				<none>
-					<data source="@subjectLinks">
-						<regexp match="^[^.*]"/>
-					</data>
+					<data source="9[01234][27]-[-12].t"/>
 				</none>
 			</if>
-			<data source="9[01234][27][-acfgkpstkz][-12].[sha]" name="subjectName"/>
+			<data source="@preferredNameP" name="a"/>
 		</combine>
+		<data source="@preferredNameForThePerson" name="$[ns-gnd]preferredNameForThePerson"/>
+		<data source="@preferredNameForThePerson" name="$[ns-gnd]preferredNameEntityForThePerson"/>
+		<combine name="$[ns-gnd]preferredNameForThePlaceOrGeographicName" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].g" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].k" name="a"/>
+		</combine>
+		<!-- /subjects -->
+		<!-- START contributor/creator -->
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
+			<data source="@creator|@contributorId"/>
+			<data source="@preferredName" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@contributorId"/>
+			<data source="@nameOfContributingCorporateBody" name="a"/>
+		</combine>
+		<!-- END contributor/creator -->
+		<!-- ########### -->
+		<!-- # set subject uri of resource anew -->
+		<!-- ########### -->
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
+			<data source="@subjectLinks|@creator|@contributorId"/>
+			<data source="@id" name="subject"/>
+		</combine>
+		<!-- other subjects -->
+		<data source="71[01][-abcdfz][123].a" name="http://purl.org/lobid/lv#subjectLabel">
+			<split delimiter=" / "/>
+		</data>
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
-		<!-- ############ schlagwortketten #### -->
-		<!-- Note that regular MAB definition uses semantics in indicator field, not in the subfield 
-			(as our MAB does here) -->
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="902-1.[cfgkpstz-]"/>
-				<data source="903-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
+		<data source="902[-a][-1].f" name="@typeOnly">
+			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
+		</data>
+		<!-- "Verweisungsformen" literals -->
+		<data source="9[56][27]-[12].[acefgkps]" name="@subjectMain"/>
+		<combine name="@subjectTopic" value="${main}. ${b}" sameEntity="true">
+			<data source="@subjectMain" name="main"/>
+			<data source="9[56][27]-[12].b" name="b"/>
 		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="907-1.[cfgkpstz-]"/>
-				<data source="908-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
+		<combine name="@subjectTopic" value="${main} / ${x}" sameEntity="true">
+			<data source="@subjectMain" name="main"/>
+			<data source="9[56][27]-[12].x" name="x"/>
 		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="912-1.[cfgkpstz-]"/>
-				<data source="913-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
+		<combine name="@subjectTopic" value="${main} (${z})" sameEntity="true">
+			<data source="@subjectMain" name="main"/>
+			<data source="9[56][27]-[12].[cdhmortuz]" name="z"/>
 		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="917-1.[cfgkpstz-]"/>
-				<data source="918-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="922-1.[cfgkpstz-]"/>
-				<data source="923-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="927-1.[cfgkpstz-]"/>
-				<data source="928-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="932-1.[cfgkpstz-]"/>
-				<data source="933-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="937-1.[cfgkpstz-]"/>
-				<data source="938-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="942-1.[cfgkpstz-]"/>
-				<data source="943-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<combine name="@subjectChain" value="${a}">
-			<concat delimiter=" | " name="a">
-				<data source="947-1.[cfgkpstz-]"/>
-				<data source="948-1.a">
-					<regexp match="(.*)" format="(${1})"/>
-				</data>
-			</concat>
-		</combine>
-		<data source="@subjectChain" name="http://purl.org/lobid/lv#subjectChain">
+		<choose name="http://purl.org/lobid/lv#subjectLabel" flushWith="9[56][27]-[12]">
+			<data source="@subjectTopic"/>
+			<data source="@subjectMain"/>
+		</choose>
+		<!-- ############ schlagwortketten (with permutation number) s#### -->
+		<!-- gnd subjects literals, use even if link present -->
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="902-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="903-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="907-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="908-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="912-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="913-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="917-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="918-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="922-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="923-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="927-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="928-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="932-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="933-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="937-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="938-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="942-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="943-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<concat delimiter=" | " name="@subjectChainPerm">
+			<data source="947-[-12].[acfghkpstkz-]" name="a"/>
+			<data source="948-1.a">
+				<regexp match="(.*)" format="(${1})"/>
+			</data>
+		</concat>
+		<data source="@subjectChainPerm" name="http://purl.org/lobid/lv#subjectChain">
 			<replace pattern="\) \| \(" with=","/>
 			<replace pattern=" \| \(" with=" \("/>
 		</data>
@@ -1079,7 +1168,7 @@
 		<!-- emit URI only if there are no description subfields ... -->
 		<choose name="@urlLonely" flushWith="655??">
 			<data source="655[-eu][ -1].[xy3]"/>
-			<data source="655[-e][ -1].u"/>
+			<data source="@linkUri"/>
 		</choose>
 		<!-- ... check if URI and if 652=Archive to determine if it's the archived web source -->
 		<combine name="$[ns-lobid-vocab]webPageArchived" value="${uri}">
@@ -1138,6 +1227,9 @@
 			</if>
 			<data source="523[-a][-1].a" name="a"/>
 		</combine>
+		<data source="@hasSupplement" name="http://rdaregistry.info/Elements/u/P60281">
+			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
+		</data>
 		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
 		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
@@ -1224,9 +1316,6 @@
 		<data source="078r1.a" name="@edoweb">
 			<regexp match="edoweb"/>
 		</data>
-		<data source="@edoweb|@archived" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="$[ns-lobid-vocab]ArchivedWebPage"/>
-		</data>
 		<data source="@edoweb" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
 		</data>
@@ -1257,11 +1346,11 @@
 		<!-- ####################### -->
 		<!-- ########## abstract -->
 		<!-- ####################### -->
-		<data source="750[-abcdefghijklm][-1].a" name="http://purl.org/dc/terms/abstract"/>
+		<data source="750?[-1].a" name="http://purl.org/dc/terms/abstract"/>
 		<!-- ####################### -->
 		<!-- ############### statistics -->
 		<!-- ####################### -->
-		<data source="_else"/>
+		<!-- <data source="_else"/> -->
 	</rules>
 	<!-- ####################### -->
 	<!-- ########### maps -->

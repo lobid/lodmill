@@ -25,14 +25,14 @@ import org.junit.Test;
  */
 @SuppressWarnings("javadoc")
 public class LobidOrganisationsUpdateTest {
-	String PATH = "tmp";
-	String PATH_QR = "media";
+	private static final String PATH = "tmp";
+	private static final String PATH_QR = "media";
 
 	@Test
 	public void testPicaXmlSplits() throws URISyntaxException, IOException {
 		final FileOpener opener = new FileOpener();
 		final XmlDecoder xmlDecoder = new XmlDecoder();
-		XmlTee tee = new XmlTee();
+		final XmlTee tee = new XmlTee();
 		final XmlEntitySplitter xmlSplitter = new XmlEntitySplitter();
 		xmlSplitter.setEntityName("metadata");
 		xmlSplitter.setTopLevelElement("harvest");

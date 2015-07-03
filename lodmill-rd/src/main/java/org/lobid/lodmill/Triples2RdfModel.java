@@ -89,30 +89,33 @@ public class Triples2RdfModel extends
 	@Override
 	public void process(final String str) {
 		Model model = ModelFactory.createDefaultModel();
-		Model model1 = ModelFactory.createDefaultModel();
 		try {
-			model.read(new StringReader(str), "test:uri:" + count++, serialization);
-			if (inferencing) {
-				ExtendedIterator<Triple> it =
-						ModelFactory
-								.createInfModel(boundReasoner, model)
-								.getGraph()
-								.find(
-										model
-												.listSubjectsWithProperty(
-														propertyIdentifyingTheNodeForInferencing).next()
-												.asNode(), null, null);
-				while (it.hasNext()) {
-					Triple triple = it.next().asTriple();
-					if (!triple.getObject().isBlank()) {
-						model1.add(model.asStatement(triple));
-					}
-				}
-				model.add(model1);
-			}
+			model.read(new StringReader(str), "test:uri" + count++, serialization);
+			if (inferencing)
+				reasoning(model);
 			getReceiver().process(model);
 		} catch (Exception e) {
 			LOG.error("Exception in " + str, e);
 		}
+	}
+
+	private void reasoning(Model model) {
+		ExtendedIterator<Triple> it =
+				ModelFactory
+						.createInfModel(boundReasoner, model)
+						.getGraph()
+						.find(
+								model
+										.listSubjectsWithProperty(
+												propertyIdentifyingTheNodeForInferencing).next()
+										.asNode(), null, null);
+		Model model1 = ModelFactory.createDefaultModel();
+		while (it.hasNext()) {
+			Triple triple = it.next().asTriple();
+			if (!triple.getObject().isBlank()) {
+				model1.add(model.asStatement(triple));
+			}
+		}
+		model.add(model1);
 	}
 }

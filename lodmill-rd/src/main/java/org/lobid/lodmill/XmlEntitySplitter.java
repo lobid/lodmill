@@ -5,7 +5,7 @@ package org.lobid.lodmill;
 
 import java.util.HashSet;
 
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.culturegraph.mf.framework.DefaultXmlPipe;
 import org.culturegraph.mf.framework.StreamReceiver;
 import org.culturegraph.mf.framework.XmlReceiver;
@@ -37,6 +37,23 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	private String xmlDeclaration =
 			"<?xml version = \"1.0\" encoding = \"UTF-8\"?>";
 	private int entityDepth = 0;
+
+	/**
+	 * default constructor
+	 */
+	public XmlEntitySplitter() {
+	}
+
+	/**
+	 * enriched constructor setting the top level element and the entity name
+	 * 
+	 * @param aTopLevelElement the name of the top level XML tag
+	 * @param aEntityName the name of the tag defining a new entity to be split
+	 */
+	public XmlEntitySplitter(String aTopLevelElement, String aEntityName) {
+		setTopLevelElement(aTopLevelElement);
+		setEntityName(aEntityName);
+	}
 
 	/**
 	 * Sets the name of the entity. All these entities in the XML stream will be

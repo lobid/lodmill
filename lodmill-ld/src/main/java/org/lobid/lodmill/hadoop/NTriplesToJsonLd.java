@@ -219,7 +219,7 @@ public class NTriplesToJsonLd implements Tool {
 			final String newAlias = prefix + suffix;
 			LOG.info(format("Prefix '%s', newest index: %s", prefix, newIndex));
 			removeOldAliases(indicesForPrefix, newAlias);
-			if (!newIndex.equals(indicesForPrefix))
+			if (!name.equals(newAlias) && !newIndex.equals(newAlias))
 				createNewAlias(newIndex, newAlias);
 			deleteOldIndices(name, indicesForPrefix);
 		}
