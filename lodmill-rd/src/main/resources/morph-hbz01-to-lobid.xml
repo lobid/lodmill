@@ -43,26 +43,28 @@
 		<data source="021[-b]1.a" name="http://purl.org/dc/terms/isFormatOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
-		<!-- temporarily set new subject id -->
+		<!-- temporarily set new subject id
+		outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155
 		<data name="~rdf:subject" source="021[-b]1.a">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/terms/hasFormat" value="$[ns-lobid-resource]${subjectid}">
 			<data source="021[-b]1.a" name=""/>
 			<data source="@id" name="subjectid"/>
-		</combine>
-		<!-- set subject uri of resource anew -->
+		</combine> 
+		 set subject uri of resource anew 
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id" name="subject"/>
 			<data source="021[-b]1.a"/>
-		</combine>
+		</combine>-->
 		<!-- ####################### -->
 		<!-- ####### Child, link to parent and vice versa, e.g. HT000009600 -->
 		<!-- ####################### -->
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
 		<data source="529z1.9" name="@hasSupplement"/>
 		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId"/>
-		<!-- temporarily set new subject uri -->
+		<!-- temporarily set new subject uri 
+		outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155 
 		<data name="~rdf:subject" source="010-1.a|529z1.9|@idTitleSeries">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
@@ -70,19 +72,16 @@
 			<data source="010-1.a|@idTitleSeries"/>
 			<data source="@id" name="subjectid"/>
 		</combine>
-		<!-- is supplement to -->
+		 is supplement to 
 		<combine name="http://rdaregistry.info/Elements/u/P60259" value="$[ns-lobid-resource]${subjectid}">
 			<data source="529z1.9"/>
 			<data source="@id" name="subjectid"/>
 		</combine>
-		<data source="010-1.a|@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
-		</data>
-		<!-- set subject uri of resource anew -->
+		 set subject uri of resource anew 
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data source="@id" name="subject"/>
 			<data source="010-1.a|529z1.9|@idTitleSeries"/>
-		</combine>
+		</combine>-->
 		<!-- ####################### -->
 		<!-- ####### provenance not used for now, see https://github.com/lobid/lodmill/issues/541 -->
 		<!-- ####################### -->
@@ -197,8 +196,7 @@
 		<!-- ####################### -->
 		<!-- type is book (and also manifestation) if 050 begins with 'a' and 051 or 052 is missing 
 			or 051 and 052 does not fulfill a certain pattern -->
-		<data source="051." name="@type"/>
-		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
+		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
 					<data source="@typeOnly"/>
@@ -265,11 +263,8 @@
 			<regexp match="^Bildton" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
 		</data>
 		<!-- picture -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@rdftype">
 			<regexp match="^.....d" format="http://purl.org/ontology/bibo/Image"/>
-		</data>
-		<data source="@matVideo" name="@medium">
-			<regexp match=".*" format="http://rdvocab.info/termList/RDAMediaType/1005"/>
 		</data>
 		<data source="334-[12].a" name="@medium">
 			<regexp match="^Bildli" format="http://purl.org/ontology/bibo/Image"/>
@@ -283,12 +278,6 @@
 		</data>
 		<data source="057." name="@medium">
 			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1020"/>
-		</data>
-		<data source="050." name="@manifestation">
-			<regexp match="^...[abc]"/>
-		</data>
-		<data source="050." name="@manifestation">
-			<regexp match="^......a"/>
 		</data>
 		<!-- Dini Kim , TODO dcterms:medium "rdacarrier:1044" (unmediated) -->
 		<!-- map -->
@@ -314,7 +303,7 @@
 			<regexp match="^....a" format="http://rdvocab.info/termList/RDAproductionMethod/1010"/>
 		</data>
 		<!-- game -->
-		<data source="050." name="@rdftypeAndManifestation">
+		<data source="050." name="@rdftype">
 			<regexp match="^.........a" format="http://purl.org/library/Game"/>
 		</data>
 		<!-- manuscript -->
@@ -325,22 +314,16 @@
 		<data source="050." name="@medium">
 			<regexp match="^........[abcdefgz]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
 		</data>
-		<data source="@rdftypeAndManifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-		<!-- shortcut for type/medium being also ever a "manifestation" -->
-		<data source="@rdftypeAndManifestation" name="@manifestation"/>
-		<data source="@medium" name="@manifestation"/>
-		<data source="@manifestation" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/vocab/frbr/core#Manifestation"/>
-		</data>
+		<data source="@rdftype" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- 051: type -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^a|^.t|^..t|^...t|^.....t" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^[nt]" format="http://purl.org/ontology/bibo/MultiVolumeBook"/>
 		</data>
-		<combine name="@rdftypeAndManifestation" value="http://purl.org/ontology/bibo/Book">
+		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
 			<if>
 				<none>
 					<data source="@matVideo"/>
@@ -355,81 +338,81 @@
 			</data>
 		</combine>
 		<!-- music -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.m|^..m|^...m" format="http://purl.org/ontology/mo/PublishedScore"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.mu|^...mu|^.....mu" format="http://purl.org/ontology/mo/PublishedScore"/>
 		</data>
 		<!-- amtliche Druckschrift -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^......[bfiklmorsu]" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.aa|^............[bfiklmorsu]" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.aa|^...aa|^.....aa" format="$[ns-lobid-vocab]OfficialPublication"/>
 		</data>
 		<!-- bibliography -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[b]|^..[b]|^...[b]" format="$[ns-lobid-vocab]Bibliography"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.b[i]|^...b[i]|^.....b[i]" format="$[ns-lobid-vocab]Bibliography"/>
 		</data>
 		<!-- biography -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[h]|^..[h]|^...[h]" format="$[ns-lobid-vocab]Biography"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.b[g]|^...b[g]|^.....b[g]" format="$[ns-lobid-vocab]Biography"/>
 		</data>
 		<!-- festschrift -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.f|^..f|^...f" format="$[ns-lobid-vocab]Festschrift"/>
 		</data>
 		<!-- reference source -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[de]|^..[de]|^...[de]" format="http://purl.org/ontology/bibo/ReferenceSource"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.ez|^...ez|^.....ez" format="http://purl.org/ontology/bibo/ReferenceSource"/>
 		</data>
 		<!-- norm -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.n|^..n|^...n" format="http://purl.org/ontology/bibo/Standard"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.no|^...no|^.....no" format="http://purl.org/ontology/bibo/Standard"/>
 		</data>
 		<!-- norm -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.x|^..x|^...x" format="$[ns-lobid-vocab]Schoolbook"/>
 		</data>
 		<!-- legislation -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.l|^..l|^...l" format="$[ns-lobid-vocab]Legislation"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.ag|^...ag|^.....ag" format="$[ns-lobid-vocab]Legislation"/>
 		</data>
 		<!-- thesis -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.[uy]|^..[uy]|^...[uy]" format="http://purl.org/ontology/bibo/Thesis"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.sc|^...sc|^.....sc" format="http://purl.org/ontology/bibo/Thesis"/>
 		</data>
 		<!-- proceedings -->
-		<data source="051." name="@rdftypeAndManifestation">
+		<data source="051." name="@rdftype">
 			<regexp match="^.k|^..k|^...k" format="http://purl.org/ontology/bibo/Proceedings"/>
 		</data>
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^.ko|^...ko|^.....ko" format="http://purl.org/ontology/bibo/Proceedings"/>
 		</data>
 		<!-- 052: type -->
-		<data source="052." name="@rdftypeAndManifestation">
+		<data source="052." name="@rdftype">
 			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
 		<data source="052." name="@collection">
@@ -437,9 +420,6 @@
 		</data>
 		<data source="052." name="@collection">
 			<regexp match="^r|^.se|^...se|^.....se" format="http://purl.org/ontology/bibo/Series"/>
-		</data>
-		<data source="@collection" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
 		</data>
 		<data source="@collection" name="@typeOnly"/>
 		<!-- newspaper -->
@@ -483,25 +463,16 @@
 			<data source="@id"/>
 		</combine>
 		<!-- set default type -->
-		<combine name="@rdftypeAndManifestation" value="$[ns-lobid-vocab]Miscellaneous"
+		<combine name="@rdftype" value="$[ns-lobid-vocab]Miscellaneous"
 			flushWith="record">
 			<if>
 				<none>
-					<data source="@rdftypeAndManifestation"/>
-					<data source="@rdftypeOnly"/>
+					<data source="@rdftype"/>
+					<data source="@typeOnly"/>
 				</none>
 			</if>
 			<data source="@id"/>
 		</combine>
-		<!-- ####################### -->
-		<!-- ########## periodicals, collections -->
-		<!-- ####################### -->
-		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Periodical"/>
-		</data>
-		<data source="@idzdb" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/Collection"/>
-		</data>
 		<!-- ####################### -->
 		<!-- ########## title -->
 		<!-- ####################### -->
@@ -770,7 +741,7 @@
 		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
-		<combine name="http://purl.org/dc/elements/1.1/contributor" value="${contributorLiteral}">
+		<combine name="http://purl.org/lobid/lv#contributorLabel" value="${contributorLiteral}">
 			<data
 				source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]-12.[pa]"
 				name="contributorLiteral"/>
@@ -973,9 +944,9 @@
 			<regexp match="^http.*"/>
 		</data>
 		<!-- use dc:contributor for creator even if there is an id -->
-		<data source="1??b1.a" name="http://purl.org/dc/elements/1.1/contributor"/>
-		<data source="1??[-acefmn][12].[pa]" name="http://purl.org/dc/elements/1.1/contributor"/>
-		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/dc/elements/1.1/contributor"/>
+		<data source="1??b1.a" name="http://purl.org/lobid/lv#contributorLabel"/>
+		<data source="1??[-acefmn][12].[pa]" name="http://purl.org/lobid/lv#contributorLabel"/>
+		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/lobid/lv#contributorLabel"/>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -1079,11 +1050,14 @@
 			<data source="@id" name="subject"/>
 		</combine>
 		<!-- other subjects -->
-		<data source="71[01][-abcdfz][123].a" name="http://purl.org/dc/elements/1.1/subject">
+		<data source="71[01][-abcdfz][123].a" name="http://purl.org/lobid/lv#subjectLabel">
 			<split delimiter=" / "/>
 		</data>
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
+		</data>
+		<data source="902[-a][-1].f" name="@typeOnly">
+			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
 		<data source="9[56][27]-[12].[acefgkps]" name="@subjectMain"/>
@@ -1099,7 +1073,7 @@
 			<data source="@subjectMain" name="main"/>
 			<data source="9[56][27]-[12].[cdhmortuz]" name="z"/>
 		</combine>
-		<choose name="http://purl.org/dc/elements/1.1/subject" flushWith="9[56][27]-[12]">
+		<choose name="http://purl.org/lobid/lv#subjectLabel" flushWith="9[56][27]-[12]">
 			<data source="@subjectTopic"/>
 			<data source="@subjectMain"/>
 		</choose>
