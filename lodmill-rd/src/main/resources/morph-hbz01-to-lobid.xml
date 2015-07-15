@@ -1256,7 +1256,7 @@
 		<!-- ########## classification -->
 		<!-- ####################### -->
 		<!--nwbib -->
-		<data source="078n[-1].a|700n[-1].[ab]" name="http://purl.org/ontology/holding#collectedBy">
+		<data source="078n[-1].a" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match=".*" format="$[ns-lobid-resource]NWBib"/>
 		</data>
 		<data source="700n[-1].a" name="$[ns-lobid-vocab]nwbibsubject">
