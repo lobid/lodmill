@@ -1468,10 +1468,6 @@
 <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kn28> .
 <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII/about> .
-<http://lobid.org/item/HT017529028::DI%20ESGA%2018.1> <http://purl.org/ontology/daia/label> "DI ESGA 18.1" .
-<http://lobid.org/item/HT017529028::DI%20ESGA%2018.1> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017529028> .
-<http://lobid.org/item/HT017529028::DI%20ESGA%2018.1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
-<http://lobid.org/item/HT017529028::DI%20ESGA%2018.1> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017529028::DI%20ESGA%2018.1/about> .
 <http://lobid.org/item/HT018187026:DE-361:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018187026> .
 <http://lobid.org/item/HT018187026:DE-361:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-361> .
 <http://lobid.org/item/HT018187026:DE-361:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
@@ -3342,7 +3338,6 @@
 <http://lobid.org/resource/HT017529028> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017529028:DE-1032:PHBB%2018%2F22%2FXVIII> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII> .
-<http://lobid.org/resource/HT017529028> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017529028::DI%20ESGA%2018.1> .
 <http://lobid.org/resource/HT017529028> <http://rdvocab.info/Elements/otherTitleInformation> "Studie \u00FCber Johannes vom Kreuz" .
 <http://lobid.org/resource/HT017529028> <http://rdvocab.info/Elements/placeOfPublication> "Freiburg i. Br. [u.a.]" .
 <http://lobid.org/resource/HT017529028> <http://rdvocab.info/Elements/publicationStatement> "Freiburg i. Br. [u.a.]; Herder; 2013" .

@@ -660,7 +660,9 @@
 		</data>
 		<combine name="@itemId" value="http://lobid.org/item/${id}:${isil}:${signature}"
 			flushWith="088??" reset="false">
-
+			<if>
+				<data source="@sigel2isilMap"/>
+			</if>
 			<data source="@id" name="id"/>
 			<data source="088 ?.c" name="signature">
 				<urlescape></urlescape>
