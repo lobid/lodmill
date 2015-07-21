@@ -1245,6 +1245,15 @@
 		<data source="700n[-1].a" name="$[ns-lobid-vocab]nwbibsubject">
 			<regexp match="(\d\d\d\d\d\d)" format="http://purl.org/lobid/nwbib#s${1}"/>
 		</data>
+		<combine name="log: 700n[-1].a AND 078n[-1].a" value="${id}">
+			<if>
+				<none>
+					<data source="078n[-1].a" /> <!-- 078n[-1].a"/> -->
+				</none>
+			</if>
+			<data source="700n[-1].a"/>
+			<data source="@id" name="id"/>
+		</combine>
 		<!-- ignore '99' in e.g. '700n|a 99|b Bonn', but take 'b' to lookup ID's ,see HT018131501 -->
 		<combine name="@nwbib700_99" value="${a}" sameEntity="true">
 			<data source="700n[-1].a">

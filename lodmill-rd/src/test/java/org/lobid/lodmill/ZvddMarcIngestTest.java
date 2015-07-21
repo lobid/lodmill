@@ -34,6 +34,7 @@ public final class ZvddMarcIngestTest extends AbstractIngestTests {
 	@Test
 	public void testStatistics() throws IOException { // NOPMD
 		super.stats("mapping.textile");
+
 	}
 
 	@Test

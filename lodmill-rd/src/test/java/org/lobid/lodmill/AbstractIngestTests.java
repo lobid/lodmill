@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -37,8 +38,8 @@ import org.slf4j.LoggerFactory;
 @SuppressWarnings("javadoc")
 public abstract class AbstractIngestTests {
 
-	private static final Logger LOG = LoggerFactory
-			.getLogger(AbstractIngestTests.class);
+	private static final Logger LOG =
+			LoggerFactory.getLogger(AbstractIngestTests.class);
 	private final String dataFile;
 	private final Reader reader;
 	protected Metamorph metamorph;
@@ -48,16 +49,15 @@ public abstract class AbstractIngestTests {
 			final String statsMorphFile, final Reader reader) {
 		this.dataFile = dataFile;
 		this.statsMorphFile = statsMorphFile;
-		metamorph =
-				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream(morphFile));
+		metamorph = new Metamorph(Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream(morphFile));
 		this.reader = reader;
 	}
 
 	/**
 	 * Tests if the generated triples equals the triples in the test file
 	 * 
-	 * @param testFileName The test file name, residing in the resource folder
+	 * @param testF<ileName The test file name, residing in the resource folder
 	 * @param generatedFileName The to be generated file name .
 	 * @param dsp A DefaultStreampipe
 	 */
@@ -69,9 +69,8 @@ public abstract class AbstractIngestTests {
 		process(dsp, generatedFile);
 		File testFile;
 		try {
-			testFile =
-					new File(Thread.currentThread().getContextClassLoader()
-							.getResource(testFileName).toURI());
+			testFile = new File(Thread.currentThread().getContextClassLoader()
+					.getResource(testFileName).toURI());
 			compareFilesDefaultingBNodes(generatedFile, testFile);
 		} catch (URISyntaxException e) {
 			LOG.error(e.getMessage(), e);
@@ -91,9 +90,9 @@ public abstract class AbstractIngestTests {
 	}
 
 	/**
-	 * Tests if two files are of equal content. As BNodes are not fix they are not
-	 * comparable and thus they are defaulted to "_:bnodeDummy" to make the files
-	 * comparable anyhow.
+	 * Tests if two files are of equal content. As BNodes are not fix they are
+	 * not comparable and thus they are defaulted to "_:bnodeDummy" to make the
+	 * files comparable anyhow.
 	 * 
 	 * @param generatedFile the actually generated file
 	 * @param testFile the file which defines how the generatedFile should look
@@ -121,7 +120,8 @@ public abstract class AbstractIngestTests {
 	}
 
 	private static void assertSetNoIntersection(
-			final SortedSet<String> notExpectedSet, final SortedSet<String> actualSet) {
+			final SortedSet<String> notExpectedSet,
+			final SortedSet<String> actualSet) {
 		final Iterator<String> notExpectedIterator = notExpectedSet.iterator();
 		boolean assertionError = false;
 		for (int i = 0; i < notExpectedSet.size(); i++) {
@@ -183,9 +183,8 @@ public abstract class AbstractIngestTests {
 
 	public void stats(final String fileName) throws IOException {
 		final File file = new File(fileName);
-		metamorph =
-				new Metamorph(Thread.currentThread().getContextClassLoader()
-						.getResourceAsStream(statsMorphFile));
+		metamorph = new Metamorph(Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream(statsMorphFile));
 		setUpErrorHandler(metamorph);
 		final Stats stats = new Stats();
 		reader.setReceiver(metamorph).setReceiver(stats);
@@ -193,7 +192,7 @@ public abstract class AbstractIngestTests {
 		reader.closeStream();
 		final List<Entry<String, Integer>> entries =
 				stats.sortedByValuesDescending();
-		Stats.writeTextileMappingTable(entries, file);
+		Stats.writeTextileMappingTable(entries, new ArrayList<>(), file);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
 		Assert.assertTrue("Values should have descending frequency", entries.get(0)
 				.getValue() >= entries.get(entries.size() - 1).getValue());
@@ -202,7 +201,8 @@ public abstract class AbstractIngestTests {
 	}
 
 	protected void process(
-			final DefaultStreamPipe<ObjectReceiver<String>> encoder, final File file) {
+			final DefaultStreamPipe<ObjectReceiver<String>> encoder,
+			final File file) {
 		final ObjectTee<String> tee = outputTee(file);
 		reader.setReceiver(metamorph).setReceiver(encoder).setReceiver(tee);
 		processFile();
@@ -258,14 +258,14 @@ public abstract class AbstractIngestTests {
 	 * @throws IOException
 	 */
 	private static StringBuilder concatenateGeneratedFilesIntoOneString(
-			String targetPath, StringBuilder triples) throws FileNotFoundException,
-			IOException {
+			String targetPath, StringBuilder triples)
+					throws FileNotFoundException, IOException {
 		File parentPath = new File(targetPath + "/");
 		for (String filename : parentPath.list()) {
 			File newFile = new File(parentPath + "/" + filename);
 			if (newFile.isDirectory())
-				concatenateGeneratedFilesIntoOneString(parentPath.getPath() + "/"
-						+ filename, triples);
+				concatenateGeneratedFilesIntoOneString(
+						parentPath.getPath() + "/" + filename, triples);
 			else
 				triples.append(getFileContent(newFile));
 		}

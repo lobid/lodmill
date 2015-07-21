@@ -43,15 +43,15 @@ public final class MabXmlWikidata2lobidIntegrationTest {
 		RdfModelMysqlWriter modelWriter = buildFlow();
 		final File testFile = dumpMysqlToFile(modelWriter);
 		// positive test
-		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
-				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
-				.toURI()));
+		AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource(TEST_FILENAME).toURI()));
 		// negative test
-		AbstractIngestTests.checkIfNoIntersection(
-				testFile,
+		AbstractIngestTests.checkIfNoIntersection(testFile,
 				new File(Thread.currentThread().getContextClassLoader()
 						.getResource("hbz01negatives.ttl").toURI()));
 		testFile.deleteOnExit();
+
 	}
 
 	private static RdfModelMysqlWriter buildFlow() {
@@ -86,8 +86,8 @@ public final class MabXmlWikidata2lobidIntegrationTest {
 		xmlTee.addReceiver(xmlEntitySplitter);
 		xmlEntitySplitter.setReceiver(xmlFilenameWriter);
 		opener.setReceiver(tarReader).setReceiver(xmlDecoder).setReceiver(xmlTee);
-		opener.process(new File("src/test/resources/hbz01XmlClobs.tar.bz2")
-				.getAbsolutePath());
+		opener.process(
+				new File("src/test/resources/hbz01XmlClobs.tar.bz2").getAbsolutePath());
 		opener.closeStream();
 		return modelWriter;
 	}
@@ -116,8 +116,8 @@ public final class MabXmlWikidata2lobidIntegrationTest {
 		xmlFilenameWriter.setStartIndex(2);
 		xmlFilenameWriter.setEndIndex(7);
 		xmlFilenameWriter.setTarget(TARGET_PATH + "/xml");
-		xmlFilenameWriter
-				.setProperty("/OAI-PMH/ListRecords/record/metadata/record/datafield[@tag='001']/subfield[@code='a']");
+		xmlFilenameWriter.setProperty(
+				"/OAI-PMH/ListRecords/record/metadata/record/datafield[@tag='001']/subfield[@code='a']");
 		xmlFilenameWriter.setCompression("bz2");
 		xmlFilenameWriter.setFileSuffix("");
 		xmlFilenameWriter.setEncoding("utf8");
@@ -138,9 +138,8 @@ public final class MabXmlWikidata2lobidIntegrationTest {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testFlux() throws URISyntaxException {
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("hbz01-to-lobid.flux").toURI());
+		File fluxFile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("hbz01-to-lobid.flux").toURI());
 		try {
 			Flux.main(new String[] { fluxFile.getAbsolutePath() });
 		} catch (Exception e) {

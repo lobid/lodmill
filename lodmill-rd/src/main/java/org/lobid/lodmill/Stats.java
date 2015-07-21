@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import org.culturegraph.mf.framework.DefaultStreamReceiver;
@@ -20,26 +20,32 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Simple field statistics .
+ * Field statistics. Instead of occurences a comma separated list of values may
+ * be output.
  * 
- * @author Pascal Christoph
+ * @author Pascal Christoph (dr0i)
  * @author Fabian Steeg (fsteeg)
  * 
  */
-@Description("Simple sorted field statistics. The parametre 'filename' defines the place to store the stats on disk.")
+@Description("Sorted field statistics. May have appended a list of all values which "
+		+ "are part of a field. The parameter 'filename' defines the place to store the"
+		+ " stats on disk.")
 @In(StreamReceiver.class)
 @Out(Void.class)
 public final class Stats extends DefaultStreamReceiver {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(DefaultStreamReceiver.class);
-	final Map<String, Integer> map = new HashMap<String, Integer>();
+	private static final Logger LOG =
+			LoggerFactory.getLogger(DefaultStreamReceiver.class);
+	final HashMap<String, Integer> occurenceMap = new HashMap<>();
+	final HashMap<String, StringBuilder> valueMap = new HashMap<>();
 	private String filename;
+	private static FileWriter textileWriter;
 
 	/**
 	 * Default constructor
 	 */
 	public Stats() {
-		this.filename = "tmp.stats.csv";
+		this.filename =
+				"stats." + (Calendar.getInstance().getTimeInMillis() / 1000) + ".csv";
 	}
 
 	/**
@@ -51,34 +57,53 @@ public final class Stats extends DefaultStreamReceiver {
 		this.filename = filename;
 	}
 
+	/**
+	 * Since the default name file this class produces is rather unique it
+	 * should be removable, especially when running as a test
+	 * 
+	 */
+	public void removeTestFile() {
+		new File(this.filename).deleteOnExit();
+	}
+
+	/**
+	 * Counts occurences of fields. If field name starts with "log:", not the
+	 * occurence are counted but the values are concatenated.
+	 */
 	@Override
 	public void literal(final String name, final String value) {
-		map.put(name, (map.containsKey(name) ? map.get(name) : 0) + 1);
+		if (name.startsWith("log:")) {
+			valueMap
+			.put(name,
+					(valueMap.containsKey(name)
+							? valueMap.get(name).append("," + value)
+									: new StringBuilder(value)));
+		} else
+			occurenceMap.put(name,
+					(occurenceMap.containsKey(name) ? occurenceMap.get(name) : 0) + 1);
 	}
 
 	@Override
 	public void closeStream() {
 		try {
-			writeTextileMappingTable(sortedByValuesDescending(), new File(
-					this.filename));
+			writeTextileMappingTable(sortedByValuesDescending(),
+					new ArrayList<>(valueMap.entrySet()), new File(this.filename));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	static void writeTextileMappingTable(
-			final List<Entry<String, Integer>> entries, final File textileMappingFile)
-			throws IOException {
-		final StringBuilder textileBuilder =
-				new StringBuilder("|*field*|*frequency*|\n");
-		LOG.info("Field\tFreq.");
+			final List<Entry<String, Integer>> occurenceEntries,
+			final List<Entry<String, StringBuilder>> valueEntries,
+			final File textileMappingFile) throws IOException {
+		final StringBuilder textileBuilder = new StringBuilder(
+				"|*field*|*frequency or values separated with commata*|\n");
+		LOG.info("Field\tFrequency or comma separated values");
 		LOG.info("----------------");
-		for (Entry<String, Integer> e : entries) {
-			LOG.info(e.getKey() + "\t" + e.getValue());
-			textileBuilder
-					.append(String.format("|%s|%s|\n", e.getKey(), e.getValue()));
-		}
-		final FileWriter textileWriter = new FileWriter(textileMappingFile);
+		createCsv(occurenceEntries, textileBuilder);
+		createCsv(valueEntries, textileBuilder);
+		textileWriter = new FileWriter(textileMappingFile);
 		try {
 			textileWriter.write(textileBuilder.toString());
 			textileWriter.flush();
@@ -87,9 +112,18 @@ public final class Stats extends DefaultStreamReceiver {
 		}
 	}
 
+	private static <T, I> void createCsv(final List<Entry<T, I>> entries,
+			final StringBuilder textileBuilder) {
+		entries.forEach(e -> {
+			LOG.info(e.getKey() + "\t" + e.getValue());
+			textileBuilder
+			.append(String.format("|%s|%s|\n", e.getKey(), e.getValue()));
+		});
+	}
+
 	List<Entry<String, Integer>> sortedByValuesDescending() {
 		final List<Entry<String, Integer>> entries =
-				new ArrayList<Entry<String, Integer>>(map.entrySet());
+				new ArrayList<>(occurenceMap.entrySet());
 		Collections.sort(entries, new Comparator<Entry<String, Integer>>() {
 			@Override
 			public int compare(final Entry<String, Integer> entry1,
