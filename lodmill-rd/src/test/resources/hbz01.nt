@@ -23,8 +23,6 @@
 <http://d-nb.info/gnd/11075851X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Conrad, Christoph" .
 <http://d-nb.info/gnd/11079267X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Balke, Kirsten" .
 <http://d-nb.info/gnd/11079267X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Balke, Kirsten" .
-<http://d-nb.info/gnd/111614597> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "K\u00F6nig, Ralf" .
-<http://d-nb.info/gnd/111614597> <http://d-nb.info/standards/elementset/gnd#preferredName> "K\u00F6nig, Ralf" .
 <http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Maimbourg, Louis, 1610-1686" .
 <http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredName> "Maimbourg, Louis, 1610-1686" .
 <http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig <<von>>, 1761-1833" .
@@ -74,7 +72,6 @@
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter <<von>>, 1754-1825" .
 <http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredName> "Banville, Th\u00E9odore <<de>>, 1823-1891" .
 <http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Banville, Th\u00E9odore <<de>>, 1823-1891" .
-<http://d-nb.info/gnd/119411970> <http://d-nb.info/standards/elementset/gnd#preferredName> "K\u00F6nig, Ralf, 1960-" .
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bruccoli, Matthew Joseph, 1931-" .
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bruccoli, Matthew Joseph, 1931-" .
 <http://d-nb.info/gnd/120454874> <http://d-nb.info/standards/elementset/gnd#preferredName> "Berger, Helmut, 1944-" .
@@ -220,8 +217,6 @@
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Coesfeld" .
 <http://d-nb.info/gnd/4010356-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Kreis Coesfeld" .
 <http://d-nb.info/gnd/4010356-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreis Coesfeld" .
-<http://d-nb.info/gnd/4010427-8> <http://d-nb.info/standards/elementset/gnd#preferredName> "Comic" .
-<http://d-nb.info/gnd/4010427-8> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Comic" .
 <http://d-nb.info/gnd/4011882-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutschland" .
 <http://d-nb.info/gnd/4011882-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Deutschland" .
 <http://d-nb.info/gnd/4013255-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "D\u00FCsseldorf" .
@@ -297,8 +292,6 @@
 <http://d-nb.info/gnd/4127794-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heimatkunde" .
 <http://d-nb.info/gnd/4137215-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Staat Berg" .
 <http://d-nb.info/gnd/4137215-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Staat Berg" .
-<http://d-nb.info/gnd/4145395-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bildband" .
-<http://d-nb.info/gnd/4145395-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Bildband" .
 <http://d-nb.info/gnd/4151183-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Eigent\u00FCmer" .
 <http://d-nb.info/gnd/4151183-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Eigent\u00FCmer" .
 <http://d-nb.info/gnd/4156127-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Geb\u00E4ude" .
@@ -1161,11 +1154,6 @@
 <http://lobid.org/item/HT015414894:DE-6:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6> .
 <http://lobid.org/item/HT015414894:DE-6:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT015414894:DE-6:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT015414894:DE-6:/about> .
-<http://lobid.org/item/HT015440386:DE-385-AN:C%2Fld487> <http://purl.org/ontology/daia/label> "C/ld487" .
-<http://lobid.org/item/HT015440386:DE-385-AN:C%2Fld487> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT015440386> .
-<http://lobid.org/item/HT015440386:DE-385-AN:C%2Fld487> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-385-AN> .
-<http://lobid.org/item/HT015440386:DE-385-AN:C%2Fld487> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
-<http://lobid.org/item/HT015440386:DE-385-AN:C%2Fld487> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT015440386:DE-385-AN:C%2Fld487/about> .
 <http://lobid.org/item/HT015455455:DE-107:208-316> <http://purl.org/ontology/daia/label> "208-316" .
 <http://lobid.org/item/HT015455455:DE-107:208-316> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT015455455> .
 <http://lobid.org/item/HT015455455:DE-107:208-316> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-107> .
@@ -2903,59 +2891,6 @@
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015414894> .
 <http://lobid.org/resource/HT015414894> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015414894/about> .
 <http://lobid.org/resource/HT015414894> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015414894> .
-<http://lobid.org/resource/HT015440386> <http://iflastandards.info/ns/isbd/elements/P1053> "181, VIII S." .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/elements/1.1/publisher> "Rowohlt-Taschenbuch-Verl." .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/111614597> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/111614597> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002091108> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/issued> "1998" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/119411970> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4010427-8> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4145395-5> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/title> "Jago" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#contributorLabel> "K\u00F6nig, R." .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#contributorLabel> "K\u00F6nig, Ralf" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#hbzID> "HT015440386" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s841070> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectChain> "K\u00F6nig, Ralf | Comic | Bildband" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Abbildungen (Formschlagwort)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Abbildungswerk" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Ansichten (Formschlagwort)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Ansichtspostkarte (Formschlagwort)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Bande Dessin\u00E9e" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Bildatlas" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Bildb\u00E4nde" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Bilddokumente" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Bilder (Formschlagwort)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Bildmaterial (Formschlagwort)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Bildsammlung" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Comics" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Comicstrip" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Comic Strip" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Comic Strips" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Fotographien-Bildband" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Illustrationswerk" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "King, Ralph (1960-)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Konig, Ralf (1960-)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "K\u0113nigs, Ralfs (1960-)" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Photographien-Bildband" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/ontology/bibo/edition> "Orig.-Ausg., 31. - 40. Tsd." .
-<http://lobid.org/resource/HT015440386> <http://purl.org/ontology/bibo/isbn> "3499223929" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/ontology/bibo/isbn> "9783499223921" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/ontology/bibo/volume> "22392" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015440386:DE-385-AN:C%2Fld487> .
-<http://lobid.org/resource/HT015440386> <http://rdvocab.info/Elements/otherTitleInformation> "Comic ; [nach Motiven aus den Dramen Othello, Macbeth, Romeo & Julia und Ein Sommernachtstraum von William Shakespeare]" .
-<http://lobid.org/resource/HT015440386> <http://rdvocab.info/Elements/placeOfPublication> "Reinbek bei Hamburg" .
-<http://lobid.org/resource/HT015440386> <http://rdvocab.info/Elements/publicationStatement> "Reinbek bei Hamburg; Rowohlt-Taschenbuch-Verl.; 1998" .
-<http://lobid.org/resource/HT015440386> <http://rdvocab.info/Elements/statementOfResponsibility> "Ralf K\u00F6nig" .
-<http://lobid.org/resource/HT015440386> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
-<http://lobid.org/resource/HT015440386> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
-<http://lobid.org/resource/HT015440386> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015440386> .
-<http://lobid.org/resource/HT015440386> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015440386/about> .
-<http://lobid.org/resource/HT015440386> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015440386> .
 <http://lobid.org/resource/HT015455455> <http://iflastandards.info/ns/isbd/elements/P1053> "291 S. : Ill., graph. Darst." .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124897274> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124897274> .

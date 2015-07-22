@@ -11,14 +11,12 @@ import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.BatchLogger;
 import org.culturegraph.mf.stream.pipe.ObjectBatchLogger;
-import org.culturegraph.mf.stream.pipe.StreamTee;
 import org.culturegraph.mf.stream.source.FileOpener;
 import org.culturegraph.mf.stream.source.TarReader;
 import org.lobid.lodmill.ElasticsearchIndexer;
 import org.lobid.lodmill.MabXmlHandler;
 import org.lobid.lodmill.PipeEncodeTriples;
 import org.lobid.lodmill.RdfModel2ElasticsearchJsonLd;
-import org.lobid.lodmill.Stats;
 import org.lobid.lodmill.Triples2RdfModel;
 
 /**
@@ -75,20 +73,16 @@ public final class MabXml2lobidJsonEs {
 		ObjectBatchLogger<HashMap<String, String>> objectBatchLogger =
 				new ObjectBatchLogger<>();
 		objectBatchLogger.setBatchSize(500000);
-		StreamTee streamTee = new StreamTee();
-		final Stats stats = new Stats();
-		streamTee.addReceiver(stats);
-		streamTee.addReceiver(batchLogger);
-		batchLogger.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
-				.setReceiver(new RdfModel2ElasticsearchJsonLd())
-				.setReceiver(objectBatchLogger).setReceiver(esIndexer);
 		opener
 				.setReceiver(new TarReader())
 				.setReceiver(new XmlDecoder())
 				.setReceiver(new MabXmlHandler())
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))
-				.setReceiver(streamTee);
+				.setReceiver(batchLogger).setReceiver(new PipeEncodeTriples())
+				.setReceiver(triple2model)
+				.setReceiver(new RdfModel2ElasticsearchJsonLd())
+				.setReceiver(objectBatchLogger).setReceiver(esIndexer);
 		opener.process(new File(inputPath).getAbsolutePath());
 		opener.closeStream();
 	}
