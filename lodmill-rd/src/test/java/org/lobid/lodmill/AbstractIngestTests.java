@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
@@ -193,7 +194,8 @@ public abstract class AbstractIngestTests {
 		reader.closeStream();
 		final List<Entry<String, Integer>> entries =
 				stats.sortedByValuesDescending();
-		Stats.writeTextileMappingTable(entries, file);
+		Stats.writeTextileMappingTable(entries,
+				new HashMap<String, StringBuilder>(), file);
 		Assert.assertTrue("We should have some values", entries.size() > 1);
 		Assert.assertTrue("Values should have descending frequency", entries.get(0)
 				.getValue() >= entries.get(entries.size() - 1).getValue());
