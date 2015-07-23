@@ -27,8 +27,8 @@
 <http://d-nb.info/gnd/111614597> <http://d-nb.info/standards/elementset/gnd#preferredName> "K\u00F6nig, Ralf" .
 <http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Maimbourg, Louis, 1610-1686" .
 <http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredName> "Maimbourg, Louis, 1610-1686" .
-<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig <<von>>, 1761-1833" .
-<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig <<von>>, 1761-1833" .
+<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig von, 1761-1833" .
+<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig von, 1761-1833" .
 <http://d-nb.info/gnd/118033948> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Meier, Elmar" .
 <http://d-nb.info/gnd/118033948> <http://d-nb.info/standards/elementset/gnd#preferredName> "Meier, Elmar" .
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adam, Theo, 1926-" .
@@ -70,10 +70,10 @@
 <http://d-nb.info/gnd/118839055> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wedgwood, Cicely V., 1910-1997" .
 <http://d-nb.info/gnd/118867539> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rotzsch, Hans-Joachim, 1929-2013" .
 <http://d-nb.info/gnd/118867539> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rotzsch, Hans-Joachim, 1929-2013" .
-<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Winter, Peter <<von>>, 1754-1825" .
-<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter <<von>>, 1754-1825" .
-<http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredName> "Banville, Th\u00E9odore <<de>>, 1823-1891" .
-<http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Banville, Th\u00E9odore <<de>>, 1823-1891" .
+<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Winter, Peter von, 1754-1825" .
+<http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter von, 1754-1825" .
+<http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredName> "Banville, Th\u00E9odore de, 1823-1891" .
+<http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Banville, Th\u00E9odore de, 1823-1891" .
 <http://d-nb.info/gnd/119411970> <http://d-nb.info/standards/elementset/gnd#preferredName> "K\u00F6nig, Ralf, 1960-" .
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bruccoli, Matthew Joseph, 1931-" .
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bruccoli, Matthew Joseph, 1931-" .
@@ -112,8 +112,8 @@
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mespl\u00E9, Mady, 1931-" .
 <http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Reinarz, Titus, 1948-" .
 <http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredName> "Reinarz, Titus, 1948-" .
-<http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Salins, Genevi\u00E8ve-Dominique <<de>>" .
-<http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredName> "Salins, Genevi\u00E8ve-Dominique <<de>>" .
+<http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Salins, Genevi\u00E8ve-Dominique de" .
+<http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredName> "Salins, Genevi\u00E8ve-Dominique de" .
 <http://d-nb.info/gnd/134769236> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Martineau, Malcolm, 1960-" .
 <http://d-nb.info/gnd/134769236> <http://d-nb.info/standards/elementset/gnd#preferredName> "Martineau, Malcolm, 1960-" .
 <http://d-nb.info/gnd/134782852> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "MacDougall, Jamie, 1966-" .
@@ -178,9 +178,9 @@
 <http://d-nb.info/gnd/186186193> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kim, Richard" .
 <http://d-nb.info/gnd/186931808> <http://d-nb.info/standards/elementset/gnd#preferredName> "Buchmann, Helmut" .
 <http://d-nb.info/gnd/186931808> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Buchmann, Helmut" .
-<http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "<<The>> Beatles" .
-<http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "<<The>> Beatles" .
-<http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "<<The>> Beatles" .
+<http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "The Beatles" .
+<http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "The Beatles" .
+<http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "The Beatles" .
 <http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Regierungsbezirk M\u00FCnster, Westfalen" .
 <http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regierungsbezirk M\u00FCnster, Westfalen" .
 <http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "United Nations" .
@@ -1755,12 +1755,13 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Johann" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "b\u00F6hm, madame" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Marianne" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Dardenne, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Fuchs, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl Ludwig" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl Ludwig von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Charles" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Charles L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Charles Lewis" .
@@ -1770,20 +1771,21 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Johann Georg Karl" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Joh. Georg Karl" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Karl" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Karl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Karl Ludwig von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Ludwig" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Carl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Carl Ludwig" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Carl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Carl Ludwig von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Charles Lewis" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl Ludwig" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl Ludwig <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl Ludwig von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "kellermann, ..." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Krug, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Carl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Johann G." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Johann Georg Karl" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Johann Georg <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Johann Georg von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Mezler, Johann G." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Mezler, Johann Georg" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Mezler, Johann Georg Karl" .
@@ -1794,10 +1796,10 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, J. P." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, P." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter <<von>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Pierre" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Pietro" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Pietro <<de>>" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Pietro de" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Wintter, P." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#fulltextOnline> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
@@ -1951,7 +1953,9 @@
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4120314-8> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/tableOfContents> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=3362189&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/title> "O - \u017B" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#contributorLabel> "Ippoldt, Juliusz" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#contributorLabel> "Ippoldt, Juljusz" .
+<http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#contributorLabel> "Piprek, Jan" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#hbzID> "HT001898812" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#subjectChain> "Polnisch | W\u00F6rterbuch | Deutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#subjectLabel> "Deutsche Sprache" .
@@ -2161,7 +2165,7 @@
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "De Sica, Vittorio" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Marchi, Giacomo" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sanda, Dominique" .
-<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sica, Vittorio <<de>>" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sica, Vittorio de" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Steinberger, Helmut" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Testi, Fabio" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Varaigne, Dominique" .
@@ -2188,8 +2192,8 @@
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Courtillon, J." .
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Courtillon, Janine" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Rohmer, Eric" .
-<http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Salins, G. D. <<de>>" .
-<http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Salins, Genevi\u00E8ve-Dominique <<de>>" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Salins, G. D. de" .
+<http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Salins, Genevi\u00E8ve-Dominique de" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Scherer, Henri Joseph" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Scherer, Maurice" .
 <http://lobid.org/resource/HT009719670> <http://purl.org/lobid/lv#contributorLabel> "Scherer, Maurice Jean-Marie" .
@@ -3047,6 +3051,7 @@
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Adenauer, ..." .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Adenauer, Konrad" .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Adenauer, Konrad Hermann Joseph" .
+<http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Mensing, Hans Peter" .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#hbzID> "HT015891797" .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectChain> "Adenauer, Konrad | Geschichte 1963-1967 | Quelle" .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectLabel> "Adenauer, ... (1876-1967)" .
@@ -3231,11 +3236,11 @@
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/AudioDocument> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/title> "Pierrot" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Baldwin, Dalton" .
-<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Teodoro <<de>>" .
-<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th. <<de>>" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Teodoro de" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th. de" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th\u00E9odore" .
-<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th\u00E9odore <<de>>" .
-<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th\u00E9odore Follain <<de>>" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th\u00E9odore de" .
+<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th\u00E9odore Follain de" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Debjussi, Klod" .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Debussy, ..." .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Debussy, Achille" .
@@ -3347,10 +3352,12 @@
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/118640038> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/title> "Kreuzeswissenschaft" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Cruce, Teresia Benedicta <<a>>" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Cruz, Beata Teresa Benedicta <<de la>>" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Cruce, Teresia Benedicta a" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Cruz, Beata Teresa Benedicta de la" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Linssen, Michael" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Neyer, Amata" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Neyer, Maria A." .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Neyer, Maria Amata" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Neyerov\u00E1, Amata" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Neyerov\u00E1, Maria A." .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Neyerov\u00E1, Maria Amata" .
@@ -3369,20 +3376,20 @@
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#hbzID> "HT017529028" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectChain> "Juan | de la Cruz" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "a Cruce (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Alvarez, Juan de Yepes <<y>> (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruce, Ioannis <<a>> (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruce, Joannis <<a>> (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruce, Johannes <<a>> (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Alvarez, Juan de Yepes y (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruce, Ioannis a (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruce, Joannis a (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruce, Johannes a (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruz, Ioannes (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruz, Juan <<de la>> (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Cruz, Juan de la (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "de la Croix (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "de la Cruz (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "DeLaCruz, San Juan (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "della Croce (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Della Croce, Giovanni (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Jean de la Croix (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "LaCruz, Juan <<de>> (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "La Cruz, Juan <<de>> (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "LaCruz, Juan de (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "La Cruz, Juan de (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "of the Cross (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Saint Jean de la Croix (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Sankt Johannes vom Kreuz (1542-1591)" .
@@ -3390,9 +3397,9 @@
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "vom Cre\u00FCtz (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "vom Creutz (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "vom Kreuz (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes Alvarez, Juan <<de>> (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes, Juan <<de>> (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes y Alvarez, Juan <<de>> (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes Alvarez, Juan de (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes, Juan de (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes y Alvarez, Juan de (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/ontology/bibo/edition> "4., durchges. und korr. Aufl." .
 <http://lobid.org/resource/HT017529028> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/12226861X> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/ontology/bibo/isbn> "9783451273889" .
@@ -3413,7 +3420,7 @@
 <http://lobid.org/resource/HT017529028> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017529028/about> .
 <http://lobid.org/resource/HT017529028> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT017529028> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/coverage> "D\u00FCsseldorf" .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "<<Der>> Gie\u00DFerjunge; 34 (2014),1, S. 14-15" .
+<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "Der Gie\u00DFerjunge; 34 (2014),1, S. 14-15" .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007072426> .
@@ -3501,7 +3508,7 @@
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#hbzID> "HT018312899" .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s768030> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s769030> .
-<http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectChain> "Grabbe, Christian Dietrich | <<Der>> Cid | Dramaturgie | Rezeption (231,321)" .
+<http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectChain> "Grabbe, Christian Dietrich | Der Cid | Dramaturgie | Rezeption (231,321)" .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectLabel> "Aneignung (Rezeption)" .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectLabel> "Fortwirken" .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectLabel> "Nachleben" .
@@ -3691,6 +3698,7 @@
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073972-7> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/title> "Bev\u00F6lkerungsdichte der Gemeinden 1871 - 1987 und Ver\u00E4nderung 1818 - 1987" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#contributorLabel> "Mayr, A." .
+<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#contributorLabel> "Mayr, Alois" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#hbzID> "TT001671747" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Geographische Kommission f\u00FCr Westfalen" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung" .
@@ -3788,7 +3796,6 @@
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/TT003059252> <http://purl.org/dc/terms/title> "The Beatles" .
 <http://lobid.org/resource/TT003059252> <http://purl.org/lobid/lv#hbzID> "TT003059252" .
-<http://lobid.org/resource/TT003059252> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "<<The>> Beatles" .
 <http://lobid.org/resource/TT003059252> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "The Beatles" .
 <http://lobid.org/resource/TT003059252> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT003059252:DE-5-58:9%2F041> .
 <http://lobid.org/resource/TT003059252> <http://rdvocab.info/Elements/otherTitleInformation> "Magical Mystery Tour" .
