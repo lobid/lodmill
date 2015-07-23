@@ -1039,7 +1039,7 @@
 		<data source="902[-a][-1].f" name="@medium">
 			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
 		</data>
-		<data source="902[-a][-1].f" name="@typeOnly">
+		<data source="9[01234][27][-a][-1].f" name="@typeOnly">
 			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
@@ -1248,7 +1248,7 @@
 		<combine name="log: 700n[-1].a AND 078n[-1].a" value="${id}">
 			<if>
 				<none>
-					<data source="078n[-1].a" /> <!-- 078n[-1].a"/> -->
+					<data source="078n[-1].a"/> <!-- 078n[-1].a"/> -->
 				</none>
 			</if>
 			<data source="700n[-1].a"/>
