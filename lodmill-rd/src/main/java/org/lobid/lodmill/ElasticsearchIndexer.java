@@ -193,7 +193,7 @@ public class ElasticsearchIndexer extends
 
 	private void getNewestIndex() {
 		String indexNameWithoutTimestamp = indexName.replaceAll("20.*", "");
-		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
+		final SortedSetMultimap<String, String> indices = groupByIndexCollection(indexName);
 		for (String prefix : indices.keySet()) {
 			final SortedSet<String> indicesForPrefix = indices.get(prefix);
 			final String newestIndex = indicesForPrefix.last();
@@ -230,7 +230,7 @@ public class ElasticsearchIndexer extends
 	}
 
 	private void updateAliases(final String name, final String suffix) {
-		final SortedSetMultimap<String, String> indices = groupByIndexCollection();
+		final SortedSetMultimap<String, String> indices = groupByIndexCollection(name);
 		for (String prefix : indices.keySet()) {
 			final SortedSet<String> indicesForPrefix = indices.get(prefix);
 			final String newIndex = indicesForPrefix.last();
@@ -243,12 +243,13 @@ public class ElasticsearchIndexer extends
 		}
 	}
 
-	private SortedSetMultimap<String, String> groupByIndexCollection() {
+	private SortedSetMultimap<String, String> groupByIndexCollection(final String name) {
 		final SortedSetMultimap<String, String> indices = TreeMultimap.create();
 		for (String index : client.admin().indices().prepareStats().execute()
 				.actionGet().getIndices().keySet()) {
 			final String[] nameAndTimestamp = index.split("-(?=\\d)");
-			indices.put(nameAndTimestamp[0], index);
+			if (name.startsWith(nameAndTimestamp[0])) 
+				indices.put(nameAndTimestamp[0], index);
 		}
 		return indices;
 	}
