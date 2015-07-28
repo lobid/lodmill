@@ -698,11 +698,31 @@
 			value="${itemId}"> <data source="@itemId" name="itemId"> <regexp match="(.*)" format="${1}"/> 
 			</data> </combine> -->
 		<!-- set subject uri of resource anew -->
-		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
-			<data source="@id" name="subject"/>
+		<!-- set subject uri of resource anew -->
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}">
+			<data source="@id" name="id"/>
 		</combine>
-		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
-			<data source="@id" name="subject"/>
+		<combine name="@aboutSubject" value="$[ns-lobid-resource]${id}/about">
+			<data source="@id" name="id"/>
+			<data source="002a1.a|003-1.a"/>
+		</combine>
+		<data source="@aboutSubject" name="~rdf:subject"/>
+		<combine name="http://purl.org/dc/terms/created" value="${a}">
+			<data source="002a1.a" name="a">
+				<regexp match="([0-9]{8})" format="${1}"/>
+			</data>
+		</combine>
+		<combine name="http://purl.org/dc/terms/modified" value="${a}">
+			<data source="003-1.a" name="a">
+				<regexp match="([0-9]{8})" format="${1}"/>
+			</data>
+		</combine>
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}">
+			<data source="@id" name="id"/>
+			<data source="002a1.a|003-1.a"/>
+		</combine>
+		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}">
+			<data source="@id" name="id"/>
 			<data source="@itemId"/>
 		</combine>
 		<data source="@itemId" name="http://purl.org/vocab/frbr/core#exemplar"/>
