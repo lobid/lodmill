@@ -46,9 +46,12 @@ public final class RdfModel2ElasticsearchJsonLd
 	private static String LOBID_ITEM_URI_PREFIX = "http://lobid.org/item/";
 	// the sub node we want to cling to the main node
 	private static final String KEEP_NODE_PREFIX = "http://d-nb.info/gnd";
+	private static final String KEEP_NODE_MAIN_PREFIX =
+			"http://lobid.org/resource";
 	private static String mainNodeId;
 	private static final String TYPE_ITEM = "json-ld-lobid-item";
 	private static final String TYPE_RESOURCE = "json-ld-lobid";
+	private static final JenaRDFParser parser = new JenaRDFParser();
 
 	@Override
 	public void process(final Model originModel) {
@@ -59,21 +62,39 @@ public final class RdfModel2ElasticsearchJsonLd
 		Model copyOfOriginalModel =
 				ModelFactory.createModelForGraph(originalModel.getGraph());
 		final ResIterator subjectsIterator = originalModel.listSubjects();
+		String ABOUT_JSON = "";
 		// iterate through all nodes
 		while (subjectsIterator.hasNext()) {
 			final Resource subjectResource = subjectsIterator.next();
-			// just extract sub nodes we don't want to keep in the main model
-			if (!subjectResource.getURI().startsWith(KEEP_NODE_PREFIX)) {
-				Model submodel = ModelFactory.createDefaultModel();
-				if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
-					toJson(submodel, subjectResource.getURI().toString());
-					// remove the newly created sub model from the main node
-					copyOfOriginalModel.remove(submodel);
+			Model submodel = ModelFactory.createDefaultModel();
+			if (subjectResource.getURI().endsWith("about")) {
+				shouldSubmodelBeExtracted(submodel, subjectResource);
+				try {
+					Object json =
+							JsonLdProcessor.fromRDF(submodel, new JsonLdOptions(), parser);
+					ABOUT_JSON = JSONUtils.toString(JsonLdProcessor.expand(json));
+					ABOUT_JSON = "," + ABOUT_JSON.substring(2, ABOUT_JSON.length() - 2);
+				} catch (JsonLdError e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
+			} else {
+				// just extract sub nodes we don't want to keep in the main model
+				if (!subjectResource.getURI().startsWith(KEEP_NODE_PREFIX)
+						&& !subjectResource.getURI().startsWith(KEEP_NODE_MAIN_PREFIX)) {
+					if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
+						toJson(submodel, subjectResource.getURI().toString(), "");
+					}
+				} else
+					mainNodeId = subjectResource.getURI().toString();
+			}
+			if (!submodel.isEmpty()) {
+				// remove the newly created sub model from the main node
+				copyOfOriginalModel.remove(submodel);
 			}
 		}
-		// the main node (with its kept sub node)
-		toJson(copyOfOriginalModel, mainNodeId);
+		// the main node (with its kept sub node) and an optional "about" metadata
+		toJson(copyOfOriginalModel, mainNodeId, ABOUT_JSON);
 	}
 
 	// A sub model mustn't be extracted if the resource is to be kept as a sub
@@ -86,10 +107,8 @@ public final class RdfModel2ElasticsearchJsonLd
 		while (stmtIt.hasNext()) {
 			Statement stmt = stmtIt.nextStatement();
 			// identifying the main node
-			if (stmt.getObject().toString().startsWith(KEEP_NODE_PREFIX)) {
-				mainNodeId = subjectResource.getURI().toString();
+			if (stmt.getObject().toString().startsWith(KEEP_NODE_PREFIX))
 				return false;
-			}
 			submodel.add(stmt);
 		}
 		return true;
@@ -103,23 +122,23 @@ public final class RdfModel2ElasticsearchJsonLd
 	 * @param model
 	 * @param id
 	 */
-	private void toJson(Model model, String id) {
+	private void toJson(Model model, String id, String aboutJson) {
 		if (model.isEmpty())
 			return;
-		final JenaRDFParser parser = new JenaRDFParser();
 		try {
 			Object json = JsonLdProcessor.fromRDF(model, new JsonLdOptions(), parser);
 			// the json document itself
 			json = JsonLdProcessor.expand(json);
 			getReceiver().process(addInternalProperties(new HashMap<String, String>(),
-					id, JSONUtils.toString(json)));
+					id, JSONUtils.toString(json), aboutJson));
 		} catch (JsonLdError e) {
 			e.printStackTrace();
 		}
 	}
 
 	private static HashMap<String, String> addInternalProperties(
-			HashMap<String, String> jsonMap, String id, String json) {
+			HashMap<String, String> jsonMap, String id, String json,
+			String aboutJson) {
 		String internal_parent = "";
 		String type = TYPE_RESOURCE;
 		if (id.startsWith(LOBID_ITEM_URI_PREFIX)) {
@@ -142,7 +161,7 @@ public final class RdfModel2ElasticsearchJsonLd
 		}
 		// wrap json into a "@graph" for elasticsearch (still valid JSON-LD)
 		String jsonDocument = "{\"@graph\":" + json + ",\"internal_id\":\"" + id
-				+ "\"" + internal_parent + "}";
+				+ "\"" + internal_parent + aboutJson + "}";
 		jsonMap.put(ElasticsearchIndexer.Properties.GRAPH.getName(), jsonDocument);
 		jsonMap.put(ElasticsearchIndexer.Properties.TYPE.getName(), type);
 		jsonMap.put(ElasticsearchIndexer.Properties.ID.getName(), id);
