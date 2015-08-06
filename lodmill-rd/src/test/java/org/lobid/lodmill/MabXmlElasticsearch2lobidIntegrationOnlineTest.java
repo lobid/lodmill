@@ -72,8 +72,8 @@ public final class MabXmlElasticsearch2lobidIntegrationOnlineTest {
 		xmlFilenameWriter.setStartIndex(2);
 		xmlFilenameWriter.setEndIndex(7);
 		xmlFilenameWriter.setTarget(TARGET_PATH + "/xml");
-		xmlFilenameWriter
-				.setProperty("/OAI-PMH/ListRecords/record/metadata/record/datafield[@tag='001']/subfield[@code='a']");
+		xmlFilenameWriter.setProperty(
+				"/OAI-PMH/ListRecords/record/metadata/record/datafield[@tag='001']/subfield[@code='a']");
 		xmlFilenameWriter.setCompression("bz2");
 		xmlFilenameWriter.setFileSuffix("");
 		xmlFilenameWriter.setEncoding("utf8");
@@ -94,9 +94,8 @@ public final class MabXmlElasticsearch2lobidIntegrationOnlineTest {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testFlux() throws URISyntaxException {
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("hbz01ES-to-lobid.flux").toURI());
+		File fluxFile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("hbz01ES-to-lobid.flux").toURI());
 		try {
 			Flux.main(new String[] { fluxFile.getAbsolutePath() });
 		} catch (Exception e) {

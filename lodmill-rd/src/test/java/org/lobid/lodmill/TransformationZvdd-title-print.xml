@@ -1,85 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2013 Fabian Steeg. Licensed under the Eclipse Public License -->
-<metamorph-test version="1.0"
-	xmlns="http://www.culturegraph.org/metamorph-test" xmlns:cgxml="http://www.culturegraph.org/cgxml">
+<metamorph-test version="1.0" xmlns="http://www.culturegraph.org/metamorph-test"
+	xmlns:cgxml="http://www.culturegraph.org/cgxml">
 	<test-case name="ZVDD Transformation">
 		<input type="text/x-cg+xml">
 			<cgxml:cgxml version="1.0">
 				<cgxml:records>
 					<cgxml:record id="1">
 						<cgxml:entity name="001">
-							<cgxml:literal name="" value="184000" />
+							<cgxml:literal name="" value="184000"/>
 						</cgxml:entity>
 						<cgxml:entity name="8564 ">
 							<cgxml:literal name="u"
-								value="http://digi.ub.uni-heidelberg.de/diglit/falke1873" />
+								value="http://digi.ub.uni-heidelberg.de/diglit/falke1873"/>
 						</cgxml:entity>
 						<cgxml:entity name="24500">
 							<cgxml:literal name="a"
-								value="Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873" />
+								value="Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873"/>
 						</cgxml:entity>
 						<cgxml:entity name="1001 ">
-							<cgxml:literal name="a" value="Falke, Jakob" />
+							<cgxml:literal name="a" value="Falke, Jakob"/>
 						</cgxml:entity>
 						<cgxml:entity name="260  ">
-							<cgxml:literal name="c"
-								value="07.04.1873[nach dem 07.04.1873]" />
+							<cgxml:literal name="c" value="07.04.1873[nach dem 07.04.1873]"/>
 						</cgxml:entity>
 						<cgxml:entity name="041  ">
-							<cgxml:literal name="a" value="ger lat |fre" />
+							<cgxml:literal name="a" value="ger lat |fre"/>
 						</cgxml:entity>
 						<cgxml:entity name="594  ">
-							<cgxml:literal name="a" value="Beitrag" />
+							<cgxml:literal name="a" value="Beitrag"/>
 						</cgxml:entity>
 						<cgxml:entity name="594  ">
-							<cgxml:literal name="a" value="title:article" />
+							<cgxml:literal name="a" value="title:article"/>
 						</cgxml:entity>
 						<cgxml:entity name="594  ">
-							<cgxml:literal name="a" value="title:monograph" />
+							<cgxml:literal name="a" value="title:monograph"/>
 						</cgxml:entity>
 						<cgxml:entity name="594  ">
-							<cgxml:literal name="a" value="title:serial" />
+							<cgxml:literal name="a" value="title:serial"/>
 						</cgxml:entity>
 					</cgxml:record>
 				</cgxml:records>
 			</cgxml:cgxml>
 		</input>
-		<transformation type="text/x-metamorph+xml" src="morph_zvdd-title-print2ld.xml" />
+		<transformation type="text/x-metamorph+xml" src="morph_zvdd-title-print2ld.xml"/>
 		<result type="text/x-cg+xml">
 			<cgxml:cgxml version="1.0">
 				<cgxml:records>
 					<cgxml:record id="1">
-						<cgxml:literal name="~rdf:subject" value="resource:P184000" />
-						<cgxml:literal name="http://purl.org/dc/terms/hasFormat"
-							value="resource:D184000" />
+						<cgxml:literal name="~rdf:subject" value="resource:P184000"/>
+						<cgxml:literal name="http://purl.org/dc/terms/hasFormat" value="resource:D184000"/>
 						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-							value="http://purl.org/dc/terms/BibliographicResource" />
+							value="http://purl.org/dc/terms/BibliographicResource"/>
 						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-							value="http://purl.org/vocab/frbr/core#Manifestation" />
+							value="http://purl.org/vocab/frbr/core#Manifestation"/>
 						<cgxml:literal name="http://www.w3.org/2004/02/skos/core#Concept"
-							value="http://iflastandards.info/ns/isbd/terms/mediatype/T1010" />
+							value="http://iflastandards.info/ns/isbd/terms/mediatype/T1010"/>
 						<cgxml:literal name="http://lobid.org/vocab/lobid#fulltextOnline"
-							value="http://digi.ub.uni-heidelberg.de/diglit/falke1873" />
+							value="http://digi.ub.uni-heidelberg.de/diglit/falke1873"/>
 						<cgxml:literal name="http://purl.org/dc/terms/title"
-							value="Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873" />
-						<cgxml:literal name="http://purl.org/dc/elements/1.1/creator"
-							value="Falke, Jakob" />
-						<cgxml:literal name="http://purl.org/dc/terms/medium/issued"
-							value="1873" />
-						<cgxml:literal name="http://purl.org/dc/terms/language"
-							value="http://id.loc.gov/vocabulary/iso639-2/ger" />
-						<cgxml:literal name="http://purl.org/dc/terms/language"
-							value="http://id.loc.gov/vocabulary/iso639-2/lat" />
-						<cgxml:literal name="http://purl.org/dc/terms/language"
-							value="http://id.loc.gov/vocabulary/iso639-2/fre" />
+							value="Kunst und Kunstgewerbe auf der Wiener Weltausstellung 1873"/>
+						<cgxml:literal name="http://purl.org/dc/elements/1.1/creator" value="Falke, Jakob"/>
+						<cgxml:literal name="http://purl.org/dc/terms/medium/issued" value="1873"/>
+						<cgxml:literal name="http://purl.org/dc/terms/language" value="http://id.loc.gov/vocabulary/iso639-2/ger"/>
+						<cgxml:literal name="http://purl.org/dc/terms/language" value="http://id.loc.gov/vocabulary/iso639-2/lat"/>
+						<cgxml:literal name="http://purl.org/dc/terms/language" value="http://id.loc.gov/vocabulary/iso639-2/fre"/>
 						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-							value="http://purl.org/ontology/bibo/Article" />
+							value="http://purl.org/ontology/bibo/Article"/>
 						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-							value="http://purl.org/ontology/bibo/Article" />
+							value="http://purl.org/ontology/bibo/Article"/>
 						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-							value="http://purl.org/ontology/bibo/Book" />
+							value="http://purl.org/ontology/bibo/Book"/>
 						<cgxml:literal name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-							value="http://purl.org/ontology/bibo/Series" />
+							value="http://purl.org/ontology/bibo/Series"/>
 					</cgxml:record>
 				</cgxml:records>
 			</cgxml:cgxml>

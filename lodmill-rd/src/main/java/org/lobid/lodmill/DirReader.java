@@ -18,8 +18,8 @@ import org.slf4j.LoggerFactory;
 @In(String.class)
 @Out(String.class)
 @Description("Reads a directory and emits all filenames found.")
-public final class DirReader extends
-		DefaultObjectPipe<String, ObjectReceiver<String>> {
+public final class DirReader
+		extends DefaultObjectPipe<String, ObjectReceiver<String>> {
 
 	private boolean recursive;
 
@@ -43,8 +43,8 @@ public final class DirReader extends
 			try {
 				getReceiver().process(dir);
 			} catch (MetafactureException e) {
-				LoggerFactory.getLogger(DirReader.class).error(
-						"Problems with file '" + file + "'", e);
+				LoggerFactory.getLogger(DirReader.class)
+						.error("Problems with file '" + file + "'", e);
 				getReceiver().resetStream();
 			}
 		}

@@ -78,11 +78,11 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private enum VcardNs {
 		LOCALITY("http://www.w3.org/2006/vcard/ns#locality"), COUNTRY_NAME(
 				"http://www.w3.org/2006/vcard/ns#country-name"), STREET_ADDRESS(
-				"http://www.w3.org/2006/vcard/ns#street-address"), POSTAL_CODE(
-				"http://www.w3.org/2006/vcard/ns#postal-code"), EMAIL(
-				"http://www.w3.org/2006/vcard/ns#email"), VOICE(
-				"http://www.w3.org/2006/vcard/ns#Voice"), HOMEPAGE(
-				"http://www.w3.org/2006/vcard/ns#url");
+						"http://www.w3.org/2006/vcard/ns#street-address"), POSTAL_CODE(
+								"http://www.w3.org/2006/vcard/ns#postal-code"), EMAIL(
+										"http://www.w3.org/2006/vcard/ns#email"), VOICE(
+												"http://www.w3.org/2006/vcard/ns#Voice"), HOMEPAGE(
+														"http://www.w3.org/2006/vcard/ns#url");
 		String uri;
 
 		VcardNs(String uri) {
@@ -126,8 +126,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private static final int URL_CONNECTION_TIMEOUT = 10000; // 10 secs
 	private BufferedReader osmApiLookupResult;
 	private boolean latLonChanged;
-	private static final Logger LOG = LoggerFactory
-			.getLogger(PipeLobidOrganisationEnrichment.class);
+	private static final Logger LOG =
+			LoggerFactory.getLogger(PipeLobidOrganisationEnrichment.class);
 	private static final QREncoder QRENCODER = new QREncoder();
 	private String qrFilePath = "tmp/";
 	private static final String LV_CONTACTQR =
@@ -258,9 +258,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		ExtendedIterator<Triple> triples;
 		triples = graph.find(Node.ANY, Node.ANY, nodeObject);
 		if (triples.hasNext()) {
-			triples =
-					graph.find(triples.next().getSubject(),
-							NodeFactory.createURI(RDF_SYNTAX_NS_VALUE), Node.ANY);
+			triples = graph.find(triples.next().getSubject(),
+					NodeFactory.createURI(RDF_SYNTAX_NS_VALUE), Node.ANY);
 			if (triples.hasNext()) {
 				ret = triples.next().getObject().getLiteralLexicalForm();
 			}
@@ -276,8 +275,7 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			String isil = (new URI(super.subject)).getPath().replaceAll("/.*/", "");
 			QRENCODER.createQRImage(qrFilePath + isil, qrCodeText,
 					(int) (java.lang.Math.sqrt(qrCodeText.length() * 10) + 20) * 2);
-			this.model.add(
-					this.model.createResource(super.subject),
+			this.model.add(this.model.createResource(super.subject),
 					this.model.createProperty(LV_CONTACTQR),
 					this.model.asRDFNode(NodeFactory.createURI(QR_URI_PATH + isil
 							+ QREncoder.FILE_SUFFIX + "." + QREncoder.FILE_TYPE)));
@@ -292,9 +290,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 
 	private String createQrCodeText() {
 		final String name = getFirstLiteralOfProperty(FOAF_NAME);
-		String qrCodeText =
-				"MECARD:N:" + name + ";" + "ADR:" + this.street + "," + this.locality
-						+ "," + this.postalcode;
+		String qrCodeText = "MECARD:N:" + name + ";" + "ADR:" + this.street + ","
+				+ this.locality + "," + this.postalcode;
 		Resource email = getFirstResourceOfProperty(VcardNs.EMAIL.uri);
 		if (email != null)
 			qrCodeText =
@@ -316,8 +313,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		}
 		if (ret == null) {
 			LOG.warn(String.format(
-					"Could not find geoname entry for value '%s' for subject '%s'",
-					value, super.subject));
+					"Could not find geoname entry for value '%s' for subject '%s'", value,
+					super.subject));
 		}
 		return ret;
 	}
@@ -379,9 +376,8 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			// Having also the postcode we will not encounter ambigous cities
 			try {
 				this.locality =
-						URIUtil.encodeQuery((URIUtil
-								.decode(firstLiteralOfProperty, "UTF-8").replaceAll(
-								"(.*)\\p{Punct}.*", "$1")), "UTF-8");
+						URIUtil.encodeQuery((URIUtil.decode(firstLiteralOfProperty, "UTF-8")
+								.replaceAll("(.*)\\p{Punct}.*", "$1")), "UTF-8");
 			} catch (URIException e1) {
 				this.locality = firstLiteralOfProperty;
 				e1.printStackTrace();
@@ -419,14 +415,12 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 				&& this.postalcode != null) {
 			String osmSearchType = getOsmApiSearchType();
 			if (osmSearchType != null) {
-				this.urlOsmLookupSearchParameters[0] =
-						String.format(osmSearchType + "+%s+%s", this.postalcode,
-								this.locality);
+				this.urlOsmLookupSearchParameters[0] = String
+						.format(osmSearchType + "+%s+%s", this.postalcode, this.locality);
 			}
 			if (this.street != null) {
-				this.urlOsmLookupSearchParameters[1] =
-						String.format("%s/%s/%s/%s", this.countryName, this.locality,
-								this.postalcode, this.street);
+				this.urlOsmLookupSearchParameters[1] = String.format("%s/%s/%s/%s",
+						this.countryName, this.locality, this.postalcode, this.street);
 				ret = true;
 			}
 		} else {
@@ -460,10 +454,9 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 	private boolean makeUrlAndLookupIfCached() {
 		boolean ret = false;
 		try {
-			osmUrl[0] =
-					new URL(OSM_API_BASE_URL + ".php?q="
-							+ this.urlOsmLookupSearchParameters[0] + "&"
-							+ OSM_LOOKUP_FORMAT_PARAMETER);
+			osmUrl[0] = new URL(
+					OSM_API_BASE_URL + ".php?q=" + this.urlOsmLookupSearchParameters[0]
+							+ "&" + OSM_LOOKUP_FORMAT_PARAMETER);
 			osmUrl[1] =
 					new URL(OSM_API_BASE_URL + "/" + this.urlOsmLookupSearchParameters[1]
 							+ "?" + OSM_LOOKUP_FORMAT_PARAMETER);
@@ -513,11 +506,13 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 				} catch (Exception e3) {
 					try {
 						// "Albertus-Magnus-Pl. 23 (Zimmer 2)" => "Albertus-Magnus-Pl. 23"
-						sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon("(.*?\\d+){1}?.*");
+						sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon(
+								"(.*?\\d+){1}?.*");
 					} catch (Exception e1) {
 						try {
 							// "Albertus-Magnus-Pl. 23 (Zimmer 2)" => "Albertus-Magnus-Pl."
-							sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon("(.*?){1}\\ .*");
+							sanitizeStreetnameAndRetrieveOsmApiResultAndStoreLatLon(
+									"(.*?){1}\\ .*");
 						} catch (Exception e2) {
 							// failed definetly
 							LOG.warn("Failed to generate geo location for " + super.subject
@@ -534,10 +529,9 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 			String regex) throws Exception {
 		String tmp = "";
 		try {
-			tmp =
-					URIUtil.encodeQuery(
-							(URIUtil.decode(this.street, "UTF-8").replaceAll(regex, "$1")),
-							"UTF-8");
+			tmp = URIUtil.encodeQuery(
+					(URIUtil.decode(this.street, "UTF-8").replaceAll(regex, "$1")),
+					"UTF-8");
 		} catch (URIException e2) {
 			e2.printStackTrace();
 		}
@@ -587,12 +581,13 @@ public class PipeLobidOrganisationEnrichment extends PipeEncodeTriples {
 		this.latLonChanged = true;
 	}
 
-	private static BufferedReader getUrlContent(final URL url) throws IOException {
+	private static BufferedReader getUrlContent(final URL url)
+			throws IOException {
 		URLConnection urlConnection = url.openConnection();
 		urlConnection.setConnectTimeout(URL_CONNECTION_TIMEOUT);
 		LOG.debug("Lookup url:" + url);
-		return new BufferedReader(new InputStreamReader(
-				urlConnection.getInputStream()));
+		return new BufferedReader(
+				new InputStreamReader(urlConnection.getInputStream()));
 	}
 
 	private String getFirstLiteralOfProperty(String ns) {

@@ -25,8 +25,8 @@ import org.xml.sax.SAXParseException;
 @Description("Sends an object to more than one receiver.")
 @In(XmlReceiver.class)
 @Out(XmlReceiver.class)
-public final class XmlTee extends DefaultTee<XmlReceiver> implements
-		XmlPipe<XmlReceiver> {
+public final class XmlTee extends DefaultTee<XmlReceiver>
+		implements XmlPipe<XmlReceiver> {
 
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
@@ -95,7 +95,8 @@ public final class XmlTee extends DefaultTee<XmlReceiver> implements
 	}
 
 	@Override
-	public void startPrefixMapping(String prefix, String uri) throws SAXException {
+	public void startPrefixMapping(String prefix, String uri)
+			throws SAXException {
 		for (XmlReceiver receiver : getReceivers()) {
 			receiver.startPrefixMapping(prefix, uri);
 		}

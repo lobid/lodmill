@@ -30,8 +30,8 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 		+ "rdf predicates and rdf objects are decoded as literals (as key-value pairs).")
 @In(String.class)
 @Out(StreamReceiver.class)
-public final class NTripleDecoder extends
-		DefaultObjectPipe<String, StreamReceiver> {
+public final class NTripleDecoder
+		extends DefaultObjectPipe<String, StreamReceiver> {
 	private int count = 0;
 
 	@Override

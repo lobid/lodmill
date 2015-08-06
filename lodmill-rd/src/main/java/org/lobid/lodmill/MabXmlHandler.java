@@ -47,10 +47,8 @@ public final class MabXmlHandler extends DefaultXmlPipe<StreamReceiver> {
 			builder = new StringBuilder();
 			currentTag = attributes.getValue(SUBFIELD_ATTRIBUTE);
 		} else if (DATAFIELD.equals(localName)) {
-			getReceiver().startEntity(
-					attributes.getValue(DATAFIELD_ATTRIBUTE)
-							+ attributes.getValue(INDICATOR1)
-							+ attributes.getValue(INDICATOR2));
+			getReceiver().startEntity(attributes.getValue(DATAFIELD_ATTRIBUTE)
+					+ attributes.getValue(INDICATOR1) + attributes.getValue(INDICATOR2));
 		} else if (RECORD.equals(localName)) {
 			getReceiver().startRecord("");
 		} else if (LEADER.equals(localName)) {

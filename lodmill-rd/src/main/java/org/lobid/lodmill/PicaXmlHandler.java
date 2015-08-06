@@ -42,8 +42,8 @@ public final class PicaXmlHandler extends DefaultXmlPipe<StreamReceiver> {
 			builder = new StringBuilder();
 			currentTag = attributes.getValue("id");
 		} else if (DATAFIELD.equals(localName)) {
-			getReceiver().startEntity(
-					attributes.getValue("id") + attributes.getValue("occ"));
+			getReceiver()
+					.startEntity(attributes.getValue("id") + attributes.getValue("occ"));
 		} else if (RECORD.equals(localName) && NAMESPACE.equals(uri)) {
 			getReceiver().startRecord("");
 		} else if (LEADER.equals(localName)) {

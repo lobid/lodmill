@@ -22,8 +22,8 @@ import com.google.common.io.CharStreams;
 @Description("Reads all content of Reader to one single string.")
 @In(Reader.class)
 @Out(String.class)
-public class StreamToStringReader extends
-		DefaultObjectPipe<Reader, ObjectReceiver<String>> {
+public class StreamToStringReader
+		extends DefaultObjectPipe<Reader, ObjectReceiver<String>> {
 
 	@Override
 	public void process(final Reader reader) {

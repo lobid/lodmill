@@ -38,17 +38,16 @@ import org.xml.sax.InputSource;
  * @author Pascal Christoph
  */
 @Description("Writes the xml into the filesystem. The filename is constructed from the xpath given as 'property'.\n"
-		+ " Variables are\n"
-		+ "- 'target' (determining the output directory)\n"
+		+ " Variables are\n" + "- 'target' (determining the output directory)\n"
 		+ "- 'property' (the element in the XML entity. Constitutes the main part of the file's name.)\n"
 		+ "- 'startIndex' ( a subfolder will be extracted out of the filename. This marks the index' beginning )\n"
 		+ "- 'stopIndex' ( a subfolder will be extracted out of the filename. This marks the index' end )\n")
 @In(StreamReceiver.class)
 @Out(Void.class)
 public final class XmlFilenameWriter extends
-		DefaultStreamPipe<ObjectReceiver<String>> implements FilenameExtractor {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(XmlFilenameWriter.class);
+		DefaultStreamPipe<ObjectReceiver<String>>implements FilenameExtractor {
+	private static final Logger LOG =
+			LoggerFactory.getLogger(XmlFilenameWriter.class);
 	private static final XPath xPath = XPathFactory.newInstance().newXPath();
 
 	private FilenameUtil filenameUtil = new FilenameUtil();
@@ -74,9 +73,8 @@ public final class XmlFilenameWriter extends
 	public void literal(final String str, String xml) {
 		String identifier = null;
 		try {
-			identifier =
-					xPath.evaluate(filenameUtil.property, new InputSource(
-							new StringReader(xml)));
+			identifier = xPath.evaluate(filenameUtil.property,
+					new InputSource(new StringReader(xml)));
 		} catch (XPathExpressionException e2) {
 			e2.printStackTrace();
 		}
@@ -91,24 +89,20 @@ public final class XmlFilenameWriter extends
 					directory.substring(filenameUtil.startIndex, filenameUtil.endIndex);
 		}
 		final String file =
-				FilenameUtils.concat(
-						filenameUtil.target,
-						FilenameUtils.concat(directory + File.separator, identifier
-								+ filenameUtil.fileSuffix));
+				FilenameUtils.concat(filenameUtil.target, FilenameUtils.concat(
+						directory + File.separator, identifier + filenameUtil.fileSuffix));
 		filenameUtil.ensurePathExists(file);
 		try {
 			if (this.compression == null) {
-				final Writer writer =
-						new OutputStreamWriter(new FileOutputStream(file),
-								filenameUtil.encoding);
+				final Writer writer = new OutputStreamWriter(new FileOutputStream(file),
+						filenameUtil.encoding);
 				IOUtils.write(xml, writer);
 				writer.close();
 			} else {
 				if (this.compression.equals("bz2")) {
 					final OutputStream out = new FileOutputStream(file + ".bz2");
-					CompressorOutputStream cos =
-							new CompressorStreamFactory().createCompressorOutputStream(
-									CompressorStreamFactory.BZIP2, out);
+					CompressorOutputStream cos = new CompressorStreamFactory()
+							.createCompressorOutputStream(CompressorStreamFactory.BZIP2, out);
 					IOUtils.copy(new StringReader(xml), cos);
 					cos.close();
 					out.close();

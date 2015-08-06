@@ -42,14 +42,14 @@ public final class UrnAsUriTest {
 		xmlDecoder.setReceiver(handler).setReceiver(morph);
 		morph.setReceiver(encoder);
 		opener.setReceiver(xmlDecoder);
-		opener.process(new File("src/test/resources/CT003012479.bz2")
-				.getAbsolutePath());
+		opener.process(
+				new File("src/test/resources/CT003012479.bz2").getAbsolutePath());
 		opener.closeStream();
 		final File testFile =
 				new File(TARGET_PATH + TARGET_SUBPATH + "00301/" + TEST_FILENAME);
-		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
-				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
-				.toURI()));
+		AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource(TEST_FILENAME).toURI()));
 	}
 
 	private static RdfModelFileWriter createModelWriter() {

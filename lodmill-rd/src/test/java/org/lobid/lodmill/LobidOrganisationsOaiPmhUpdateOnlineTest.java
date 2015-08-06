@@ -69,11 +69,10 @@ public class LobidOrganisationsOaiPmhUpdateOnlineTest {
 	}
 
 	@Test
-	public void testFluxOaipmh() throws IOException, URISyntaxException,
-			RecognitionException {
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("oaipmh-zdbIsil2ld.flux").toURI());
+	public void testFluxOaipmh()
+			throws IOException, URISyntaxException, RecognitionException {
+		File fluxFile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("oaipmh-zdbIsil2ld.flux").toURI());
 		Flux.main(new String[] { fluxFile.getAbsolutePath() });
 	}
 }

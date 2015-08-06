@@ -19,8 +19,8 @@ import org.culturegraph.mf.framework.annotations.Out;
 @Description("Superclass for graph-based pipe encoders")
 @In(StreamReceiver.class)
 @Out(String.class)
-public abstract class AbstractGraphPipeEncoder extends
-		DefaultStreamPipe<ObjectReceiver<String>> {
+public abstract class AbstractGraphPipeEncoder
+		extends DefaultStreamPipe<ObjectReceiver<String>> {
 
 	static final String SUBJECT_NAME = "~rdf:subject";
 	String subject;

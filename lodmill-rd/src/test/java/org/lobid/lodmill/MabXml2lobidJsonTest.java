@@ -29,9 +29,9 @@ public final class MabXml2lobidJsonTest {
 	public void testFlow() throws URISyntaxException {
 		buildAndExecuteFlow();
 		File testFile = new File(TEST_FILENAME);
-		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
-				.currentThread().getContextClassLoader().getResource(TEST_FILENAME)
-				.toURI()));
+		AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource(TEST_FILENAME).toURI()));
 		testFile.deleteOnExit();
 	}
 
@@ -42,19 +42,15 @@ public final class MabXml2lobidJsonTest {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		// @TODO test elasticsearch indexing runner with mock up
-		opener
-				.setReceiver(new TarReader())
-				.setReceiver(new XmlDecoder())
+		opener.setReceiver(new TarReader()).setReceiver(new XmlDecoder())
 				.setReceiver(new MabXmlHandler())
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))
-				.setReceiver(new PipeEncodeTriples())
-				.setReceiver(triple2model)
-				.setReceiver(new RdfModel2ElasticsearchJsonLd())
-				.setReceiver(
+				.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
+				.setReceiver(new RdfModel2ElasticsearchJsonLd()).setReceiver(
 						new ObjectFileWriter<HashMap<String, String>>(TEST_FILENAME));
-		opener.process(new File("src/test/resources/hbz01XmlClobs.tar.bz2")
-				.getAbsolutePath());
+		opener.process(
+				new File("src/test/resources/hbz01XmlClobs.tar.bz2").getAbsolutePath());
 		opener.closeStream();
 
 	}

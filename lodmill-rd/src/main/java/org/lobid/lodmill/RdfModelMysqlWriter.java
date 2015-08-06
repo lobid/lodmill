@@ -33,14 +33,8 @@ import com.hp.hpl.jena.rdf.model.Model;
  */
 @Description("Writes the object value of an RDF model into MySQL. Default serialization is 'NTRIPLES'. The name of the entry is "
 		+ "constructed from the literal of an given property (recommended properties are identifier).\n"
-		+ " Mandatory variable are:\n"
-		+ "- username\n"
-		+ "- password\n"
-		+ "- dbname\n"
-		+ "- tablename\n"
-		+ "- columnId\n"
-		+ "- columnData\n"
-		+ "\n"
+		+ " Mandatory variable are:\n" + "- username\n" + "- password\n"
+		+ "- dbname\n" + "- tablename\n" + "- columnId\n" + "- columnData\n" + "\n"
 		+ " Optional variables are:\n"
 		+ "- 'property' (a property in the RDF model. The object value of this property"
 		+ " will be the DB's entry name.) \n"
@@ -48,10 +42,10 @@ import com.hp.hpl.jena.rdf.model.Model;
 		+ "- dbProtocolAndAdress\n")
 @In(Model.class)
 @Out(Void.class)
-public final class RdfModelMysqlWriter extends DefaultStreamReceiver implements
-		RecordIdentifier, RDFSink, ObjectReceiver<Model> {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(RdfModelMysqlWriter.class);
+public final class RdfModelMysqlWriter extends DefaultStreamReceiver
+		implements RecordIdentifier, RDFSink, ObjectReceiver<Model> {
+	private static final Logger LOG =
+			LoggerFactory.getLogger(RdfModelMysqlWriter.class);
 
 	private Lang serialization;
 	private String nameProperty;
@@ -82,9 +76,8 @@ public final class RdfModelMysqlWriter extends DefaultStreamReceiver implements
 			connectMysqlDB();
 			try {
 				// the "REPLACE" is no standard ANSI SQL, only works with MySQL
-				this.ps =
-						conn.prepareStatement("REPLACE INTO " + this.tablename + "("
-								+ this.columnId + "," + this.columnData + ") VALUES  (?,?)");
+				this.ps = conn.prepareStatement("REPLACE INTO " + this.tablename + "("
+						+ this.columnId + "," + this.columnData + ") VALUES  (?,?)");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -161,19 +154,19 @@ public final class RdfModelMysqlWriter extends DefaultStreamReceiver implements
 		String identifier = null;
 		try {
 			identifier =
-					model.listObjectsOfProperty(model.createProperty(nameProperty))
-							.next().asLiteral().toString();
+					model.listObjectsOfProperty(model.createProperty(nameProperty)).next()
+							.asLiteral().toString();
 			LOG.debug("Going to store identifier=" + identifier);
 		} catch (NoSuchElementException e) {
-			LOG.warn("No identifier => cannot derive a filename for "
-					+ model.toString());
+			LOG.warn(
+					"No identifier => cannot derive a filename for " + model.toString());
 			return;
 		} catch (LiteralRequiredException e) {
 			LOG.info("Identifier is a URI. Derive filename from that URI ... "
 					+ model.toString(), e);
 			identifier =
-					model.listObjectsOfProperty(model.createProperty(nameProperty))
-							.next().toString();
+					model.listObjectsOfProperty(model.createProperty(nameProperty)).next()
+							.toString();
 		}
 		if (identifier != null) {
 			final StringWriter tripleWriter = new StringWriter();
@@ -194,18 +187,16 @@ public final class RdfModelMysqlWriter extends DefaultStreamReceiver implements
 
 	private void connectMysqlDB() {
 		try {
-			conn =
-					DriverManager.getConnection(this.dbProtocolAndAdress, this.username,
-							this.password);
+			conn = DriverManager.getConnection(this.dbProtocolAndAdress,
+					this.username, this.password);
 			stmt = conn.createStatement();
 			stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + this.dbname);
-			conn =
-					DriverManager.getConnection(this.dbProtocolAndAdress + this.dbname
-							+ "?" + "user=" + this.username + "&password=" + this.password);
+			conn = DriverManager.getConnection(this.dbProtocolAndAdress + this.dbname
+					+ "?" + "user=" + this.username + "&password=" + this.password);
 			stmt = conn.createStatement();
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS " + this.tablename + " ( "
-					+ this.columnId + " VARCHAR(20), PRIMARY KEY (" + this.columnId
-					+ ")," + this.columnData + " MEDIUMTEXT) ENGINE = MyISAM");
+					+ this.columnId + " VARCHAR(20), PRIMARY KEY (" + this.columnId + "),"
+					+ this.columnData + " MEDIUMTEXT) ENGINE = MyISAM");
 			if (stmt != null) {
 				try {
 					stmt.close();
