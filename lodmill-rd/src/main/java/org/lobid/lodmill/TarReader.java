@@ -26,15 +26,16 @@ import org.culturegraph.mf.framework.annotations.Out;
 @Description("Opens a tar archive and passes every entry.")
 @In(Reader.class)
 @Out(Reader.class)
-public class TarReader extends
-		DefaultObjectPipe<Reader, ObjectReceiver<Reader>> {
+public class TarReader
+		extends DefaultObjectPipe<Reader, ObjectReceiver<Reader>> {
 	@Override
 	public void process(final Reader reader) {
 		TarArchiveInputStream tarInputStream = null;
 		try {
 			tarInputStream = new TarArchiveInputStream(new ReaderInputStream(reader));
 			TarArchiveEntry entry = null;
-			while ((entry = (TarArchiveEntry) tarInputStream.getNextEntry()) != null) {
+			while ((entry =
+					(TarArchiveEntry) tarInputStream.getNextEntry()) != null) {
 				if (!entry.isDirectory()) {
 					byte[] buffer = new byte[(int) entry.getSize()];
 					while ((tarInputStream.read(buffer)) > 0) {

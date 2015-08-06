@@ -37,12 +37,12 @@ import com.hp.hpl.jena.vocabulary.ReasonerVocabulary;
 		+ "Default is 'TURTLE'.")
 @In(String.class)
 @Out(Model.class)
-public class Triples2RdfModel extends
-		DefaultObjectPipe<String, ObjectReceiver<Model>> {
+public class Triples2RdfModel
+		extends DefaultObjectPipe<String, ObjectReceiver<Model>> {
 	private int count = 0;
 	private String serialization = "TURTLE";
-	private static final Logger LOG = LoggerFactory
-			.getLogger(Triples2RdfModel.class);
+	private static final Logger LOG =
+			LoggerFactory.getLogger(Triples2RdfModel.class);
 	Reasoner boundReasoner;
 	Property propertyIdentifyingTheNodeForInferencing;
 	boolean inferencing;
@@ -101,14 +101,10 @@ public class Triples2RdfModel extends
 
 	private void reasoning(Model model) {
 		ExtendedIterator<Triple> it =
-				ModelFactory
-						.createInfModel(boundReasoner, model)
-						.getGraph()
-						.find(
-								model
-										.listSubjectsWithProperty(
-												propertyIdentifyingTheNodeForInferencing).next()
-										.asNode(), null, null);
+				ModelFactory.createInfModel(boundReasoner, model).getGraph().find(
+						model.listSubjectsWithProperty(
+								propertyIdentifyingTheNodeForInferencing).next().asNode(),
+						null, null);
 		Model model1 = ModelFactory.createDefaultModel();
 		while (it.hasNext()) {
 			Triple triple = it.next().asTriple();

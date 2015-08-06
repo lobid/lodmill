@@ -61,8 +61,7 @@ public abstract class AbstractIngestTests {
 	 * @param generatedFileName The to be generated file name .
 	 * @param dsp A DefaultStreampipe
 	 */
-	public void triples(final String testFileName,
-			final String generatedFileName,
+	public void triples(final String testFileName, final String generatedFileName,
 			final DefaultStreamPipe<ObjectReceiver<String>> dsp) {
 		setUpErrorHandler(metamorph);
 		final File generatedFile = new File(generatedFileName);
@@ -90,9 +89,9 @@ public abstract class AbstractIngestTests {
 	}
 
 	/**
-	 * Tests if two files are of equal content. As BNodes are not fix they are
-	 * not comparable and thus they are defaulted to "_:bnodeDummy" to make the
-	 * files comparable anyhow.
+	 * Tests if two files are of equal content. As BNodes are not fix they are not
+	 * comparable and thus they are defaulted to "_:bnodeDummy" to make the files
+	 * comparable anyhow.
 	 * 
 	 * @param generatedFile the actually generated file
 	 * @param testFile the file which defines how the generatedFile should look

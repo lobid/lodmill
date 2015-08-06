@@ -89,7 +89,8 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	}
 
 	@Override
-	public void startPrefixMapping(String prefix, String uri) throws SAXException {
+	public void startPrefixMapping(String prefix, String uri)
+			throws SAXException {
 		super.startPrefixMapping(prefix, uri);
 		if (root != null & !prefix.isEmpty() && uri != null) {
 			namespaces.add(" xmlns:" + prefix + "=\"" + uri + "\"");
@@ -157,8 +158,8 @@ public final class XmlEntitySplitter extends DefaultXmlPipe<StreamReceiver> {
 	public void characters(final char[] chars, final int start, final int length)
 			throws SAXException {
 		try {
-			builder.append(StringEscapeUtils.escapeXml(new String(chars, start,
-					length)));
+			builder.append(
+					StringEscapeUtils.escapeXml(new String(chars, start, length)));
 		} catch (Exception e) {
 			reset();
 		}

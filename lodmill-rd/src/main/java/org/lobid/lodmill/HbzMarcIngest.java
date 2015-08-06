@@ -30,12 +30,12 @@ import org.slf4j.LoggerFactory;
  */
 public final class HbzMarcIngest {
 
-	private static final Logger LOG = LoggerFactory
-			.getLogger(HbzMarcIngest.class);
+	private static final Logger LOG =
+			LoggerFactory.getLogger(HbzMarcIngest.class);
 	private static final String HBZ_MARC = "../../hbz.cg.20120725.mrc";
 	private static final String REPORT_RAW = HBZ_MARC + "-report-raw.txt";
-	private static final String REPORT_PROCESSED = HBZ_MARC
-			+ "-report-processed.txt";
+	private static final String REPORT_PROCESSED =
+			HBZ_MARC + "-report-processed.txt";
 	private final Reader reader = new MarcXmlReader();
 	private final Metamorph metamorph = new Metamorph(Thread.currentThread()
 			.getContextClassLoader().getResourceAsStream("ingest.marc21.xml"));
@@ -55,9 +55,8 @@ public final class HbzMarcIngest {
 				@Override
 				public void error(final Exception exception) {
 					final String name = exception.getClass().getSimpleName();
-					final String errorMessage =
-							String.format("Metamorph error (%s): %s", name,
-									exception.getMessage());
+					final String errorMessage = String.format("Metamorph error (%s): %s",
+							name, exception.getMessage());
 					processError(rawReportWriter, name, errorMessage);
 				}
 			});
@@ -87,8 +86,8 @@ public final class HbzMarcIngest {
 		} finally {
 			rawReportWriter.close();
 		}
-		Assert.assertTrue("Processed report file should exist", new File(
-				REPORT_PROCESSED).exists());
+		Assert.assertTrue("Processed report file should exist",
+				new File(REPORT_PROCESSED).exists());
 	}
 
 	private void writeProcessedReport(final BufferedReader scanner, final int all)
@@ -106,8 +105,8 @@ public final class HbzMarcIngest {
 			processedReportWriter.write(summary + "\n");
 			for (String s : errorMap.keySet()) {
 				System.out.println(String.format("%s: %s", s, errorMap.get(s)));
-				processedReportWriter.write(String.format("%s: %s\n", s,
-						errorMap.get(s)));
+				processedReportWriter
+						.write(String.format("%s: %s\n", s, errorMap.get(s)));
 			}
 			scanner.close();
 			for (String string : errorSet) {

@@ -17,17 +17,15 @@ import org.junit.Test;
 public class DippQdcToLobidTest {
 
 	@Test
-	public void testFlux() throws IOException, URISyntaxException,
-			RecognitionException {
+	public void testFlux()
+			throws IOException, URISyntaxException, RecognitionException {
 		String subject = "test:123";
 		File outfile = File.createTempFile("lobid", "rdf");
 		outfile.deleteOnExit();
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("dipp-qdc-to-lobid.flux").toURI());
-		File infile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("QDC.xml").toURI());
+		File fluxFile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("dipp-qdc-to-lobid.flux").toURI());
+		File infile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("QDC.xml").toURI());
 		Flux.main(new String[] { fluxFile.getAbsolutePath(),
 				"in=" + infile.getAbsolutePath(), "out=" + outfile.getAbsolutePath(),
 				"subject=" + subject });

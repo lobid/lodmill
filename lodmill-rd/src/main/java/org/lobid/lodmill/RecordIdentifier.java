@@ -1,7 +1,8 @@
 package org.lobid.lodmill;
 
 /**
- *This interface declares methods for setting variables used by all record sinks.
+ * This interface declares methods for setting variables used by all record
+ * sinks.
  * 
  * @author dr0i
  * 

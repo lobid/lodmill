@@ -33,8 +33,8 @@ import com.google.common.io.CharStreams;
 @Description("Decodes a json(p) record as literals (as key-value pairs).")
 @In(Reader.class)
 @Out(StreamReceiver.class)
-public final class JsonDecoder extends
-		DefaultObjectPipe<Reader, StreamReceiver> {
+public final class JsonDecoder
+		extends DefaultObjectPipe<Reader, StreamReceiver> {
 	private static final String JSON_START_CHAR = "{";
 	private static final String JSON_CALLBACK = "json_callback";
 	private JsonParser jsonParser;
@@ -88,8 +88,8 @@ public final class JsonDecoder extends
 		}
 	}
 
-	private JsonToken parseJson(final Reader reader) throws IOException,
-			JsonParseException {
+	private JsonToken parseJson(final Reader reader)
+			throws IOException, JsonParseException {
 		String text = CharStreams.toString(reader);
 		this.jsonParser = new JsonFactory().createParser(text);
 		JsonToken currentToken = null;
@@ -109,8 +109,8 @@ public final class JsonDecoder extends
 		return currentToken;
 	}
 
-	private void processTokens(JsonToken token) throws IOException,
-			JsonParseException {
+	private void processTokens(JsonToken token)
+			throws IOException, JsonParseException {
 		JsonToken currentToken = token;
 		while (currentToken != null) {
 			if (JsonToken.START_OBJECT == currentToken) {
@@ -128,8 +128,8 @@ public final class JsonDecoder extends
 		}
 	}
 
-	private JsonToken processRecordContent(JsonToken token) throws IOException,
-			JsonParseException {
+	private JsonToken processRecordContent(JsonToken token)
+			throws IOException, JsonParseException {
 		JsonToken currentToken = token;
 		String key = null;
 		while (currentToken != null) {
@@ -176,14 +176,13 @@ public final class JsonDecoder extends
 		return jtoken;
 	}
 
-	private JsonToken handleJsonp(final String jsonp) throws IOException,
-			JsonParseException {
+	private JsonToken handleJsonp(final String jsonp)
+			throws IOException, JsonParseException {
 		JsonToken currentToken;
 		final String callbackString =
 				jsonp.substring(0, jsonp.indexOf(JsonDecoder.JSON_START_CHAR) - 1);
-		final String json =
-				jsonp.substring(jsonp.indexOf(JsonDecoder.JSON_START_CHAR),
-						jsonp.length() - 1);
+		final String json = jsonp.substring(
+				jsonp.indexOf(JsonDecoder.JSON_START_CHAR), jsonp.length() - 1);
 		this.jsonParser = new JsonFactory().createParser(json);
 		LOG.debug("key=" + JsonDecoder.JSON_CALLBACK + " value=" + callbackString);
 		getReceiver().startRecord("");
