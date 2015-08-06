@@ -15,7 +15,8 @@ import org.junit.runners.Suite;
 		LobidOrganisationEnrichmentTest.class, ZvddMarcIngestTest.class,
 		GeonamesCsvTest.class, OaiDcFlowTest.class, DippQdcToLobidTest.class,
 		XmlEntitySplitterTest.class, LobidOrganisationsUpdateTest.class,
-		GndXmlSplitterRdfWriterTest.class, UrnAsUriTest.class })
+		GndXmlSplitterRdfWriterTest.class, UrnAsUriTest.class,
+		MabXml2ElasticsearchLobidTest.class })
 public final class UnitTests {
 	/* Suite class, groups tests via annotation above */
 }

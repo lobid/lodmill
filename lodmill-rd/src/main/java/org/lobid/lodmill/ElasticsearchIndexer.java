@@ -90,7 +90,7 @@ public class ElasticsearchIndexer
 		if (!aliasSuffix.equals("NOALIAS") && !updateIndex
 				&& !aliasSuffix.toLowerCase().contains("test"))
 			updateAliases(indexName, aliasSuffix);
-		bulkRequest.setRefresh(true);
+		bulkRequest.setRefresh(true).get();
 	}
 
 	// TODO use BulkProcessorbuilder by updating to ES 1.5

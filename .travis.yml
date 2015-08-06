@@ -5,6 +5,9 @@ before_install:
   - export JAVA_OPTS=-Xmx1280m
   - cd lodmill-rd; sh install-dependencies.sh; cd ..
   - sudo apt-get install libaio-dev
+  - mysql -e "create database IF NOT EXISTS lobid;" -uroot
+  - mysql -e "grant usage on lobid.* to 'debian-sys-maint'@'localhost' identified by 'tzSblDEUGC1XhJB7';" -uroot
+  - mysql -e "use lobid; create table wikidataGeo (identifier VARCHAR (20), PRIMARY KEY (identifier), data MEDIUMTEXT);" -uroot
 install:
   - mvn clean install -e -q -DskipTests=true -Dmysql.classifier=linux-amd64 --settings settings.xml
 script:
