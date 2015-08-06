@@ -43,9 +43,8 @@ final class QREncoder {
 			final int size) throws WriterException, IOException {
 		final File qrFile = new File(filePath + FILE_SUFFIX + "." + FILE_TYPE);
 		// Create the ByteMatrix for the QR-Code that encodes the given String
-		final BitMatrix byteMatrix =
-				qrCodeWriter.encode(qrCodeText, BarcodeFormat.QR_CODE, size, size,
-						hintMap);
+		final BitMatrix byteMatrix = qrCodeWriter.encode(qrCodeText,
+				BarcodeFormat.QR_CODE, size, size, hintMap);
 		// Make the BufferedImage that hold the QRCode
 		image = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB);
 		image.createGraphics();

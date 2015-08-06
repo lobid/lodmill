@@ -36,10 +36,9 @@ public class OaiDcFlowTest {
 		final StreamLogger logger = new StreamLogger("decoder");
 		final StreamValidator validator = new StreamValidator(expected.getEvents());
 		decoder.setReceiver(logger).setReceiver(validator);
-		decoder
-				.process("<http://lobid.org/resource/TT002234391> "
-						+ "<http://xmlns.com/foaf/0.1/isPrimaryTopicOf> "
-						+ "<http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT002234391> .");
+		decoder.process("<http://lobid.org/resource/TT002234391> "
+				+ "<http://xmlns.com/foaf/0.1/isPrimaryTopicOf> "
+				+ "<http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT002234391> .");
 		decoder.closeStream();
 	}
 
@@ -65,12 +64,11 @@ public class OaiDcFlowTest {
 	}
 
 	@Test
-	public void testFlux() throws IOException, URISyntaxException,
-			RecognitionException {
+	public void testFlux()
+			throws IOException, URISyntaxException, RecognitionException {
 		String lobidUrl = "http://api.lobid.org/resource?id=HT015381412";
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("morph-lobid-to-oaidc.flux").toURI());
+		File fluxFile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("morph-lobid-to-oaidc.flux").toURI());
 		Flux.main(new String[] { fluxFile.getAbsolutePath(), "url=" + lobidUrl,
 				"out=" + "stdout" });
 	}

@@ -41,9 +41,9 @@ import org.slf4j.LoggerFactory;
 @Description("Opens a http resource. Supports the setting of Accept and Accept-Charset as http header fields.")
 @In(String.class)
 @Out(java.io.Reader.class)
-public final class HttpOpener extends
-		DefaultObjectPipe<String, ObjectReceiver<Reader>> implements
-		org.culturegraph.mf.stream.source.Opener {
+public final class HttpOpener
+		extends DefaultObjectPipe<String, ObjectReceiver<Reader>>
+		implements org.culturegraph.mf.stream.source.Opener {
 	private String encoding = "UTF-8";
 	private String accept = "*/*";
 	private final long MILLISECONDS_TO_WAIT = 5000L;
@@ -76,12 +76,12 @@ public final class HttpOpener extends
 			}
 			getReceiver().process(new InputStreamReader(con.getInputStream(), enc));
 		} catch (IOException e) {
-			LoggerFactory.getLogger(HttpOpener.class).error(
-					"Problems with URL '" + urlStr + "'", e.getLocalizedMessage());
+			LoggerFactory.getLogger(HttpOpener.class)
+					.error("Problems with URL '" + urlStr + "'", e.getLocalizedMessage());
 			if (e.getLocalizedMessage().contains("420")) {
 				try {
-					LoggerFactory.getLogger(HttpOpener.class).info(
-							"Wait for " + MILLISECONDS_TO_WAIT / 1000 + " sec.");
+					LoggerFactory.getLogger(HttpOpener.class)
+							.info("Wait for " + MILLISECONDS_TO_WAIT / 1000 + " sec.");
 					Thread.sleep(MILLISECONDS_TO_WAIT);
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();

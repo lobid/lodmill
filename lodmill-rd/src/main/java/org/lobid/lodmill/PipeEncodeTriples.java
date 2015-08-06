@@ -42,8 +42,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	final static String HTTP = "http";
 	final static String URN = "urn";
 	private boolean fixSubject = false;
-	private static final Logger LOG = LoggerFactory
-			.getLogger(PipeEncodeTriples.class);
+	private static final Logger LOG =
+			LoggerFactory.getLogger(PipeEncodeTriples.class);
 	private boolean storeUrnAsUri = false;
 
 	/**
@@ -102,9 +102,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		} else if (name.startsWith(HTTP)) {
 			try {
 				final Property prop = model.createProperty(name);
-				if (isUriWithScheme(value)
-						&& ((value.startsWith(URN) && storeUrnAsUri)
-								|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
+				if (isUriWithScheme(value) && ((value.startsWith(URN) && storeUrnAsUri)
+						|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
 					resources.peek().addProperty(prop,
 							model.asRDFNode(NodeFactory.createURI(value)));
 				} else {
@@ -117,9 +116,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	}
 
 	Resource makeBnode(final String value) {
-		final Resource res =
-				model.createResource(new AnonId("_:" + value
-						+ ATOMIC_INT.getAndIncrement()));
+		final Resource res = model.createResource(
+				new AnonId("_:" + value + ATOMIC_INT.getAndIncrement()));
 		model.add(resources.peek(), model.createProperty(value), res);
 		return res;
 	}

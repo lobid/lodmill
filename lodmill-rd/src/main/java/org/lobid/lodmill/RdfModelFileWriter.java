@@ -34,8 +34,7 @@ import com.hp.hpl.jena.rdf.model.Model;
  */
 @Description("Writes the object value of an RDF model into a file. Default serialization is 'NTRIPLES'. The filename is "
 		+ "constructed from the literal of an given property (recommended properties are identifier)."
-		+ " Variable are "
-		+ "- 'target' (determining the output directory)"
+		+ " Variable are " + "- 'target' (determining the output directory)"
 		+ "- 'property' (the property in the RDF model. The object of this property"
 		+ " will be the main part of the file's name.) "
 		+ "- 'startIndex' ( a subfolder will be extracted out of the filename. This marks the index' beginning )"
@@ -45,8 +44,8 @@ import com.hp.hpl.jena.rdf.model.Model;
 @Out(Void.class)
 public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 		implements FilenameExtractor, RDFSink {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(RdfModelFileWriter.class);
+	private static final Logger LOG =
+			LoggerFactory.getLogger(RdfModelFileWriter.class);
 
 	private FilenameUtil filenameUtil = new FilenameUtil();
 	private Lang serialization;
@@ -107,12 +106,12 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 			identifier =
 					model
 							.listObjectsOfProperty(
-									model.createProperty(filenameUtil.property)).next()
-							.toString();
+									model.createProperty(filenameUtil.property))
+							.next().toString();
 			LOG.debug("Going to store identifier=" + identifier);
 		} catch (NoSuchElementException e) {
-			LOG.warn("No identifier => cannot derive a filename for "
-					+ model.toString());
+			LOG.warn(
+					"No identifier => cannot derive a filename for " + model.toString());
 			return;
 		}
 
@@ -121,18 +120,15 @@ public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
 			directory =
 					directory.substring(filenameUtil.startIndex, filenameUtil.endIndex);
 		}
-		final String file =
-				FilenameUtils.concat(
-						filenameUtil.target,
-						FilenameUtils.concat(directory + File.separator, identifier + "."
-								+ filenameUtil.fileSuffix));
+		final String file = FilenameUtils.concat(filenameUtil.target,
+				FilenameUtils.concat(directory + File.separator,
+						identifier + "." + filenameUtil.fileSuffix));
 		LOG.debug("Write to " + file);
 		ensurePathExists(file);
 
 		try {
-			final Writer writer =
-					new OutputStreamWriter(new FileOutputStream(file),
-							filenameUtil.encoding);
+			final Writer writer = new OutputStreamWriter(new FileOutputStream(file),
+					filenameUtil.encoding);
 			final StringWriter tripleWriter = new StringWriter();
 			RDFDataMgr.write(tripleWriter, model, this.serialization);
 			IOUtils.write(tripleWriter.toString(), writer);

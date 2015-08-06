@@ -58,8 +58,8 @@ public final class Stats extends DefaultStreamReceiver {
 	}
 
 	/**
-	 * Since the default name file this class produces is rather unique it
-	 * should be removable, especially when running as a test
+	 * Since the default name file this class produces is rather unique it should
+	 * be removable, especially when running as a test
 	 * 
 	 */
 	public void removeTestFile() {
@@ -73,11 +73,8 @@ public final class Stats extends DefaultStreamReceiver {
 	@Override
 	public void literal(final String name, final String value) {
 		if (name.startsWith("log:")) {
-			valueMap
-			.put(name,
-					(valueMap.containsKey(name)
-							? valueMap.get(name).append("," + value)
-									: new StringBuilder(value)));
+			valueMap.put(name, (valueMap.containsKey(name)
+					? valueMap.get(name).append("," + value) : new StringBuilder(value)));
 		} else
 			occurenceMap.put(name,
 					(occurenceMap.containsKey(name) ? occurenceMap.get(name) : 0) + 1);
@@ -117,7 +114,7 @@ public final class Stats extends DefaultStreamReceiver {
 		entries.forEach(e -> {
 			LOG.info(e.getKey() + "\t" + e.getValue());
 			textileBuilder
-			.append(String.format("|%s|%s|\n", e.getKey(), e.getValue()));
+					.append(String.format("|%s|%s|\n", e.getKey(), e.getValue()));
 		});
 	}
 

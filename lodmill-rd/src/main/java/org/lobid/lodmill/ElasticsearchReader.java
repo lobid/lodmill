@@ -32,10 +32,10 @@ import org.slf4j.LoggerFactory;
 @In(Void.class)
 @Out(Reader.class)
 @Description("Reads an elasticsearch index and emits the _source field of all documents.")
-public final class ElasticsearchReader extends
-		DefaultObjectPipe<String, ObjectReceiver<Reader>> implements Opener {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(ElasticsearchReader.class);
+public final class ElasticsearchReader
+		extends DefaultObjectPipe<String, ObjectReceiver<Reader>>implements Opener {
+	private static final Logger LOG =
+			LoggerFactory.getLogger(ElasticsearchReader.class);
 	private String hostname;
 	private String clustername;
 	private String indexname;
@@ -113,25 +113,21 @@ public final class ElasticsearchReader extends
 	}
 
 	private void initScrollSearch() {
-		transportClient =
-				new TransportClient(ImmutableSettings.settingsBuilder()
-						.put("cluster.name", clustername)
-						.put("client.transport.sniff", false)
-						.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
-		transportClient.addTransportAddress(new InetSocketTransportAddress(
-				hostname, 9300));
-		response =
-				transportClient.prepareSearch(indexname).setSearchType(SearchType.SCAN)
-						.setPreference("_shards:" + shards)
-						.setScroll(TimeValue.timeValueHours(20))
-						.setQuery(QueryBuilders.matchAllQuery()).setExplain(false)
-						.setSize(batchSize).execute().actionGet();
+		transportClient = new TransportClient(ImmutableSettings.settingsBuilder()
+				.put("cluster.name", clustername).put("client.transport.sniff", false)
+				.put("client.transport.ping_timeout", 20, TimeUnit.SECONDS).build());
+		transportClient
+				.addTransportAddress(new InetSocketTransportAddress(hostname, 9300));
+		response = transportClient.prepareSearch(indexname)
+				.setSearchType(SearchType.SCAN).setPreference("_shards:" + shards)
+				.setScroll(TimeValue.timeValueHours(20))
+				.setQuery(QueryBuilders.matchAllQuery()).setExplain(false)
+				.setSize(batchSize).execute().actionGet();
 	}
 
 	private void logStatus() {
-		LOG.info("Amount of shards: "
-				+ transportClient.prepareSearch(indexname).execute().actionGet()
-						.getTotalShards());
+		LOG.info("Amount of shards: " + transportClient.prepareSearch(indexname)
+				.execute().actionGet().getTotalShards());
 		LOG.info("Starting querying in partitions of "
 				+ (batchSize * response.getTotalShards()));
 	}
@@ -140,14 +136,12 @@ public final class ElasticsearchReader extends
 		int cnt = 0;
 		while (true) {
 			try {
-				response =
-						transportClient.prepareSearchScroll(response.getScrollId())
-								.setScroll("1h").execute().actionGet();
+				response = transportClient.prepareSearchScroll(response.getScrollId())
+						.setScroll("1h").execute().actionGet();
 				java.util.Iterator<SearchHit> hitIt = response.getHits().iterator();
 				while (hitIt.hasNext()) {
-					getReceiver().process(
-							new StringReader(hitIt.next().getSource().get("mabXml")
-									.toString()));
+					getReceiver().process(new StringReader(
+							hitIt.next().getSource().get("mabXml").toString()));
 					cnt++;
 				}
 			} catch (MetafactureException e) {

@@ -26,8 +26,8 @@ import org.slf4j.LoggerFactory;
 @Description("Writes the object value into mysql")
 @In(StreamReceiver.class)
 @Out(Void.class)
-public final class MysqlWriter extends
-		DefaultStreamPipe<ObjectReceiver<String>> {
+public final class MysqlWriter
+		extends DefaultStreamPipe<ObjectReceiver<String>> {
 	private static final Logger LOG = LoggerFactory.getLogger(MysqlWriter.class);
 
 	private Connection conn = null;
@@ -48,9 +48,8 @@ public final class MysqlWriter extends
 			connectMysqlDB();
 			try {
 				// the "REPLACE" is no standard ANSI SQL, only works with MySQL
-				this.ps =
-						conn.prepareStatement("REPLACE INTO " + this.tablename + "("
-								+ this.columnId + "," + this.columnData + ") VALUES  (?,?)");
+				this.ps = conn.prepareStatement("REPLACE INTO " + this.tablename + "("
+						+ this.columnId + "," + this.columnData + ") VALUES  (?,?)");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -121,16 +120,14 @@ public final class MysqlWriter extends
 	// @TODO make Database configs configurable
 	private void connectMysqlDB() {
 		try {
-			String connectionUri =
-					this.dbProtocolAndAdress + "?" + "user=" + this.username
-							+ "&password=" + this.password;
+			String connectionUri = this.dbProtocolAndAdress + "?" + "user="
+					+ this.username + "&password=" + this.password;
 			LOG.debug("Connection URI =" + connectionUri);
 			conn = DriverManager.getConnection(connectionUri);
 			stmt = conn.createStatement();
 			stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS " + this.dbname);
-			conn =
-					DriverManager.getConnection(this.dbProtocolAndAdress + this.dbname
-							+ "?" + "user=" + this.username + "&password=" + this.password);
+			conn = DriverManager.getConnection(this.dbProtocolAndAdress + this.dbname
+					+ "?" + "user=" + this.username + "&password=" + this.password);
 			stmt = conn.createStatement();
 			stmt.executeUpdate("CREATE TABLE IF NOT EXISTS " + this.tablename + " ( "
 					+ this.columnId + " VARCHAR(128), PRIMARY KEY (" + this.columnId

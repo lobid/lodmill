@@ -46,19 +46,16 @@ public class LobidOrganisationsUpdateTest {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("TURTLE");
 		final RdfModelFileWriter writer = createWriter(PATH);
-		handler.setReceiver(metamorph).setReceiver(enrich)
-				.setReceiver(triple2model).setReceiver(writer);
+		handler.setReceiver(metamorph).setReceiver(enrich).setReceiver(triple2model)
+				.setReceiver(writer);
 		tee.addReceiver(handler);
 		opener.setReceiver(xmlDecoder).setReceiver(tee);
-		File infile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("Bibdat1303pp_sample1.xml").toURI());
+		File infile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("Bibdat1303pp_sample1.xml").toURI());
 		opener.process(infile.getAbsolutePath());
 		opener.closeStream();
-		assertEquals(
-				Long.parseLong("1066709072"),
-				FileUtils.checksumCRC32(new File(PATH + File.separator + "DE"
-						+ File.separator + "DE-Tir1.xml")));
+		assertEquals(Long.parseLong("1066709072"), FileUtils.checksumCRC32(new File(
+				PATH + File.separator + "DE" + File.separator + "DE-Tir1.xml")));
 		deleteTestFiles();
 	}
 
@@ -67,8 +64,8 @@ public class LobidOrganisationsUpdateTest {
 		xmlFilenameWriter.setStartIndex(0);
 		xmlFilenameWriter.setEndIndex(2);
 		xmlFilenameWriter.setTarget(PATH);
-		xmlFilenameWriter
-				.setProperty("/harvest/metadata/*[local-name() = 'record']/*[local-name() = 'global']/*[local-name() = 'tag'][@id='008H']/*[local-name() = 'subf'][@id='e']");
+		xmlFilenameWriter.setProperty(
+				"/harvest/metadata/*[local-name() = 'record']/*[local-name() = 'global']/*[local-name() = 'tag'][@id='008H']/*[local-name() = 'subf'][@id='e']");
 		return xmlFilenameWriter;
 	}
 

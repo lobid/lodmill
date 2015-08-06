@@ -23,8 +23,8 @@ import com.google.gdata.util.common.base.PercentEscaper;
  * @author Pascal Christoph (dr0i)
  */
 public final class UrlEscaper extends AbstractSimpleStatelessFunction {
-	PercentEscaper percentEscaper = new PercentEscaper(
-			PercentEscaper.SAFEPATHCHARS_URLENCODER, false);
+	PercentEscaper percentEscaper =
+			new PercentEscaper(PercentEscaper.SAFEPATHCHARS_URLENCODER, false);
 
 	@Override
 	public String process(final String value) {

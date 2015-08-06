@@ -36,10 +36,10 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
  */
 @In(Model.class)
 @Out(HashMap.class)
-public final class RdfModel2ElasticsearchJsonLd extends
-		DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(RdfModel2ElasticsearchJsonLd.class);
+public final class RdfModel2ElasticsearchJsonLd
+		extends DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> {
+	private static final Logger LOG =
+			LoggerFactory.getLogger(RdfModel2ElasticsearchJsonLd.class);
 	// the items will have their own index type and ES parents
 	private static final String PROPERTY_TO_PARENT =
 			"http://purl.org/vocab/frbr/core#exemplarOf";
@@ -111,9 +111,8 @@ public final class RdfModel2ElasticsearchJsonLd extends
 			Object json = JsonLdProcessor.fromRDF(model, new JsonLdOptions(), parser);
 			// the json document itself
 			json = JsonLdProcessor.expand(json);
-			getReceiver().process(
-					addInternalProperties(new HashMap<String, String>(), id,
-							JSONUtils.toString(json)));
+			getReceiver().process(addInternalProperties(new HashMap<String, String>(),
+					id, JSONUtils.toString(json)));
 		} catch (JsonLdError e) {
 			e.printStackTrace();
 		}
@@ -142,9 +141,8 @@ public final class RdfModel2ElasticsearchJsonLd extends
 			}
 		}
 		// wrap json into a "@graph" for elasticsearch (still valid JSON-LD)
-		String jsonDocument =
-				"{\"@graph\":" + json + ",\"internal_id\":\"" + id + "\""
-						+ internal_parent + "}";
+		String jsonDocument = "{\"@graph\":" + json + ",\"internal_id\":\"" + id
+				+ "\"" + internal_parent + "}";
 		jsonMap.put(ElasticsearchIndexer.Properties.GRAPH.getName(), jsonDocument);
 		jsonMap.put(ElasticsearchIndexer.Properties.TYPE.getName(), type);
 		jsonMap.put(ElasticsearchIndexer.Properties.ID.getName(), id);

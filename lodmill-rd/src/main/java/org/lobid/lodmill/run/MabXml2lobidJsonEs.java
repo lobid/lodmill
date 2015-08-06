@@ -38,17 +38,17 @@ public final class MabXml2lobidJsonEs {
 		String indexName = args[1];
 		String date = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
 		indexName =
-				indexName.matches(".*-20.*") || args[5].toLowerCase().equals("exact") ? indexName
-						: indexName + "-" + date;
+				indexName.matches(".*-20.*") || args[5].toLowerCase().equals("exact")
+						? indexName : indexName + "-" + date;
 
 		String indexAliasSuffix = args[2];
 		String node = args[3];
 		String cluster = args[4];
 		boolean update = args[5].toLowerCase().equals("update");
-		System.out.println("It is specified:\n"
-				+ String.format(usage, ": " + inputPath + "\n",
-						": " + indexName + "\n", ": " + indexAliasSuffix + "\n", ": "
-								+ node + "\n", ": " + cluster, ": " + "\n" + update));
+		System.out.println(
+				"It is specified:\n" + String.format(usage, ": " + inputPath + "\n",
+						": " + indexName + "\n", ": " + indexAliasSuffix + "\n",
+						": " + node + "\n", ": " + cluster, ": " + "\n" + update));
 		if (args.length != 6) {
 			System.err.println("Usage: MabXml2lobidJsonEs"
 					+ String.format(usage, " ", " ", " ", " ", " ", " "));
@@ -82,9 +82,7 @@ public final class MabXml2lobidJsonEs {
 		batchLogger.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
 				.setReceiver(new RdfModel2ElasticsearchJsonLd())
 				.setReceiver(objectBatchLogger).setReceiver(esIndexer);
-		opener
-				.setReceiver(new TarReader())
-				.setReceiver(new XmlDecoder())
+		opener.setReceiver(new TarReader()).setReceiver(new XmlDecoder())
 				.setReceiver(new MabXmlHandler())
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))

@@ -49,24 +49,22 @@ public class GndXmlSplitterRdfWriterTest {
 		triple2model.setInput("RDF/XML");
 		triple2model.setInferenceModel(Thread.currentThread()
 				.getContextClassLoader().getResource("gndo.ttl").getPath());
-		triple2model
-				.setPropertyIdentifyingTheNodeForInferencing("http://d-nb.info/standards/elementset/gnd#gndIdentifier");
+		triple2model.setPropertyIdentifyingTheNodeForInferencing(
+				"http://d-nb.info/standards/elementset/gnd#gndIdentifier");
 		final RdfModelFileWriter writer = createWriter(PATH);
 		dirReader.setReceiver(opener);
 		opener.setReceiver(xmlDecoder).setReceiver(splitXml)
 				.setReceiver(extractLiteral).setReceiver(triple2model)
 				.setReceiver(writer);
-		File infile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("gnd").toURI());
+		File infile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("gnd").toURI());
 		dirReader.process(infile.getAbsolutePath());
 		assertEquals(9, (new File(PATH + "/104/")).list().length);
-		final File testFile =
-				AbstractIngestTests.concatenateGeneratedFilesIntoOneFile(PATH,
-						"gndTestOutput.nt");
-		AbstractIngestTests.compareFilesDefaultingBNodes(testFile, new File(Thread
-				.currentThread().getContextClassLoader().getResource("gndTest.nt")
-				.toURI()));
+		final File testFile = AbstractIngestTests
+				.concatenateGeneratedFilesIntoOneFile(PATH, "gndTestOutput.nt");
+		AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
+				new File(Thread.currentThread().getContextClassLoader()
+						.getResource("gndTest.nt").toURI()));
 		FileUtils.deleteDirectory(new File(PATH));
 	}
 
@@ -83,11 +81,10 @@ public class GndXmlSplitterRdfWriterTest {
 	}
 
 	@Test
-	public void testFlux() throws IOException, URISyntaxException,
-			RecognitionException {
-		File fluxFile =
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource("xmlSplitterRdfWriter.flux").toURI());
+	public void testFlux()
+			throws IOException, URISyntaxException, RecognitionException {
+		File fluxFile = new File(Thread.currentThread().getContextClassLoader()
+				.getResource("xmlSplitterRdfWriter.flux").toURI());
 		Flux.main(new String[] { fluxFile.getAbsolutePath() });
 		FileUtils.deleteDirectory(new File(PATH));
 	}

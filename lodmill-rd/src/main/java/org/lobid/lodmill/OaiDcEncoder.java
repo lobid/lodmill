@@ -25,12 +25,11 @@ import org.culturegraph.mf.framework.annotations.Out;
 		+ "tag values.")
 @In(StreamReceiver.class)
 @Out(String.class)
-public final class OaiDcEncoder extends
-		DefaultStreamPipe<ObjectReceiver<String>> {
+public final class OaiDcEncoder
+		extends DefaultStreamPipe<ObjectReceiver<String>> {
 	private final StringWriter writer = new StringWriter();
 	private final String xmlPraeambel =
-			"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-					+ "<oai_dc:dc \n"
+			"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n" + "<oai_dc:dc \n"
 					+ "\txmlns:oai_dc=\"http://www.openarchives.org/OAI/2.0/oai_dc/\" \n"
 					+ "\txmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n"
 					+ "\txmlns:dcterms=\"http://purl.org/dc/terms/\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" \n"
