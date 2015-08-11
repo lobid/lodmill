@@ -90,19 +90,21 @@ public class ElasticsearchIndexer
 		if (!aliasSuffix.equals("NOALIAS") && !updateIndex
 				&& !aliasSuffix.toLowerCase().contains("test"))
 			updateAliases(indexName, aliasSuffix);
-		bulkRequest.setRefresh(true);
+		bulkRequest.setRefresh(true).get();
 	}
 
 	// TODO use BulkProcessorbuilder by updating to ES 1.5
 	@Override
 	public void onSetReceiver() {
-		this.CLIENT_SETTINGS = ImmutableSettings.settingsBuilder()
-				.put("cluster.name", this.clustername);
-		this.NODE = new InetSocketTransportAddress(this.hostname, 9300);
-		this.tc = new TransportClient(this.CLIENT_SETTINGS
-				.put("client.transport.sniff", false)
-				.put("client.transport.ping_timeout", 120, TimeUnit.SECONDS).build());
-		this.client = this.tc.addTransportAddress(this.NODE);
+		if (client == null) {
+			this.CLIENT_SETTINGS = ImmutableSettings.settingsBuilder()
+					.put("cluster.name", this.clustername);
+			this.NODE = new InetSocketTransportAddress(this.hostname, 9300);
+			this.tc = new TransportClient(this.CLIENT_SETTINGS
+					.put("client.transport.sniff", false)
+					.put("client.transport.ping_timeout", 120, TimeUnit.SECONDS).build());
+			this.client = this.tc.addTransportAddress(this.NODE);
+		}
 		bulkRequest = client.prepareBulk();
 		if (updateIndex) {
 			getNewestIndex();
@@ -177,6 +179,15 @@ public class ElasticsearchIndexer
 	public void setIndexAliasSuffix(String aliasSuffix) {
 		this.aliasSuffix = aliasSuffix;
 
+	}
+
+	/**
+	 * Sets the elasticsearch client.
+	 * 
+	 * @param client the elasticsearch client
+	 */
+	public void setElasticsearchClient(Client client) {
+		this.client = client;
 	}
 
 	/**

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Check difference between test data and newly created test data. Convenient when
 # updating mapping. If diff is ok, you copy the new test data to the test data.
-# Paramter 1: use "nt" or "json"
+# Paramter 1: use "nt" or "es.nt"
 
 FILE_TYPE="$1"
 sort -g hbz01.$FILE_TYPE |
