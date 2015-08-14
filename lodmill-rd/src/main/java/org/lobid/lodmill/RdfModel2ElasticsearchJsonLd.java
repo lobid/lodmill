@@ -43,11 +43,12 @@ public final class RdfModel2ElasticsearchJsonLd
 	// the items will have their own index type and ES parents
 	private static final String PROPERTY_TO_PARENT =
 			"http://purl.org/vocab/frbr/core#exemplarOf";
-	private static String LOBID_ITEM_URI_PREFIX = "http://lobid.org/item/";
+	private static String LOBID_DOMAIN = "http://lobid.org/";
+	private static String LOBID_ITEM_URI_PREFIX = LOBID_DOMAIN + "item/";
 	// the sub node we want to cling to the main node
 	private static final String KEEP_NODE_PREFIX = "http://d-nb.info/gnd";
 	private static final String KEEP_NODE_MAIN_PREFIX =
-			"http://lobid.org/resource";
+			LOBID_DOMAIN + "resource/";
 	private static String mainNodeId;
 	private static final String TYPE_ITEM = "json-ld-lobid-item";
 	private static final String TYPE_RESOURCE = "json-ld-lobid";
@@ -85,7 +86,7 @@ public final class RdfModel2ElasticsearchJsonLd
 					if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
 						toJson(submodel, subjectResource.getURI().toString(), "");
 					}
-				} else
+				} else if (subjectResource.getURI().toString().startsWith(LOBID_DOMAIN))
 					mainNodeId = subjectResource.getURI().toString();
 			}
 			if (!submodel.isEmpty()) {
