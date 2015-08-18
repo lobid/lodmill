@@ -146,7 +146,7 @@
 		<data source="@id" name="http://www.w3.org/2007/05/powder-s#describedby">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/>
 		</data>
-		<data source="025z[2].a" name="http://purl.org/dc/terms/isPartOf">
+		<data source="025z[2].a" name="@dctIsPartOf">
 			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
 		<data source="025o[-12].a" name="@oclcnum"/>
@@ -1283,11 +1283,11 @@
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
-		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
+		<data source="@isPartOfHbzId" name="@dctIsPartOf">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<!--s. #333 <data source="599[abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf" /> -->
-		<data source="599s[-1].a" name="http://purl.org/dc/terms/isPartOf">
+		<data source="599s[-1].a" name="@dctIsPartOf">
 			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
 		<combine name="http://purl.org/dc/elements/1.1/isPartOf" value="${isPartOfLiteral}">
@@ -1312,6 +1312,8 @@
 				<trim></trim>
 			</data>
 		</entity>
+		<data source="@dctIsPartOf" name="http://purl.org/dc/terms/isPartOf"/>
+		<data source="@dctIsPartOf" name="$[ns-lobid-vocab]containedIn"/>
 		<!-- ####################### -->
 		<!-- ########## classification -->
 		<!-- ####################### -->
