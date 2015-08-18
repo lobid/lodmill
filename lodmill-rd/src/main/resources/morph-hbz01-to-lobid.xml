@@ -730,9 +730,22 @@
 		<!-- ########## volume -->
 		<!-- ####################### -->
 		<!-- 32-[-12].a is not bibo:volume - but what is it? -->
-		<data source="089-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="" name="http://purl.org/ontology/bibo/volume"/>
 		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
-		<data source="090-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="001-[-2].a" name="@idVolume"/>
+		<entity name="http://purl.org/lobid/lv#volumeIn">
+			<data source="@idVolume" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match=".*" format="$[ns-lobid-vocab]MultiVolumeWorkRelation"/>
+			</data>
+			<combine name="$[ns-lobid-vocab]multiVolumeWork" value="$[ns-lobid-resource]${a}">
+				<data source="@idVolume" name="a"/>
+			</combine>
+			<choose name="$[ns-lobid-vocab]numbering">
+				<data source="089-[-1].a"/>
+				<data source="090-[-1].a"/>
+			</choose>
+		</entity>
 		<!-- ####################### -->
 		<!-- #######creator -->
 		<!-- ####################### -->
@@ -1287,10 +1300,18 @@
 				<regexp match="(.*) +;.*" format="${1}"/>
 			</data>
 		</combine>
-		<data source="451[-ab][12].a" name="http://purl.org/ontology/bibo/volume">
-			<regexp match=".*;(.*)" format="${1}"/>
-			<trim></trim>
-		</data>
+		<entity name="http://purl.org/lobid/lv#inSeries">
+			<data source="@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+				<regexp match=".*" format="$[ns-lobid-vocab]SeriesRelation"/>
+			</data>
+			<combine name="$[ns-lobid-vocab]series" value="$[ns-lobid-resource]${a}">
+				<data source="453[-ab]1.a" name="a"/>
+			</combine>
+			<data source="451[-ab][12].a" name="$[ns-lobid-vocab]numbering">
+				<regexp match=".*;(.*)" format="${1}"/>
+				<trim></trim>
+			</data>
+		</entity>
 		<!-- ####################### -->
 		<!-- ########## classification -->
 		<!-- ####################### -->

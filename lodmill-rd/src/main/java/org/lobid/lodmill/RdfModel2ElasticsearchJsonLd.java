@@ -68,30 +68,33 @@ public final class RdfModel2ElasticsearchJsonLd
 		while (subjectsIterator.hasNext()) {
 			final Resource subjectResource = subjectsIterator.next();
 			Model submodel = ModelFactory.createDefaultModel();
-			if (subjectResource.getURI().endsWith("about")) {
-				shouldSubmodelBeExtracted(submodel, subjectResource);
-				try {
-					Object json =
-							JsonLdProcessor.fromRDF(submodel, new JsonLdOptions(), parser);
-					ABOUT_JSON = JSONUtils.toString(JsonLdProcessor.expand(json));
-					ABOUT_JSON = "," + ABOUT_JSON.substring(2, ABOUT_JSON.length() - 2);
-				} catch (JsonLdError e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			} else {
-				// just extract sub nodes we don't want to keep in the main model
-				if (!subjectResource.getURI().startsWith(KEEP_NODE_PREFIX)
-						&& !subjectResource.getURI().startsWith(KEEP_NODE_MAIN_PREFIX)) {
-					if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
-						toJson(submodel, subjectResource.getURI().toString(), "");
+			if (!subjectResource.isAnon()) {
+				if (subjectResource.getURI().endsWith("about")) {
+					shouldSubmodelBeExtracted(submodel, subjectResource);
+					try {
+						Object json =
+								JsonLdProcessor.fromRDF(submodel, new JsonLdOptions(), parser);
+						ABOUT_JSON = JSONUtils.toString(JsonLdProcessor.expand(json));
+						ABOUT_JSON = "," + ABOUT_JSON.substring(2, ABOUT_JSON.length() - 2);
+					} catch (JsonLdError e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} else if (subjectResource.getURI().toString().startsWith(LOBID_DOMAIN))
-					mainNodeId = subjectResource.getURI().toString();
-			}
-			if (!submodel.isEmpty()) {
-				// remove the newly created sub model from the main node
-				copyOfOriginalModel.remove(submodel);
+				} else {
+					// just extract sub nodes we don't want to keep in the main model
+					if (!subjectResource.getURI().startsWith(KEEP_NODE_PREFIX)
+							&& !subjectResource.getURI().startsWith(KEEP_NODE_MAIN_PREFIX)) {
+						if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
+							toJson(submodel, subjectResource.getURI().toString(), "");
+						}
+					} else
+						if (subjectResource.getURI().toString().startsWith(LOBID_DOMAIN))
+						mainNodeId = subjectResource.getURI().toString();
+				}
+				if (!submodel.isEmpty()) {
+					// remove the newly created sub model from the main node
+					copyOfOriginalModel.remove(submodel);
+				}
 			}
 		}
 		// the main node (with its kept sub node) and an optional "about" metadata
@@ -102,8 +105,6 @@ public final class RdfModel2ElasticsearchJsonLd
 	// node of the main node. An bnode mustn't be extracted either.
 	private static boolean shouldSubmodelBeExtracted(Model submodel,
 			Resource subjectResource) {
-		if (subjectResource.isAnon())
-			return false;
 		StmtIterator stmtIt = subjectResource.listProperties();
 		while (stmtIt.hasNext()) {
 			Statement stmt = stmtIt.nextStatement();
