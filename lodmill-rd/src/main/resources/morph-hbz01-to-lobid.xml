@@ -742,8 +742,8 @@
 				<data source="@idVolume" name="a"/>
 			</combine>
 			<choose name="$[ns-lobid-vocab]numbering">
-				<data source="089-[-1].a"/>
 				<data source="090-[-1].a"/>
+				<data source="089-[-1].a"/>
 			</choose>
 		</entity>
 		<!-- ####################### -->
