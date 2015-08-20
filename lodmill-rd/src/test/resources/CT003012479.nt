@@ -7,6 +7,9 @@
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
+_:B9c65f5f127b6e91c3c774dea72c429fe <http://purl.org/lobid/lv#numbering> "1805,04,16" .
+_:B9c65f5f127b6e91c3c774dea72c429fe <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B9c65f5f127b6e91c3c774dea72c429fe <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/source> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16" .
@@ -29,6 +32,7 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Charles Lewis" .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Dankrede" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:B9c65f5f127b6e91c3c774dea72c429fe .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Karl Ludwig von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Johann G." .
@@ -91,12 +95,11 @@
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Pierre" .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "[D\u00FCsseldorf]" .
-<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/cmp> <http://d-nb.info/gnd/119055716> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141834919> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, Wilhelmine" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Karl" .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/cmp> <http://d-nb.info/gnd/119055716> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Marianne" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:B4259a3eca86e66990021530d4c8870f3 .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Fuchs, ..." .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/CT003012479/about> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141891173> .
@@ -116,9 +119,6 @@
 <http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Dardenne, ..." .
 <http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fuchs, ..." .
 <http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fuchs, ..." .
-_:B4259a3eca86e66990021530d4c8870f3 <http://purl.org/lobid/lv#numbering> "1805,04,16" .
-_:B4259a3eca86e66990021530d4c8870f3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B4259a3eca86e66990021530d4c8870f3 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 <http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne, 1750-1810" .
 <http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Marianne, 1750-1810" .
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter von, 1754-1825" .

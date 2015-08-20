@@ -54,7 +54,9 @@
 		<!-- ####################### -->
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
 		<data source="529z1.9" name="@hasSupplement"/>
-		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId"/>
+		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId">
+					<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
+		</data>
 		<!-- temporarily set new subject uri outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155 
 			<data name="~rdf:subject" source="010-1.a|529z1.9|@idTitleSeries"> <regexp match="(.*)" format="$[ns-lobid-resource]${1}"/> 
 			</data> <combine name="http://purl.org/dc/terms/hasPart" value="$[ns-lobid-resource]${subjectid}"> 
@@ -146,7 +148,7 @@
 		<data source="@id" name="http://www.w3.org/2007/05/powder-s#describedby">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}/about"/>
 		</data>
-		<data source="025z[2].a" name="http://purl.org/dc/terms/isPartOf">
+		<data source="025z[2].a" name="@dctIsPartOf">
 			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
 		<data source="025o[-12].a" name="@oclcnum"/>
@@ -298,7 +300,7 @@
 		<data source="@rdftype" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- 051: type -->
-		<data source="051." name="@rdftype">
+		<data source="051." name="@article">
 			<regexp match="^a|^.t|^..t|^...t|^.....t" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
 		<data source="051." name="@rdftype">
@@ -393,7 +395,7 @@
 			<regexp match="^.ko|^...ko|^.....ko" format="http://purl.org/ontology/bibo/Proceedings"/>
 		</data>
 		<!-- 052: type -->
-		<data source="052." name="@rdftype">
+		<data source="052." name="@article">
 			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
 		</data>
 		<data source="052." name="@collection">
@@ -442,6 +444,11 @@
 				</none>
 			</if>
 			<data source="@id"/>
+		</combine>
+		<data source="@article" name="@rdftype"/>
+		<combine name="$[ns-lobid-vocab]containedIn" value="${a}">
+			<data source="@dctIsPartOfHbzIdArticle|@dctIsPartOfArticle" name="a"/>
+			<data source="@article"/>
 		</combine>
 		<!-- set default type -->
 		<combine name="@rdftype" value="$[ns-lobid-vocab]Miscellaneous" flushWith="record">
@@ -733,7 +740,8 @@
 		<data source="089-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
 		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
 		<data source="090-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
-		<data source="001-[-2].a" name="@idVolume"/>
+		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="001-2.a" name="@idVolume"/>
 		<entity name="http://purl.org/lobid/lv#volumeIn">
 			<data source="@idVolume" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 				<regexp match=".*" format="$[ns-lobid-vocab]MultiVolumeWorkRelation"/>
@@ -1282,14 +1290,16 @@
 		<data source="@hasSupplement" name="http://rdaregistry.info/Elements/u/P60281">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
-		<data source="599[-b][-1].[a]" name="@isPartOfHbzId"/>
-		<data source="@isPartOfHbzId" name="http://purl.org/dc/terms/isPartOf">
+		<data source="599[-b][-1].[a]" name="@dctIsPartOfHbzIdArticle">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
+		<data source="@dctIsPartOfHbzIdArticle" name="@isPartOfHbzId"/>
+		<data source="@isPartOfHbzId" name="@dctIsPartOf"/>
 		<!--s. #333 <data source="599[abcdefgh][-1].a" name="http://purl.org/dc/terms/isPartOf" /> -->
-		<data source="599s[-1].a" name="http://purl.org/dc/terms/isPartOf">
+		<data source="599s[-1].a" name="@dctIsPartOfArticle">
 			<regexp match="(.*)" format="$[ns-zdb-services]${1}"/>
 		</data>
+		<data source="@dctIsPartOfHbzIdArticle" name="@dctIsPartOf"/>
 		<combine name="http://purl.org/dc/elements/1.1/isPartOf" value="${isPartOfLiteral}">
 			<if>
 				<none>
@@ -1316,6 +1326,7 @@
 			<regexp match=".*;(.*)" format="${1}"/>
 			<trim></trim>
 		</data>
+		<data source="@dctIsPartOf" name="http://purl.org/dc/terms/isPartOf"/>
 		<!-- ####################### -->
 		<!-- ########## classification -->
 		<!-- ####################### -->

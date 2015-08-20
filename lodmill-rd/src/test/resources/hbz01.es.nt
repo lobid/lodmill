@@ -1688,6 +1688,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/issued> "1983"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/title> "Die Vogelwelt der Stadt Rheine."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT003759287> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#contributorLabel> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#hbzID> "BT000040377"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s584060> .
@@ -1710,6 +1711,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/issued> "1983"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/title> "Das Portrait einer Region: Kreis Coesfeld."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT007751353> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#contributorLabel> "Altekamp, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#hbzID> "BT000041593"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n97> .
@@ -1731,6 +1733,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/title> "Bestandsaufnahme der Amphibien im Raum Coesfeld-Billerbeck"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT006990419> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#contributorLabel> "Meier, Elmar"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#hbzID> "BT000067443"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n97> .
@@ -1757,6 +1760,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2041907-7> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/2050419-6> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/title> "Alle B\u00F6cke bei\u00DFen oder in Feindschaft fest"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT007138775> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#contributorLabel> "Job, Bertram"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#hbzID> "BT000128754"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s736050> .
@@ -2623,6 +2627,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4076769-3> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4126078-8> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/title> "Ubier, Chatten, Bataver"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT013538692> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#contributorLabel> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#hbzID> "HT013577568"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n03> .
@@ -2750,6 +2755,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/118560034> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4159648-1> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/title> "Karl der Gro\u00DFe und sein Bild"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT014168843> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#contributorLabel> "L\u00FCken, Sven"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#hbzID> "HT014215912"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
@@ -2999,6 +3005,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/title> "Die Terrorkrise als Medienereignis?"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015414894> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT013384949> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/lobid/lv#contributorLabel> "Conrad, Christoph"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/lobid/lv#contributorLabel> "Kim, Richard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/lobid/lv#contributorLabel> "Werthes, Sascha"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3357,6 +3364,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/fra> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/AudioDocument> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/title> "Pierrot"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT016607985> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Baldwin, Dalton"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Teodoro de"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/lobid/lv#contributorLabel> "Banville, Th. de"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3560,6 +3568,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4013255-9> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4137215-3> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/title> "D\u00FCsseldorf und das bergische Territorium"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT007072426> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#contributorLabel> "Engelhardt, Manfred"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#hbzID> "HT018131501"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n46> .
@@ -3681,6 +3690,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4124796-6> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/7683386-0> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/title> "Theatraler Exzess und \u0090\u0090\u0090,gespielte\u2018 Sinnlosigkeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT002156174> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#contributorLabel> "Maes, Sientje"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#hbzID> "HT018312899"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s768030> .
