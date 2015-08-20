@@ -4,10 +4,8 @@ _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT00
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT002619538> .
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT002808565> .
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT003160768> .
-_:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT007384038> .
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT012848847> .
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT015845132> .
-_:Bb0 <http://purl.org/lobid/lv#numbering> "10"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,16"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -15,19 +13,20 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLS
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "3,5,1"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "43"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "52"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "5"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT003613090> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "52"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "..."^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT003613090> .
-_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:Bb1 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT007384038> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "10"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3637,7 +3636,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#contributorLabel> "Daufenbach, Heinz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#contributorLabel> "Henseler, Paul"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#hbzID> "HT017903191"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#inSeries> _:Bb1 .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#inSeries> _:Bb0 .
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Stadtarchiv Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectChain> "Sankt Augustin | Heimatkunde | Zeitschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Baudezernat (Sankt Augustin)"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3651,11 +3650,10 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Stadtdirektor (Sankt Augustin)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Stadt Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "St. Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#volumeIn> _:Bb0 .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#volumeIn> _:Bb1 .
 <http://lobid.org/resource/HT017903191> <http://purl.org/ontology/bibo/isbn> "9783981604108"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/ontology/bibo/volume> "10"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/ontology/bibo/volume> "52"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT017903191> <http://purl.org/ontology/bibo/volume> "..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-38:21A6370-10> .
 <http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)> .
