@@ -31,6 +31,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/1028627270> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fett, Anna Laura, 1985-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "M\u00FCller, Leonhard, 1929-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCller, Leonhard, 1929-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1050382935> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "M\u00FCnter, Angelika, 1978-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1050382935> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCnter, Angelika, 1978-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredName> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -39,6 +41,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Altekamp, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Altekamp, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/10948200X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Mielke, Bernd"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/10948200X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mielke, Bernd"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/109490312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Boer, Hans-Peter, 1949-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/109490312> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Boer, Hans-Peter, 1949-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/109702662> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Mensing, Hans Peter, 1942-"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -244,6 +248,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/37460-X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "American Dental Association"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Automobilsport"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Automobilsport"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4006292-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bev\u00F6lkerungsentwicklung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4006292-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Bev\u00F6lkerungsentwicklung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4010356-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Kreis Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -256,6 +262,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/4013255-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4014228-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Elektrizit\u00E4tswirtschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4014228-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Elektrizit\u00E4tswirtschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4017391-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fl\u00E4chenbedarf"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4017391-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Fl\u00E4chenbedarf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Freudenberg, Kreis Siegen-Wittgenstein"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Freudenberg"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4018466-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Freudenberg, Kreis Siegen-Wittgenstein"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2324,6 +2332,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT010726584/about> <http://purl.org/dc/terms/created> "19991122"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584/about> <http://purl.org/dc/terms/modified> "20131031"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/publisher> "American Institute of Physics"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/hasVersion> <http://scitation.aip.org/content/aip/journal/pop> .
+<http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/hasVersion> <http://search.ebscohost.com/> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/hasVersion> <http://www.bibliothek.uni-regensburg.de/ezeit/?1472746> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/issued> "1994 - "^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/issued> "1994"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2335,6 +2345,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4067488-5> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4511937-5> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/title> "Physics of plasmas"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#fulltextOnline> <http://scitation.aip.org/content/aip/journal/pop> .
+<http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#fulltextOnline> <http://search.ebscohost.com/> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#fulltextOnline> <http://www.bibliothek.uni-regensburg.de/ezeit/?1472746> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#hbzID> "HT010726584"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#subjectChain> "Plasmaphysik | Zeitschrift | Online-Publikation"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3711,6 +3723,57 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018312899> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018312899> .
 <http://lobid.org/resource/HT018312899> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018312899/about> .
 <http://lobid.org/resource/HT018312899> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018312899> .
+<http://lobid.org/resource/HT018400499/about> <http://purl.org/dc/terms/created> "20140926"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499/about> <http://purl.org/dc/terms/modified> "20141001"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/bibliographicCitation> "Demographischer Wandel in Nordrhein-Westfalen [Elektronische Ressource]; Autoren dieser Ausg.: Rainer Danielzyk ... [Hrsg.: Institut f\u00FCr Landes- und Stadtentwicklungsforschung gGmbH]; 2. Aufl.; 2010; S. 58-65 : graph. Darst."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1050382935> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/10948200X> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1050382935> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10948200X> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/hasVersion> <http://nbn-resolving.de/urn:nbn:de:hbz:6:2-23936> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017228659> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/issued> "2010"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4006292-2> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4017391-4> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042570-8> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/dc/terms/title> "Demographischer Wandel und Fl\u00E4cheninanspruchnahme"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#containedIn> <http://lobid.org/resource/HT017228659> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#contributorLabel> "Mielke, Bernd"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#contributorLabel> "M\u00FCnter, Angelika H. C."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#contributorLabel> "M\u00FCnter, Angelika"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#fulltextOnline> <http://nbn-resolving.de/urn:nbn:de:hbz:6:2-23936> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#hbzID> "HT018400499"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s503200> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s564000> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s566000> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectChain> "Nordrhein-Westfalen | Bev\u00F6lkerungsentwicklung | Fl\u00E4chenbedarf | Prognose 2002-2040 | Online-Publikation (23145,32145)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Bev\u00F6lkerung / Entwicklung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Bev\u00F6lkerungsbewegung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Demografische Bewegung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Demografische Entwicklung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Demografischer Wandel"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Demographische Bewegung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Demographische Entwicklung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Demographischer Wandel"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Noordrijn-Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Nord-Westphalie"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "Norte-Westfalia"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "North Rhine-Westphalia"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "NRW"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/lobid/lv#subjectLabel> "NW"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT018400499> <http://rdvocab.info/Elements/placeOfPublication> "Dortmund"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://rdvocab.info/Elements/publicationStatement> "2010; Dortmund"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://rdvocab.info/Elements/statementOfResponsibility> "Bernd Mielke, Angelika M\u00FCnter"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018400499> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018400499> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
+<http://lobid.org/resource/HT018400499> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018400499> .
+<http://lobid.org/resource/HT018400499> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018400499/about> .
+<http://lobid.org/resource/HT018400499> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018400499> .
 <http://lobid.org/resource/HT018585406/about> <http://purl.org/dc/terms/created> "20150319"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://iflastandards.info/ns/isbd/elements/P1053> "45 S. : Ill., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/121842118> .
@@ -3958,6 +4021,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT002234459/about> <http://purl.org/dc/terms/created> "20030718"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459/about> <http://purl.org/dc/terms/modified> "20081017"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
@@ -3969,6 +4033,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#contributorLabel> "Kranz, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#contributorLabel> "M\u00FCller, Guntram"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#hbzID> "TT002234459"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectChain> "Rhein-Lahn-Kreis | Jakobsweg | Karte (213)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectLabel> "Camino de Santiago"^^<http://www.w3.org/2001/XMLSchema#string> .

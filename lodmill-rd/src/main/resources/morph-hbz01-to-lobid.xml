@@ -55,7 +55,7 @@
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
 		<data source="529z1.9" name="@hasSupplement"/>
 		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId">
-					<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
+			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
 		<!-- temporarily set new subject uri outcommented as a workaround, s. https://github.com/hbz/lobid/issues/155 
 			<data name="~rdf:subject" source="010-1.a|529z1.9|@idTitleSeries"> <regexp match="(.*)" format="$[ns-lobid-resource]${1}"/> 
@@ -413,15 +413,16 @@
 			<regexp match="^z|^.[url]p|^...[url]p|^.....[url]p" format="http://purl.org/ontology/bibo/Newspaper"/>
 		</data>
 		<!-- online -->
-		<data source="050." name="@medium">
+		<data source="050." name="@1018">
 			<regexp match="^........g" format="http://rdvocab.info/termList/RDACarrierType/1018"/>
 		</data>
-		<data source="058." name="@medium">
+		<data source="058." name="@1018">
 			<regexp match="^.r" format="http://rdvocab.info/termList/RDACarrierType/1018"/>
 		</data>
-		<data source="652a[-1].a" name="@medium">
+		<data source="652a[-1].a" name="@1018">
 			<regexp match="^[AaOo][rn]" format="http://rdvocab.info/termList/RDACarrierType/1018"/>
 		</data>
+		<data source="@1018" name="@medium"/>
 		<!-- computer carrier (disks etc) -->
 		<data source="058." name="@medium">
 			<regexp match="^.[^r]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
@@ -1212,12 +1213,16 @@
 			</data>
 		</combine>
 		<!--first three chars of "Resolving System" or "Volltext" or "EZB" or "Archivierte Online 
-			Ressource "<=> @fulltextOnlineUri -->
+			Ressource " or "Online-Ausgabe" <=> @fulltextOnlineUri -->
 		<combine name="@fulltextOnlineUri" value="${uri}" sameEntity="true">
 			<data source="655[-eu][ -1].[x3]">
-				<regexp match="^[AERV][rZoe][cBls]"/>
+				<regexp match="^[AERVO][rZoen][cBls]"/>
 			</data>
 			<data source="@linkUri" name="uri"/>
+		</combine>
+		<combine name="@fulltextOnlineUri" value="${a}">
+			<data source="@1018"/>
+			<data source="@linkUri" name="a"/>
 		</combine>
 		<!-- emit URI only if there are no description subfields ... -->
 		<choose name="@urlLonely" flushWith="655??">
