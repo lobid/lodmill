@@ -1,0 +1,20 @@
+{
+  "@graph": [
+    {
+      "@id": "http://lobid.org/resource/HT018354568",
+      "subject": [
+        {
+          "preferredNameForThePlaceOrGeographicName": "Voerde",
+          "@id": "http://d-nb.info/gnd/105099244X",
+          "preferredName": "Voerde, Ennepetal"
+        },
+        {
+          "preferredNameForTheSubjectHeading": "Heimatkunde",
+          "@id": "http://d-nb.info/gnd/4127794-6",
+          "preferredName": "Heimatkunde"
+        }
+      ]
+    }
+  ],
+  "@context": "http://lobid.org/context/lobid-resources.json"
+}
