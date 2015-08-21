@@ -1316,7 +1316,7 @@
 					<data source="@isPartOfHbzId"/>
 				</none>
 			</if>
-			<data source="451[-ab][12].a" name="isPartOfLiteral">
+			<data source="451[-ab]1.a" name="isPartOfLiteral">
 				<regexp match="(.*) +;.*" format="${1}"/>
 			</data>
 		</combine>
@@ -1327,12 +1327,12 @@
 			<combine name="$[ns-lobid-vocab]series" value="$[ns-lobid-resource]${a}">
 				<data source="453[-ab]1.a" name="a"/>
 			</combine>
-			<data source="451[-ab][12].a" name="$[ns-lobid-vocab]numbering">
+			<data source="451[-ab]1.a" name="$[ns-lobid-vocab]numbering">
 				<regexp match=".*;(.*)" format="${1}"/>
 				<trim></trim>
 			</data>
 		</entity>
-		<data source="451[-ab][12].a" name="http://purl.org/ontology/bibo/volume">
+		<data source="451[-ab]1.a" name="http://purl.org/ontology/bibo/volume">
 			<regexp match=".*;(.*)" format="${1}"/>
 			<trim></trim>
 		</data>

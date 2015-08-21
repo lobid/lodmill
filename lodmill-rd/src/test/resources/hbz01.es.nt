@@ -13,15 +13,20 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLS
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "3,5,1"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "43"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "52"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "5"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT003613090> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:Bb1 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT007384038> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "10"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -121,6 +126,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/12226861X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Linssen, Michael"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pepoli, Alessandro Ercole, 1757-1796"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pepoli, Alessandro Ercole, 1757-1796"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/124274501> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Henseler, Paul, 1930-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/124274501> <http://d-nb.info/standards/elementset/gnd#preferredName> "Henseler, Paul, 1930-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredName> "Engelhardt, Manfred, 1924-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Engelhardt, Manfred, 1924-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/124362869> <http://d-nb.info/standards/elementset/gnd#preferredName> "Baldwin, Dalton, 1931-"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -196,6 +203,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/172026644> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Courtillon, Janine"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/174423330> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Job, Bertram"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/174423330> <http://d-nb.info/standards/elementset/gnd#preferredName> "Job, Bertram"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/174424051> <http://d-nb.info/standards/elementset/gnd#preferredName> "Daufenbach, Heinz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/174424051> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Daufenbach, Heinz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/174737203> <http://d-nb.info/standards/elementset/gnd#preferredName> "Aigner, Johann"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/174737203> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Aigner, Johann"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/175894612> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hoefler, Angelika"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -238,6 +247,9 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Evangelische Kirche von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Austro-Daimler-Puchwerke"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Austro-Daimler-Puchwerke"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2116368-6> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Stadtarchiv Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2116368-6> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Stadtarchiv Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2116368-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "Stadtarchiv Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -319,6 +331,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/4075561-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Oberrheinisches Tiefland"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4076769-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "R\u00F6merzeit"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4076769-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "R\u00F6merzeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4105316-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4105316-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4113292-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4113292-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Deutsch"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4114067-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Jakobsweg"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1518,6 +1532,41 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kn28> .
 <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017529028:DE-Kn28:PHBB%2018%2F22%2FXVIII/about> .
+<http://lobid.org/item/HT017903191:DE-38:21A6370-10> <http://purl.org/ontology/daia/label> "21A6370-10"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT017903191:DE-38:21A6370-10> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017903191> .
+<http://lobid.org/item/HT017903191:DE-38:21A6370-10> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-38> .
+<http://lobid.org/item/HT017903191:DE-38:21A6370-10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017903191:DE-38:21A6370-10> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017903191:DE-38:21A6370-10/about> .
+<http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)> <http://purl.org/ontology/daia/label> "Gb 16812/100 (52)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017903191> .
+<http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-5-39> .
+<http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)/about> .
+<http://lobid.org/item/HT017903191:DE-5:Z%2084%2F199%20(52)> <http://purl.org/ontology/daia/label> "Z 84/199 (52)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT017903191:DE-5:Z%2084%2F199%20(52)> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017903191> .
+<http://lobid.org/item/HT017903191:DE-5:Z%2084%2F199%20(52)> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-5> .
+<http://lobid.org/item/HT017903191:DE-5:Z%2084%2F199%20(52)> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017903191:DE-5:Z%2084%2F199%20(52)> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017903191:DE-5:Z%2084%2F199%20(52)/about> .
+<http://lobid.org/item/HT017903191:DE-61:nc%2Fe0927> <http://purl.org/ontology/daia/label> "nc/e0927"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT017903191:DE-61:nc%2Fe0927> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017903191> .
+<http://lobid.org/item/HT017903191:DE-61:nc%2Fe0927> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-61> .
+<http://lobid.org/item/HT017903191:DE-61:nc%2Fe0927> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017903191:DE-61:nc%2Fe0927> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017903191:DE-61:nc%2Fe0927/about> .
+<http://lobid.org/item/HT017903191:DE-6-210:Bp%201818%2F11%20-%2052> <http://purl.org/ontology/daia/label> "Bp 1818/11 - 52"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT017903191:DE-6-210:Bp%201818%2F11%20-%2052> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017903191> .
+<http://lobid.org/item/HT017903191:DE-6-210:Bp%201818%2F11%20-%2052> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-210> .
+<http://lobid.org/item/HT017903191:DE-6-210:Bp%201818%2F11%20-%2052> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017903191:DE-6-210:Bp%201818%2F11%20-%2052> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017903191:DE-6-210:Bp%201818%2F11%20-%2052/about> .
+<http://lobid.org/item/HT017903191:DE-Sie5:82%20=%20R-14-S-001> <http://purl.org/ontology/daia/label> "82 = R-14-S-001"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT017903191:DE-Sie5:82%20=%20R-14-S-001> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017903191> .
+<http://lobid.org/item/HT017903191:DE-Sie5:82%20=%20R-14-S-001> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Sie5> .
+<http://lobid.org/item/HT017903191:DE-Sie5:82%20=%20R-14-S-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017903191:DE-Sie5:82%20=%20R-14-S-001> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017903191:DE-Sie5:82%20=%20R-14-S-001/about> .
+<http://lobid.org/item/HT017903191:DE-Sol1:KA%207223%2F52> <http://purl.org/ontology/daia/label> "KA 7223/52"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT017903191:DE-Sol1:KA%207223%2F52> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT017903191> .
+<http://lobid.org/item/HT017903191:DE-Sol1:KA%207223%2F52> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Sol1> .
+<http://lobid.org/item/HT017903191:DE-Sol1:KA%207223%2F52> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT017903191:DE-Sol1:KA%207223%2F52> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT017903191:DE-Sol1:KA%207223%2F52/about> .
 <http://lobid.org/item/HT018187026:DE-361:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018187026> .
 <http://lobid.org/item/HT018187026:DE-361:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-361> .
 <http://lobid.org/item/HT018187026:DE-361:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
@@ -3566,6 +3615,59 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017529028> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT017529028> .
 <http://lobid.org/resource/HT017529028> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017529028/about> .
 <http://lobid.org/resource/HT017529028> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT017529028> .
+<http://lobid.org/resource/HT017903191/about> <http://purl.org/dc/terms/created> "20131126"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191/about> <http://purl.org/dc/terms/modified> "20131127"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://iflastandards.info/ns/isbd/elements/P1053> "153 S. : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/elements/1.1/publisher> "Rheinlandia-Verl."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124274501> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/174424051> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2116368-6> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT003613090> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007384038> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/issued> "2013"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4105316-3> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4127794-6> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/tableOfContents> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=5447983&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/dc/terms/title> "H\u00FChner, Hufeisen und Heimsuchung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#contributorLabel> "Daufenbach, Heinz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#contributorLabel> "Henseler, Paul"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#hbzID> "HT017903191"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#inSeries> _:Bb0 .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Stadtarchiv Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectChain> "Sankt Augustin | Heimatkunde | Zeitschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Baudezernat (Sankt Augustin)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Gemeindeverwaltung (Sankt Augustin)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Heimatforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Heimatgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Sankt Augustin (4)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Sankt Augustin. Baudezernat"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Sankt Augustin. Gemeindeverwaltung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Sankt Augustin. Stadtdirektor"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Stadtdirektor (Sankt Augustin)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "Stadt Sankt Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#subjectLabel> "St. Augustin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/lobid/lv#volumeIn> _:Bb1 .
+<http://lobid.org/resource/HT017903191> <http://purl.org/ontology/bibo/isbn> "9783981604108"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/ontology/bibo/volume> "10"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/ontology/bibo/volume> "52"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-38:21A6370-10> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-5-39:Gb%2016812%2F100%20(52)> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-5:Z%2084%2F199%20(52)> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-61:nc%2Fe0927> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-6-210:Bp%201818%2F11%20-%2052> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-Sie5:82%20=%20R-14-S-001> .
+<http://lobid.org/resource/HT017903191> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT017903191:DE-Sol1:KA%207223%2F52> .
+<http://lobid.org/resource/HT017903191> <http://rdvocab.info/Elements/otherTitleInformation> "Aufs\u00E4tze zur Stadtgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://rdvocab.info/Elements/placeOfPublication> "Siegburg"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://rdvocab.info/Elements/publicationStatement> "Siegburg; Rheinlandia-Verl.; 2013"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017903191> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT017903191> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT017903191> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT017903191> .
+<http://lobid.org/resource/HT017903191> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017903191/about> .
+<http://lobid.org/resource/HT017903191> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT017903191> .
 <http://lobid.org/resource/HT018131501/about> <http://purl.org/dc/terms/created> "20140115"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/coverage> "D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "Der Gie\u00DFerjunge; 34 (2014),1, S. 14-15"^^<http://www.w3.org/2001/XMLSchema#string> .
