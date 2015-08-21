@@ -1221,6 +1221,11 @@
 			<data source="@linkUri" name="uri"/>
 		</combine>
 		<combine name="@fulltextOnlineUri" value="${a}">
+			<if>
+				<none>
+					<data source="@archived"/>
+				</none>
+			</if>
 			<data source="@1018"/>
 			<data source="@linkUri" name="a"/>
 		</combine>
@@ -1236,7 +1241,7 @@
 			</data>
 			<data source="@archived"/>
 		</combine>
-		<data source="@fulltextOnlineUri" name="$[ns-lobid-vocab]fulltextOnline"/>
+			<data source="@fulltextOnlineUri" name="$[ns-lobid-vocab]fulltextOnline"/>
 		<data source="@fulltextOnlineUri" name="http://purl.org/dc/terms/hasVersion"/>
 		<!-- rdf:seeAlso if 655 AND first three letter "Zusätzliche Angaben" -->
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">

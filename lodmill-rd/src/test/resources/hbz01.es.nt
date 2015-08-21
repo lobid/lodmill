@@ -2381,7 +2381,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT010726584/about> <http://purl.org/dc/terms/created> "19991122"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584/about> <http://purl.org/dc/terms/modified> "20131031"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/elements/1.1/publisher> "American Institute of Physics"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/hasVersion> <http://scitation.aip.org/content/aip/journal/pop> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/hasVersion> <http://search.ebscohost.com/> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/hasVersion> <http://www.bibliothek.uni-regensburg.de/ezeit/?1472746> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/issued> "1994 - "^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2394,7 +2393,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4067488-5> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4511937-5> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/dc/terms/title> "Physics of plasmas"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#fulltextOnline> <http://scitation.aip.org/content/aip/journal/pop> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#fulltextOnline> <http://search.ebscohost.com/> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#fulltextOnline> <http://www.bibliothek.uni-regensburg.de/ezeit/?1472746> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#hbzID> "HT010726584"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4123,7 +4121,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT002234459/about> <http://purl.org/dc/terms/created> "20030718"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459/about> <http://purl.org/dc/terms/modified> "20081017"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
-<http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/Map> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
@@ -4135,7 +4132,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#contributorLabel> "Kranz, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#contributorLabel> "M\u00FCller, Guntram"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
-<http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#fulltextOnline> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#hbzID> "TT002234459"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectChain> "Rhein-Lahn-Kreis | Jakobsweg | Karte (213)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectLabel> "Camino de Santiago"^^<http://www.w3.org/2001/XMLSchema#string> .
