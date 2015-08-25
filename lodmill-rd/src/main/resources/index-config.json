@@ -116,6 +116,30 @@
 												}
 										 }
 									},
+									"http://purl.org/lobid/lv#multiVolumeWork" : {
+										 "properties" : {
+												"@id" : {
+													 "type" : "string",
+													 "index" : "not_analyzed"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#series" : {
+										 "properties" : {
+												"@id" : {
+													 "type" : "string",
+													 "index" : "not_analyzed"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#containedIn" : {
+										 "properties" : {
+												"@id" : {
+													 "type" : "string",
+													 "index" : "not_analyzed"
+												}
+										 }
+									},
 									"http://id.loc.gov/vocabulary/relators/clb" : {
 										 "properties" : {
 												"@id" : {
