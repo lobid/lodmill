@@ -637,6 +637,10 @@
 		<!-- ####################### -->
 		<data source="40[03]-1.[an]" name="http://purl.org/ontology/bibo/edition"/>
 		<data source="510-1.a" name="http://purl.org/ontology/bibo/edition"/>
+		<!-- ################ Hochschulschriftenvermerk -->
+		<concat delimiter=", " name="http://rdaregistry.info/Elements/u/P60489">
+			<data source="519-1.[ap]"/>
+		</concat>
 		<!-- ####################### -->
 		<!-- ########## links to the fulltext, online doi, toc etc. -->
 		<!-- ####################### -->
@@ -1037,6 +1041,8 @@
 			</concat>
 			<data source="@subjectLinks"/>
 		</combine>
+
+
 		<choose name="@preferredName" flushWith="@subjectLinks|@creator|@contributorId">
 			<data source="@nameOfContributingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
@@ -1241,7 +1247,7 @@
 			</data>
 			<data source="@archived"/>
 		</combine>
-			<data source="@fulltextOnlineUri" name="$[ns-lobid-vocab]fulltextOnline"/>
+		<data source="@fulltextOnlineUri" name="$[ns-lobid-vocab]fulltextOnline"/>
 		<data source="@fulltextOnlineUri" name="http://purl.org/dc/terms/hasVersion"/>
 		<!-- rdf:seeAlso if 655 AND first three letter "Zusätzliche Angaben" -->
 		<combine name="http://www.w3.org/2000/01/rdf-schema#seeAlso" value="${seeAlsoUri}">
