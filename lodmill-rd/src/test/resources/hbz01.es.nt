@@ -62,7 +62,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adam, Theo, 1926-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adam, Theo, 1926-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad, 1876-1967"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adenauer, Konrad, 1876-1967"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bach, Johann Sebastian, 1685-1750"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bach, Johann Sebastian, 1685-1750"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne, 1750-1810"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -85,8 +84,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rohmer, Eric, 1920-2010"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schreier, Peter, 1935-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schreier, Peter, 1935-"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118617230> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Stein, Edith, 1891-1942"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118617230> <http://d-nb.info/standards/elementset/gnd#preferredName> "Stein, Edith, 1891-1942"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118637649> <http://d-nb.info/standards/elementset/gnd#preferredName> "Albertus, Magnus, 1193-1280"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118637649> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Albertus, Magnus, 1193-1280"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118640038> <http://d-nb.info/standards/elementset/gnd#preferredName> "Juan, de la Cruz, 1542-1591"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1732,7 +1729,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000040377/about> <http://purl.org/dc/terms/modified> "19960814"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/elements/1.1/coverage> "Rheine"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/bibliographicCitation> "Rheine gestern, heute, morgen. - 11 (1983), S. 26-38 : Abb."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/105745944> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/105745944> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT003759287> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/dc/terms/issued> "1983"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1755,7 +1751,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000041593/about> <http://purl.org/dc/terms/modified> "19960814"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/bibliographicCitation> "Wirtschaftsspiegel. - 38 (1983) H. 7, S. 24-25 : 1 Abb."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/10880724X> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/10880724X> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007751353> .
 <http://lobid.org/resource/BT000041593> <http://purl.org/dc/terms/issued> "1983"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1777,7 +1772,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000067443/about> <http://purl.org/dc/terms/modified> "19960816"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/elements/1.1/coverage> "Kreis Coesfeld (Kreis)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/bibliographicCitation> "Kiebitz. - 6 (1986), S. 29-36, S. 63-67"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118033948> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118033948> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006990419> .
 <http://lobid.org/resource/BT000067443> <http://purl.org/dc/terms/issued> "1986"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1802,7 +1796,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/elements/1.1/coverage> "M\u00F6nchengladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/abstract> "Erinnerungen an d. 1. FC K\u00F6ln u. Borussia M\u00F6nchengladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/bibliographicCitation> "Nach dem Spiel ist vor dem Spiel : die wunderbare Welt des Fu\u00DFballs / Wolfgang Frank (Hg.); Orig.-Ausg.; 1996; S. 101-[108]"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/174423330> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/174423330> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007138775> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/dc/terms/issued> "1996"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2351,7 +2344,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT010662586/about> <http://purl.org/dc/terms/created> "19990818"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010662586> <http://iflastandards.info/ns/isbd/elements/P1053> "23 p."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/elements/1.1/publisher> "Leicester Univ. Pr."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118839055> .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118839055> .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/issued> "1957"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010662586> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -2474,7 +2466,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT012926727/about> <http://purl.org/dc/terms/modified> "20130305"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012926727> <http://iflastandards.info/ns/isbd/elements/P1053> "XIV, 514 S. : graph. Darst., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/elements/1.1/publisher> "Springer"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1031919368> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1031919368> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/issued> "2001"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -2667,7 +2658,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT013304490> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT013304490> .
 <http://lobid.org/resource/HT013577568/about> <http://purl.org/dc/terms/created> "20030212"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/bibliographicCitation> "Kontinuit\u00E4t und Diskontinuit\u00E4t / hrsg. von Thomas Gr\u00FCnewald ... - Berlin [u.a.], 2003. - (Reallexikon der germanischen Altertumskunde : Erg\u00E4nzungsb\u00E4nde ; 35). - S. [266]-344 : Ill., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/108092704> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/108092704> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013538692> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/dc/terms/issued> "2003"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2798,7 +2788,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014046679> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014046679> .
 <http://lobid.org/resource/HT014215912/about> <http://purl.org/dc/terms/created> "20041208"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/bibliographicCitation> "Karl der Gro\u00DFe und Europa / hrsg. von der Schweizerischen Botschaft in der Bundesrepublik Deutschland ... - Frankfurt am Main [u.a.], 2004. - S. 67-86 : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/121815684> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/121815684> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT014168843> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/dc/terms/issued> "2004"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2845,7 +2834,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014319164> <http://purl.org/dc/elements/1.1/coverage> "Bad Honnef"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/dc/elements/1.1/coverage> "K\u00F6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/dc/elements/1.1/publisher> "[Selbstverl.]"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT014319164> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/133595935> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/159865794> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/133595935> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/dc/terms/issued> "1998"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2879,7 +2867,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014525099> <http://iflastandards.info/ns/isbd/elements/P1053> "2 Schallpl. : 33 UpM, stereo ; 30 cm"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/publisher> "Dt. Schallplatten"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118500546> .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11850553X> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118610724> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118867539> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/128992204> .
@@ -3011,7 +2998,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015183529/about> <http://purl.org/dc/terms/created> "20070618"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015183529> <http://iflastandards.info/ns/isbd/elements/P1053> "LV, 225 S. : Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/elements/1.1/publisher> "Cambridge Univ. Press"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118533592> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118533592> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT004984061> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/dc/terms/issued> "2006"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3046,9 +3032,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015183529> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015183529/about> .
 <http://lobid.org/resource/HT015183529> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015183529> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/bibliographicCitation> "Medien und Terrorismus; Christian Schicha ... (Hg.); 2002; S. 80 - 93"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11075851X> .
-<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/122021878> .
-<http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/186186193> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11075851X> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/122021878> .
 <http://lobid.org/resource/HT015414894> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/186186193> .
@@ -3075,7 +3058,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015440386/about> <http://purl.org/dc/terms/created> "20080220"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015440386> <http://iflastandards.info/ns/isbd/elements/P1053> "181, VIII S."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/dc/elements/1.1/publisher> "Rowohlt-Taschenbuch-Verl."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/111614597> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/111614597> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002091108> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/dc/terms/issued> "1998"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3129,7 +3111,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015440386> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015440386> .
 <http://lobid.org/resource/HT015455455/about> <http://purl.org/dc/terms/modified> "20130930"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://iflastandards.info/ns/isbd/elements/P1053> "291 S. : Ill., graph. Darst."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124897274> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124897274> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/issued> "2007"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -3212,7 +3193,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015891797> <http://iflastandards.info/ns/isbd/elements/P1053> "670 S. : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/elements/1.1/publisher> "Sch\u00F6ningh"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/109702662> .
-<http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11850066X> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002786685> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT015845132> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/issued> "2009"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3334,7 +3314,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT016382441> <http://iflastandards.info/ns/isbd/elements/P1053> "418 S. : zahlr. Ill., graph. Darst."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/publisher> "Wiley-VCH"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/alternative> "Linux for dummies <dt.>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/14320713X> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14320713X> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/issued> "2011"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -3404,7 +3383,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT016545462> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT016545462> .
 <http://lobid.org/resource/HT016608165/about> <http://purl.org/dc/terms/created> "20101130"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "M\u00E9lodies; Claude Debussy; 1980"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118524186> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119080389> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124362869> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/130290637> .
@@ -3499,7 +3477,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017480009/about> <http://purl.org/dc/terms/created> "20121206"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017480009/about> <http://purl.org/dc/terms/modified> "20150227"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017480009> <http://iflastandards.info/ns/isbd/elements/P1053> "59 S. : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT017480009> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1028627270> .
 <http://lobid.org/resource/HT017480009> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1028627270> .
 <http://lobid.org/resource/HT017480009> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=4826540&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT017480009> <http://purl.org/dc/terms/hasVersion> <http://dx.doi.org/10.4126/38m-004826540> .
@@ -3533,7 +3510,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017529028/about> <http://purl.org/dc/terms/modified> "20150323"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://iflastandards.info/ns/isbd/elements/P1053> "XXXVII, 265 S."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/elements/1.1/publisher> "Herder"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118617230> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/120534983> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT012848847> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/issued> "2013"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3612,7 +3588,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018131501/about> <http://purl.org/dc/terms/created> "20140115"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/elements/1.1/coverage> "D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/bibliographicCitation> "Der Gie\u00DFerjunge; 34 (2014),1, S. 14-15"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124348165> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT007072426> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3690,7 +3665,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018239864> <http://iflastandards.info/ns/isbd/elements/P1053> "517 S."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/elements/1.1/coverage> "K\u00F6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/elements/1.1/publisher> "de Gruyter"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1056946172> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1056946172> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT016777884> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3783,7 +3757,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018312899/about> <http://purl.org/dc/terms/created> "20140702"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/elements/1.1/coverage> "Detmold"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/bibliographicCitation> "Grabbe-Jahrbuch ...; 32. 2013 (2014), S. 80-95"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1023391147> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1023391147> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002156174> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3858,7 +3831,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018726005/about> <http://purl.org/dc/terms/created> "20150813"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/dc/elements/1.1/coverage> "Bielefeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/dc/terms/bibliographicCitation> "K.West; 2006,1, S. 12-14 : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT018726005> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/137538766> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/137538766> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/dc/terms/hasVersion> <http://www.bibliothek.uni-regensburg.de/ezeit/?2655603> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT013878511> .
@@ -3891,7 +3863,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/134926285> .
 <http://lobid.org/resource/TT000075751> <http://iflastandards.info/ns/isbd/elements/P1053> "2 CD : DDD + Beih."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/elements/1.1/publisher> "Hyperion"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118515527> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134769236> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134845323> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/134926277> .
@@ -3924,7 +3895,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001210514/about> <http://purl.org/dc/terms/created> "20051110"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001210514/about> <http://purl.org/dc/terms/modified> "20060207"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/elements/1.1/publisher> "Blindenhochschulb\u00FCcherei"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118551655> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118551655> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/TT001210514> <http://purl.org/dc/terms/medium> <http://purl.org/library/BrailleBook> .
@@ -3960,9 +3930,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001230001/about> <http://purl.org/dc/terms/created> "20051110"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://iflastandards.info/ns/isbd/elements/P1053> "[8] Bl., 414, [1] S. : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/elements/1.1/publisher> "Praetorius"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118535765> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118577018> .
-<http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118637649> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118535765> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118637649> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/TT001197763> .
