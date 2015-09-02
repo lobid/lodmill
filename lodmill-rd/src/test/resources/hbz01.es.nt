@@ -8,7 +8,7 @@ _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT01
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT015845132> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,16"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -33,6 +33,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/1028627270> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fett, Anna Laura, 1985-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "M\u00FCller, Leonhard, 1929-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCller, Leonhard, 1929-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1041277814> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Kellermann, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1041277814> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kellermann, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredName> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1056946172> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Kennedy, Beate"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -64,8 +66,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad, 1876-1967"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bach, Johann Sebastian, 1685-1750"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bach, Johann Sebastian, 1685-1750"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne, 1750-1810"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Marianne, 1750-1810"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00C3\u00B6hm, Marianne, 1750-1810"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00C3\u00B6hm, Marianne, 1750-1810"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118515527> <http://d-nb.info/standards/elementset/gnd#preferredName> "Britten, Benjamin, 1913-1976"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118515527> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Britten, Benjamin, 1913-1976"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118524186> <http://d-nb.info/standards/elementset/gnd#preferredName> "Debussy, Claude, 1862-1918"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -171,8 +173,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Dardenne, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Krug, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredName> "Krug, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann, der J\u00FCngere"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Johann, der J\u00FCngere"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00C3\u00B6hm, Johann, der J\u00C3\u00BCngere, 1777-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00C3\u00B6hm, Johann, der J\u00C3\u00BCngere, 1777-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/141927135> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bilau, Margarete, 1768-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/141927135> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bilau, Margarete, 1768-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fuchs, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -187,9 +189,9 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/14320713X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Blum, Richard, 1962-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/159865794> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/159865794> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adenauer, Konrad"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/16080300-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Entwicklungsagentur Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/16080300-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Entwicklungsagentur Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/16080300-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Entwicklungsagentur Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1826,8 +1828,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000128754> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000128754> .
 <http://lobid.org/resource/BT000128754> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000128754/about> .
 <http://lobid.org/resource/BT000128754> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000128754> .
-<http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/created> "20121205"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/modified> "20130616"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/created> "20150420"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/1041277814> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/118512536> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141834919> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141889810> .
@@ -1835,11 +1837,12 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141927135> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142027901> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142061166> .
+<http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/14216075X> .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/cmp> <http://d-nb.info/gnd/119055716> .
 <http://lobid.org/resource/CT003012479> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Plakat : sw ; 33 x 29 cm"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "B\u00F6gemann"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "Universit\u00E4ts- und Landesbibliothek"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/alternative> "<<La>> Belisa Ossia La Fedelt\u00E1 Riconosciuta"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "B\u00C3\u00B6gemann"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "Universit\u00C3\u00A4ts- und Landesbibliothek"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/alternative> "<<La>> Belisa Ossia La Fedelt\u00C3\u00A1 Riconosciuta"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/116620153> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/123633206> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/16068028-1> .
@@ -1848,20 +1851,20 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017290519> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "1805"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "2012"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "2015"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/source> <http://lobid.org/resource/HT016511663> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/title> "Elise, Gr\u00E4finn von Hillburg"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/title> "Elise, Gr\u00C3\u00A4finn von Hillburg"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Annoni, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, Margarete"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, Wilhelmine"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Johann"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "b\u00F6hm, madame"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Marianne"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00C3\u00B6hm, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00C3\u00B6hm, Johann"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00C3\u00B6hm, Marianne"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00C3\u00B6hm, Wilhelmine"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Dardenne, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Fuchs, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1887,7 +1890,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl L."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl Ludwig"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl Ludwig von"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "kellermann, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Kellermann, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Krug, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Carl L."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Johann Georg Karl"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1911,18 +1914,18 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#fulltextOnline> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:Bb0 .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:061:2-46125"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Dankrede"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elisa, Gr\u00E4fin von Hildburg"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elise, Gr\u00E4fin von Hartburg"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "... wird heute Mittwoch den 17ten April die hier anwesende deutsche Schauspieler-Gesellschaft (Zum Letztenmale) die Ehre haben aufzuf\u00FChren ; eine ganz neue gro\u00DFe komische Oper in 2 Aufz\u00FCgen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Zum Beschlu\u00DF wird Mad. B\u00F6hm d.j. eine Dankrede halten, welche gedruckt an der Kassa zu kaufen ist"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "[D\u00FCsseldorf]"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/publicationStatement> "[D\u00FCsseldorf]; B\u00F6gemann; 1805; D\u00FCsseldorf; Universit\u00E4ts- und Landesbibliothek"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/statementOfResponsibility> "die Musik ist von dem ber\u00FChmten Kapellmeister Winter, Compositeur der Oper: Das unterbrochene Opferfest. [Textverf.: Alessandro Ercole Pepoli. \u00DCbers. und arrang. von Carl Ludwig von Giesecke]. Personen: Madam Bilau, Herr Fuchs, Madam B\u00F6hm d.j., Madam B\u00F6hm d.\u00E4., Herr Kellermann, Herr Dardenne, Herr Krug, Madam Annoni, Herr B\u00F6hm"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elisa, Gr\u00C3\u00A4fin von Hildburg"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elise, Gr\u00C3\u00A4fin von Hartburg"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "... wird heute Mittwoch den 17ten April die hier anwesende deutsche Schauspieler-Gesellschaft (Zum Letztenmale) die Ehre haben aufzuf\u00C3\u00BChren ; Abonnement suspendu ; eine ganz neue gro\u00C3\u009Fe komische Oper in 2 Aufz\u00C3\u00BCgen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Zum Beschlu\u00C3\u009F wird Mad. B\u00C3\u00B6hm d.j. eine Dankrede halten, welche gedruckt an der Kassa zu kaufen ist"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "D\u00C3\u00BCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "[D\u00C3\u00BCsseldorf]"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/publicationStatement> "[D\u00C3\u00BCsseldorf]; B\u00C3\u00B6gemann; 1805; D\u00C3\u00BCsseldorf; Universit\u00C3\u00A4ts- und Landesbibliothek"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/statementOfResponsibility> "die Musik ist von dem ber\u00C3\u00BChmten Kapellmeister Winter, Compositeur der Oper: Das unterbrochene Opferfest. [Textverf.: Alessandro Ercole Pepoli. \u00C3\u009Cbers. und arrang. von Carl Ludwig von Giesecke]. Personen: Madam Bilau, Herr Fuchs, Madam B\u00C3\u00B6hm d.j., Madam B\u00C3\u00B6hm d.\u00C3\u00A4., Herr Kellermann, Herr Dardenne, Herr Krug, Madam Annoni, Herr B\u00C3\u00B6hm"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
