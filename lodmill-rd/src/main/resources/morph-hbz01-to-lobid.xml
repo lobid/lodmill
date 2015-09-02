@@ -763,8 +763,7 @@
 		<!-- #######creator -->
 		<!-- ####################### -->
 		<!-- person/corporation links -->
-		<data source="1??[-aemn]1.9|2??[-a][12-].9|8[012]?[-mn][-12].9"
-			name="@creatorId">
+		<data source="1??[-aemn]1.9|2??[-a][12-].9" name="@creatorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@creatorId" name="http://purl.org/dc/terms/creator"/>
@@ -798,11 +797,17 @@
 		<!-- ################ contributor -->
 		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
-		<data source="1??b[1234].b" name="@marcrelName"/>
+		<data source="1??b[1234].b|8[012]?[-mn][-12].b" name="@marcrelName"/>
 		<!-- id of person -->
-		<data source="1??[bcfep][1234].9" name="@contributorId">
+		<data source="1??[bcfp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
+		<combine name="@contributorId" value="${a}" sameEntity="true">
+			<data source="8[012]?[-mn][-12].b"/>
+			<data source="8[012]?[-mn][-12].9" name="a">
+				<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+			</data>
+		</combine>
 		<!-- id of corporation -->
 		<data source="2?[012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
@@ -975,6 +980,7 @@
 			</data>
 			<data source="@contributorId"/>
 		</choose>
+		<!-- the regex makes sure that @marcelName is ignored, when chosen -->
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>

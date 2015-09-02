@@ -1845,8 +1845,8 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/alternative> "<<La>> Belisa Ossia La Fedelt\u00C3\u00A1 Riconosciuta"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/116620153> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/123633206> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/14216075X> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/16068028-1> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14216075X> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/hasVersion> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017290519> .
@@ -2869,11 +2869,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014319164> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014319164> .
 <http://lobid.org/resource/HT014525099> <http://iflastandards.info/ns/isbd/elements/P1053> "2 Schallpl. : 33 UpM, stereo ; 30 cm"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/elements/1.1/publisher> "Dt. Schallplatten"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118500546> .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118610724> .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/118867539> .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/128992204> .
-<http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/129389641> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118500546> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/11850553X> .
 <http://lobid.org/resource/HT014525099> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118610724> .
@@ -3387,8 +3382,6 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT016608165/about> <http://purl.org/dc/terms/created> "20101130"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/bibliographicCitation> "M\u00E9lodies; Claude Debussy; 1980"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/119080389> .
-<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124362869> .
-<http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/130290637> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/118524186> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124362869> .
 <http://lobid.org/resource/HT016608165> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/130290637> .
