@@ -763,7 +763,7 @@
 		<!-- #######creator -->
 		<!-- ####################### -->
 		<!-- person/corporation links -->
-		<data source="1??[-aemn]1.9|8[012]?[-mn]1.9|2??[-a][12-].9|8[012]?[-mn][-12].9"
+		<data source="1??[-aemn]1.9|2??[-a][12-].9|8[012]?[-mn][-12].9"
 			name="@creator">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
