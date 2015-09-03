@@ -989,10 +989,14 @@
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
-		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/lobid/lv#contributorLabel">
-			<replace pattern="&gt;&gt;" with=""/>
-			<replace pattern="&lt;&lt;" with=""/>
-		</data>
+		<combine name="http://purl.org/lobid/lv#contributorLabel" value="${a}"
+			sameEntity="true">
+			<data source="8[012][02468][-mn]1.b"/>
+			<data source="8[012][02468][-mn]1.[pa]" name="a">
+				<replace pattern="&gt;&gt;" with=""/>
+				<replace pattern="&lt;&lt;" with=""/>
+			</data>
+		</combine>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -1047,8 +1051,6 @@
 			</concat>
 			<data source="@subjectLinks"/>
 		</combine>
-
-
 		<choose name="@preferredName" flushWith="@subjectLinks|@creatorId|@contributorId">
 			<data source="@nameOfContributingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
