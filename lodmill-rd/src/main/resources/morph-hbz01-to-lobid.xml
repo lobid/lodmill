@@ -763,11 +763,10 @@
 		<!-- #######creator -->
 		<!-- ####################### -->
 		<!-- person/corporation links -->
-		<data source="1??[-aemn]1.9|8[012]?[-mn]1.9|2??[-a][12-].9|8[012]?[-mn][-12].9"
-			name="@creator">
+		<data source="1??[-aemn]1.9|2??[-a][12-].9" name="@creatorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
-		<data source="@creator" name="http://purl.org/dc/terms/creator"/>
+		<data source="@creatorId" name="http://purl.org/dc/terms/creator"/>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="http://purl.org/lobid/lv#contributorLabel" value="${contributorLiteral}">
@@ -798,11 +797,17 @@
 		<!-- ################ contributor -->
 		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
-		<data source="1??b[1234].b" name="@marcrelName"/>
+		<data source="1??b[1234].b|8[012]?[-mn][-12].b" name="@marcrelName"/>
 		<!-- id of person -->
-		<data source="1??[bcfep][1234].9" name="@contributorId">
+		<data source="1??[bcfp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
+		<combine name="@contributorId" value="${a}" sameEntity="true">
+			<data source="8[012]?[-mn][-12].b"/>
+			<data source="8[012]?[-mn][-12].9" name="a">
+				<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+			</data>
+		</combine>
 		<!-- id of corporation -->
 		<data source="2?[012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
@@ -975,6 +980,7 @@
 			</data>
 			<data source="@contributorId"/>
 		</choose>
+		<!-- the regex makes sure that @marcelName is ignored, when chosen -->
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>
@@ -983,10 +989,14 @@
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
-		<data source="8[012][02468][-mn]1.[pa]" name="http://purl.org/lobid/lv#contributorLabel">
-			<replace pattern="&gt;&gt;" with=""/>
-			<replace pattern="&lt;&lt;" with=""/>
-		</data>
+		<combine name="http://purl.org/lobid/lv#contributorLabel" value="${a}"
+			sameEntity="true">
+			<data source="8[012][02468][-mn]1.b"/>
+			<data source="8[012][02468][-mn]1.[pa]" name="a">
+				<replace pattern="&gt;&gt;" with=""/>
+				<replace pattern="&lt;&lt;" with=""/>
+			</data>
+		</combine>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
@@ -1002,17 +1012,17 @@
 		<!-- ########### -->
 		<!-- # Create subgraph: temporarily set new subjects or contributor id -->
 		<!-- ########### -->
-		<data name="~rdf:subject" source="@subjectLinks|@creator|@contributorId"/>
+		<data name="~rdf:subject" source="@subjectLinks|@creatorId|@contributorId"/>
 		<!-- subjects -->
 		<combine name="@preferredNameConcatSubject" value="${a}" sameEntity="true"
-			flushWith="@subjectLinks|@creator|@contributorId">
-			<concat delimiter=", " name="a" flushWith="@subjectLinks|@creator|@contributorId"
+			flushWith="@subjectLinks|@creatorId|@contributorId">
+			<concat delimiter=", " name="a" flushWith="@subjectLinks|@creatorId|@contributorId"
 				sameEntity="true">
 				<data source="1????.[cdghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cdghknpsz]"/>
 			</concat>
-			<data source="@subjectLinks|@creator|@contributorId"/>
+			<data source="@subjectLinks|@creatorId|@contributorId"/>
 		</combine>
-		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true"> <!-- flushWith="@subjectLinks|@creator|@contributorId"> -->
+		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true"> <!-- flushWith="@subjectLinks|@creatorId|@contributorId"> -->
 			<data source="@nameOfContributingCorporateBody" name="a"/>
 			<data source="@contributorId"/>
 		</combine>
@@ -1041,9 +1051,7 @@
 			</concat>
 			<data source="@subjectLinks"/>
 		</combine>
-
-
-		<choose name="@preferredName" flushWith="@subjectLinks|@creator|@contributorId">
+		<choose name="@preferredName" flushWith="@subjectLinks|@creatorId|@contributorId">
 			<data source="@nameOfContributingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
 			<data source="@preferredNameConcat"/>
@@ -1084,7 +1092,7 @@
 		<!-- /subjects -->
 		<!-- START contributor/creator -->
 		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
-			<data source="@creator|@contributorId"/>
+			<data source="@creatorId|@contributorId"/>
 			<data source="@preferredName" name="a">
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
@@ -1100,7 +1108,7 @@
 		<!-- # set subject uri of resource anew -->
 		<!-- ########### -->
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
-			<data source="@subjectLinks|@creator|@contributorId"/>
+			<data source="@subjectLinks|@creatorId|@contributorId"/>
 			<data source="@id" name="subject"/>
 		</combine>
 		<!-- other subjects -->

@@ -1,6 +1,3 @@
-_:Bc45a8533520876db58ed22077a1d7c58 <http://purl.org/lobid/lv#numbering> "1805,04,16" .
-_:Bc45a8533520876db58ed22077a1d7c58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bc45a8533520876db58ed22077a1d7c58 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 <http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig von, 1761-1833" .
 <http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig von, 1761-1833" .
 <http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann, der J\u00FCngere, 1777-" .
@@ -22,7 +19,6 @@ _:Bc45a8533520876db58ed22077a1d7c58 <http://purl.org/lobid/lv#series> <http://lo
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Charles Lewis" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, J. P." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Krug, ..." .
-<http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14216075X> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Johann" .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Zum Beschlu\u00DF wird Mad. B\u00F6hm d.j. eine Dankrede halten, welche gedruckt an der Kassa zu kaufen ist" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, ..." .
@@ -41,7 +37,6 @@ _:Bc45a8533520876db58ed22077a1d7c58 <http://purl.org/lobid/lv#series> <http://lo
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141889810> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "b\u00F6hm, madame" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:Bc45a8533520876db58ed22077a1d7c58 .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Dardenne, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/118512536> .
@@ -65,6 +60,7 @@ _:Bc45a8533520876db58ed22077a1d7c58 <http://purl.org/lobid/lv#series> <http://lo
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Pietro de" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Johann G." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/title> "Elise, Gr\u00E4finn von Hillburg" .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:B9ae9c6a96237541a6c43d06165e1f765 .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf" .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/statementOfResponsibility> "die Musik ist von dem ber\u00FChmten Kapellmeister Winter, Compositeur der Oper: Das unterbrochene Opferfest. [Textverf.: Alessandro Ercole Pepoli. \u00DCbers. und arrang. von Carl Ludwig von Giesecke]. Personen: Madam Bilau, Herr Fuchs, Madam B\u00F6hm d.j., Madam B\u00F6hm d.\u00E4., Herr Kellermann, Herr Dardenne, Herr Krug, Madam Annoni, Herr B\u00F6hm" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Mezler, Johann Georg" .
@@ -96,7 +92,6 @@ _:Bc45a8533520876db58ed22077a1d7c58 <http://purl.org/lobid/lv#series> <http://lo
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "[D\u00FCsseldorf]" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141834919> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, Wilhelmine" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Karl" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/cmp> <http://d-nb.info/gnd/119055716> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Marianne" .
@@ -125,7 +120,8 @@ _:Bc45a8533520876db58ed22077a1d7c58 <http://purl.org/lobid/lv#series> <http://lo
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Winter, Peter von, 1754-1825" .
 <http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/created> "20121205" .
 <http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/modified> "20130616" .
+_:B9ae9c6a96237541a6c43d06165e1f765 <http://purl.org/lobid/lv#numbering> "1805,04,16" .
+_:B9ae9c6a96237541a6c43d06165e1f765 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B9ae9c6a96237541a6c43d06165e1f765 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 <http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredName> "Annoni, ..." .
 <http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Annoni, ..." .
-<http://d-nb.info/gnd/14216075X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bilau, Wilhelmine, 1787-1805" .
-<http://d-nb.info/gnd/14216075X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bilau, Wilhelmine, 1787-1805" .
