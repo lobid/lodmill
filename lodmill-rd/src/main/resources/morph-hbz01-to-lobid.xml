@@ -1330,23 +1330,23 @@
 					<data source="@isPartOfHbzId"/>
 				</none>
 			</if>
-			<data source="451[-ab]1.a" name="isPartOfLiteral">
+			<data source="4[56789]1[-ab]1.a" name="isPartOfLiteral">
 				<regexp match="(.*) +;.*" format="${1}"/>
 			</data>
 		</combine>
-		<entity name="http://purl.org/lobid/lv#inSeries">
+		<entity name="http://purl.org/lobid/lv#inSeries" flushWith="4[56789]3[-ab]1.a">
 			<data source="@idTitleSeries" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
 				<regexp match=".*" format="$[ns-lobid-vocab]SeriesRelation"/>
 			</data>
 			<combine name="$[ns-lobid-vocab]series" value="$[ns-lobid-resource]${a}">
-				<data source="453[-ab]1.a" name="a"/>
+				<data source="4[56789]3[-ab]1.a" name="a"/>
 			</combine>
-			<data source="451[-ab]1.a" name="$[ns-lobid-vocab]numbering">
+			<data source="4[56789]1[-ab]1.a" name="$[ns-lobid-vocab]numbering">
 				<regexp match=".*;(.*)" format="${1}"/>
 				<trim></trim>
 			</data>
 		</entity>
-		<data source="451[-ab]1.a" name="http://purl.org/ontology/bibo/volume">
+		<data source="4[56789]1[-ab]1.a" name="http://purl.org/ontology/bibo/volume">
 			<regexp match=".*;(.*)" format="${1}"/>
 			<trim></trim>
 		</data>
