@@ -14,6 +14,7 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLS
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "3,5,1"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "43"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "47"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "5"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -21,6 +22,7 @@ _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> 
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
@@ -63,6 +65,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/11079267X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Balke, Kirsten"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/111614597> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "K\u00F6nig, Ralf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/111614597> <http://d-nb.info/standards/elementset/gnd#preferredName> "K\u00F6nig, Ralf"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/115325859> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Wolter, Birgit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/115325859> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wolter, Birgit"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Maimbourg, Louis, 1610-1686"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/115541802> <http://d-nb.info/standards/elementset/gnd#preferredName> "Maimbourg, Louis, 1610-1686"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig von, 1761-1833"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -147,6 +151,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/129016713> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fehrmann, Gisela"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/129389641> <http://d-nb.info/standards/elementset/gnd#preferredName> "Aug\u00E9r, Arleen, 1939-1993"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/129389641> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Aug\u00E9r, Arleen, 1939-1993"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/129961604> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Heusinger, Josefine, 1965-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/129961604> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heusinger, Josefine, 1965-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Mespl\u00E9, Mady, 1931-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mespl\u00E9, Mady, 1931-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Reinarz, Titus, 1948-"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -165,6 +171,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/134926277> <http://d-nb.info/standards/elementset/gnd#preferredName> "Ogden, Craig"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/134926285> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Nathan, Regina"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/134926285> <http://d-nb.info/standards/elementset/gnd#preferredName> "Nathan, Regina"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/136371671> <http://d-nb.info/standards/elementset/gnd#preferredName> "Amrhein, Ludwig"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/136371671> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Amrhein, Ludwig"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/136529348> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Moczarski, Norbert, 1953-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/136529348> <http://d-nb.info/standards/elementset/gnd#preferredName> "Moczarski, Norbert, 1953-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/136788548> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "J\u00E4ger, Ludwig, 1943-"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -224,6 +232,9 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "The Beatles"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "The Beatles"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "The Beatles"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2006655-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2006655-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2006655-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Regierungsbezirk M\u00FCnster, Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regierungsbezirk M\u00FCnster, Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1629,6 +1640,15 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/item/HT018585406:DE-107:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-107> .
 <http://lobid.org/item/HT018585406:DE-107:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT018585406:DE-107:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018585406:DE-107:/about> .
+<http://lobid.org/item/HT018617137:DE-5:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018617137> .
+<http://lobid.org/item/HT018617137:DE-5:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-5> .
+<http://lobid.org/item/HT018617137:DE-5:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018617137:DE-5:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018617137:DE-5:/about> .
+<http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://purl.org/ontology/daia/label> "Elektronische Publikation"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018700720> .
+<http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-38M> .
+<http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation/about> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/ontology/daia/label> "CD 2410 - CD 2411"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/TT000075751> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kn38> .
@@ -3958,6 +3978,80 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018585406> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018585406> .
 <http://lobid.org/resource/HT018585406> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018585406/about> .
 <http://lobid.org/resource/HT018585406> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018585406> .
+<http://lobid.org/resource/HT018617137/about> <http://purl.org/dc/terms/created> "20150424"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://iflastandards.info/ns/isbd/elements/P1053> "55 S. : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/elements/1.1/creator> "Helm, Eva Maria"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/elements/1.1/publisher> "Projekt \"Nachhaltige Forschung an Fachhochschulen in NRW\""^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/terms/hasVersion> <http://nbn-resolving.de/urn:nbn:de:hbz:5:2-66128> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/terms/issued> "2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/dc/terms/title> "Nachhaltige Forschung an Fachhochschulen in NRW"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/lobid/lv#contributorLabel> "Helm, Eva Maria"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/lobid/lv#fulltextOnline> <http://nbn-resolving.de/urn:nbn:de:hbz:5:2-66128> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/lobid/lv#hbzID> "HT018617137"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s796000> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:5:2-66128"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/ontology/bibo/isbn> "9783981642216"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT018617137> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018617137:DE-5:> .
+<http://lobid.org/resource/HT018617137> <http://rdvocab.info/Elements/otherTitleInformation> "Forschung gestaltet unsere Lebenswelten"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://rdvocab.info/Elements/placeOfPublication> "K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://rdvocab.info/Elements/publicationStatement> "K\u00C3\u00B6ln; Projekt \"Nachhaltige Forschung an Fachhochschulen in NRW\"; 2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://rdvocab.info/Elements/statementOfResponsibility> "[Text: Eva Maria Helm]"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018617137> <http://umbel.org/umbel#isLike> <http://nbn-resolving.de/urn:nbn:de:hbz:5:2-66128> .
+<http://lobid.org/resource/HT018617137> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018617137> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT018617137> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018617137> .
+<http://lobid.org/resource/HT018617137> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018617137/about> .
+<http://lobid.org/resource/HT018617137> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018617137> .
+<http://lobid.org/resource/HT018700720/about> <http://purl.org/dc/terms/created> "20150716"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720/about> <http://purl.org/dc/terms/modified> "20150720"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://iflastandards.info/ns/isbd/elements/P1053> "239 S. : zahlr. graph. Darst., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/elements/1.1/contributor> "Ottovay, Kathrin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/elements/1.1/publisher> "BZgA"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/115325859> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/129961604> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/136371671> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2006655-7> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=6326817&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT015550020> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/issued> "2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/subject> <http://dewey.info/class/610/> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/dc/terms/title> "Die Hochaltrigen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#contributorLabel> "Amrhein, Ludwig"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#contributorLabel> "Heusinger, Josefine"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#contributorLabel> "Ottovay, Kathrin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#contributorLabel> "Wolter, Birgit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=6326817&custom_att_2=simple_viewer> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#hbzID> "HT018700720"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#inSeries> _:Bb0 .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "BZgA, Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "BZgA"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Deutschland"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "FCHE"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Federal Centre for Health Education"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/ontology/bibo/doi> "10.4126/38m-006326817"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/ontology/bibo/edition> "Aufl.: 1.3.02.15"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/ontology/bibo/isbn> "9783942816618"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/ontology/bibo/volume> "47"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> .
+<http://lobid.org/resource/HT018700720> <http://rdvocab.info/Elements/otherTitleInformation> "Expertise zur Lebenslage von Menschen im Alter \u00C3\u00BCber 80 Jahren"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://rdvocab.info/Elements/placeOfPublication> "K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://rdvocab.info/Elements/publicationStatement> "K\u00C3\u00B6ln; BZgA; 2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://rdvocab.info/Elements/statementOfResponsibility> "Ludwig Amrhein ; Josefine Heusinger ; Kathrin Ottovay ; Birgit Wolter"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018700720> <http://umbel.org/umbel#isLike> <http://dx.doi.org/10.4126/38m-006326817> .
+<http://lobid.org/resource/HT018700720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018700720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/HT018700720> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018700720> .
+<http://lobid.org/resource/HT018700720> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018700720/about> .
+<http://lobid.org/resource/HT018700720> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018700720> .
 <http://lobid.org/resource/HT018726005/about> <http://purl.org/dc/terms/created> "20150813"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/dc/elements/1.1/coverage> "Bielefeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/dc/terms/bibliographicCitation> "K.West; 2006,1, S. 12-14 : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4187,6 +4281,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001726537> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001726537> .
 <http://lobid.org/resource/TT002234459/about> <http://purl.org/dc/terms/created> "20030718"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459/about> <http://purl.org/dc/terms/modified> "20081017"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/contributor> "Kranz, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT002234459> <http://purl.org/dc/elements/1.1/contributor> "M\u00FCller, Guntram"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/hasVersion> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1638893&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/Map> .

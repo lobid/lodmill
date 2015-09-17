@@ -769,14 +769,24 @@
 		<data source="@creatorId" name="http://purl.org/dc/terms/creator"/>
 		<!-- literals of creator -->
 		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
-		<combine name="http://purl.org/lobid/lv#contributorLabel" value="${contributorLiteral}">
-			<data
-				source="1[02468][048][-abcefmn]1.[pa]|1[1468][26][-abcefmn]1.[pa]|8[012][02468][-mn]-12.[pa]"
-				name="contributorLiteral">
+		<combine name="@creatorLabel" value="${a}">
+			<data source="1[02468][048][-aemn]1.[pa]|1[1468][26][-aemn]1.[pa]|2??[-a][12-].a"
+				name="a">
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
 			</data>
-		</combine>
+		</combine>		
+		<choose name="@creatorNameOrId" flushWith="1????">
+			<data source="@creatorId"/>
+			<data source="@creatorLabel"/>
+		</choose>
+		<!-- Add literal only if link in the same entity does not exist -->
+		<data source="@creatorNameOrId" name="http://purl.org/dc/elements/1.1/creator">
+			<regexp match="^[^http].*"/>
+		</data>
+		<!-- ####################### -->
+		<!-- ################ CONTRIBUTOR -->
+		<!-- ####################### -->
 		<!-- corporation contributor literals -->
 		<data source="2?[012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<data source="8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
@@ -793,12 +803,9 @@
 			<data source="@nameOfContributingCorporateBodyK"/>
 		</choose>
 		<data source="@nameOfContributingCorporateBody" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
-		<!-- ####################### -->
-		<!-- ################ contributor -->
-		<!-- ####################### -->
 		<!-- contributors with roles @TODO many roles needs tests -->
 		<data source="1??b[1234].b|8[012]?[-mn][-12].b" name="@marcrelName"/>
-		<!-- id of person -->
+		<!-- id of contributor (which is not a creator) -->
 		<data source="1??[bcfp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
@@ -808,7 +815,14 @@
 				<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 			</data>
 		</combine>
-		<!-- id of corporation -->
+		<combine name="@contributorLabel" value="${a}">
+			<data source="1[02468][048][bcf]1.[pa]|1[13579][26][bcf]1.[pa]|8[012][02468][-mn]-12.[pa]"
+				name="a">
+				<replace pattern="&gt;&gt;" with=""/>
+				<replace pattern="&lt;&lt;" with=""/>
+			</data>
+		</combine>
+	<!-- id of corporation -->
 		<data source="2?[012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
@@ -984,7 +998,7 @@
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>
-		<!-- use dc:contributor for creator even if there is an id -->
+		<!-- use lv:contributorLabel for creator and ontributor even if there is an id -->
 		<data source="1??[-abcefmn][12].[pa]" name="http://purl.org/lobid/lv#contributorLabel">
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
@@ -997,6 +1011,14 @@
 				<replace pattern="&lt;&lt;" with=""/>
 			</data>
 		</combine>
+		<choose name="@contributorNameOrId" flushWith="1????">
+			<data source="@contributorId"/>
+			<data source="@contributorLabel"/>
+		</choose>
+		<!-- Add literal only if link in the same entity does not exist -->
+		<data source="@contributorNameOrId" name="http://purl.org/dc/elements/1.1/contributor">
+			<regexp match="^[^http].*"/>
+		</data>
 		<!-- ####################### -->
 		<!-- #######subjects -->
 		<!-- ####################### -->
