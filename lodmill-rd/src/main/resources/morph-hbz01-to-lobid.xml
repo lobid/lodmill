@@ -495,6 +495,7 @@
 			<if>
 				<none>
 					<data source="@titleRemainder2title331"/>
+					<data source="@titleRemainder331Superordination"/>
 				</none>
 			</if>
 			<data source="@titleRemainder331" name="titleRemainder"/>
@@ -508,8 +509,8 @@
 			<data source="@titleRemainder333" name="titleRemainder"/>
 		</combine>
 		<!-- deliberatley not everything linked with OR '|' because of performance problems -->
-		<data source="335[-abcd][-12].a|370[a][-1].a" name="@otherTitle"/>
-		<data source="3[45][01234567][-ab][-12].[ab]" name="http://purl.org/dc/terms/alternative"/>
+		<data source="335[-abcd][-1].a|370[a][-1].a" name="@otherTitle"/>
+		<data source="3[45][01234567][-ab][-1].[ab]" name="http://purl.org/dc/terms/alternative"/>
 		<data source="35[012345][-ab][-1].a" name="@otherTitle"/>
 		<data source="36[0123456789][-abcd][-1].a" name="@otherTitle"/>
 		<data source="376[-adb][-1].[ad]" name="http://purl.org/ontology/bibo/shortTitle"/>
@@ -520,7 +521,24 @@
 			<replace pattern="&lt;" with=""/>
 		</data>
 		<data source="675[-abcd][-12].a" name="$[ns-lobid-vocab]titleKeyword"/>
-		<!-- ####################### -->
+		<!-- generating title using the superordination -->
+		<data source="331[-ab][2].a" name="@titleRemainder331Superordination"/>
+		<!-- ... by concatenating fields. Two fields are optional, one mandatory -->
+		<combine name="@title" value="${a} ${b} ${c}" flushWith="@titleRemainder331Superordination">
+			<data source="@titleRemainder331Superordination" name="a"/>
+			<choose name="b" flushWith="@titleRemainder331Superordination">
+				<data source="089-[-1].a">
+					<regexp match="(.*)" format=", ${1}"/>
+				</data>
+				<data source="090-[-1].a">
+					<regexp match="(.*)" format=", ${1}"/>
+				</data>
+			</choose>
+			<data source="@titleRemainder331" name="c">
+				<regexp match="(.*)" format=", ${1}"/>
+			</data>
+		</combine>
+		<!-- ####################### "http://purl.org/ontology/bibo/volume -->
 		<!-- ########## date issued -->
 		<!-- ####################### -->
 		<!-- range of date. Only if 021 not exists but one of 425[bc]. Take 4 digits. -->
@@ -744,7 +762,8 @@
 		<!-- 32-[-12].a is not bibo:volume - but what is it? -->
 		<data source="089-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
 		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
-		<data source="090-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="090-[-1].a" name="@volume"/>
+		<data source="@volume" name="http://purl.org/ontology/bibo/volume"/>
 		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
 		<data source="001-2.a" name="@idVolume"/>
 		<entity name="http://purl.org/lobid/lv#volumeIn">
@@ -775,7 +794,7 @@
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
 			</data>
-		</combine>		
+		</combine>
 		<choose name="@creatorNameOrId" flushWith="1????">
 			<data source="@creatorId"/>
 			<data source="@creatorLabel"/>
@@ -822,7 +841,7 @@
 				<replace pattern="&lt;&lt;" with=""/>
 			</data>
 		</combine>
-	<!-- id of corporation -->
+		<!-- id of corporation -->
 		<data source="2?[012345678][bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
