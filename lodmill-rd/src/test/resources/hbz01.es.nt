@@ -1776,7 +1776,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "9783575112088"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/volume> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
-<http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "Bundesrepublik Deutschland"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "mit Ortsverzeichnis"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/otherTitleInformation> "Nordrhein-Westfalen, Niedersachsen-S\u00FCd"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://rdvocab.info/Elements/placeOfPublication> "Berlin [u.a.]"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2125,7 +2124,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT001898812/about> <http://purl.org/dc/terms/modified> "20030610"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://iflastandards.info/ns/isbd/elements/P1053> "XVIII, 1306 S."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/elements/1.1/publisher> "Verl. Enzyklop\u00E4die [u.a.]"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/alternative> "Wie\u0142ki slownik polsko-niemiecki"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/124515312> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/177005009> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001381485> .
@@ -2166,7 +2164,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812:DE-6:3G%2026297-2> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812:DE-6:3G%2026297A-2> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812:DE-98:V,%2018809%20(2)> .
-<http://lobid.org/resource/HT001898812> <http://rdvocab.info/Elements/otherTitleInformation> "Wielki s\u0142ownik polsko-niemiecki"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://rdvocab.info/Elements/placeOfPublication> "Leipzig"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://rdvocab.info/Elements/publicationStatement> "Leipzig; Verl. Enzyklop\u00E4die [u.a.]; 1974"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://rdvocab.info/Elements/statementOfResponsibility> "Jan Piprek ..."^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4242,7 +4239,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747:DE-6:GOA%207%2F62-3,5,1> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747:DE-929:K%2091%2F30:3,5,1> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001671747:DE-Sol1:FN%2066> .
-<http://lobid.org/resource/TT001671747> <http://rdvocab.info/Elements/otherTitleInformation> "Atlas von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnster"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Aschendorff; 1990"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
