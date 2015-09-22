@@ -527,10 +527,10 @@
 		<combine name="@title" value="${a} ${b} ${c}" flushWith="@titleRemainder331Superordination">
 			<data source="@titleRemainder331Superordination" name="a"/>
 			<choose name="b" flushWith="@titleRemainder331Superordination">
-				<data source="089-[-1].a">
+				<data source="090-[-1].a">
 					<regexp match="(.*)" format=", ${1}"/>
 				</data>
-				<data source="090-[-1].a">
+				<data source="089-[-1].a">
 					<regexp match="(.*)" format=", ${1}"/>
 				</data>
 			</choose>
