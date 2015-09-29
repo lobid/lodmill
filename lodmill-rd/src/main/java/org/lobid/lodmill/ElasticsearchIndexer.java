@@ -2,6 +2,7 @@
 
 package org.lobid.lodmill;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -12,6 +13,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.culturegraph.mf.framework.DefaultObjectPipe;
 import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.framework.annotations.In;
@@ -106,6 +108,7 @@ public class ElasticsearchIndexer
 			this.client = this.tc.addTransportAddress(this.NODE);
 		}
 		bulkRequest = client.prepareBulk();
+		file = new File("json.json");
 		if (updateIndex) {
 			getNewestIndex();
 		} else
@@ -113,12 +116,21 @@ public class ElasticsearchIndexer
 		bulkRequest.setRefresh(false);
 	}
 
+	File file;
+
 	@Override
 	public void process(final HashMap<String, String> json) {
 		updateRequest = new UpdateRequest(indexName,
 				json.get(Properties.TYPE.getName()), json.get(Properties.ID.getName()));
 		updateRequest.doc(json.get(Properties.GRAPH.getName()));
 		updateRequest.docAsUpsert(true);
+		try {
+			FileUtils.writeStringToFile(file, json.get(Properties.GRAPH.getName()),
+					false);
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		if (json.containsKey(Properties.PARENT.getName())) {
 			updateRequest.parent(json.get(Properties.PARENT.getName()));
 		}

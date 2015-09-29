@@ -20,7 +20,10 @@ import com.hp.hpl.jena.graph.NodeFactory;
 import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFList;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.ResourceUtils;
 
@@ -45,6 +48,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	private static final Logger LOG =
 			LoggerFactory.getLogger(PipeEncodeTriples.class);
 	private boolean storeUrnAsUri = false;
+	private RDFList rdfList;
 
 	/**
 	 * Sets the default temporary subject.
@@ -79,6 +83,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		if (!fixSubject) {
 			subject = DUMMY_SUBJECT;
 		}
+		rdfList = null;
 		resources.push(model.createResource(subject));
 	}
 
@@ -86,6 +91,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	public void literal(final String name, final String value) {
 		if (value == null)
 			return;
+
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 			subject = value;
 			try {
@@ -101,13 +107,36 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 			}
 		} else if (name.startsWith(HTTP)) {
 			try {
-				final Property prop = model.createProperty(name);
+				Property prop = model.createProperty(name);
+
+				// else {
+				// RDFNode rdfNode = model.asRDFNode(model.getProperty(name).asNode());
+				// // rdfNode = p.next();
+				// // if (rdfNode.canAs(RDFList.class))
+				// rdfList = rdfNode.as(RDFList.class);
+				// }
+				// rdfList.with());
+				// System.out
+				// .println("listSize=" + list.size() + ", " + list.listProperties());
 				if (isUriWithScheme(value) && ((value.startsWith(URN) && storeUrnAsUri)
 						|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
-					resources.peek().addProperty(prop,
-							model.asRDFNode(NodeFactory.createURI(value)));
+					// if new property, make new rdfList and add it to the model
+					if (!model.listObjectsOfProperty(prop).hasNext()) {
+						rdfList =
+								model.createList(new RDFNode[] { model.createProperty(value) });
+						resources.peek().addProperty(prop, rdfList);
+					} else
+						// resources.peek().addProperty(prop,
+						// model.asRDFNode(NodeFactory.createURI(value)));
+						rdfList.add(model.asRDFNode(NodeFactory.createURI(value)));
 				} else {
-					resources.peek().addProperty(prop, value);
+					// if new property, make new rdfList and add it to the model
+					if (!model.listObjectsOfProperty(prop).hasNext()) {
+						rdfList =
+								model.createList(new RDFNode[] { model.createLiteral(value) });
+						resources.peek().addProperty(prop, rdfList);
+					} else
+						rdfList.add(model.asRDFNode(NodeFactory.createLiteral(value)));
 				}
 			} catch (Exception e) {
 				LOG.warn("Problem with name=" + name + " value=" + value, e);
@@ -140,6 +169,35 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	public void endRecord() {
 		// insert subject now if it was not at the beginning of the record
 		final StringWriter tripleWriter = new StringWriter();
+		// RDFList list = model.createList(new RDFNode[] {
+		// model.gcreateProperty("http://purl.org/lobid/lv#subjectLabel") });
+		NodeIterator it = model.listObjects();
+		while (it.hasNext()) {
+			// System.out.println(it.next().asNode().getLiteralValue().toString());
+			RDFNode node = it.next();
+			RDFList rdfList = null;
+			if (node.canAs(RDFList.class)) {
+				rdfList = node.as(RDFList.class);
+				System.out.println("listSize=" + rdfList.size() + ", "
+						+ rdfList.listProperties().toString());
+				for (int i = 0; i < rdfList.size(); i++) {
+					System.out.println("     " + rdfList.get(i).toString());
+				}
+			}
+		}
+		// NodeIterator iter = model.listObjectsOfProperty(
+		// model.createProperty("http://purl.org/lobid/lv#subjectLabel"));
+		// if (iter.hasNext()) {
+		// // Transform to RDFList
+		// RDFNode node = iter.next();
+		// RDFList rdfList = null;
+		// if (node.canAs(RDFList.class)) {
+		// rdfList = node.as(RDFList.class);
+		// }
+		// }
+
+		// RDFList rdfList = model.createList RDFList.class );
+		// ExtendedIterator<RDFNode> items = rdfList.iterator();
 		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
 		getReceiver().process(tripleWriter.toString());
 	}
