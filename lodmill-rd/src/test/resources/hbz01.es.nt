@@ -1978,11 +1978,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:061:2-46125"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Dankrede"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elisa, Gr\u00C3\u00A4fin von Hildburg"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Elise, Gr\u00C3\u00A4fin von Hartburg"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "... wird heute Mittwoch den 17ten April die hier anwesende deutsche Schauspieler-Gesellschaft (Zum Letztenmale) die Ehre haben aufzuf\u00C3\u00BChren ; Abonnement suspendu ; eine ganz neue gro\u00C3\u009Fe komische Oper in 2 Aufz\u00C3\u00BCgen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/otherTitleInformation> "Zum Beschlu\u00C3\u009F wird Mad. B\u00C3\u00B6hm d.j. eine Dankrede halten, welche gedruckt an der Kassa zu kaufen ist"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "D\u00C3\u00BCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/placeOfPublication> "[D\u00C3\u00BCsseldorf]"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/CT003012479> <http://rdvocab.info/Elements/publicationStatement> "[D\u00C3\u00BCsseldorf]; B\u00C3\u00B6gemann; 1805; D\u00C3\u00BCsseldorf; Universit\u00C3\u00A4ts- und Landesbibliothek"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4182,9 +4178,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001230001> <http://purl.org/ontology/bibo/edition> "Ex membranis vetustis nunc prim\u00F9m edita"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/ontology/bibo/volume> "F2001/F2003]"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001230001:DE-107:MF%20275%2FF2001%2FF2003> .
-<http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "Albertvs Magnvs De Falconibus, Asturibus, & Accipitribus"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "Cvm Manfredi Regis additionibus"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "De falconibus, asturibus et accipitribus"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/otherTitleInformation> "Reliqva Librorvm Friderici II. Imperatoris, De arte venandi cum auibus"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/placeOfPublication> "Avgvstae Vindelicorvm"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://rdvocab.info/Elements/publicationStatement> "Avgvstae Vindelicorvm; Praetorius; 1596"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4260,7 +4254,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001726537> <http://purl.org/lobid/lv#hbzID> "TT001726537"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001726537> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001726537:DE-Kn28:2%20in:%20Aa%201801> .
 <http://lobid.org/resource/TT001726537> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001726537:DE-Kn28:2%20in:%20Aa%202422> .
-<http://lobid.org/resource/TT001726537> <http://rdvocab.info/Elements/otherTitleInformation> "Apologie pour M. Maimbourg ou Critique du Jesuite secularis\u00E9"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001726537> <http://rdvocab.info/Elements/placeOfPublication> "Cologne [i.e.] Amsterdam"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001726537> <http://rdvocab.info/Elements/publicationStatement> "Cologne [i.e.] Amsterdam; Delpeuck; 1683"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
