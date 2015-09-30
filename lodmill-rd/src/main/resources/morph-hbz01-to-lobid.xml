@@ -618,10 +618,10 @@
 		<!-- date precedence and validation. Field must begin with 4 digits -->
 		<choose name="http://purl.org/dc/terms/issued">
 			<data source="@dateRange">
-			<regexp match="^\d{4}.*"/>
+				<regexp match="^\d{4}.*"/>
 			</data>
 			<data source="@dateFix">
-			<regexp match="^\d{4}.*"/>
+				<regexp match="^\d{4}.*"/>
 			</data>
 		</choose>
 		<!-- ####################### -->
@@ -1164,6 +1164,9 @@
 		</data>
 		<data source="9[01234][27][-a][-1].f" name="@typeOnly">
 			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
+		</data>
+		<data source="9[01234][27][-a][-1].9" name="@typeOnly">
+			<regexp match="4143413-4" format="$[ns-lobid-vocab]EditedVolume"/>
 		</data>
 		<!-- "Verweisungsformen" literals -->
 		<data source="9[56][27]-[12].[acefgkps]" name="@subjectMain">
