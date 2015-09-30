@@ -3997,6 +3997,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018468645> <http://rdvocab.info/Elements/statementOfResponsibility> "Hrsg. von Fritsche, Christiane ; Paulmann, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018468645> <http://umbel.org/umbel#isLike> <http://dx.doi.org/10.7788/boehlau.9783412216689> .
 <http://lobid.org/resource/HT018468645> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018468645> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#EditedVolume> .
 <http://lobid.org/resource/HT018468645> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT018468645> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018468645> .
 <http://lobid.org/resource/HT018468645> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018468645/about> .
