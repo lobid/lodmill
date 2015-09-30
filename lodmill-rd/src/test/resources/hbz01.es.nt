@@ -132,6 +132,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/122021878> <http://d-nb.info/standards/elementset/gnd#preferredName> "Werthes, Sascha"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/12226861X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Linssen, Michael"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/12226861X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Linssen, Michael"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/122511158> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Paulmann, Johannes, 1960-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/122511158> <http://d-nb.info/standards/elementset/gnd#preferredName> "Paulmann, Johannes, 1960-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pepoli, Alessandro Ercole, 1757-1796"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pepoli, Alessandro Ercole, 1757-1796"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/124348165> <http://d-nb.info/standards/elementset/gnd#preferredName> "Engelhardt, Manfred, 1924-"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -142,6 +144,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/124515312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Ippoldt, Juliusz, 1867-1960"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pfundner, Martin, 1930-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/124897274> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfundner, Martin, 1930-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/128495626> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fritsche, Christiane, 1979-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/128495626> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fritsche, Christiane, 1979-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Kreisheimatverein <Coesfeld>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Kreisheimatverein <Coesfeld>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreisheimatverein <Coesfeld>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -356,10 +360,14 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/4126078-8> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCnzfund"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4127794-6> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Heimatkunde"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4127794-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heimatkunde"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4136959-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Wiedergutmachung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4136959-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wiedergutmachung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4137215-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Staat Berg"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4137215-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Staat Berg"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4139439-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Zwangsarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4139439-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zwangsarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4143413-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4143413-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4145395-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4145395-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4151183-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Eigent\u00FCmer"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -374,6 +382,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/4184194-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Symbolik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4207786-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Steyr-Daimler-Puch AG"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4207786-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Steyr-Daimler-Puch AG"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4219952-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arisierung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4219952-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Arisierung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4306876-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Regionalplan"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4306876-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regionalplan"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4337730-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "LINUX"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1637,6 +1647,10 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/item/HT018295975:DE-929:2014%2F3450> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-929> .
 <http://lobid.org/item/HT018295975:DE-929:2014%2F3450> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT018295975:DE-929:2014%2F3450> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018295975:DE-929:2014%2F3450/about> .
+<http://lobid.org/item/HT018468645:DE-466:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018468645> .
+<http://lobid.org/item/HT018468645:DE-466:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-466> .
+<http://lobid.org/item/HT018468645:DE-466:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018468645:DE-466:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018468645:DE-466:/about> .
 <http://lobid.org/item/HT018585406:DE-107:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018585406> .
 <http://lobid.org/item/HT018585406:DE-107:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-107> .
 <http://lobid.org/item/HT018585406:DE-107:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
@@ -3919,6 +3933,74 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018312899> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018312899> .
 <http://lobid.org/resource/HT018312899> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018312899/about> .
 <http://lobid.org/resource/HT018312899> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018312899> .
+<http://lobid.org/resource/HT018468645/about> <http://purl.org/dc/terms/created> "20141125"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://iflastandards.info/ns/isbd/elements/P1053> "394 S. : Ill., graph. Darst."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/elements/1.1/publisher> "B\u00C3\u00B6hlau"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/description> <http://deposit.d-nb.de/cgi-bin/dokserv?id=4535439&prov=M&dok_var=1&dok_ext=htm> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/hasVersion> <http://deposit.d-nb.de/cgi-bin/dokserv?id=4535439&prov=M&dok_var=1&dok_ext=htm> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/subject> <http://dewey.info/class/943/> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4011882-4> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4020517-4> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4136959-2> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4143413-4> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4219952-9> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/dc/terms/title> "\"Arisierung\" und \"Wiedergutmachung\" in deutschen St\u00C3\u00A4dten"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#contributorLabel> "Fritsche, Christiane"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#contributorLabel> "Paulmann, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#fulltextOnline> <http://deposit.d-nb.de/cgi-bin/dokserv?id=4535439&prov=M&dok_var=1&dok_ext=htm> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#hbzID> "HT018468645"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectChain> "Deutschland | Arisierung | Wiedergutmachung | Geschichte | Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Allemagne (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Beitr\u00C3\u00A4ge (Formschlagwort)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "BRD (1990-)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "BRD"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Bundesrepublik Deutschland (1990-)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Deutsche L\u00C3\u00A4nder"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Deutscher Bund"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Deutsches Reich"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Deutschland / Arisierung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Deutschland (Bundesrepublik, 1990-)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Deutschland (Gebiet unter Alliierter Besatzung)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Deyizhi-Lianbang-Gongheguo"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Drittes Reich / Arisierung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Einzelbeitr\u00C3\u00A4ge"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Federal Republic of Germany (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Federativnaja Respublika Germanija"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "FRG"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Germanija"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Germany (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Heiliges R\u00C3\u00B6misches Reich"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Landesgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Niemcy"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Norddeutscher Bund"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Ortsgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Regionalgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Repubblica Federale di Germania (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Republic of Germany (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Rheinbund"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "R\u00C3\u00A9publique F\u00C3\u00A9d\u00C3\u00A9rale d'Allemagne (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Sammelwerk (Formschlagwort)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "\u00C7\u00A6umh\u00C5\u00ABr\u00C4\u00AByat Alm\u00C4\u0081niy\u00C4\u0081 al-Itti\u00E1\u00B8\u00A5\u00C4\u0081d\u00C4\u00ABya"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Zeitgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/ontology/bibo/doi> "10.7788/boehlau.9783412216689"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/122511158> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/128495626> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/ontology/bibo/isbn> "9783412216689"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018468645:DE-466:> .
+<http://lobid.org/resource/HT018468645> <http://rdvocab.info/Elements/placeOfPublication> "K\u00C3\u00B6ln [u.a.]"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://rdvocab.info/Elements/publicationStatement> "K\u00C3\u00B6ln [u.a.]; B\u00C3\u00B6hlau; 2014"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://rdvocab.info/Elements/statementOfResponsibility> "Hrsg. von Fritsche, Christiane ; Paulmann, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://umbel.org/umbel#isLike> <http://dx.doi.org/10.7788/boehlau.9783412216689> .
+<http://lobid.org/resource/HT018468645> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018468645> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT018468645> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018468645> .
+<http://lobid.org/resource/HT018468645> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018468645/about> .
+<http://lobid.org/resource/HT018468645> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018468645> .
 <http://lobid.org/resource/HT018585406/about> <http://purl.org/dc/terms/created> "20150319"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://iflastandards.info/ns/isbd/elements/P1053> "45 S. : Ill., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/121842118> .
