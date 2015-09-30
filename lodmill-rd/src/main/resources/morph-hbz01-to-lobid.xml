@@ -552,9 +552,6 @@
 				<regexp match="(\d{4})" format="${1}"/>
 			</data>
 		</combine>
-		<data source="@dateRange" name="http://purl.org/dc/terms/issued">
-			<regexp match="^\d{4}.*"/>
-		</data>
 		<!-- issue precedence -->
 		<data source="425a[-1].a" name="@dateFix"/>
 		<combine name="@dateFix" value="${a}">
@@ -609,10 +606,7 @@
 			<data source="089-[-1].a" name="a">
 			</data>
 		</combine>
-		<!-- date validation. Field must begin with 4 digits -->
-		<data source="@dateFix|@dateSecondary" name="http://purl.org/dc/terms/issued">
-			<regexp match="^\d{4}.*"/>
-		</data>
+
 		<!-- semantic shift: 425 is only date of issue if resource is not a secondary form (21) -->
 		<combine name="@dateSecondary" value="${dateSecondary}">
 			<data source="021[-b]1.a"/>
@@ -620,6 +614,16 @@
 				<regexp match="(\d{4})" format="${1}"/>
 			</data>
 		</combine>
+		<data source="@dateSecondary" name="http://purl.org/dc/terms/issued"/>
+		<!-- date precedence and validation. Field must begin with 4 digits -->
+		<choose name="http://purl.org/dc/terms/issued">
+			<data source="@dateRange">
+			<regexp match="^\d{4}.*"/>
+			</data>
+			<data source="@dateFix">
+			<regexp match="^\d{4}.*"/>
+			</data>
+		</choose>
 		<!-- ####################### -->
 		<!-- ########## geo coordinates -->
 		<!-- ####################### -->
