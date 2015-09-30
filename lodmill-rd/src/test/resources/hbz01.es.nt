@@ -10,7 +10,6 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "3,5,1"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -21,17 +20,17 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/20
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3164,6 +3163,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015455455/about> <http://purl.org/dc/terms/modified> "20130930"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://iflastandards.info/ns/isbd/elements/P1053> "291 S. : Ill., graph. Darst."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/124897274> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/description> <http://deposit.d-nb.de/cgi-bin/dokserv?id=2957975&prov=M&dok_var=1&dok_ext=htm> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/issued> "2007"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -3203,7 +3203,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015455455> <http://rdvocab.info/Elements/statementOfResponsibility> "Martin Pfundner"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT015455455> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
-<http://lobid.org/resource/HT015455455> <http://www.w3.org/2000/01/rdf-schema#seeAlso> <http://deposit.d-nb.de/cgi-bin/dokserv?id=2957975&prov=M&dok_var=1&dok_ext=htm> .
 <http://lobid.org/resource/HT015455455> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT015455455> .
 <http://lobid.org/resource/HT015455455> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT015455455/about> .
 <http://lobid.org/resource/HT015455455> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT015455455> .
@@ -3367,6 +3366,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/elements/1.1/publisher> "Wiley-VCH"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/alternative> "Linux for dummies <dt.>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/14320713X> .
+<http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/description> <http://deposit.d-nb.de/cgi-bin/dokserv?id=3474380&prov=M&dok_var=1&dok_ext=htm> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/issued> "2011"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
@@ -3716,6 +3716,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/elements/1.1/coverage> "K\u00F6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/elements/1.1/publisher> "de Gruyter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1056946172> .
+<http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/description> <http://deposit.d-nb.de/cgi-bin/dokserv?id=4584991&prov=M&dok_var=1&dok_ext=htm> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT016777884> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
@@ -3765,6 +3766,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018290299> <http://purl.org/dc/elements/1.1/coverage> "K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018290299> <http://purl.org/dc/elements/1.1/publisher> "Emons"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018290299> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/109728068> .
+<http://lobid.org/resource/HT018290299> <http://purl.org/dc/terms/description> <http://deposit.d-nb.de/cgi-bin/dokserv?id=4675728&prov=M&dok_var=1&dok_ext=htm> .
 <http://lobid.org/resource/HT018290299> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT006514951> .
 <http://lobid.org/resource/HT018290299> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017500108> .
 <http://lobid.org/resource/HT018290299> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3852,6 +3854,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018295975> <http://iflastandards.info/ns/isbd/elements/P1053> "596 S. : Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/dc/elements/1.1/publisher> "Salier"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/12174793X> .
+<http://lobid.org/resource/HT018295975> <http://purl.org/dc/terms/description> <http://deposit.d-nb.de/cgi-bin/dokserv?id=4685554&prov=M&dok_var=1&dok_ext=htm> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .

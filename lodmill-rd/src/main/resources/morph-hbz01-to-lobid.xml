@@ -1308,6 +1308,7 @@
 				<none>
 					<data source="@fulltextOnline"/>
 					<data source="@toc"/>
+					<data source="@desc"/>
 				</none>
 			</if>
 			<data source="@linkUri" name="seeAlsoUri"/>
@@ -1320,6 +1321,14 @@
 			<data source="@linkUri" name="uri"/>
 		</combine>
 		<data source="@toc" name="http://purl.org/dc/terms/tableOfContents"/>
+		<!-- link to description -->
+		<combine name="@desc" value="${uri}" sameEntity="true">
+			<data source="655[-eu][ -1].[x3]">
+				<regexp match="^[Ii][Nn][Hh][aA][lL][tT][sS][tT]"/>
+			</data>
+			<data source="@linkUri" name="uri"/>
+		</combine>
+		<data source="@desc" name="http://purl.org/dc/terms/description"/>
 		<!-- ####################### -->
 		<!-- ########## source , isPartOf -->
 		<!-- ####################### -->
