@@ -10,6 +10,7 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "3,5,1"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -20,17 +21,17 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/20
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1757,7 +1758,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042570-8> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4115393-5> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/title> "Deutschland 1:300000"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/title> "Deutschland , 2 , Nordrhein-Westfalen, Niedersachsen-S\u00FCd"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/title> "Deutschland,2:Nordrhein-Westfalen, Niedersachsen-S\u00FCd"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#hbzID> "BT000003404"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s126000> .
@@ -2130,7 +2131,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4113292-0> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4120314-8> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/tableOfContents> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=3362189&custom_att_2=simple_viewer> .
-<http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/title> "Gro\u00DFw\u00F6rterbuch Polnisch-Deutsch , 2 , O - \u017B"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT001898812> <http://purl.org/dc/terms/title> "Gro\u00DFw\u00F6rterbuch Polnisch-Deutsch,2:O - \u017B"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#contributorLabel> "Ippoldt, Juliusz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#contributorLabel> "Ippoldt, Juljusz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#contributorLabel> "Piprek, Jan"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2263,7 +2264,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4040613-1> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4040619-2> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4306876-5> .
-<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/title> "Gebietsentwicklungsplan , Tezemu , Teilabschnitt Zentrales M\u00FCnsterland"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/dc/terms/title> "Gebietsentwicklungsplan,Tezemu:Teilabschnitt Zentrales M\u00FCnsterland"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#hbzID> "HT004381366"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n10> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s572030> .
@@ -2302,7 +2303,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/medium> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/050/> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/subject> <http://dewey.info/class/310/> .
-<http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/title> "Annual bulletin of transport statistics for Europe and North America , 43 "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT004944075> <http://purl.org/dc/terms/title> "Annual bulletin of transport statistics for Europe and North America,43"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#hbzID> "HT004944075"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "CEE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Commission Economique pour l'Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3028,7 +3029,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/subject> <http://dewey.info/class/900/> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042203-3> .
-<http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/title> "Tijdschrift voor geschiedenis , 119 "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015082724> <http://purl.org/dc/terms/title> "Tijdschrift voor geschiedenis,119"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#hbzID> "HT015082724"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectChain> "Niederlande | Geschichte | Zeitschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectLabel> "Batavische Republik"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3251,7 +3252,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/11850066X> .
-<http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/title> "Die letzten Lebensjahre, 1963 - 1967 , 2 , September 1965 - April 1967"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015891797> <http://purl.org/dc/terms/title> "Die letzten Lebensjahre, 1963 - 1967,2:September 1965 - April 1967"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Adenauer, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Adenauer, Konrad Hermann Joseph"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Adenauer, Konrad"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3566,7 +3567,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/118640038> .
-<http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/title> "Edith-Stein-Gesamtausgabe , 18 , Kreuzeswissenschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017529028> <http://purl.org/dc/terms/title> "Edith-Stein-Gesamtausgabe,18:Kreuzeswissenschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Cruce, Teresia Benedicta a"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Cruz, Beata Teresa Benedicta de la"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#contributorLabel> "Linssen, Michael"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4203,7 +4204,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4065781-4> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4073972-7> .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/title> "Geographisch-landeskundlicher Atlas von Westfalen , 3,5,1 , Bev\u00F6lkerungsdichte der Gemeinden 1871 - 1987 und Ver\u00E4nderung 1818 - 1987"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/title> "Geographisch-landeskundlicher Atlas von Westfalen,3,5,1:Bev\u00F6lkerungsdichte der Gemeinden 1871 - 1987 und Ver\u00E4nderung 1818 - 1987"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#contributorLabel> "Mayr, A."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#contributorLabel> "Mayr, Alois"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#hbzID> "TT001671747"^^<http://www.w3.org/2001/XMLSchema#string> .
