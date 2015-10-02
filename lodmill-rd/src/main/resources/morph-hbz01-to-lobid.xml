@@ -635,14 +635,13 @@
 		<!-- ####################### -->
 		<data source="41[05][-abcu][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
 		<data source="594[-abc][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
-		<data source="61[14][-abcu][-12].a" name="http://rdvocab.info/Elements/placeOfPublication"/>
-		<data source="41[27][-abcu][-12].[ag]|61[36][-abcu][-12].a" name="http://purl.org/dc/elements/1.1/publisher"/>
+		<data source="41[27][-abcu][-12].[ag]" name="http://purl.org/dc/elements/1.1/publisher"/>
 		<!-- TODO if multiple publisher these are melted to one. See HT015082724 -->
 		<combine name="http://rdvocab.info/Elements/publicationStatement" value="${publicationConcat}"
 			sameEntity="true">
 			<concat delimiter="; " name="publicationConcat">
-				<data source="41[05][-abcu][-12].a|594[-abc][-12].a|61[14][-abcu][-12].a|673[-abc]-.a"/>
-				<data source="41[27][-abcu][-12].[ag]|61[36][-abcu][-12].a"/>
+				<data source="41[05][-abcu][-12].a|594[-abc][-12].a"/>
+				<data source="41[27][-abcu][-12].[ag]"/>
 				<data source="@dateFix"/>
 			</concat>
 		</combine>
