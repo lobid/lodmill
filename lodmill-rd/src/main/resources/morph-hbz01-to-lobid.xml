@@ -525,14 +525,14 @@
 			<data source="@titleRemainder331Superordination" name="a"/>
 			<choose name="b" flushWith="@titleRemainder331Superordination">
 				<data source="090-[-1].a">
-					<regexp match="(.*)" format=",${1}"/>
+					<regexp match="(.*)" format=", ${1}"/>
 				</data>
 				<data source="089-[-1].a">
-					<regexp match="(.*)" format=",${1}"/>
+					<regexp match="(.*)" format=", ${1}"/>
 				</data>
 			</choose>
 			<data source="@titleRemainder331" name="c">
-				<regexp match="(.*)" format=":${1}"/>
+				<regexp match="(.*)" format=": ${1}"/>
 			</data>
 		</combine>
 		<!-- ####################### "http://purl.org/ontology/bibo/volume -->
