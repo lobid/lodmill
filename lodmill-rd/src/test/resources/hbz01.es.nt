@@ -2626,6 +2626,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT012926727> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT012926727> .
 <http://lobid.org/resource/HT013077595/about> <http://purl.org/dc/terms/created> "20010705"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013077595/about> <http://purl.org/dc/terms/modified> "20011113"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT013077595> <http://id.loc.gov/vocabulary/relators/red> <http://d-nb.info/gnd/109490312> .
 <http://lobid.org/resource/HT013077595> <http://iflastandards.info/ns/isbd/elements/P1053> "VII, 119 S. : Ill., graph. Darst., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld <Kreis>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4266,6 +4267,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001230001> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001230001> .
 <http://lobid.org/resource/TT001671747/about> <http://purl.org/dc/terms/created> "20060407"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747/about> <http://purl.org/dc/terms/modified> "20131108"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT001671747> <http://id.loc.gov/vocabulary/relators/red> <http://d-nb.info/gnd/137082479> .
 <http://lobid.org/resource/TT001671747> <http://iflastandards.info/ns/isbd/elements/P1053> "[2] Bl. : graph. Darst., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/publisher> "Aschendorff"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/137082479> .
