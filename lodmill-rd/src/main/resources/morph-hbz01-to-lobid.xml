@@ -1016,6 +1016,12 @@
 			</data>
 			<data source="@contributorId" name="contributorId"/>
 		</combine>
+		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
+			<data source="@marcrelName" name="marcrel">
+				<regexp match="[rR]ed" format="http://id.loc.gov/vocabulary/relators/red"/>
+			</data>
+			<data source="@contributorId" name="contributorId"/>
+		</combine>
 		<data source="104f1.9" name="http://id.loc.gov/vocabulary/relators/hnr">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
