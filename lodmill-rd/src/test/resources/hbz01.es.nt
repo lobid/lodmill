@@ -10,7 +10,6 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "3,5,1"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -21,17 +20,17 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/20
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2630,7 +2629,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT013077595> <http://iflastandards.info/ns/isbd/elements/P1053> "VII, 119 S. : Ill., graph. Darst., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/elements/1.1/coverage> "Coesfeld <Kreis>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/109490312> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/11079267X> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/128755-2> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/dc/terms/issued> "2000"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4270,7 +4268,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001671747> <http://id.loc.gov/vocabulary/relators/red> <http://d-nb.info/gnd/137082479> .
 <http://lobid.org/resource/TT001671747> <http://iflastandards.info/ns/isbd/elements/P1053> "[2] Bl. : graph. Darst., Kt."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/elements/1.1/publisher> "Aschendorff"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/137082479> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/2056181-7> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT002808565> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/dc/terms/issued> "1990"^^<http://www.w3.org/2001/XMLSchema#string> .

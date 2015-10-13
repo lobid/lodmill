@@ -1015,7 +1015,7 @@
 		<choose name="@contributorWithoutMarcRel" flushWith="@contributorId">
 			<data source="@marcrelName">
 				<regexp
-					match="[dD]ars|[hH]rsg|[rR]egi|bers|[iI]ll|[zZ]eichn|[mM]itarb|[oO]togr|[dD]ir|[kK]om|[vV]or|[dD]rehb|[sS]ammler|[bB]eitr|[iI]nterpr|[kK]amera|[vV]orl|[gG]esang|[iI]nterviewer|[iI]nterviewter|[kK]artogra|[mM]usi|[nN]ach|[pP]rod|[sS]techer|[wW]idmun"/>
+					match="[dD]ars|[hH]rsg|[rR]egi|bers|[iI]ll|[zZ]eichn|[mM]itarb|[oO]togr|[dD]ir|[kK]om|[vV]or|[dD]rehb|[sS]ammler|[bB]eitr|[iI]nterpr|[kK]amera|[vV]orl|[gG]esang|[iI]nterviewer|[iI]nterviewter|[kK]artogra|[mM]usi|[nN]ach|[pP]rod|[rR]ed|[sS]techer|[wW]idmun"/>
 			</data>
 			<data source="@contributorId"/>
 		</choose>
