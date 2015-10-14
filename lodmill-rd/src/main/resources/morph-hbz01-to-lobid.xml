@@ -809,7 +809,7 @@
 		<!-- corporation contributor literals -->
 		<!-- lv:nameOfContributingCorporateBody is only a temporarily workaround. It also subsumes 
 			creators! -->
-		<data source="2?[012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2??[-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<data source="2??[bcp][1234].k" name="@nameOfContributingCorporateBodyK">
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
