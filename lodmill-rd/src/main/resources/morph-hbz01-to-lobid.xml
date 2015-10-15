@@ -807,17 +807,31 @@
 		<!-- ################ CONTRIBUTOR -->
 		<!-- ####################### -->
 		<!-- corporation contributor literals -->
-		<data source="2?[012345678][-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
-		<data source="8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
-		<data source="2?[012345678][bcp][1234].k" name="@nameOfContributingCorporateBodyK">
+		<!-- lv:nameOfContributingCorporateBody is only a temporarily workaround. It also subsumes 
+			creators! -->
+		<data source="2??[-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2??[bcp][1234].k" name="@nameOfContributingCorporateBodyK">
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
+		<data source="2??[bcp][1234].h" name="@nameOfContributingCorporateBodyH"/>
 		<combine name="@nameOfContributingCorporateBodyKH" value="${k} &lt;${h}&gt;">
 			<data source="@nameOfContributingCorporateBodyK" name="k"/>
-			<data source="2?[012345678][bcp][1234].h" name="h"/>
+			<data source="@nameOfContributingCorporateBodyH" name="h"/>
 		</combine>
-		<choose name="@nameOfContributingCorporateBody" flushWith="2?[012345678][bcp][1234].9">
+		<data source="2??[bcp][1234].b" name="@nameOfContributingCorporateBodyB"/>
+		<combine name="@nameOfContributingCorporateBodyKB" value="${k}. ${b}">
+			<data source="@nameOfContributingCorporateBodyB" name="b"/>
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+		</combine>
+		<combine name="@nameOfContributingCorporateBodyKHB" value="${k} &lt;${h}&gt;. ${b}">
+			<data source="@nameOfContributingCorporateBodyB" name="b"/>
+			<data source="@nameOfContributingCorporateBodyH" name="h"/>
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+		</combine>
+		<choose name="@nameOfContributingCorporateBody" flushWith="2??[bcp][1234].9">
+			<data source="@nameOfContributingCorporateBodyKHB"/>
+			<data source="@nameOfContributingCorporateBodyKB"/>
 			<data source="@nameOfContributingCorporateBodyKH"/>
 			<data source="@nameOfContributingCorporateBodyK"/>
 		</choose>
@@ -842,7 +856,7 @@
 			</data>
 		</combine>
 		<!-- id of corporation -->
-		<data source="2?[012345678][bcp][1234].9" name="@contributorId">
+		<data source="2??[bcp][1234].9" name="@contributorId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- map literals to marc relator property -->
@@ -1020,6 +1034,7 @@
 			<data source="@contributorId"/>
 		</choose>
 		<!-- the regex makes sure that @marcelName is ignored, when chosen -->
+
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>

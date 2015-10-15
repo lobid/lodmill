@@ -241,27 +241,27 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/2006655-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Regierungsbezirk M\u00FCnster, Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regierungsbezirk M\u00FCnster, Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "United Nations. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Vereinte Nationen. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "United Nations. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Vereinte Nationen. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "United Nations. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Vereinte Nationen. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2037247-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Main-Kinzig-Kreis"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2037247-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Main-Kinzig-Kreis"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2041907-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2041907-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2050419-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "1. Fu\u00DFball-Club K\u00F6ln 01/07"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2050419-6> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "1. Fu\u00DFball-Club K\u00F6ln 01/07"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Evangelische Kirche von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Evangelische Kirche von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Evangelische Kirche von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Rheinland-Pfalz <Koblenz>. Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rheinland-Pfalz <Koblenz>. Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rheinland-Pfalz <Koblenz>. Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Evangelische Kirche von Westfalen. Amt f\u00FCr Jugendarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Evangelische Kirche von Westfalen. Amt f\u00FCr Jugendarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Evangelische Kirche von Westfalen. Amt f\u00FCr Jugendarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Austro-Daimler-Puchwerke"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Austro-Daimler-Puchwerke"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2203,6 +2203,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Vereinte Nationen. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftskommission f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2322,6 +2323,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftskommission f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2842,7 +2844,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#contributorLabel> "Hoefler, Angelika"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#hbzID> "HT014046679"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Amt f\u00FCr Jugendarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evangelische Kirche von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014046679> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evangelische Kirche von Westfalen. Amt f\u00FCr Jugendarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014046679> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT014046679:DE-Bi10:ICE%20Brav> .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/otherTitleInformation> "das Kommunikationsspiel zur Bewertung weiblichen Verhaltens f\u00FCr 2 - 8 Spielerinnen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014046679> <http://rdvocab.info/Elements/placeOfPublication> "Hennef"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3008,10 +3010,14 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1750752&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#hbzID> "HT014997977"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Landesamt f\u00FCr Umwelt und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr RP"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "LfUG"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "LSV"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Rheinland-Pfalz <Koblenz>. Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/bibo/edition> "1. Aufl."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/Edoweb> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/RPB> .
@@ -4281,6 +4287,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#contributorLabel> "Mayr, Alois"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#hbzID> "TT001671747"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectChain> "Westfalen | Landeskunde | Atlas"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectLabel> "Herzogtum Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
