@@ -1080,7 +1080,7 @@
 			flushWith="@subjectLinks|@creatorId|@contributorId">
 			<concat delimiter=", " name="a" flushWith="@subjectLinks|@creatorId|@contributorId"
 				sameEntity="true">
-				<data source="1????.[cdghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cdghknpsz]"/>
+				<data source="1????.[cghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cghknpsz]"/>
 			</concat>
 			<data source="@subjectLinks|@creatorId|@contributorId"/>
 		</combine>
