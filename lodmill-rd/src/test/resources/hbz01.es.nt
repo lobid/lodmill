@@ -10,6 +10,7 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "25/26"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -21,18 +22,18 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/20
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT014679525> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -56,8 +57,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/1056946172> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kennedy, Beate"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/1069643262> <http://d-nb.info/standards/elementset/gnd#preferredName> "49., 2015, K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/1069643262> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "49., 2015, K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1069643262> <http://d-nb.info/standards/elementset/gnd#preferredName> "49. Art Cologne, 2015, K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1069643262> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "49. Art Cologne, 2015, K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Altekamp, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
