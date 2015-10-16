@@ -606,7 +606,6 @@
 			<data source="089-[-1].a" name="a">
 			</data>
 		</combine>
-
 		<!-- semantic shift: 425 is only date of issue if resource is not a secondary form (21) -->
 		<combine name="@dateSecondary" value="${dateSecondary}">
 			<data source="021[-b]1.a"/>
@@ -835,6 +834,13 @@
 			<data source="@nameOfContributingCorporateBodyKH"/>
 			<data source="@nameOfContributingCorporateBodyK"/>
 		</choose>
+		<combine name="@preferredNameConcatEvent" value="${n} ${e}, ${d}, ${c}"
+			sameEntity="true">
+			<data source="2??[-abcfep][12-].n" name="n"/>
+			<data source="2??[-abcfep][12-].e" name="e"/>
+			<data source="2??[-abcfep][12-].d" name="d"/>
+			<data source="2??[-abcfep][12-].c" name="c"/>
+		</combine>
 		<data source="@nameOfContributingCorporateBody" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
 		<!-- contributors with roles @TODO many roles needs tests -->
 		<data source="1??b[1234].b|8[012]?[-mn][-12].b" name="@marcrelName"/>
@@ -1034,7 +1040,6 @@
 			<data source="@contributorId"/>
 		</choose>
 		<!-- the regex makes sure that @marcelName is ignored, when chosen -->
-
 		<data source="@contributorWithoutMarcRel" name="http://purl.org/dc/terms/contributor">
 			<regexp match="^http.*"/>
 		</data>
@@ -1080,7 +1085,7 @@
 			flushWith="@subjectLinks|@creatorId|@contributorId">
 			<concat delimiter=", " name="a" flushWith="@subjectLinks|@creatorId|@contributorId"
 				sameEntity="true">
-				<data source="1????.[cdghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cdghknpsz]"/>
+				<data source="1????.[cghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cghknpsz]"/>
 			</concat>
 			<data source="@subjectLinks|@creatorId|@contributorId"/>
 		</combine>
@@ -1117,6 +1122,7 @@
 			<data source="@nameOfContributingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
 			<data source="@preferredNameConcat"/>
+			<data source="@preferredNameConcatEvent"/>
 			<data source="@preferredNameConcatSubject"/>
 		</choose>
 		<data source="@preferredName" name="$[ns-gnd]preferredName">
