@@ -1118,17 +1118,6 @@
 			</concat>
 			<data source="@subjectLinks"/>
 		</combine>
-		<choose name="@preferredName" flushWith="@subjectLinks|@creatorId|@contributorId">
-			<data source="@nameOfContributingCorporateBody"/>
-			<data source="@preferredNameSemicolon"/>
-			<data source="@preferredNameConcat"/>
-			<data source="@preferredNameConcatEvent"/>
-			<data source="@preferredNameConcatSubject"/>
-		</choose>
-		<data source="@preferredName" name="$[ns-gnd]preferredName">
-			<replace pattern="&gt;&gt;" with=""/>
-			<replace pattern="&lt;&lt;" with=""/>
-		</data>
 		<combine name="$[ns-gnd]preferredNameForTheSubjectHeading" value="${a}"
 			sameEntity="true">
 			<data source="9[01234][27]-[-12].s"/>
@@ -1158,6 +1147,17 @@
 			<data source="9[01234][27]-[-12].k" name="a"/>
 		</combine>
 		<!-- /subjects -->
+		<choose name="@preferredName" flushWith="@subjectLinks|@creatorId|@contributorId">
+			<data source="@nameOfContributingCorporateBody"/>
+			<data source="@preferredNameSemicolon"/>
+			<data source="@preferredNameConcat"/>
+			<data source="@preferredNameConcatEvent"/>
+			<data source="@preferredNameConcatSubject"/>
+		</choose>
+		<data source="@preferredName" name="$[ns-gnd]preferredName">
+			<replace pattern="&gt;&gt;" with=""/>
+			<replace pattern="&lt;&lt;" with=""/>
+		</data>
 		<!-- START contributor/creator -->
 		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
 			<data source="@creatorId|@contributorId"/>
