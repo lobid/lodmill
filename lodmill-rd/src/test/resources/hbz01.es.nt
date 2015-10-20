@@ -10,7 +10,6 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "25/26"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -22,18 +21,18 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/20
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT014679525> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -279,6 +278,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/36467-8> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/36467-8> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Angestellten-Gewerkschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Angestellten-Gewerkschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Deutsche Angestellten-Gewerkschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -946,6 +947,11 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/item/HT010726584:DE-Lan1:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Lan1> .
 <http://lobid.org/item/HT010726584:DE-Lan1:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT010726584:DE-Lan1:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT010726584:DE-Lan1:/about> .
+<http://lobid.org/item/HT012237361:DE-107:Per.%205157> <http://purl.org/ontology/daia/label> "Per. 5157"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT012237361:DE-107:Per.%205157> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT012237361> .
+<http://lobid.org/item/HT012237361:DE-107:Per.%205157> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-107> .
+<http://lobid.org/item/HT012237361:DE-107:Per.%205157> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT012237361:DE-107:Per.%205157> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT012237361:DE-107:Per.%205157/about> .
 <http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://purl.org/ontology/daia/label> "C2001A/13"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT012895751> .
 <http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-929> .
@@ -2549,6 +2555,29 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB1472746-8> .
 <http://lobid.org/resource/HT010726584> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT010726584/about> .
 <http://lobid.org/resource/HT010726584> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT010726584> .
+<http://lobid.org/resource/HT012237361/about> <http://purl.org/dc/terms/created> "19991120"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361/about> <http://purl.org/dc/terms/modified> "20080109"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/dc/elements/1.1/publisher> "Statist. Landesamt"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/36467-8> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/dc/terms/issued> "1975 - 1975"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/dc/terms/title> "Statistische Berichte des Statistischen Landesamtes Rheinland-Pfalz / L / 4 / 6"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/lobid/lv#hbzID> "HT012237361"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Statistisches Landesamt"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Statistisches Landesamt Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/lobid/lv#zdbID> "590016-5"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012237361:DE-107:Per.%205157> .
+<http://lobid.org/resource/HT012237361> <http://rdvocab.info/Elements/otherTitleInformation> "Statistische Berichte des Statistischen Landesamtes Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://rdvocab.info/Elements/placeOfPublication> "Bad Ems"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://rdvocab.info/Elements/publicationStatement> "Bad Ems; Statist. Landesamt; 1975"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012237361> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT012237361> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
+<http://lobid.org/resource/HT012237361> <http://www.w3.org/2002/07/owl#sameAs> <http://ld.zdb-services.de/resource/590016-5> .
+<http://lobid.org/resource/HT012237361> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB590016-5> .
+<http://lobid.org/resource/HT012237361> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT012237361/about> .
+<http://lobid.org/resource/HT012237361> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT012237361> .
 <http://lobid.org/resource/HT012895751/about> <http://purl.org/dc/terms/created> "20010111"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751/about> <http://purl.org/dc/terms/modified> "20010312"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751> <http://iflastandards.info/ns/isbd/elements/P1053> "76 S. : zahlr. Ill."^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4591,5 +4620,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/ZDB1472746-8> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB1472746-8/about> .
 <http://lobid.org/resource/ZDB2073588-1> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT013304490> .
 <http://lobid.org/resource/ZDB2073588-1> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB2073588-1/about> .
+<http://lobid.org/resource/ZDB590016-5> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT012237361> .
+<http://lobid.org/resource/ZDB590016-5> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB590016-5/about> .
 <http://lobid.org/resource/ZDB6211-x> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT000009600> .
 <http://lobid.org/resource/ZDB6211-x> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB6211-x/about> .
