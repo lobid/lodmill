@@ -1,58 +1,58 @@
-_:B016bb3b398308db0887c654661bec8f1 <http://purl.org/lobid/lv#numbering> "47" .
-_:B016bb3b398308db0887c654661bec8f1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
-_:B016bb3b398308db0887c654661bec8f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B02beb82d03282d428f26eb6fa2147907 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT002619538> .
-_:B02beb82d03282d428f26eb6fa2147907 <http://purl.org/lobid/lv#numbering> "43" .
-_:B02beb82d03282d428f26eb6fa2147907 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:B041c4c45c2b11b3347edf4a2f071c08f <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
-_:B041c4c45c2b11b3347edf4a2f071c08f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B09532accaf49b6b485604dbcc2053b89 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT002808565> .
-_:B09532accaf49b6b485604dbcc2053b89 <http://purl.org/lobid/lv#numbering> "3,5,1" .
-_:B09532accaf49b6b485604dbcc2053b89 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:B1260597e5bfd66f2f5040d8d9d57bc82 <http://purl.org/lobid/lv#numbering> "22392" .
-_:B1260597e5bfd66f2f5040d8d9d57bc82 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
-_:B1260597e5bfd66f2f5040d8d9d57bc82 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B19c241425e365d02090ffce227d319b0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT001373475> .
-_:B19c241425e365d02090ffce227d319b0 <http://purl.org/lobid/lv#numbering> "119" .
-_:B19c241425e365d02090ffce227d319b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:B2605b1d42fa9295a2c562d62702b38c5 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT015845132> .
-_:B2605b1d42fa9295a2c562d62702b38c5 <http://purl.org/lobid/lv#numbering> "2" .
-_:B2605b1d42fa9295a2c562d62702b38c5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:B3fb53f24d644f9f0f6c6a93de627391d <http://purl.org/lobid/lv#numbering> "1805,04,17" .
-_:B3fb53f24d644f9f0f6c6a93de627391d <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
-_:B3fb53f24d644f9f0f6c6a93de627391d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B4e64a180eefba42981128f9d5d55dac7 <http://purl.org/lobid/lv#numbering> "2" .
-_:B4e64a180eefba42981128f9d5d55dac7 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
-_:B4e64a180eefba42981128f9d5d55dac7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B64b1684d799e9c17592acd56b6f8efc9 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/BT000100437> .
-_:B64b1684d799e9c17592acd56b6f8efc9 <http://purl.org/lobid/lv#numbering> "2" .
-_:B64b1684d799e9c17592acd56b6f8efc9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:B66570b24a449aee3120fda88c698d2b0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
-_:B66570b24a449aee3120fda88c698d2b0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B7e1654d4ee7bf00448c208f794134f87 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT012848847> .
-_:B7e1654d4ee7bf00448c208f794134f87 <http://purl.org/lobid/lv#numbering> "18" .
-_:B7e1654d4ee7bf00448c208f794134f87 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:B8129160301e3fb7e0139a789db73f59c <http://purl.org/lobid/lv#numbering> "17" .
-_:B8129160301e3fb7e0139a789db73f59c <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
-_:B8129160301e3fb7e0139a789db73f59c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B8d4fdf9205a2c6cf9e1224fb9e6a8c75 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT001381485> .
-_:B8d4fdf9205a2c6cf9e1224fb9e6a8c75 <http://purl.org/lobid/lv#numbering> "2" .
-_:B8d4fdf9205a2c6cf9e1224fb9e6a8c75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:Bb601bbfb1dbf9aafa190d181c77e3976 <http://purl.org/lobid/lv#numbering> "25/26" .
-_:Bb601bbfb1dbf9aafa190d181c77e3976 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT014679525> .
-_:Bb601bbfb1dbf9aafa190d181c77e3976 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bcf63c84655675893c9f6760898fad38d <http://purl.org/lobid/lv#numbering> "F2001/F2003]" .
-_:Bcf63c84655675893c9f6760898fad38d <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
-_:Bcf63c84655675893c9f6760898fad38d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bd6e2457cd755a79955c7913f7ed58175 <http://purl.org/lobid/lv#numbering> "5" .
-_:Bd6e2457cd755a79955c7913f7ed58175 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
-_:Bd6e2457cd755a79955c7913f7ed58175 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bf15ee12a6fb7b193ee50919d559b764f <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT003160768> .
-_:Bf15ee12a6fb7b193ee50919d559b764f <http://purl.org/lobid/lv#numbering> "Tezemu" .
-_:Bf15ee12a6fb7b193ee50919d559b764f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
-_:Bf220c59f431b2111a143b4673f3c9f2f <http://purl.org/lobid/lv#numbering> "19" .
-_:Bf220c59f431b2111a143b4673f3c9f2f <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
-_:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B053934a12e86dca20878523e5f05ce03 <http://purl.org/lobid/lv#numbering> "19" .
+_:B053934a12e86dca20878523e5f05ce03 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
+_:B053934a12e86dca20878523e5f05ce03 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B0fcbdf71ea4cd847abaa6d4a16d6b661 <http://purl.org/lobid/lv#numbering> "5" .
+_:B0fcbdf71ea4cd847abaa6d4a16d6b661 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
+_:B0fcbdf71ea4cd847abaa6d4a16d6b661 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B2c0bdb6ce7803af778d7f8ec3783e90d <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT015845132> .
+_:B2c0bdb6ce7803af778d7f8ec3783e90d <http://purl.org/lobid/lv#numbering> "2" .
+_:B2c0bdb6ce7803af778d7f8ec3783e90d <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B3fc2df750dfbd0781004b154f6041bb7 <http://purl.org/lobid/lv#numbering> "1805,04,17" .
+_:B3fc2df750dfbd0781004b154f6041bb7 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
+_:B3fc2df750dfbd0781004b154f6041bb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B40d500da5b0d7f711478b1a090129afd <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT003160768> .
+_:B40d500da5b0d7f711478b1a090129afd <http://purl.org/lobid/lv#numbering> "Tezemu" .
+_:B40d500da5b0d7f711478b1a090129afd <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B4205fbf1d8aa591c96db0d3e835f288c <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/BT000100437> .
+_:B4205fbf1d8aa591c96db0d3e835f288c <http://purl.org/lobid/lv#numbering> "2" .
+_:B4205fbf1d8aa591c96db0d3e835f288c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B43c5779a75324191e1a32577ac519ca3 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT001381485> .
+_:B43c5779a75324191e1a32577ac519ca3 <http://purl.org/lobid/lv#numbering> "2" .
+_:B43c5779a75324191e1a32577ac519ca3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B48a673f5317f4aea837da64e47f9339a <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT001373475> .
+_:B48a673f5317f4aea837da64e47f9339a <http://purl.org/lobid/lv#numbering> "119" .
+_:B48a673f5317f4aea837da64e47f9339a <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B5325101162b8f1a728b38c02b23c96aa <http://purl.org/lobid/lv#numbering> "17" .
+_:B5325101162b8f1a728b38c02b23c96aa <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
+_:B5325101162b8f1a728b38c02b23c96aa <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B533d785f097205f8c190ea0fea154534 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
+_:B533d785f097205f8c190ea0fea154534 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B557bf3f1b6b75719c50751737050eaa0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT012848847> .
+_:B557bf3f1b6b75719c50751737050eaa0 <http://purl.org/lobid/lv#numbering> "18" .
+_:B557bf3f1b6b75719c50751737050eaa0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B579d50f03b56822869c8b7e2a8d409a3 <http://purl.org/lobid/lv#numbering> "F2001/F2003]" .
+_:B579d50f03b56822869c8b7e2a8d409a3 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
+_:B579d50f03b56822869c8b7e2a8d409a3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B5c75731484e2101ea4f5b691e74a9ce7 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
+_:B5c75731484e2101ea4f5b691e74a9ce7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B6af376981dbc1230e03ce28f12b049e6 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT002808565> .
+_:B6af376981dbc1230e03ce28f12b049e6 <http://purl.org/lobid/lv#numbering> "3,5,1" .
+_:B6af376981dbc1230e03ce28f12b049e6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B6b26a4ef5e67a99869e1370988c22c9e <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT002619538> .
+_:B6b26a4ef5e67a99869e1370988c22c9e <http://purl.org/lobid/lv#numbering> "43" .
+_:B6b26a4ef5e67a99869e1370988c22c9e <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
+_:B8b3f59b3f846d7474494fa3f9f726fa3 <http://purl.org/lobid/lv#numbering> "47" .
+_:B8b3f59b3f846d7474494fa3f9f726fa3 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
+_:B8b3f59b3f846d7474494fa3f9f726fa3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:Bc65fd082db7501007e3babc131191656 <http://purl.org/lobid/lv#numbering> "2" .
+_:Bc65fd082db7501007e3babc131191656 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
+_:Bc65fd082db7501007e3babc131191656 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:Bcc26c6c3f4e9fba691a85cb089a8573f <http://purl.org/lobid/lv#numbering> "25/26" .
+_:Bcc26c6c3f4e9fba691a85cb089a8573f <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT014679525> .
+_:Bcc26c6c3f4e9fba691a85cb089a8573f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:Bd8631cb1e4e229573eb2f75f621149c2 <http://purl.org/lobid/lv#numbering> "22392" .
+_:Bd8631cb1e4e229573eb2f75f621149c2 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
+_:Bd8631cb1e4e229573eb2f75f621149c2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Zentralarchiv des Internationalen Kunsthandels" .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zentralarchiv des Internationalen Kunsthandels" .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>" .
@@ -1839,7 +1839,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectLabel> "NW" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectLabel> "S\u00FCdliches Niedersachsen" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectLabel> "S\u00FCdniedersachsen" .
-<http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#volumeIn> _:B64b1684d799e9c17592acd56b6f8efc9 .
+<http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#volumeIn> _:B4205fbf1d8aa591c96db0d3e835f288c .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/edition> "10.[Aufl., Ausg.] 1993/94" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "3575112088" .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "9783575112088" .
@@ -2040,7 +2040,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#fulltextOnline> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
 <http://lobid.org/resource/CT003012479_> <http://purl.org/lobid/lv#hbzID> "CT003012479_" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:B3fb53f24d644f9f0f6c6a93de627391d .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:B3fc2df750dfbd0781004b154f6041bb7 .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:061:2-46125" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,17" .
@@ -2204,7 +2204,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#subjectLabel> "Hochdeutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#subjectLabel> "Neuhochdeutsch" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#subjectLabel> "Polnische Sprache" .
-<http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#volumeIn> _:B8d4fdf9205a2c6cf9e1224fb9e6a8c75 .
+<http://lobid.org/resource/HT001898812> <http://purl.org/lobid/lv#volumeIn> _:B43c5779a75324191e1a32577ac519ca3 .
 <http://lobid.org/resource/HT001898812> <http://purl.org/ontology/bibo/volume> "2" .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812:DE-294:LLB3272-2> .
 <http://lobid.org/resource/HT001898812> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT001898812:DE-361:NP701.35%20G8D4P%5B2,2> .
@@ -2339,7 +2339,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectLabel> "Regierungsbezirk M\u00FCnster" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectLabel> "Regionalentwicklungsplan" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectLabel> "Regionaler Raumordnungsplan" .
-<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#volumeIn> _:Bf15ee12a6fb7b193ee50919d559b764f .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#volumeIn> _:B40d500da5b0d7f711478b1a090129afd .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "<Tezemu>" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "Tezemu" .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
@@ -2381,7 +2381,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations. Economic Commission for Europe" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftskommission f\u00FCr Europa" .
-<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#volumeIn> _:B02beb82d03282d428f26eb6fa2147907 .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#volumeIn> _:B6b26a4ef5e67a99869e1370988c22c9e .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn> "9210162765" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/isbn> "9789210162760" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/ontology/bibo/volume> "43" .
@@ -2851,7 +2851,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4050698-8> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/dc/terms/title> "1000 Fotos aus Rothenburg ob der Tauber" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#hbzID> "HT013911008" .
-<http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#inSeries> _:Bd6e2457cd755a79955c7913f7ed58175 .
+<http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#inSeries> _:B0fcbdf71ea4cd847abaa6d4a16d6b661 .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectChain> "Rothenburg ob der Tauber | CD-ROM" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectLabel> "Rothenburg ob der Tauber" .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectLabel> "Rothenburg o.d.T." .
@@ -3124,7 +3124,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectLabel> "Batavische Republik" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectLabel> "Staat Holland" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectLabel> "Vereinigte Niederlande" .
-<http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#volumeIn> _:B19c241425e365d02090ffce227d319b0 .
+<http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#volumeIn> _:B48a673f5317f4aea837da64e47f9339a .
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119. 2006" .
 <http://lobid.org/resource/HT015082724> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015082724:DE-361:CA000%20T340%5B119> .
@@ -3158,7 +3158,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT015183529> <http://purl.org/lobid/lv#contributorLabel> "Scott Fitzgerald, Francis" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/lobid/lv#contributorLabel> "Scott-Fitzgerald, Francis" .
 <http://lobid.org/resource/HT015183529> <http://purl.org/lobid/lv#hbzID> "HT015183529" .
-<http://lobid.org/resource/HT015183529> <http://purl.org/lobid/lv#inSeries> _:B041c4c45c2b11b3347edf4a2f071c08f .
+<http://lobid.org/resource/HT015183529> <http://purl.org/lobid/lv#inSeries> _:B533d785f097205f8c190ea0fea154534 .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/edition> "12. print." .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/119468476> .
 <http://lobid.org/resource/HT015183529> <http://purl.org/ontology/bibo/isbn> "0521402301" .
@@ -3211,7 +3211,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#contributorLabel> "K\u00F6nig, R." .
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#contributorLabel> "K\u00F6nig, Ralf" .
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#hbzID> "HT015440386" .
-<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#inSeries> _:B1260597e5bfd66f2f5040d8d9d57bc82 .
+<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#inSeries> _:Bd8631cb1e4e229573eb2f75f621149c2 .
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s841070> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectChain> "K\u00F6nig, Ralf | Comic | Bildband" .
@@ -3308,7 +3308,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT015865114> <http://purl.org/dc/terms/title> "Von der Teilung zur Einheit" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#contributorLabel> "Weber, J\u00FCrgen" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#hbzID> "HT015865114" .
-<http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#inSeries> _:B66570b24a449aee3120fda88c698d2b0 .
+<http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#inSeries> _:B5c75731484e2101ea4f5b691e74a9ce7 .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#subjectChain> "Geschichte 1945-2003 | Geschichtsunterricht | Schulbuch" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#subjectLabel> "Geschichte / Didaktik" .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#subjectLabel> "Geschichte / Unterricht" .
@@ -3349,7 +3349,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectChain> "Adenauer, Konrad | Geschichte 1963-1967 | Quelle" .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectLabel> "Adenauer, ... (1876-1967)" .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectLabel> "Adenauer, Konrad Hermann Joseph (1876-1967)" .
-<http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#volumeIn> _:B2605b1d42fa9295a2c562d62702b38c5 .
+<http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#volumeIn> _:B2c0bdb6ce7803af778d7f8ec3783e90d .
 <http://lobid.org/resource/HT015891797> <http://purl.org/ontology/bibo/volume> "2" .
 <http://lobid.org/resource/HT015891797> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015891797:DE-107:9.1191%2F10,2> .
@@ -3705,7 +3705,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes Alvarez, Juan de (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes, Juan de (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Yepes y Alvarez, Juan de (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#volumeIn> _:B7e1654d4ee7bf00448c208f794134f87 .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#volumeIn> _:B557bf3f1b6b75719c50751737050eaa0 .
 <http://lobid.org/resource/HT017529028> <http://purl.org/ontology/bibo/edition> "4., durchges. und korr. Aufl." .
 <http://lobid.org/resource/HT017529028> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/12226861X> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/ontology/bibo/isbn> "9783451273889" .
@@ -3817,7 +3817,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT018239864> <http://purl.org/dc/terms/title> "Irmgard Keun: Zeit und Zitat" .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#contributorLabel> "Kennedy, Beate" .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#hbzID> "HT018239864" .
-<http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#inSeries> _:B8129160301e3fb7e0139a789db73f59c .
+<http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#inSeries> _:B5325101162b8f1a728b38c02b23c96aa .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s768030> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectChain> "Keun, Irmgard | Erz\u00E4hltheorie" .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectLabel> "Keina, Irmgarde (1905-1982)" .
@@ -3870,8 +3870,8 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#contributorLabel> "Felsko, Angelika Lehndorff-" .
 <http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#contributorLabel> "Lehndorff-Felsko, Angelika" .
 <http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#hbzID> "HT018290299" .
-<http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#inSeries> _:B4e64a180eefba42981128f9d5d55dac7 .
-<http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#inSeries> _:Bf220c59f431b2111a143b4673f3c9f2f .
+<http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#inSeries> _:B053934a12e86dca20878523e5f05ce03 .
+<http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#inSeries> _:Bc65fd082db7501007e3babc131191656 .
 <http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s240000> .
 <http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#subjectChain> "K\u00C3\u00B6ln | Zwangsarbeit | Arbeitsbedingungen | Geschichte" .
 <http://lobid.org/resource/HT018290299> <http://purl.org/lobid/lv#subjectLabel> "ADV" .
@@ -4147,7 +4147,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT018612706> <http://purl.org/dc/terms/title> "Wie die Pop Art nach Deutschland kam" .
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#contributorLabel> "Herzog, G\u00C3\u00BCnter" .
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#hbzID> "HT018612706" .
-<http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#inSeries> _:Bb601bbfb1dbf9aafa190d181c77e3976 .
+<http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#inSeries> _:Bcc26c6c3f4e9fba691a85cb089a8573f .
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "ZADIK" .
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Zentralarchiv des Internationalen Kunsthandels" .
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Zentralarchiv des Internationalen Kunsthandels e.V." .
@@ -4321,7 +4321,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#contributorLabel> "Wolter, Birgit" .
 <http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=6326817&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#hbzID> "HT018700720" .
-<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#inSeries> _:B016bb3b398308db0887c654661bec8f1 .
+<http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#inSeries> _:B8b3f59b3f846d7474494fa3f9f726fa3 .
 <http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung" .
 <http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "BZgA" .
 <http://lobid.org/resource/HT018700720> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "BZgA, Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung" .
@@ -4413,7 +4413,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT018779822> <http://purl.org/lobid/lv#hbzID> "HT018779822" .
 <http://lobid.org/resource/HT018779822> <http://purl.org/ontology/bibo/isbn> "9781138816503" .
 <http://lobid.org/resource/HT018779822> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018779822:DE-Kob7:> .
-<http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/publicationStatement> "2014" .
+<http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/publicationStatement> "New York; Routledge; 2014" .
 <http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/statementOfResponsibility> "Julie Cross" .
 <http://lobid.org/resource/HT018779822> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT018779822> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
@@ -4528,7 +4528,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/TT001230001> <http://purl.org/lobid/lv#contributorLabel> "Pseudo-Albertus" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/lobid/lv#contributorLabel> "Stupor mundi" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/lobid/lv#hbzID> "TT001230001" .
-<http://lobid.org/resource/TT001230001> <http://purl.org/lobid/lv#inSeries> _:Bcf63c84655675893c9f6760898fad38d .
+<http://lobid.org/resource/TT001230001> <http://purl.org/lobid/lv#inSeries> _:B579d50f03b56822869c8b7e2a8d409a3 .
 <http://lobid.org/resource/TT001230001> <http://purl.org/ontology/bibo/edition> "Ex membranis vetustis nunc prim\u00F9m edita" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/ontology/bibo/volume> "F2001/F2003]" .
 <http://lobid.org/resource/TT001230001> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT001230001:DE-107:MF%20275%2FF2001%2FF2003> .
@@ -4567,7 +4567,7 @@ _:Bf220c59f431b2111a143b4673f3c9f2f <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectLabel> "Regionalkunde" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectLabel> "Westfalen (Provinzialverband)" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectLabel> "Westfalen (Volk, Neuzeit)" .
-<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#volumeIn> _:B09532accaf49b6b485604dbcc2053b89 .
+<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#volumeIn> _:B6af376981dbc1230e03ce28f12b049e6 .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "3402061740" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/isbn> "9783402061749" .
 <http://lobid.org/resource/TT001671747> <http://purl.org/ontology/bibo/volume> "3,5,1" .

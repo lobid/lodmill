@@ -553,7 +553,7 @@
 			</data>
 		</combine>
 		<!-- issue precedence -->
-		<data source="425a[-1].a" name="@dateFix"/>
+		<data source="425a[-1].a|419-1c" name="@dateFix"/>
 		<combine name="@dateFix" value="${a}">
 			<if>
 				<none>
@@ -639,8 +639,8 @@
 		<combine name="http://rdvocab.info/Elements/publicationStatement" value="${publicationConcat}"
 			sameEntity="true">
 			<concat delimiter="; " name="publicationConcat">
-				<data source="41[05][-abcu][-12].a|594[-abc][-12].a"/>
-				<data source="41[27][-abcu][-12].[ag]"/>
+				<data source="41[05][-abcu][-12].a|594[-abc][-12].a|419-1.a"/>
+				<data source="41[27][-abcu][-12].[ag]|419-1.b"/>
 				<data source="@dateFix"/>
 			</concat>
 		</combine>

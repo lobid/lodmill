@@ -4395,7 +4395,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018779822> <http://purl.org/lobid/lv#hbzID> "HT018779822"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018779822> <http://purl.org/ontology/bibo/isbn> "9781138816503"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018779822> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018779822:DE-Kob7:> .
-<http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/publicationStatement> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/publicationStatement> "New York; Routledge; 2014"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/statementOfResponsibility> "Julie Cross"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018779822> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT018779822> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
