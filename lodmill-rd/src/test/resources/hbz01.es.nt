@@ -216,6 +216,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/143102893> <http://d-nb.info/standards/elementset/gnd#preferredName> "Sanda, Dominique"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/14320713X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Blum, Richard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/14320713X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Blum, Richard"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/143846655> <http://d-nb.info/standards/elementset/gnd#preferredName> "Cross, Julie"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/143846655> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Cross, Julie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/159865794> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/159865794> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adenauer, Konrad"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1693,6 +1695,10 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-38M> .
 <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation/about> .
+<http://lobid.org/item/HT018779822:DE-Kob7:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018779822> .
+<http://lobid.org/item/HT018779822:DE-Kob7:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kob7> .
+<http://lobid.org/item/HT018779822:DE-Kob7:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018779822:DE-Kob7:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018779822:DE-Kob7:/about> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/ontology/daia/label> "CD 2410 - CD 2411"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/TT000075751> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kn38> .
@@ -4378,6 +4384,24 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018771475> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018771475> .
 <http://lobid.org/resource/HT018771475> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018771475/about> .
 <http://lobid.org/resource/HT018771475> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018771475> .
+<http://lobid.org/resource/HT018779822/about> <http://purl.org/dc/terms/created> "20151014"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://iflastandards.info/ns/isbd/elements/P1053> "264 Seiten"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/143846655> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/dc/terms/issued> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/dc/terms/title> "Humor in contemporary junior literature"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/lobid/lv#contributorLabel> "Cross, Julie"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/lobid/lv#hbzID> "HT018779822"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/ontology/bibo/isbn> "9781138816503"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018779822:DE-Kob7:> .
+<http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/publicationStatement> "2014"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://rdvocab.info/Elements/statementOfResponsibility> "Julie Cross"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018779822> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018779822> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT018779822> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018779822> .
+<http://lobid.org/resource/HT018779822> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018779822/about> .
+<http://lobid.org/resource/HT018779822> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018779822> .
 <http://lobid.org/resource/TT000075751/about> <http://purl.org/dc/terms/created> "19990816"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751/about> <http://purl.org/dc/terms/modified> "20120309"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/134782852> .
