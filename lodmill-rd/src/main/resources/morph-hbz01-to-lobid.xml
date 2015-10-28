@@ -1102,10 +1102,6 @@
 			<data
 				source="@subjectLinks|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId"/>
 		</combine>
-		<combine name="$[ns-gnd]preferredName" value="${a}" sameEntity="true">
-			<data source="@nameOfContributingOrCreatingCorporateBody" name="a"/>
-			<data source="@contributorPersonId|@contributorCorporateBodyId"/>
-		</combine>
 		<!-- START contributor/creator -->
 		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
 			<data source="@preferredName" name="a">
@@ -1148,14 +1144,6 @@
 			sameEntity="true">
 			<data source="9[01234][27]-[-12].s"/>
 			<data source="@preferredName" name="a"/>
-		</combine>
-		<combine name="@preferredNameForThePerson" value="${a}" sameEntity="true">
-			<if>
-				<none>
-					<data source="9[01234][27]-[-12].t"/>
-				</none>
-			</if>
-			<data source="@preferredNameP" name="a"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForThePlaceOrGeographicName" value="${a}"
 			sameEntity="true">
