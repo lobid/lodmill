@@ -82,7 +82,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/118033948> <http://d-nb.info/standards/elementset/gnd#preferredName> "Meier, Elmar"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adam, Theo"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118500546> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Adam, Theo"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad, 1876-1967"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/11850066X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Adenauer, Konrad"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bach, Johann Sebastian"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11850553X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bach, Johann Sebastian"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00C3\u00B6hm, Marianne"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -97,22 +97,22 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/118535765> <http://d-nb.info/standards/elementset/gnd#preferredName> "Friedrich, II., Heiliges R\u00F6misches Reich, Kaiser"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Hitler, Adolf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118551655> <http://d-nb.info/standards/elementset/gnd#preferredName> "Hitler, Adolf"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl, I., Heiliges R\u00F6misches Reich, Kaiser, 747-814"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/118560034> <http://d-nb.info/standards/elementset/gnd#preferredName> "Karl, I., Heiliges R\u00F6misches Reich, Kaiser"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Manfredi, Sicilia, Re"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118577018> <http://d-nb.info/standards/elementset/gnd#preferredName> "Manfredi, Sicilia, Re"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredName> "Porsche, Ferdinand, 1875-1951"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/118595881> <http://d-nb.info/standards/elementset/gnd#preferredName> "Porsche, Ferdinand"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rohmer, Eric"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/11860225X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rohmer, Eric"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schreier, Peter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118610724> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schreier, Peter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118637649> <http://d-nb.info/standards/elementset/gnd#preferredName> "Albertus, Magnus"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118637649> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Albertus, Magnus"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118640038> <http://d-nb.info/standards/elementset/gnd#preferredName> "Juan, de la Cruz, 1542-1591"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/118640038> <http://d-nb.info/standards/elementset/gnd#preferredName> "Juan, de la Cruz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118657496> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bassani, Giorgio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118657496> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bassani, Giorgio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118677942> <http://d-nb.info/standards/elementset/gnd#preferredName> "De Sica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118677942> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "De Sica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/118722123> <http://d-nb.info/standards/elementset/gnd#preferredName> "Keun, Irmgard, 1905-1982"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/118722123> <http://d-nb.info/standards/elementset/gnd#preferredName> "Keun, Irmgard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118839055> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Wedgwood, Cicely V."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118839055> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wedgwood, Cicely V."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/118867539> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Rotzsch, Hans-Joachim"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -121,7 +121,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter von"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredName> "Banville, Th\u00E9odore de"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/119080389> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Banville, Th\u00E9odore de"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/119411970> <http://d-nb.info/standards/elementset/gnd#preferredName> "K\u00F6nig, Ralf, 1960-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/119411970> <http://d-nb.info/standards/elementset/gnd#preferredName> "K\u00F6nig, Ralf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bruccoli, Matthew Joseph"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/119468476> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bruccoli, Matthew Joseph"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/120454874> <http://d-nb.info/standards/elementset/gnd#preferredName> "Berger, Helmut"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -129,7 +129,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/120534983> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Neyer, Maria Amata"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/120534983> <http://d-nb.info/standards/elementset/gnd#preferredName> "Neyer, Maria Amata"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/12174793X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "M\u00F6tsch, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/12174793X> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00F6tsch, Johannes, 1949-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/12174793X> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00F6tsch, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/121815684> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "L\u00FCken, Sven"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/121815684> <http://d-nb.info/standards/elementset/gnd#preferredName> "L\u00FCken, Sven"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -155,7 +154,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/128495626> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fritsche, Christiane"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Kreisheimatverein <Coesfeld>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/128755-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kreisheimatverein <Coesfeld>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/128989459> <http://d-nb.info/standards/elementset/gnd#preferredName> "L\u00FCck, Ingolf, 1958-"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/128989459> <http://d-nb.info/standards/elementset/gnd#preferredName> "L\u00FCck, Ingolf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/128992204> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Wenkel, Ortrun"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/128992204> <http://d-nb.info/standards/elementset/gnd#preferredName> "Wenkel, Ortrun"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/129016713> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fehrmann, Gisela"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -167,7 +166,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Mespl\u00E9, Mady"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/130290637> <http://d-nb.info/standards/elementset/gnd#preferredName> "Mespl\u00E9, Mady"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Reinarz, Titus"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredName> "Reinarz, Titus, 1948-"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/133595935> <http://d-nb.info/standards/elementset/gnd#preferredName> "Reinarz, Titus"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Salins, Genevi\u00E8ve-Dominique de"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/133991210> <http://d-nb.info/standards/elementset/gnd#preferredName> "Salins, Genevi\u00E8ve-Dominique de"^^<http://www.w3.org/2001/XMLSchema#string> .
