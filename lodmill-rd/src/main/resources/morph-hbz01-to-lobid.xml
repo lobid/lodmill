@@ -797,16 +797,16 @@
 			<data source="@creatorPersonId"/>
 			<data source="@creatorLabel"/>
 		</choose>
-		    <!-- Add literal only if link in the same entity does not exist -->
-    <data source="@contributorNameOrId" name="http://purl.org/dc/elements/1.1/contributor">
-      <regexp match="^[^http].*"/>
-    </data>
-        <choose name="@contributorNameOrId" flushWith="1????">
-      <data source="@contributorPersonId"/>
-      <data source="@contributorCorporateBodyId"/>
-      <data source="@contributorLabel"/>
-      <data source="@nameOfContributingOrCreatingCorporateBody"/>
-    </choose>
+		<!-- Add literal only if link in the same entity does not exist -->
+		<data source="@contributorNameOrId" name="http://purl.org/dc/elements/1.1/contributor">
+			<regexp match="^[^http].*"/>
+		</data>
+		<choose name="@contributorNameOrId" flushWith="1????">
+			<data source="@contributorPersonId"/>
+			<data source="@contributorCorporateBodyId"/>
+			<data source="@contributorLabel"/>
+			<data source="@nameOfContributingOrCreatingCorporateBody"/>
+		</choose>
 		<!-- ####################### -->
 		<!-- ################ koerperschaften -->
 		<!-- ####################### -->
@@ -843,10 +843,10 @@
 		</choose>
 		<combine name="@preferredNameConcatEvent" value="${n} ${e}, ${d}, ${c}"
 			sameEntity="true">
-			<data source="2??[-abcfep][12-].n" name="n"/>
-			<data source="2??[-abcfep][12-].e" name="e"/>
-			<data source="2??[-abcfep][12-].d" name="d"/>
-			<data source="2??[-abcfep][12-].c" name="c"/>
+			<data source="[29]??[-abcfep][12-].n" name="n"/>
+			<data source="[29]??[-abcfep][12-].e" name="e"/>
+			<data source="[29]??[-abcfep][12-].d" name="d"/>
+			<data source="[29]??[-abcfep][12-].c" name="c"/>
 		</combine>
 		<combine name="$[ns-lobid-vocab]nameOfContributingCorporateBody" value="${a}">
 			<!-- <data source="2??[bcp][1234].k"/> -->
@@ -1086,21 +1086,34 @@
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
+		<combine name="@subjectNotAPerson" value="${a}" sameEntity="true">
+			<data source="9[01234][27]-[-12].[cefgkstz]" name="a"/>
+			<data source="@subjectLinks"/>
+		</combine>
 		<!-- ########### -->
 		<!-- # Create subgraph: temporarily set new subjects or contributor id -->
 		<!-- ########### -->
 		<data name="~rdf:subject"
 			source="@subjectLinks|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId"/>
-		<!-- subjects -->
+		<!-- subjects which are persons (and thus the date is to be ignored, see hbz/lobid#244 ) -->
 		<combine name="@preferredNameConcatSubject" value="${a}" sameEntity="true"
-			flushWith="@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId">
+			flushWith="@creatorPersonId|@contributorPersonId|@preferredNameP">
 			<concat delimiter=", " name="a"
-				flushWith="@subjectLinks|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId"
-				sameEntity="true">
-				<data source="1????.[cghknpsz]|2??[-abcfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cghknpsz]"/>
+				flushWith="@creatorPersonId|@contributorPersonId|@preferredNameP" sameEntity="true">
+				<data source="1????.[cghknpsz]|9??[-abcdfep][12-].[cghknpsz]|8[012]?[-mn][-12].[cghknpsz]"/>
 			</concat>
-			<data
-				source="@subjectLinks|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId"/>
+			<data source="@creatorPersonId|@contributorPersonId|@preferredNameP"/>
+		</combine>
+		<!-- subjects which aren't persons (and thus the date needn't be ignored) -->
+		<combine name="@preferredNameConcatSubject" value="${a}" sameEntity="true"
+			flushWith="@creatorCorporateBodyId|@contributorCorporateBodyId|@subjectNotAPerson">
+			<concat delimiter=", " name="a"
+				flushWith="@subjectNotAPerson|@creatorCorporateBodyId|@contributorCorporateBodyId"
+				sameEntity="true">
+				<data
+					source="1????.[cghknpsz]|[29]??[-abcdfep][12-].[cdghknpsz]|8[012]?[-mn][-12].[cghknpsz]"/>
+			</concat>
+			<data source="@subjectNotAPerson|@creatorCorporateBodyId|@contributorCorporateBodyId"/>
 		</combine>
 		<!-- START contributor/creator -->
 		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
@@ -1133,13 +1146,6 @@
 			<data source="@preferredNameSemicolon"/>
 			<data source="9[01234][27]-[-12].t"/>
 		</choose>
-		<combine name="@preferredNameConcat" value="${a}" sameEntity="true" flushWith="@subjectLinks"
-			reset="true">
-			<concat delimiter=", " name="a" flushWith="@subjectLinks" sameEntity="true">
-				<data source="9[01234][27]-[-12].[cghknpsz]"/>
-			</concat>
-			<data source="@subjectLinks"/>
-		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheSubjectHeading" value="${a}"
 			sameEntity="true">
 			<data source="9[01234][27]-[-12].s"/>
@@ -1157,7 +1163,7 @@
 		</combine>
 		<!-- /subjects -->
 		<choose name="@preferredName"
-			flushWith="@subjectLinks|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId">
+			flushWith="@subjectLinks|@preferredNameP|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId">
 			<data source="@nameOfContributingOrCreatingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
 			<data source="@preferredNameConcat"/>
