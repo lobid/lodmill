@@ -782,13 +782,13 @@
 		<!-- ####### persons -->
 		<!-- ####################### -->
 		<!-- person links -->
-		<data source="1??[-aemn]1.9" name="@creatorPersonId">
+		<data source="1??[-aemn][12].9" name="@creatorPersonId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- literals of creator -->
-		<data source="359[-ab][-1].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
+		<data source="359[-ab][-12].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="@creatorLabel" value="${a}">
-			<data source="1[02468][048][-aemn]1.[pa]|1[1468][26][-aemn]1.[pa]|2??[-a][12-].a"
+			<data source="1[02468][048][-aemn][12].[pa]|1[1468][26][-aemn][12].[pa]|2??[-a][12-].a"
 				name="a">
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
