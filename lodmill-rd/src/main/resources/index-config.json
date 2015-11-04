@@ -71,38 +71,42 @@
 			"json-ld-lobid-orgs" : {
 				 "date_detection" : false,
 				 "properties" : {
-						"http://www.w3.org/2004/02/skos/core#prefLabel" : {
-							 "properties" : {
-									"@value" : {
-										 "index_analyzer" : "ngram_analyzer",
-										 "type" : "string",
-										 "search_analyzer" : "standard"
-									}
-							 }
-						},
-						"http://purl.org/dc/terms/identifier" : {
-							 "properties" : {
-									"@value" : {
-										 "search_analyzer" : "id_analyzer",
-										 "index_analyzer" : "id_analyzer",
-										 "type" : "string"
-									}
-							 }
-						},
-						"http://xmlns.com/foaf/0.1/name" : {
-							 "properties" : {
-									"@value" : {
-										 "search_analyzer" : "standard",
-										 "type" : "string",
-										 "index_analyzer" : "ngram_analyzer"
-									}
-							 }
-						},
-						"@type" : {
-							 "index" : "not_analyzed",
-							 "type" : "string"
+					"@graph" : {
+						"properties" : {
+							"http://www.w3.org/2004/02/skos/core#prefLabel" : {
+								"properties" : {
+										"@value" : {
+											 "index_analyzer" : "ngram_analyzer",
+											 "type" : "string",
+											 "search_analyzer" : "standard"
+										}
+								 }
+							},
+							"http://purl.org/dc/terms/identifier" : {
+								 "properties" : {
+										"@value" : {
+											 "search_analyzer" : "id_analyzer",
+											 "index_analyzer" : "id_analyzer",
+											 "type" : "string"
+										}
+								 }
+							},
+							"http://xmlns.com/foaf/0.1/name" : {
+								 "properties" : {
+										"@value" : {
+											 "search_analyzer" : "standard",
+											 "type" : "string",
+											 "index_analyzer" : "ngram_analyzer"
+										}
+								 }
+							},
+							"@type" : {
+								 "index" : "not_analyzed",
+								 "type" : "string"
+							}
 						}
-				 }
+					}
+				}
 			},
 			"json-ld-lobid" : {
 				 "properties" : {
@@ -200,7 +204,7 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "id_analyzer",
-													 "index" : "not_analyzed"
+													 "search_analyzer" : "id_analyzer"
 												}
 										 }
 									},
@@ -414,8 +418,17 @@
 									"http://purl.org/ontology/bibo/isbn" : {
 										 "properties" : {
 												"@value" : {
-													 "index" : "not_analyzed",
 													 "index_analyzer" : "id_analyzer",
+													 "search_analyzer" : "id_analyzer",
+													 "type" : "string"
+												}
+										 }
+									},
+									"http://purl.org/ontology/bibo/doi" : {
+										 "properties" : {
+												"@value" : {
+													 "analyzer" : "id_analyzer",
+													 "index" : "not_analyzed",
 													 "type" : "string"
 												}
 										 }
