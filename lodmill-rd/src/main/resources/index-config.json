@@ -534,7 +534,7 @@
 									"http://purl.org/lobid/lv#urn" : {
 										 "properties" : {
 												"@value" : {
-													 "index" : "not_analyzed",
+													 "analyzer" : "id_analyzer",
 													 "type" : "string"
 												}
 										 }
