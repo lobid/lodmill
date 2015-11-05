@@ -672,7 +672,6 @@
 			<regexp match="(.*)" format="http://dx.doi.org/${1}"/>
 		</data>
 		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
-		<!-- TODO "552a[-1].a" => "http://purl.org/ontology/bibo/doi", -->
 		<!-- urn -->
 		<data source="552b[-1].a" name="@urn">
 			<regexp match="(^.*:.*\d+)$" format="${1}"/>
@@ -1128,6 +1127,11 @@
 				<replace pattern="&lt;&lt;" with=""/>
 			</data>
 			<data source="@creatorPersonId|@contributorPersonId"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true"
+			flushWith="@preferredNameP">
+			<data source="@preferredNameConcatSubject" name="a"/>
+			<data source="@preferredNameP"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
 			sameEntity="true">
