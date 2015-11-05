@@ -19,7 +19,9 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "43"^^<http://www.w3.org/2001/XMLSche
 _:Bb0 <http://purl.org/lobid/lv#numbering> "47"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "5"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "F2001/F2003]"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "Neue Folge, Band 264"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT001252640> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
@@ -49,6 +51,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/1031919368> <http://d-nb.info/standards/elementset/gnd#preferredName> "M\u00FCller, Leonhard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1041277814> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Kellermann, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1041277814> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kellermann, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1042242615> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Stahl, Dominik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1042242615> <http://d-nb.info/standards/elementset/gnd#preferredName> "Stahl, Dominik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1050748387> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Herzog, G\u00C3\u00BCnter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1050748387> <http://d-nb.info/standards/elementset/gnd#preferredName> "Herzog, G\u00C3\u00BCnter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1705,6 +1709,16 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-38M> .
 <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018700720:DE-38M:Elektronische%20Publikation/about> .
+<http://lobid.org/item/HT018770176:DE-294-39:123%2FY%2F3264> <http://purl.org/ontology/daia/label> "123/Y/3264"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT018770176:DE-294-39:123%2FY%2F3264> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018770176> .
+<http://lobid.org/item/HT018770176:DE-294-39:123%2FY%2F3264> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-294-39> .
+<http://lobid.org/item/HT018770176:DE-294-39:123%2FY%2F3264> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018770176:DE-294-39:123%2FY%2F3264> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018770176:DE-294-39:123%2FY%2F3264/about> .
+<http://lobid.org/item/HT018770176:DE-6-228:StrR%20XIV%2023%2F246> <http://purl.org/ontology/daia/label> "StrR XIV 23/246"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT018770176:DE-6-228:StrR%20XIV%2023%2F246> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018770176> .
+<http://lobid.org/item/HT018770176:DE-6-228:StrR%20XIV%2023%2F246> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-6-228> .
+<http://lobid.org/item/HT018770176:DE-6-228:StrR%20XIV%2023%2F246> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018770176:DE-6-228:StrR%20XIV%2023%2F246> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018770176:DE-6-228:StrR%20XIV%2023%2F246/about> .
 <http://lobid.org/item/HT018779822:DE-Kob7:> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018779822> .
 <http://lobid.org/item/HT018779822:DE-Kob7:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kob7> .
 <http://lobid.org/item/HT018779822:DE-Kob7:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
@@ -4368,6 +4382,36 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018726005> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018726005> .
 <http://lobid.org/resource/HT018726005> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018726005/about> .
 <http://lobid.org/resource/HT018726005> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018726005> .
+<http://lobid.org/resource/HT018770176> <http://iflastandards.info/ns/isbd/elements/P1053> "276 S."^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/elements/1.1/publisher> "Duncker & Humblot"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1042242615> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT001252640> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/issued> "2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/subject> <http://dewey.info/class/340/> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/tableOfContents> <http://d-nb.info/1076583180/04> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/dc/terms/title> "Strafzumessungstatsachen zwischen Verbrechenslehre und Straftheorie"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/lobid/lv#contributorLabel> "Stahl, Dominik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/lobid/lv#hbzID> "HT018770176"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/lobid/lv#inSeries> _:Bb0 .
+<http://lobid.org/resource/HT018770176> <http://purl.org/ontology/bibo/edition> "[1. Aufl.]"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/ontology/bibo/isbn> "3428147332"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/ontology/bibo/isbn> "9783428147335"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/ontology/bibo/volume> "Neue Folge, Band 264"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018770176:DE-294-39:123%2FY%2F3264> .
+<http://lobid.org/resource/HT018770176> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018770176:DE-6-228:StrR%20XIV%2023%2F246> .
+<http://lobid.org/resource/HT018770176> <http://rdaregistry.info/Elements/u/P60489> "Albert-Ludwigs-Universit\u00E4t Freiburg, Dissertation, 2014/2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://rdvocab.info/Elements/otherTitleInformation> "zugleich ein Beitrag zur Strafzumessungsrelevanz des Vor- und Nachtatverhaltens"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://rdvocab.info/Elements/placeOfPublication> "Berlin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://rdvocab.info/Elements/publicationStatement> "Berlin; Duncker & Humblot; 2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://rdvocab.info/Elements/statementOfResponsibility> "von Dominik Stahl"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018770176> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018770176> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
+<http://lobid.org/resource/HT018770176> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Thesis> .
+<http://lobid.org/resource/HT018770176> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018770176> .
+<http://lobid.org/resource/HT018770176> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018770176/about> .
+<http://lobid.org/resource/HT018770176> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018770176> .
 <http://lobid.org/resource/HT018771475/about> <http://purl.org/dc/terms/created> "20151005"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018771475> <http://iflastandards.info/ns/isbd/elements/P1053> "42 S."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018771475> <http://purl.org/dc/elements/1.1/coverage> "Bergisch Gladbach- Bensberg"^^<http://www.w3.org/2001/XMLSchema#string> .

@@ -655,10 +655,15 @@
 		<!-- ####################### -->
 		<data source="40[03]-1.[an]" name="http://purl.org/ontology/bibo/edition"/>
 		<data source="510-1.a" name="http://purl.org/ontology/bibo/edition"/>
-		<!-- ################ Hochschulschriftenvermerk -->
+		<!-- ################ Hochschulschriftenvermerk aka thesisInformation -->
 		<concat delimiter=", " name="http://rdaregistry.info/Elements/u/P60489">
 			<data source="519-1.[ap]"/>
 		</concat>
+		<combine name="http://rdaregistry.info/Elements/u/P60489" value="${c}, ${b}, ${d}">
+			<data source="520-1.c" name="c"/>
+			<data source="520-1.b" name="b"/>
+			<data source="520-1.d" name="d"/>
+		</combine>
 		<!-- ####################### -->
 		<!-- ########## links to the fulltext, online doi, toc etc. -->
 		<!-- ####################### -->
