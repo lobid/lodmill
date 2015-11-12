@@ -23,6 +23,7 @@ public abstract class AbstractGraphPipeEncoder
 		extends DefaultStreamPipe<ObjectReceiver<String>> {
 
 	static final String SUBJECT_NAME = "~rdf:subject";
+	static final String LIST_NAME = "~rdf:list";
 	String subject;
 
 	/**

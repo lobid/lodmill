@@ -21,12 +21,14 @@ import com.hp.hpl.jena.rdf.model.AnonId;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFList;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.util.ResourceUtils;
 
 /**
- * Treats Literals, URIs and Blank Nodes. The latter will be invoked by using
- * the <entity> element in the morph file. Output are N-Triples.
+ * Treats Literals, URIs, Blank Nodes and Lists. The latter will be invoked by
+ * using the <entity> element in the morph file. Output are N-Triples.
  * 
  * @author Fabian Steeg, Pascal Christoph
  */
@@ -45,6 +47,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	private static final Logger LOG =
 			LoggerFactory.getLogger(PipeEncodeTriples.class);
 	private boolean storeUrnAsUri = false;
+	private RDFList rdfList;
+	private boolean isRdfList;
 
 	/**
 	 * Sets the default temporary subject.
@@ -75,7 +79,9 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	@Override
 	public void startRecord(final String identifier) {
 		model = ModelFactory.createDefaultModel();
-		resources = new Stack<Resource>();
+		resources = new Stack<>();
+		rdfList = null;
+		isRdfList = false;
 		if (!fixSubject) {
 			subject = DUMMY_SUBJECT;
 		}
@@ -104,10 +110,30 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 				final Property prop = model.createProperty(name);
 				if (isUriWithScheme(value) && ((value.startsWith(URN) && storeUrnAsUri)
 						|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
-					resources.peek().addProperty(prop,
-							model.asRDFNode(NodeFactory.createURI(value)));
+					if (!isRdfList) {
+						resources.peek().addProperty(prop,
+								model.asRDFNode(NodeFactory.createURI(value)));
+					} else {
+						// if new property, make new rdfList and add it to the model
+						if (!model.listObjectsOfProperty(prop).hasNext()) {
+							rdfList = model
+									.createList(new RDFNode[] { model.createProperty(value) });
+							resources.peek().addProperty(prop, rdfList);
+						} else
+							rdfList.add(model.asRDFNode(NodeFactory.createURI(value)));
+					}
 				} else {
-					resources.peek().addProperty(prop, value);
+					if (!isRdfList) {
+						resources.peek().addProperty(prop, value);
+					} else {
+						// if new property, make new rdfList and add it to the model
+						if (!model.listObjectsOfProperty(prop).hasNext()) {
+							rdfList = model
+									.createList(new RDFNode[] { model.createLiteral(value) });
+							resources.peek().addProperty(prop, rdfList);
+						} else
+							rdfList.add(model.asRDFNode(NodeFactory.createLiteral(value)));
+					}
 				}
 			} catch (Exception e) {
 				LOG.warn("Problem with name=" + name + " value=" + value, e);
@@ -128,11 +154,15 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 
 	@Override
 	public void startEntity(final String name) {
-		enterBnode(makeBnode(name));
+		if (name.startsWith(LIST_NAME)) {
+			isRdfList = true;
+		} else
+			enterBnode(makeBnode(name));
 	}
 
 	@Override
 	public void endEntity() {
+		isRdfList = false;
 		this.resources.pop();
 	}
 
