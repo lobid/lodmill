@@ -150,8 +150,7 @@ public abstract class AbstractIngestTests {
 		while (scanner.hasNextLine()) {
 			String actual = scanner.nextLine();
 			if (!actual.isEmpty()) {
-				actual =
-						actual.replaceFirst("(^_:\\w* )|( _:\\w* ?.$)", "_:bnodeDummy ");
+				actual = actual.replaceAll("(^_:\\w* )|( _:\\w* ?.$)", "_:bnodeDummy ");
 				set.add(actual);
 			}
 		}
