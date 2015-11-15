@@ -10,6 +10,7 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "25/26"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -23,21 +24,23 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XML
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT001252640> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT014679525> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/102654520X> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/11079267X> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/115541802> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118560034> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118657496> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/119080389> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/12174793X> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/121842118> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/128989459> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/134769236> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/136788548> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/159865794> .
@@ -48,23 +51,63 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/1
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/183839064> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2005535-3> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2023669-4> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2041907-7> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/3062366-2> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/37043-5> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4011882-4> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4013255-9> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4018466-3> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4037117-7> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4040613-1> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4042552-6> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4046259-6> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4049787-2> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4049788-4> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4052945-9> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4337730-0> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4443675-0> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/7683386-0> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/7684863-2> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Rheine"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb1 .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
+_:Bb10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte 1959-1972"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4207786-2> .
+_:Bb10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb11 .
+_:Bb11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Ausstellung"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb12 .
+_:Bb11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2101246-5> .
+_:Bb12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "K\u00C3\u00B6ln <2015>"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb13 .
+_:Bb12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118595881> .
+_:Bb13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb14 .
+_:Bb14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4207786-2> .
+_:Bb14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb15 .
+_:Bb15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/10048424-4> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/1050748387> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/105667129> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/1060772442> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/1074109953> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/109702662> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118577018> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118722123> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/119411970> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/120534983> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/12174793X> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/123633206> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/128755-2> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/133595935> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/133991210> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/134845323> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/136371671> .
@@ -74,30 +117,134 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/1
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2005535-3> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2023669-4> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2056181-7> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4014228-0> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4020517-4> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4034268-2> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4040619-2> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4042203-3> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4042570-8> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4050698-8> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4067488-5> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4073757-3> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4076769-3> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4114067-9> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4124796-6> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4127794-6> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4137215-3> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4156127-2> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4159648-1> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4219952-9> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4604932-0> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Vogelschutz"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb2 .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bibliographie"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "CD-ROM"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte 1288-1815"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte 1918-1940"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/1069643262> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/109728068> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/116620153> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/11850066X> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/11860225X> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118640038> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/124515312> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/129961604> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/134926277> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2050419-6> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2092393-4> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2095440-2> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2175350-7> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4010355-9> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4010427-8> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4020378-5> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4020533-2> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4046277-8> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4049716-1> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4065781-4> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4136959-2> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4151183-9> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4152975-3> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4184194-3> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4306876-5> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4511937-5> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/5079636-7> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Karte"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Zeitschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb3 .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/10040152-1> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/1060772442> .
 _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/115325859> .
 _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/16068028-1> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4020517-4> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4024116-6> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4031483-2> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4040613-1> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4040629-5> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4059979-6> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4073972-7> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4075561-7> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4115393-5> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4120314-8> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4145395-5> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Quelle"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Schulbuch"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Verzeichnis"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb4 .
 _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Atlas"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte 71 v. Chr.-70 v. Chr"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/14216075X> .
 _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2006655-7> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2175350-7> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4011889-7> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4034268-2> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4113292-0> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4139439-2> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4143413-4> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4576855-9> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Karte"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Lehrmittel"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb5 .
 _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4002641-3> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4010356-0> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4073757-3> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4076259-2> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4076769-3> .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb6 .
+_:Bb5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte 1920-1945"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4024116-6> .
+_:Bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4126078-8> .
+_:Bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "K\u00C3\u00B6ln <2015>"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb7 .
+_:Bb6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Geschichte 71 v. Chr.-70 v. Chr"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4013255-9> .
+_:Bb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Lehrmittel"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "Verzeichnis"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb8 .
+_:Bb7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/2101246-5> .
+_:Bb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4031483-2> .
+_:Bb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4049788-4> .
+_:Bb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb9 .
+_:Bb8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:Bb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4003988-2> .
+_:Bb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4076259-2> .
+_:Bb9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb10 .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1885,6 +2032,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectLabel> "Stadt Freudenberg"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectLabel> "Stadt Freudenberg S\u00FCdwestfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectLabel> "Zeitgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000002852> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/BT000002852> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/otherTitleInformation> "wechselvolle Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000002852> <http://rdvocab.info/Elements/placeOfPublication> "Freudenberg"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1921,6 +2069,8 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectLabel> "NW"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectLabel> "S\u00FCdliches Niedersachsen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectLabel> "S\u00FCdniedersachsen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectOrder> _:Bb1 .
+<http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#subjectOrder> _:Bb3 .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#volumeIn> _:Bb0 .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/edition> "10.[Aufl., Ausg.] 1993/94"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/ontology/bibo/isbn> "3575112088"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1950,6 +2100,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s584060> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#subjectChain> "Rheine | Vogelschutz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#subjectChain> "Vogelschutz | Rheine"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000040377> <http://purl.org/lobid/lv#subjectOrder> _:Bb1 .
 <http://lobid.org/resource/BT000040377> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000040377> <http://rdvocab.info/Elements/publicationStatement> "1983"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000040377> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -2027,6 +2178,8 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectLabel> "Erster Fu\u00DFball-Club K\u00F6ln 01/07"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectLabel> "Erster Fu\u00DFball-Klub K\u00F6ln 01/07"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectLabel> "VfL Borussia M\u00F6nchengladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
+<http://lobid.org/resource/BT000128754> <http://purl.org/lobid/lv#subjectOrder> _:Bb2 .
 <http://lobid.org/resource/BT000128754> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/otherTitleInformation> "Jugend zwischen zwei Magnetpolen ; nur Animosit\u00E4t gebiert gro\u00DFe Spiele"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000128754> <http://rdvocab.info/Elements/placeOfPublication> "Reinbek bei Hamburg"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2385,6 +2538,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectLabel> "Handwerkskammerbezirk M\u00FCnster (Westf)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectLabel> "Landesentwicklungsplanung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectLabel> "M\u00FCnster (Westf) (Bezirk)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT003160768> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT003160768> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-385:ONG%2Fg52127> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-465:ONG%2Fg52127> .
@@ -2427,6 +2581,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectLabel> "Regierungsbezirk M\u00FCnster"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectLabel> "Regionalentwicklungsplan"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectLabel> "Regionaler Raumordnungsplan"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#subjectOrder> _:Bb1 .
 <http://lobid.org/resource/HT004381366> <http://purl.org/lobid/lv#volumeIn> _:Bb0 .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "<Tezemu>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004381366> <http://purl.org/ontology/bibo/volume> "Tezemu"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2608,6 +2763,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#subjectLabel> "Online-Ressource"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#subjectLabel> "Periodikum"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#subjectLabel> "Zeitschriften"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT010726584> <http://purl.org/lobid/lv#zdbID> "1472746-8"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/ontology/bibo/issn> "10897674"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT010726584> <http://purl.org/ontology/bibo/shortTitle> "PHPAEN"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2693,6 +2849,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectChain> "Main-Kinzig-Kreis | Heimatkunde"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectLabel> "Heimatforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectLabel> "Heimatgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT012895751> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT012895751:DE-929:C2001A%2F13> .
 <http://lobid.org/resource/HT012895751> <http://rdvocab.info/Elements/otherTitleInformation> "Informationen f\u00FCr B\u00FCrger, Neub\u00FCrger & G\u00E4ste"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751> <http://rdvocab.info/Elements/placeOfPublication> "Bad Kreuznach"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2745,6 +2902,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectLabel> "R\u00E9publique F\u00E9d\u00E9rale d'Allemagne (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectLabel> "Stromwirtschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectLabel> "\u01E6umh\u016Br\u012Byat Alm\u0101niy\u0101 al-Itti\u1E25\u0101d\u012Bya"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012926727> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/edition> "2. Aufl."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "3540676376"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012926727> <http://purl.org/ontology/bibo/isbn> "9783540676379"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2844,6 +3002,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectLabel> "Pressestelle (Coesfeld)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectLabel> "Stadt Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectLabel> "Stadtdirektor (Coesfeld)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT013077595> <http://purl.org/lobid/lv#subjectOrder> _:Bb5 .
 <http://lobid.org/resource/HT013077595> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6-290:Y%20401%20-%2036> .
 <http://lobid.org/resource/HT013077595> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT013077595:DE-6:2J%201468> .
@@ -2878,6 +3037,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#subjectLabel> "Periodikum"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#subjectLabel> "Schmuckware"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#subjectLabel> "Zeitschriften"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT013304490> <http://purl.org/lobid/lv#zdbID> "2073588-1"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/ontology/bibo/issn> "16187792"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013304490> <http://purl.org/ontology/bibo/oclcnum> "635743319"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2924,6 +3084,9 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectLabel> "M\u00FCnzschatz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectLabel> "Rheinlande (im engeren Sinn)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectLabel> "R\u00F6mische Zeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
+<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectOrder> _:Bb5 .
+<http://lobid.org/resource/HT013577568> <http://purl.org/lobid/lv#subjectOrder> _:Bb8 .
 <http://lobid.org/resource/HT013577568> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT013577568> <http://rdvocab.info/Elements/otherTitleInformation> "Mittel- und Niederrhein ca. 70 - 71 v. Chr. anhand germanischer M\u00FCnzen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013577568> <http://rdvocab.info/Elements/publicationStatement> "2003"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2950,6 +3113,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectLabel> "Rothenburg o.d.T."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectLabel> "Rothenburg, Tauber"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectLabel> "Stadtmagistrat (Rothenburg, Tauber)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT013911008> <http://purl.org/lobid/lv#subjectOrder> _:Bb1 .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn> "3936547041"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/isbn> "9783936547047"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT013911008> <http://purl.org/ontology/bibo/volume> "5"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3062,6 +3226,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectLabel> "R\u00F6mischer Kaiser (747-814)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectLabel> "R\u00F6misches Reich, Kaiser I. (747-814)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectLabel> "the Great (747-814)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT014215912> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT014215912> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT014215912> <http://rdvocab.info/Elements/publicationStatement> "2004"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014215912> <http://rdvocab.info/Elements/statementOfResponsibility> "Sven L\u00FCken"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3221,6 +3386,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectLabel> "Batavische Republik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectLabel> "Staat Holland"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectLabel> "Vereinigte Niederlande"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#subjectOrder> _:Bb1 .
 <http://lobid.org/resource/HT015082724> <http://purl.org/lobid/lv#volumeIn> _:Bb0 .
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119. 2006"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015082724> <http://purl.org/ontology/bibo/volume> "119"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3333,6 +3499,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Konig, Ralf (1960-)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "K\u0113nigs, Ralfs (1960-)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectLabel> "Photographien-Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015440386> <http://purl.org/lobid/lv#subjectOrder> _:Bb1 .
 <http://lobid.org/resource/HT015440386> <http://purl.org/ontology/bibo/edition> "Orig.-Ausg., 31. - 40. Tsd."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/ontology/bibo/isbn> "3499223929"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015440386> <http://purl.org/ontology/bibo/isbn> "9783499223921"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3380,6 +3547,10 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectLabel> "SDP AG"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectLabel> "Steyr-Daimler-Puch-AG"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectLabel> "\u00D6sterreichische Daimler-Motoren-Commanditgesellschaft Bierenz, Fischer und Co. (Wiener Neustadt)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectOrder> _:Bb12 .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectOrder> _:Bb4 .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectOrder> _:Bb8 .
 <http://lobid.org/resource/HT015455455> <http://purl.org/ontology/bibo/isbn> "3205776399"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/ontology/bibo/isbn> "9783205776390"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT015455455:DE-107:208-316> .
@@ -3539,6 +3710,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectLabel> "Kornm\u00FChle Roberg (Harsewinkel)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectLabel> "Lutter-Wasserm\u00FChle Roberg (Harsewinkel-Marienfeld)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectLabel> "M\u00FChle Roberg (Harsewinkel)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT016135351> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT016135351> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT016135351> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016135351:DE-6:2C%208876> .
 <http://lobid.org/resource/HT016135351> <http://rdvocab.info/Elements/otherTitleInformation> "Zeitzeuge und Kleinod in Harsewinkel"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3567,6 +3739,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#contributorLabel> "Blum, Richard Kenneth"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#hbzID> "HT016382441"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#subjectChain> "LINUX"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/edition> "1. Aufl."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/isbn> "9783527706495"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT016382441:DE-1044:11%20=%20TWR5408> .
@@ -3615,6 +3788,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s843060> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectChain> "Nordkirchen | Geb\u00E4ude | Eigent\u00FCmer | Geschichte 1805-2000 | Verzeichnis (23145,32145)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectLabel> "Haus (im weiteren Sinn)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT016545462> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT016545462> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/placeOfPublication> "Nordkirchen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016545462> <http://rdvocab.info/Elements/publicationStatement> "Nordkirchen; Heimatverein der Gemeinde Nordkirchen e. V:; 9999"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3877,6 +4051,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectLabel> "Stadtgemeinde D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectLabel> "Stadtverordnetenversammlung (D\u00FCsseldorf)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectLabel> "Stadtverwaltung (D\u00FCsseldorf)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018131501> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT018131501> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/placeOfPublication> "D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018131501> <http://rdvocab.info/Elements/publicationStatement> "2014; D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3930,6 +4105,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectLabel> "Narratologie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectLabel> "\u05E7\u05D5\u05D9\u05DF, \u05D0\u05D9\u05E8\u05DE\u05D2\u05E8\u05D3 (1905-1982)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectLabel> "\u1E32oyn, Irmgard (1905-1982)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectOrder> _:Bb1 .
 <http://lobid.org/resource/HT018239864> <http://purl.org/ontology/bibo/isbn> "3050064641"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/ontology/bibo/isbn> "9783050064642"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/ontology/bibo/isbn> "9783050103020"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4070,6 +4246,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#subjectLabel> "Th\u00FCringer Land"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#subjectLabel> "Thuringia"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#subjectLabel> "Vereinigte Th\u00FCringische Staaten"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#subjectOrder> _:Bb3 .
 <http://lobid.org/resource/HT018295975> <http://purl.org/ontology/bibo/edition> "1. Aufl."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/136529348> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/ontology/bibo/isbn> "9783943539233"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4112,6 +4289,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectLabel> "Nachleben"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectLabel> "Nachwirkung (Rezeption)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectLabel> "Wirkungsgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018312899> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT018312899> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT018312899> <http://rdvocab.info/Elements/otherTitleInformation> "der Cid als Zeit- und Gattungskritik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018312899> <http://rdvocab.info/Elements/placeOfPublication> "Bielefeld"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4225,6 +4403,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Sammelwerk (Formschlagwort)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "\u00C7\u00A6umh\u00C5\u00ABr\u00C4\u00AByat Alm\u00C4\u0081niy\u00C4\u0081 al-Itti\u00E1\u00B8\u00A5\u00C4\u0081d\u00C4\u00ABya"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Zeitgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT018468645> <http://purl.org/ontology/bibo/doi> "10.7788/boehlau.9783412216689"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/122511158> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/ontology/bibo/editor> <http://d-nb.info/gnd/128495626> .
@@ -4409,6 +4588,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#subjectLabel> "Stadtverwaltung (K\u00C3\u00B6ln)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#subjectLabel> "Verwaltung (K\u00C3\u00B6ln)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#subjectLabel> "Westdeutschland (Bundesrepublik, 1949-1990)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018612706> <http://purl.org/lobid/lv#subjectOrder> _:Bb7 .
 <http://lobid.org/resource/HT018612706> <http://purl.org/ontology/bibo/isbn> "9783903004108"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018612706> <http://purl.org/ontology/bibo/volume> "25/26"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018612706> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
@@ -4520,6 +4700,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT018726005> <http://purl.org/lobid/lv#hbzID> "HT018726005"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s802080> .
 <http://lobid.org/resource/HT018726005> <http://purl.org/lobid/lv#subjectChain> "L\u00FCck, Ingolf"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018726005> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/HT018726005> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/NWBib> .
 <http://lobid.org/resource/HT018726005> <http://rdvocab.info/Elements/otherTitleInformation> "die Parallelwelten des Ingolf L\u00FCck"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018726005> <http://rdvocab.info/Elements/placeOfPublication> "Essen"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4839,6 +5020,7 @@ _:Bb4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectLabel> "Rhein-Lahn-Kreis / Landratsamt"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectLabel> "Sternenweg"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectLabel> "Wandern, Diez, Lahnstein, Rhein-Lahn-Info, Rhein, Lahn, Wirtschaftsf\u00F6rderung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#subjectOrder> _:Bb0 .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#urn> "urn:nbn:de:hbz:929:01-2079"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/lobid/lv#webPageArchived> <http://www.rhein-lahn-info.de/jakobsweg/> .
 <http://lobid.org/resource/TT002234459> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/TT002234459:DE-929:> .

@@ -4,6 +4,7 @@
 package org.lobid.lodmill;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -47,7 +48,9 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	private static final Logger LOG =
 			LoggerFactory.getLogger(PipeEncodeTriples.class);
 	private boolean storeUrnAsUri = false;
-	private RDFList rdfList;
+	private ArrayList<RDFList> rdfListArray;
+	private int rdfListNr;
+	private boolean isRdfListNew;
 	private boolean isRdfList;
 
 	/**
@@ -80,8 +83,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	public void startRecord(final String identifier) {
 		model = ModelFactory.createDefaultModel();
 		resources = new Stack<>();
-		rdfList = null;
-		isRdfList = false;
+		rdfListNr = -1;
+		rdfListArray = new ArrayList<>();
 		if (!fixSubject) {
 			subject = DUMMY_SUBJECT;
 		}
@@ -95,6 +98,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		if (name.equalsIgnoreCase(SUBJECT_NAME)) {
 			subject = value;
 			try {
+				// insert subject now if it was not at the beginning of the record
 				if (resources.peek().hasURI((DUMMY_SUBJECT))) {
 					ResourceUtils.renameResource(model.getResource(DUMMY_SUBJECT),
 							subject);
@@ -110,29 +114,32 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 				final Property prop = model.createProperty(name);
 				if (isUriWithScheme(value) && ((value.startsWith(URN) && storeUrnAsUri)
 						|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
+					// either add uri ...
 					if (!isRdfList) {
 						resources.peek().addProperty(prop,
 								model.asRDFNode(NodeFactory.createURI(value)));
 					} else {
-						// if new property, make new rdfList and add it to the model
-						if (!model.listObjectsOfProperty(prop).hasNext()) {
-							rdfList = model
-									.createList(new RDFNode[] { model.createProperty(value) });
-							resources.peek().addProperty(prop, rdfList);
+						if (isRdfListNew) {
+							rdfListArray.add(rdfListNr, model
+									.createList(new RDFNode[] { model.createProperty(value) }));
+							resources.peek().addProperty(prop, rdfListArray.get(rdfListNr));
+							isRdfListNew = false;
 						} else
-							rdfList.add(model.asRDFNode(NodeFactory.createURI(value)));
+							rdfListArray.get(rdfListNr)
+									.add(model.asRDFNode(NodeFactory.createURI(value)));
 					}
-				} else {
+				} else { // ... or add literal
 					if (!isRdfList) {
 						resources.peek().addProperty(prop, value);
 					} else {
-						// if new property, make new rdfList and add it to the model
-						if (!model.listObjectsOfProperty(prop).hasNext()) {
-							rdfList = model
-									.createList(new RDFNode[] { model.createLiteral(value) });
-							resources.peek().addProperty(prop, rdfList);
+						if (isRdfListNew) {
+							rdfListArray.add(rdfListNr, model
+									.createList(new RDFNode[] { model.createLiteral(value) }));
+							resources.peek().addProperty(prop, rdfListArray.get(rdfListNr));
+							isRdfListNew = false;
 						} else
-							rdfList.add(model.asRDFNode(NodeFactory.createLiteral(value)));
+							rdfListArray.get(rdfListNr)
+									.add(model.asRDFNode(NodeFactory.createLiteral(value)));
 					}
 				}
 			} catch (Exception e) {
@@ -153,22 +160,28 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	}
 
 	@Override
-	public void startEntity(final String name) {
+	public void startEntity(String name) {
 		if (name.startsWith(LIST_NAME)) {
 			isRdfList = true;
+			int _rdfListNr = name.matches(".*[0-9]$")
+					? Integer.valueOf(name.substring(name.length() - 1)) : 0;
+			if (_rdfListNr >= rdfListArray.size())
+				isRdfListNew = true;
+			rdfListNr = _rdfListNr;
 		} else
 			enterBnode(makeBnode(name));
 	}
 
 	@Override
 	public void endEntity() {
-		isRdfList = false;
-		this.resources.pop();
+		if (isRdfList)
+			isRdfList = false;
+		else
+			this.resources.pop();
 	}
 
 	@Override
 	public void endRecord() {
-		// insert subject now if it was not at the beginning of the record
 		final StringWriter tripleWriter = new StringWriter();
 		RDFDataMgr.write(tripleWriter, model, Lang.NTRIPLES);
 		getReceiver().process(tripleWriter.toString());

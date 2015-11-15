@@ -1096,7 +1096,6 @@
 		<data source="9[01234][27]-[-12].9" name="@subjectLinks">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
-		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
 		<combine name="@subjectNotAPerson" value="${a}" sameEntity="true">
 			<data source="9[01234][27]-[-12].[efghkstz]" name="a"/>
 			<data source="@subjectLinks"/>
@@ -1211,9 +1210,10 @@
 		<!-- ########### -->
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}">
 			<data
-				source="@subjectLinks|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId"/>
+				source="@subjectLinks|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId|@subjectTopic|@subjectMain"/>
 			<data source="@id" name="subject"/>
 		</combine>
+		<data source="@subjectLinks" name="http://purl.org/dc/terms/subject"/>
 		<!-- other subjects -->
 		<data source="71[01][-abcdfz][123].a" name="http://purl.org/lobid/lv#subjectLabel">
 			<split delimiter=" / "/>
@@ -1250,7 +1250,7 @@
 			<data source="@subjectTopic"/>
 			<data source="@subjectMain"/>
 		</choose>
-		<!-- ############ schlagwortketten (with permutation number) s#### -->
+		<!-- ############ schlagwortketten (with permutation number) -->
 		<!-- gnd subjects literals, use even if link present -->
 		<concat delimiter=" | " name="@subjectChainPerm">
 			<data source="902-[-12].[acfghkpstkz-]" name="a"/>
@@ -1318,6 +1318,108 @@
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
+		<!-- ############ "schlagwortketten" as ordered lists -->
+		<!-- prefer gnd subjects IDs to literals, make rdf-lists -->
+		<entity name="~rdf:list">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="902-[-12].9|record">
+					<data source="902-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="902-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list1">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="907-[-12]|record">
+					<data source="907-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="907-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list2">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="912-[-12]|record">
+					<data source="912-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="912-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list3">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="917-[-12]|record">
+					<data source="917-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="917-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list4">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="922-[-12]|923??|record">
+					<data source="922-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="922-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list5">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="927-[-12]|record">
+					<data source="927-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="927-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list6">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="932-[-12]|record">
+					<data source="932-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="932-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list7">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="937-[-12]|record">
+					<data source="937-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="937-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list8">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="942-[-12]|record">
+					<data source="942-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="942-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
+		<entity name="~rdf:list9">
+			<combine name="$[ns-lobid-vocab]subjectOrder" value="${a}">
+				<choose name="a" flushWith="947-[-12]|record">
+					<data source="947-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<data source="947-[-12].[acfghkpstkz-]"/>
+				</choose>
+			</combine>
+		</entity>
 		<!-- ####################### -->
 		<!-- ##########fulltext, toc, seeAlso -->
 		<!-- ####################### -->
