@@ -34,7 +34,6 @@ public final class UrnAsUriTest {
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
 		triple2model.setInput("N-TRIPLE");
 		RdfModelFileWriter modelWriter = createModelWriter();
-		modelWriter.setProperty("http://purl.org/lobid/lv#hbzID");
 		triple2model.setReceiver(modelWriter);
 		PipeEncodeTriples encoder = new PipeEncodeTriples();
 		encoder.setStoreUrnAsUri("true");
@@ -54,7 +53,7 @@ public final class UrnAsUriTest {
 
 	private static RdfModelFileWriter createModelWriter() {
 		RdfModelFileWriter modelWriter = new RdfModelFileWriter();
-		modelWriter.setProperty("http://lobid.org/vocab/lobid#hbzID");
+		modelWriter.setProperty("http://purl.org/lobid/lv#hbzID");
 		modelWriter.setSerialization("N-TRIPLES");
 		modelWriter.setStartIndex(2);
 		modelWriter.setEndIndex(7);
