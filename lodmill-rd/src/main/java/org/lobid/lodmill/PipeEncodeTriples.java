@@ -120,9 +120,10 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 								model.asRDFNode(NodeFactory.createURI(value)));
 					} else {
 						if (isRdfListNew) {
-							rdfListArray.add(rdfListNr, model
+							rdfListArray.add(model
 									.createList(new RDFNode[] { model.createProperty(value) }));
-							resources.peek().addProperty(prop, rdfListArray.get(rdfListNr));
+							resources.peek().addProperty(prop,
+									rdfListArray.get(rdfListArray.size() - 1));
 							isRdfListNew = false;
 						} else
 							rdfListArray.get(rdfListNr)
@@ -133,9 +134,10 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 						resources.peek().addProperty(prop, value);
 					} else {
 						if (isRdfListNew) {
-							rdfListArray.add(rdfListNr, model
+							rdfListArray.add(model
 									.createList(new RDFNode[] { model.createLiteral(value) }));
-							resources.peek().addProperty(prop, rdfListArray.get(rdfListNr));
+							resources.peek().addProperty(prop,
+									rdfListArray.get(rdfListArray.size() - 1));
 							isRdfListNew = false;
 						} else
 							rdfListArray.get(rdfListNr)
