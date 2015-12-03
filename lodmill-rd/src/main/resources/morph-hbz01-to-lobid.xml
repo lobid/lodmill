@@ -841,8 +841,9 @@
 			<data source="@nameOfCreatingCorporateBodyH" name="h"/>
 			<data source="@nameOfCreatingCorporateBodyK" name="k"/>
 		</combine>
-		<combine name="@nameOfCreatingCorporateBody" value="${a}" reset="true"> <!-- no Verweisungsformen (aka alternate labels) -->
-			<choose name="a" flushWith="2?[02468][-a][12].?">
+		<combine name="@nameOfCreatingCorporateBody" value="${a}"
+			flushWith="@creatorCorporateBodyId"> <!-- no Verweisungsformen (aka alternate labels) -->
+			<choose name="a" flushWith="@creatorCorporateBodyId">
 				<data source="@nameOfCreatingCorporateBodyKHB"/>
 				<data source="@nameOfCreatingCorporateBodyKB"/>
 				<data source="@nameOfCreatingCorporateBodyKH"/>
@@ -850,7 +851,6 @@
 			</choose>
 		</combine>
 		<!-- only contributor, not creator -->
-
 		<data source="2?[02468][bcfep][12].k" name="@nameOfContributingCorporateBodyK">
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
@@ -870,7 +870,7 @@
 			<data source="@nameOfContributingCorporateBodyH" name="h"/>
 			<data source="@nameOfContributingCorporateBodyK" name="k"/>
 		</combine>
-		<combine name="@nameOfContributingCorporateBody" value="${a}" reset="true">
+		<combine name="@nameOfContributingCorporateBody" value="${a}" flushWith="@contributorCorporateBodyId">
 			<choose name="a" flushWith="@contributorCorporateBodyId">
 				<data source="@nameOfContributingCorporateBodyKHB"/>
 				<data source="@nameOfContributingCorporateBodyKB"/>
@@ -1191,11 +1191,11 @@
 			<data source="@creatorPersonId|@contributorPersonId"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
-			sameEntity="true" flushWith="@creatorCorporateBodyId">
+			flushWith="@creatorCorporateBodyId">
 			<data source="@nameOfCreatingCorporateBody" name="a"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
-			sameEntity="true" flushWith="@contributorCorporateBodyId">
+		flushWith="@contributorCorporateBodyId">
 			<data source="@nameOfContributingCorporateBody" name="a"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
@@ -1231,7 +1231,6 @@
 			<data source="@subjectLinks"/>
 			<data source="9[01234][27]-[-12].g" name="a"/>
 		</combine>
-
 		<!-- /subjects -->
 		<choose name="@preferredName"
 			flushWith="@subjectLinks|@preferredNameP|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId">
@@ -1712,6 +1711,10 @@
 		<!-- ########## abstract -->
 		<!-- ####################### -->
 		<data source="750?[-1].a" name="http://purl.org/dc/terms/abstract"/>
+		<!-- ####################### -->
+		<!-- ########## note -->
+		<!-- ####################### -->
+		<data source="501-1.a" name="http://www.w3.org/2004/02/skos/core#note"/>
 		<!-- ####################### -->
 		<!-- ############### statistics -->
 		<!-- ####################### -->
