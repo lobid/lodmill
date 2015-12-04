@@ -10,7 +10,6 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "25/26"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -24,18 +23,18 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XML
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT001252640> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT014679525> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1921,6 +1920,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000067443> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/BT000067443> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Article> .
 <http://lobid.org/resource/BT000067443> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-BT000067443> .
+<http://lobid.org/resource/BT000067443> <http://www.w3.org/2004/02/skos/core#note> "Anfang s. Jg. 5 (1985) S. 22-29"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000067443> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/BT000067443/about> .
 <http://lobid.org/resource/BT000067443> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DBT000067443> .
 <http://lobid.org/resource/BT000128754/about> <http://purl.org/dc/terms/created> "19970106"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2937,6 +2937,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/library/Game> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT014046679> .
+<http://lobid.org/resource/HT014046679> <http://www.w3.org/2004/02/skos/core#note> "Lizenziert f\u00FCr das Amt f\u00FCr Jugendarbeit der Evangelischen Kirche von Westfalen, Haus Villigast"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014046679> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT014046679/about> .
 <http://lobid.org/resource/HT014046679> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT014046679> .
 <http://lobid.org/resource/HT014215912/about> <http://purl.org/dc/terms/created> "20041208"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3620,6 +3621,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT017468042> .
+<http://lobid.org/resource/HT017468042> <http://www.w3.org/2004/02/skos/core#note> "Titelkartusche mit Ma\u00DFstab geschm\u00FC. mit 1 Wappen links Mitte"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017468042> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT017468042/about> .
 <http://lobid.org/resource/HT017468042> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT017468042> .
 <http://lobid.org/resource/HT017480009/about> <http://purl.org/dc/terms/created> "20121206"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4351,6 +4353,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018700720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/HT018700720> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/HT018700720> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018700720> .
+<http://lobid.org/resource/HT018700720> <http://www.w3.org/2004/02/skos/core#note> "Literaturangaben"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018700720> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018700720/about> .
 <http://lobid.org/resource/HT018700720> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018700720> .
 <http://lobid.org/resource/HT018726005/about> <http://purl.org/dc/terms/created> "20150813"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4581,6 +4584,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001230001> .
+<http://lobid.org/resource/TT001230001> <http://www.w3.org/2004/02/skos/core#note> "Vorlageform des Erscheinungsvermerks: Avgvstae Vindelicorvm ... Apud Ioannem Praetorium, Anno M.D.XCVI ... - Mikrofiche. M\u00FCnchen : Saur, 1991. Mikrofiche-Nr. F2001-F2003 : 23x"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001230001> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001230001/about> .
 <http://lobid.org/resource/TT001230001> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001230001> .
 <http://lobid.org/resource/TT001671747/about> <http://purl.org/dc/terms/created> "20060407"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4657,6 +4661,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Book> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT001726537> .
+<http://lobid.org/resource/TT001726537> <http://www.w3.org/2004/02/skos/core#note> "Streitschrift gegen Dupr\u00E9, ...: Le Jesuite Secularis\u00E9"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001726537> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT001726537/about> .
 <http://lobid.org/resource/TT001726537> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT001726537> .
 <http://lobid.org/resource/TT002234459/about> <http://purl.org/dc/terms/created> "20030718"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4713,6 +4718,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-TT003059252> .
+<http://lobid.org/resource/TT003059252> <http://www.w3.org/2004/02/skos/core#note> "Engl. Original mit dt. Untertiteln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT003059252> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/TT003059252/about> .
 <http://lobid.org/resource/TT003059252> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DTT003059252> .
 <http://lobid.org/resource/ZDB1257-9> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT002619538> .
