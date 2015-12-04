@@ -15,15 +15,11 @@
 		<var name="ns-gnd" value="http://d-nb.info/standards/elementset/gnd#"/>
 	</vars>
 	<rules>
-		<!-- ####################### -->
 		<!-- ####### Get subject uri of each record -->
-		<!-- ####################### -->
 		<data source="001-[-1].a" name="@id"/>
 		<!-- get also the ZDB id to mint it -->
 		<data source="025z[-1].a" name="@idzdb"/>
-		<!-- ####################### -->
 		<!-- ####### hbz ID sameAs ZDB ID -->
-		<!-- ####################### -->
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="$[ns-zdb-services]${idzdb}">
 			<data source="@idzdb" name="idzdb"/>
 		</combine>
@@ -34,9 +30,7 @@
 				<regexp match="(.*)" format="$[ns-lobid-resource]ZDB${1}"/>
 			</data>
 		</combine>
-		<!-- ####################### -->
 		<!-- ####### Secondary form, link to primary form and vice verso -->
-		<!-- ####################### -->
 		<data source="021[-b]1.a" name="http://purl.org/dc/terms/source">
 			<regexp match="(.*)" format="$[ns-lobid-resource]${1}"/>
 		</data>
@@ -49,9 +43,7 @@
 			<data source="021[-b]1.a" name=""/> <data source="@id" name="subjectid"/> </combine> set subject 
 			uri of resource anew <combine name="~rdf:subject" value="$[ns-lobid-resource]${subject}"> <data 
 			source="@id" name="subject"/> <data source="021[-b]1.a"/> </combine> -->
-		<!-- ####################### -->
 		<!-- ####### Child, link to parent and vice versa, e.g. HT000009600 -->
-		<!-- ####################### -->
 		<data source="4[56789]3[-abr][-12].a" name="@idTitleSeries"/>
 		<data source="529z1.9" name="@hasSupplement"/>
 		<data source="010-1.a|@idTitleSeries" name="@isPartOfHbzId">
@@ -103,9 +95,6 @@
 			<data source="@idzdb"/>
 			<data source="@id" name="id"/>
 		</combine>
-		<!-- ####################### -->
-		<!-- ####### Set owl:sameAs -->
-		<!-- ####################### -->
 		<combine name="http://www.w3.org/2002/07/owl#sameAs" value="http://hub.culturegraph.org/resource/HBZ-${id}">
 			<if>
 				<none>
@@ -114,9 +103,7 @@
 			</if>
 			<data source="@id" name="id"/>
 		</combine>
-		<!-- ####################### -->
 		<!-- ####### General attributes for each record -->
-		<!-- ####################### -->
 		<combine name="http://xmlns.com/foaf/0.1/isPrimaryTopicOf" value="${primaryTopic}">
 			<if>
 				<none>
@@ -164,9 +151,6 @@
 			</if>
 			<data source="@oclcnum" name="num"/>
 		</combine>
-		<!-- ####################### -->
-		<!-- ################ language -->
-		<!-- ####################### -->
 		<data source="037[-abc][-123].a" name="@639-2"/>
 		<data source="@639-2" name="@language">
 			<lookup in="iso639xToIso639-3-Map"/>
@@ -461,9 +445,6 @@
 			</if>
 			<data source="@id"/>
 		</combine>
-		<!-- ####################### -->
-		<!-- ########## title -->
-		<!-- ####################### -->
 		<data source="304[-a]1.a" name="http://purl.org/dc/terms/alternative"/>
 		<data source="310[-ab][-12].a" name="@title"/>
 		<data source="@title" name="http://purl.org/dc/terms/title">
@@ -535,9 +516,7 @@
 				<regexp match="(.*)" format=": ${1}"/>
 			</data>
 		</combine>
-		<!-- ####################### "http://purl.org/ontology/bibo/volume -->
 		<!-- ########## date issued -->
-		<!-- ####################### -->
 		<!-- range of date. Only if 021 not exists but one of 425[bc]. Take 4 digits. -->
 		<combine name="@dateRange" value="${dateStart} - ${dateEnd}" flushWith="record">
 			<if>
@@ -623,15 +602,10 @@
 				<regexp match="^\d{4}.*"/>
 			</data>
 		</choose>
-		<!-- ####################### -->
 		<!-- ########## geo coordinates -->
-		<!-- ####################### -->
 		<data source="407-[123].a" name="http://rdvocab.info/Elements/longitudeAndLatitude">
 			<regexp match="\((.*)\)" format="${1}"/>
 		</data>
-		<!-- ####################### -->
-		<!-- ########## publisher -->
-		<!-- ####################### -->
 		<data source="41[05][-abcu][-12].a|419-1.a|594[-abc][-12].a" name="@placeOfPublication"/>
 		<data source="@placeOfPublication" name="http://rdvocab.info/Elements/placeOfPublication"/>
 		<data source="41[27][-abcu][-12].[ag]|419-1.b" name="@publisher"/>
@@ -646,13 +620,8 @@
 			</concat>
 		</combine>
 		<!-- |674[-abc][-12].a <= YearOfPublication of the primary form. TODO find property -->
-		<!-- ####################### -->
 		<!-- ########## description extent -->
-		<!-- ####################### -->
 		<data source="433[-abc][-1].[aq]" name="http://iflastandards.info/ns/isbd/elements/P1053"/>
-		<!-- ####################### -->
-		<!-- ################ edition -->
-		<!-- ####################### -->
 		<data source="40[03]-1.[an]" name="http://purl.org/ontology/bibo/edition"/>
 		<data source="510-1.a" name="http://purl.org/ontology/bibo/edition"/>
 		<!-- ################ Hochschulschriftenvermerk aka thesisInformation -->
@@ -731,7 +700,6 @@
 			<regexp match=".*" format="http://lobid.org/dataset/resource"/> </data> <combine name="http://xmlns.com/foaf/0.1/primaryTopic" 
 			value="${itemId}"> <data source="@itemId" name="itemId"> <regexp match="(.*)" format="${1}"/> 
 			</data> </combine> -->
-		<!-- set subject uri of resource anew -->
 		<!-- set subject uri of resource anew -->
 		<combine name="~rdf:subject" value="$[ns-lobid-resource]${id}">
 			<data source="@id" name="id"/>
@@ -1312,9 +1280,7 @@
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
-		<!-- ####################### -->
 		<!-- ##########fulltext, toc, seeAlso -->
-		<!-- ####################### -->
 		<data source="652a[-1].a" name="@archived">
 			<regexp match="^[Aa][r]"/>
 		</data>
@@ -1529,9 +1495,7 @@
 		<data source="700l[-1].[ab]" name="http://purl.org/ontology/holding#collectedBy">
 			<regexp match="^rpb.*" format="$[ns-lobid-resource]RPB"/>
 		</data>
-		<!-- ####################### -->
 		<!-- ########## isbn -->
-		<!-- ####################### -->
 		<data source="540[-ab][-1].[ab]" name="http://purl.org/ontology/bibo/isbn">
 			<isbn to="clean"/>
 		</data>
@@ -1546,17 +1510,9 @@
 		<data source="542[-ab][-1].[a]" name="http://purl.org/ontology/bibo/issn">
 			<replace pattern="-| " with=""/>
 		</data>
-		<!-- ####################### -->
-		<!-- ########## abstract -->
-		<!-- ####################### -->
 		<data source="750?[-1].a" name="http://purl.org/dc/terms/abstract"/>
-		<!-- ####################### -->
-		<!-- ########## note -->
-		<!-- ####################### -->
 		<data source="501-1.a" name="http://www.w3.org/2004/02/skos/core#note"/>
-		<!-- ####################### -->
 		<!-- ############### statistics -->
-		<!-- ####################### -->
 		<!-- <data source="_else"/> -->
 	</rules>
 	<!-- ####################### -->
