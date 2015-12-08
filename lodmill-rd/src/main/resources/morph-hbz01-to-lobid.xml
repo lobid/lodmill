@@ -1068,8 +1068,8 @@
 		</data>
 		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
 		<entity name="~rdf:list">
-			<combine name="$[ns-lobid-vocab]contributorOrdered" value="${a}">
-				<data source="@contributorId" name="a"/>
+			<combine name="$[ns-lobid-vocab]contributorOrder" value="${a}">
+				<data source="@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId" name="a"/>
 			</combine>
 		</entity>
 		<!-- use lv:contributorLabel for creator and ontributor even if there is an id -->
