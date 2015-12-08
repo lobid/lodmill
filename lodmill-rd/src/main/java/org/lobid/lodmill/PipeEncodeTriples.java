@@ -5,6 +5,7 @@ package org.lobid.lodmill;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Stack;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -31,7 +32,7 @@ import com.hp.hpl.jena.util.ResourceUtils;
  * Treats Literals, URIs, Blank Nodes and Lists. The latter will be invoked by
  * using the <entity> element in the morph file. Output are N-Triples.
  * 
- * @author Fabian Steeg, Pascal Christoph
+ * @author Fabian Steeg, Pascal Christoph (dr0i)
  */
 @Description("Encode a stream as N-Triples")
 @In(StreamReceiver.class)
@@ -49,8 +50,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 			LoggerFactory.getLogger(PipeEncodeTriples.class);
 	private boolean storeUrnAsUri = false;
 	private ArrayList<RDFList> rdfListArray;
+	HashMap<String, ArrayList<RDFList>> rdfListArrayMap;
 	private int rdfListNr;
-	private boolean isRdfListNew;
 	private boolean isRdfList;
 
 	/**
@@ -85,6 +86,7 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		resources = new Stack<>();
 		rdfListNr = -1;
 		rdfListArray = new ArrayList<>();
+		rdfListArrayMap = new HashMap<>();
 		if (!fixSubject) {
 			subject = DUMMY_SUBJECT;
 		}
@@ -114,40 +116,44 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 				final Property prop = model.createProperty(name);
 				if (isUriWithScheme(value) && ((value.startsWith(URN) && storeUrnAsUri)
 						|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
+					boolean uri = true;
 					// either add uri ...
-					if (!isRdfList) {
+					if (!isRdfList)
 						resources.peek().addProperty(prop,
 								model.asRDFNode(NodeFactory.createURI(value)));
-					} else {
-						if (isRdfListNew) {
-							rdfListArray.add(model
-									.createList(new RDFNode[] { model.createProperty(value) }));
-							resources.peek().addProperty(prop,
-									rdfListArray.get(rdfListArray.size() - 1));
-							isRdfListNew = false;
-						} else
-							rdfListArray.get(rdfListNr)
-									.add(model.asRDFNode(NodeFactory.createURI(value)));
-					}
+					else
+						addRdfList(uri, name, value, prop);
 				} else { // ... or add literal
-					if (!isRdfList) {
+					if (!isRdfList)
 						resources.peek().addProperty(prop, value);
-					} else {
-						if (isRdfListNew) {
-							rdfListArray.add(model
-									.createList(new RDFNode[] { model.createLiteral(value) }));
-							resources.peek().addProperty(prop,
-									rdfListArray.get(rdfListArray.size() - 1));
-							isRdfListNew = false;
-						} else
-							rdfListArray.get(rdfListNr)
-									.add(model.asRDFNode(NodeFactory.createLiteral(value)));
-					}
+					else
+						addRdfList(false, name, value, prop);
 				}
 			} catch (Exception e) {
 				LOG.warn("Problem with name=" + name + " value=" + value, e);
 			}
 		}
+	}
+
+	private void addRdfList(final boolean isUri, final String name,
+			final String value, final Property prop) {
+		RDFNode node =
+				isUri ? model.createProperty(value) : model.createLiteral(value);
+		if (!rdfListArrayMap.containsKey(name)) {
+			rdfListArray = new ArrayList<>();
+			rdfListArray.add(model.createList(new RDFNode[] { node }));
+			rdfListArrayMap.put(name, rdfListArray);
+			addToResources(prop);
+		} else if (rdfListArrayMap.get(name).size() == rdfListNr) {
+			rdfListArrayMap.get(name).add(model.createList(new RDFNode[] { node }));
+			addToResources(prop);
+		} else
+			rdfListArrayMap.get(name).get(rdfListNr).add(node);
+	}
+
+	private void addToResources(final Property prop) {
+		resources.peek().addProperty(prop,
+				rdfListArray.get(rdfListArray.size() - 1));
 	}
 
 	Resource makeBnode(final String value) {
@@ -161,15 +167,16 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		this.resources.push(res);
 	}
 
+	/**
+	 * Treats bnodes and also rdf-lists .
+	 * 
+	 */
 	@Override
 	public void startEntity(String name) {
 		if (name.startsWith(LIST_NAME)) {
 			isRdfList = true;
-			int _rdfListNr = name.matches(".*[0-9]$")
+			rdfListNr = name.matches(".*[0-9]$")
 					? Integer.valueOf(name.substring(name.length() - 1)) : 0;
-			if (_rdfListNr >= rdfListArray.size())
-				isRdfListNew = true;
-			rdfListNr = _rdfListNr;
 		} else
 			enterBnode(makeBnode(name));
 	}
