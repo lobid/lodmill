@@ -10,6 +10,7 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSch
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "25/26"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -23,18 +24,18 @@ _:Bb0 <http://purl.org/lobid/lv#numbering> "Tezemu"^^<http://www.w3.org/2001/XML
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT001252640> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT002091108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT004984061> .
+_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013370531> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT013911051> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT014679525> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT015550020> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT016777884> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
-_:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb0 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/TT001197763> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#MultiVolumeWorkRelation> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
+_:Bb1 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017500108> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -61,6 +62,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1069643262> <http://d-nb.info/standards/elementset/gnd#preferredName> "49. Art Cologne, 2015, K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1070491764> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bayerisches Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1070491764> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Bayerisches Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1074109953> <http://d-nb.info/standards/elementset/gnd#preferredName> "7. Schloss Bensberg Classics, 2015, Bergisch Gladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -288,6 +291,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/4002641-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Arbeitsbedingungen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Automobilsport"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4003988-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Automobilsport"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4005044-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4005044-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4010355-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4010356-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Kreis Coesfeld"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -396,6 +401,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/4159648-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Herrscherbild"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4184194-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Symbolik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4184194-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Symbolik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4201127-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Station\u00E4re Altenhilfe"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4201127-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Station\u00E4re Altenhilfe"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4207786-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Steyr-Daimler-Puch AG"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4207786-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Steyr-Daimler-Puch AG"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4219952-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arisierung"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1829,7 +1836,6 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4042570-8> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4115393-5> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/title> "Deutschland 1:300000"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/BT000003404> <http://purl.org/dc/terms/title> "Deutschland, 2: Nordrhein-Westfalen, Niedersachsen-S\u00FCd"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#hbzID> "BT000003404"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#nwbibspatial> <http://purl.org/lobid/nwbib-spatial#n01> .
 <http://lobid.org/resource/BT000003404> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s126000> .
@@ -4465,6 +4471,51 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018779822> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018779822> .
 <http://lobid.org/resource/HT018779822> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018779822/about> .
 <http://lobid.org/resource/HT018779822> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018779822> .
+<http://lobid.org/resource/HT018785916/about> <http://purl.org/dc/terms/created> "20151021"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916/about> <http://purl.org/dc/terms/modified> "20151111"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://iflastandards.info/ns/isbd/elements/P1053> "B\u00E4nde"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/elements/1.1/publisher> "Bayerisches Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1070491764> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/issued> "2015 - "^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDAproductionMethod/1010> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/subject> <http://dewey.info/class/310/> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/subject> <http://dewey.info/class/360/> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4005044-0> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4201127-9> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/dc/terms/title> "Statistische Berichte / K / VIII / 1"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#hbzID> "HT018785916"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Bayerisches Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "LfStat"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectChain> "Bayern | Station\u00E4re Altenhilfe | Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Baiern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Bavaria"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Bavarian State"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Bavi\u00E8re"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Bayerischer Staat"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Bayrn"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "BY"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Churbayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Freistaat Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Herzogtum Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "K\u00F6nigreich Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Kurbayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Kurf\u00FCrstentum Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Stammesherzogtum Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#subjectLabel> "Volksstaat Bayern"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://purl.org/lobid/lv#zdbID> "2837688-2"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://rdvocab.info/Elements/otherTitleInformation> "Statistische Berichte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnchen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnchen; Bayerisches Landesamt f\u00FCr Statistik; 2015"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://rdvocab.info/Elements/statementOfResponsibility> "Bayerisches Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018785916> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018785916> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Journal> .
+<http://lobid.org/resource/HT018785916> <http://www.w3.org/2002/07/owl#sameAs> <http://ld.zdb-services.de/resource/2837688-2> .
+<http://lobid.org/resource/HT018785916> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB2837688-2> .
+<http://lobid.org/resource/HT018785916> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018785916/about> .
+<http://lobid.org/resource/HT018785916> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018785916> .
 <http://lobid.org/resource/TT000075751/about> <http://purl.org/dc/terms/created> "19990816"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751/about> <http://purl.org/dc/terms/modified> "20120309"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/134782852> .
@@ -4727,6 +4778,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/ZDB1472746-8> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB1472746-8/about> .
 <http://lobid.org/resource/ZDB2073588-1> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT013304490> .
 <http://lobid.org/resource/ZDB2073588-1> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB2073588-1/about> .
+<http://lobid.org/resource/ZDB2837688-2> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT018785916> .
+<http://lobid.org/resource/ZDB2837688-2> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB2837688-2/about> .
 <http://lobid.org/resource/ZDB590016-5> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT012237361> .
 <http://lobid.org/resource/ZDB590016-5> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/ZDB590016-5/about> .
 <http://lobid.org/resource/ZDB6211-x> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/HT000009600> .

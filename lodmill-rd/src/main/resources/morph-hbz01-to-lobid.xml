@@ -446,11 +446,8 @@
 			<data source="@id"/>
 		</combine>
 		<data source="304[-a]1.a" name="http://purl.org/dc/terms/alternative"/>
-		<data source="310[-ab][-12].a" name="@title"/>
-		<data source="@title" name="http://purl.org/dc/terms/title">
-			<replace pattern="&gt;" with=""/>
-			<replace pattern="&lt;" with=""/>
-		</data>
+		<data source="310[-ab][-12].a" name="@title310"/>
+		<data source="@title310" name="@title"/>
 		<!-- has other title information. If no title exists yet, use these (331 or 333) as title. -->
 		<data source="331[-ab][-1].a" name="@titleRemainder331"/>
 		<data source="333[-ab][-1].a" name="@titleRemainder333"/>
@@ -458,6 +455,8 @@
 			<if>
 				<none>
 					<data source="@title"/>
+					<data source="@titleRemainder331Superordination"/>
+					<data source="085x1.l"/>
 				</none>
 			</if>
 			<data source="@titleRemainder331" name="title"/>
@@ -466,12 +465,23 @@
 			<if>
 				<none>
 					<data source="@title"/>
+					<data source="@titleRemainder331"/>
 				</none>
 			</if>
 			<data source="@titleRemainder333" name="title"/>
 		</combine>
-		<data source="@titleRemainder2title331" name="@title"/>
-		<data source="@titleRemainder2title333" name="@title"/>
+		<combine name="@085" value="${a}">
+			<concat delimiter=" / " name="a">
+				<data source="085x1.l"/>
+			</concat>
+			<data source="@titleRemainder331"/>
+		</combine>
+		<combine name="@titleRemainder2title331+085" value="${a}">
+			<concat delimiter=" / " name="a">
+				<data source="@titleRemainder331"/>
+				<data source="@085"/>
+			</concat>
+		</combine>
 		<combine name="@otherTitle" value="${titleRemainder}">
 			<if>
 				<none>
@@ -502,7 +512,8 @@
 		<!-- generating title using the superordination -->
 		<data source="331[-ab][2].a" name="@titleRemainder331Superordination"/>
 		<!-- ... by concatenating fields. Two fields are optional, one mandatory -->
-		<combine name="@title" value="${a}${b}${c}" flushWith="@titleRemainder331Superordination">
+		<combine name="@titleRemainder331Superordination2title" value="${a}${b}${c}"
+			flushWith="@titleRemainder331Superordination">
 			<data source="@titleRemainder331Superordination" name="a"/>
 			<choose name="b" flushWith="@titleRemainder331Superordination">
 				<data source="090-[-1].a">
@@ -515,6 +526,26 @@
 			<data source="@titleRemainder331" name="c">
 				<regexp match="(.*)" format=": ${1}"/>
 			</data>
+		</combine>
+		<combine name="http://purl.org/dc/terms/title" value="${a}">
+			<choose name="a">
+				<data source="@title310">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+				<data source="@titleRemainder331Superordination2title">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+				<data source="@titleRemainder2title331+085">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+				<data source="@titleRemainder2title333">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+			</choose>
 		</combine>
 		<!-- ########## date issued -->
 		<!-- range of date. Only if 021 not exists but one of 425[bc]. Take 4 digits. -->
