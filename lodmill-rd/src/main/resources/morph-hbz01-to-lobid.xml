@@ -1326,103 +1326,123 @@
 			<data name="$[ns-lobid-vocab]subjectOrder" source="@subjectOrder"/>
 		</entity>
 		<combine name="@subjectOrder" value="${a}">
-		<concat delimiter=", " name="a">
-			<choose name="a" flushWith="902-[-12].9|record">
-				<data source="902-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="902-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="902-[-12].9|record">
+					<data source="902-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="902-[-12].9|record">
+						<data source="902-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		<concat delimiter=", " name="a">
-			<choose name="a" flushWith="907-[-12]|record">
-				<data source="907-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="907-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="907-[-12].9|record">
+					<data source="907-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="907-[-12].9|record">
+						<data source="907-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		<concat delimiter=", " name="a">
-			<choose name="a" flushWith="912-[-12]|record">
-				<data source="912-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="912-[-12].[acfghkpstkz-]"/>
-			</choose>
-		</concat>
-		</combine>
-		<combine name="@subjectOrder" value="${a}">
-		<concat delimiter=", " name="a">
-			<choose name="a" flushWith="917-[-12]|record">
-				<data source="917-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="917-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="912-[-12]|record">
+					<data source="912-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="912-[-12].9|record">
+						<data source="912-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		<concat delimiter=", " name="a">
-			<choose name="a" flushWith="922-[-12]|923??|record">
-				<data source="922-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="922-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="917-[-12]|record">
+					<data source="917-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="917-[-12].9|record">
+						<data source="917-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		<concat delimiter=", " name="a">
-			<choose name="a" flushWith="927-[-12]|record">
-				<data source="927-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="927-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="922-[-12]|923??|record">
+					<data source="922-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="922-[-12].9|record">
+						<data source="922-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		  <concat delimiter=", " name="a">
-			<choose name="a" flushWith="932-[-12]|record">
-				<data source="932-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="932-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="927-[-12]|record">
+					<data source="927-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="927-[-12].9|record">
+						<data source="927-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		  <concat delimiter=", " name="a">
-			<choose name="a" flushWith="937-[-12]|record">
-				<data source="937-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="937-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="932-[-12]|record">
+					<data source="932-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="932-[-12].9|record">
+						<data source="932-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		  <concat delimiter=", " name="a">
-			<choose name="a" flushWith="942-[-12]|record">
-				<data source="942-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="942-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="937-[-12]|record">
+					<data source="937-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="937-[-12].9|record">
+						<data source="937-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<combine name="@subjectOrder" value="${a}">
-		  <concat delimiter=", " name="a">
-			<choose name="a" flushWith="947-[-12]|record">
-				<data source="947-[-12].9">
-					<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-				</data>
-				<data source="947-[-12].[acfghkpstkz-]"/>
-			</choose>
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="942-[-12]|record">
+					<data source="942-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="942-[-12].9|record">
+						<data source="942-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
+			</concat>
+		</combine>
+		<combine name="@subjectOrder" value="${a}">
+			<concat delimiter=", " name="a">
+				<choose name="a" flushWith="947-[-12]|record">
+					<data source="947-[-12].9">
+						<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+					</data>
+					<concat delimiter=", " name="ignored" flushWith="947-[-12].9|record">
+						<data source="947-[-12].[acfghkpstkz-]"/>
+					</concat>
+				</choose>
 			</concat>
 		</combine>
 		<!-- ####################### -->
