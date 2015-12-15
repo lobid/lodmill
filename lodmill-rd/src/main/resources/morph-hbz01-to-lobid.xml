@@ -156,8 +156,8 @@
 		<data source="@oclcnum" name="http://www.w3.org/2002/07/owl#sameAs">
 			<regexp match="(.*)" format="http://worldcat.org/oclc/${1}"/>
 		</data>
-		<data source="@oclcnum" name="http://purl.org/ontology/bibo/oclcnum"/>
-		<combine name="http://purl.org/ontology/bibo/oclcnum" value="${num}">
+		<data source="@oclcnum" name="$[ns-bibo]oclcnum"/>
+		<combine name="$[ns-bibo]oclcnum" value="${num}">
 			<if>
 				<none>
 					<data source="@idzdb"/>
@@ -180,7 +180,7 @@
 		<!-- ####################### -->
 		<!-- type is book (and also manifestation) if 050 begins with 'a' and 051 or 052 is missing 
 			or 051 and 052 does not fulfill a certain pattern -->
-		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
+		<combine name="@rdftype" value="$[ns-bibo]Book">
 			<if>
 				<none>
 					<data source="@typeOnly"/>
@@ -227,31 +227,31 @@
 		</data>
 		<!--audio -->
 		<data source="050." name="@mediumAudio">
-			<regexp match="^.....a" format="http://purl.org/ontology/bibo/AudioDocument"/>
+			<regexp match="^.....a" format="$[ns-bibo]AudioDocument"/>
 		</data>
 		<data source="@mediumAudio" name="@medium"/>
 		<data source="334-[12].a" name="@mediumAudio">
-			<regexp match="^[Tt][oO]" format="http://purl.org/ontology/bibo/AudioDocument"/>
+			<regexp match="^[Tt][oO]" format="$[ns-bibo]AudioDocument"/>
 		</data>
 		<!--audio visual video -->
 		<data source="050." name="@matVideo">
 			<regexp match="^.....[bc]"/>
 		</data>
 		<data source="@matVideo" name="@medium">
-			<regexp match=".*" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
+			<regexp match=".*" format="$[ns-bibo]AudioVisualDocument"/>
 		</data>
 		<data source="@matVideo" name="@medium">
 			<regexp match=".*" format="http://rdvocab.info/termList/RDACarrierType/1050"/>
 		</data>
 		<data source="334-[12].a" name="@medium">
-			<regexp match="^Bildton" format="http://purl.org/ontology/bibo/AudioVisualDocument"/>
+			<regexp match="^Bildton" format="$[ns-bibo]AudioVisualDocument"/>
 		</data>
 		<!-- picture -->
 		<data source="050." name="@rdftype">
-			<regexp match="^.....d" format="http://purl.org/ontology/bibo/Image"/>
+			<regexp match="^.....d" format="$[ns-bibo]Image"/>
 		</data>
 		<data source="334-[12].a" name="@medium">
-			<regexp match="^Bildli" format="http://purl.org/ontology/bibo/Image"/>
+			<regexp match="^Bildli" format="$[ns-bibo]Image"/>
 		</data>
 		<!-- microform -->
 		<data source="050." name="@medium">
@@ -266,14 +266,14 @@
 		<!-- Dini Kim , TODO dcterms:medium "rdacarrier:1044" (unmediated) -->
 		<!-- map -->
 		<data source="050." name="@medium">
-			<regexp match="^..........a" format="http://purl.org/ontology/bibo/Map"/>
+			<regexp match="^..........a" format="$[ns-bibo]Map"/>
 		</data>
 		<!-- vinyl -->
 		<data source="050." name="@mediumAudio">
 			<regexp match="^.....aj" format="http://purl.org/ontology/mo/Vinyl"/>
 		</data>
 		<data source="050." name="@mediumAudio">
-			<regexp match="^.....aj" format="http://purl.org/ontology/bibo/AudioDocument"/>
+			<regexp match="^.....aj" format="$[ns-bibo]AudioDocument"/>
 		</data>
 		<!-- audio cassette -->
 		<data source="050." name="@mediumAudio">
@@ -302,12 +302,12 @@
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<!-- 051: type -->
 		<data source="051." name="@article">
-			<regexp match="^a|^.t|^..t|^...t|^.....t" format="http://purl.org/ontology/bibo/Article"/>
+			<regexp match="^a|^.t|^..t|^...t|^.....t" format="$[ns-bibo]Article"/>
 		</data>
 		<data source="051." name="@rdftype">
-			<regexp match="^[nt]" format="http://purl.org/ontology/bibo/MultiVolumeBook"/>
+			<regexp match="^[nt]" format="$[ns-bibo]MultiVolumeBook"/>
 		</data>
-		<combine name="@rdftype" value="http://purl.org/ontology/bibo/Book">
+		<combine name="@rdftype" value="$[ns-bibo]Book">
 			<if>
 				<none>
 					<data source="@matVideo"/>
@@ -358,17 +358,17 @@
 		</data>
 		<!-- reference source -->
 		<data source="051." name="@rdftype">
-			<regexp match="^.[de]|^..[de]|^...[de]" format="http://purl.org/ontology/bibo/ReferenceSource"/>
+			<regexp match="^.[de]|^..[de]|^...[de]" format="$[ns-bibo]ReferenceSource"/>
 		</data>
 		<data source="052." name="@rdftype">
-			<regexp match="^.ez|^...ez|^.....ez" format="http://purl.org/ontology/bibo/ReferenceSource"/>
+			<regexp match="^.ez|^...ez|^.....ez" format="$[ns-bibo]ReferenceSource"/>
 		</data>
 		<!-- norm -->
 		<data source="051." name="@rdftype">
-			<regexp match="^.n|^..n|^...n" format="http://purl.org/ontology/bibo/Standard"/>
+			<regexp match="^.n|^..n|^...n" format="$[ns-bibo]Standard"/>
 		</data>
 		<data source="052." name="@rdftype">
-			<regexp match="^.no|^...no|^.....no" format="http://purl.org/ontology/bibo/Standard"/>
+			<regexp match="^.no|^...no|^.....no" format="$[ns-bibo]Standard"/>
 		</data>
 		<!-- norm -->
 		<data source="051." name="@rdftype">
@@ -383,35 +383,35 @@
 		</data>
 		<!-- thesis -->
 		<data source="051." name="@rdftype">
-			<regexp match="^.[uy]|^..[uy]|^...[uy]" format="http://purl.org/ontology/bibo/Thesis"/>
+			<regexp match="^.[uy]|^..[uy]|^...[uy]" format="$[ns-bibo]Thesis"/>
 		</data>
 		<data source="052." name="@rdftype">
-			<regexp match="^.sc|^...sc|^.....sc" format="http://purl.org/ontology/bibo/Thesis"/>
+			<regexp match="^.sc|^...sc|^.....sc" format="$[ns-bibo]Thesis"/>
 		</data>
 		<!-- proceedings -->
 		<data source="051." name="@rdftype">
-			<regexp match="^.k|^..k|^...k" format="http://purl.org/ontology/bibo/Proceedings"/>
+			<regexp match="^.k|^..k|^...k" format="$[ns-bibo]Proceedings"/>
 		</data>
 		<data source="052." name="@rdftype">
-			<regexp match="^.ko|^...ko|^.....ko" format="http://purl.org/ontology/bibo/Proceedings"/>
+			<regexp match="^.ko|^...ko|^.....ko" format="$[ns-bibo]Proceedings"/>
 		</data>
 		<!-- 052: type -->
 		<data source="052." name="@article">
-			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
+			<regexp match="^[af]|^.au|^...au|^.....au" format="$[ns-bibo]Article"/>
 		</data>
 		<data source="052." name="@collection">
-			<regexp match="^[jp].*|^.il.*|^...il.*|^.....il.*" format="http://purl.org/ontology/bibo/Journal"/>
+			<regexp match="^[jp].*|^.il.*|^...il.*|^.....il.*" format="$[ns-bibo]Journal"/>
 		</data>
 		<data source="052." name="@collection">
-			<regexp match="^r|^.se|^...se|^.....se" format="http://purl.org/ontology/bibo/Series"/>
+			<regexp match="^r|^.se|^...se|^.....se" format="$[ns-bibo]Series"/>
 		</data>
 		<data source="@collection" name="@typeOnly"/>
 		<!-- newspaper -->
 		<data source="052." name="@collection">
-			<regexp match="^z|^.[ae]o|^...[ae]o|^.....[ae]o" format="http://purl.org/ontology/bibo/Newspaper"/>
+			<regexp match="^z|^.[ae]o|^...[ae]o|^.....[ae]o" format="$[ns-bibo]Newspaper"/>
 		</data>
 		<data source="052." name="@collection">
-			<regexp match="^z|^.[url]p|^...[url]p|^.....[url]p" format="http://purl.org/ontology/bibo/Newspaper"/>
+			<regexp match="^z|^.[url]p|^...[url]p|^.....[url]p" format="$[ns-bibo]Newspaper"/>
 		</data>
 		<!-- online -->
 		<data source="050." name="@1018">
@@ -512,7 +512,7 @@
 		<!-- deliberatley not everything linked with OR '|' because of performance problems -->
 		<data source="335[-abcd][-1].a" name="@otherTitle"/>
 		<data source="34[01234567][-ab][-1].[ab]" name="http://purl.org/dc/terms/alternative"/>
-		<data source="376[-adb][-1].[ad]" name="http://purl.org/ontology/bibo/shortTitle"/>
+		<data source="376[-adb][-1].[ad]" name="$[ns-bibo]shortTitle"/>
 		<data source="504-[1].a" name="http://purl.org/dc/terms/alternative"/>
 		<data source="@otherTitle" name="http://rdvocab.info/Elements/otherTitleInformation">
 			<replace pattern="&gt;" with=""/>
@@ -536,7 +536,7 @@
 				<regexp match="(.*)" format=": ${1}"/>
 			</data>
 		</combine>
-		<!-- ####################### "http://purl.org/ontology/bibo/volume -->
+		<!-- ####################### "$[ns-bibo]volume -->
 		<!-- ########## date issued -->
 		<!-- ####################### -->
 		<!-- range of date. Only if 021 not exists but one of 425[bc]. Take 4 digits. -->
@@ -654,8 +654,8 @@
 		<!-- ####################### -->
 		<!-- ################ edition -->
 		<!-- ####################### -->
-		<data source="40[03]-1.[an]" name="http://purl.org/ontology/bibo/edition"/>
-		<data source="510-1.a" name="http://purl.org/ontology/bibo/edition"/>
+		<data source="40[03]-1.[an]" name="$[ns-bibo]edition"/>
+		<data source="510-1.a" name="$[ns-bibo]edition"/>
 		<!-- ################ Hochschulschriftenvermerk aka thesisInformation -->
 		<concat delimiter=", " name="http://rdaregistry.info/Elements/u/P60489">
 			<data source="519-1.[ap]"/>
@@ -672,7 +672,7 @@
 		<data source="552a[-1].a" name="http://umbel.org/umbel#isLike">
 			<regexp match="(.*)" format="http://dx.doi.org/${1}"/>
 		</data>
-		<data source="552a[-1].a" name="http://purl.org/ontology/bibo/doi"/>
+		<data source="552a[-1].a" name="$[ns-bibo]doi"/>
 		<!-- urn -->
 		<data source="552b[-1].a" name="@urn">
 			<regexp match="(^.*:.*\d+)$" format="${1}"/>
@@ -765,11 +765,11 @@
 		<!-- ########## volume -->
 		<!-- ####################### -->
 		<!-- 32-[-12].a is not bibo:volume - but what is it? -->
-		<data source="089-[-1].a" name="http://purl.org/ontology/bibo/volume"/>
-		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="089-[-1].a" name="$[ns-bibo]volume"/>
+		<data source="432-[-12].a" name="$[ns-bibo]volume"/>
 		<data source="090-[-1].a" name="@volume"/>
-		<data source="@volume" name="http://purl.org/ontology/bibo/volume"/>
-		<data source="432-[-12].a" name="http://purl.org/ontology/bibo/volume"/>
+		<data source="@volume" name="$[ns-bibo]volume"/>
+		<data source="432-[-12].a" name="$[ns-bibo]volume"/>
 		<data source="001-2.a" name="@idVolume"/>
 		<entity name="http://purl.org/lobid/lv#volumeIn">
 			<data source="@idVolume" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
@@ -898,7 +898,7 @@
 		</combine>
 		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
-				<regexp match="[hH]rsg" format="http://purl.org/ontology/bibo/editor"/>
+				<regexp match="[hH]rsg" format="$[ns-bibo]editor"/>
 			</data>
 			<data source="@contributorPersonId" name="contributorId"/>
 		</combine>
@@ -910,7 +910,7 @@
 		</combine>
 		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
-				<regexp match="bers" format="http://purl.org/ontology/bibo/translator"/>
+				<regexp match="bers" format="$[ns-bibo]translator"/>
 			</data>
 			<data source="@contributorPersonId" name="contributorId"/>
 		</combine>
@@ -1224,7 +1224,7 @@
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
 		<data source="902[-a][-1].f" name="@medium">
-			<regexp match="^Karte" format="http://purl.org/ontology/bibo/Map"/>
+			<regexp match="^Karte" format="$[ns-bibo]Map"/>
 		</data>
 		<data source="9[01234][27][-a][-1].f" name="@typeOnly">
 			<regexp match="^Aufsatzsammlung" format="$[ns-lobid-vocab]EditedVolume"/>
@@ -1589,7 +1589,7 @@
 				<trim></trim>
 			</data>
 		</entity>
-		<data source="4[56789]1[-ab]1.a" name="http://purl.org/ontology/bibo/volume">
+		<data source="4[56789]1[-ab]1.a" name="$[ns-bibo]volume">
 			<regexp match=".*;(.*)" format="${1}"/>
 			<trim></trim>
 		</data>
@@ -1666,10 +1666,10 @@
 		<!-- ####################### -->
 		<!-- ########## isbn -->
 		<!-- ####################### -->
-		<data source="540[-ab][-1].[ab]" name="http://purl.org/ontology/bibo/isbn">
+		<data source="540[-ab][-1].[ab]" name="$[ns-bibo]isbn">
 			<isbn to="clean"/>
 		</data>
-		<data source="540[-ab][-1].[ab]" name="http://purl.org/ontology/bibo/isbn">
+		<data source="540[-ab][-1].[ab]" name="$[ns-bibo]isbn">
 			<isbn to="isbn13"/>
 		</data>
 		<!--ISMN -->
@@ -1677,7 +1677,7 @@
 			<replace pattern="-| " with=""/>
 		</data>
 		<!-- ISSN -->
-		<data source="542[-ab][-1].[a]" name="http://purl.org/ontology/bibo/issn">
+		<data source="542[-ab][-1].[a]" name="$[ns-bibo]issn">
 			<replace pattern="-| " with=""/>
 		</data>
 		<!-- ####################### -->
