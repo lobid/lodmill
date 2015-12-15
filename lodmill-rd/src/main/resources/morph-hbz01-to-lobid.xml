@@ -13,6 +13,7 @@
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
 		<var name="ns-zdb-services" value="http://ld.zdb-services.de/resource/"/>
 		<var name="ns-gnd" value="http://d-nb.info/standards/elementset/gnd#"/>
+		<var name="ns-bibo" value="http://purl.org/ontology/bibo/"/>	
 	</vars>
 	<rules>
 		<!-- ####################### -->
@@ -1068,7 +1069,7 @@
 		</data>
 		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
 		<entity name="~rdf:list">
-			<combine name="$[ns-lobid-vocab]contributorOrder" value="${a}">
+			<combine name="$[ns-bibo]contributorList" value="${a}">
 				<data
 					source="@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId"
 					name="a"/>
