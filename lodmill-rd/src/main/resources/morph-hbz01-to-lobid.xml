@@ -529,11 +529,11 @@
 		</combine>
 		<combine name="http://purl.org/dc/terms/title" value="${a}">
 			<choose name="a">
-				<data source="@title310">
+				<data source="@titleRemainder331Superordination2title">
 					<replace pattern="&gt;" with=""/>
 					<replace pattern="&lt;" with=""/>
 				</data>
-				<data source="@titleRemainder331Superordination2title">
+				<data source="@title310">
 					<replace pattern="&gt;" with=""/>
 					<replace pattern="&lt;" with=""/>
 				</data>
