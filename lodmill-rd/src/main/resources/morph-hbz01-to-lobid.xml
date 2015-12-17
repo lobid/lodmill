@@ -13,7 +13,7 @@
 		<var name="ns-lobid-organisation" value="http://lobid.org/organisation/"/>
 		<var name="ns-zdb-services" value="http://ld.zdb-services.de/resource/"/>
 		<var name="ns-gnd" value="http://d-nb.info/standards/elementset/gnd#"/>
-		<var name="ns-bibo" value="http://purl.org/ontology/bibo/"/>	
+		<var name="ns-bibo" value="http://purl.org/ontology/bibo/"/>
 	</vars>
 	<rules>
 		<!-- ####################### -->
@@ -513,7 +513,7 @@
 		<data source="335[-abcd][-1].a" name="@otherTitle"/>
 		<data source="34[01234567][-ab][-1].[ab]" name="http://purl.org/dc/terms/alternative"/>
 		<data source="376[-adb][-1].[ad]" name="$[ns-bibo]shortTitle"/>
-		<data source="504-[1].a" name="http://purl.org/dc/terms/alternative"/>
+		<data source="504-1.a" name="http://purl.org/dc/terms/alternative"/>
 		<data source="@otherTitle" name="http://rdvocab.info/Elements/otherTitleInformation">
 			<replace pattern="&gt;" with=""/>
 			<replace pattern="&lt;" with=""/>
@@ -793,71 +793,105 @@
 		<!-- literals of creator -->
 		<data source="359[-ab][-12].a" name="http://rdvocab.info/Elements/statementOfResponsibility"/>
 		<combine name="@creatorLabel" value="${a}">
-			<data source="1[02468][048][-aemn][12].[pa]|1[1468][26][-aemn][12].[pa]|2??[-a][12-].a"
+			<data
+				source="1[02468][048][-aemn][12].[pa]|1[1468][26][-aemn][12].[pa]|@nameOfCreatingCorporateBody"
 				name="a">
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
 			</data>
 		</combine>
-		<choose name="@creatorNameOrId" flushWith="1????">
+		<choose name="@creatorNameOrId" flushWith="[12]????">
 			<data source="@creatorPersonId"/>
+			<data source="@creatorCorporateBodyId"/>
 			<data source="@creatorLabel"/>
+			<!-- <data source="@nameOfCreatingCorporateBody"/> -->
 		</choose>
 		<!-- Add literal only if link in the same entity does not exist -->
 		<data source="@contributorNameOrId" name="http://purl.org/dc/elements/1.1/contributor">
 			<regexp match="^[^http].*"/>
 		</data>
-		<choose name="@contributorNameOrId" flushWith="1????">
+		<choose name="@contributorNameOrId" flushWith="[12]????">
 			<data source="@contributorPersonId"/>
 			<data source="@contributorCorporateBodyId"/>
 			<data source="@contributorLabel"/>
-			<data source="@nameOfContributingOrCreatingCorporateBody"/>
+			<data source="@nameOfContributingCorporateBody"/>
 		</choose>
 		<!-- ####################### -->
 		<!-- ################ koerperschaften -->
 		<!-- ####################### -->
-		<data source="2??[-a][12-].9" name="@creatorCorporateBodyId">
+		<data source="2?[02468][-a][12].9" name="@creatorCorporateBodyId">
 			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
 		</data>
 		<!-- lv:nameOfContributingCorporateBody is only a temporarily workaround. It also subsumes 
 			creators! -->
-		<data source="2??[-a][12-].k|8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
-		<data source="2??[-abcp][1234].k" name="@nameOfContributingOrCreatingCorporateBodyK">
+		<data source="8[012][02468][-mn]-.k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody"/>
+		<data source="2?[02468][-a][12].k" name="@nameOfCreatingCorporateBodyK">
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
-		<data source="2??[-abcp][1234].h" name="@nameOfContributingOrCreatingCorporateBodyH"/>
-		<combine name="@nameOfContributingOrCreatingCorporateBodyKH" value="${k} &lt;${h}&gt;">
-			<data source="@nameOfContributingOrCreatingCorporateBodyK" name="k"/>
-			<data source="@nameOfContributingOrCreatingCorporateBodyH" name="h"/>
+		<data source="2?[02468][-a]1.h" name="@nameOfCreatingCorporateBodyH"/>
+		<combine name="@nameOfCreatingCorporateBodyKH" value="${k} &lt;${h}&gt;">
+			<data source="@nameOfCreatingCorporateBodyK" name="k"/>
+			<data source="@nameOfCreatingCorporateBodyH" name="h"/>
 		</combine>
-		<data source="2??[-abcp][1234].b" name="@nameOfContributingOrCreatingCorporateBodyB"/>
-		<combine name="@nameOfContributingOrCreatingCorporateBodyKB" value="${k}. ${b}">
-			<data source="@nameOfContributingOrCreatingCorporateBodyB" name="b"/>
-			<data source="@nameOfContributingOrCreatingCorporateBodyK" name="k"/>
+		<data source="2?[02468][-a]1.b" name="@nameOfCreatingCorporateBodyB"/>
+		<combine name="@nameOfCreatingCorporateBodyKB" value="${k}. ${b}">
+			<data source="@nameOfCreatingCorporateBodyB" name="b"/>
+			<data source="@nameOfCreatingCorporateBodyK" name="k"/>
 		</combine>
-		<combine name="@nameOfContributingOrCreatingCorporateBodyKHB" value="${k} &lt;${h}&gt;. ${b}">
-			<data source="@nameOfContributingOrCreatingCorporateBodyB" name="b"/>
-			<data source="@nameOfContributingOrCreatingCorporateBodyH" name="h"/>
-			<data source="@nameOfContributingOrCreatingCorporateBodyK" name="k"/>
+		<combine name="@nameOfCreatingCorporateBodyKHB" value="${k} &lt;${h}&gt;. ${b}">
+			<data source="@nameOfCreatingCorporateBodyB" name="b"/>
+			<data source="@nameOfCreatingCorporateBodyH" name="h"/>
+			<data source="@nameOfCreatingCorporateBodyK" name="k"/>
 		</combine>
-		<choose name="@nameOfContributingOrCreatingCorporateBody" flushWith="@creatorCorporateBodyId|@contributorCorporateBodyId"> <!-- 2??[-abcp][1234].9"> -->
-			<data source="@nameOfContributingOrCreatingCorporateBodyKHB"/>
-			<data source="@nameOfContributingOrCreatingCorporateBodyKB"/>
-			<data source="@nameOfContributingOrCreatingCorporateBodyKH"/>
-			<data source="@nameOfContributingOrCreatingCorporateBodyK"/>
+		<choose name="@nameOfCreatingCorporateBody" flushWith="2?[02468]?1.?"> <!-- no Verweisungsformen (aka alternate labels) -->
+			<data source="@nameOfCreatingCorporateBodyKHB"/>
+			<data source="@nameOfCreatingCorporateBodyKB"/>
+			<data source="@nameOfCreatingCorporateBodyKH"/>
+			<data source="@nameOfCreatingCorporateBodyK"/>
+		</choose>
+		<!-- only contributor, not creator -->
+		<data source="2?[02468][bcp][12].9" name="@contributorCorporateBodyId"> <!-- todo '-' ? -->
+			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+		</data>
+		<data source="2?[02468][bcfep][12].k" name="@nameOfContributingCorporateBodyK">
+
+			<replace pattern="&gt;&gt;" with=""/>
+			<replace pattern="&lt;&lt;" with=""/>
+		</data>
+		<data source="2?[02468][bcfep][12].h" name="@nameOfContributingCorporateBodyH"/>
+		<combine name="@nameOfContributingCorporateBodyKH" value="${k} &lt;${h}&gt;">
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+			<data source="@nameOfContributingCorporateBodyH" name="h"/>
+		</combine>
+		<data source="2?[02468][bcfep][12].b" name="@nameOfContributingCorporateBodyB"/>
+		<combine name="@nameOfContributingCorporateBodyKB" value="${k}. ${b}">
+			<data source="@nameOfContributingCorporateBodyB" name="b"/>
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+		</combine>
+		<combine name="@nameOfContributingCorporateBodyKHB" value="${k} &lt;${h}&gt;. ${b}">
+			<data source="@nameOfContributingCorporateBodyB" name="b"/>
+			<data source="@nameOfContributingCorporateBodyH" name="h"/>
+			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+		</combine>
+		<choose name="@nameOfContributingCorporateBody" flushWith="2?[02468]?[12].?"> <!-- 2??[-abcp][1234].9"> -->
+			<data source="@nameOfContributingCorporateBodyKHB"/>
+			<data source="@nameOfContributingCorporateBodyKB"/>
+			<data source="@nameOfContributingCorporateBodyKH"/>
+			<data source="@nameOfContributingCorporateBodyK"/>
 		</choose>
 		<combine name="@preferredNameConcatEvent" value="${n} ${e}, ${d}, ${c}"
 			sameEntity="true">
-			<data source="[29]??[-abcfep][12-].n" name="n"/>
-			<data source="[29]??[-abcfep][12-].e" name="e"/>
-			<data source="[29]??[-abcfep][12-].d" name="d"/>
-			<data source="[29]??[-abcfep][12-].c" name="c"/>
+			<data source="[29]?[02478][-abcfep][12].n" name="n"/>
+			<data source="[29]?[02478][-abcfep][12].e" name="e"/>
+			<data source="[29]?[02478][-abcfep][12].d" name="d"/>
+			<data source="[29]?[02478][-abcfep][12].c" name="c"/>
 		</combine>
-		<combine name="$[ns-lobid-vocab]nameOfContributingCorporateBody" value="${a}">
-			<!-- <data source="2??[bcp][1234].k"/> -->
-			<data source="@nameOfContributingOrCreatingCorporateBody" name="a"/>
-		</combine>
+		<!-- all names, also variants ("Verweisungsformen") -->
+		<data source="2??[-abcefp][12].k" name="$[ns-lobid-vocab]nameOfContributingCorporateBody">
+			<replace pattern="&gt;&gt;" with=""/>
+			<replace pattern="&lt;&lt;" with=""/>
+		</data>
 		<!-- ####################### -->
 		<!-- ################ koerperschaften and persons -->
 		<!-- ####################### -->
@@ -879,16 +913,13 @@
 			</data>
 		</combine>
 		<combine name="@contributorLabel" value="${a}">
-			<data source="1[02468][048][bcf]1.[pa]|1[13579][26][bcf]1.[pa]|8[012][02468][-mn]-12.[pa]"
+			<data
+				source="1[02468][048][bcf]1.[pa]|1[13579][26][bcf]1.[pa]|@nameOfContributingCorporateBody|8[012][02468][-mn]-12.[pa]"
 				name="a">
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
 			</data>
 		</combine>
-		<!-- id of corporation -->
-		<data source="2??[bcp][1234].9" name="@contributorCorporateBodyId">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
 		<!-- map literals to marc relator property -->
 		<combine name="${marcrel}" value="${contributorId}" sameEntity="true">
 			<data source="@marcrelName" name="marcrel">
@@ -1070,9 +1101,7 @@
 		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
 		<entity name="~rdf:list">
 			<combine name="$[ns-bibo]contributorList" value="${a}">
-				<data
-					source="@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId"
-					name="a"/>
+				<data source="@contributorNameOrId|@creatorNameOrId" name="a"/>
 			</combine>
 		</entity>
 		<!-- use lv:contributorLabel for creator and ontributor even if there is an id -->
@@ -1159,7 +1188,7 @@
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
 			sameEntity="true">
 			<data source="@contributorCorporateBodyId|@creatorCorporateBodyId"/>
-			<data source="@nameOfContributingOrCreatingCorporateBody" name="a"/>
+			<data source="@nameOfContributingCorporateBody|@nameOfCreatingCorporateBody" name="a"/>
 		</combine>
 		<combine name="@preferredNameP" value="${a}" sameEntity="true">
 			<data source="@subjectLinks"/>
@@ -1197,7 +1226,7 @@
 		<!-- /subjects -->
 		<choose name="@preferredName"
 			flushWith="@subjectLinks|@preferredNameP|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId">
-			<data source="@nameOfContributingOrCreatingCorporateBody"/>
+			<data source="@nameOfCreatingCorporateBody|@nameOfContributingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
 			<data source="@preferredNameConcatEvent"/>
 			<data source="@preferredNamePersonConcatSubject"/>
