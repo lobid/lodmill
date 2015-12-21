@@ -1,25 +1,14 @@
-_:B95002425ce64cf6b2a36e9ec5f0dc075 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/141891173> .
-_:B95002425ce64cf6b2a36e9ec5f0dc075 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B55177bbe7cdb44251849eed2d2b3be5c .
-<http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pepoli, Alessandro Ercole" .
-<http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pepoli, Alessandro Ercole" .
-<http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/created> "20121205" .
-<http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/modified> "20130616" .
-_:Bf92dac1b912e283dec8d3d47f8ce622f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/142061166> .
-_:Bf92dac1b912e283dec8d3d47f8ce622f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B95002425ce64cf6b2a36e9ec5f0dc075 .
-<http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Dardenne, ..." .
-<http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredName> "Dardenne, ..." .
-<http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fuchs, ..." .
-<http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fuchs, ..." .
-_:B680f7df5e3f5aeae1a3a29be57fa4b8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118512536> .
-_:B680f7df5e3f5aeae1a3a29be57fa4b8f <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bc18fd6331e5cb2baf853f12fb3e7dd02 .
-_:B55177bbe7cdb44251849eed2d2b3be5c <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/16068028-1> .
-_:B55177bbe7cdb44251849eed2d2b3be5c <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
-_:B80b7c2a89d895227878ee8806d41bc15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/119055716> .
-_:B80b7c2a89d895227878ee8806d41bc15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bbcf660e09f4fc814b1c392fb6197dac9 .
-<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Marianne" .
-<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne" .
+<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig von" .
+<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig von" .
+<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Johann, der J\u00FCngere" .
+<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann, der J\u00FCngere" .
+_:B1e9c21c97574809af76e7895bef752f1 <http://purl.org/lobid/lv#numbering> "1805,04,16" .
+_:B1e9c21c97574809af76e7895bef752f1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:B1e9c21c97574809af76e7895bef752f1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Krug, ..." .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredName> "Krug, ..." .
+<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
+<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/source> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16" .
@@ -32,7 +21,6 @@ _:B80b7c2a89d895227878ee8806d41bc15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "B\u00F6hm, Johann" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT017290519> .
-<http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/contributorList> _:B80b7c2a89d895227878ee8806d41bc15 .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Carl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter" .
@@ -47,7 +35,6 @@ _:B80b7c2a89d895227878ee8806d41bc15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/isFormatOf> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "b\u00F6hm, madame" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Dardenne, ..." .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:B3159aa573ca75795fe343ac7dd564f52 .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#hbzID> "CT003012479" .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/118512536> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Pepoli, Alessandro Ercole" .
@@ -74,6 +61,7 @@ _:B80b7c2a89d895227878ee8806d41bc15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Pietro" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/16068028-1> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#urn> <urn:nbn:de:hbz:061:2-46125> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:B1e9c21c97574809af76e7895bef752f1 .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Karl Ludwig" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/elements/1.1/publisher> "B\u00F6gemann" .
 <http://lobid.org/resource/CT003012479> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -90,6 +78,7 @@ _:B80b7c2a89d895227878ee8806d41bc15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/issued> "1805" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Charles L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/deu> .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorOrder> "http://d-nb.info/gnd/119055716 | http://d-nb.info/gnd/123633206 | http://d-nb.info/gnd/116620153 | http://d-nb.info/gnd/141927135 | http://d-nb.info/gnd/142027901 | b\u00F6hm, madame | http://d-nb.info/gnd/118512536 | kellermann, ... | http://d-nb.info/gnd/141834919 | http://d-nb.info/gnd/141889810 | http://d-nb.info/gnd/142061166 | http://d-nb.info/gnd/141891173 | http://d-nb.info/gnd/16068028-1" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, J. G. K." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Bilau, Margarete" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Annoni, ..." .
@@ -118,32 +107,17 @@ _:B80b7c2a89d895227878ee8806d41bc15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Carl Ludwig von" .
 <http://d-nb.info/gnd/141927135> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bilau, Margarete" .
 <http://d-nb.info/gnd/141927135> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bilau, Margarete" .
-_:Bbcf660e09f4fc814b1c392fb6197dac9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/123633206> .
-_:Bbcf660e09f4fc814b1c392fb6197dac9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be697db035fec81f672c267576611661e .
-_:Be697db035fec81f672c267576611661e <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/116620153> .
-_:Be697db035fec81f672c267576611661e <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B1adda248f83709349f8f67a57ffe7638 .
-_:B3159aa573ca75795fe343ac7dd564f52 <http://purl.org/lobid/lv#numbering> "1805,04,16" .
-_:B3159aa573ca75795fe343ac7dd564f52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:B3159aa573ca75795fe343ac7dd564f52 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
-_:B32a49070018cdef8b5f5bcbcebfd8f45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/142027901> .
-_:B32a49070018cdef8b5f5bcbcebfd8f45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Be893c0426ac7e86da3d92f4ef7ba0acb .
-_:B1adda248f83709349f8f67a57ffe7638 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/141927135> .
-_:B1adda248f83709349f8f67a57ffe7638 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B32a49070018cdef8b5f5bcbcebfd8f45 .
-<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Giesecke, Carl Ludwig von" .
-<http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig von" .
-<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Johann, der J\u00FCngere" .
-<http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann, der J\u00FCngere" .
-<http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Annoni, ..." .
-<http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredName> "Annoni, ..." .
-_:B4d55c6c0fdc9cb0dfaf4107bd46147d4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/141834919> .
-_:B4d55c6c0fdc9cb0dfaf4107bd46147d4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B204e7ba7046419eb03c9030e296272ab .
-_:Bc18fd6331e5cb2baf853f12fb3e7dd02 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "kellermann, ..." .
-_:Bc18fd6331e5cb2baf853f12fb3e7dd02 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B4d55c6c0fdc9cb0dfaf4107bd46147d4 .
-_:Be893c0426ac7e86da3d92f4ef7ba0acb <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "b\u00F6hm, madame" .
-_:Be893c0426ac7e86da3d92f4ef7ba0acb <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:B680f7df5e3f5aeae1a3a29be57fa4b8f .
-<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
-<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
+<http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pepoli, Alessandro Ercole" .
+<http://d-nb.info/gnd/123633206> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pepoli, Alessandro Ercole" .
+<http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Dardenne, ..." .
+<http://d-nb.info/gnd/141834919> <http://d-nb.info/standards/elementset/gnd#preferredName> "Dardenne, ..." .
+<http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Fuchs, ..." .
+<http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fuchs, ..." .
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Winter, Peter von" .
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter von" .
-_:B204e7ba7046419eb03c9030e296272ab <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/141889810> .
-_:B204e7ba7046419eb03c9030e296272ab <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bf92dac1b912e283dec8d3d47f8ce622f .
+<http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/created> "20121205" .
+<http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/modified> "20130616" .
+<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Marianne" .
+<http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Marianne" .
+<http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Annoni, ..." .
+<http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredName> "Annoni, ..." .

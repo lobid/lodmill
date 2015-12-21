@@ -1102,11 +1102,11 @@
 			<regexp match="^http.*"/>
 		</data>
 		<data source="@contributorId" name="http://purl.org/dc/terms/contributor"/>
-		<entity name="~rdf:list">
-			<combine name="$[ns-bibo]contributorList" value="${a}">
-				<data source="@contributorNameOrId|@creatorNameOrId" name="a"/>
-			</combine>
-		</entity>
+		<combine name="$[ns-lobid-vocab]contributorOrder" value="${a}">
+			<concat delimiter=" | " name="a">
+				<data source="@contributorNameOrId|@creatorNameOrId"/>
+			</concat>
+		</combine>
 		<!-- use lv:contributorLabel for creator and ontributor even if there is an id -->
 		<data source="1??[-abcefmn][12].[pa]" name="http://purl.org/lobid/lv#contributorLabel">
 			<replace pattern="&gt;&gt;" with=""/>
