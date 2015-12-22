@@ -64,7 +64,7 @@ public final class MabXml2ElasticsearchLobidTest {
 	@SuppressWarnings("static-method")
 	@Test
 	public void testFlow() throws URISyntaxException {
-		buildAndExecuteFlow();
+		buildAndExecuteFlow(client);
 		String ntriples = getElasticsearchDocumentsAsNtriples();
 		File testFile = new File(TEST_FILENAME);
 		try {
@@ -78,7 +78,7 @@ public final class MabXml2ElasticsearchLobidTest {
 		testFile.deleteOnExit();
 	}
 
-	private static void buildAndExecuteFlow() {
+	public static void buildAndExecuteFlow(final Client cl) {
 		final FileOpener opener = new FileOpener();
 		opener.setCompression("BZIP2");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
@@ -88,16 +88,17 @@ public final class MabXml2ElasticsearchLobidTest {
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))
 				.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
-				.setReceiver(new RdfModel2ElasticsearchEtikettJsonLd())
-				.setReceiver(getElasticsearchIndexer());
+				.setReceiver(new RdfModel2ElasticsearchJsonLd())
+				.setReceiver(getElasticsearchIndexer(cl));
 		opener.process(
 				new File("src/test/resources/hbz01XmlClobs.tar.bz2").getAbsolutePath());
 		opener.closeStream();
 	}
 
-	private static ElasticsearchIndexer getElasticsearchIndexer() {
+	private static ElasticsearchIndexer getElasticsearchIndexer(
+			final Client _client) {
 		ElasticsearchIndexer esIndexer = new ElasticsearchIndexer();
-		esIndexer.setElasticsearchClient(client);
+		esIndexer.setElasticsearchClient(_client);
 		esIndexer.setIndexName(LOBID_RESOURCES);
 		esIndexer.setIndexAliasSuffix("");
 		esIndexer.setUpdateNewestIndex(false);
@@ -130,7 +131,7 @@ public final class MabXml2ElasticsearchLobidTest {
 
 	@AfterClass
 	public static void down() {
-		client.admin().indices().prepareDelete("_all").execute().actionGet();
-		node.close();
+		// client.admin().indices().prepareDelete("_all").execute().actionGet();
+		// node.close();
 	}
 }
