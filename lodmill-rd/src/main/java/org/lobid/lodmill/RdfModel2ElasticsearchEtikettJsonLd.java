@@ -2,9 +2,15 @@
 
 package org.lobid.lodmill;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
+import java.util.Map;
 
+import org.apache.jena.riot.RDFDataMgr;
 import org.culturegraph.mf.framework.DefaultObjectPipe;
 import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.framework.annotations.In;
@@ -25,6 +31,9 @@ import com.hp.hpl.jena.rdf.model.ResIterator;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+
+import de.hbz.lobid.helper.Globals;
+import de.hbz.lobid.helper.JsonConverter;
 
 /**
  * Converts a jena model to JSON-LD document(s) consumable by elasticsearch.
@@ -87,8 +96,8 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 						if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
 							toJson(submodel, subjectResource.getURI().toString(), "");
 						}
-					} else
-						if (subjectResource.getURI().toString().startsWith(LOBID_DOMAIN))
+					} else if (subjectResource.getURI().toString()
+							.startsWith(LOBID_DOMAIN))
 						mainNodeId = subjectResource.getURI().toString();
 				}
 				if (!submodel.isEmpty()) {
@@ -127,15 +136,22 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 	private void toJson(Model model, String id, String aboutJson) {
 		if (model.isEmpty())
 			return;
-		try {
-			Object json = JsonLdProcessor.fromRDF(model, new JsonLdOptions(), parser);
-			// the json document itself
-			json = JsonLdProcessor.expand(json);
+		try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+			JsonConverter jc = new JsonConverter();
+			RDFDataMgr.write(out, model, org.apache.jena.riot.RDFFormat.NTRIPLES);
+			Map<String, Object> jsonMap =
+					jc.convert(new ByteArrayInputStream(out.toByteArray()),
+							org.openrdf.rio.RDFFormat.NTRIPLES, "http://lobid.org",
+							Globals.etikette.getContext().get("@context"));
 			getReceiver().process(addInternalProperties(new HashMap<String, String>(),
-					id, JSONUtils.toString(json), aboutJson));
-		} catch (JsonLdError e) {
+					id, jc.getObjectMapper().writeValueAsString(jsonMap), aboutJson));
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void pipe(OutputStream out, InputStream in) {
+
 	}
 
 	private static HashMap<String, String> addInternalProperties(

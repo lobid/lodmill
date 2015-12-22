@@ -35,7 +35,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/1
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/1074109953, Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/118560034, http://d-nb.info/gnd/4159648-1, Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/12174793X, Bibliographie"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/128989459> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/128989459"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/133595935, http://d-nb.info/gnd/4046277-8, Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/2050419-6, Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/2101246-5, http://d-nb.info/gnd/118595881, http://d-nb.info/gnd/4207786-2, Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -52,7 +52,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4049788-4, http://d-nb.info/gnd/4076769-3, http://d-nb.info/gnd/4020378-5, http://d-nb.info/gnd/4040629-5, Geschichte 71 v. Chr.-70 v. Chr"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4052945-9, http://d-nb.info/gnd/4067488-5"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4075561-7, http://d-nb.info/gnd/4034268-2"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4337730-0> .
+_:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4337730-0"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4604932-0, http://d-nb.info/gnd/4184194-3, Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/7683386-0, http://d-nb.info/gnd/4124796-6, http://d-nb.info/gnd/4049716-1"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/7684863-2, Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -64,7 +64,7 @@ _:Bb0 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 _:Bb1 <http://purl.org/lobid/lv#numbering> "19"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT006514951> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/11850066X, Geschichte 1963-1967, Quelle"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/118640038> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/118640038"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/118722123, http://d-nb.info/gnd/4152975-3"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/119411970, http://d-nb.info/gnd/4010427-8, http://d-nb.info/gnd/4145395-5"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/2041907-7, Geschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -75,7 +75,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4040619-2, http://d-nb.info/gnd/4306876-5, http://d-nb.info/gnd/4040613-1, http://d-nb.info/gnd/4034268-2"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4042203-3, Geschichte, Zeitschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4042570-8, Karte"^^<http://www.w3.org/2001/XMLSchema#string> .
-_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://d-nb.info/gnd/4049788-4> .
+_:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4049788-4"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4050698-8, CD-ROM"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4059979-6, Geschichte, Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4065781-4, http://d-nb.info/gnd/4073972-7, Atlas"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -93,6 +93,7 @@ _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:Bb3 .
 _:Bb2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
 _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> "http://d-nb.info/gnd/4576855-9, http://d-nb.info/gnd/4073757-3, Geschichte 1920-1945, Verzeichnis"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+<http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10040152-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10048424-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Landesbetrieb Stra\u00DFen und Verkehr Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -119,7 +120,6 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105745944> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schmidt, Eckhard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1060772442> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Pfarrei St. Joseph und St. Antonius Bergisch Gladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/1060772442> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfarrei Sankt Antonius Abbas Herkenrath"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1060772442> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfarrei St. Joseph und St. Antonius Bergisch Gladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1069643262> <http://d-nb.info/standards/elementset/gnd#preferredName> "49. Art Cologne, 2015, K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1072011352> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arning, Ursula"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -288,8 +288,6 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredName> "Annoni, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/142061166> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Annoni, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/14216075X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bilau, Wilhelmine"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/14216075X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/14216075X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Bilau, Wilhelmine"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/14216075X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Deutsche Schauspieler-Gesellschaft <D\u00C3\u00BCsseldorf>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/143102893> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Sanda, Dominique"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/143102893> <http://d-nb.info/standards/elementset/gnd#preferredName> "Sanda, Dominique"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -302,6 +300,7 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/16080300-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Entwicklungsagentur Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/16080300-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Entwicklungsagentur Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/172026644> <http://d-nb.info/standards/elementset/gnd#preferredName> "Courtillon, Janine"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/172026644> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Courtillon, Janine"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/172845785> <http://d-nb.info/standards/elementset/gnd#preferredName> "Clemens-Schierbaum, Ursula"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -322,33 +321,36 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://d-nb.info/gnd/186186193> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kim, Richard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/186931808> <http://d-nb.info/standards/elementset/gnd#preferredName> "Buchmann, Helmut"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/186931808> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Buchmann, Helmut"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "The Beatles"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2005535-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "The Beatles"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2006655-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2006655-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Bundeszentrale f\u00C3\u00BCr Gesundheitliche Aufkl\u00C3\u00A4rung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2019209-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Regierungsbezirk M\u00FCnster, Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "United Nations. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Vereinte Nationen. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "United Nations. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Vereinte Nationen. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2023669-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2037247-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Main-Kinzig-Kreis"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2041907-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2041907-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Verein f\u00FCr Leibes\u00FCbungen Borussia 1900 M\u00F6nchengladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2050419-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "1. Fu\u00DFball-Club K\u00F6ln 01/07"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2050419-6> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "1. Fu\u00DFball-Club K\u00F6ln 01/07"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rheinland-Pfalz <Koblenz>"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Evangelische Kirche von Westfalen. Amt f\u00FCr Jugendarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Evangelische Kirche von Westfalen. Amt f\u00FCr Jugendarbeit"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2056181-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Rheinland-Pfalz <Koblenz>. Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2092393-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rheinland-Pfalz <Koblenz>. Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Evangelische Kirche von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/2095440-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Evangelische Kirche von Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Austro-Daimler-Puchwerke"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2101246-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Austro-Daimler-Puchwerke"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2175350-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Pfarrei Sankt Antonius Abbas Herkenrath"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/2175350-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfarrei Sankt Antonius Abbas Herkenrath"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/2175350-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pfarrei St. Joseph und St. Antonius Bergisch Gladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/3062366-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Arbeitskreis Stra\u00DFenbauabf\u00E4lle Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/36467-8> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Rheinland-Pfalz. Statistisches Landesamt"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/36467-8> <http://d-nb.info/standards/elementset/gnd#preferredName> "Rheinland-Pfalz. Statistisches Landesamt"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Angestellten-Gewerkschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/37043-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Angestellten-Gewerkschaft"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/37460-X> <http://d-nb.info/standards/elementset/gnd#preferredName> "American Dental Association"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/37460-X> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "American Dental Association"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4002641-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arbeitsbedingungen"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -363,8 +365,8 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://d-nb.info/gnd/4010427-8> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Comic"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4011882-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutschland"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4011882-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Deutschland"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4011889-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutschland, Bundesrepublik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4011889-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Deutschland"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/4011889-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zentralarchiv des Internationalen Kunsthandels"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4013255-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "D\u00C3\u00BCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4013255-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "D\u00FCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4013255-9> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "D\u00C3\u00BCsseldorf"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -416,15 +418,15 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://d-nb.info/gnd/4059979-6> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Th\u00FCringen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4059979-6> <http://d-nb.info/standards/elementset/gnd#preferredName> "Th\u00FCringen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4065781-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/4065781-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4065781-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4067488-5> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Zeitschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4067488-5> <http://d-nb.info/standards/elementset/gnd#preferredName> "Zeitschrift"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4073757-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Kraftfahrzeug"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4073757-3> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kraftfahrzeug"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4073972-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Landeskunde"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4073972-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Landeskunde"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/4075561-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4075561-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePlaceOrGeographicName> "Oberrheinisches Tiefland"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/4075561-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Oberrheinisches Tiefland"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4076259-2> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Pop-Art"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4076259-2> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pop-Art"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4076769-3> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "R\u00F6merzeit"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -479,7 +481,8 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://d-nb.info/gnd/4576855-9> <http://d-nb.info/standards/elementset/gnd#preferredName> "Steyr, Marke"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4604932-0> <http://d-nb.info/standards/elementset/gnd#preferredName> "Abbild"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/4604932-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading> "Abbild"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Entwicklungsagentur Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/5079636-7> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsch-Franz\u00F6sisch-Schweizerische Oberrheinkonferenz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/5293676-4> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Homannsche Erben <N\u00FCrnberg>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/5293676-4> <http://d-nb.info/standards/elementset/gnd#preferredName> "Homannsche Erben <N\u00FCrnberg>"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/7683386-0> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork> "Grabbe, Christian Dietrich: Der Cid"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2358,8 +2361,8 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Eur\u00F3pai Gazdas\u00E1gi Bizotts\u00E1g"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evropejskaja \u0116konomi\u010Deskaja Komissija"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftskommission f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2482,8 +2485,8 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Eur\u00F3pai Gazdas\u00E1gi Bizotts\u00E1g"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evropejskaja \u0116konomi\u010Deskaja Komissija"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftskommission f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2520,8 +2523,8 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Bassani, Giorgio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Berger, Helmut"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Capolicchio, Lino"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "DeSica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "De Sica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "DeSica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Marchi, Giacomo"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sanda, Dominique"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sica, Vittorio de"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3848,8 +3851,8 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "della Croce (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Della Croce, Giovanni (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Jean de la Croix (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "LaCruz, Juan de (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "La Cruz, Juan de (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "LaCruz, Juan de (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "of the Cross (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Saint Jean de la Croix (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Sankt Johannes vom Kreuz (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4737,8 +4740,8 @@ _:Bb3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Britten, Edward B."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Britten, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Lewis, Bryn"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "MacDougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Mac Dougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "MacDougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Martineau, Malcolm"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "McDougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Nathan, Regina"^^<http://www.w3.org/2001/XMLSchema#string> .

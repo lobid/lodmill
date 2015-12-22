@@ -115,6 +115,7 @@ public class ElasticsearchIndexer
 
 	@Override
 	public void process(final HashMap<String, String> json) {
+		LOG.info("Try to index " + json.get("_id"));
 		updateRequest = new UpdateRequest(indexName,
 				json.get(Properties.TYPE.getName()), json.get(Properties.ID.getName()));
 		updateRequest.doc(json.get(Properties.GRAPH.getName()));
@@ -124,6 +125,7 @@ public class ElasticsearchIndexer
 		}
 		bulkRequest.add(updateRequest);
 		docs++;
+
 		while (docs > bulkSize && retries > 0) {
 			try {
 				bulkRequest.execute().actionGet();
@@ -219,7 +221,7 @@ public class ElasticsearchIndexer
 			LOG.info("Going to CREATE new index " + indexName);
 			adminClient.prepareCreate(indexName).setSource(config()).execute()
 
-			.actionGet();
+					.actionGet();
 		} else
 			LOG.info("Index already exists, going to UPDATE index " + indexName);
 	}

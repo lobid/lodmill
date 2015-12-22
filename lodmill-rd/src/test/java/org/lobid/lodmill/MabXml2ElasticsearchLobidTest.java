@@ -88,7 +88,7 @@ public final class MabXml2ElasticsearchLobidTest {
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))
 				.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
-				.setReceiver(new RdfModel2ElasticsearchJsonLd())
+				.setReceiver(new RdfModel2ElasticsearchEtikettJsonLd())
 				.setReceiver(getElasticsearchIndexer());
 		opener.process(
 				new File("src/test/resources/hbz01XmlClobs.tar.bz2").getAbsolutePath());
