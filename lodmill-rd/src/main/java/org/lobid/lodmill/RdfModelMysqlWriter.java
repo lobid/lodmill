@@ -43,7 +43,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 @In(Model.class)
 @Out(Void.class)
 public final class RdfModelMysqlWriter extends DefaultStreamReceiver
-		implements RecordIdentifier, RDFSink, ObjectReceiver<Model> {
+		implements RecordIdentifier, RdfSink, ObjectReceiver<Model> {
 	private static final Logger LOG =
 			LoggerFactory.getLogger(RdfModelMysqlWriter.class);
 

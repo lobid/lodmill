@@ -43,7 +43,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 @In(Model.class)
 @Out(Void.class)
 public final class RdfModelFileWriter extends DefaultObjectReceiver<Model>
-		implements FilenameExtractor, RDFSink {
+		implements FilenameExtractor, RdfSink {
 	private static final Logger LOG =
 			LoggerFactory.getLogger(RdfModelFileWriter.class);
 

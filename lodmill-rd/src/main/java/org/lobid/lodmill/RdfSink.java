@@ -6,7 +6,7 @@ package org.lobid.lodmill;
  * @author dr0i
  * 
  */
-public interface RDFSink {
+public interface RdfSink {
 
 	/**
 	 * 
