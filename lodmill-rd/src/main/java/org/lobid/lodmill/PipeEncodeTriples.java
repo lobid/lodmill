@@ -45,6 +45,8 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 	final static String DUMMY_SUBJECT = "dummy_subject";
 	final static String HTTP = "http";
 	final static String URN = "urn";
+	final static String PROPERTY_AS_LITERALS =
+			"http://purl.org/lobid/lv#contributorOrder";
 	private boolean fixSubject = false;
 	private static final Logger LOG =
 			LoggerFactory.getLogger(PipeEncodeTriples.class);
@@ -114,8 +116,10 @@ public class PipeEncodeTriples extends AbstractGraphPipeEncoder {
 		} else if (name.startsWith(HTTP)) {
 			try {
 				final Property prop = model.createProperty(name);
-				if (isUriWithScheme(value) && ((value.startsWith(URN) && storeUrnAsUri)
-						|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
+				if (isUriWithScheme(value)
+						& !name.equalsIgnoreCase(PROPERTY_AS_LITERALS)
+						&& ((value.startsWith(URN) && storeUrnAsUri)
+								|| value.startsWith(HTTP) || value.startsWith("mailto"))) {
 					boolean uri = true;
 					// either add uri ...
 					if (!isRdfList)
