@@ -17,7 +17,7 @@ import org.junit.Test;
  */
 @SuppressWarnings("javadoc")
 public final class MabXml2lobidSingleFilesTest {
-	private static final String TARGET_PATH = "tmp/";
+	private static final String TARGET_PATH = "/tmp/";
 	private static final String TARGET_SUBPATH = "nt/";
 
 	@SuppressWarnings("static-method")
