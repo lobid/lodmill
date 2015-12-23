@@ -101,8 +101,8 @@ public abstract class AbstractIngestTests {
 			final File testFile) {
 		assertSetSize(linesInFileToSetDefaultingBNodes(testFile),
 				linesInFileToSetDefaultingBNodes(generatedFile));
-		assertSetElements(linesInFileToSetDefaultingBNodes(generatedFile),
-				linesInFileToSetDefaultingBNodes(testFile));
+		assertSetElements(linesInFileToSetDefaultingBNodes(testFile),
+				linesInFileToSetDefaultingBNodes(generatedFile));
 	}
 
 	/**
