@@ -4,15 +4,23 @@ package org.lobid.lodmill;
 
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringReader;
 import java.io.StringWriter;
-import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
+import org.culturegraph.mf.framework.DefaultObjectPipe;
+import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.source.FileOpener;
@@ -24,12 +32,17 @@ import org.elasticsearch.node.Node;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openrdf.rio.RDFFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.github.jsonldjava.core.JsonLdError;
 import com.github.jsonldjava.core.JsonLdProcessor;
 import com.github.jsonldjava.jena.JenaTripleCallback;
 import com.github.jsonldjava.utils.JSONUtils;
 import com.hp.hpl.jena.rdf.model.Model;
+
+import de.hbz.lobid.helper.RdfUtils;
 
 /**
  * Transform hbz01 Aleph Mab XML catalog data into lobid elasticsearch JSON-LD.
@@ -41,9 +54,10 @@ import com.hp.hpl.jena.rdf.model.Model;
  */
 @SuppressWarnings("javadoc")
 public final class MabXml2ElasticsearchLobidTest {
+	private static final Logger LOG =
+			LoggerFactory.getLogger(MabXml2ElasticsearchLobidTest.class);
 	private static Node node;
 	protected static Client client;
-
 	private static final String LOBID_RESOURCES = "lobid-resources";
 	private static final String N_TRIPLE = "N-TRIPLE";
 	private static final String TEST_FILENAME = "hbz01.es.nt";
@@ -63,22 +77,118 @@ public final class MabXml2ElasticsearchLobidTest {
 
 	@SuppressWarnings("static-method")
 	@Test
-	public void testFlow() throws URISyntaxException {
-		buildAndExecuteFlow(client);
-		String ntriples = getElasticsearchDocumentsAsNtriples();
-		File testFile = new File(TEST_FILENAME);
-		try {
-			FileUtils.writeStringToFile(testFile, ntriples, false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource(TEST_FILENAME).toURI()));
-		testFile.deleteOnExit();
+	public void testFlow_with_new_Converter() {
+		commonTestRoutine(new RdfModel2ElasticsearchEtikettJsonLd(), ".new");
 	}
 
-	public static void buildAndExecuteFlow(final Client cl) {
+	@SuppressWarnings("static-method")
+	@Test
+	public void testFlow_with_old_Converter() {
+		commonTestRoutine(new RdfModel2ElasticsearchJsonLd(), ".old");
+	}
+
+	private static void commonTestRoutine(
+			DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> jsonConverter,
+			String suffix) {
+		try {
+			File testFile = new File("src/test/resources/" + TEST_FILENAME + suffix);
+			buildAndExecuteFlow(client, jsonConverter);
+			String ntriples = getElasticsearchDocumentsAsNtriples();
+			FileUtils.writeStringToFile(testFile, ntriples, false);
+			String actualRdfString = getRdfString(testFile.getName());
+			String expectedRdfString = getRdfString(TEST_FILENAME);
+			boolean result = rdfCompare(actualRdfString, expectedRdfString);
+			AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
+					new File(Thread.currentThread().getContextClassLoader()
+							.getResource(TEST_FILENAME).toURI()));
+			org.junit.Assert.assertTrue(result);
+			// if everything is ok - delete the output files
+			testFile.deleteOnExit();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	private static String getRdfString(String rdfFilename) {
+		LOG.info("Read rdf " + rdfFilename);
+		try (InputStream in = Thread.currentThread().getContextClassLoader()
+				.getResourceAsStream(rdfFilename)) {
+			String rdfString = RdfUtils.readRdfToString(in, RDFFormat.NTRIPLES,
+					RDFFormat.NTRIPLES, "");
+			return rdfString;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	private static boolean rdfCompare(String actual, String expected) {
+		String actualWithoutBlankNodes = removeBlankNodes(actual);
+		String expectedWithoutBlankNodes = removeBlankNodes(expected);
+		String[] actualSorted = sorted(actualWithoutBlankNodes);
+		String[] expectedSorted = sorted(expectedWithoutBlankNodes);
+		return findErrors(actualSorted, expectedSorted);
+	}
+
+	private static boolean findErrors(String[] actualSorted,
+			String[] expectedSorted) {
+		boolean result = true;
+		if (actualSorted.length != expectedSorted.length) {
+			LOG.error("Expected size of " + expectedSorted.length
+					+ " is different to actual size " + actualSorted.length);
+		} else {
+			LOG.info("Expected size of " + expectedSorted.length
+					+ " is different to actual size " + actualSorted.length);
+		}
+		for (int i = 0; i < actualSorted.length; i++) {
+			if (actualSorted[i].equals(expectedSorted[i])) {
+				LOG.debug("Actual , Expected");
+				LOG.debug(actualSorted[i]);
+				LOG.debug(expectedSorted[i]);
+				LOG.debug("");
+			} else {
+				LOG.error("Error line " + i);
+				LOG.error("Actual , Expected");
+				LOG.error(actualSorted[i]);
+				LOG.error(expectedSorted[i]);
+				LOG.error("");
+				result = false;
+				break;
+			}
+		}
+		return result;
+	}
+
+	private static String removeBlankNodes(String str) {
+		return str.replaceAll("_:[^\\ ]*", "")
+				.replaceAll("\\^\\^<http://www.w3.org/2001/XMLSchema#string>", "");
+	}
+
+	private static String[] sorted(String actualWithoutBlankNodes) {
+		String[] list = createList(actualWithoutBlankNodes);
+		ArrayList<String> words = new ArrayList<>(Arrays.asList(list));
+		Collections.sort(words, String.CASE_INSENSITIVE_ORDER);
+		LOG.debug(words.toString());
+		String[] ar = new String[words.size()];
+		return words.toArray(ar);
+	}
+
+	private static String[] createList(String actualWithoutBlankNodes) {
+		try (BufferedReader br =
+				new BufferedReader(new StringReader(actualWithoutBlankNodes))) {
+			List<String> result = new ArrayList<>();
+			String line;
+			while ((line = br.readLine()) != null) {
+				result.add(line);
+			}
+			String[] ar = new String[result.size()];
+			return result.toArray(ar);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static void buildAndExecuteFlow(final Client cl,
+			DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> jsonConverter) {
 		final FileOpener opener = new FileOpener();
 		opener.setCompression("BZIP2");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
@@ -88,8 +198,7 @@ public final class MabXml2ElasticsearchLobidTest {
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))
 				.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
-				.setReceiver(new RdfModel2ElasticsearchJsonLd())
-				.setReceiver(getElasticsearchIndexer(cl));
+				.setReceiver(jsonConverter).setReceiver(getElasticsearchIndexer(cl));
 		opener.process(
 				new File("src/test/resources/hbz01XmlClobs.tar.bz2").getAbsolutePath());
 		opener.closeStream();

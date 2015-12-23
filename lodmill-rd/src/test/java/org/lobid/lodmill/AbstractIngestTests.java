@@ -101,8 +101,8 @@ public abstract class AbstractIngestTests {
 			final File testFile) {
 		assertSetSize(linesInFileToSetDefaultingBNodes(testFile),
 				linesInFileToSetDefaultingBNodes(generatedFile));
-		assertSetElements(linesInFileToSetDefaultingBNodes(generatedFile),
-				linesInFileToSetDefaultingBNodes(testFile));
+		assertSetElements(linesInFileToSetDefaultingBNodes(testFile),
+				linesInFileToSetDefaultingBNodes(generatedFile));
 	}
 
 	/**
@@ -140,7 +140,9 @@ public abstract class AbstractIngestTests {
 		if (expectedSet.size() != actualSet.size()) {
 			final SortedSet<String> missingSet = new TreeSet<>(expectedSet);
 			missingSet.removeAll(actualSet);
-			LOG.error("Missing expected result set entries: " + missingSet);
+			LOG.error(
+					"Missing expected result set entries. Switch loglevel to debug to get details!");
+			LOG.debug("Missing expected result set entries: " + missingSet);
 		}
 		Assert.assertEquals(expectedSet.size(), actualSet.size());
 	}
@@ -165,7 +167,10 @@ public abstract class AbstractIngestTests {
 			String expected = expectedIterator.next();
 			String actual = actualIterator.next();
 			if (!expected.equals(actual)) {
-				LOG.error("Expected: " + expected + "\n but was:" + actual);
+				LOG.error("Actual , Expected");
+				LOG.error(actual);
+				LOG.error(expected);
+				break;
 			}
 		}
 		Assert.assertEquals(expectedSet, actualSet);

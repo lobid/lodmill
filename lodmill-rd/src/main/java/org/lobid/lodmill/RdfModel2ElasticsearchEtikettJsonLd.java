@@ -178,7 +178,7 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 			}
 		}
 		// wrap json into a "@graph" for elasticsearch (still valid JSON-LD)
-		String jsonDocument = "{\"@graph\":" + json + ",\"internal_id\":\"" + id
+		String jsonDocument = "{\"bibl\":" + json + ",\"internal_id\":\"" + id
 				+ "\"" + internal_parent + aboutJson + "}";
 		jsonMap.put(ElasticsearchIndexer.Properties.GRAPH.getName(), jsonDocument);
 		jsonMap.put(ElasticsearchIndexer.Properties.TYPE.getName(), type);

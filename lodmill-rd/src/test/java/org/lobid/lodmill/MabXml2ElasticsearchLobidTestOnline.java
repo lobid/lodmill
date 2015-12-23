@@ -23,8 +23,9 @@ public final class MabXml2ElasticsearchLobidTestOnline {
 	public void testOnline() {
 		transportClient = new TransportClient(
 				ImmutableSettings.settingsBuilder().put("cluster.name", "weywot"));
-		MabXml2ElasticsearchLobidTest
-				.buildAndExecuteFlow(transportClient.addTransportAddress(
-						new InetSocketTransportAddress("weywot2.hbz-nrw.de", 9300)));
+		MabXml2ElasticsearchLobidTest.buildAndExecuteFlow(
+				transportClient.addTransportAddress(
+						new InetSocketTransportAddress("weywot2.hbz-nrw.de", 9300)),
+				new RdfModel2ElasticsearchEtikettJsonLd());
 	}
 }
