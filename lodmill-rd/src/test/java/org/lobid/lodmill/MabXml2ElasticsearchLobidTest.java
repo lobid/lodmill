@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URISyntaxException;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -43,8 +44,9 @@ import com.hp.hpl.jena.rdf.model.Model;
 public final class MabXml2ElasticsearchLobidTest {
 	private static Node node;
 	protected static Client client;
-
-	private static final String LOBID_RESOURCES = "lobid-resources";
+	private static final String LOBID_RESOURCES =
+			"lobid-resources-" + LocalDateTime.now().toLocalDate() + "-"
+					+ LocalDateTime.now().toLocalTime();
 	private static final String N_TRIPLE = "N-TRIPLE";
 	private static final String TEST_FILENAME = "hbz01.es.nt";
 
