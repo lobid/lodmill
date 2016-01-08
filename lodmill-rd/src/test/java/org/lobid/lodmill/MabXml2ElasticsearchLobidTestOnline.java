@@ -22,9 +22,9 @@ public final class MabXml2ElasticsearchLobidTestOnline {
 	@Test
 	public void testOnline() {
 		transportClient = new TransportClient(
-				ImmutableSettings.settingsBuilder().put("cluster.name", "weywot"));
+				ImmutableSettings.settingsBuilder().put("cluster.name", "lobid-gaia"));
 		MabXml2ElasticsearchLobidTest
 				.buildAndExecuteFlow(transportClient.addTransportAddress(
-						new InetSocketTransportAddress("weywot2.hbz-nrw.de", 9300)));
+						new InetSocketTransportAddress("gaia.hbz-nrw.de", 9300)));
 	}
 }
