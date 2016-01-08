@@ -850,9 +850,7 @@
 			</choose>
 		</combine>
 		<!-- only contributor, not creator -->
-		<data source="2?[02468][bcefp][12].9" name="@contributorCorporateBodyId">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
+
 		<data source="2?[02468][bcfep][12].k" name="@nameOfContributingCorporateBodyK">
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
@@ -864,8 +862,8 @@
 		</combine>
 		<data source="2?[02468][bcfep][12].b" name="@nameOfContributingCorporateBodyB"/>
 		<combine name="@nameOfContributingCorporateBodyKB" value="${k}. ${b}">
-			<data source="@nameOfContributingCorporateBodyB" name="b"/>
 			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+			<data source="@nameOfContributingCorporateBodyB" name="b"/>
 		</combine>
 		<combine name="@nameOfContributingCorporateBodyKHB" value="${k} &lt;${h}&gt;. ${b}">
 			<data source="@nameOfContributingCorporateBodyB" name="b"/>
@@ -873,13 +871,16 @@
 			<data source="@nameOfContributingCorporateBodyK" name="k"/>
 		</combine>
 		<combine name="@nameOfContributingCorporateBody" value="${a}" reset="true">
-			<choose name="a" flushWith="2?[02468][bcfep][12].?">
+			<choose name="a" flushWith="@contributorCorporateBodyId">
 				<data source="@nameOfContributingCorporateBodyKHB"/>
 				<data source="@nameOfContributingCorporateBodyKB"/>
 				<data source="@nameOfContributingCorporateBodyKH"/>
 				<data source="@nameOfContributingCorporateBodyK"/>
 			</choose>
 		</combine>
+		<data source="2?[02468][bcefp][12].9" name="@contributorCorporateBodyId">
+			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+		</data>
 		<combine name="@preferredNameConcatEvent" value="${n} ${e}, ${d}, ${c}"
 			sameEntity="true">
 			<data source="[29]?[02478][-abcfep][12].n" name="n"/>
@@ -1181,7 +1182,8 @@
 			<data source="@subjectNotAPerson|@creatorCorporateBodyId|@contributorCorporateBodyId"/>
 		</combine>
 		<!-- START contributor/creator -->
-		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true"
+			reset="true">
 			<data source="@preferredName" name="a">
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
@@ -1195,6 +1197,11 @@
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
 			sameEntity="true" flushWith="@contributorCorporateBodyId">
 			<data source="@nameOfContributingCorporateBody" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].k" name="a"/>
 		</combine>
 		<combine name="@preferredNameP" value="${a}" sameEntity="true">
 			<data source="@subjectLinks"/>
@@ -1224,11 +1231,7 @@
 			<data source="@subjectLinks"/>
 			<data source="9[01234][27]-[-12].g" name="a"/>
 		</combine>
-		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
-			sameEntity="true">
-			<data source="@subjectLinks"/>
-			<data source="9[01234][27]-[-12].k" name="a"/>
-		</combine>
+
 		<!-- /subjects -->
 		<choose name="@preferredName"
 			flushWith="@subjectLinks|@preferredNameP|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId">
