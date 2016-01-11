@@ -466,11 +466,8 @@
 		<!-- ########## title -->
 		<!-- ####################### -->
 		<data source="304[-a]1.a" name="http://purl.org/dc/terms/alternative"/>
-		<data source="310[-ab][-12].a" name="@title"/>
-		<data source="@title" name="http://purl.org/dc/terms/title">
-			<replace pattern="&gt;" with=""/>
-			<replace pattern="&lt;" with=""/>
-		</data>
+		<data source="310[-ab][-12].a" name="@title310"/>
+		<data source="@title310" name="@title"/>
 		<!-- has other title information. If no title exists yet, use these (331 or 333) as title. -->
 		<data source="331[-ab][-1].a" name="@titleRemainder331"/>
 		<data source="333[-ab][-1].a" name="@titleRemainder333"/>
@@ -478,6 +475,8 @@
 			<if>
 				<none>
 					<data source="@title"/>
+					<data source="@titleRemainder331Superordination"/>
+					<data source="085x1.l"/>
 				</none>
 			</if>
 			<data source="@titleRemainder331" name="title"/>
@@ -486,12 +485,23 @@
 			<if>
 				<none>
 					<data source="@title"/>
+					<data source="@titleRemainder331"/>
 				</none>
 			</if>
 			<data source="@titleRemainder333" name="title"/>
 		</combine>
-		<data source="@titleRemainder2title331" name="@title"/>
-		<data source="@titleRemainder2title333" name="@title"/>
+		<combine name="@085" value="${a}">
+			<concat delimiter=" / " name="a">
+				<data source="085x1.l"/>
+			</concat>
+			<data source="@titleRemainder331"/>
+		</combine>
+		<combine name="@titleRemainder2title331+085" value="${a}">
+			<concat delimiter=" / " name="a">
+				<data source="@titleRemainder331"/>
+				<data source="@085"/>
+			</concat>
+		</combine>
 		<combine name="@otherTitle" value="${titleRemainder}">
 			<if>
 				<none>
@@ -522,7 +532,8 @@
 		<!-- generating title using the superordination -->
 		<data source="331[-ab][2].a" name="@titleRemainder331Superordination"/>
 		<!-- ... by concatenating fields. Two fields are optional, one mandatory -->
-		<combine name="@title" value="${a}${b}${c}" flushWith="@titleRemainder331Superordination">
+		<combine name="@titleRemainder331Superordination2title" value="${a}${b}${c}"
+			flushWith="@titleRemainder331Superordination">
 			<data source="@titleRemainder331Superordination" name="a"/>
 			<choose name="b" flushWith="@titleRemainder331Superordination">
 				<data source="090-[-1].a">
@@ -537,6 +548,26 @@
 			</data>
 		</combine>
 		<!-- ####################### "$[ns-bibo]volume -->
+		<combine name="http://purl.org/dc/terms/title" value="${a}">
+			<choose name="a">
+				<data source="@titleRemainder331Superordination2title">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+				<data source="@title310">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+				<data source="@titleRemainder2title331+085">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+				<data source="@titleRemainder2title333">
+					<replace pattern="&gt;" with=""/>
+					<replace pattern="&lt;" with=""/>
+				</data>
+			</choose>
+		</combine>
 		<!-- ########## date issued -->
 		<!-- ####################### -->
 		<!-- range of date. Only if 021 not exists but one of 425[bc]. Take 4 digits. -->
@@ -841,8 +872,8 @@
 			<data source="@nameOfCreatingCorporateBodyH" name="h"/>
 			<data source="@nameOfCreatingCorporateBodyK" name="k"/>
 		</combine>
-		<combine name="@nameOfCreatingCorporateBody" value="${a}" reset="true"> <!-- no Verweisungsformen (aka alternate labels) -->
-			<choose name="a" flushWith="2?[02468][-a][12].?">
+		<combine name="@nameOfCreatingCorporateBody" value="${a}" flushWith="@creatorCorporateBodyId"> <!-- no Verweisungsformen (aka alternate labels) -->
+			<choose name="a" flushWith="@creatorCorporateBodyId">
 				<data source="@nameOfCreatingCorporateBodyKHB"/>
 				<data source="@nameOfCreatingCorporateBodyKB"/>
 				<data source="@nameOfCreatingCorporateBodyKH"/>
@@ -850,9 +881,6 @@
 			</choose>
 		</combine>
 		<!-- only contributor, not creator -->
-		<data source="2?[02468][bcefp][12].9" name="@contributorCorporateBodyId">
-			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
-		</data>
 		<data source="2?[02468][bcfep][12].k" name="@nameOfContributingCorporateBodyK">
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
@@ -864,22 +892,26 @@
 		</combine>
 		<data source="2?[02468][bcfep][12].b" name="@nameOfContributingCorporateBodyB"/>
 		<combine name="@nameOfContributingCorporateBodyKB" value="${k}. ${b}">
-			<data source="@nameOfContributingCorporateBodyB" name="b"/>
 			<data source="@nameOfContributingCorporateBodyK" name="k"/>
+			<data source="@nameOfContributingCorporateBodyB" name="b"/>
 		</combine>
 		<combine name="@nameOfContributingCorporateBodyKHB" value="${k} &lt;${h}&gt;. ${b}">
 			<data source="@nameOfContributingCorporateBodyB" name="b"/>
 			<data source="@nameOfContributingCorporateBodyH" name="h"/>
 			<data source="@nameOfContributingCorporateBodyK" name="k"/>
 		</combine>
-		<combine name="@nameOfContributingCorporateBody" value="${a}" reset="true">
-			<choose name="a" flushWith="2?[02468][bcfep][12].?">
+		<combine name="@nameOfContributingCorporateBody" value="${a}"
+			flushWith="@contributorCorporateBodyId">
+			<choose name="a" flushWith="@contributorCorporateBodyId">
 				<data source="@nameOfContributingCorporateBodyKHB"/>
 				<data source="@nameOfContributingCorporateBodyKB"/>
 				<data source="@nameOfContributingCorporateBodyKH"/>
 				<data source="@nameOfContributingCorporateBodyK"/>
 			</choose>
 		</combine>
+		<data source="2?[02468][bcefp][12].9" name="@contributorCorporateBodyId">
+			<regexp match="\(DE-588\)(.*)" format="http://d-nb.info/gnd/${1}"/>
+		</data>
 		<combine name="@preferredNameConcatEvent" value="${n} ${e}, ${d}, ${c}"
 			sameEntity="true">
 			<data source="[29]?[02478][-abcfep][12].n" name="n"/>
@@ -1181,7 +1213,8 @@
 			<data source="@subjectNotAPerson|@creatorCorporateBodyId|@contributorCorporateBodyId"/>
 		</combine>
 		<!-- START contributor/creator -->
-		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true">
+		<combine name="$[ns-gnd]preferredNameForThePerson" value="${a}" sameEntity="true"
+			reset="true">
 			<data source="@preferredName" name="a">
 				<replace pattern="&gt;&gt;" with=""/>
 				<replace pattern="&lt;&lt;" with=""/>
@@ -1189,12 +1222,17 @@
 			<data source="@creatorPersonId|@contributorPersonId"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
-			sameEntity="true" flushWith="@creatorCorporateBodyId">
+			flushWith="@creatorCorporateBodyId">
 			<data source="@nameOfCreatingCorporateBody" name="a"/>
 		</combine>
 		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
-			sameEntity="true" flushWith="@contributorCorporateBodyId">
+			flushWith="@contributorCorporateBodyId">
 			<data source="@nameOfContributingCorporateBody" name="a"/>
+		</combine>
+		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
+			sameEntity="true">
+			<data source="@subjectLinks"/>
+			<data source="9[01234][27]-[-12].k" name="a"/>
 		</combine>
 		<combine name="@preferredNameP" value="${a}" sameEntity="true">
 			<data source="@subjectLinks"/>
@@ -1223,11 +1261,6 @@
 			sameEntity="true">
 			<data source="@subjectLinks"/>
 			<data source="9[01234][27]-[-12].g" name="a"/>
-		</combine>
-		<combine name="$[ns-gnd]preferredNameForTheCorporateBody" value="${a}"
-			sameEntity="true">
-			<data source="@subjectLinks"/>
-			<data source="9[01234][27]-[-12].k" name="a"/>
 		</combine>
 		<!-- /subjects -->
 		<choose name="@preferredName"
@@ -1709,6 +1742,10 @@
 		<!-- ########## abstract -->
 		<!-- ####################### -->
 		<data source="750?[-1].a" name="http://purl.org/dc/terms/abstract"/>
+		<!-- ####################### -->
+		<!-- ########## note -->
+		<!-- ####################### -->
+		<data source="501-1.a" name="http://www.w3.org/2004/02/skos/core#note"/>
 		<!-- ####################### -->
 		<!-- ############### statistics -->
 		<!-- ####################### -->

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -58,7 +59,9 @@ public final class MabXml2ElasticsearchLobidTest {
 			LoggerFactory.getLogger(MabXml2ElasticsearchLobidTest.class);
 	private static Node node;
 	protected static Client client;
-	private static final String LOBID_RESOURCES = "lobid-resources";
+	private static final String LOBID_RESOURCES =
+			"lobid-resources-" + LocalDateTime.now().toLocalDate() + "-"
+					+ LocalDateTime.now().toLocalTime();
 	private static final String N_TRIPLE = "N-TRIPLE";
 	private static final String TEST_FILENAME = "hbz01.es.nt";
 
