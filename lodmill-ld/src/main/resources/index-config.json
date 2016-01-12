@@ -7,14 +7,28 @@
 									"type" : "edgeNGram",
 									"max_gram" : 40,
 									"min_gram" : 1
+							 },
+							 "snowball" : {
+								"type" : "snowball",
+								"language" : "German2"
 							 }
 						},
 						"analyzer" : {
+							 "german_analyzer" : {
+								"type" : "custom",
+								"tokenizer" : "letter",
+								"filter" : [
+									"lowercase",
+									"stop",
+									"snowball"
+								]
+							 },
 							 "ngram_analyzer" : {
 									"filter" : [
 										 "lowercase",
 										 "stop",
-										 "ngram"
+										 "ngram",
+										 "snowball"
 									],
 									"tokenizer" : "letter",
 									"type" : "custom"
@@ -41,7 +55,7 @@
 						"http://www.w3.org/2004/02/skos/core#prefLabel" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -62,7 +76,7 @@
 									"@value" : {
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						}
@@ -71,38 +85,42 @@
 			"json-ld-lobid-orgs" : {
 				 "date_detection" : false,
 				 "properties" : {
-						"http://www.w3.org/2004/02/skos/core#prefLabel" : {
-							 "properties" : {
-									"@value" : {
-										 "index_analyzer" : "ngram_analyzer",
-										 "type" : "string",
-										 "search_analyzer" : "standard"
-									}
-							 }
-						},
-						"http://purl.org/dc/terms/identifier" : {
-							 "properties" : {
-									"@value" : {
-										 "search_analyzer" : "id_analyzer",
-										 "index_analyzer" : "id_analyzer",
-										 "type" : "string"
-									}
-							 }
-						},
-						"http://xmlns.com/foaf/0.1/name" : {
-							 "properties" : {
-									"@value" : {
-										 "search_analyzer" : "standard",
-										 "type" : "string",
-										 "index_analyzer" : "ngram_analyzer"
-									}
-							 }
-						},
-						"@type" : {
-							 "index" : "not_analyzed",
-							 "type" : "string"
+					"@graph" : {
+						"properties" : {
+							"http://www.w3.org/2004/02/skos/core#prefLabel" : {
+								"properties" : {
+										"@value" : {
+											 "index_analyzer" : "ngram_analyzer",
+											 "type" : "string",
+											 "search_analyzer" : "german_analyzer"
+										}
+								 }
+							},
+							"http://purl.org/dc/terms/identifier" : {
+								 "properties" : {
+										"@value" : {
+											 "search_analyzer" : "id_analyzer",
+											 "index_analyzer" : "id_analyzer",
+											 "type" : "string"
+										}
+								 }
+							},
+							"http://xmlns.com/foaf/0.1/name" : {
+								 "properties" : {
+										"@value" : {
+											 "search_analyzer" : "german_analyzer",
+											 "type" : "string",
+											 "index_analyzer" : "ngram_analyzer"
+										}
+								 }
+							},
+							"@type" : {
+								 "index" : "not_analyzed",
+								 "type" : "string"
+							}
 						}
-				 }
+					}
+				}
 			},
 			"json-ld-lobid" : {
 				 "properties" : {
@@ -113,6 +131,30 @@
 												"@id" : {
 													 "index" : "not_analyzed",
 													 "type" : "string"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#multiVolumeWork" : {
+										 "properties" : {
+												"@id" : {
+													 "type" : "string",
+													 "index" : "not_analyzed"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#series" : {
+										 "properties" : {
+												"@id" : {
+													 "type" : "string",
+													 "index" : "not_analyzed"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#containedIn" : {
+										 "properties" : {
+												"@id" : {
+													 "type" : "string",
+													 "index" : "not_analyzed"
 												}
 										 }
 									},
@@ -137,6 +179,46 @@
 												"@id" : {
 													 "type" : "string",
 													 "index" : "not_analyzed"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#contributorLabel" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#nameOfContributingCorporateBody" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/dc/elements/1.1/coverage" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#subjectLabel" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#subjectChain" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
 												}
 										 }
 									},
@@ -176,7 +258,7 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "id_analyzer",
-													 "index" : "not_analyzed"
+													 "search_analyzer" : "id_analyzer"
 												}
 										 }
 									},
@@ -208,7 +290,7 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
@@ -239,7 +321,7 @@
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -248,7 +330,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForTheSubjectHeading" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -257,7 +339,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -323,7 +405,7 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
@@ -383,15 +465,24 @@
 												"@value" : {
 													 "index_analyzer" : "ngram_analyzer",
 													 "type" : "string",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
 									"http://purl.org/ontology/bibo/isbn" : {
 										 "properties" : {
 												"@value" : {
-													 "index" : "not_analyzed",
 													 "index_analyzer" : "id_analyzer",
+													 "search_analyzer" : "id_analyzer",
+													 "type" : "string"
+												}
+										 }
+									},
+									"http://purl.org/ontology/bibo/doi" : {
+										 "properties" : {
+												"@value" : {
+													 "analyzer" : "id_analyzer",
+													 "index" : "not_analyzed",
 													 "type" : "string"
 												}
 										 }
@@ -415,7 +506,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForTheWork" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "index_analyzer" : "ngram_analyzer",
 													 "type" : "string"
 												}
@@ -445,7 +536,7 @@
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -462,7 +553,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -473,14 +564,14 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -572,7 +663,7 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -586,7 +677,7 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -595,7 +686,7 @@
 									"@value" : {
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -615,7 +706,7 @@
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -626,14 +717,14 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -644,14 +735,14 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -660,7 +751,7 @@
 						"http://d-nb.info/standards/elementset/gnd#variantNameForTheFamily" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -671,14 +762,14 @@
 									"@value" : {
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer"
 									}
@@ -687,7 +778,7 @@
 						"http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer"
 									}
@@ -698,14 +789,14 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer"
 									}
@@ -716,7 +807,7 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -731,7 +822,7 @@
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheConferenceOrEvent" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
