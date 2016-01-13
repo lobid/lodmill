@@ -220,7 +220,6 @@ public class ElasticsearchIndexer
 				.isExists()) {
 			LOG.info("Going to CREATE new index " + indexName);
 			adminClient.prepareCreate(indexName).setSource(config()).execute()
-
 					.actionGet();
 		} else
 			LOG.info("Index already exists, going to UPDATE index " + indexName);
