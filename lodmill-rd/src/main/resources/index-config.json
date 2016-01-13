@@ -7,14 +7,28 @@
 									"type" : "edgeNGram",
 									"max_gram" : 40,
 									"min_gram" : 1
+							 },
+							 "snowball" : {
+								"type" : "snowball",
+								"language" : "German2"
 							 }
 						},
 						"analyzer" : {
+							 "german_analyzer" : {
+								"type" : "custom",
+								"tokenizer" : "letter",
+								"filter" : [
+									"lowercase",
+									"stop",
+									"snowball"
+								]
+							 },
 							 "ngram_analyzer" : {
 									"filter" : [
 										 "lowercase",
 										 "stop",
-										 "ngram"
+										 "ngram",
+										 "snowball"
 									],
 									"tokenizer" : "letter",
 									"type" : "custom"
@@ -41,7 +55,7 @@
 						"http://www.w3.org/2004/02/skos/core#prefLabel" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -62,7 +76,7 @@
 									"@value" : {
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						}
@@ -78,7 +92,7 @@
 										"@value" : {
 											 "index_analyzer" : "ngram_analyzer",
 											 "type" : "string",
-											 "search_analyzer" : "standard"
+											 "search_analyzer" : "german_analyzer"
 										}
 								 }
 							},
@@ -94,7 +108,7 @@
 							"http://xmlns.com/foaf/0.1/name" : {
 								 "properties" : {
 										"@value" : {
-											 "search_analyzer" : "standard",
+											 "search_analyzer" : "german_analyzer",
 											 "type" : "string",
 											 "index_analyzer" : "ngram_analyzer"
 										}
@@ -168,6 +182,46 @@
 												}
 										 }
 									},
+									"http://purl.org/lobid/lv#contributorLabel" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#nameOfContributingCorporateBody" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/dc/elements/1.1/coverage" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#subjectLabel" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/lobid/lv#subjectChain" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
 									"http://id.loc.gov/vocabulary/relators/mus" : {
 										 "properties" : {
 												"@id" : {
@@ -236,7 +290,7 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
@@ -267,7 +321,7 @@
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -276,7 +330,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForTheSubjectHeading" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -285,7 +339,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -351,7 +405,7 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
@@ -411,7 +465,7 @@
 												"@value" : {
 													 "index_analyzer" : "ngram_analyzer",
 													 "type" : "string",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
@@ -452,7 +506,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForTheWork" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "index_analyzer" : "ngram_analyzer",
 													 "type" : "string"
 												}
@@ -482,7 +536,7 @@
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -499,7 +553,7 @@
 									"http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -510,14 +564,14 @@
 												"@value" : {
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer",
-													 "search_analyzer" : "standard"
+													 "search_analyzer" : "german_analyzer"
 												}
 										 }
 									},
 									"http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody" : {
 										 "properties" : {
 												"@value" : {
-													 "search_analyzer" : "standard",
+													 "search_analyzer" : "german_analyzer",
 													 "type" : "string",
 													 "index_analyzer" : "ngram_analyzer"
 												}
@@ -609,7 +663,7 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -623,7 +677,7 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -632,7 +686,7 @@
 									"@value" : {
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -652,7 +706,7 @@
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheWork" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -663,14 +717,14 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheSubjectHeading" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -681,14 +735,14 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -697,7 +751,7 @@
 						"http://d-nb.info/standards/elementset/gnd#variantNameForTheFamily" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
@@ -708,14 +762,14 @@
 									"@value" : {
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#variantNameForThePlaceOrGeographicName" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer"
 									}
@@ -724,7 +778,7 @@
 						"http://d-nb.info/standards/elementset/gnd#variantNameForTheConferenceOrEvent" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer"
 									}
@@ -735,14 +789,14 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "type" : "string",
 										 "index_analyzer" : "ngram_analyzer"
 									}
@@ -753,7 +807,7 @@
 									"@value" : {
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string",
-										 "search_analyzer" : "standard"
+										 "search_analyzer" : "german_analyzer"
 									}
 							 }
 						},
@@ -768,7 +822,7 @@
 						"http://d-nb.info/standards/elementset/gnd#preferredNameForTheConferenceOrEvent" : {
 							 "properties" : {
 									"@value" : {
-										 "search_analyzer" : "standard",
+										 "search_analyzer" : "german_analyzer",
 										 "index_analyzer" : "ngram_analyzer",
 										 "type" : "string"
 									}
