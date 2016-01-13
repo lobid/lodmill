@@ -44,6 +44,9 @@
 			}
 	 },
 	 "mappings" : {
+			"_default_": {
+				 "_all": { "analyzer": "german_analyzer" }
+			},
 			"json-ld-nwbib" : {
 				 "date_detection" : false,
 				 "properties" : {
@@ -215,6 +218,38 @@
 										 }
 									},
 									"http://purl.org/lobid/lv#subjectChain" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/dc/terms/title" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://rdvocab.info/Elements/otherTitleInformation" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://rdvocab.info/Elements/statementOfResponsibility" : {
+										 "properties" : {
+												"@value" : {
+													 "type" : "string",
+													 "analyzer" : "german_analyzer"
+												}
+										 }
+									},
+									"http://purl.org/dc/elements/1.1/publisher" : {
 										 "properties" : {
 												"@value" : {
 													 "type" : "string",
