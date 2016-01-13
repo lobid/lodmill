@@ -84,12 +84,6 @@ public final class MabXml2ElasticsearchLobidTest {
 		commonTestRoutine(new RdfModel2ElasticsearchEtikettJsonLd(), ".new");
 	}
 
-	@SuppressWarnings("static-method")
-	@Test
-	public void testFlow_with_old_Converter() {
-		commonTestRoutine(new RdfModel2ElasticsearchJsonLd(), ".old");
-	}
-
 	private static void commonTestRoutine(
 			DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> jsonConverter,
 			String suffix) {
