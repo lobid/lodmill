@@ -227,7 +227,13 @@
 										 "properties" : {
 												"@value" : {
 													 "type" : "string",
-													 "analyzer" : "german_analyzer"
+													 "analyzer" : "german_analyzer",
+													 "fields": {
+														"raw": {
+															"type": "string",
+															"index": "not_analyzed"
+														}
+													 }
 												}
 										 }
 									},
@@ -629,7 +635,7 @@
 									"http://purl.org/lobid/lv#urn" : {
 										 "properties" : {
 												"@value" : {
-													 "index" : "not_analyzed",
+													 "analyzer" : "id_analyzer",
 													 "type" : "string"
 												}
 										 }
