@@ -227,7 +227,13 @@
 										 "properties" : {
 												"@value" : {
 													 "type" : "string",
-													 "analyzer" : "german_analyzer"
+													 "analyzer" : "german_analyzer",
+													 "fields": {
+														"raw": {
+															"type": "string",
+															"index": "not_analyzed"
+														}
+													 }
 												}
 										 }
 									},
