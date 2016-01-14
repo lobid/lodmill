@@ -4,18 +4,12 @@ package org.lobid.lodmill;
 
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
 import java.io.StringWriter;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,17 +27,12 @@ import org.elasticsearch.node.Node;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openrdf.rio.RDFFormat;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.github.jsonldjava.core.JsonLdError;
 import com.github.jsonldjava.core.JsonLdProcessor;
 import com.github.jsonldjava.jena.JenaTripleCallback;
 import com.github.jsonldjava.utils.JSONUtils;
 import com.hp.hpl.jena.rdf.model.Model;
-
-import de.hbz.lobid.helper.RdfUtils;
 
 /**
  * Transform hbz01 Aleph Mab XML catalog data into lobid elasticsearch JSON-LD.
@@ -55,8 +44,6 @@ import de.hbz.lobid.helper.RdfUtils;
  */
 @SuppressWarnings("javadoc")
 public final class MabXml2ElasticsearchLobidTest {
-	private static final Logger LOG =
-			LoggerFactory.getLogger(MabXml2ElasticsearchLobidTest.class);
 	private static Node node;
 	protected static Client client;
 	private static final String LOBID_RESOURCES =
@@ -92,94 +79,12 @@ public final class MabXml2ElasticsearchLobidTest {
 			buildAndExecuteFlow(client, jsonConverter);
 			String ntriples = getElasticsearchDocumentsAsNtriples();
 			FileUtils.writeStringToFile(testFile, ntriples, false);
-			String actualRdfString = getRdfString(testFile.getName());
-			String expectedRdfString = getRdfString(TEST_FILENAME);
-			boolean result = rdfCompare(actualRdfString, expectedRdfString);
 			AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
 					new File(Thread.currentThread().getContextClassLoader()
 							.getResource(TEST_FILENAME).toURI()));
-			org.junit.Assert.assertTrue(result);
 			// if everything is ok - delete the output files
 			testFile.deleteOnExit();
 		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	private static String getRdfString(String rdfFilename) {
-		LOG.info("Read rdf " + rdfFilename);
-		try (InputStream in = Thread.currentThread().getContextClassLoader()
-				.getResourceAsStream(rdfFilename)) {
-			String rdfString = RdfUtils.readRdfToString(in, RDFFormat.NTRIPLES,
-					RDFFormat.NTRIPLES, "");
-			return rdfString;
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-	}
-
-	private static boolean rdfCompare(String actual, String expected) {
-		String actualWithoutBlankNodes = removeBlankNodes(actual);
-		String expectedWithoutBlankNodes = removeBlankNodes(expected);
-		String[] actualSorted = sorted(actualWithoutBlankNodes);
-		String[] expectedSorted = sorted(expectedWithoutBlankNodes);
-		return findErrors(actualSorted, expectedSorted);
-	}
-
-	private static boolean findErrors(String[] actualSorted,
-			String[] expectedSorted) {
-		boolean result = true;
-		if (actualSorted.length != expectedSorted.length) {
-			LOG.error("Expected size of " + expectedSorted.length
-					+ " is different to actual size " + actualSorted.length);
-		} else {
-			LOG.info("Expected size of " + expectedSorted.length
-					+ " is different to actual size " + actualSorted.length);
-		}
-		for (int i = 0; i < actualSorted.length; i++) {
-			if (actualSorted[i].equals(expectedSorted[i])) {
-				LOG.debug("Actual , Expected");
-				LOG.debug(actualSorted[i]);
-				LOG.debug(expectedSorted[i]);
-				LOG.debug("");
-			} else {
-				LOG.error("Error line " + i);
-				LOG.error("Actual , Expected");
-				LOG.error(actualSorted[i]);
-				LOG.error(expectedSorted[i]);
-				LOG.error("");
-				result = false;
-				break;
-			}
-		}
-		return result;
-	}
-
-	private static String removeBlankNodes(String str) {
-		return str.replaceAll("_:[^\\ ]*", "")
-				.replaceAll("\\^\\^<http://www.w3.org/2001/XMLSchema#string>", "");
-	}
-
-	private static String[] sorted(String actualWithoutBlankNodes) {
-		String[] list = createList(actualWithoutBlankNodes);
-		ArrayList<String> words = new ArrayList<>(Arrays.asList(list));
-		Collections.sort(words, String.CASE_INSENSITIVE_ORDER);
-		LOG.debug(words.toString());
-		String[] ar = new String[words.size()];
-		return words.toArray(ar);
-	}
-
-	private static String[] createList(String actualWithoutBlankNodes) {
-		try (BufferedReader br =
-				new BufferedReader(new StringReader(actualWithoutBlankNodes))) {
-			List<String> result = new ArrayList<>();
-			String line;
-			while ((line = br.readLine()) != null) {
-				result.add(line);
-			}
-			String[] ar = new String[result.size()];
-			return result.toArray(ar);
-		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
 	}
