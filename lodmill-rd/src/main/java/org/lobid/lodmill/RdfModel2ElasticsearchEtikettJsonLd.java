@@ -53,6 +53,30 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 	private static String mainNodeId;
 	private static final String TYPE_ITEM = "json-ld-lobid-item";
 	private static final String TYPE_RESOURCE = "json-ld-lobid";
+	private static Object JSONLD_CONTEXT;
+
+	/**
+	 * Provides default constructor. Every json ld document gets the whole json ld
+	 * context defined in @see{EtikettMaker};
+	 */
+	public RdfModel2ElasticsearchEtikettJsonLd() {
+		this(Globals.etikette.getContext().get("@context"));
+	}
+
+	/**
+	 * Provides a json ld context. May be a json string or a http URI as string.
+	 * If its an URI the URI will we the value of the @context-field. If it's a
+	 * whole json string, the whole string is added under the @context field:
+	 * 
+	 * @param jsonLdContext May be a json as string or a http uri as string.
+	 */
+	public RdfModel2ElasticsearchEtikettJsonLd(final Object jsonLdContext) {
+		RdfModel2ElasticsearchEtikettJsonLd.JSONLD_CONTEXT = jsonLdContext;
+		if (jsonLdContext.toString().substring(0, 4).equalsIgnoreCase("http"))
+			LOG.info("Using context URI: " + jsonLdContext);
+		else
+			LOG.info("Adding json ld context to every document");
+	}
 
 	@Override
 	public void process(final Model originModel) {
@@ -118,7 +142,7 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 			Map<String, Object> jsonMap =
 					jc.convert(new ByteArrayInputStream(out.toByteArray()),
 							org.openrdf.rio.RDFFormat.NTRIPLES, "http://lobid.org",
-							Globals.etikette.getContext().get("@context"));
+							RdfModel2ElasticsearchEtikettJsonLd.JSONLD_CONTEXT);
 			getReceiver().process(addInternalProperties(new HashMap<String, String>(),
 					id, JsonConverter.getObjectMapper().writeValueAsString(jsonMap)));
 		} catch (IOException e) {
