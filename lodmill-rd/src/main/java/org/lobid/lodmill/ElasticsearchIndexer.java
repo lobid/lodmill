@@ -218,7 +218,8 @@ public class ElasticsearchIndexer
 		IndicesAdminClient adminClient = client.admin().indices();
 		if (!adminClient.prepareExists(indexName).execute().actionGet()
 				.isExists()) {
-			LOG.info("Going to CREATE new index " + indexName);
+			LOG.info("Going to CREATE new index " + indexName + " at cluster "
+					+ this.client.settings().get("cluster.name"));
 			adminClient.prepareCreate(indexName).setSource(config()).execute()
 					.actionGet();
 		} else
