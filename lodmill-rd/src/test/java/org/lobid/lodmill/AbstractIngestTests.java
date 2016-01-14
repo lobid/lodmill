@@ -14,6 +14,7 @@ import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 import org.culturegraph.mf.framework.DefaultStreamPipe;
 import org.culturegraph.mf.framework.ObjectReceiver;
@@ -99,8 +100,6 @@ public abstract class AbstractIngestTests {
 	 */
 	public static void compareFilesDefaultingBNodes(final File generatedFile,
 			final File testFile) {
-		assertSetSize(linesInFileToSetDefaultingBNodes(testFile),
-				linesInFileToSetDefaultingBNodes(generatedFile));
 		assertSetElements(linesInFileToSetDefaultingBNodes(testFile),
 				linesInFileToSetDefaultingBNodes(generatedFile));
 	}
@@ -135,16 +134,26 @@ public abstract class AbstractIngestTests {
 		}
 	}
 
-	private static void assertSetSize(final SortedSet<String> expectedSet,
+	private static void assertSetElements(final SortedSet<String> expectedSet,
 			final SortedSet<String> actualSet) {
-		if (expectedSet.size() != actualSet.size()) {
-			final SortedSet<String> missingSet = new TreeSet<>(expectedSet);
-			missingSet.removeAll(actualSet);
-			LOG.error(
-					"Missing expected result set entries. Switch loglevel to debug to get details!");
-			LOG.debug("Missing expected result set entries: " + missingSet);
+		String errorMessage = diff(expectedSet, actualSet, "Missing", "- ");
+		errorMessage += diff(actualSet, expectedSet, "Surplus", "+ ");
+		if (!errorMessage.isEmpty())
+			Assert.fail(errorMessage);
+	}
+
+	private static String diff(final SortedSet<String> expectedSet,
+			final SortedSet<String> actualSet, String message, String prefix) {
+		SortedSet<String> diffSet;
+		diffSet = new TreeSet<>(expectedSet);
+		diffSet.removeAll(actualSet);
+		String errorMessage = "";
+		if (diffSet.size() > 0) {
+			String s = diffSet.stream()
+					.collect(Collectors.joining("\n" + prefix, prefix, ""));
+			errorMessage = "\n" + message + " result set entries:\n" + s;
 		}
-		Assert.assertEquals(expectedSet.size(), actualSet.size());
+		return errorMessage;
 	}
 
 	private static SortedSet<String> asSet(final Scanner scanner) {
@@ -157,23 +166,6 @@ public abstract class AbstractIngestTests {
 			}
 		}
 		return set;
-	}
-
-	private static void assertSetElements(final SortedSet<String> expectedSet,
-			final SortedSet<String> actualSet) {
-		final Iterator<String> expectedIterator = expectedSet.iterator();
-		final Iterator<String> actualIterator = actualSet.iterator();
-		for (int i = 0; i < expectedSet.size(); i++) {
-			String expected = expectedIterator.next();
-			String actual = actualIterator.next();
-			if (!expected.equals(actual)) {
-				LOG.error("Actual , Expected");
-				LOG.error(actual);
-				LOG.error(expected);
-				break;
-			}
-		}
-		Assert.assertEquals(expectedSet, actualSet);
 	}
 
 	public void dot(final String fname) {
