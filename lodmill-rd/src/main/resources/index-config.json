@@ -16,7 +16,7 @@
 						"analyzer" : {
 							 "german_analyzer" : {
 								"type" : "custom",
-								"tokenizer" : "letter",
+								"tokenizer" : "standard",
 								"filter" : [
 									"lowercase",
 									"stop",
