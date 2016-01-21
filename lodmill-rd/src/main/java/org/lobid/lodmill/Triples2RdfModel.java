@@ -88,14 +88,18 @@ public class Triples2RdfModel
 
 	@Override
 	public void process(final String str) {
-		Model model = ModelFactory.createDefaultModel();
-		try {
-			model.read(new StringReader(str), "test:uri" + count++, serialization);
-			if (inferencing)
-				reasoning(model);
-			getReceiver().process(model);
-		} catch (Exception e) {
-			LOG.error("Exception in " + str, e);
+		if (str.startsWith("<" + PipeEncodeTriples.DUMMY_SUBJECT)) {
+			LOG.warn("Model without subject - skipping. Model size=" + str.length());
+		} else {
+			Model model = ModelFactory.createDefaultModel();
+			try {
+				model.read(new StringReader(str), "test:uri" + count++, serialization);
+				if (inferencing)
+					reasoning(model);
+				getReceiver().process(model);
+			} catch (Exception e) {
+				LOG.error("Exception in " + str, e);
+			}
 		}
 	}
 

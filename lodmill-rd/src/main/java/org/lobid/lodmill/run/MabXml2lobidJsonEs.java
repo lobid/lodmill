@@ -7,6 +7,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
+import org.culturegraph.mf.framework.DefaultObjectPipe;
+import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.pipe.BatchLogger;
@@ -17,9 +19,11 @@ import org.culturegraph.mf.stream.source.TarReader;
 import org.lobid.lodmill.ElasticsearchIndexer;
 import org.lobid.lodmill.MabXmlHandler;
 import org.lobid.lodmill.PipeEncodeTriples;
-import org.lobid.lodmill.RdfModel2ElasticsearchJsonLd;
+import org.lobid.lodmill.RdfModel2ElasticsearchEtikettJsonLd;
 import org.lobid.lodmill.Stats;
 import org.lobid.lodmill.Triples2RdfModel;
+
+import com.hp.hpl.jena.rdf.model.Model;
 
 /**
  * Transform hbz01 Aleph Mab XML catalog data into lobid elasticsearch ready
@@ -54,7 +58,9 @@ public final class MabXml2lobidJsonEs {
 					+ String.format(usage, " ", " ", " ", " ", " ", " "));
 			System.exit(-1);
 		}
-
+		DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> jsonConverter =
+				new RdfModel2ElasticsearchEtikettJsonLd(
+						"http://lobid.org/download/contextTmp.json");
 		// hbz catalog transformation
 		final FileOpener opener = new FileOpener();
 		if (inputPath.toLowerCase().endsWith("bz2")) {
@@ -80,8 +86,8 @@ public final class MabXml2lobidJsonEs {
 		streamTee.addReceiver(stats);
 		streamTee.addReceiver(batchLogger);
 		batchLogger.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
-				.setReceiver(new RdfModel2ElasticsearchJsonLd())
-				.setReceiver(objectBatchLogger).setReceiver(esIndexer);
+				.setReceiver(jsonConverter).setReceiver(objectBatchLogger)
+				.setReceiver(esIndexer);
 		opener.setReceiver(new TarReader()).setReceiver(new XmlDecoder())
 				.setReceiver(new MabXmlHandler())
 				.setReceiver(

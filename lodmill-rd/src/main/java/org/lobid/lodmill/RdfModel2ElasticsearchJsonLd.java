@@ -87,8 +87,8 @@ public final class RdfModel2ElasticsearchJsonLd
 						if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
 							toJson(submodel, subjectResource.getURI().toString(), "");
 						}
-					} else
-						if (subjectResource.getURI().toString().startsWith(LOBID_DOMAIN))
+					} else if (subjectResource.getURI().toString()
+							.startsWith(LOBID_DOMAIN))
 						mainNodeId = subjectResource.getURI().toString();
 				}
 				if (!submodel.isEmpty()) {

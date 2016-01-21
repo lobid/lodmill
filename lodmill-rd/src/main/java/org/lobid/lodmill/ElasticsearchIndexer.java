@@ -115,7 +115,7 @@ public class ElasticsearchIndexer
 
 	@Override
 	public void process(final HashMap<String, String> json) {
-		LOG.info("Try to index " + json.get("_id"));
+		LOG.debug("Try to index " + json.get("_id"));
 		updateRequest = new UpdateRequest(indexName,
 				json.get(Properties.TYPE.getName()), json.get(Properties.ID.getName()));
 		updateRequest.doc(json.get(Properties.GRAPH.getName()));
@@ -218,9 +218,9 @@ public class ElasticsearchIndexer
 		IndicesAdminClient adminClient = client.admin().indices();
 		if (!adminClient.prepareExists(indexName).execute().actionGet()
 				.isExists()) {
-			LOG.info("Going to CREATE new index " + indexName);
+			LOG.info("Going to CREATE new index " + indexName + " at cluster "
+					+ this.client.settings().get("cluster.name"));
 			adminClient.prepareCreate(indexName).setSource(config()).execute()
-
 					.actionGet();
 		} else
 			LOG.info("Index already exists, going to UPDATE index " + indexName);

@@ -23,8 +23,10 @@ public final class MabXml2ElasticsearchLobidTestOnline {
 	public void testOnline() {
 		transportClient = new TransportClient(
 				ImmutableSettings.settingsBuilder().put("cluster.name", "lobid-gaia"));
-		MabXml2ElasticsearchLobidTest
-				.buildAndExecuteFlow(transportClient.addTransportAddress(
-						new InetSocketTransportAddress("gaia.hbz-nrw.de", 9300)));
+		MabXml2ElasticsearchLobidTest.buildAndExecuteFlow(
+				transportClient.addTransportAddress(
+						new InetSocketTransportAddress("gaia.hbz-nrw.de", 9300)),
+				new RdfModel2ElasticsearchEtikettJsonLd(
+						"http://lobid.org/download/contextTmp.json"));
 	}
 }

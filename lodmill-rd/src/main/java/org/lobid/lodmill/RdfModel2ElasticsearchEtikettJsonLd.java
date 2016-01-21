@@ -5,8 +5,6 @@ package org.lobid.lodmill;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,11 +18,6 @@ import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.jsonldjava.core.JsonLdError;
-import com.github.jsonldjava.core.JsonLdOptions;
-import com.github.jsonldjava.core.JsonLdProcessor;
-import com.github.jsonldjava.jena.JenaRDFParser;
-import com.github.jsonldjava.utils.JSONUtils;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.ResIterator;
@@ -50,8 +43,7 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 	private static final Logger LOG =
 			LoggerFactory.getLogger(RdfModel2ElasticsearchEtikettJsonLd.class);
 	// the items will have their own index type and ES parents
-	private static final String PROPERTY_TO_PARENT =
-			"http://purl.org/vocab/frbr/core#exemplarOf";
+	private static final String PROPERTY_TO_PARENT = "exemplarOf";
 	private static String LOBID_DOMAIN = "http://lobid.org/";
 	private static String LOBID_ITEM_URI_PREFIX = LOBID_DOMAIN + "item/";
 	// the sub node we want to cling to the main node
@@ -61,7 +53,30 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 	private static String mainNodeId;
 	private static final String TYPE_ITEM = "json-ld-lobid-item";
 	private static final String TYPE_RESOURCE = "json-ld-lobid";
-	private static final JenaRDFParser parser = new JenaRDFParser();
+	private static Object JSONLD_CONTEXT;
+
+	/**
+	 * Provides default constructor. Every json ld document gets the whole json ld
+	 * context defined in @see{EtikettMaker};
+	 */
+	public RdfModel2ElasticsearchEtikettJsonLd() {
+		this(Globals.etikette.getContext().get("@context"));
+	}
+
+	/**
+	 * Provides a json ld context. May be a json string or a http URI as string.
+	 * If its an URI the URI will we the value of the @context-field. If it's a
+	 * whole json string, the whole string is added under the @context field:
+	 * 
+	 * @param jsonLdContext May be a json as string or a http uri as string.
+	 */
+	public RdfModel2ElasticsearchEtikettJsonLd(final Object jsonLdContext) {
+		RdfModel2ElasticsearchEtikettJsonLd.JSONLD_CONTEXT = jsonLdContext;
+		if (jsonLdContext.toString().substring(0, 4).equalsIgnoreCase("http"))
+			LOG.info("Using context URI: " + jsonLdContext);
+		else
+			LOG.info("Adding json ld context to every document");
+	}
 
 	@Override
 	public void process(final Model originModel) {
@@ -72,42 +87,27 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 		Model copyOfOriginalModel =
 				ModelFactory.createModelForGraph(originalModel.getGraph());
 		final ResIterator subjectsIterator = originalModel.listSubjects();
-		String ABOUT_JSON = "";
 		// iterate through all nodes
 		while (subjectsIterator.hasNext()) {
 			final Resource subjectResource = subjectsIterator.next();
 			Model submodel = ModelFactory.createDefaultModel();
 			if (!subjectResource.isAnon()) {
-				if (subjectResource.getURI().endsWith("about")) {
-					shouldSubmodelBeExtracted(submodel, subjectResource);
-					try {
-						Object json =
-								JsonLdProcessor.fromRDF(submodel, new JsonLdOptions(), parser);
-						ABOUT_JSON = JSONUtils.toString(JsonLdProcessor.expand(json));
-						ABOUT_JSON = "," + ABOUT_JSON.substring(2, ABOUT_JSON.length() - 2);
-					} catch (JsonLdError e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+				// only extract sub nodes we don't want to keep in the main model
+				if (!subjectResource.getURI().startsWith(KEEP_NODE_PREFIX)
+						&& !subjectResource.getURI().startsWith(KEEP_NODE_MAIN_PREFIX)) {
+					if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
+						toJson(submodel, subjectResource.getURI().toString());
 					}
-				} else {
-					// just extract sub nodes we don't want to keep in the main model
-					if (!subjectResource.getURI().startsWith(KEEP_NODE_PREFIX)
-							&& !subjectResource.getURI().startsWith(KEEP_NODE_MAIN_PREFIX)) {
-						if (shouldSubmodelBeExtracted(submodel, subjectResource)) {
-							toJson(submodel, subjectResource.getURI().toString(), "");
-						}
-					} else if (subjectResource.getURI().toString()
-							.startsWith(LOBID_DOMAIN))
-						mainNodeId = subjectResource.getURI().toString();
-				}
-				if (!submodel.isEmpty()) {
-					// remove the newly created sub model from the main node
-					copyOfOriginalModel.remove(submodel);
-				}
+				} else if (subjectResource.getURI().toString().startsWith(LOBID_DOMAIN))
+					mainNodeId = subjectResource.getURI().toString();
+			}
+			if (!submodel.isEmpty()) {
+				// remove the newly created sub model from the main node
+				copyOfOriginalModel.remove(submodel);
 			}
 		}
-		// the main node (with its kept sub node) and an optional "about" metadata
-		toJson(copyOfOriginalModel, mainNodeId, ABOUT_JSON);
+		// the main node (with its kept sub node)
+		toJson(copyOfOriginalModel, mainNodeId);
 	}
 
 	// A sub model mustn't be extracted if the resource is to be kept as a sub
@@ -133,7 +133,7 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 	 * @param model
 	 * @param id
 	 */
-	private void toJson(Model model, String id, String aboutJson) {
+	private void toJson(Model model, String id) {
 		if (model.isEmpty())
 			return;
 		try (ByteArrayOutputStream out = new ByteArrayOutputStream()) {
@@ -142,21 +142,16 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 			Map<String, Object> jsonMap =
 					jc.convert(new ByteArrayInputStream(out.toByteArray()),
 							org.openrdf.rio.RDFFormat.NTRIPLES, "http://lobid.org",
-							Globals.etikette.getContext().get("@context"));
+							RdfModel2ElasticsearchEtikettJsonLd.JSONLD_CONTEXT);
 			getReceiver().process(addInternalProperties(new HashMap<String, String>(),
-					id, jc.getObjectMapper().writeValueAsString(jsonMap), aboutJson));
+					id, JsonConverter.getObjectMapper().writeValueAsString(jsonMap)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void pipe(OutputStream out, InputStream in) {
-
-	}
-
 	private static HashMap<String, String> addInternalProperties(
-			HashMap<String, String> jsonMap, String id, String json,
-			String aboutJson) {
+			HashMap<String, String> jsonMap, String id, String json) {
 		String internal_parent = "";
 		String type = TYPE_RESOURCE;
 		if (id.startsWith(LOBID_ITEM_URI_PREFIX)) {
@@ -177,9 +172,7 @@ public final class RdfModel2ElasticsearchEtikettJsonLd
 				e.printStackTrace();
 			}
 		}
-		// wrap json into a "@graph" for elasticsearch (still valid JSON-LD)
-		String jsonDocument = "{\"@graph\":" + json + ",\"internal_id\":\"" + id
-				+ "\"" + internal_parent + aboutJson + "}";
+		String jsonDocument = json + internal_parent;
 		jsonMap.put(ElasticsearchIndexer.Properties.GRAPH.getName(), jsonDocument);
 		jsonMap.put(ElasticsearchIndexer.Properties.TYPE.getName(), type);
 		jsonMap.put(ElasticsearchIndexer.Properties.ID.getName(), id);

@@ -7,13 +7,15 @@ import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.apache.commons.io.FileUtils;
+import org.culturegraph.mf.framework.DefaultObjectPipe;
+import org.culturegraph.mf.framework.ObjectReceiver;
 import org.culturegraph.mf.morph.Metamorph;
 import org.culturegraph.mf.stream.converter.xml.XmlDecoder;
 import org.culturegraph.mf.stream.source.FileOpener;
@@ -65,22 +67,30 @@ public final class MabXml2ElasticsearchLobidTest {
 
 	@SuppressWarnings("static-method")
 	@Test
-	public void testFlow() throws URISyntaxException {
-		buildAndExecuteFlow(client);
-		String ntriples = getElasticsearchDocumentsAsNtriples();
-		File testFile = new File(TEST_FILENAME);
-		try {
-			FileUtils.writeStringToFile(testFile, ntriples, false);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
-				new File(Thread.currentThread().getContextClassLoader()
-						.getResource(TEST_FILENAME).toURI()));
-		testFile.deleteOnExit();
+	public void testFlow_with_new_Converter() {
+		commonTestRoutine(new RdfModel2ElasticsearchEtikettJsonLd(), ".new");
 	}
 
-	public static void buildAndExecuteFlow(final Client cl) {
+	private static void commonTestRoutine(
+			DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> jsonConverter,
+			String suffix) {
+		try {
+			File testFile = new File("src/test/resources/" + TEST_FILENAME + suffix);
+			buildAndExecuteFlow(client, jsonConverter);
+			String ntriples = getElasticsearchDocumentsAsNtriples();
+			FileUtils.writeStringToFile(testFile, ntriples, false);
+			AbstractIngestTests.compareFilesDefaultingBNodes(testFile,
+					new File(Thread.currentThread().getContextClassLoader()
+							.getResource(TEST_FILENAME).toURI()));
+			// if everything is ok - delete the output files
+			testFile.deleteOnExit();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	public static void buildAndExecuteFlow(final Client cl,
+			DefaultObjectPipe<Model, ObjectReceiver<HashMap<String, String>>> jsonConverter) {
 		final FileOpener opener = new FileOpener();
 		opener.setCompression("BZIP2");
 		final Triples2RdfModel triple2model = new Triples2RdfModel();
@@ -90,8 +100,7 @@ public final class MabXml2ElasticsearchLobidTest {
 				.setReceiver(
 						new Metamorph("src/main/resources/morph-hbz01-to-lobid.xml"))
 				.setReceiver(new PipeEncodeTriples()).setReceiver(triple2model)
-				.setReceiver(new RdfModel2ElasticsearchJsonLd())
-				.setReceiver(getElasticsearchIndexer(cl));
+				.setReceiver(jsonConverter).setReceiver(getElasticsearchIndexer(cl));
 		opener.process(
 				new File("src/test/resources/hbz01XmlClobs.tar.bz2").getAbsolutePath());
 		opener.closeStream();
