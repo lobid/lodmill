@@ -825,7 +825,7 @@
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
 		<data source="2??[-abcp][1234].h" name="@nameOfContributingOrCreatingCorporateBodyH"/>
-		<combine name="@nameOfContributingOrCreatingCorporateBodyKH" value="${k} (${h});">
+		<combine name="@nameOfContributingOrCreatingCorporateBodyKH" value="${k} (${h})">
 			<data source="@nameOfContributingOrCreatingCorporateBodyK" name="k"/>
 			<data source="@nameOfContributingOrCreatingCorporateBodyH" name="h"/>
 		</combine>
