@@ -845,9 +845,15 @@
 			<data source="@nameOfContributingOrCreatingCorporateBodyKH"/>
 			<data source="@nameOfContributingOrCreatingCorporateBodyK"/>
 		</choose>
-		<combine name="@preferredNameConcatEvent" value="${n} ${e}, ${d}, ${c}"
+		<combine name="@preferredNameConcatEventNEDC" value="${n} ${e}, ${d}, ${c}"
 			sameEntity="true">
 			<data source="[29]??[-abcfep][12-].n" name="n"/>
+			<data source="[29]??[-abcfep][12-].e" name="e"/>
+			<data source="[29]??[-abcfep][12-].d" name="d"/>
+			<data source="[29]??[-abcfep][12-].c" name="c"/>
+		</combine>
+		<combine name="@preferredNameConcatEventEDC" value="${e}, ${d}, ${c}"
+			sameEntity="true">
 			<data source="[29]??[-abcfep][12-].e" name="e"/>
 			<data source="[29]??[-abcfep][12-].d" name="d"/>
 			<data source="[29]??[-abcfep][12-].c" name="c"/>
@@ -1190,7 +1196,8 @@
 			flushWith="@subjectLinks|@preferredNameP|@creatorPersonId|@creatorCorporateBodyId|@contributorPersonId|@contributorCorporateBodyId">
 			<data source="@nameOfContributingOrCreatingCorporateBody"/>
 			<data source="@preferredNameSemicolon"/>
-			<data source="@preferredNameConcatEvent"/>
+			<data source="@preferredNameConcatEventNEDC"/>
+			<data source="@preferredNameConcatEventEDC"/>
 			<data source="@preferredNamePersonConcatSubject"/>
 			<data source="@preferredNameConcatSubject"/>
 		</choose>
