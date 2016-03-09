@@ -637,9 +637,9 @@
 		<data source="407-[123].a" name="http://rdvocab.info/Elements/longitudeAndLatitude">
 			<regexp match="\((.*)\)" format="${1}"/>
 		</data>
-		<data source="41[05][-abcu][-12].a|419-1.a|594[-abc][-12].a" name="@placeOfPublication"/>
+		<data source="41[05][-abcu][-12].a|419-[12].a|594[-abc][-12].a" name="@placeOfPublication"/>
 		<data source="@placeOfPublication" name="http://rdvocab.info/Elements/placeOfPublication"/>
-		<data source="41[27][-abcu][-12].[ag]|419-1.b" name="@publisher"/>
+		<data source="41[27][-abcu][-12].[ag]|419-[12].b" name="@publisher"/>
 		<data source="@publisher" name="http://purl.org/dc/elements/1.1/publisher"/>
 		<!-- TODO if multiple publisher these are melted to one. See HT015082724 -->
 		<combine name="http://rdvocab.info/Elements/publicationStatement" value="${publicationConcat}"

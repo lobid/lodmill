@@ -6,10 +6,12 @@ _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT00
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT003160768> .
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT012848847> .
 _:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT015845132> .
+_:Bb0 <http://purl.org/lobid/lv#multiVolumeWork> <http://lobid.org/resource/HT018907246> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "119"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "1805,04,17"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "18"^^<http://www.w3.org/2001/XMLSchema#string> .
+_:Bb0 <http://purl.org/lobid/lv#numbering> "1"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "22392"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "25/26"^^<http://www.w3.org/2001/XMLSchema#string> .
 _:Bb0 <http://purl.org/lobid/lv#numbering> "2"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -54,6 +56,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/1042242615> <http://d-nb.info/standards/elementset/gnd#preferredName> "Stahl, Dominik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1050748387> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Herzog, G\u00C3\u00BCnter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1050748387> <http://d-nb.info/standards/elementset/gnd#preferredName> "Herzog, G\u00C3\u00BCnter"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/105204266X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Lindst\u00E4dt, Birte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/105204266X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Lindst\u00E4dt, Birte"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/105667129> <http://d-nb.info/standards/elementset/gnd#preferredName> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1056946172> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Kennedy, Beate"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -63,11 +67,21 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://d-nb.info/gnd/1069643262> <http://d-nb.info/standards/elementset/gnd#preferredName> "49. Art Cologne, 2015, K\u00C3\u00B6ln"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1070491764> <http://d-nb.info/standards/elementset/gnd#preferredName> "Bayerisches Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1070491764> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Bayerisches Landesamt f\u00FCr Statistik"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1072011352> <http://d-nb.info/standards/elementset/gnd#preferredName> "Arning, Ursula"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1072011352> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Arning, Ursula"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/1074109953> <http://d-nb.info/standards/elementset/gnd#preferredName> "7. Schloss Bensberg Classics, 2015, Bergisch Gladbach"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1080064435> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Pletsch, Katja"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1080064435> <http://d-nb.info/standards/elementset/gnd#preferredName> "Pletsch, Katja"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1080327010> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Haas, Simone"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1080327010> <http://d-nb.info/standards/elementset/gnd#preferredName> "Haas, Simone"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1080327355> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Kullmer, Bettina"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1080327355> <http://d-nb.info/standards/elementset/gnd#preferredName> "Kullmer, Bettina"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/108092704> <http://d-nb.info/standards/elementset/gnd#preferredName> "Heinrichs, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredName> "Altekamp, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/10880724X> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Altekamp, Heinrich"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1088345387> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Schmitz, Jasmin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://d-nb.info/gnd/1088345387> <http://d-nb.info/standards/elementset/gnd#preferredName> "Schmitz, Jasmin"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/109490312> <http://d-nb.info/standards/elementset/gnd#preferredName> "Boer, Hans-Peter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/109490312> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Boer, Hans-Peter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://d-nb.info/gnd/109702662> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Mensing, Hans Peter"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -1735,6 +1749,11 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/item/HT018779822:DE-Kob7:> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kob7> .
 <http://lobid.org/item/HT018779822:DE-Kob7:> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
 <http://lobid.org/item/HT018779822:DE-Kob7:> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018779822:DE-Kob7:/about> .
+<http://lobid.org/item/HT018907266:DE-38M:Elektronische%20Publikation> <http://purl.org/ontology/daia/label> "Elektronische Publikation"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/item/HT018907266:DE-38M:Elektronische%20Publikation> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/HT018907266> .
+<http://lobid.org/item/HT018907266:DE-38M:Elektronische%20Publikation> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-38M> .
+<http://lobid.org/item/HT018907266:DE-38M:Elektronische%20Publikation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocab/frbr/core#Item> .
+<http://lobid.org/item/HT018907266:DE-38M:Elektronische%20Publikation> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/item/HT018907266:DE-38M:Elektronische%20Publikation/about> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/ontology/daia/label> "CD 2410 - CD 2411"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#exemplarOf> <http://lobid.org/resource/TT000075751> .
 <http://lobid.org/item/TT000075751:DE-Kn38:CD%202410%20-%20CD%202411> <http://purl.org/vocab/frbr/core#owner> <http://lobid.org/organisation/DE-Kn38> .
@@ -2273,8 +2292,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Eur\u00F3pai Gazdas\u00E1gi Bizotts\u00E1g"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evropejskaja \u0116konomi\u010Deskaja Komissija"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Vereinte Nationen. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Vereinte Nationen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2393,8 +2412,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Eur\u00F3pai Gazdas\u00E1gi Bizotts\u00E1g"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evropejskaja \u0116konomi\u010Deskaja Komissija"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations. Economic Commission for Europe"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -2432,8 +2451,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Bassani, Giorgio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Berger, Helmut"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Capolicchio, Lino"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "De Sica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "DeSica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "De Sica, Vittorio"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Marchi, Giacomo"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sanda, Dominique"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sica, Vittorio de"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3747,8 +3766,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "della Croce (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Della Croce, Giovanni (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Jean de la Croix (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "La Cruz, Juan de (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "LaCruz, Juan de (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "La Cruz, Juan de (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "of the Cross (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Saint Jean de la Croix (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Sankt Johannes vom Kreuz (1542-1591)"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4553,6 +4572,41 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018785916> <http://www.w3.org/2002/07/owl#sameAs> <http://lobid.org/resource/ZDB2837688-2> .
 <http://lobid.org/resource/HT018785916> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018785916/about> .
 <http://lobid.org/resource/HT018785916> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018785916> .
+<http://lobid.org/resource/HT018907266/about> <http://purl.org/dc/terms/created> "20160307"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://iflastandards.info/ns/isbd/elements/P1053> "1 Online-Ressource (1 Videodatei)"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/elements/1.1/publisher> "ZB MED - Leibniz Information Centre for Life Sciences"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1072011352> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/contributor> <http://d-nb.info/gnd/1088345387> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/105204266X> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1080064435> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1080327010> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/creator> <http://d-nb.info/gnd/1080327355> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/isPartOf> <http://lobid.org/resource/HT018907246> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/issued> "2016"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/language> <http://id.loc.gov/vocabulary/iso639-2/eng> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/medium> <http://purl.org/ontology/bibo/AudioVisualDocument> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1050> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/dc/terms/title> "Digital object identifiers (DOIs) for research data and publications in the field of life sciences, 1: DOI registration with ZB MED"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#contributorLabel> "Arning, Ursula"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#contributorLabel> "Haas, Simone"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#contributorLabel> "Kullmer, Bettina"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#contributorLabel> "Lindst\u00E4dt, Birte"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#contributorLabel> "Pletsch, Katja"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#contributorLabel> "Schmitz, Jasmin"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#hbzID> "HT018907266"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/lobid/lv#volumeIn> _:Bb0 .
+<http://lobid.org/resource/HT018907266> <http://purl.org/ontology/bibo/volume> "1"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT018907266:DE-38M:Elektronische%20Publikation> .
+<http://lobid.org/resource/HT018907266> <http://rdvocab.info/Elements/placeOfPublication> "[K\u00F6ln]"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://rdvocab.info/Elements/publicationStatement> "[K\u00F6ln]; ZB MED - Leibniz Information Centre for Life Sciences; 2016"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://rdvocab.info/Elements/statementOfResponsibility> "created by: Simone Haas, Bettina Kullmer, Birte Lindst\u00E4dt, Katja Pletsch ; with the assistance of: Ursula Arning, Jasmin Schmitz"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018907266> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
+<http://lobid.org/resource/HT018907266> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#Miscellaneous> .
+<http://lobid.org/resource/HT018907266> <http://www.w3.org/2002/07/owl#sameAs> <http://hub.culturegraph.org/resource/HBZ-HT018907266> .
+<http://lobid.org/resource/HT018907266> <http://www.w3.org/2007/05/powder-s#describedby> <http://lobid.org/resource/HT018907266/about> .
+<http://lobid.org/resource/HT018907266> <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> <http://193.30.112.134/F/?func=find-c&ccl_term=IDN%3DHT018907266> .
 <http://lobid.org/resource/TT000075751/about> <http://purl.org/dc/terms/created> "19990816"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751/about> <http://purl.org/dc/terms/modified> "20120309"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://id.loc.gov/vocabulary/relators/sng> <http://d-nb.info/gnd/134782852> .
@@ -4573,8 +4627,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Britten, Edward B."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Britten, ..."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Lewis, Bryn"^^<http://www.w3.org/2001/XMLSchema#string> .
-<http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Mac Dougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "MacDougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Mac Dougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Martineau, Malcolm"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "McDougall, Jamie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Nathan, Regina"^^<http://www.w3.org/2001/XMLSchema#string> .
