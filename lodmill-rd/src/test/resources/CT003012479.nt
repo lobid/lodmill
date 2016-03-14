@@ -2,13 +2,10 @@
 <http://d-nb.info/gnd/116620153> <http://d-nb.info/standards/elementset/gnd#preferredName> "Giesecke, Carl Ludwig von" .
 <http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Johann, der J\u00FCngere" .
 <http://d-nb.info/gnd/141891173> <http://d-nb.info/standards/elementset/gnd#preferredName> "B\u00F6hm, Johann, der J\u00FCngere" .
-_:Ba85308342dfb75e524a17c5648047cb1 <http://purl.org/lobid/lv#numbering> "1805,04,16" .
-_:Ba85308342dfb75e524a17c5648047cb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
-_:Ba85308342dfb75e524a17c5648047cb1 <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Krug, ..." .
 <http://d-nb.info/gnd/141889810> <http://d-nb.info/standards/elementset/gnd#preferredName> "Krug, ..." .
-<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
 <http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredNameForTheCorporateBody> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
+<http://d-nb.info/gnd/16068028-1> <http://d-nb.info/standards/elementset/gnd#preferredName> "Deutsche Schauspieler-Gesellschaft <D\u00FCsseldorf>" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/source> <http://lobid.org/resource/HT016511663> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/ontology/bibo/volume> "1805,04,16" .
@@ -26,7 +23,6 @@ _:Ba85308342dfb75e524a17c5648047cb1 <http://purl.org/lobid/lv#series> <http://lo
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Carl L." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Winter, Peter" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Gieseke, Charles Lewis" .
-<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:Ba85308342dfb75e524a17c5648047cb1 .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Karl Ludwig von" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, ..." .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Metzler, Johann G." .
@@ -100,6 +96,7 @@ _:Ba85308342dfb75e524a17c5648047cb1 <http://purl.org/lobid/lv#series> <http://lo
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/142061166> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/dc/terms/hasVersion> <http://nbn-resolving.de/urn:nbn:de:hbz:061:2-46125> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Wintter, P." .
+<http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#inSeries> _:Bdd2bfb3331f6bece215621e4a06f74be .
 <http://lobid.org/resource/CT003012479> <http://id.loc.gov/vocabulary/relators/act> <http://d-nb.info/gnd/141927135> .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Charles" .
 <http://lobid.org/resource/CT003012479> <http://purl.org/lobid/lv#contributorLabel> "Giesecke, Carl Ludwig" .
@@ -114,6 +111,9 @@ _:Ba85308342dfb75e524a17c5648047cb1 <http://purl.org/lobid/lv#series> <http://lo
 <http://d-nb.info/gnd/142027901> <http://d-nb.info/standards/elementset/gnd#preferredName> "Fuchs, ..." .
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "Winter, Peter von" .
 <http://d-nb.info/gnd/119055716> <http://d-nb.info/standards/elementset/gnd#preferredName> "Winter, Peter von" .
+_:Bdd2bfb3331f6bece215621e4a06f74be <http://purl.org/lobid/lv#numbering> "1805,04,16" .
+_:Bdd2bfb3331f6bece215621e4a06f74be <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/lv#SeriesRelation> .
+_:Bdd2bfb3331f6bece215621e4a06f74be <http://purl.org/lobid/lv#series> <http://lobid.org/resource/HT017290519> .
 <http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/created> "20121205" .
 <http://lobid.org/resource/CT003012479/about> <http://purl.org/dc/terms/modified> "20130616" .
 <http://d-nb.info/gnd/118512536> <http://d-nb.info/standards/elementset/gnd#preferredNameForThePerson> "B\u00F6hm, Marianne" .
