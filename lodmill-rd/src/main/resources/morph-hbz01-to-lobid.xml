@@ -1537,7 +1537,10 @@
 			<regexp match=".*" format="http://lobid.org/resource/Edoweb"/>
 		</data>
 		<!--rheinland pfalz -->
-		<data source="700l[-1].a" name="http://purl.org/dc/terms/subject">
+		<data source="700l[-1].a" name="http://purl.org/lobid/lv#rpbSubject">
+			<regexp match="^(\d{3})$" format="https://w3id.org/lobid/rpb2#n${1}"/>
+		</data>
+		<data source="700l[-1].a" name="http://purl.org/lobid/lv#rpbSubject">
 			<regexp match="^rpb(.*)" format="http://purl.org/lobid/rpb#n${1}"/>
 		</data>
 		<data source="700l[-1].[ab]" name="http://purl.org/ontology/holding#collectedBy">
