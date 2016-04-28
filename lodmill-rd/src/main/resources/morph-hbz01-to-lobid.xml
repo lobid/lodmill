@@ -537,13 +537,13 @@
 			</if>
 			<data source="@titleRemainder331" name="titleRemainder"/>
 		</combine>
-		<combine name="@otherTitle" value="${titleRemainder}">
+		<combine name="http://rdaregistry.info/Elements/u/P60327" value="${corporateBody4Title}">
 			<if>
 				<none>
 					<data source="@titleRemainder2title333"/>
 				</none>
 			</if>
-			<data source="@titleRemainder333" name="titleRemainder"/>
+			<data source="@titleRemainder333" name="corporateBody4Title"/>
 		</combine>
 		<!-- deliberatley not everything linked with OR '|' because of performance problems -->
 		<data source="335[-abcd][-1].a" name="@otherTitle"/>
