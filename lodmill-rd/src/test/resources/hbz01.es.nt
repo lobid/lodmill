@@ -2637,6 +2637,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4127794-6> .
 <http://lobid.org/resource/HT012895751> <http://purl.org/dc/terms/title> "Mainz-Kinzig-Kreis"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#hbzID> "HT012895751"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n140> .
+<http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n710> .
 <http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectChain> "Main-Kinzig-Kreis | Heimatkunde"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectLabel> "Heimatforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT012895751> <http://purl.org/lobid/lv#subjectLabel> "Heimatgeschichte"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3033,6 +3035,9 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#contributorLabel> "Reinarz, Titus"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#hbzID> "HT014319164"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s841070> .
+<http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n130> .
+<http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n140> .
+<http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n500> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#subjectChain> "Reinarz, Titus (1948-) | Plastik | Bildband"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#subjectLabel> "Bildhauerkunst"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014319164> <http://purl.org/lobid/lv#subjectLabel> "Bildwerk"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3166,6 +3171,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Rheinland-Pfalz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Rheinland-Pfalz <Koblenz>. Landesamt f\u00FCr Umweltschutz und Gewerbeaufsicht"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#rpbSubject> <http://purl.org/lobid/rpb#n574040> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n940> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/bibo/edition> "1. Aufl."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/Edoweb> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/ontology/holding#collectedBy> <http://lobid.org/resource/RPB> .
@@ -3338,6 +3344,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015455455> <http://purl.org/dc/terms/title> "Austro-Daimler und Steyr"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#contributorLabel> "Pfundner, Martin"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#hbzID> "HT015455455"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n650> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectChain> "Austro-Daimler-Puchwerke | Automobilsport | Steyr-Daimler-Puch AG | Geschichte (2134,3214)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectChain> "Austro-Daimler-Puchwerke | Porsche, Ferdinand (1875-1951) | Steyr-Daimler-Puch AG | Geschichte (2134,3214)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015455455> <http://purl.org/lobid/lv#subjectChain> "Daimler, Marke | Kraftfahrzeug | Geschichte 1918-1940 | Verzeichnis (2134)"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3379,6 +3386,10 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#contributorLabel> "Weber, J\u00FCrgen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#hbzID> "HT015865114"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#inSeries> _:Bb0 .
+<http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n107> .
+<http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n120> .
+<http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n139> .
+<http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n330> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#subjectChain> "Geschichte 1945-2003 | Geschichtsunterricht | Schulbuch"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#subjectLabel> "Geschichte / Didaktik"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015865114> <http://purl.org/lobid/lv#subjectLabel> "Geschichte / Unterricht"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3417,6 +3428,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Adenauer, Konrad"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#contributorLabel> "Mensing, Hans Peter"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#hbzID> "HT015891797"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n610> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectChain> "Adenauer, Konrad (1876-1967) | Geschichte 1963-1967 | Quelle"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectLabel> "Adenauer, ... (1876-1967)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT015891797> <http://purl.org/lobid/lv#subjectLabel> "Adenauer, Konrad Hermann Joseph (1876-1967)"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3537,6 +3549,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#contributorLabel> "Blum, Richard"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#contributorLabel> "Blum, Richard Kenneth"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#hbzID> "HT016382441"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n820> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/lobid/lv#subjectChain> "LINUX"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/edition> "1. Aufl."^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT016382441> <http://purl.org/ontology/bibo/isbn> "9783527706495"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -3894,6 +3907,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#hbzID> "HT018239864"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#inSeries> _:Bb0 .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#nwbibsubject> <http://purl.org/lobid/nwbib#s768030> .
+<http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n200> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectChain> "Keun, Irmgard (1905-1982) | Erz\u00E4hltheorie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectLabel> "Keina, Irmgarde (1905-1982)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018239864> <http://purl.org/lobid/lv#subjectLabel> "Kojn, Irmgard (1905-1982)"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4030,6 +4044,9 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#contributorLabel> "Moczarski, Norbert"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#contributorLabel> "M\u00F6tsch, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#hbzID> "HT018295975"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n130> .
+<http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n330> .
+<http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n560> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#subjectChain> "M\u00F6tsch, Johannes (1949-) | Bibliographie"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#subjectChain> "Th\u00FCringen | Geschichte | Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018295975> <http://purl.org/lobid/lv#subjectLabel> "Freistaat Th\u00FCringen"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4110,6 +4127,8 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#contributorLabel> "Paulmann, Johannes"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#fulltextOnline> <http://deposit.d-nb.de/cgi-bin/dokserv?id=4535439&prov=M&dok_var=1&dok_ext=htm> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#hbzID> "HT018468645"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n330> .
+<http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n380> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectChain> "Deutschland | Arisierung | Wiedergutmachung | Geschichte | Aufsatzsammlung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Allemagne (Deutschland)"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018468645> <http://purl.org/lobid/lv#subjectLabel> "Beitr\u00C3\u00A4ge (Formschlagwort)"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4181,6 +4200,9 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Oberrheinkonferenz"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "ORK"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#rpbSubject> <http://purl.org/lobid/rpb#n572020> .
+<http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n106> .
+<http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n131> .
+<http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n740> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#subjectChain> "Oberrheinisches Tiefland | Landesplanung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#subjectLabel> "Gebietsplanung"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#subjectLabel> "Landesentwicklungsplanung"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4750,6 +4772,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung. Geographische Kommission f\u00FCr Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Provinzialinstitut f\u00FCr Westf\u00E4lische Landes- und Volksforschung"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#rpbSubject> <https://w3id.org/lobid/rpb2#n710> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectChain> "Westfalen | Landeskunde | Atlas"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectLabel> "Herzogtum Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/TT001671747> <http://purl.org/lobid/lv#subjectLabel> "Provinz Westfalen"^^<http://www.w3.org/2001/XMLSchema#string> .
