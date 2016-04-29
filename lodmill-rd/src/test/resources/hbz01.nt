@@ -2313,8 +2313,8 @@ _:Bf4f50a95ede5279156dc83035ef48446 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Eur\u00F3pai Gazdas\u00E1gi Bizotts\u00E1g" .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evropejskaja \u0116konomi\u010Deskaja Komissija" .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy" .
-<http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE" .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE" .
+<http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE" .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Vereinte Nationen" .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Vereinte Nationen. Economic Commission for Europe" .
 <http://lobid.org/resource/HT002619538> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa" .
@@ -2433,8 +2433,8 @@ _:Bf4f50a95ede5279156dc83035ef48446 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Eur\u00F3pai Gazdas\u00E1gi Bizotts\u00E1g" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Evropejskaja \u0116konomi\u010Deskaja Komissija" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "\u0116konomi\u010Deskaja Komissija dlja Evropy" .
-<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UN-ECE" .
+<http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "UNECE" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "United Nations. Economic Commission for Europe" .
 <http://lobid.org/resource/HT004944075> <http://purl.org/lobid/lv#nameOfContributingCorporateBody> "Wirtschaftsausschuss f\u00FCr Europa" .
@@ -2472,8 +2472,8 @@ _:Bf4f50a95ede5279156dc83035ef48446 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Bassani, Giorgio" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Berger, Helmut" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Capolicchio, Lino" .
-<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "DeSica, Vittorio" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "De Sica, Vittorio" .
+<http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "DeSica, Vittorio" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Marchi, Giacomo" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sanda, Dominique" .
 <http://lobid.org/resource/HT006266886> <http://purl.org/lobid/lv#contributorLabel> "Sica, Vittorio de" .
@@ -3787,8 +3787,8 @@ _:Bf4f50a95ede5279156dc83035ef48446 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "della Croce (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Della Croce, Giovanni (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Jean de la Croix (1542-1591)" .
-<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "LaCruz, Juan de (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "La Cruz, Juan de (1542-1591)" .
+<http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "LaCruz, Juan de (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "of the Cross (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Saint Jean de la Croix (1542-1591)" .
 <http://lobid.org/resource/HT017529028> <http://purl.org/lobid/lv#subjectLabel> "Sankt Johannes vom Kreuz (1542-1591)" .
@@ -4648,8 +4648,8 @@ _:Bf4f50a95ede5279156dc83035ef48446 <http://www.w3.org/1999/02/22-rdf-syntax-ns#
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Britten, Edward B." .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Britten, Edward Benjamin" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Lewis, Bryn" .
-<http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "MacDougall, Jamie" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Mac Dougall, Jamie" .
+<http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "MacDougall, Jamie" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Martineau, Malcolm" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "McDougall, Jamie" .
 <http://lobid.org/resource/TT000075751> <http://purl.org/lobid/lv#contributorLabel> "Nathan, Regina" .
