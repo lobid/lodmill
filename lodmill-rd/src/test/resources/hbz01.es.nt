@@ -2342,7 +2342,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6-210:ONG%2Fg52127> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6-A:ONG%2Fg52127> .
 <http://lobid.org/resource/HT003160768> <http://purl.org/vocab/frbr/core#exemplar> <http://lobid.org/item/HT003160768:DE-6:ONG%2Fg52127> .
-<http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/otherTitleInformation> "Regierungsbezirk M\u00FCnster"^^<http://www.w3.org/2001/XMLSchema#string> .
+<http://lobid.org/resource/HT003160768> <http://rdaregistry.info/Elements/u/P60327> "Regierungsbezirk M\u00FCnster"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/placeOfPublication> "M\u00FCnster"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT003160768> <http://rdvocab.info/Elements/publicationStatement> "M\u00FCnster; Der Regierungspr\u00E4sident; 1980"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT003160768> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/dc/terms/BibliographicResource> .
@@ -3153,7 +3153,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1010> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/subject> <http://dewey.info/class/380/> .
-<http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/rpb#n574040> .
+<http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#rpbSubject> <http://purl.org/lobid/rpb#n574040> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/dc/terms/title> "Leitfaden f\u00FCr die Behandlung von Ausbauasphalt und Stra\u00DFenaufbruch mit teer-/pechtypischen Bestandteilen"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#fulltextOnline> <http://digitool.hbz-nrw.de:1801/webclient/DeliveryManager?pid=1750752&custom_att_2=simple_viewer> .
 <http://lobid.org/resource/HT014997977> <http://purl.org/lobid/lv#hbzID> "HT014997977"^^<http://www.w3.org/2001/XMLSchema#string> .
@@ -4170,7 +4170,7 @@ _:Bb1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/lobid/l
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/medium> <http://rdvocab.info/termList/RDACarrierType/1018> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4034268-2> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/subject> <http://d-nb.info/gnd/4075561-7> .
-<http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/subject> <http://purl.org/lobid/rpb#n572020> .
+<http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#rpbSubject> <http://purl.org/lobid/rpb#n572020> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/dc/terms/title> "Endbericht Workshop Der Oberrhein als Europ\u00E4ische Metropolregion"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#contributorLabel> "Clev, Hans-G\u00FCnther"^^<http://www.w3.org/2001/XMLSchema#string> .
 <http://lobid.org/resource/HT018585406> <http://purl.org/lobid/lv#hbzID> "HT018585406"^^<http://www.w3.org/2001/XMLSchema#string> .
