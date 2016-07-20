@@ -1262,7 +1262,6 @@
 		</combine>
 		<!-- other subjects -->
 		<data source="71[01][-abcdfz][123].a" name="http://purl.org/lobid/lv#subjectLabel">
-			<split delimiter=" / "/>
 			<replace pattern="&gt;&gt;" with=""/>
 			<replace pattern="&lt;&lt;" with=""/>
 		</data>
