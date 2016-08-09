@@ -424,6 +424,13 @@
 		<data source="052." name="@rdftype">
 			<regexp match="^.ko|^...ko|^.....ko" format="http://purl.org/ontology/bibo/Proceedings"/>
 		</data>
+		<!-- report -->
+		<data source="051." name="@rdftype">
+			<regexp match="^.[r]|^..[r]|^...[r]" format="http://purl.org/ontology/bibo/Report"/>
+		</data>
+		<data source="9[01234][27]-[-12].9" name="@rdftype">
+			<regexp match="4128022-2" format="http://purl.org/ontology/bibo/Report"/>
+		</data>
 		<!-- 052: type -->
 		<data source="052." name="@article">
 			<regexp match="^[af]|^.au|^...au|^.....au" format="http://purl.org/ontology/bibo/Article"/>
