@@ -237,6 +237,7 @@
 					</data>
 					<data source="@matVideo"/>
 					<data source="@mediumAudio"/>
+					<data source="@archived"/>
 				</none>
 			</if>
 			<data source="050.">
@@ -341,6 +342,7 @@
 				<none>
 					<data source="@matVideo"/>
 					<data source="@mediumAudio"/>
+					<data source="@archived"/>
 					<data source="050.">
 						<regexp match="^.........a"/>
 					</data>
@@ -1335,9 +1337,10 @@
 		<!-- ####################### -->
 		<!-- ##########fulltext, toc, seeAlso -->
 		<!-- ####################### -->
-		<data source="652a[-1].a" name="@archived">
-			<regexp match="^[Aa][r]"/>
+		<data source="051." name="@archived">
+			<regexp match="^.w" format="$[ns-lobid-vocab]ArchivedWebPage"/>
 		</data>
+		<data source="@archived" name="@rdftype"/>
 		<combine name="@fulltextOnline" value="${link}">
 			<data source="334-[12].a">
 				<regexp match="^[eEcC][lLoO]"/>
