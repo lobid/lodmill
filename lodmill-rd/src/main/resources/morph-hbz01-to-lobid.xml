@@ -326,7 +326,7 @@
 		</data>
 		<!-- Computer carriers -->
 		<data source="050." name="@medium">
-			<regexp match="^........[abcdefgz]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
+			<regexp match="^........[abcdefz]" format="http://rdvocab.info/termList/RDACarrierType/1010"/>
 		</data>
 		<data source="@rdftype" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
 		<data source="@typeOnly" name="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
