@@ -1,6 +1,4 @@
-Entwurf
-
-h1. Datenschutzerklärung lobid – Stand 18.05.2018
+h1. Datenschutzerklärung lobid – Stand 22.05.2018
 
 Wir freuen uns sehr über Ihr Interesse an unserer Einrichtung. Unsere Datenschutz-
 erklärung dient zu Ihrer Information, ob und zu welchem Zweck personenbezogene
@@ -476,12 +474,13 @@ h2. 9. Standortdaten
 
 h3. 9.1 Beschreibung und Umfang der Datenverarbeitung
 
-*56* Im Nachfolgerdienst von lobid-organisation namens "lobid-organisations(lobid-organisations)":http://lobid.org/organisations wird aufgrund der 
-IP-Adresse der Standort geschätzt.
+*56* Im Nachfolgerdienst von lobid-organisation namens "lobid-organisations(lobid-organisations)":http://lobid.org/organisations wird aufgrund der IP-Adresse der Standort geschätzt. Genutzt wird dafür die 
+Browser-API von HTML5-fähigen Browsern.
 
 h3. 9.2 Rechtsgrundlage für die Verarbeitung personenbezogenen Daten
 
-*57* 
+*57* Rechtsgrundlage für die Verarbeitung personenbezogener Daten ist Art. 6 Abs.
+1 lit. e DSGVO.
 
 h3. 9.3 Zweck der Datenverarbeitung
 
@@ -492,7 +491,8 @@ die auf diese Datenschutzerklärung verlinken.
 
 h3. 9.4 Dauer der Speicherung
 
-*59* Die Standortdaten werden im Browser für die Dauer einer Session gespeichert.
+*59* Das Datum wird für eine Browser-Session gespeichert. Wird der Browser
+geschlossen, löscht der Browser diese Information.
 
 h3. 9.5 Widerspruchs- und Beseitigungsmöglichkeit
 
@@ -556,3 +556,4 @@ h2. 12. Aktualität und Änderung dieser Datenschutzerklärung
 
 |Version|Datum|Beschreibung|
 |0.1|15.05.2018|Der erste Entwurf.|
+|1.0|22.05.2018|Ergänzung Abschnitt Standortdaten. Erste offizielle Fassung.|
